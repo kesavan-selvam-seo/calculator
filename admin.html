@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local CMS Page Generator</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="site-header"><div class="container nav-wrap"><a class="logo" href="./">CalculatorHub</a><nav class="nav-links"><a href="./">View Website</a></nav></div></header>
+<main class="container admin-page">
+  <section class="admin-card">
+    <h1>Local CMS Page Generator</h1>
+    <div class="notice"><strong>Note:</strong> GitHub Pages does not support real backend CMS/login. Use this page to generate a new calculator HTML file, then upload that file to GitHub.</div>
+    <div class="form-grid">
+      <div class="field"><label>URL Slug</label><input id="slug" value="sip-calculator"></div>
+      <div class="field"><label>Canonical URL</label><input id="canonical" value="https://yourusername.github.io/online-calculator-github/calculators/sip-calculator/"></div>
+      <div class="field"><label>Meta Title</label><input id="metaTitle" value="SIP Calculator Online | Free Investment Calculator"></div>
+      <div class="field"><label>Meta Description</label><input id="metaDesc" value="Use this free SIP calculator to estimate your mutual fund investment returns instantly."></div>
+      <div class="field full"><label>H1</label><input id="h1" value="SIP Calculator"></div>
+      <div class="field full"><label>Calculator Portion: HTML/CSS/JavaScript code</label><textarea id="calculatorCode"><div class="result-box">Add your calculator code here.</div></textarea></div>
+      <div class="field full"><label>SEO Content Section: HTML/CSS content</label><textarea id="seoContent"><h2>About SIP Calculator</h2><p>This SIP calculator helps users estimate their monthly investment returns.</p></textarea></div>
+      <div class="field full"><label>FAQs: one per line, use Question | Answer</label><textarea id="faqs">What is a SIP calculator? | A SIP calculator estimates returns from monthly mutual fund investments.
+Is this SIP calculator free? | Yes, this calculator is free to use.</textarea></div>
+    </div>
+    <button onclick="generatePage()">Generate HTML Code</button>
+    <button onclick="downloadPage()">Download index.html</button>
+    <h2>Generated HTML</h2>
+    <pre id="output" class="code-output">Click Generate HTML Code.</pre>
+  </section>
+</main>
+<script>
+function esc(str){return String(str).replace(/[&<>'"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[m]));}
+function getFaqs(){return document.getElementById('faqs').value.split('\n').map(line=>line.trim()).filter(Boolean).map(line=>{const parts=line.split('|');return{q:(parts[0]||'').trim(),a:(parts.slice(1).join('|')||'').trim()};}).filter(f=>f.q&&f.a);}
+function generatePage(){const slug=document.getElementById('slug').value.trim();const canonical=document.getElementById('canonical').value.trim();const metaTitle=document.getElementById('metaTitle').value.trim();const metaDesc=document.getElementById('metaDesc').value.trim();const h1=document.getElementById('h1').value.trim();const calculatorCode=document.getElementById('calculatorCode').value;const seoContent=document.getElementById('seoContent').value;const faqs=getFaqs();const schema={"@context":"https://schema.org","@type":"FAQPage","mainEntity":faqs.map(f=>({"@type":"Question","name":f.q,"acceptedAnswer":{"@type":"Answer","text":f.a}}))};const faqHtml=faqs.map(f=>`<details class="faq-item"><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join('\n      ');const html=`<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${esc(metaTitle)}</title>
+  <meta name="description" content="${esc(metaDesc)}">
+  <link rel="canonical" href="${esc(canonical)}">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script type="application/ld+json">${JSON.stringify(schema)}<\/script>
+</head>
+<body>
+  <header class="site-header"><div class="container nav-wrap"><a class="logo" href="../../">CalculatorHub</a></div></header>
+  <main class="container page-wrap">
+    <h1>${esc(h1)}</h1>
+    <section class="calculator-section">
+      ${calculatorCode}
+    </section>
+    <section class="seo-content-section content-body">
+      ${seoContent}
+    </section>
+    <section class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+      ${faqHtml}
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container">© 2026 CalculatorHub. All rights reserved.</div></footer>
+  <script src="../../assets/js/main.js"><\/script>
+</body>
+</html>`;document.getElementById('output').textContent=html;return html;}
+function downloadPage(){const html=generatePage();const blob=new Blob([html],{type:'text/html'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='index.html';a.click();URL.revokeObjectURL(a.href);}
+</script>
+</body>
+</html>
