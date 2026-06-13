@@ -21,8 +21,8 @@
       </a>
       <nav class="nav-links">
         <a href="index.html" class="nav-link active">Home</a>
-        <a href="pages/about.html" class="nav-link">About</a>
-        <a href="pages/contact.html" class="nav-link">Contact</a>
+        <a href="pages/about/" class="nav-link">About</a>
+        <a href="pages/contact/" class="nav-link">Contact</a>
         <button class="theme-btn" title="Toggle Theme">
           <span class="theme-btn-icon"></span>
         </button>
@@ -37,653 +37,84 @@
       <h1>Accurate Online <span>Calculators</span> for Everyone</h1>
       <p>Instant calculations for loan EMIs, body mass index, compound investment growth, age intervals, discounts, and scientific math. Clean, responsive, and 100% free.</p>
       <div class="search-container">
-        <input type="text" id="search-input" class="search-input" placeholder="Search calculators (e.g. age, interest, loan)...">
+        <input type="text" id="search-input" class="search-input" placeholder="Search 65+ calculators (e.g. age, interest, loan)...">
       </div>
     </section>
 
-    
-    <!-- Category Section: 📅 Date & Age Calculators -->
-    <section class='category-section' id='sec-dates'>
-      <div class='category-header'>
-        <span class='category-title'>📅 Date & Age Calculators</span>
+    <!-- Search Results Section (Initially Hidden) -->
+    <section class="category-section hidden" id="search-results-section">
+      <div class="category-header">
+        <span class="category-title">🔍 Search Results</span>
       </div>
-      <div class='category-grid'>
-        <a href='calculators/age-calculator.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Online Age Calculator</h3>
-            <span class='calc-card-icon'>🎂</span>
-          </div>
-          <p class='calc-card-desc'>Calculate your exact age in years, months, and days based on your date of birth, and see a countdown to your next birthday.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/date-calculator.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Date & Calendar Calculator</h3>
-            <span class='calc-card-icon'>📅</span>
-          </div>
-          <p class='calc-card-desc'>Calculate the exact number of days between two dates, or add/subtract days, weeks, months, and years from any starting date.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/time-age-checker.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Time Age Checker</h3>
-            <span class='calc-card-icon'>🔞</span>
-          </div>
-          <p class='calc-card-desc'>Check exact ages, verify thresholds (e.g. 18+, 21+), and view time metrics based on birthday.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/day-counter.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Day Counter</h3>
-            <span class='calc-card-icon'>📅</span>
-          </div>
-          <p class='calc-card-desc'>Count the exact number of days between two dates. Fast and easy to use.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/time-how-old-am-i.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Time How Old Am I</h3>
-            <span class='calc-card-icon'>⏱️</span>
-          </div>
-          <p class='calc-card-desc'>Find your exact age in years, months, weeks, days, and seconds. Realtime countdown calculator.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/time-duration.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Time Duration Calculator</h3>
-            <span class='calc-card-icon'>⏱️</span>
-          </div>
-          <p class='calc-card-desc'>Calculate elapsed hours and minutes between two time periods. Perfect for timesheets and shift tracking.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/time-work-hours.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Work Hours Calculator</h3>
-            <span class='calc-card-icon'>💼</span>
-          </div>
-          <p class='calc-card-desc'>Calculate daily and weekly work hours, breaks, and gross pay with our free online timesheet calculator.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/age-difference-calculator.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Age Difference Calculator</h3>
-            <span class='calc-card-icon'>🎂</span>
-          </div>
-          <p class='calc-card-desc'>Compare two birthdays and calculate the exact age gap in years, months, and days.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/time-date-day.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Day of Week Finder</h3>
-            <span class='calc-card-icon'>📅</span>
-          </div>
-          <p class='calc-card-desc'>Find what day of the week (Monday, Tuesday, etc.) any specific calendar date falls on.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/time-time-calculator.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Time Add & Subtract Calculator</h3>
-            <span class='calc-card-icon'>⏱️</span>
-          </div>
-          <p class='calc-card-desc'>Add or subtract days, hours, and minutes from any starting time. Ideal for time cards and duration planning.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
+      <div class="category-grid" id="search-results-grid">
+        <!-- Matching cards injected here -->
       </div>
     </section>
 
-    <!-- Category Section: 💪 Health & Fitness Calculators -->
-    <section class='category-section' id='sec-health'>
-      <div class='category-header'>
-        <span class='category-title'>💪 Health & Fitness Calculators</span>
+    <!-- Category Directories Section (Type 1 Hub) -->
+    <section class="category-section" id="categories-directory-section">
+      <div class="category-header">
+        <span class="category-title">📂 Calculator Categories</span>
       </div>
-      <div class='category-grid'>
-        <a href='calculators/bmi-calculator.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>BMI Calculator</h3>
-            <span class='calc-card-icon'>⚖️</span>
+      <div class="category-grid">
+        <a href="categories/date-age/" class="calc-card">
+          <div class="calc-card-header">
+            <h3 class="calc-card-title">📅 Date & Age Calculators</h3>
+            <span class="calc-card-icon">🎂</span>
           </div>
-          <p class='calc-card-desc'>Determine your Body Mass Index (BMI) and check if your weight falls in the underweight, normal, overweight, or obese ranges.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
+          <p class="calc-card-desc">Verify age milestones, check dates, work hours, duration, and birthdays. (10 tools)</p>
+          <div class="calc-card-footer">
+            <span>Explore Category</span>
             <span>&rarr;</span>
           </div>
-        </a>
-        <a href='calculators/calorie-calculator.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Calorie Intake & BMR Calculator</h3>
-            <span class='calc-card-icon'>🔥</span>
+        </a>        <a href="categories/health-fitness/" class="calc-card">
+          <div class="calc-card-header">
+            <h3 class="calc-card-title">💪 Health & Fitness Calculators</h3>
+            <span class="calc-card-icon">⚖️</span>
           </div>
-          <p class='calc-card-desc'>Calculate your Basal Metabolic Rate (BMR) and learn your daily caloric needs for weight maintenance, loss, or gain.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
+          <p class="calc-card-desc">Track BMI, calculate daily caloric needs, pregnancy milestone tracking, and TDEE. (10 tools)</p>
+          <div class="calc-card-footer">
+            <span>Explore Category</span>
             <span>&rarr;</span>
           </div>
-        </a>
-        <a href='calculators/pregnancy-calculator.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Pregnancy Due Date Calculator</h3>
-            <span class='calc-card-icon'>👶</span>
+        </a>        <a href="categories/finance/" class="calc-card">
+          <div class="calc-card-header">
+            <h3 class="calc-card-title">💵 Finance & Loan Calculators</h3>
+            <span class="calc-card-icon">📈</span>
           </div>
-          <p class='calc-card-desc'>Estimate your due date, current gestational age, and pregnancy progress milestones based on your last menstrual period (LMP).</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
+          <p class="calc-card-desc">Compute compound interest growth, loan EMIs, auto loans, mortgages, inflation, and income tax brackets. (16 tools)</p>
+          <div class="calc-card-footer">
+            <span>Explore Category</span>
             <span>&rarr;</span>
           </div>
-        </a>
-        <a href='calculators/tdee-calculator.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>TDEE Calculator</h3>
-            <span class='calc-card-icon'>🔥</span>
+        </a>        <a href="categories/math/" class="calc-card">
+          <div class="calc-card-header">
+            <h3 class="calc-card-title">📐 Scientific & Math Tools</h3>
+            <span class="calc-card-icon">📐</span>
           </div>
-          <p class='calc-card-desc'>Estimate your Total Daily Energy Expenditure (TDEE) based on BMR and physical activity thresholds.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
+          <p class="calc-card-desc">Perform algebra operations, long division, GPA, fractions, and standard deviations. (15 tools)</p>
+          <div class="calc-card-footer">
+            <span>Explore Category</span>
             <span>&rarr;</span>
           </div>
-        </a>
-        <a href='calculators/weight-watchers-points.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Weight Watchers Points Calculator</h3>
-            <span class='calc-card-icon'>🍎</span>
+        </a>        <a href="categories/conversions/" class="calc-card">
+          <div class="calc-card-header">
+            <h3 class="calc-card-title">⚖️ Conversions & Unit Tools</h3>
+            <span class="calc-card-icon">🔢</span>
           </div>
-          <p class='calc-card-desc'>Estimate dietary points valuations based on calories, fat grams, and dietary fiber contents.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
+          <p class="calc-card-desc">Convert millions to crores, feet to meters, pounds to kg, and numbers to words. (13 tools)</p>
+          <div class="calc-card-footer">
+            <span>Explore Category</span>
             <span>&rarr;</span>
           </div>
-        </a>
-        <a href='calculators/bmr-calculator.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>BMR Calculator</h3>
-            <span class='calc-card-icon'>🔥</span>
-          </div>
-          <p class='calc-card-desc'>Estimate your Basal Metabolic Rate (BMR) using Mifflin-St Jeor. Learn baseline rest calories.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <!-- Category Section: 💵 Finance & Loan Calculators -->
-    <section class='category-section' id='sec-finance'>
-      <div class='category-header'>
-        <span class='category-title'>💵 Finance & Loan Calculators</span>
-      </div>
-      <div class='category-grid'>
-        <a href='calculators/compound-interest-calculator.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Compound Interest Calculator</h3>
-            <span class='calc-card-icon'>📈</span>
-          </div>
-          <p class='calc-card-desc'>Project how your money grows over time with compounding interest. Adjust monthly deposits, interest rates, and compound frequencies.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/loan-emi-calculator.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Loan EMI Calculator</h3>
-            <span class='calc-card-icon'>🏠</span>
-          </div>
-          <p class='calc-card-desc'>Calculate your monthly equated installments (EMIs), interest payable, and total loan payment for mortgages or car loans.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/discount-calculator.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Discount & Savings Calculator</h3>
-            <span class='calc-card-icon'>🏷️</span>
-          </div>
-          <p class='calc-card-desc'>Instantly compute final store sale prices, markdown values, percentage savings, and sales tax additions at checkout.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/fuel-cost-calculator.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Fuel Cost Calculator</h3>
-            <span class='calc-card-icon'>⛽</span>
-          </div>
-          <p class='calc-card-desc'>Calculate fuel cost for any trip. Input distance, efficiency, and price to see travel cost.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/profit-calculator.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Profit & Margin Calculator</h3>
-            <span class='calc-card-icon'>📈</span>
-          </div>
-          <p class='calc-card-desc'>Calculate business profit amounts, markup ratios, and margins instantly based on cost and selling price.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/amortization-calculator.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Loan Amortization Calculator</h3>
-            <span class='calc-card-icon'>🏠</span>
-          </div>
-          <p class='calc-card-desc'>Generate a full amortization schedule detailing principal and interest breakdowns for any loan borrowing.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/mileage-calculator.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Gas Mileage Calculator</h3>
-            <span class='calc-card-icon'>🚗</span>
-          </div>
-          <p class='calc-card-desc'>Determine your vehicle's gas mileage (MPG or km/L) based on distance driven and fuel consumed.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/electricity-calculator.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Electricity Cost Calculator</h3>
-            <span class='calc-card-icon'>⚡</span>
-          </div>
-          <p class='calc-card-desc'>Calculate appliance electricity cost. Input wattage, hours used, and utility rate to see daily/yearly expenses.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/irr-calculator.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>IRR Calculator</h3>
-            <span class='calc-card-icon'>📈</span>
-          </div>
-          <p class='calc-card-desc'>Estimate the Internal Rate of Return (IRR) for a series of annual investment cash flows.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <!-- Category Section: 📐 Scientific & Math Tools -->
-    <section class='category-section' id='sec-general'>
-      <div class='category-header'>
-        <span class='category-title'>📐 Scientific & Math Tools</span>
-      </div>
-      <div class='category-grid'>
-        <a href='calculators/scientific-calculator.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Scientific Calculator</h3>
-            <span class='calc-card-icon'>📐</span>
-          </div>
-          <p class='calc-card-desc'>Perform advanced arithmetic, trigonometric functions (sin/cos/tan), logarithms, exponential powers, and root calculations.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/percentage-calculator.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Percentage Calculator</h3>
-            <span class='calc-card-icon'>％</span>
-          </div>
-          <p class='calc-card-desc'>Find percentages of numbers, proportion percentages, and calculate percentage changes (increases and decreases).</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/cgpa-calculator.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>CGPA Calculator</h3>
-            <span class='calc-card-icon'>🎓</span>
-          </div>
-          <p class='calc-card-desc'>Estimate your Cumulative Grade Point Average (CGPA) from individual semester grade marks.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/statistics-percentile.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Statistics Percentile Calculator</h3>
-            <span class='calc-card-icon'>📊</span>
-          </div>
-          <p class='calc-card-desc'>Find the k-th percentile value for any data set. Enter list values and see calculations.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/hcf-calculator.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>HCF & LCM Calculator</h3>
-            <span class='calc-card-icon'>📐</span>
-          </div>
-          <p class='calc-card-desc'>Find the Highest Common Factor (HCF / GCD) and Least Common Multiple (LCM) for any two numbers.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/math-rounding-numbers.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Rounding Numbers Calculator</h3>
-            <span class='calc-card-icon'>🔢</span>
-          </div>
-          <p class='calc-card-desc'>Round numbers to the nearest unit, ten, hundred, thousand, or decimal index.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/math-long-division.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Long Division Calculator</h3>
-            <span class='calc-card-icon'>📐</span>
-          </div>
-          <p class='calc-card-desc'>Perform long division and see calculated quotients and remainders instantly.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/remainder-calculator.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Remainder Calculator</h3>
-            <span class='calc-card-icon'>🔢</span>
-          </div>
-          <p class='calc-card-desc'>Find the remainder of a division instantly. Ideal for modular arithmetic problems.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/square-footage-calculator.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Square Footage Calculator</h3>
-            <span class='calc-card-icon'>📐</span>
-          </div>
-          <p class='calc-card-desc'>Calculate the square footage (area) of a room or space. Enter length and width measurements.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/rounding-calculator.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Rounding Calculator</h3>
-            <span class='calc-card-icon'>🔢</span>
-          </div>
-          <p class='calc-card-desc'>Round any decimals or fractions up, down, or to the nearest digit index instantly.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/gpa-calculator.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>GPA Calculator</h3>
-            <span class='calc-card-icon'>🎓</span>
-          </div>
-          <p class='calc-card-desc'>Calculate your semester grade point average (GPA) from course credits and grade letters.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/big-number-calculator.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Big Number Calculator</h3>
-            <span class='calc-card-icon'>🔢</span>
-          </div>
-          <p class='calc-card-desc'>Perform arithmetic calculations on extremely large numbers that exceed typical browser storage scales.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/grade-calculator.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Class Grade Calculator</h3>
-            <span class='calc-card-icon'>📝</span>
-          </div>
-          <p class='calc-card-desc'>Find your current class grade average or check what score you need on the final exam to pass.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <!-- Category Section: ⚖️ Conversions & Unit Tools -->
-    <section class='category-section' id='sec-conversions'>
-      <div class='category-header'>
-        <span class='category-title'>⚖️ Conversions & Unit Tools</span>
-      </div>
-      <div class='category-grid'>
-        <a href='calculators/conversions-numbers-to-words.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Numbers to Words Converter</h3>
-            <span class='calc-card-icon'>🔢</span>
-          </div>
-          <p class='calc-card-desc'>Convert numbers to their English word equivalents instantly. Supports large numbers, decimals, and custom outputs.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/conversions-height-ft-cm.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Height Ft to Cm Converter</h3>
-            <span class='calc-card-icon'>📐</span>
-          </div>
-          <p class='calc-card-desc'>Convert heights between Feet/Inches and Centimeters instantly with our free online conversion tool.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/million-to-rupees.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Million to Rupees Converter</h3>
-            <span class='calc-card-icon'>🇮🇳</span>
-          </div>
-          <p class='calc-card-desc'>Convert Millions to Indian Rupees (INR) instantly. Supports custom conversions for Lakhs and Crores.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/lbs-to-kg-converter.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Pounds to Kilograms Converter</h3>
-            <span class='calc-card-icon'>⚖️</span>
-          </div>
-          <p class='calc-card-desc'>Convert weight measurements from Pounds (lbs) to Kilograms (kg) and vice versa.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/billion-to-rupees.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Billion to Rupees Converter</h3>
-            <span class='calc-card-icon'>🇮🇳</span>
-          </div>
-          <p class='calc-card-desc'>Convert Billions to Indian Rupees (INR) instantly. Check the conversion value in Crores and Lakhs.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/million-to-crore.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Million to Crore Converter</h3>
-            <span class='calc-card-icon'>🇮🇳</span>
-          </div>
-          <p class='calc-card-desc'>Convert Millions to Crores instantly. Check international financial scaling in Indian number formats.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/conversions-roman-numeral-date-converter.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Roman Numeral Date Converter</h3>
-            <span class='calc-card-icon'>🏛️</span>
-          </div>
-          <p class='calc-card-desc'>Convert calendar dates to Roman numerals instantly. Perfect for tattoos, carvings, and formatting styles.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/meter-to-feet.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Meters to Feet Converter</h3>
-            <span class='calc-card-icon'>📏</span>
-          </div>
-          <p class='calc-card-desc'>Convert meters to feet and vice versa instantly. Supports decimal values.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/square-meter-to-square-feet.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Square Meters to Square Feet</h3>
-            <span class='calc-card-icon'>📐</span>
-          </div>
-          <p class='calc-card-desc'>Convert square meters to square feet and vice versa instantly. Perfect for real estate and flooring calculations.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/centimeter-to-meter.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Centimeters to Meters Converter</h3>
-            <span class='calc-card-icon'>📏</span>
-          </div>
-          <p class='calc-card-desc'>Convert centimeters to meters and vice versa instantly. Fast metric conversions.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/conversions-pressure.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Pressure Units Converter</h3>
-            <span class='calc-card-icon'>🌬️</span>
-          </div>
-          <p class='calc-card-desc'>Convert pressure units between PSI, Bar, Pascal, and Atmospheres instantly.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/gallons-to-liters.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Gallons to Liters Converter</h3>
-            <span class='calc-card-icon'>🥤</span>
-          </div>
-          <p class='calc-card-desc'>Convert US Gallons to Liters and vice versa instantly. Free fluid volume converter.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/conversions-time.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Time Unit Converter</h3>
-            <span class='calc-card-icon'>⏱️</span>
-          </div>
-          <p class='calc-card-desc'>Convert time measurements between seconds, minutes, hours, days, weeks, months, and years.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <!-- Category Section: 🎰 Games & Fun Tools -->
-    <section class='category-section' id='sec-games'>
-      <div class='category-header'>
-        <span class='category-title'>🎰 Games & Fun Tools</span>
-      </div>
-      <div class='category-grid'>
-        <a href='calculators/games-lottery-number-generator.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Lottery Number Generator</h3>
-            <span class='calc-card-icon'>🎰</span>
-          </div>
-          <p class='calc-card-desc'>Generate random lottery ticket numbers. Choose your range size and count to customize tickets.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/games-bingo-number-generator.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Bingo Number Generator</h3>
-            <span class='calc-card-icon'>🎱</span>
-          </div>
-          <p class='calc-card-desc'>Call random Bingo numbers from 1 to 75. Keep track of previous draws.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
-            <span>&rarr;</span>
-          </div>
-        </a>
-        <a href='calculators/games-dice-roller.html' class='calc-card'>
-          <div class='calc-card-header'>
-            <h3 class='calc-card-title'>Dice Roller</h3>
-            <span class='calc-card-icon'>🎲</span>
-          </div>
-          <p class='calc-card-desc'>Roll standard 6-sided dice for board games. Customize the number of dice rolled.</p>
-          <div class='calc-card-footer'>
-            <span>Open Tool</span>
+        </a>        <a href="categories/games/" class="calc-card">
+          <div class="calc-card-header">
+            <h3 class="calc-card-title">🎰 Games & Fun Tools</h3>
+            <span class="calc-card-icon">🎲</span>
+          </div>
+          <p class="calc-card-desc">Roll dice, generate bingo lists, draw lottery ticket integers, and create secure passwords. (5 tools)</p>
+          <div class="calc-card-footer">
+            <span>Explore Category</span>
             <span>&rarr;</span>
           </div>
         </a>
@@ -710,19 +141,19 @@
       <div class="footer-column">
         <h3>Calculators</h3>
         <ul>
-          <li><a href="calculators/loan-emi-calculator.html">Loan EMI Calculator</a></li>
-          <li><a href="calculators/bmi-calculator.html">BMI Calculator</a></li>
-          <li><a href="calculators/compound-interest-calculator.html">Compound Interest</a></li>
-          <li><a href="calculators/scientific-calculator.html">Scientific Calculator</a></li>
+          <li><a href="calculators/loan-emi-calculator/">Loan EMI Calculator</a></li>
+          <li><a href="calculators/bmi-calculator/">BMI Calculator</a></li>
+          <li><a href="calculators/compound-interest-calculator/">Compound Interest</a></li>
+          <li><a href="calculators/scientific-calculator/">Scientific Calculator</a></li>
         </ul>
       </div>
       <div class="footer-column">
         <h3>Pages</h3>
         <ul>
-          <li><a href="pages/about.html">About Us</a></li>
-          <li><a href="pages/contact.html">Contact Us</a></li>
-          <li><a href="pages/privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="pages/disclaimer.html">Disclaimer</a></li>
+          <li><a href="pages/about/">About Us</a></li>
+          <li><a href="pages/contact/">Contact Us</a></li>
+          <li><a href="pages/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="pages/disclaimer/">Disclaimer</a></li>
         </ul>
       </div>
     </div>
@@ -735,39 +166,125 @@
     // Set active year
     document.getElementById('year').innerText = new Date().getFullYear();
 
-    // Search filtration logic
+    // Embedded search index of all 69 calculators
+    const calculators = [
+      { slug: 'age-calculator', title: 'Online Age Calculator', icon: '🎂', desc: 'Calculate your exact age in years, months, and days based on your date of birth, and see a countdown to your next birthday.' },
+      { slug: 'date-calculator', title: 'Date & Calendar Calculator', icon: '📅', desc: 'Calculate the exact number of days between two dates, or add/subtract days, weeks, months, and years from any starting date.' },
+      { slug: 'time-age-checker', title: 'Time Age Checker', icon: '🔞', desc: 'Check exact ages, verify thresholds (e.g. 18+, 21+), and view time metrics based on birthday.' },
+      { slug: 'day-counter', title: 'Day Counter', icon: '📅', desc: 'Count the exact number of days between two dates. Fast and easy to use.' },
+      { slug: 'time-how-old-am-i', title: 'Time How Old Am I', icon: '⏱️', desc: 'Find your exact age in years, months, weeks, days, and seconds. Realtime countdown calculator.' },
+      { slug: 'time-duration', title: 'Time Duration Calculator', icon: '⏱️', desc: 'Calculate elapsed hours and minutes between two time periods. Perfect for timesheets and shift tracking.' },
+      { slug: 'time-work-hours', title: 'Work Hours Calculator', icon: '💼', desc: 'Calculate daily and weekly work hours, breaks, and gross pay with our free online timesheet calculator.' },
+      { slug: 'age-difference-calculator', title: 'Age Difference Calculator', icon: '🎂', desc: 'Compare two birthdays and calculate the exact age gap in years, months, and days.' },
+      { slug: 'time-date-day', title: 'Day of Week Finder', icon: '📅', desc: 'Find what day of the week (Monday, Tuesday, etc.) any specific calendar date falls on.' },
+      { slug: 'time-time-calculator', title: 'Time Add & Subtract Calculator', icon: '⏱️', desc: 'Add or subtract days, hours, and minutes from any starting time. Ideal for time cards and duration planning.' },
+      { slug: 'bmi-calculator', title: 'BMI Calculator', icon: '⚖️', desc: 'Determine your Body Mass Index (BMI) and check if your weight falls in the underweight, normal, overweight, or obese ranges.' },
+      { slug: 'calorie-calculator', title: 'Calorie Intake & BMR Calculator', icon: '🔥', desc: 'Calculate your Basal Metabolic Rate (BMR) and learn your daily caloric needs for weight maintenance, loss, or gain.' },
+      { slug: 'pregnancy-calculator', title: 'Pregnancy Due Date Calculator', icon: '👶', desc: 'Estimate your due date, current gestational age, and pregnancy progress milestones based on your last menstrual period (LMP).' },
+      { slug: 'tdee-calculator', title: 'TDEE Calculator', icon: '🔥', desc: 'Estimate your Total Daily Energy Expenditure (TDEE) based on BMR and physical activity thresholds.' },
+      { slug: 'weight-watchers-points', title: 'Weight Watchers Points Calculator', icon: '🍎', desc: 'Estimate dietary points valuations based on calories, fat grams, and dietary fiber contents.' },
+      { slug: 'bmr-calculator', title: 'BMR Calculator', icon: '🔥', desc: 'Estimate your Basal Metabolic Rate (BMR) using Mifflin-St Jeor. Learn baseline rest calories.' },
+      { slug: 'compound-interest-calculator', title: 'Compound Interest Calculator', icon: '📈', desc: 'Project how your money grows over time with compounding interest. Adjust monthly deposits, interest rates, and compound frequencies.' },
+      { slug: 'loan-emi-calculator', title: 'Loan EMI Calculator', icon: '🏠', desc: 'Calculate your monthly equated installments (EMIs), interest payable, and total loan payment for mortgages or car loans.' },
+      { slug: 'discount-calculator', title: 'Discount & Savings Calculator', icon: '🏷️', desc: 'Instantly compute final store sale prices, markdown values, percentage savings, and sales tax additions at checkout.' },
+      { slug: 'fuel-cost-calculator', title: 'Fuel Cost Calculator', icon: '⛽', desc: 'Calculate fuel cost for any trip. Input distance, efficiency, and price to see travel cost.' },
+      { slug: 'profit-calculator', title: 'Profit & Margin Calculator', icon: '📈', desc: 'Calculate business profit amounts, markup ratios, and margins instantly based on cost and selling price.' },
+      { slug: 'amortization-calculator', title: 'Loan Amortization Calculator', icon: '🏠', desc: 'Generate a full amortization schedule detailing principal and interest breakdowns for any loan borrowing.' },
+      { slug: 'mileage-calculator', title: 'Gas Mileage Calculator', icon: '🚗', desc: 'Determine your vehicle\'s gas mileage (MPG or km/L) based on distance driven and fuel consumed.' },
+      { slug: 'electricity-calculator', title: 'Electricity Cost Calculator', icon: '⚡', desc: 'Calculate appliance electricity cost. Input wattage, hours used, and utility rate to see daily/yearly expenses.' },
+      { slug: 'irr-calculator', title: 'IRR Calculator', icon: '📈', desc: 'Estimate the Internal Rate of Return (IRR) for a series of annual investment cash flows.' },
+      { slug: 'scientific-calculator', title: 'Scientific Calculator', icon: '📐', desc: 'Perform advanced arithmetic, trigonometric functions (sin/cos/tan), logarithms, exponential powers, and root calculations.' },
+      { slug: 'percentage-calculator', title: 'Percentage Calculator', icon: '％', desc: 'Find percentages of numbers, proportion percentages, and calculate percentage changes (increases and decreases).' },
+      { slug: 'cgpa-calculator', title: 'CGPA Calculator', icon: '🎓', desc: 'Estimate your Cumulative Grade Point Average (CGPA) from individual semester grade marks.' },
+      { slug: 'statistics-percentile', title: 'Statistics Percentile Calculator', icon: '📊', desc: 'Find the k-th percentile value for any data set. Enter list values and see calculations.' },
+      { slug: 'hcf-calculator', title: 'HCF & LCM Calculator', icon: '📐', desc: 'Find the Highest Common Factor (HCF / GCD) and Least Common Multiple (LCM) for any two numbers.' },
+      { slug: 'math-rounding-numbers', title: 'Rounding Numbers Calculator', icon: '🔢', desc: 'Round numbers to the nearest unit, ten, hundred, thousand, or decimal index.' },
+      { slug: 'math-long-division', title: 'Long Division Calculator', icon: '📐', desc: 'Perform long division and see calculated quotients and remainders instantly.' },
+      { slug: 'remainder-calculator', title: 'Remainder Calculator', icon: '🔢', desc: 'Find the remainder of a division instantly. Ideal for modular arithmetic problems.' },
+      { slug: 'square-footage-calculator', title: 'Square Footage Calculator', icon: '📐', desc: 'Calculate the square footage (area) of a room or space. Enter length and width measurements.' },
+      { slug: 'rounding-calculator', title: 'Rounding Calculator', icon: '🔢', desc: 'Round any decimals or fractions up, down, or to the nearest digit index instantly.' },
+      { slug: 'gpa-calculator', title: 'GPA Calculator', icon: '🎓', desc: 'Calculate your semester grade point average (GPA) from course credits and grade letters.' },
+      { slug: 'big-number-calculator', title: 'Big Number Calculator', icon: '🔢', desc: 'Perform arithmetic calculations on extremely large numbers that exceed typical browser storage scales.' },
+      { slug: 'grade-calculator', title: 'Class Grade Calculator', icon: '📝', desc: 'Find your current class grade average or check what score you need on the final exam to pass.' },
+      { slug: 'conversions-numbers-to-words', title: 'Numbers to Words Converter', icon: '🔢', desc: 'Convert numbers to their English word equivalents instantly. Supports large numbers, decimals, and custom outputs.' },
+      { slug: 'conversions-height-ft-cm', title: 'Height Ft to Cm Converter', icon: '📐', desc: 'Convert heights between Feet/Inches and Centimeters instantly with our free online conversion tool.' },
+      { slug: 'million-to-rupees', title: 'Million to Rupees Converter', icon: '🇮🇳', desc: 'Convert Millions to Indian Rupees (INR) instantly. Supports custom conversions for Lakhs and Crores.' },
+      { slug: 'lbs-to-kg-converter', title: 'Pounds to Kilograms Converter', icon: '⚖️', desc: 'Convert weight measurements from Pounds (lbs) to Kilograms (kg) and vice versa.' },
+      { slug: 'billion-to-rupees', title: 'Billion to Rupees Converter', icon: '🇮🇳', desc: 'Convert Billions to Indian Rupees (INR) instantly. Check the conversion value in Crores and Lakhs.' },
+      { slug: 'million-to-crore', title: 'Million to Crore Converter', icon: '🇮🇳', desc: 'Convert Millions to Crores instantly. Check international financial scaling in Indian number formats.' },
+      { slug: 'conversions-roman-numeral-date-converter', title: 'Roman Numeral Date Converter', icon: '🏛️', desc: 'Convert calendar dates to Roman numerals instantly. Perfect for tattoos, carvings, and formatting styles.' },
+      { slug: 'meter-to-feet', title: 'Meters to Feet Converter', icon: '📏', desc: 'Convert meters to feet and vice versa instantly. Supports decimal values.' },
+      { slug: 'square-meter-to-square-feet', title: 'Square Meters to Square Feet', icon: '📐', desc: 'Convert square meters to square feet and vice versa instantly. Perfect for real estate and flooring calculations.' },
+      { slug: 'centimeter-to-meter', title: 'Centimeters to Meters Converter', icon: '📏', desc: 'Convert centimeters to meters and vice versa instantly. Fast metric conversions.' },
+      { slug: 'conversions-pressure', title: 'Pressure Units Converter', icon: '🌬️', desc: 'Convert pressure units between PSI, Bar, Pascal, and Atmospheres instantly.' },
+      { slug: 'gallons-to-liters', title: 'Gallons to Liters Converter', icon: '🥤', desc: 'Convert US Gallons to Liters and vice versa instantly. Free fluid volume converter.' },
+      { slug: 'conversions-time', title: 'Time Unit Converter', icon: '⏱️', desc: 'Convert time measurements between seconds, minutes, hours, days, weeks, months, and years.' },
+      { slug: 'games-lottery-number-generator', title: 'Lottery Number Generator', icon: '🎰', desc: 'Generate random lottery ticket numbers. Choose your range size and count to customize tickets.' },
+      { slug: 'games-bingo-number-generator', title: 'Bingo Number Generator', icon: '🎱', desc: 'Call random Bingo numbers from 1 to 75. Keep track of previous draws.' },
+      { slug: 'games-dice-roller', title: 'Dice Roller', icon: '🎲', desc: 'Roll standard 6-sided dice for board games. Customize the number of active dice rolled.' },
+      { slug: 'mortgage-calculator', title: 'Mortgage Calculator', icon: '🏠', desc: 'Calculate monthly mortgage payments factoring in home price, down payment, interest rate, property taxes, and insurance.' },
+      { slug: 'auto-loan-calculator', title: 'Auto Loan Calculator', icon: '🚗', desc: 'Estimate your monthly car payments using vehicle price, down payment, trade-in value, and interest rate.' },
+      { slug: 'investment-calculator', title: 'Investment Calculator', icon: '📈', desc: 'Project the future value of your investments with regular monthly contributions and compound interest.' },
+      { slug: 'inflation-calculator', title: 'Inflation Calculator', icon: '💵', desc: 'Determine the future buying power of money and adjust value calculations for inflation rates.' },
+      { slug: 'income-tax-calculator', title: 'Income Tax Calculator', icon: '💼', desc: 'Estimate your federal income tax brackets, standard deductions, and net take-home pay.' },
+      { slug: 'sales-tax-calculator', title: 'Sales Tax Calculator', icon: '🏷️', desc: 'Find the total retail cost and sales tax amount for any purchase by entering product net price and tax rates.' },
+      { slug: 'credit-card-payoff', title: 'Credit Card Payoff Calculator', icon: '💳', desc: 'Calculate how long it takes to pay off credit card debt based on interest rate and monthly payments.' },
+      { slug: 'ideal-weight-calculator', title: 'Ideal Weight Calculator', icon: '⚖️', desc: 'Find your ideal body weight range based on scientific clinical formulas including Devine and Robinson.' },
+      { slug: 'body-fat-calculator', title: 'Body Fat Calculator', icon: '📏', desc: 'Estimate your body fat percentage using standard tape measure parameters designed by the US Navy.' },
+      { slug: 'pace-calculator', title: 'Running Pace Calculator', icon: '🏃', desc: 'Calculate your average running pace, duration, or distances for training runs and race splits.' },
+      { slug: 'calorie-burn-met-calculator', title: 'Calorie Burn MET Calculator', icon: '🔥', desc: 'Estimate daily exercise calories burned during workouts using standard clinical MET activity ratings.' },
+      { slug: 'fraction-calculator', title: 'Fraction Calculator', icon: '➗', desc: 'Add, subtract, multiply, and divide fractions easily. Displays simplified fractional answers.' },
+      { slug: 'standard-deviation-calculator', title: 'Standard Deviation Calculator', icon: '📊', desc: 'Calculate population and sample standard deviation, variance, and mean for any dataset.' },
+      { slug: 'password-generator', title: 'Secure Password Generator', icon: '🔑', desc: 'Generate strong, randomized passwords instantly to secure your online credentials.' },
+      { slug: 'random-number-generator', title: 'Random Number Generator', icon: '🎲', desc: 'Generate truly random integers between custom range limits. Perfect for games and drawings.' }
+    ];
+
     const searchInput = document.getElementById('search-input');
-    const cards = document.querySelectorAll('.calc-card');
-    const sections = document.querySelectorAll('.category-section');
+    const searchResultsSection = document.getElementById('search-results-section');
+    const searchResultsGrid = document.getElementById('search-results-grid');
+    const categoriesDirectorySection = document.getElementById('categories-directory-section');
 
     searchInput.addEventListener('input', () => {
       const q = searchInput.value.toLowerCase().trim();
       
-      cards.forEach(card => {
-        const title = card.querySelector('.calc-card-title').innerText.toLowerCase();
-        const desc = card.querySelector('.calc-card-desc').innerText.toLowerCase();
-        
-        if (title.includes(q) || desc.includes(q)) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
+      if (!q) {
+        searchResultsSection.classList.add('hidden');
+        categoriesDirectorySection.classList.remove('hidden');
+        return;
+      }
 
-      sections.forEach(sec => {
-        const totalCards = sec.querySelectorAll('.calc-card').length;
-        const hiddenCards = sec.querySelectorAll('.calc-card[style="display: none;"]').length;
-        
-        if (hiddenCards === totalCards) {
-          sec.style.display = 'none';
-        } else {
-          sec.style.display = 'block';
-        }
-      });
+      // Filter matching tools
+      const matches = calculators.filter(calc => 
+        calc.title.toLowerCase().includes(q) || 
+        calc.desc.toLowerCase().includes(q)
+      );
+
+      // Render cards
+      if (matches.length > 0) {
+        searchResultsGrid.innerHTML = matches.map(calc => ` 
+          <a href="calculators/${calc.slug}/" class="calc-card">
+            <div class="calc-card-header">
+              <h3 class="calc-card-title">${calc.title}</h3>
+              <span class="calc-card-icon">${calc.icon}</span>
+            </div>
+            <p class="calc-card-desc">${calc.desc}</p>
+            <div class="calc-card-footer">
+              <span>Open Tool</span>
+              <span>&rarr;</span>
+            </div>
+          </a>
+        ` ).join('');
+      } else {
+        searchResultsGrid.innerHTML = ` 
+          <div style="grid-column: 1 / -1; text-align: center; padding: 2rem; color: var(--text-muted);">
+            No calculators found matching "${q}". Try another term!
+          </div>
+        ` ;
+      }
+
+      searchResultsSection.classList.remove('hidden');
+      categoriesDirectorySection.classList.add('hidden');
     });
   </script>
 </body>
 </html>
-
-
-

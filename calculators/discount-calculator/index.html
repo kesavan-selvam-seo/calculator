@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discount Calculator - Calculate Sale Prices &amp; Savings</title>
+  <meta name="description" content="Calculate discount percentages, savings amounts, and final prices including sales tax with our free online discount calculator.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.calcuportal.com/calculators/discount-calculator">
+  <link rel="stylesheet" href="../../styles.css">
+  <script src="../../script.js"></script>
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a MET?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "One MET represents the rate of energy expenditure while sitting quietly, equal to roughly 1 kcal/kg/hour."
+      }
+    }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="../../index.html" class="logo">
+        <span class="logo-icon">🧮</span>
+        <span>CalcuPortal</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../../index.html" class="nav-link">Home</a>
+        <a href="../../pages/about/" class="nav-link">About</a>
+        <a href="../../pages/contact/" class="nav-link">Contact</a>
+        <button class="theme-btn" title="Toggle Theme">
+          <span class="theme-btn-icon"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="detail-container">
+      <!-- Breadcrumbs -->
+      <div class="breadcrumbs">
+        <a href="../../index.html">Home</a>
+        <span class="separator">&rsaquo;</span>
+        <a href="../../categories/finance/">Finance & Loan Calculators</a>
+        <span class="separator">&rsaquo;</span>
+        <span class="current">Discount &amp; Savings Calculator</span>
+      </div>
+
+      <div class="detail-header">
+        <h1>Discount &amp; Savings Calculator</h1>
+      </div>
+
+      <!-- Calculator Widget -->
+      <div class="calc-widget">
+        <div class="form-group">
+          <label for="disc-price">Original Price ($)</label>
+          <input type="number" id="disc-price" value="100" class="input-field" min="0" step="0.01" />
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="disc-pct">Discount (%)</label>
+            <input type="number" id="disc-pct" value="20" class="input-field" min="0" max="100" step="any" />
+          </div>
+          <div class="form-group">
+            <label for="disc-tax">Sales Tax (%) (Optional)</label>
+            <input type="number" id="disc-tax" value="0" class="input-field" min="0" max="100" step="any" />
+          </div>
+        </div>
+        
+        <button id="calculate-btn" class="calc-btn">Calculate Savings</button>
+
+        <!-- Result -->
+        <div id="result-section" class="result-section hidden" style="text-align: center;">
+          <div class="summary-title" style="font-size: 0.875rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase;">Final Price</div>
+          <div class="total-balance" id="disc-final-price" style="font-size: 2.5rem; font-weight: 900; color: var(--accent); margin: 0.5rem 0 1.5rem 0; line-height: 1;">$80.00</div>
+          
+          <div class="metric-grid">
+            <div class="metric-card">
+              <span class="metric-title">Original Price</span>
+              <span class="metric-value" id="disc-orig-val">$100.00</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-title">Total Savings</span>
+              <span class="metric-value" id="disc-savings-val" style="color: var(--accent);">$20.00</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-title">Tax Amount</span>
+              <span class="metric-value" id="disc-tax-val"># 60. Calorie Burn MET Calculator
+  @{
+    Slug = "calorie-burn-met-calculator"
+    Title = "Calorie Burn MET Calculator"
+    MetaTitle = "Calorie Burn MET Calculator - Estimate Calories Burned"
+    MetaDesc = "Estimate daily exercise calories burned during workouts using standard clinical MET activity ratings."
+    Category = "Fitness & Health"
+    Icon = "🔥"
+    Html = @"
+        <div class="form-row">
+          <div class="form-group">
+            <label for="met-weight">Weight (kg)</label>
+            <input type="number" id="met-weight" value="70" class="input-field" />
+          </div>
+          <div class="form-group">
+            <label for="met-duration">Duration (Minutes)</label>
+            <input type="number" id="met-duration" value="30" class="input-field" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="met-activity">Activity Type</label>
+          <select id="met-activity" class="select-field">
+            <option value="8.0">Running (8.0 MET)</option>
+            <option value="4.0">Walking briskly (4.0 MET)</option>
+            <option value="6.0">Bicycling moderate (6.0 MET)</option>
+            <option value="9.8">Swimming (9.8 MET)</option>
+            <option value="1.5">Sedentary desk work (1.5 MET)</option>
+          </select>
+        </div>
+        <button id="calc-btn" class="calc-btn">Calculate Burned Calories</button>
+        <div id="result-section" class="result-section hidden" style="text-align:center;">
+          <div class="summary-title">Calories Burned</div>
+          <div class="total-balance" id="met-result-val" style="color:var(--accent); margin-top:1rem;">210 kcal</div>
+        </div>
+      </div>
+
+      <!-- SEO Article -->
+      <section class="article-section">
+        <div class="article-header">
+          <h2>Discount &amp; Savings Calculator Guides</h2>
+        </div>
+        <div class="article-content">
+          <h2>Understand Exercise Energy Consumption</h2><p>MET stands for Metabolic Equivalent of Task, a standard scoring system representing energy spend relative to baseline rest.</p>
+          <h3>The Foundations of Personal and Business Finance</h3>
+<p>Navigating the complex world of finance requires precision, foresight, and data-driven decision making. Whether you are managing personal debt, projecting investment growth, or calculating tax brackets, using tools like the Discount &amp; Savings Calculator gives you immediate clarity on your money. Understanding financial metrics like the time value of money, amortization schedules, and interest rates is essential to building long-term financial security.</p>
+<p>Calculations involving compound interest, loan repayments (EMIs), or investment returns rely on exponential formulas. Compounding interest, for instance, allows your money to grow exponentially by earning returns on your interest. In contrast, loan amortization spreads your monthly payments between principal repayment and interest costs, gradually reducing your overall debt. Visualizing these numbers helps you choose the best loan terms or investment durations.</p>
+<h3>Step-by-Step Instructions & Financial Best Practices</h3>
+<p>Using the Discount &amp; Savings Calculator tool is simple and effective. Here is how to perform your calculations correctly:</p>
+<ul>
+  <li>First, gather all relevant terms, including the starting amount (principal), interest rates, and loan tenure or investment duration.</li>
+  <li>Input the figures into their respective fields. For interest rates, make sure to enter the annual rate (APR) as the tool handles periodic interest conversions automatically.</li>
+  <li>Choose the correct compounding or payment frequency (e.g. monthly, quarterly, or annually) as this heavily influences your interest totals.</li>
+</ul>
+<p>We advise comparing multiple scenarios (for example, comparing a 15-year mortgage against a 30-year mortgage) to see how small changes in interest rates or monthly additions affect your lifetime costs.</p>
+<h3>Practical Real-World Financial Scenarios</h3>
+<p>Let us analyze three common scenarios where this calculator provides immediate value:</p>
+<ol>
+  <li><strong>Mortgage and Auto Financing:</strong> Homebuyers and car shoppers calculate monthly EMIs to ensure they do not exceed their monthly budgets, reviewing the full amortization table to understand how much interest they pay over time.</li>
+  <li><strong>Retirement Planning:</strong> Investors project the compounding growth of their retirement funds by adjusting monthly contributions, visualizing how early investments result in larger future balances.</li>
+  <li><strong>Business Profitability:</strong> Store owners and entrepreneurs calculate profit margins, markups, and break-even points to price their products correctly and maintain stable cash flows.</li>
+</ol>
+<p>By using our verified financial tools, you eliminate calculation mistakes, save money on financing fees, and optimize your wealth accumulation strategies with confidence.</p>
+        </div>
+      </section>
+
+            <!-- FAQ Section -->
+      <section class="faq-section">
+        <h2 class="faq-header">Frequently Asked Questions</h2>
+        <div class="faq-grid">          <div class="faq-item">
+            <h3 class="faq-question">What is a MET?</h3>
+            <p class="faq-answer">One MET represents the rate of energy expenditure while sitting quietly, equal to roughly 1 kcal/kg/hour.</p>
+          </div>        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="copyright-bar" style="border-top: none; padding-top: 0;">
+      © <span id="year">2026</span> CalcuPortal. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').innerText = new Date().getFullYear();
+    
+    // Injected calculation script
+    // Rename calculate button triggers
+    const calculateBtn = document.getElementById('calc-btn');
+    if (calculateBtn) {
+      calculateBtn.id = 'calculate-btn';
+    }
+  </script>
+  <script>
+          document.getElementById('calculate-btn').addEventListener('click', () => {
+        const weight = parseFloat(document.getElementById('met-weight').value) || 0;
+        const dur = parseFloat(document.getElementById('met-duration').value) || 0;
+        const met = parseFloat(document.getElementById('met-activity').value) || 0;
+        
+        if (weight <= 0 || dur <= 0) {
+          alert('Please enter valid inputs.');
+          return;
+        }
+        
+        const burned = dur * (met * 3.5 * weight / 200);
+        document.getElementById('met-result-val').innerText = Math.round(burned) + ' kcal';
+        document.getElementById('result-section').classList.remove('hidden');
+      });
+  </script>
+</body>
+</html>

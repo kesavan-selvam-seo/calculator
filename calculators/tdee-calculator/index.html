@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TDEE Calculator - Total Daily Energy Expenditure</title>
+  <meta name="description" content="Estimate your Total Daily Energy Expenditure (TDEE) based on BMR and physical activity thresholds.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.calcuportal.com/calculators/tdee-calculator">
+  <link rel="stylesheet" href="../../styles.css">
+  <script src="../../script.js"></script>
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is TDEE used in dieting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eat below TDEE for weight loss; eat above TDEE for muscle mass gain."
+      }
+    }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="../../index.html" class="logo">
+        <span class="logo-icon">🧮</span>
+        <span>CalcuPortal</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../../index.html" class="nav-link">Home</a>
+        <a href="../../pages/about/" class="nav-link">About</a>
+        <a href="../../pages/contact/" class="nav-link">Contact</a>
+        <button class="theme-btn" title="Toggle Theme">
+          <span class="theme-btn-icon"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="detail-container">
+      <!-- Breadcrumbs -->
+      <div class="breadcrumbs">
+        <a href="../../index.html">Home</a>
+        <span class="separator">&rsaquo;</span>
+        <a href="../../categories/health-fitness/">Health & Fitness Calculators</a>
+        <span class="separator">&rsaquo;</span>
+        <span class="current">TDEE Calculator</span>
+      </div>
+
+      <div class="detail-header">
+        <h1>TDEE Calculator</h1>
+      </div>
+
+      <!-- Calculator Widget -->
+      <div class="calc-widget">
+                <div class="form-row">
+          <div class="form-group">
+            <label for="t-bmr">Basal Metabolic Rate (BMR) (kcal)</label>
+            <input type="number" id="t-bmr" value="1600" class="input-field" />
+          </div>
+          <div class="form-group">
+            <label for="t-activity">Activity Level</label>
+            <select id="t-activity" class="select-field">
+              <option value="1.2" selected>Sedentary (1.2)</option>
+              <option value="1.375">Lightly Active (1.375)</option>
+              <option value="1.55">Moderately Active (1.55)</option>
+              <option value="1.725">Very Active (1.725)</option>
+              <option value="1.9">Extra Active (1.9)</option>
+            </select>
+          </div>
+        </div>
+        <button id="calc-btn" class="calc-btn">Calculate TDEE</button>
+        <div id="result-section" class="result-section hidden" style="text-align: center;">
+          <div class="summary-title">Total Energy Burned (TDEE)</div>
+          <div class="total-balance" id="tdee-val" style="color:var(--accent);">1,920 kcal</div>
+        </div>
+      </div>
+
+      <!-- SEO Article -->
+      <section class="article-section">
+        <div class="article-header">
+          <h2>TDEE Calculator Guides</h2>
+        </div>
+        <div class="article-content">
+          <h2>Track Total Energy Outlay</h2><p>Your TDEE estimates how many total calories your body burns in a 24-hour cycle including physical movements and workouts.</p>
+          <h3>Understanding Modern Health & Metabolic Tracking</h3>
+<p>Maintaining a healthy lifestyle requires a balance of proper nutrition, regular exercise, and accurate metabolic tracking. Utilizing tools like the TDEE Calculator allows you to calculate baseline physiological scores, providing actionable data to optimize your fitness journey. Whether you are tracking Body Mass Index, estimating daily caloric limits, or calculating body fat percentages, these assessments serve as the foundation of any health plan.</p>
+<p>Metabolic rate equations (such as the Mifflin-St Jeor or Harris-Benedict formulas) take your age, gender, height, and weight to calculate how many calories your body burns at rest (BMR). By factoring in your activity level, you get your Total Daily Energy Expenditure (TDEE). This helps you determine your target calorie goals, whether your objective is weight maintenance, healthy fat loss, or muscle gain.</p>
+<h3>How to Use This Tool Effectively</h3>
+<p>To get the most accurate results from the TDEE Calculator, follow these best practices:</p>
+<ul>
+  <li>Take your measurements at the same time each day (preferably in the morning before eating or working out) to minimize fluctuations from water retention.</li>
+  <li>Ensure you select the correct unit tab (Metric or Imperial) to avoid converting measurements manually, which can introduce calculation errors.</li>
+  <li>Input your current physical activity level honestly. Overestimating activity levels is a common pitfall that leads to inflated energy expenditure estimates.</li>
+</ul>
+<p>Always remember that calculator outputs are estimations meant to serve as guidelines. Combining these digital tools with regular fitness reviews yields the best long-term success.</p>
+<h3>Real-World Applications of Fitness Calculators</h3>
+<p>Physiological calculators are used across several domains to tailor health programs:</p>
+<ol>
+  <li><strong>Nutritional Coaching:</strong> Certified nutritionists use caloric estimators to establish dietary baselines, adjusting protein, carbohydrate, and fat ratios to fit client goals.</li>
+  <li><strong>Athletic Training:</strong> Runners and triathletes track activity METs and running paces to schedule workouts, prevent overtraining, and monitor metabolic burn rates.</li>
+  <li><strong>Clinical Screening:</strong> Healthcare professionals use body mass indicators as a quick screening tool to identify potential health risks associated with weight categories.</li>
+</ol>
+<p>By leveraging these tools, you replace guesswork with scientifically validated estimations, enabling you to make informed decisions about your diet, workouts, and overall lifestyle habits.</p>
+        </div>
+      </section>
+
+            <!-- FAQ Section -->
+      <section class="faq-section">
+        <h2 class="faq-header">Frequently Asked Questions</h2>
+        <div class="faq-grid">          <div class="faq-item">
+            <h3 class="faq-question">How is TDEE used in dieting?</h3>
+            <p class="faq-answer">Eat below TDEE for weight loss; eat above TDEE for muscle mass gain.</p>
+          </div>        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="copyright-bar" style="border-top: none; padding-top: 0;">
+      © <span id="year">2026</span> CalcuPortal. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').innerText = new Date().getFullYear();
+    
+    // Injected calculation script
+    // Rename calculate button triggers
+    const calculateBtn = document.getElementById('calc-btn');
+    if (calculateBtn) {
+      calculateBtn.id = 'calculate-btn';
+    }
+  </script>
+  <script>
+          document.getElementById('calculate-btn').addEventListener('click', () => {
+        const bmr = parseFloat(document.getElementById('t-bmr').value);
+        const act = parseFloat(document.getElementById('t-activity').value);
+        if (isNaN(bmr) || bmr <= 0) {
+          alert('Please enter a valid BMR.');
+          return;
+        }
+        const tdee = bmr * act;
+        document.getElementById('tdee-val').innerText = Math.round(tdee).toLocaleString() + ' kcal';
+        document.getElementById('result-section').classList.remove('hidden');
+      });
+  </script>
+</body>
+</html>

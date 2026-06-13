@@ -1,0 +1,291 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI Calculator - Calculate Body Mass Index Online</title>
+  <meta name="description" content="Calculate your BMI (Body Mass Index) with our free online tool. Supports metric and imperial systems. Includes weight category classifications.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.calcuportal.com/calculators/bmi-calculator">
+  <link rel="stylesheet" href="../../styles.css">
+  <script src="../../script.js"></script>
+  
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="../../index.html" class="logo">
+        <span class="logo-icon">🧮</span>
+        <span>CalcuPortal</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../../index.html" class="nav-link">Home</a>
+        <a href="../../pages/about/" class="nav-link">About</a>
+        <a href="../../pages/contact/" class="nav-link">Contact</a>
+        <button class="theme-btn" title="Toggle Theme">
+          <span class="theme-btn-icon"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="detail-container">
+      <!-- Breadcrumbs -->
+      <div class="breadcrumbs">
+        <a href="../../index.html">Home</a>
+        <span class="separator">&rsaquo;</span>
+        <a href="../../categories/health-fitness/">Health & Fitness Calculators</a>
+        <span class="separator">&rsaquo;</span>
+        <span class="current">BMI Calculator</span>
+      </div>
+
+      <div class="detail-header">
+        <h1>BMI Calculator</h1>
+      </div>
+
+      <!-- Calculator Widget -->
+      <div class="calc-widget">
+        <div class="unit-tabs">
+          <button id="metric-tab" class="tab-btn active">Metric (cm/kg)</button>
+          <button id="imperial-tab" class="tab-btn">Imperial (in/lbs)</button>
+        </div>
+
+        <!-- Metric Form -->
+        <div id="metric-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="height-cm">Height (cm)</label>
+              <input type="number" id="height-cm" placeholder="e.g. 175" class="input-field" />
+            </div>
+            <div class="form-group">
+              <label for="weight-kg">Weight (kg)</label>
+              <input type="number" id="weight-kg" placeholder="e.g. 70" class="input-field" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Imperial Form -->
+        <div id="imperial-form" class="hidden">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="height-ft">Height (feet)</label>
+              <input type="number" id="height-ft" placeholder="ft" class="input-field" />
+            </div>
+            <div class="form-group">
+              <label for="height-in">Height (inches)</label>
+              <input type="number" id="height-in" placeholder="in" class="input-field" />
+            </div>
+            <div class="form-group">
+              <label for="weight-lbs">Weight (pounds)</label>
+              <input type="number" id="weight-lbs" placeholder="lbs" class="input-field" />
+            </div>
+          </div>
+        </div>
+
+        <button id="calculate-btn" class="calc-btn">Calculate BMI</button>
+
+        <!-- Result -->
+        <div id="result-section" class="result-section hidden">
+          <div class="result-display">
+            <span class="score-label">Your BMI is</span>
+            <span id="bmi-score" class="score-value">22.9</span>
+            <span id="bmi-category" class="category-tag normal">Normal Weight</span>
+          </div>
+
+          <!-- Gauge bar -->
+          <div class="gauge-wrapper">
+            <div class="gauge-bar">
+              <div class="gauge-segment underweight"></div>
+              <div class="gauge-segment normal"></div>
+              <div class="gauge-segment overweight"></div>
+              <div class="gauge-segment obese"></div>
+            </div>
+            <div id="gauge-pointer" class="gauge-pointer" style="left: 50%"></div>
+            <div class="gauge-labels">
+              <span>16.0</span>
+              <span>18.5</span>
+              <span>25.0</span>
+              <span>30.0</span>
+              <span>35.0</span>
+            </div>
+          </div>
+
+          <div class="breakdown-info">
+            <p id="bmi-feedback">...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEO Article -->
+      <section class="article-section">
+        <div class="article-header">
+          <h2>BMI Calculator Guides</h2>
+        </div>
+        <div class="article-content">
+          <p>Body Mass Index (BMI) is a medical metric that estimates body fat levels based on a person's weight and height. It helps doctors screen for obesity, underweight conditions, and overall metabolic health risks.</p>
+          <h3>WHO BMI Classification Table</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>BMI Range</th>
+                <th>Classification</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Less than 18.5</td>
+                <td style="color:#3b82f6; font-weight:700;">Underweight</td>
+              </tr>
+              <tr>
+                <td>18.5 to 24.9</td>
+                <td style="color:#10b981; font-weight:700;">Normal Weight</td>
+              </tr>
+              <tr>
+                <td>25.0 to 29.9</td>
+                <td style="color:#f59e0b; font-weight:700;">Overweight</td>
+              </tr>
+              <tr>
+                <td>30.0 and above</td>
+                <td style="color:#ef4444; font-weight:700;">Obese</td>
+              </tr>
+            </tbody>
+          </table>
+          <h3>Understanding Modern Health & Metabolic Tracking</h3>
+<p>Maintaining a healthy lifestyle requires a balance of proper nutrition, regular exercise, and accurate metabolic tracking. Utilizing tools like the BMI Calculator allows you to calculate baseline physiological scores, providing actionable data to optimize your fitness journey. Whether you are tracking Body Mass Index, estimating daily caloric limits, or calculating body fat percentages, these assessments serve as the foundation of any health plan.</p>
+<p>Metabolic rate equations (such as the Mifflin-St Jeor or Harris-Benedict formulas) take your age, gender, height, and weight to calculate how many calories your body burns at rest (BMR). By factoring in your activity level, you get your Total Daily Energy Expenditure (TDEE). This helps you determine your target calorie goals, whether your objective is weight maintenance, healthy fat loss, or muscle gain.</p>
+<h3>How to Use This Tool Effectively</h3>
+<p>To get the most accurate results from the BMI Calculator, follow these best practices:</p>
+<ul>
+  <li>Take your measurements at the same time each day (preferably in the morning before eating or working out) to minimize fluctuations from water retention.</li>
+  <li>Ensure you select the correct unit tab (Metric or Imperial) to avoid converting measurements manually, which can introduce calculation errors.</li>
+  <li>Input your current physical activity level honestly. Overestimating activity levels is a common pitfall that leads to inflated energy expenditure estimates.</li>
+</ul>
+<p>Always remember that calculator outputs are estimations meant to serve as guidelines. Combining these digital tools with regular fitness reviews yields the best long-term success.</p>
+<h3>Real-World Applications of Fitness Calculators</h3>
+<p>Physiological calculators are used across several domains to tailor health programs:</p>
+<ol>
+  <li><strong>Nutritional Coaching:</strong> Certified nutritionists use caloric estimators to establish dietary baselines, adjusting protein, carbohydrate, and fat ratios to fit client goals.</li>
+  <li><strong>Athletic Training:</strong> Runners and triathletes track activity METs and running paces to schedule workouts, prevent overtraining, and monitor metabolic burn rates.</li>
+  <li><strong>Clinical Screening:</strong> Healthcare professionals use body mass indicators as a quick screening tool to identify potential health risks associated with weight categories.</li>
+</ol>
+<p>By leveraging these tools, you replace guesswork with scientifically validated estimations, enabling you to make informed decisions about your diet, workouts, and overall lifestyle habits.</p>
+        </div>
+      </section>
+
+      
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="copyright-bar" style="border-top: none; padding-top: 0;">
+      © <span id="year">2026</span> CalcuPortal. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').innerText = new Date().getFullYear();
+    
+    // Injected calculation script
+    // Rename calculate button triggers
+    const calculateBtn = document.getElementById('calc-btn');
+    if (calculateBtn) {
+      calculateBtn.id = 'calculate-btn';
+    }
+  </script>
+  <script>
+    
+    let activeUnit = 'metric';
+    const metricTab = document.getElementById('metric-tab');
+    const imperialTab = document.getElementById('imperial-tab');
+    const metricForm = document.getElementById('metric-form');
+    const imperialForm = document.getElementById('imperial-form');
+
+    metricTab.addEventListener('click', () => {
+      activeUnit = 'metric';
+      metricTab.classList.add('active');
+      imperialTab.classList.remove('active');
+      metricForm.classList.remove('hidden');
+      imperialForm.classList.add('hidden');
+    });
+
+    imperialTab.addEventListener('click', () => {
+      activeUnit = 'imperial';
+      imperialTab.classList.add('active');
+      metricTab.classList.remove('active');
+      imperialForm.classList.remove('hidden');
+      metricForm.classList.add('hidden');
+    });
+
+    document.getElementById('calculate-btn').addEventListener('click', () => {
+      let bmi = 0;
+      if (activeUnit === 'metric') {
+        const cm = parseFloat(document.getElementById('height-cm').value);
+        const kg = parseFloat(document.getElementById('weight-kg').value);
+        
+        if (!cm || !kg || cm <= 0 || kg <= 0) {
+          alert('Please enter valid height and weight values!');
+          return;
+        }
+        
+        const m = cm / 100;
+        bmi = kg / (m * m);
+      } else {
+        const ft = parseFloat(document.getElementById('height-ft').value) || 0;
+        const inch = parseFloat(document.getElementById('height-in').value) || 0;
+        const lbs = parseFloat(document.getElementById('weight-lbs').value);
+        
+        const totalInches = (ft * 12) + inch;
+        if (totalInches <= 0 || !lbs || lbs <= 0) {
+          alert('Please enter valid height and weight values!');
+          return;
+        }
+        
+        bmi = (lbs / (totalInches * totalInches)) * 703;
+      }
+      
+      bmi = Math.round(bmi * 10) / 10;
+      
+      let category = '';
+      let catClass = '';
+      let feedback = '';
+      
+      if (bmi < 18.5) {
+        category = 'Underweight';
+        catClass = 'underweight';
+        feedback = 'Your BMI is underweight. Consider checking your metabolic requirements or talking to a doctor.';
+      } else if (bmi >= 18.5 && bmi < 25) {
+        category = 'Normal Weight';
+        catClass = 'normal';
+        feedback = 'Your BMI is in a healthy, normal range. Excellent job maintaining your energy balances!';
+      } else if (bmi >= 25 && bmi < 30) {
+        category = 'Overweight';
+        catClass = 'overweight';
+        feedback = 'Your BMI is in the overweight range. Incorporate daily activity or nutrition checks.';
+      } else {
+        category = 'Obese';
+        catClass = 'obese';
+        feedback = 'Your BMI falls in the obese category. Consult a healthcare provider or coach for health guidelines.';
+      }
+      
+      // Update pointer position (16 is 0%, 35 is 100%)
+      let pointerPos = 50;
+      if (bmi < 16) pointerPos = 0;
+      else if (bmi > 35) pointerPos = 100;
+      else pointerPos = ((bmi - 16) / (35 - 16)) * 100;
+      
+      document.getElementById('bmi-score').innerText = bmi.toFixed(1);
+      const catTag = document.getElementById('bmi-category');
+      catTag.innerText = category;
+      catTag.className = 'category-tag ' + catClass;
+      document.getElementById('gauge-pointer').style.left = `${pointerPos}%`;
+      document.getElementById('bmi-feedback').innerText = feedback;
+      
+      document.getElementById('result-section').classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>

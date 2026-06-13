@@ -1,13 +1,13 @@
 ﻿# update_portal.ps1
-# Script to regenerate index.html and sitemap.xml with all 54 calculators.
+# Script to regenerate index.html (Type 1 page) and sitemap.xml with all 69 calculators.
 
 $categories = @(
-  @{ Id = "sec-dates"; Title = "📅 Date & Age Calculators" },
-  @{ Id = "sec-health"; Title = "💪 Health & Fitness Calculators" },
-  @{ Id = "sec-finance"; Title = "💵 Finance & Loan Calculators" },
-  @{ Id = "sec-general"; Title = "📐 Scientific & Math Tools" },
-  @{ Id = "sec-conversions"; Title = "⚖️ Conversions & Unit Tools" },
-  @{ Id = "sec-games"; Title = "🎰 Games & Fun Tools" }
+  @{ Id = "sec-dates"; Slug = "date-age"; Title = "📅 Date & Age Calculators"; Desc = "Verify age milestones, check dates, work hours, duration, and birthdays."; Icon = "🎂"; Count = 10 },
+  @{ Id = "sec-health"; Slug = "health-fitness"; Title = "💪 Health & Fitness Calculators"; Desc = "Track BMI, calculate daily caloric needs, pregnancy milestone tracking, and TDEE."; Icon = "⚖️"; Count = 10 },
+  @{ Id = "sec-finance"; Slug = "finance"; Title = "💵 Finance & Loan Calculators"; Desc = "Compute compound interest growth, loan EMIs, auto loans, mortgages, inflation, and income tax brackets."; Icon = "📈"; Count = 16 },
+  @{ Id = "sec-general"; Slug = "math"; Title = "📐 Scientific & Math Tools"; Desc = "Perform algebra operations, long division, GPA, fractions, and standard deviations."; Icon = "📐"; Count = 15 },
+  @{ Id = "sec-conversions"; Slug = "conversions"; Title = "⚖️ Conversions & Unit Tools"; Desc = "Convert millions to crores, feet to meters, pounds to kg, and numbers to words."; Icon = "🔢"; Count = 13 },
+  @{ Id = "sec-games"; Slug = "games"; Title = "🎰 Games & Fun Tools"; Desc = "Roll dice, generate bingo lists, draw lottery ticket integers, and create secure passwords."; Icon = "🎲"; Count = 5 }
 )
 
 $calculators = @(
@@ -75,55 +75,241 @@ $calculators = @(
   # Games & Fun (3)
   @{ Slug = "games-lottery-number-generator"; Title = "Lottery Number Generator"; Icon = "🎰"; Desc = "Generate random lottery ticket numbers. Choose your range size and count to customize tickets."; CategoryId = "sec-games" },
   @{ Slug = "games-bingo-number-generator"; Title = "Bingo Number Generator"; Icon = "🎱"; Desc = "Call random Bingo numbers from 1 to 75. Keep track of previous draws."; CategoryId = "sec-games" },
-  @{ Slug = "games-dice-roller"; Title = "Dice Roller"; Icon = "🎲"; Desc = "Roll standard 6-sided dice for board games. Customize the number of dice rolled."; CategoryId = "sec-games" }
+  @{ Slug = "games-dice-roller"; Title = "Dice Roller"; Icon = "🎲"; Desc = "Roll standard 6-sided dice for board games. Customize the number of active dice rolled."; CategoryId = "sec-games" },
+
+  # Finance Additions (7)
+  @{ Slug = "mortgage-calculator"; Title = "Mortgage Calculator"; Icon = "🏠"; Desc = "Calculate monthly mortgage payments factoring in home price, down payment, interest rate, property taxes, and insurance."; CategoryId = "sec-finance" },
+  @{ Slug = "auto-loan-calculator"; Title = "Auto Loan Calculator"; Icon = "🚗"; Desc = "Estimate your monthly car payments using vehicle price, down payment, trade-in value, and interest rate."; CategoryId = "sec-finance" },
+  @{ Slug = "investment-calculator"; Title = "Investment Calculator"; Icon = "📈"; Desc = "Project the future value of your investments with regular monthly contributions and compound interest."; CategoryId = "sec-finance" },
+  @{ Slug = "inflation-calculator"; Title = "Inflation Calculator"; Icon = "💵"; Desc = "Determine the future buying power of money and adjust value calculations for inflation rates."; CategoryId = "sec-finance" },
+  @{ Slug = "income-tax-calculator"; Title = "Income Tax Calculator"; Icon = "💼"; Desc = "Estimate your federal income tax brackets, standard deductions, and net take-home pay."; CategoryId = "sec-finance" },
+  @{ Slug = "sales-tax-calculator"; Title = "Sales Tax Calculator"; Icon = "🏷️"; Desc = "Find the total retail cost and sales tax amount for any purchase by entering product net price and tax rates."; CategoryId = "sec-finance" },
+  @{ Slug = "credit-card-payoff"; Title = "Credit Card Payoff Calculator"; Icon = "💳"; Desc = "Calculate how long it takes to pay off credit card debt based on interest rate and monthly payments."; CategoryId = "sec-finance" },
+
+  # Health Additions (4)
+  @{ Slug = "ideal-weight-calculator"; Title = "Ideal Weight Calculator"; Icon = "⚖️"; Desc = "Find your ideal body weight range based on scientific clinical formulas including Devine and Robinson."; CategoryId = "sec-health" },
+  @{ Slug = "body-fat-calculator"; Title = "Body Fat Calculator"; Icon = "📏"; Desc = "Estimate your body fat percentage using standard tape measure parameters designed by the US Navy."; CategoryId = "sec-health" },
+  @{ Slug = "pace-calculator"; Title = "Running Pace Calculator"; Icon = "🏃"; Desc = "Calculate your average running pace, duration, or distances for training runs and race splits."; CategoryId = "sec-health" },
+  @{ Slug = "calorie-burn-met-calculator"; Title = "Calorie Burn MET Calculator"; Icon = "🔥"; Desc = "Estimate daily exercise calories burned during workouts using standard clinical MET activity ratings."; CategoryId = "sec-health" },
+
+  # Math Additions (2)
+  @{ Slug = "fraction-calculator"; Title = "Fraction Calculator"; Icon = "➗"; Desc = "Add, subtract, multiply, and divide fractions easily. Displays simplified fractional answers."; CategoryId = "sec-general" },
+  @{ Slug = "standard-deviation-calculator"; Title = "Standard Deviation Calculator"; Icon = "📊"; Desc = "Calculate population and sample standard deviation, variance, and mean for any dataset."; CategoryId = "sec-general" },
+
+  # Fun Additions (2)
+  @{ Slug = "password-generator"; Title = "Secure Password Generator"; Icon = "🔑"; Desc = "Generate strong, randomized passwords instantly to secure your online credentials."; CategoryId = "sec-games" },
+  @{ Slug = "random-number-generator"; Title = "Random Number Generator"; Icon = "🎲"; Desc = "Generate truly random integers between custom range limits. Perfect for games and drawings."; CategoryId = "sec-games" }
 )
 
-# 1. Generate index.html Content
-$cardsHtml = ""
+# 1. Rebuild index.html (Type 1 Hub Page)
+
+# Construct category cards HTML
+$categoryCardsHtml = ""
 foreach ($cat in $categories) {
-  $catId = $cat.Id
-  $catTitle = $cat.Title
+  $id = $cat.Id
+  $slug = $cat.Slug
+  $title = $cat.Title
+  $desc = $cat.Desc
+  $icon = $cat.Icon
+  $count = $cat.Count
   
-  $cardsHtml += "`n    <!-- Category Section: $catTitle -->`n"
-  $cardsHtml += "    <section class='category-section' id='$catId'>`n"
-  $cardsHtml += "      <div class='category-header'>`n"
-  $cardsHtml += "        <span class='category-title'>$catTitle</span>`n"
-  $cardsHtml += "      </div>`n"
-  $cardsHtml += "      <div class='category-grid'>`n"
-
-  $catCalcs = $calculators | Where-Object { $_.CategoryId -eq $catId }
-  foreach ($calc in $catCalcs) {
-    $slug = $calc.Slug
-    $title = $calc.Title
-    $icon = $calc.Icon
-    $desc = $calc.Desc
-    
-    $cardsHtml += "        <a href='calculators/$slug.html' class='calc-card'>`n"
-    $cardsHtml += "          <div class='calc-card-header'>`n"
-    $cardsHtml += "            <h3 class='calc-card-title'>$title</h3>`n"
-    $cardsHtml += "            <span class='calc-card-icon'>$icon</span>`n"
-    $cardsHtml += "          </div>`n"
-    $cardsHtml += "          <p class='calc-card-desc'>$desc</p>`n"
-    $cardsHtml += "          <div class='calc-card-footer'>`n"
-    $cardsHtml += "            <span>Open Tool</span>`n"
-    $cardsHtml += "            <span>&rarr;</span>`n"
-    $cardsHtml += "          </div>`n"
-    $cardsHtml += "        </a>`n"
-  }
-
-  $cardsHtml += "      </div>`n"
-  $cardsHtml += "    </section>`n"
+  $categoryCardsHtml += @"
+        <a href="categories/$slug/" class="calc-card">
+          <div class="calc-card-header">
+            <h3 class="calc-card-title">$title</h3>
+            <span class="calc-card-icon">$icon</span>
+          </div>
+          <p class="calc-card-desc">$desc ($count tools)</p>
+          <div class="calc-card-footer">
+            <span>Explore Category</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+"@
 }
 
-# Read index.html and update it
-$indexHtml = Get-Content -Path .\index.html -Raw -Encoding utf8
-$pattern = "(?s)<!-- Category 1: Dates & Age -->.*?</main>"
-$replacement = "$cardsHtml`n  </main>"
-$newIndexHtml = [regex]::Replace($indexHtml, $pattern, $replacement)
-Set-Content -Path .\index.html -Value $newIndexHtml -Encoding utf8
-Write-Host "Updated index.html successfully!"
+# Construct JSON array of all calculators for the global client-side search
+$jsonList = @()
+foreach ($calc in $calculators) {
+  $cSlug = $calc.Slug
+  $cTitle = $calc.Title -replace "'", "\'"
+  $cIcon = $calc.Icon
+  $cDesc = $calc.Desc -replace "'", "\'"
+  
+  $jsonList += "      { slug: '$cSlug', title: '$cTitle', icon: '$cIcon', desc: '$cDesc' }"
+}
+$jsonArray = $jsonList -join ",`n"
 
-# 2. Generate sitemap.xml Content
+$indexOutput = @"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="robots" content="index, follow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CalcuPortal - Free Online Calculators for Daily Needs</title>
+  <meta name="description" content="Access free online calculators for finance, health, BMI, compound growth, age, date difference, scientific computations, and loan EMIs. Light, fast, and 100% accurate.">
+  <link rel="canonical" href="https://www.calcuportal.com/">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js"></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🧮</span>
+        <span>CalcuPortal</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="pages/about/" class="nav-link">About</a>
+        <a href="pages/contact/" class="nav-link">Contact</a>
+        <button class="theme-btn" title="Toggle Theme">
+          <span class="theme-btn-icon"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Banner -->
+    <section class="hero">
+      <h1>Accurate Online <span>Calculators</span> for Everyone</h1>
+      <p>Instant calculations for loan EMIs, body mass index, compound investment growth, age intervals, discounts, and scientific math. Clean, responsive, and 100% free.</p>
+      <div class="search-container">
+        <input type="text" id="search-input" class="search-input" placeholder="Search 65+ calculators (e.g. age, interest, loan)...">
+      </div>
+    </section>
+
+    <!-- Search Results Section (Initially Hidden) -->
+    <section class="category-section hidden" id="search-results-section">
+      <div class="category-header">
+        <span class="category-title">🔍 Search Results</span>
+      </div>
+      <div class="category-grid" id="search-results-grid">
+        <!-- Matching cards injected here -->
+      </div>
+    </section>
+
+    <!-- Category Directories Section (Type 1 Hub) -->
+    <section class="category-section" id="categories-directory-section">
+      <div class="category-header">
+        <span class="category-title">📂 Calculator Categories</span>
+      </div>
+      <div class="category-grid">
+$categoryCardsHtml
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer Disclaimer -->
+  <div class="disclaimer-banner">
+    <strong>Disclaimer:</strong> All calculations provided are for educational purposes only. Always consult a certified financial planner or medical doctor before making significant investment or physical health decisions.
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-info">
+        <a href="index.html" class="logo" style="display:inline-flex;">
+          <span class="logo-icon">🧮</span>
+          <span>CalcuPortal</span>
+        </a>
+        <p>Your ultimate directory for free online calculators. Get clean, correct calculations with comprehensive educational guides and schemas.</p>
+      </div>
+      <div class="footer-column">
+        <h3>Calculators</h3>
+        <ul>
+          <li><a href="calculators/loan-emi-calculator/">Loan EMI Calculator</a></li>
+          <li><a href="calculators/bmi-calculator/">BMI Calculator</a></li>
+          <li><a href="calculators/compound-interest-calculator/">Compound Interest</a></li>
+          <li><a href="calculators/scientific-calculator/">Scientific Calculator</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Pages</h3>
+        <ul>
+          <li><a href="pages/about/">About Us</a></li>
+          <li><a href="pages/contact/">Contact Us</a></li>
+          <li><a href="pages/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="pages/disclaimer/">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright-bar">
+      © <span id="year">2026</span> CalcuPortal. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // Set active year
+    document.getElementById('year').innerText = new Date().getFullYear();
+
+    // Embedded search index of all 69 calculators
+    const calculators = [
+$jsonArray
+    ];
+
+    const searchInput = document.getElementById('search-input');
+    const searchResultsSection = document.getElementById('search-results-section');
+    const searchResultsGrid = document.getElementById('search-results-grid');
+    const categoriesDirectorySection = document.getElementById('categories-directory-section');
+
+    searchInput.addEventListener('input', () => {
+      const q = searchInput.value.toLowerCase().trim();
+      
+      if (!q) {
+        searchResultsSection.classList.add('hidden');
+        categoriesDirectorySection.classList.remove('hidden');
+        return;
+      }
+
+      // Filter matching tools
+      const matches = calculators.filter(calc => 
+        calc.title.toLowerCase().includes(q) || 
+        calc.desc.toLowerCase().includes(q)
+      );
+
+      // Render cards
+      if (matches.length > 0) {
+        searchResultsGrid.innerHTML = matches.map(calc => `` `
+          <a href="calculators/`${calc.slug}/" class="calc-card">
+            <div class="calc-card-header">
+              <h3 class="calc-card-title">`${calc.title}</h3>
+              <span class="calc-card-icon">`${calc.icon}</span>
+            </div>
+            <p class="calc-card-desc">`${calc.desc}</p>
+            <div class="calc-card-footer">
+              <span>Open Tool</span>
+              <span>&rarr;</span>
+            </div>
+          </a>
+        `` `).join('');
+      } else {
+        searchResultsGrid.innerHTML = `` `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 2rem; color: var(--text-muted);">
+            No calculators found matching "`${q}". Try another term!
+          </div>
+        `` `;
+      }
+
+      searchResultsSection.classList.remove('hidden');
+      categoriesDirectorySection.classList.add('hidden');
+    });
+  </script>
+</body>
+</html>
+"@
+
+Set-Content -Path .\index.html -Value $indexOutput -Encoding utf8
+Write-Host "Success: Rebuilt index.html (Type 1 Hub Page)"
+
+# 2. Rebuild sitemap.xml
+
 $sitemapHtml = @"
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -134,19 +320,31 @@ $sitemapHtml = @"
   </url>
 "@
 
+foreach ($cat in $categories) {
+  $slug = $cat.Slug
+  $sitemapHtml += @"
+
+  <url>
+    <loc>https://www.calcuportal.com/categories/$slug/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+"@
+}
+
 foreach ($calc in $calculators) {
   $slug = $calc.Slug
   $sitemapHtml += @"
 
   <url>
-    <loc>https://www.calcuportal.com/calculators/$slug.html</loc>
+    <loc>https://www.calcuportal.com/calculators/$slug/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 "@
 }
 
-$pages = @("about.html", "contact.html", "privacy-policy.html", "terms-conditions.html", "disclaimer.html", "advertise.html")
+$pages = @("about/", "contact/", "privacy-policy/", "terms-conditions/", "disclaimer/", "advertise/")
 foreach ($page in $pages) {
   $sitemapHtml += @"
 
@@ -164,4 +362,6 @@ $sitemapHtml += @"
 "@
 
 Set-Content -Path .\sitemap.xml -Value $sitemapHtml -Encoding utf8
-Write-Host "Updated sitemap.xml successfully!"
+Write-Host "Success: Rebuilt sitemap.xml"
+
+

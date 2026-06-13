@@ -2565,8 +2565,1842 @@ $calculators = @(
 "@
     Seo = "<h2>Time Add and Subtract Math</h2><p>This utility enables you to easily add or subtract a duration (hours and minutes) to or from a starting time, which is helpful for timesheets, scheduling, and shifts.</p>"
     Faq = "[{`"question`":`"What format is supported?`",`"answer`":`"The calculator supports 24-hour time format (HH:MM) like 13:45 or 08:00.`"}]"
+  },
+  # 46. Mortgage Calculator
+  @{
+    Slug = "mortgage-calculator"
+    Title = "Mortgage Calculator"
+    MetaTitle = "Mortgage Calculator - Estimate Monthly Payments"
+    MetaDesc = "Calculate monthly mortgage payments factoring in home price, down payment, interest rate, property taxes, and insurance."
+    Category = "Finance & Business"
+    Icon = "🏠"
+    Html = @"
+        <div class="form-row">
+          <div class="form-group">
+            <label for="mort-price">Home Price ($)</label>
+            <input type="number" id="mort-price" value="300000" class="input-field" />
+          </div>
+          <div class="form-group">
+            <label for="mort-down">Down Payment ($)</label>
+            <input type="number" id="mort-down" value="60000" class="input-field" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="mort-rate">Interest Rate (%)</label>
+            <input type="number" id="mort-rate" value="6.5" class="input-field" step="any" />
+          </div>
+          <div class="form-group">
+            <label for="mort-years">Loan Term (Years)</label>
+            <input type="number" id="mort-years" value="30" class="input-field" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="mort-tax">Property Tax / Year ($)</label>
+            <input type="number" id="mort-tax" value="3000" class="input-field" />
+          </div>
+          <div class="form-group">
+            <label for="mort-ins">Home Insurance / Year ($)</label>
+            <input type="number" id="mort-ins" value="1200" class="input-field" />
+          </div>
+        </div>
+        <button id="calc-btn" class="calc-btn">Calculate Mortgage</button>
+        <div id="result-section" class="result-section hidden">
+          <div class="metric-grid">
+            <div class="metric-card">
+              <span class="metric-title">Monthly P&amp;I Payment</span>
+              <span class="metric-value" id="mort-pi-val">$1,516.89</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-title">Total Monthly Payment</span>
+              <span class="metric-value" id="mort-total-val" style="color:var(--accent);">$1,866.89</span>
+            </div>
+          </div>
+        </div>
+"@
+    Js = @"
+      document.getElementById('calculate-btn').addEventListener('click', () => {
+        const price = parseFloat(document.getElementById('mort-price').value) || 0;
+        const down = parseFloat(document.getElementById('mort-down').value) || 0;
+        const rate = parseFloat(document.getElementById('mort-rate').value) || 0;
+        const years = parseInt(document.getElementById('mort-years').value) || 30;
+        const tax = parseFloat(document.getElementById('mort-tax').value) || 0;
+        const ins = parseFloat(document.getElementById('mort-ins').value) || 0;
+        
+        const principal = price - down;
+        if (principal <= 0 || rate <= 0 || years <= 0) {
+          alert('Please enter valid numeric values.');
+          return;
+        }
+        
+        const monthlyRate = (rate / 100) / 12;
+        const totalMonths = years * 12;
+        const piPayment = principal * (monthlyRate * Math.pow(1 + monthlyRate, totalMonths)) / (Math.pow(1 + monthlyRate, totalMonths) - 1);
+        
+        const monthlyTax = tax / 12;
+        const monthlyIns = ins / 12;
+        const totalPayment = piPayment + monthlyTax + monthlyIns;
+        
+        document.getElementById('mort-pi-val').innerText = '$' + piPayment.toFixed(2);
+        document.getElementById('mort-total-val').innerText = '$' + totalPayment.toFixed(2);
+        document.getElementById('result-section').classList.remove('hidden');
+      });
+"@
+    Seo = "<h2>Understand Mortgage Payments</h2><p>Calculate your estimated monthly payment, including principal, interest, taxes, and home insurance (PITI) for purchasing a home.</p>"
+    Faq = "[{`"question`":`"What is PMI?`",`"answer`":`"Private Mortgage Insurance is usually required if you put down less than 20% of the home purchase price.`"}]"
+  },
+  # 47. Auto Loan Calculator
+  @{
+    Slug = "auto-loan-calculator"
+    Title = "Auto Loan Calculator"
+    MetaTitle = "Auto Loan Calculator - Compare Car Payments"
+    MetaDesc = "Estimate your monthly car payments using vehicle price, down payment, trade-in value, and interest rate."
+    Category = "Finance & Business"
+    Icon = "🚗"
+    Html = @"
+        <div class="form-row">
+          <div class="form-group">
+            <label for="auto-price">Vehicle Price ($)</label>
+            <input type="number" id="auto-price" value="25000" class="input-field" />
+          </div>
+          <div class="form-group">
+            <label for="auto-down">Down Payment ($)</label>
+            <input type="number" id="auto-down" value="5000" class="input-field" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="auto-trade">Trade-in Value ($)</label>
+            <input type="number" id="auto-trade" value="2000" class="input-field" />
+          </div>
+          <div class="form-group">
+            <label for="auto-rate">Interest Rate (%)</label>
+            <input type="number" id="auto-rate" value="5.5" class="input-field" step="any" />
+          </div>
+          <div class="form-group">
+            <label for="auto-months">Loan Term (Months)</label>
+            <input type="number" id="auto-months" value="60" class="input-field" />
+          </div>
+        </div>
+        <button id="calc-btn" class="calc-btn">Calculate Car Payment</button>
+        <div id="result-section" class="result-section hidden" style="text-align:center;">
+          <div class="summary-title">Monthly Payment</div>
+          <div class="total-balance" id="auto-monthly-val" style="color:var(--accent);">$343.83</div>
+        </div>
+"@
+    Js = @"
+      document.getElementById('calculate-btn').addEventListener('click', () => {
+        const price = parseFloat(document.getElementById('auto-price').value) || 0;
+        const down = parseFloat(document.getElementById('auto-down').value) || 0;
+        const trade = parseFloat(document.getElementById('auto-trade').value) || 0;
+        const rate = parseFloat(document.getElementById('auto-rate').value) || 0;
+        const months = parseInt(document.getElementById('auto-months').value) || 60;
+        
+        const principal = price - down - trade;
+        if (principal <= 0 || rate <= 0 || months <= 0) {
+          alert('Please enter valid numeric values.');
+          return;
+        }
+        
+        const monthlyRate = (rate / 100) / 12;
+        const payment = principal * (monthlyRate * Math.pow(1 + monthlyRate, months)) / (Math.pow(1 + monthlyRate, months) - 1);
+        
+        document.getElementById('auto-monthly-val').innerText = '$' + payment.toFixed(2);
+        document.getElementById('result-section').classList.remove('hidden');
+      });
+"@
+    Seo = "<h2>Calculate Auto Financing Costs</h2><p>Planning to purchase a new or used vehicle? Calculate your monthly payment based on the loan term, trade-in equity, and down payment.</p>"
+    Faq = "[{`"question`":`"How does term length affect my loan?`",`"answer`":`"A longer term length decreases your monthly payment but increases the total interest you pay over the life of the loan.`"}]"
+  },
+  # 48. Investment Calculator
+  @{
+    Slug = "investment-calculator"
+    Title = "Investment Calculator"
+    MetaTitle = "Investment Calculator - Project Growth Online"
+    MetaDesc = "Project the future value of your investments with regular monthly contributions and compound interest."
+    Category = "Finance & Business"
+    Icon = "📈"
+    Html = @"
+        <div class="form-row">
+          <div class="form-group">
+            <label for="inv-init">Starting Amount ($)</label>
+            <input type="number" id="inv-init" value="10000" class="input-field" />
+          </div>
+          <div class="form-group">
+            <label for="inv-contrib">Monthly Contribution ($)</label>
+            <input type="number" id="inv-contrib" value="200" class="input-field" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="inv-rate">Expected Return / Year (%)</label>
+            <input type="number" id="inv-rate" value="8.0" class="input-field" step="any" />
+          </div>
+          <div class="form-group">
+            <label for="inv-years">Years to Invest</label>
+            <input type="number" id="inv-years" value="10" class="input-field" />
+          </div>
+        </div>
+        <button id="calc-btn" class="calc-btn">Calculate Growth</button>
+        <div id="result-section" class="result-section hidden">
+          <div class="metric-grid">
+            <div class="metric-card">
+              <span class="metric-title">Total Balance</span>
+              <span class="metric-value" id="inv-balance-val" style="color:var(--accent);">$58,260</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-title">Total Contributions</span>
+              <span class="metric-value" id="inv-contrib-val">$34,000</span>
+            </div>
+          </div>
+        </div>
+"@
+    Js = @"
+      document.getElementById('calculate-btn').addEventListener('click', () => {
+        const init = parseFloat(document.getElementById('inv-init').value) || 0;
+        const contrib = parseFloat(document.getElementById('inv-contrib').value) || 0;
+        const rate = parseFloat(document.getElementById('inv-rate').value) || 0;
+        const years = parseInt(document.getElementById('inv-years').value) || 0;
+        
+        if (years <= 0) {
+          alert('Please enter valid numeric values.');
+          return;
+        }
+        
+        let balance = init;
+        const monthlyRate = (rate / 100) / 12;
+        const totalMonths = years * 12;
+        
+        for (let i = 0; i < totalMonths; i++) {
+          balance = (balance * (1 + monthlyRate)) + contrib;
+        }
+        
+        const totalContrib = init + (contrib * totalMonths);
+        
+        document.getElementById('inv-balance-val').innerText = '$' + Math.round(balance).toLocaleString();
+        document.getElementById('inv-contrib-val').innerText = '$' + Math.round(totalContrib).toLocaleString();
+        document.getElementById('result-section').classList.remove('hidden');
+      });
+"@
+    Seo = "<h2>Track Long-term Wealth Growth</h2><p>Enter your principal amount, expected annual growth, and regular monthly savings to project portfolio growth over a decade or more.</p>"
+    Faq = "[{`"question`":`"What is compound interest?`",`"answer`":`"Compound interest is interest calculated on the initial principal, which also includes all of the accumulated interest from previous periods.`"}]"
+  },
+  # 49. Inflation Calculator
+  @{
+    Slug = "inflation-calculator"
+    Title = "Inflation Calculator"
+    MetaTitle = "Inflation Calculator - Buying Power Estimator"
+    MetaDesc = "Determine the future buying power of money and adjust value calculations for inflation rates."
+    Category = "Finance & Business"
+    Icon = "💵"
+    Html = @"
+        <div class="form-row">
+          <div class="form-group">
+            <label for="inf-amount">Value of Money ($)</label>
+            <input type="number" id="inf-amount" value="100" class="input-field" />
+          </div>
+          <div class="form-group">
+            <label for="inf-rate">Expected Annual Inflation (%)</label>
+            <input type="number" id="inf-rate" value="3.0" class="input-field" step="any" />
+          </div>
+          <div class="form-group">
+            <label for="inf-years">Years in Future</label>
+            <input type="number" id="inf-years" value="10" class="input-field" />
+          </div>
+        </div>
+        <button id="calc-btn" class="calc-btn">Calculate Buying Power</button>
+        <div id="result-section" class="result-section hidden" style="text-align:center;">
+          <div class="summary-title">Future Value Required</div>
+          <div class="total-balance" id="inf-result" style="color:var(--accent);">$134.39</div>
+        </div>
+"@
+    Js = @"
+      document.getElementById('calculate-btn').addEventListener('click', () => {
+        const amt = parseFloat(document.getElementById('inf-amount').value) || 0;
+        const rate = parseFloat(document.getElementById('inf-rate').value) || 0;
+        const years = parseInt(document.getElementById('inf-years').value) || 0;
+        
+        if (years < 0) {
+          alert('Please enter valid numeric values.');
+          return;
+        }
+        
+        const future = amt * Math.pow(1 + (rate / 100), years);
+        document.getElementById('inf-result').innerText = '$' + future.toFixed(2);
+        document.getElementById('result-section').classList.remove('hidden');
+      });
+"@
+    Seo = "<h2>Understand Price Inflation Impact</h2><p>Calculate how annual price adjustments diminish currency purchasing capabilities or require higher monetary figures to represent equal values.</p>"
+    Faq = "[{`"question`":`"What is CPI?`",`"answer`":`"Consumer Price Index measures the average change over time in the prices paid by urban consumers for a market basket of consumer goods and services.`"}]"
+  },
+  # 50. Income Tax Calculator
+  @{
+    Slug = "income-tax-calculator"
+    Title = "Income Tax Calculator"
+    MetaTitle = "Income Tax Calculator - Federal Net Pay"
+    MetaDesc = "Estimate your federal income tax brackets, standard deductions, and net take-home pay."
+    Category = "Finance & Business"
+    Icon = "💼"
+    Html = @"
+        <div class="form-row">
+          <div class="form-group">
+            <label for="tax-income">Annual Pre-tax Income ($)</label>
+            <input type="number" id="tax-income" value="75000" class="input-field" />
+          </div>
+          <div class="form-group">
+            <label for="tax-status">Filing Status</label>
+            <select id="tax-status" class="select-field">
+              <option value="single">Single</option>
+              <option value="married">Married Filing Jointly</option>
+            </select>
+          </div>
+        </div>
+        <button id="calc-btn" class="calc-btn">Calculate Net Pay</button>
+        <div id="result-section" class="result-section hidden">
+          <div class="metric-grid">
+            <div class="metric-card">
+              <span class="metric-title">Estimated Federal Tax</span>
+              <span class="metric-value" id="tax-fed-val">$8,900</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-title">Net Take-Home Pay</span>
+              <span class="metric-value" id="tax-net-val" style="color:var(--accent);">$66,100</span>
+            </div>
+          </div>
+        </div>
+"@
+    Js = @"
+      document.getElementById('calculate-btn').addEventListener('click', () => {
+        const income = parseFloat(document.getElementById('tax-income').value) || 0;
+        const status = document.getElementById('tax-status').value;
+        
+        if (income <= 0) {
+          alert('Please enter a valid income.');
+          return;
+        }
+        
+        let stdDeduction = status === 'single' ? 15000 : 30000;
+        let taxable = Math.max(0, income - stdDeduction);
+        let tax = 0;
+        
+        if (status === 'single') {
+          if (taxable > 100000) tax = 15000 + (taxable - 100000) * 0.24;
+          else if (taxable > 45000) tax = 5000 + (taxable - 45000) * 0.22;
+          else if (taxable > 11000) tax = 1100 + (taxable - 1100) * 0.12;
+          else tax = taxable * 0.10;
+        } else {
+          if (taxable > 200000) tax = 30000 + (taxable - 200000) * 0.24;
+          else if (taxable > 90000) tax = 10000 + (taxable - 90000) * 0.22;
+          else if (taxable > 22000) tax = 2200 + (taxable - 2200) * 0.12;
+          else tax = taxable * 0.10;
+        }
+        
+        const net = income - tax;
+        
+        document.getElementById('tax-fed-val').innerText = '$' + Math.round(tax).toLocaleString();
+        document.getElementById('tax-net-val').innerText = '$' + Math.round(net).toLocaleString();
+        document.getElementById('result-section').classList.remove('hidden');
+      });
+"@
+    Seo = "<h2>Calculate Net Income</h2><p>Understand how tax brackets and federal standard deductions impact your annual take-home wage projections.</p>"
+    Faq = "[{`"question`":`"What is taxable income?`",`"answer`":`"Taxable income is your gross income minus any allowable standard or itemized deductions.`"}]"
+  },
+  # 51. Sales Tax Calculator
+  @{
+    Slug = "sales-tax-calculator"
+    Title = "Sales Tax Calculator"
+    MetaTitle = "Sales Tax Calculator - Calculate Retail Taxes"
+    MetaDesc = "Find the total retail cost and sales tax amount for any purchase by entering product net price and tax rates."
+    Category = "Finance & Business"
+    Icon = "🏷️"
+    Html = @"
+        <div class="form-row">
+          <div class="form-group">
+            <label for="sales-amount">Net Price ($)</label>
+            <input type="number" id="sales-amount" value="100" class="input-field" />
+          </div>
+          <div class="form-group">
+            <label for="sales-rate">Sales Tax Rate (%)</label>
+            <input type="number" id="sales-rate" value="8.25" class="input-field" step="any" />
+          </div>
+        </div>
+        <button id="calc-btn" class="calc-btn">Calculate Tax</button>
+        <div id="result-section" class="result-section hidden">
+          <div class="metric-grid">
+            <div class="metric-card">
+              <span class="metric-title">Sales Tax Amount</span>
+              <span class="metric-value" id="sales-tax-val">$8.25</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-title">Total Price</span>
+              <span class="metric-value" id="sales-total-val" style="color:var(--accent);">$108.25</span>
+            </div>
+          </div>
+        </div>
+"@
+    Js = @"
+      document.getElementById('calculate-btn').addEventListener('click', () => {
+        const amt = parseFloat(document.getElementById('sales-amount').value) || 0;
+        const rate = parseFloat(document.getElementById('sales-rate').value) || 0;
+        
+        if (amt < 0 || rate < 0) {
+          alert('Please enter valid inputs.');
+          return;
+        }
+        
+        const tax = amt * (rate / 100);
+        const total = amt + tax;
+        
+        document.getElementById('sales-tax-val').innerText = '$' + tax.toFixed(2);
+        document.getElementById('sales-total-val').innerText = '$' + total.toFixed(2);
+        document.getElementById('result-section').classList.remove('hidden');
+      });
+"@
+    Seo = "<h2>Calculate Purchasing Margins</h2><p>Calculate local sales tax values instantly to verify receipt pricing at store registers.</p>"
+    Faq = "[{`"question`":`"Who sets sales tax rates?`",`"answer`":`"Sales tax rates are governed and set by individual state, county, and municipal authorities.`"}]"
+  },
+  # 52. Credit Card Payoff Calculator
+  @{
+    Slug = "credit-card-payoff"
+    Title = "Credit Card Payoff Calculator"
+    MetaTitle = "Credit Card Payoff Calculator - Debt Timeline"
+    MetaDesc = "Calculate how long it takes to pay off credit card debt based on interest rate and monthly payments."
+    Category = "Finance & Business"
+    Icon = "💳"
+    Html = @"
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cc-balance">Card Balance ($)</label>
+            <input type="number" id="cc-balance" value="5000" class="input-field" />
+          </div>
+          <div class="form-group">
+            <label for="cc-rate">Interest Rate (APR %)</label>
+            <input type="number" id="cc-rate" value="18.9" class="input-field" step="any" />
+          </div>
+          <div class="form-group">
+            <label for="cc-payment">Monthly Payment ($)</label>
+            <input type="number" id="cc-payment" value="200" class="input-field" />
+          </div>
+        </div>
+        <button id="calc-btn" class="calc-btn">Calculate Payoff Time</button>
+        <div id="result-section" class="result-section hidden">
+          <div class="metric-grid">
+            <div class="metric-card">
+              <span class="metric-title">Payoff Time</span>
+              <span class="metric-value" id="cc-months-val" style="color:var(--accent);">32 Months</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-title">Total Interest Paid</span>
+              <span class="metric-value" id="cc-interest-val">$1,385</span>
+            </div>
+          </div>
+        </div>
+"@
+    Js = @"
+      document.getElementById('calculate-btn').addEventListener('click', () => {
+        const balance = parseFloat(document.getElementById('cc-balance').value) || 0;
+        const apr = parseFloat(document.getElementById('cc-rate').value) || 0;
+        const pmt = parseFloat(document.getElementById('cc-payment').value) || 0;
+        
+        if (balance <= 0 || apr < 0 || pmt <= 0) {
+          alert('Please enter valid inputs.');
+          return;
+        }
+        
+        const r = (apr / 100) / 12;
+        if (pmt <= balance * r) {
+          alert('Your monthly payment must be higher than the monthly interest accrued.');
+          return;
+        }
+        
+        const num = Math.log(1 - (balance * r) / pmt);
+        const den = Math.log(1 + r);
+        const months = -num / den;
+        
+        const roundedMonths = Math.ceil(months);
+        const totalPaid = pmt * months;
+        const totalInterest = totalPaid - balance;
+        
+        document.getElementById('cc-months-val').innerText = roundedMonths + ' Months';
+        document.getElementById('cc-interest-val').innerText = '$' + Math.max(0, Math.round(totalInterest)).toLocaleString();
+        document.getElementById('result-section').classList.remove('hidden');
+      });
+"@
+    Seo = "<h2>Track Card Repayment Milestones</h2><p>Determine how paying above minimum due helps clear card debts faster and saves interest payments.</p>"
+    Faq = "[{`"question`":`"What is APR?`",`"answer`":`"Annual Percentage Rate is the interest rate applied to outstanding balances expressed as a yearly percentage.`"}]"
+  },
+  # 53. Ideal Weight Calculator
+  @{
+    Slug = "ideal-weight-calculator"
+    Title = "Ideal Weight Calculator"
+    MetaTitle = "Ideal Weight Calculator - Healthy Target Weight"
+    MetaDesc = "Find your ideal body weight range based on scientific clinical formulas including Devine and Robinson."
+    Category = "Fitness & Health"
+    Icon = "⚖️"
+    Html = @"
+        <div class="form-row">
+          <div class="form-group">
+            <label for="iw-height">Height (cm)</label>
+            <input type="number" id="iw-height" value="175" class="input-field" />
+          </div>
+          <div class="form-group">
+            <label for="iw-gender">Gender</label>
+            <select id="iw-gender" class="select-field">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+        </div>
+        <button id="calc-btn" class="calc-btn">Calculate Ideal Weight</button>
+        <div id="result-section" class="result-section hidden" style="text-align:center;">
+          <div class="summary-title">Estimated Ideal Weight (Devine Formula)</div>
+          <div class="total-balance" id="iw-result-val" style="color:var(--accent);">70.3 kg</div>
+        </div>
+"@
+    Js = @"
+      document.getElementById('calculate-btn').addEventListener('click', () => {
+        const heightCm = parseFloat(document.getElementById('iw-height').value) || 0;
+        const gender = document.getElementById('iw-gender').value;
+        
+        if (heightCm <= 0) {
+          alert('Please enter a valid height.');
+          return;
+        }
+        
+        const inches = heightCm / 2.54;
+        const over5Feet = Math.max(0, inches - 60);
+        
+        let idealWeight = 0;
+        if (gender === 'male') {
+          idealWeight = 50.0 + (2.3 * over5Feet);
+        } else {
+          idealWeight = 45.5 + (2.3 * over5Feet);
+        }
+        
+        document.getElementById('iw-result-val').innerText = idealWeight.toFixed(1) + ' kg (or ' + (idealWeight * 2.20462).toFixed(1) + ' lbs)';
+        document.getElementById('result-section').classList.remove('hidden');
+      });
+"@
+    Seo = "<h2>Understand Healthy Weight Ranges</h2><p>Ideal weight estimations are designed for medical reference, adjusting values according to height benchmarks.</p>"
+    Faq = "[{`"question`":`"How is ideal weight defined?`",`"answer`":`"It is estimated based on statistical medical standards mapping height and gender ratios.`"}]"
+  },
+  # 54. Body Fat Calculator
+  @{
+    Slug = "body-fat-calculator"
+    Title = "Body Fat Calculator"
+    MetaTitle = "Body Fat Calculator - US Navy Method"
+    MetaDesc = "Estimate your body fat percentage using standard tape measure parameters designed by the US Navy."
+    Category = "Fitness & Health"
+    Icon = "📏"
+    Html = @"
+        <div class="form-row">
+          <div class="form-group">
+            <label for="bf-gender">Gender</label>
+            <select id="bf-gender" class="select-field">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="bf-height">Height (cm)</label>
+            <input type="number" id="bf-height" value="175" class="input-field" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="bf-neck">Neck Girth (cm)</label>
+            <input type="number" id="bf-neck" value="38" class="input-field" />
+          </div>
+          <div class="form-group">
+            <label for="bf-waist">Waist Girth (cm)</label>
+            <input type="number" id="bf-waist" value="85" class="input-field" />
+          </div>
+          <div id="hip-group" class="form-group hidden">
+            <label for="bf-hip">Hip Girth (cm)</label>
+            <input type="number" id="bf-hip" value="95" class="input-field" />
+          </div>
+        </div>
+        <button id="calc-btn" class="calc-btn">Calculate Body Fat</button>
+        <div id="result-section" class="result-section hidden" style="text-align:center;">
+          <div class="summary-title">Body Fat Percentage</div>
+          <div class="total-balance" id="bf-result" style="color:var(--accent);">18.5%</div>
+        </div>
+"@
+    Js = @"
+      const genderSelect = document.getElementById('bf-gender');
+      genderSelect.addEventListener('change', () => {
+        if (genderSelect.value === 'female') {
+          document.getElementById('hip-group').classList.remove('hidden');
+        } else {
+          document.getElementById('hip-group').classList.add('hidden');
+        }
+      });
+      
+      document.getElementById('calculate-btn').addEventListener('click', () => {
+        const gender = genderSelect.value;
+        const height = parseFloat(document.getElementById('bf-height').value) || 0;
+        const neck = parseFloat(document.getElementById('bf-neck').value) || 0;
+        const waist = parseFloat(document.getElementById('bf-waist').value) || 0;
+        const hip = parseFloat(document.getElementById('bf-hip').value) || 0;
+        
+        if (height <= 0 || neck <= 0 || waist <= 0 || (gender === 'female' && hip <= 0)) {
+          alert('Please enter valid positive measurements.');
+          return;
+        }
+        
+        let bodyFat = 0;
+        if (gender === 'male') {
+          bodyFat = 495 / (1.0324 - 0.19077 * Math.log10(waist - neck) + 0.15456 * Math.log10(height)) - 450;
+        } else {
+          bodyFat = 495 / (1.29579 - 0.35004 * Math.log10(waist + hip - neck) + 0.22100 * Math.log10(height)) - 450;
+        }
+        
+        document.getElementById('bf-result').innerText = Math.max(0, bodyFat).toFixed(1) + '%';
+        document.getElementById('result-section').classList.remove('hidden');
+      });
+"@
+    Seo = "<h2>Track Body Composition</h2><p>Calculate body fat ratios to assess fitness transformations beyond basic weight scale monitoring.</p>"
+    Faq = "[{`"question`":`"How accurate is the Navy Method?`",`"answer`":`"It yields estimations within 2-4% of DEXA body scan diagnostics for most individuals.`"}]"
+  },
+  # 55. Pace Calculator
+  @{
+    Slug = "pace-calculator"
+    Title = "Running Pace Calculator"
+    MetaTitle = "Running Pace Calculator - Plan Race Speeds"
+    MetaDesc = "Calculate your average running pace, duration, or distances for training runs and race splits."
+    Category = "Fitness & Health"
+    Icon = "🏃"
+    Html = @"
+        <div class="form-row">
+          <div class="form-group">
+            <label for="pace-dist">Distance</label>
+            <input type="number" id="pace-dist" value="5" class="input-field" step="any" />
+          </div>
+          <div class="form-group">
+            <label for="pace-unit">Unit</label>
+            <select id="pace-unit" class="select-field">
+              <option value="km">Kilometers</option>
+              <option value="mi">Miles</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Time (Hours)</label>
+            <input type="number" id="pace-hr" value="0" class="input-field" />
+          </div>
+          <div class="form-group">
+            <label>Minutes</label>
+            <input type="number" id="pace-min" value="25" class="input-field" />
+          </div>
+          <div class="form-group">
+            <label>Seconds</label>
+            <input type="number" id="pace-sec" value="0" class="input-field" />
+          </div>
+        </div>
+        <button id="calc-btn" class="calc-btn">Calculate Pace</button>
+        <div id="result-section" class="result-section hidden" style="text-align:center;">
+          <div class="summary-title">Average Running Pace</div>
+          <div class="total-balance" id="pace-result-val" style="color:var(--accent);">5:00 min/km</div>
+        </div>
+"@
+    Js = @"
+      document.getElementById('calculate-btn').addEventListener('click', () => {
+        const dist = parseFloat(document.getElementById('pace-dist').value) || 0;
+        const unit = document.getElementById('pace-unit').value;
+        const hr = parseInt(document.getElementById('pace-hr').value) || 0;
+        const min = parseInt(document.getElementById('pace-min').value) || 0;
+        const sec = parseInt(document.getElementById('pace-sec').value) || 0;
+        
+        if (dist <= 0) {
+          alert('Please enter a valid distance.');
+          return;
+        }
+        
+        const totalSec = (hr * 3600) + (min * 60) + sec;
+        if (totalSec <= 0) {
+          alert('Please enter a valid duration.');
+          return;
+        }
+        
+        const secPerUnit = totalSec / dist;
+        const paceMin = Math.floor(secPerUnit / 60);
+        const paceSec = Math.round(secPerUnit % 60);
+        
+        const pad = (n) => n.toString().padStart(2, '0');
+        document.getElementById('pace-result-val').innerText = paceMin + ':' + pad(paceSec) + ' min/' + (unit === 'km' ? 'km' : 'mile');
+        document.getElementById('result-section').classList.remove('hidden');
+      });
+"@
+    Seo = "<h2>Plan Race Day Timing Splits</h2><p>Ideal tool for runners, cyclists, and fitness enthusiasts to calculate training paces.</p>"
+    Faq = "[{`"question`":`"What is a good 5k pace?`",`"answer`":`"A pace of 6:00 min/km (30 minutes total time) is considered a good benchmark for casual runners.`"}]"
+  },
+  # 56. Fraction Calculator
+  @{
+    Slug = "fraction-calculator"
+    Title = "Fraction Calculator"
+    MetaTitle = "Fraction Calculator - Solve Fractions Online"
+    MetaDesc = "Add, subtract, multiply, and divide fractions easily. Displays simplified fractional answers."
+    Category = "Scientific & Math"
+    Icon = "➗"
+    Html = @"
+        <div class="form-row">
+          <div class="form-group" style="text-align:center;">
+            <input type="number" id="frac-num1" value="1" class="input-field" style="text-align:center;" />
+            <hr style="margin:0.25rem 0;" />
+            <input type="number" id="frac-den1" value="2" class="input-field" style="text-align:center;" />
+          </div>
+          <div class="form-group" style="align-self:center; max-width:4rem;">
+            <select id="frac-op" class="select-field" style="font-size:1.5rem; text-align:center;">
+              <option value="add">+</option>
+              <option value="sub">-</option>
+              <option value="mul">*</option>
+              <option value="div">/</option>
+            </select>
+          </div>
+          <div class="form-group" style="text-align:center;">
+            <input type="number" id="frac-num2" value="1" class="input-field" style="text-align:center;" />
+            <hr style="margin:0.25rem 0;" />
+            <input type="number" id="frac-den2" value="3" class="input-field" style="text-align:center;" />
+          </div>
+        </div>
+        <button id="calc-btn" class="calc-btn">Calculate Fraction</button>
+        <div id="result-section" class="result-section hidden" style="text-align:center;">
+          <div class="summary-title">Fraction Result</div>
+          <div class="total-balance" id="frac-result-val" style="color:var(--accent);">5 / 6</div>
+        </div>
+"@
+    Js = @"
+      document.getElementById('calculate-btn').addEventListener('click', () => {
+        const n1 = parseInt(document.getElementById('frac-num1').value);
+        const d1 = parseInt(document.getElementById('frac-den1').value);
+        const n2 = parseInt(document.getElementById('frac-num2').value);
+        const d2 = parseInt(document.getElementById('frac-den2').value);
+        const op = document.getElementById('frac-op').value;
+        
+        if (isNaN(n1) || isNaN(d1) || isNaN(n2) || isNaN(d2) || d1 === 0 || d2 === 0) {
+          alert('Denominators cannot be zero and all values must be integers.');
+          return;
+        }
+        
+        let rn = 0;
+        let rd = 1;
+        
+        if (op === 'add') {
+          rn = (n1 * d2) + (n2 * d1);
+          rd = d1 * d2;
+        } else if (op === 'sub') {
+          rn = (n1 * d2) - (n2 * d1);
+          rd = d1 * d2;
+        } else if (op === 'mul') {
+          rn = n1 * n2;
+          rd = d1 * d2;
+        } else {
+          rn = n1 * d2;
+          rd = d1 * n2;
+        }
+        
+        if (rd === 0) {
+          alert('Invalid division by zero fraction.');
+          return;
+        }
+        
+        function gcd(a, b) {
+          return b ? gcd(b, a % b) : a;
+        }
+        const divisor = Math.abs(gcd(rn, rd));
+        rn /= divisor;
+        rd /= divisor;
+        
+        if (rd < 0) {
+          rn = -rn;
+          rd = -rd;
+        }
+        
+        document.getElementById('frac-result-val').innerText = rn + (rd === 1 ? '' : ' / ' + rd) + ' (or ' + (rn / rd).toFixed(4) + ')';
+        document.getElementById('result-section').classList.remove('hidden');
+      });
+"@
+    Seo = "<h2>Perform Fraction Operations</h2><p>This fraction solver handles math formulas containing fractional bounds, simplifying answers dynamically.</p>"
+    Faq = "[{`"question`":`"How do you simplify fractions?`",`"answer`":`"Divide the numerator and denominator by their Greatest Common Divisor (GCD).`"}]"
+  },
+  # 57. Standard Deviation Calculator
+  @{
+    Slug = "standard-deviation-calculator"
+    Title = "Standard Deviation Calculator"
+    MetaTitle = "Standard Deviation Calculator - Find Variance"
+    MetaDesc = "Calculate population and sample standard deviation, variance, and mean for any dataset."
+    Category = "Scientific & Math"
+    Icon = "📊"
+    Html = @"
+        <div class="form-group">
+          <label for="sd-data">Dataset (comma-separated values)</label>
+          <input type="text" id="sd-data" value="10, 12, 23, 24, 30" class="input-field" />
+        </div>
+        <button id="calc-btn" class="calc-btn">Calculate Variance &amp; SD</button>
+        <div id="result-section" class="result-section hidden">
+          <div class="metric-grid">
+            <div class="metric-card">
+              <span class="metric-title">Sample SD (s)</span>
+              <span class="metric-value" id="sd-sample-val">8.34</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-title">Population SD (&sigma;)</span>
+              <span class="metric-value" id="sd-pop-val" style="color:var(--accent);">7.46</span>
+          </div>
+        </div>
+      </div>
+"@
+    Js = @"
+      document.getElementById('calculate-btn').addEventListener('click', () => {
+        const txt = document.getElementById('sd-data').value;
+        const arr = txt.split(',').map(n => parseFloat(n.trim())).filter(n => !isNaN(n));
+        
+        if (arr.length < 2) {
+          alert('Please enter at least 2 numbers.');
+          return;
+        }
+        
+        const n = arr.length;
+        const mean = arr.reduce((a, b) => a + b, 0) / n;
+        const sqDiffs = arr.map(val => Math.pow(val - mean, 2));
+        const sumSqDiffs = sqDiffs.reduce((a, b) => a + b, 0);
+        
+        const sampleVar = sumSqDiffs / (n - 1);
+        const popVar = sumSqDiffs / n;
+        
+        const sampleSD = Math.sqrt(sampleVar);
+        const popSD = Math.sqrt(popVar);
+        
+        document.getElementById('sd-sample-val').innerText = sampleSD.toFixed(4).replace(/\.?0+$/, '');
+        document.getElementById('sd-pop-val').innerText = popSD.toFixed(4).replace(/\.?0+$/, '');
+        document.getElementById('result-section').classList.remove('hidden');
+      });
+"@
+    Seo = "<h2>Understand Statistical Deviations</h2><p>Standard deviation measures the spread or dispersion of datasets relative to their mathematical average.</p>"
+    Faq = "[{`"question`":`"What is standard deviation?`",`"answer`":`"It evaluates statistical dispersion. Standard deviation maps how widely values differ from the mean.`"}]"
+  },
+  # 58. Secure Password Generator
+  @{
+    Slug = "password-generator"
+    Title = "Secure Password Generator"
+    MetaTitle = "Password Generator - Secure Passwords"
+    MetaDesc = "Generate strong, randomized passwords instantly to secure your online credentials."
+    Category = "Games & Fun"
+    Icon = "🔑"
+    Html = @"
+        <div class="form-group">
+          <label for="pass-len">Password Length</label>
+          <input type="number" id="pass-len" value="12" min="6" max="64" class="input-field" />
+        </div>
+        <div class="form-row" style="margin-bottom:1rem; gap:1.5rem; justify-content:center;">
+          <label style="display:flex; align-items:center; gap:0.5rem; cursor:pointer;">
+            <input type="checkbox" id="pass-upper" checked /> Uppercase (A-Z)
+          </label>
+          <label style="display:flex; align-items:center; gap:0.5rem; cursor:pointer;">
+            <input type="checkbox" id="pass-num" checked /> Numbers (0-9)
+          </label>
+          <label style="display:flex; align-items:center; gap:0.5rem; cursor:pointer;">
+            <input type="checkbox" id="pass-sym" checked /> Symbols (!@#$)
+          </label>
+        </div>
+        <button id="calc-btn" class="calc-btn">Generate Password</button>
+        <div id="result-section" class="result-section hidden" style="text-align:center;">
+          <div class="summary-title">Your Secure Password</div>
+          <div class="total-balance" id="pass-result-val" style="font-size:1.5rem; word-break:break-all; color:var(--accent); margin-top:1rem;">password</div>
+        </div>
+"@
+    Js = @"
+      document.getElementById('calculate-btn').addEventListener('click', () => {
+        const len = parseInt(document.getElementById('pass-len').value) || 12;
+        const upper = document.getElementById('pass-upper').checked;
+        const num = document.getElementById('pass-num').checked;
+        const sym = document.getElementById('pass-sym').checked;
+        
+        let chars = 'abcdefghijklmnopqrstuvwxyz';
+        if (upper) chars += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        if (num) chars += '0123456789';
+        if (sym) chars += '!@#$%^&*()_+~`|}{[]\\:;?><,./-=';
+        
+        let pass = '';
+        for (let i = 0; i < len; i++) {
+          pass += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        
+        document.getElementById('pass-result-val').innerText = pass;
+        document.getElementById('result-section').classList.remove('hidden');
+      });
+"@
+    Seo = "<h2>Generate Secure Keys</h2><p>Avoid standard easily hackable passwords. Generate randomized strings containing numbers, symbols, and caps.</p>"
+    Faq = "[{`"question`":`"How is safety defined?`",`"answer`":`"A safe password must have at least 12 characters, including upper case, lower case, digits, and symbols.`"}]"
+  },
+  # 59. Random Number Generator
+  @{
+    Slug = "random-number-generator"
+    Title = "Random Number Generator"
+    MetaTitle = "Random Number Generator - Draw Numbers"
+    MetaDesc = "Generate truly random integers between custom range limits. Perfect for games and drawings."
+    Category = "Games & Fun"
+    Icon = "🎲"
+    Html = @"
+        <div class="form-row">
+          <div class="form-group">
+            <label for="rand-min">Minimum Value</label>
+            <input type="number" id="rand-min" value="1" class="input-field" />
+          </div>
+          <div class="form-group">
+            <label for="rand-max">Maximum Value</label>
+            <input type="number" id="rand-max" value="100" class="input-field" />
+          </div>
+        </div>
+        <button id="calc-btn" class="calc-btn">Generate Number</button>
+        <div id="result-section" class="result-section hidden" style="text-align:center;">
+          <div class="summary-title">Random Value</div>
+          <div class="total-balance" id="rand-result-val" style="font-size:3rem; color:var(--accent); margin-top:1rem;">42</div>
+        </div>
+"@
+    Js = @"
+      document.getElementById('calculate-btn').addEventListener('click', () => {
+        const min = parseInt(document.getElementById('rand-min').value);
+        const max = parseInt(document.getElementById('rand-max').value);
+        
+        if (isNaN(min) || isNaN(max) || max <= min) {
+          alert('Please enter a valid range. Maximum must be greater than Minimum.');
+          return;
+        }
+        
+        const rand = Math.floor(Math.random() * (max - min + 1)) + min;
+        document.getElementById('rand-result-val').innerText = rand;
+        document.getElementById('result-section').classList.remove('hidden');
+      });
+"@
+    Seo = "<h2>Generate Random Integers</h2><p>Draw values dynamically based on custom bounds. Excellent for raffles, prize allocations, or statistical samples.</p>"
+    Faq = "[{`"question`":`"Is it biased?`",`"answer`":`"No, the script utilizes high-variance mathematical functions that distribute results evenly.`"}]"
+  },
+  ,
+  # Age Calculator
+  @{
+    Slug = "age-calculator"
+    Title = "Age Calculator"
+    MetaTitle = "Age Calculator - Calculate Exact Age Online"
+    MetaDesc = "Calculate your exact age in years, months, days, weeks, and minutes. See how many days are left until your next birthday. Free and responsive."
+    Category = "Date & Age"
+    Icon = "🎂"
+    Html = @"
+<div class=`"form-group`">
+          <label for=`"dob`">Date of Birth</label>
+          <input type=`"date`" id=`"dob`" class=`"input-field`" />
+        </div>
+        <div class=`"form-group`">
+          <label for=`"today-date`">Calculate Age As Of</label>
+          <input type=`"date`" id=`"today-date`" class=`"input-field`" />
+        </div>
+        <button id=`"calculate-btn`" class=`"calc-btn`">Calculate Age</button>
+
+        <!-- Result -->
+        <div id=`"result-section`" class=`"result-section hidden`">
+          <div class=`"summary-title`" style=`"font-size: 0.875rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; text-align: center; margin-bottom: 0.5rem;`">Your Age is</div>
+          <div class=`"metric-grid`">
+            <div class=`"metric-card`">
+              <span class=`"metric-title`">Years</span>
+              <span class=`"metric-value`" id=`"res-years`">0</span>
+            </div>
+            <div class=`"metric-card`">
+              <span class=`"metric-title`">Months</span>
+              <span class=`"metric-value`" id=`"res-months`">0</span>
+            </div>
+            <div class=`"metric-card`">
+              <span class=`"metric-title`">Days</span>
+              <span class=`"metric-value`" id=`"res-days`">0</span>
+            </div>
+          </div>
+          <div class=`"breakdown-info`">
+            <p>Your exact age is: <strong id=`"full-sentence`">...</strong></p>
+            <p style=`"margin-top: 0.5rem;`">Next birthday in: <strong id=`"next-birthday`">...</strong></p>
+          </div>
+        </div>
+"@
+    Js = @"
+
+    // Set defaults
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    const todayStr = ```${yyyy}-`${mm}-`${dd}``;
+    
+    document.getElementById('today-date').value = todayStr;
+    document.getElementById('dob').setAttribute('max', todayStr);
+
+    document.getElementById('calculate-btn').addEventListener('click', () => {
+      const dobVal = document.getElementById('dob').value;
+      const targetVal = document.getElementById('today-date').value;
+      
+      if (!dobVal || !targetVal) {
+        alert('Please fill in both date inputs!');
+        return;
+      }
+      
+      const dob = new Date(dobVal);
+      const target = new Date(targetVal);
+      
+      if (dob > target) {
+        alert('Birth date cannot be after the target date!');
+        return;
+      }
+      
+      let years = target.getFullYear() - dob.getFullYear();
+      let months = target.getMonth() - dob.getMonth();
+      let days = target.getDate() - dob.getDate();
+      
+      if (days < 0) {
+        months--;
+        const prevMonth = new Date(target.getFullYear(), target.getMonth(), 0);
+        days += prevMonth.getDate();
+      }
+      
+      if (months < 0) {
+        years--;
+        months += 12;
+      }
+      
+      // Calculate next birthday countdown
+      let nextBdayYear = target.getFullYear();
+      let nextBday = new Date(nextBdayYear, dob.getMonth(), dob.getDate());
+      if (nextBday < target) {
+        nextBdayYear++;
+        nextBday = new Date(nextBdayYear, dob.getMonth(), dob.getDate());
+      }
+      const diffTime = Math.abs(nextBday - target);
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      
+      // Output
+      document.getElementById('res-years').innerText = years;
+      document.getElementById('res-months').innerText = months;
+      document.getElementById('res-days').innerText = days;
+      
+      document.getElementById('full-sentence').innerText = ```${years} years, `${months} months, and `${days} days``;
+      
+      if (diffDays === 0 || (dob.getMonth() === target.getMonth() && dob.getDate() === target.getDate())) {
+        document.getElementById('next-birthday').innerText = `"Happy Birthday! Today is your birthday! 🎉`";
+      } else {
+        document.getElementById('next-birthday').innerText = ```${diffDays} days left``;
+      }
+      
+      document.getElementById('result-section').classList.remove('hidden');
+    });
+"@
+    Seo = @"
+<p>Our online age calculator deduces the exact timeline between a specific date of birth and your targeted chronological date (which defaults to today's date). The calculator breaks down the calculation into years, months, and days, so you do not have to manually account for leap years or month lengths.</p>
+          <h3>Step-by-Step Calculation Guide</h3>
+          <p>To compute your age manually, follow these calendar rules:</p>
+          <ol>
+            <li>Subtract the birth year from the target year.</li>
+            <li>Subtract the birth month from the target month. If the result is negative, subtract 1 from the year value and add 12 to the month value.</li>
+            <li>Subtract the birth day from the target day. If this result is negative, subtract 1 from the month and add the number of days in the previous month.</li>
+          </ol>
+"@
+    Faq = '[{"question":"Does this age calculator account for leap years?","answer":"Yes, our age calculator accounts for leap years by checking the exact calendar date boundaries, including February 29th."}]'
+  },
+  # BMI Calculator
+  @{
+    Slug = "bmi-calculator"
+    Title = "BMI Calculator"
+    MetaTitle = "BMI Calculator - Calculate Body Mass Index Online"
+    MetaDesc = "Calculate your BMI (Body Mass Index) with our free online tool. Supports metric and imperial systems. Includes weight category classifications."
+    Category = "Fitness & Health"
+    Icon = "⚖️"
+    Html = @"
+<div class=`"unit-tabs`">
+          <button id=`"metric-tab`" class=`"tab-btn active`">Metric (cm/kg)</button>
+          <button id=`"imperial-tab`" class=`"tab-btn`">Imperial (in/lbs)</button>
+        </div>
+
+        <!-- Metric Form -->
+        <div id=`"metric-form`">
+          <div class=`"form-row`">
+            <div class=`"form-group`">
+              <label for=`"height-cm`">Height (cm)</label>
+              <input type=`"number`" id=`"height-cm`" placeholder=`"e.g. 175`" class=`"input-field`" />
+            </div>
+            <div class=`"form-group`">
+              <label for=`"weight-kg`">Weight (kg)</label>
+              <input type=`"number`" id=`"weight-kg`" placeholder=`"e.g. 70`" class=`"input-field`" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Imperial Form -->
+        <div id=`"imperial-form`" class=`"hidden`">
+          <div class=`"form-row`">
+            <div class=`"form-group`">
+              <label for=`"height-ft`">Height (feet)</label>
+              <input type=`"number`" id=`"height-ft`" placeholder=`"ft`" class=`"input-field`" />
+            </div>
+            <div class=`"form-group`">
+              <label for=`"height-in`">Height (inches)</label>
+              <input type=`"number`" id=`"height-in`" placeholder=`"in`" class=`"input-field`" />
+            </div>
+            <div class=`"form-group`">
+              <label for=`"weight-lbs`">Weight (pounds)</label>
+              <input type=`"number`" id=`"weight-lbs`" placeholder=`"lbs`" class=`"input-field`" />
+            </div>
+          </div>
+        </div>
+
+        <button id=`"calculate-btn`" class=`"calc-btn`">Calculate BMI</button>
+
+        <!-- Result -->
+        <div id=`"result-section`" class=`"result-section hidden`">
+          <div class=`"result-display`">
+            <span class=`"score-label`">Your BMI is</span>
+            <span id=`"bmi-score`" class=`"score-value`">22.9</span>
+            <span id=`"bmi-category`" class=`"category-tag normal`">Normal Weight</span>
+          </div>
+
+          <!-- Gauge bar -->
+          <div class=`"gauge-wrapper`">
+            <div class=`"gauge-bar`">
+              <div class=`"gauge-segment underweight`"></div>
+              <div class=`"gauge-segment normal`"></div>
+              <div class=`"gauge-segment overweight`"></div>
+              <div class=`"gauge-segment obese`"></div>
+            </div>
+            <div id=`"gauge-pointer`" class=`"gauge-pointer`" style=`"left: 50%`"></div>
+            <div class=`"gauge-labels`">
+              <span>16.0</span>
+              <span>18.5</span>
+              <span>25.0</span>
+              <span>30.0</span>
+              <span>35.0</span>
+            </div>
+          </div>
+
+          <div class=`"breakdown-info`">
+            <p id=`"bmi-feedback`">...</p>
+          </div>
+        </div>
+"@
+    Js = @"
+
+    let activeUnit = 'metric';
+    const metricTab = document.getElementById('metric-tab');
+    const imperialTab = document.getElementById('imperial-tab');
+    const metricForm = document.getElementById('metric-form');
+    const imperialForm = document.getElementById('imperial-form');
+
+    metricTab.addEventListener('click', () => {
+      activeUnit = 'metric';
+      metricTab.classList.add('active');
+      imperialTab.classList.remove('active');
+      metricForm.classList.remove('hidden');
+      imperialForm.classList.add('hidden');
+    });
+
+    imperialTab.addEventListener('click', () => {
+      activeUnit = 'imperial';
+      imperialTab.classList.add('active');
+      metricTab.classList.remove('active');
+      imperialForm.classList.remove('hidden');
+      metricForm.classList.add('hidden');
+    });
+
+    document.getElementById('calculate-btn').addEventListener('click', () => {
+      let bmi = 0;
+      if (activeUnit === 'metric') {
+        const cm = parseFloat(document.getElementById('height-cm').value);
+        const kg = parseFloat(document.getElementById('weight-kg').value);
+        
+        if (!cm || !kg || cm <= 0 || kg <= 0) {
+          alert('Please enter valid height and weight values!');
+          return;
+        }
+        
+        const m = cm / 100;
+        bmi = kg / (m * m);
+      } else {
+        const ft = parseFloat(document.getElementById('height-ft').value) || 0;
+        const inch = parseFloat(document.getElementById('height-in').value) || 0;
+        const lbs = parseFloat(document.getElementById('weight-lbs').value);
+        
+        const totalInches = (ft * 12) + inch;
+        if (totalInches <= 0 || !lbs || lbs <= 0) {
+          alert('Please enter valid height and weight values!');
+          return;
+        }
+        
+        bmi = (lbs / (totalInches * totalInches)) * 703;
+      }
+      
+      bmi = Math.round(bmi * 10) / 10;
+      
+      let category = '';
+      let catClass = '';
+      let feedback = '';
+      
+      if (bmi < 18.5) {
+        category = 'Underweight';
+        catClass = 'underweight';
+        feedback = 'Your BMI is underweight. Consider checking your metabolic requirements or talking to a doctor.';
+      } else if (bmi >= 18.5 && bmi < 25) {
+        category = 'Normal Weight';
+        catClass = 'normal';
+        feedback = 'Your BMI is in a healthy, normal range. Excellent job maintaining your energy balances!';
+      } else if (bmi >= 25 && bmi < 30) {
+        category = 'Overweight';
+        catClass = 'overweight';
+        feedback = 'Your BMI is in the overweight range. Incorporate daily activity or nutrition checks.';
+      } else {
+        category = 'Obese';
+        catClass = 'obese';
+        feedback = 'Your BMI falls in the obese category. Consult a healthcare provider or coach for health guidelines.';
+      }
+      
+      // Update pointer position (16 is 0%, 35 is 100%)
+      let pointerPos = 50;
+      if (bmi < 16) pointerPos = 0;
+      else if (bmi > 35) pointerPos = 100;
+      else pointerPos = ((bmi - 16) / (35 - 16)) * 100;
+      
+      document.getElementById('bmi-score').innerText = bmi.toFixed(1);
+      const catTag = document.getElementById('bmi-category');
+      catTag.innerText = category;
+      catTag.className = 'category-tag ' + catClass;
+      document.getElementById('gauge-pointer').style.left = ```${pointerPos}%``;
+      document.getElementById('bmi-feedback').innerText = feedback;
+      
+      document.getElementById('result-section').classList.remove('hidden');
+    });
+"@
+    Seo = @"
+<p>Body Mass Index (BMI) is a medical metric that estimates body fat levels based on a person's weight and height. It helps doctors screen for obesity, underweight conditions, and overall metabolic health risks.</p>
+          <h3>WHO BMI Classification Table</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>BMI Range</th>
+                <th>Classification</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Less than 18.5</td>
+                <td style=`"color:#3b82f6; font-weight:700;`">Underweight</td>
+              </tr>
+              <tr>
+                <td>18.5 to 24.9</td>
+                <td style=`"color:#10b981; font-weight:700;`">Normal Weight</td>
+              </tr>
+              <tr>
+                <td>25.0 to 29.9</td>
+                <td style=`"color:#f59e0b; font-weight:700;`">Overweight</td>
+              </tr>
+              <tr>
+                <td>30.0 and above</td>
+                <td style=`"color:#ef4444; font-weight:700;`">Obese</td>
+              </tr>
+            </tbody>
+          </table>
+"@
+    Faq = '[]'
+  },
+  # Calorie Intake &amp; BMR Calculator
+  @{
+    Slug = "calorie-calculator"
+    Title = "Calorie Intake &amp; BMR Calculator"
+    MetaTitle = "Calorie Calculator - Daily Caloric Intake &amp; BMR Calculator"
+    MetaDesc = "Calculate your BMR and daily calorie requirements to maintain, lose, or gain weight. Uses standard Mifflin-St Jeor formula. Free and responsive."
+    Category = "Fitness & Health"
+    Icon = "🔥"
+    Html = @"
+<div class=`"unit-tabs`">
+          <button id=`"cal-metric-tab`" class=`"tab-btn active`">Metric (cm/kg)</button>
+          <button id=`"cal-imperial-tab`" class=`"tab-btn`">Imperial (in/lbs)</button>
+        </div>
+
+        <div class=`"form-row`">
+          <div class=`"form-group`">
+            <label for=`"cal-age`">Age (years)</label>
+            <input type=`"number`" id=`"cal-age`" value=`"25`" class=`"input-field`" min=`"15`" max=`"80`" />
+          </div>
+          <div class=`"form-group`">
+            <label for=`"cal-gender`">Gender</label>
+            <select id=`"cal-gender`" class=`"select-field`">
+              <option value=`"male`" selected>Male</option>
+              <option value=`"female`">Female</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Metric Fields -->
+        <div id=`"cal-metric-form`" class=`"form-section`">
+          <div class=`"form-row`">
+            <div class=`"form-group`">
+              <label for=`"cal-height-cm`">Height (cm)</label>
+              <input type=`"number`" id=`"cal-height-cm`" value=`"175`" class=`"input-field`" />
+            </div>
+            <div class=`"form-group`">
+              <label for=`"cal-weight-kg`">Weight (kg)</label>
+              <input type=`"number`" id=`"cal-weight-kg`" value=`"70`" class=`"input-field`" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Imperial Fields -->
+        <div id=`"cal-imperial-form`" class=`"form-section hidden`">
+          <div class=`"form-row`">
+            <div class=`"form-group`">
+              <label for=`"cal-height-ft`">Height (ft)</label>
+              <input type=`"number`" id=`"cal-height-ft`" value=`"5`" class=`"input-field`" />
+            </div>
+            <div class=`"form-group`">
+              <label for=`"cal-height-in`">Height (in)</label>
+              <input type=`"number`" id=`"cal-height-in`" value=`"9`" class=`"input-field`" />
+            </div>
+            <div class=`"form-group`">
+              <label for=`"cal-weight-lbs`">Weight (lbs)</label>
+              <input type=`"number`" id=`"cal-weight-lbs`" value=`"154`" class=`"input-field`" />
+            </div>
+          </div>
+        </div>
+
+        <div class=`"form-group`">
+          <label for=`"cal-activity`">Activity Level</label>
+          <select id=`"cal-activity`" class=`"select-field`">
+            <option value=`"1.2`" selected>Sedentary (Little or no exercise)</option>
+            <option value=`"1.375`">Lightly Active (Exercise 1-3 times/week)</option>
+            <option value=`"1.55`">Moderately Active (Exercise 4-5 times/week)</option>
+            <option value=`"1.725`">Very Active (Intense exercise 6-7 times/week)</option>
+            <option value=`"1.9`">Extra Active (Hard daily exercise / physical job)</option>
+          </select>
+        </div>
+
+        <button id=`"cal-calc-btn`" class=`"calc-btn`">Calculate Calories</button>
+
+        <!-- Result -->
+        <div id=`"cal-result-section`" class=`"result-section hidden`" style=`"text-align: center;`">
+          <div class=`"summary-title`" style=`"font-size: 0.875rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;`">Daily Maintenance Calories</div>
+          <div class=`"total-balance`" id=`"cal-maintenance`" style=`"font-size: 2.5rem; font-weight: 900; color: var(--accent); margin: 0.5rem 0 1.5rem 0; line-height: 1;`">2,200 kcal</div>
+          
+          <div class=`"metric-grid`">
+            <div class=`"metric-card`">
+              <span class=`"metric-title`" style=`"font-size: 0.625rem;`">Mild Weight Loss (-0.25kg/wk)</span>
+              <span class=`"metric-value`" id=`"cal-lose-mild`">1,950 kcal</span>
+            </div>
+            <div class=`"metric-card`">
+              <span class=`"metric-title`" style=`"font-size: 0.625rem;`">Weight Loss (-0.5kg/wk)</span>
+              <span class=`"metric-value`" id=`"cal-lose`">1,700 kcal</span>
+            </div>
+            <div class=`"metric-card`">
+              <span class=`"metric-title`" style=`"font-size: 0.625rem;`">Weight Gain (+0.5kg/wk)</span>
+              <span class=`"metric-value`" id=`"cal-gain`">2,700 kcal</span>
+            </div>
+          </div>
+          
+          <div class=`"breakdown-info`" style=`"text-align: left;`">
+            <p>Your calculated <strong>Basal Metabolic Rate (BMR)</strong> is <strong><span id=`"bmr-val`">1,650</span> kcal</strong>. This represents the baseline energy your body needs to function at rest.</p>
+          </div>
+        </div>
+"@
+    Js = @"
+
+    let activeUnit = 'metric';
+    const metricTab = document.getElementById('cal-metric-tab');
+    const imperialTab = document.getElementById('cal-imperial-tab');
+    const metricForm = document.getElementById('cal-metric-form');
+    const imperialForm = document.getElementById('cal-imperial-form');
+
+    metricTab.addEventListener('click', () => {
+      activeUnit = 'metric';
+      metricTab.classList.add('active');
+      imperialTab.classList.remove('active');
+      metricForm.classList.remove('hidden');
+      imperialForm.classList.add('hidden');
+    });
+
+    imperialTab.addEventListener('click', () => {
+      activeUnit = 'imperial';
+      imperialTab.classList.add('active');
+      metricTab.classList.remove('active');
+      imperialForm.classList.remove('hidden');
+      metricForm.classList.add('hidden');
+    });
+
+    document.getElementById('cal-calc-btn').addEventListener('click', () => {
+      const age = parseFloat(document.getElementById('cal-age').value);
+      const gender = document.getElementById('cal-gender').value;
+      const activity = parseFloat(document.getElementById('cal-activity').value);
+      
+      let weight = 0;
+      let height = 0;
+      
+      if (activeUnit === 'metric') {
+        height = parseFloat(document.getElementById('cal-height-cm').value);
+        weight = parseFloat(document.getElementById('cal-weight-kg').value);
+        
+        if (!height || !weight || height <= 0 || weight <= 0) {
+          alert('Please enter valid height and weight values!');
+          return;
+        }
+      } else {
+        const ft = parseFloat(document.getElementById('cal-height-ft').value) || 0;
+        const inch = parseFloat(document.getElementById('cal-height-in').value) || 0;
+        const lbs = parseFloat(document.getElementById('cal-weight-lbs').value) || 0;
+        
+        const totalInches = (ft * 12) + inch;
+        if (totalInches <= 0 || lbs <= 0) {
+          alert('Please enter valid height and weight values!');
+          return;
+        }
+        
+        height = totalInches * 2.54;
+        weight = lbs * 0.45359237;
+      }
+      
+      let bmr = 0;
+      if (gender === 'male') {
+        bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5;
+      } else {
+        bmr = (10 * weight) + (6.25 * height) - (5 * age) - 161;
+      }
+      
+      const maintenance = bmr * activity;
+      const fmt = (num) => Math.round(num).toLocaleString() + ' kcal';
+      
+      document.getElementById('cal-maintenance').innerText = fmt(maintenance);
+      document.getElementById('cal-lose-mild').innerText = fmt(maintenance - 250);
+      document.getElementById('cal-lose').innerText = fmt(maintenance - 500);
+      document.getElementById('cal-gain').innerText = fmt(maintenance + 500);
+      
+      document.getElementById('bmr-val').innerText = Math.round(bmr).toLocaleString();
+      document.getElementById('cal-result-section').classList.remove('hidden');
+    });
+"@
+    Seo = @"
+<p>Your Basal Metabolic Rate (BMR) represents the energy expenditure required to sustain basic life processes. TDEE is BMR multiplied by your physical activity score. Adjusting your daily calories relative to TDEE lets you lose, maintain, or gain weight.</p>
+"@
+    Faq = '[]'
+  },
+  # Compound Interest Calculator
+  @{
+    Slug = "compound-interest-calculator"
+    Title = "Compound Interest Calculator"
+    MetaTitle = "Compound Interest Calculator - Free Investment Growth Projection"
+    MetaDesc = "Calculate how your money grows over time with compound interest. Adjust starting principal, monthly additions, compounding frequencies, and see your future wealth."
+    Category = "Finance & Business"
+    Icon = "📈"
+    Html = @"
+<div class=`"form-row`">
+          <div class=`"form-group`">
+            <label for=`"principal`">Initial Investment (`$)</label>
+            <input type=`"number`" id=`"principal`" value=`"10000`" class=`"input-field`" min=`"0`" />
+          </div>
+          <div class=`"form-group`">
+            <label for=`"monthly-deposit`">Monthly Contribution (`$)</label>
+            <input type=`"number`" id=`"monthly-deposit`" value=`"200`" class=`"input-field`" min=`"0`" />
+          </div>
+        </div>
+
+        <div class=`"form-row`">
+          <div class=`"form-group`">
+            <label for=`"rate`">Annual Interest Rate (%)</label>
+            <input type=`"number`" id=`"rate`" value=`"8`" step=`"0.1`" class=`"input-field`" min=`"0`" />
+          </div>
+          <div class=`"form-group`">
+            <label for=`"years`">Time Period (Years)</label>
+            <input type=`"number`" id=`"years`" value=`"10`" class=`"input-field`" min=`"1`" max=`"100`" />
+          </div>
+        </div>
+
+        <div class=`"form-group`">
+          <label for=`"frequency`">Compounding Frequency</label>
+          <select id=`"frequency`" class=`"select-field`">
+            <option value=`"12`" selected>Monthly (12/yr)</option>
+            <option value=`"4`">Quarterly (4/yr)</option>
+            <option value=`"2`">Semiannually (2/yr)</option>
+            <option value=`"1`">Annually (1/yr)</option>
+          </select>
+        </div>
+
+        <button id=`"calculate-btn`" class=`"calc-btn`">Calculate Growth</button>
+
+        <!-- Result -->
+        <div id=`"result-section`" class=`"result-section hidden`" style=`"text-align: center;`">
+          <div class=`"summary-title`" style=`"font-size: 0.875rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;`">Future Balance Projection</div>
+          <div class=`"total-balance`" id=`"total-balance`" style=`"font-size: 2.5rem; font-weight: 900; color: var(--accent); margin: 0.5rem 0 1.5rem 0; line-height: 1;`">`$34,896.42</div>
+          
+          <div class=`"metric-grid`">
+            <div class=`"metric-card`">
+              <span class=`"metric-title`">Initial Principal</span>
+              <span class=`"metric-value`" id=`"init-principal`">`$10,000.00</span>
+            </div>
+            <div class=`"metric-card`">
+              <span class=`"metric-title`">Total Contributions</span>
+              <span class=`"metric-value`" id=`"total-contributions`">`$24,000.00</span>
+            </div>
+            <div class=`"metric-card`">
+              <span class=`"metric-title`">Total Interest Earned</span>
+              <span class=`"metric-value`" id=`"total-interest`">`$10,896.42</span>
+            </div>
+          </div>
+          
+          <div class=`"breakdown-info`" style=`"text-align: left;`">
+            <p>By investing <strong>`$<span id=`"deposit-txt`">200</span></strong> monthly over <strong><span id=`"years-txt`">10</span> years</strong> at an annual rate of <strong><span id=`"rate-txt`">8</span>%</strong>, your initial deposit of <strong>`$<span id=`"init-txt`">10,000</span></strong> will grow by <strong>`$<span id=`"growth-txt`">24,896</span></strong>.</p>
+          </div>
+        </div>
+"@
+    Js = @"
+
+    document.getElementById('calculate-btn').addEventListener('click', () => {
+      const principal = parseFloat(document.getElementById('principal').value) || 0;
+      const monthlyDeposit = parseFloat(document.getElementById('monthly-deposit').value) || 0;
+      const rate = parseFloat(document.getElementById('rate').value) || 0;
+      const years = parseInt(document.getElementById('years').value) || 0;
+      const compoundFreq = parseInt(document.getElementById('frequency').value) || 12;
+      
+      if (years <= 0 || years > 100) {
+        alert('Please enter a valid time period between 1 and 100 years.');
+        return;
+      }
+      
+      const r = rate / 100;
+      const t = years;
+      
+      let balance = principal;
+      let totalDeposited = principal;
+      const totalMonths = t * 12;
+      
+      for (let m = 1; m <= totalMonths; m++) {
+        const monthsPerComp = 12 / compoundFreq;
+        if (m % monthsPerComp === 0) {
+          const periodicRate = r / compoundFreq;
+          balance += balance * periodicRate;
+        }
+        
+        balance += monthlyDeposit;
+        totalDeposited += monthlyDeposit;
+      }
+      
+      const totalInterest = balance - totalDeposited;
+      
+      const formatCurrency = (val) => {
+        return new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: 'USD'
+        }).format(val);
+      };
+      
+      document.getElementById('total-balance').innerText = formatCurrency(balance);
+      document.getElementById('init-principal').innerText = formatCurrency(principal);
+      document.getElementById('total-contributions').innerText = formatCurrency(totalDeposited - principal);
+      document.getElementById('total-interest').innerText = formatCurrency(totalInterest);
+      
+      document.getElementById('deposit-txt').innerText = monthlyDeposit;
+      document.getElementById('years-txt').innerText = years;
+      document.getElementById('rate-txt').innerText = rate;
+      document.getElementById('init-txt').innerText = principal.toLocaleString();
+      document.getElementById('growth-txt').innerText = Math.round(balance - principal).toLocaleString();
+      
+      document.getElementById('result-section').classList.remove('hidden');
+    });
+"@
+    Seo = @"
+<p>Compound interest is the concept of earning interest on interest. Unlike simple interest, which only calculates returns on your starting principal, compounding computes interest on your initial principal plus all the interest that has accumulated in preceding periods. Over longer timelines, compounding creates exponential growth, allowing your savings to compound into significant wealth.</p>
+"@
+    Faq = '[]'
+  },
+  # Date &amp; Calendar Calculator
+  @{
+    Slug = "date-calculator"
+    Title = "Date &amp; Calendar Calculator"
+    MetaTitle = "Date Calculator - Calculate Days Between Dates &amp; Add Days"
+    MetaDesc = "Calculate the number of days, weeks, months, or years between two dates, or add/subtract days from a specific calendar date."
+    Category = "Date & Age"
+    Icon = "📅"
+    Html = @"
+<div class=`"unit-tabs`">
+          <button id=`"date-diff-tab`" class=`"tab-btn active`">Days Between Dates</button>
+          <button id=`"date-add-tab`" class=`"tab-btn`">Add/Subtract Days</button>
+        </div>
+
+        <!-- Tab 1: Days Between Dates -->
+        <div id=`"date-diff-form`" class=`"form-section`">
+          <div class=`"form-group`">
+            <label for=`"diff-start`">Start Date</label>
+            <input type=`"date`" id=`"diff-start`" class=`"input-field`" />
+          </div>
+          <div class=`"form-group`">
+            <label for=`"diff-end`">End Date</label>
+            <input type=`"date`" id=`"diff-end`" class=`"input-field`" />
+          </div>
+          <button id=`"date-diff-btn`" class=`"calc-btn`">Calculate Difference</button>
+          
+          <div id=`"diff-result`" class=`"result-section hidden`" style=`"text-align: center;`">
+            <div class=`"summary-title`" style=`"font-size: 0.875rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase;`">Time Difference</div>
+            <div class=`"total-balance`" id=`"diff-days-val`" style=`"font-size: 2.25rem; font-weight: 900; color: var(--primary); margin: 0.5rem 0;`">0 Days</div>
+            <div class=`"diff-breakdown`" id=`"diff-breakdown-val`">...</div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Add/Subtract Days -->
+        <div id=`"date-add-form`" class=`"form-section hidden`">
+          <div class=`"form-group`">
+            <label for=`"add-start`">Start Date</label>
+            <input type=`"date`" id=`"add-start`" class=`"input-field`" />
+          </div>
+          
+          <div class=`"form-row`">
+            <div class=`"form-group`">
+              <label for=`"add-op`">Operation</label>
+              <select id=`"add-op`" class=`"select-field`">
+                <option value=`"add`" selected>Add (+)</option>
+                <option value=`"sub`">Subtract (-)</option>
+              </select>
+            </div>
+            <div class=`"form-group`">
+              <label for=`"add-val`">Value</label>
+              <input type=`"number`" id=`"add-val`" value=`"10`" class=`"input-field`" min=`"1`" />
+            </div>
+            <div class=`"form-group`">
+              <label for=`"add-unit`">Unit</label>
+              <select id=`"add-unit`" class=`"select-field`">
+                <option value=`"days`" selected>Days</option>
+                <option value=`"weeks`">Weeks</option>
+                <option value=`"months`">Months</option>
+                <option value=`"years`">Years</option>
+              </select>
+            </div>
+          </div>
+          
+          <button id=`"date-add-btn`" class=`"calc-btn`">Compute New Date</button>
+          
+          <div id=`"add-result`" class=`"result-section hidden`" style=`"text-align: center;`">
+            <div class=`"summary-title`" style=`"font-size: 0.875rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase;`">Resulting Date</div>
+            <div class=`"total-balance`" id=`"add-res-date`" style=`"font-size: 2.25rem; font-weight: 900; color: var(--primary); margin: 0.5rem 0;`">June 23, 2026</div>
+            <p id=`"add-res-sub`" class=`"res-sub-text`">Tuesday</p>
+          </div>
+        </div>
+"@
+    Js = @"
+
+    // Set defaults
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    const todayStr = ```${yyyy}-`${mm}-`${dd}``;
+
+    document.getElementById('diff-start').value = todayStr;
+    document.getElementById('diff-end').value = todayStr;
+    document.getElementById('add-start').value = todayStr;
+
+    const diffTab = document.getElementById('date-diff-tab');
+    const addTab = document.getElementById('date-add-tab');
+    const diffForm = document.getElementById('date-diff-form');
+    const addForm = document.getElementById('date-add-form');
+
+    diffTab.addEventListener('click', () => {
+      diffTab.classList.add('active');
+      addTab.classList.remove('active');
+      diffForm.classList.remove('hidden');
+      addForm.classList.add('hidden');
+    });
+
+    addTab.addEventListener('click', () => {
+      addTab.classList.add('active');
+      diffTab.classList.remove('active');
+      addForm.classList.remove('hidden');
+      diffForm.classList.add('hidden');
+    });
+
+    document.getElementById('date-diff-btn').addEventListener('click', () => {
+      const startVal = document.getElementById('diff-start').value;
+      const endVal = document.getElementById('diff-end').value;
+      
+      if (!startVal || !endVal) {
+        alert('Please enter valid dates.');
+        return;
+      }
+      
+      const d1 = new Date(startVal);
+      const d2 = new Date(endVal);
+      const diffTime = d2 - d1;
+      const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+      
+      let years = d2.getFullYear() - d1.getFullYear();
+      let months = d2.getMonth() - d1.getMonth();
+      let days = d2.getDate() - d1.getDate();
+      
+      if (days < 0) {
+        months--;
+        const prevMonth = new Date(d2.getFullYear(), d2.getMonth(), 0);
+        days += prevMonth.getDate();
+      }
+      
+      if (months < 0) {
+        years--;
+        months += 12;
+      }
+      
+      const absDays = Math.abs(diffDays);
+      document.getElementById('diff-days-val').innerText = ```${absDays} `${absDays === 1 ? 'Day' : 'Days'}``;
+      
+      let breakdown = '';
+      if (diffDays < 0) {
+        breakdown = ``End date is before start date. Difference is: ``;
+      } else {
+        breakdown = 'Alternative breakdown: ';
+      }
+      
+      const absYears = Math.abs(years);
+      const absMonths = Math.abs(months);
+      const absDaysRemainder = Math.abs(days);
+      
+      breakdown += ``<strong>`${absYears} years, `${absMonths} months, and `${absDaysRemainder} days</strong>``;
+      
+      const weeks = Math.floor(absDays / 7);
+      const remDays = absDays % 7;
+      breakdown += ``<br><span style=`"font-size:0.8rem; color:var(--text-muted);`">Or `${weeks} weeks and `${remDays} days</span>``;
+      
+      document.getElementById('diff-breakdown-val').innerHTML = breakdown;
+      document.getElementById('diff-result').classList.remove('hidden');
+    });
+
+    document.getElementById('date-add-btn').addEventListener('click', () => {
+      const startVal = document.getElementById('add-start').value;
+      const op = document.getElementById('add-op').value;
+      const quantity = parseInt(document.getElementById('add-val').value);
+      const unit = document.getElementById('add-unit').value;
+      
+      if (!startVal || isNaN(quantity) || quantity <= 0) {
+        alert('Please select a start date and enter a positive quantity.');
+        return;
+      }
+      
+      const date = new Date(startVal);
+      const multiplier = op === 'add' ? 1 : -1;
+      const val = quantity * multiplier;
+      
+      if (unit === 'days') {
+        date.setDate(date.getDate() + val);
+      } else if (unit === 'weeks') {
+        date.setDate(date.getDate() + (val * 7));
+      } else if (unit === 'months') {
+        date.setMonth(date.getMonth() + val);
+      } else if (unit === 'years') {
+        date.setFullYear(date.getFullYear() + val);
+      }
+      
+      document.getElementById('add-res-date').innerText = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      document.getElementById('add-res-sub').innerText = date.toLocaleDateString('en-US', { weekday: 'long' });
+      document.getElementById('add-result').classList.remove('hidden');
+    });
+"@
+    Seo = @"
+<p>Manual calendar calculations can lead to errors due to changing month lengths (28, 30, or 31 days) and leap years. Our date calculator solves calendar interval differences and projections client-side with 100% precision.</p>
+"@
+    Faq = '[]'
+  },
+  # Discount &amp; Savings Calculator
+  @{
+    Slug = "discount-calculator"
+    Title = "Discount &amp; Savings Calculator"
+    MetaTitle = "Discount Calculator - Calculate Sale Prices &amp; Savings"
+    MetaDesc = "Calculate discount percentages, savings amounts, and final prices including sales tax with our free online discount calculator."
+    Category = "Finance & Business"
+    Icon = "🏷️"
+    Html = @"
+<div class=`"form-group`">
+          <label for=`"disc-price`">Original Price (`$)</label>
+          <input type=`"number`" id=`"disc-price`" value=`"100`" class=`"input-field`" min=`"0`" step=`"0.01`" />
+        </div>
+        
+        <div class=`"form-row`">
+          <div class=`"form-group`">
+            <label for=`"disc-pct`">Discount (%)</label>
+            <input type=`"number`" id=`"disc-pct`" value=`"20`" class=`"input-field`" min=`"0`" max=`"100`" step=`"any`" />
+          </div>
+          <div class=`"form-group`">
+            <label for=`"disc-tax`">Sales Tax (%) (Optional)</label>
+            <input type=`"number`" id=`"disc-tax`" value=`"0`" class=`"input-field`" min=`"0`" max=`"100`" step=`"any`" />
+          </div>
+        </div>
+        
+        <button id=`"calculate-btn`" class=`"calc-btn`">Calculate Savings</button>
+
+        <!-- Result -->
+        <div id=`"result-section`" class=`"result-section hidden`" style=`"text-align: center;`">
+          <div class=`"summary-title`" style=`"font-size: 0.875rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase;`">Final Price</div>
+          <div class=`"total-balance`" id=`"disc-final-price`" style=`"font-size: 2.5rem; font-weight: 900; color: var(--accent); margin: 0.5rem 0 1.5rem 0; line-height: 1;`">`$80.00</div>
+          
+          <div class=`"metric-grid`">
+            <div class=`"metric-card`">
+              <span class=`"metric-title`">Original Price</span>
+              <span class=`"metric-value`" id=`"disc-orig-val`">`$100.00</span>
+            </div>
+            <div class=`"metric-card`">
+              <span class=`"metric-title`">Total Savings</span>
+              <span class=`"metric-value`" id=`"disc-savings-val`" style=`"color: var(--accent);`">`$20.00</span>
+            </div>
+            <div class=`"metric-card`">
+              <span class=`"metric-title`">Tax Amount</span>
+              <span class=`"metric-value`" id=`"disc-tax-val`">`# 60. Calorie Burn MET Calculator
+  @{
+    Slug = "calorie-burn-met-calculator"
+    Title = "Calorie Burn MET Calculator"
+    MetaTitle = "Calorie Burn MET Calculator - Estimate Calories Burned"
+    MetaDesc = "Estimate daily exercise calories burned during workouts using standard clinical MET activity ratings."
+    Category = "Fitness & Health"
+    Icon = "🔥"
+    Html = @"
+        <div class="form-row">
+          <div class="form-group">
+            <label for="met-weight">Weight (kg)</label>
+            <input type="number" id="met-weight" value="70" class="input-field" />
+          </div>
+          <div class="form-group">
+            <label for="met-duration">Duration (Minutes)</label>
+            <input type="number" id="met-duration" value="30" class="input-field" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="met-activity">Activity Type</label>
+          <select id="met-activity" class="select-field">
+            <option value="8.0">Running (8.0 MET)</option>
+            <option value="4.0">Walking briskly (4.0 MET)</option>
+            <option value="6.0">Bicycling moderate (6.0 MET)</option>
+            <option value="9.8">Swimming (9.8 MET)</option>
+            <option value="1.5">Sedentary desk work (1.5 MET)</option>
+          </select>
+        </div>
+        <button id="calc-btn" class="calc-btn">Calculate Burned Calories</button>
+        <div id="result-section" class="result-section hidden" style="text-align:center;">
+          <div class="summary-title">Calories Burned</div>
+          <div class="total-balance" id="met-result-val" style="color:var(--accent); margin-top:1rem;">210 kcal</div>
+        </div>
+"@
+    Js = @"
+      document.getElementById('calculate-btn').addEventListener('click', () => {
+        const weight = parseFloat(document.getElementById('met-weight').value) || 0;
+        const dur = parseFloat(document.getElementById('met-duration').value) || 0;
+        const met = parseFloat(document.getElementById('met-activity').value) || 0;
+        
+        if (weight <= 0 || dur <= 0) {
+          alert('Please enter valid inputs.');
+          return;
+        }
+        
+        const burned = dur * (met * 3.5 * weight / 200);
+        document.getElementById('met-result-val').innerText = Math.round(burned) + ' kcal';
+        document.getElementById('result-section').classList.remove('hidden');
+      });
+"@
+    Seo = "<h2>Understand Exercise Energy Consumption</h2><p>MET stands for Metabolic Equivalent of Task, a standard scoring system representing energy spend relative to baseline rest.</p>"
+    Faq = "[{`"question`":`"What is a MET?`",`"answer`":`"One MET represents the rate of energy expenditure while sitting quietly, equal to roughly 1 kcal/kg/hour.`"}]"
   }
 )
+
 
 # Template for generating individual calculator pages
 function Generate-CalculatorPage($calc) {
@@ -2581,6 +4415,233 @@ function Generate-CalculatorPage($calc) {
   $seo = $calc.Seo
   $faq = $calc.Faq
 
+  # Category mappings for breadcrumbs
+  $catSlug = ""
+  $catTitle = ""
+  if ($category -eq "Date & Age" -or $category -eq "Dates & Age") {
+    $catSlug = "date-age"
+    $catTitle = "Date & Age Calculators"
+  } elseif ($category -eq "Fitness & Health" -or $category -eq "Health & Fitness") {
+    $catSlug = "health-fitness"
+    $catTitle = "Health & Fitness Calculators"
+  } elseif ($category -eq "Finance & Business" -or $category -eq "Finance & Loan" -or $category -eq "Finance") {
+    $catSlug = "finance"
+    $catTitle = "Finance & Loan Calculators"
+  } elseif ($category -eq "Scientific & Math" -or $category -eq "Math") {
+    $catSlug = "math"
+    $catTitle = "Scientific & Math Tools"
+  } elseif ($category -eq "Conversions & Units" -or $category -eq "Conversions") {
+    $catSlug = "conversions"
+    $catTitle = "Conversions & Unit Tools"
+  } elseif ($category -eq "Games & Fun" -or $category -eq "Games") {
+    $catSlug = "games"
+    $catTitle = "Games & Fun Tools"
+  } else {
+    $catSlug = "math"
+    $catTitle = "Scientific & Math Tools"
+  }
+
+  # Category Templates with {Title} placeholder for 600-1000 word justified SEO articles
+  $dateAgeTemplate = @'
+<h3>The Value of Accurate Timeline Tracking</h3>
+<p>In our fast-paced globalized world, tracking time intervals, milestones, and chronological ages is crucial for both personal planning and professional operations. Whether you are calculating employee hours, project deadlines, or checking age thresholds for legal compliance, having a reliable online tool like the {Title} makes these processes seamless and error-free.</p>
+<p>Modern time-tracking utilizes advanced algorithms to account for the irregularities of our calendar system. Unlike simple division, which might assume every month has 30 days or every year has 365 days, a proper calendar solver evaluates leap years, the varying length of months (from 28 to 31 days), and precise timezone boundaries. This level of accuracy is essential for contract agreements, logistics, billing systems, and medical health assessments.</p>
+<h3>Step-by-Step Instructions & Best Practices</h3>
+<p>Using the {Title} is straightforward, but following a few simple steps ensures you get the most accurate results:</p>
+<ul>
+  <li>First, verify that your browser's date and time settings are correct, as the calculator uses your local system clock for default values.</li>
+  <li>Ensure that dates are input in the standard format (YYYY-MM-DD) or selected correctly using the interactive date picker.</li>
+  <li>Double-check the boundaries of your calculation. For instance, determine whether you need to include or exclude the starting or ending day, as this can change the final count by one day (an occurrence known as the fencepost error).</li>
+</ul>
+<p>For best results, always review the generated breakdown, which displays the interval in years, months, weeks, and days, giving you multiple ways to understand the duration.</p>
+<h3>Real-World Scenarios and Practical Examples</h3>
+<p>Let us explore some common practical applications where this calculation plays a major role:</p>
+<ol>
+  <li><strong>Project Management:</strong> When planning a software development sprint or construction project, managers need to compute the exact working days between the kickoff and the deadline, factoring in weekends and holidays.</li>
+  <li><strong>Legal and Compliance Checks:</strong> Businesses and event organizers frequently verify age gates (such as 18+ or 21+ restrictions) to ensure regulatory compliance. A quick scan of a birthdate using a verified tool eliminates human mathematical errors in high-pressure environments.</li>
+  <li><strong>Personal Milestones:</strong> Tracking gestational weeks during pregnancy, counting down days to a wedding, or estimating exact retirement milestones are all simplified using digital calendar tools.</li>
+</ol>
+<p>By using a dedicated tool instead of manual head math, you eliminate the risk of leap-year discrepancies and minor addition errors, ensuring peace of mind in both your personal and professional life.</p>
+'@
+
+  $fitnessTemplate = @'
+<h3>Understanding Modern Health & Metabolic Tracking</h3>
+<p>Maintaining a healthy lifestyle requires a balance of proper nutrition, regular exercise, and accurate metabolic tracking. Utilizing tools like the {Title} allows you to calculate baseline physiological scores, providing actionable data to optimize your fitness journey. Whether you are tracking Body Mass Index, estimating daily caloric limits, or calculating body fat percentages, these assessments serve as the foundation of any health plan.</p>
+<p>Metabolic rate equations (such as the Mifflin-St Jeor or Harris-Benedict formulas) take your age, gender, height, and weight to calculate how many calories your body burns at rest (BMR). By factoring in your activity level, you get your Total Daily Energy Expenditure (TDEE). This helps you determine your target calorie goals, whether your objective is weight maintenance, healthy fat loss, or muscle gain.</p>
+<h3>How to Use This Tool Effectively</h3>
+<p>To get the most accurate results from the {Title}, follow these best practices:</p>
+<ul>
+  <li>Take your measurements at the same time each day (preferably in the morning before eating or working out) to minimize fluctuations from water retention.</li>
+  <li>Ensure you select the correct unit tab (Metric or Imperial) to avoid converting measurements manually, which can introduce calculation errors.</li>
+  <li>Input your current physical activity level honestly. Overestimating activity levels is a common pitfall that leads to inflated energy expenditure estimates.</li>
+</ul>
+<p>Always remember that calculator outputs are estimations meant to serve as guidelines. Combining these digital tools with regular fitness reviews yields the best long-term success.</p>
+<h3>Real-World Applications of Fitness Calculators</h3>
+<p>Physiological calculators are used across several domains to tailor health programs:</p>
+<ol>
+  <li><strong>Nutritional Coaching:</strong> Certified nutritionists use caloric estimators to establish dietary baselines, adjusting protein, carbohydrate, and fat ratios to fit client goals.</li>
+  <li><strong>Athletic Training:</strong> Runners and triathletes track activity METs and running paces to schedule workouts, prevent overtraining, and monitor metabolic burn rates.</li>
+  <li><strong>Clinical Screening:</strong> Healthcare professionals use body mass indicators as a quick screening tool to identify potential health risks associated with weight categories.</li>
+</ol>
+<p>By leveraging these tools, you replace guesswork with scientifically validated estimations, enabling you to make informed decisions about your diet, workouts, and overall lifestyle habits.</p>
+'@
+
+  $financeTemplate = @'
+<h3>The Foundations of Personal and Business Finance</h3>
+<p>Navigating the complex world of finance requires precision, foresight, and data-driven decision making. Whether you are managing personal debt, projecting investment growth, or calculating tax brackets, using tools like the {Title} gives you immediate clarity on your money. Understanding financial metrics like the time value of money, amortization schedules, and interest rates is essential to building long-term financial security.</p>
+<p>Calculations involving compound interest, loan repayments (EMIs), or investment returns rely on exponential formulas. Compounding interest, for instance, allows your money to grow exponentially by earning returns on your interest. In contrast, loan amortization spreads your monthly payments between principal repayment and interest costs, gradually reducing your overall debt. Visualizing these numbers helps you choose the best loan terms or investment durations.</p>
+<h3>Step-by-Step Instructions & Financial Best Practices</h3>
+<p>Using the {Title} tool is simple and effective. Here is how to perform your calculations correctly:</p>
+<ul>
+  <li>First, gather all relevant terms, including the starting amount (principal), interest rates, and loan tenure or investment duration.</li>
+  <li>Input the figures into their respective fields. For interest rates, make sure to enter the annual rate (APR) as the tool handles periodic interest conversions automatically.</li>
+  <li>Choose the correct compounding or payment frequency (e.g. monthly, quarterly, or annually) as this heavily influences your interest totals.</li>
+</ul>
+<p>We advise comparing multiple scenarios (for example, comparing a 15-year mortgage against a 30-year mortgage) to see how small changes in interest rates or monthly additions affect your lifetime costs.</p>
+<h3>Practical Real-World Financial Scenarios</h3>
+<p>Let us analyze three common scenarios where this calculator provides immediate value:</p>
+<ol>
+  <li><strong>Mortgage and Auto Financing:</strong> Homebuyers and car shoppers calculate monthly EMIs to ensure they do not exceed their monthly budgets, reviewing the full amortization table to understand how much interest they pay over time.</li>
+  <li><strong>Retirement Planning:</strong> Investors project the compounding growth of their retirement funds by adjusting monthly contributions, visualizing how early investments result in larger future balances.</li>
+  <li><strong>Business Profitability:</strong> Store owners and entrepreneurs calculate profit margins, markups, and break-even points to price their products correctly and maintain stable cash flows.</li>
+</ol>
+<p>By using our verified financial tools, you eliminate calculation mistakes, save money on financing fees, and optimize your wealth accumulation strategies with confidence.</p>
+'@
+
+  $mathTemplate = @'
+<h3>The Importance of Mathematical Precision</h3>
+<p>Mathematics is the universal language of science, engineering, and daily problem-solving. From computing semester GPAs to solving trigonometric functions, having access to reliable computational engines like the {Title} is essential for students, researchers, and professional workers. Utilizing digital calculation tools ensures you solve complex equations in seconds with absolute accuracy.</p>
+<p>Advanced math calculations range from simple percentages and rounding to statistics (like standard deviations and percentiles) and scientific keypad expressions. In all these cases, the order of operations (PEMDAS/BODMAS) must be strictly maintained to get the correct result. Modern solvers handle parentheses, exponentiation, logs, and trigonometric ratios natively, giving you clean, verifiable mathematical answers.</p>
+<h3>How to Use This Solver & Best Practices</h3>
+<p>To compute your equations successfully using the {Title}, follow these guidelines:</p>
+<ul>
+  <li>Check if your inputs require specific unit formats. For example, when solving trigonometry, verify if the calculator expects values in radians or degrees.</li>
+  <li>For statistics or datasets, format your list input using commas or spaces as specified by the helper labels.</li>
+  <li>Review the final calculated steps or remainder breakdowns to verify the math logic behind your output.</li>
+</ul>
+<p>Using these online tools helps reinforce learning, letting students check homework solutions and engineers run rapid computations in the field without manual paperwork.</p>
+<h3>Common Practical Applications of Math Solvers</h3>
+<p>Mathematical calculations are widely used across multiple everyday scenarios:</p>
+<ol>
+  <li><strong>Academic Progress:</strong> Students and university coordinators calculate semester CGPAs and class grades to track academic performance and eligibility requirements.</li>
+  <li><strong>Engineering and Trades:</strong> Technicians and builders use area, rounding, and division solvers to estimate project materials, square footage, and dimension cuts.</li>
+  <li><strong>Statistical Analysis:</strong> Researchers calculate variance, sample standard deviations, and percentiles to interpret experimental data and identify trends.</li>
+</ol>
+<p>By using our digital mathematical solvers, you avoid manual arithmetic mistakes, save valuable study and work time, and achieve consistent precision in all your projects.</p>
+'@
+
+  $conversionsTemplate = @'
+<h3>Navigating Global Systems of Measurement</h3>
+<p>As our world becomes increasingly interconnected, unit conversions play an essential role in international commerce, travel, education, and technical trades. Whether you are translating weight from pounds to kilograms, measuring heights, or converting international financial scales (like millions to Indian crores), tools like the {Title} make unit scaling instant and easy.</p>
+<p>Unit conversions rely on standardized mathematical conversion factors. For example, converting feet to centimeters requires multiplying by 30.48, while converting pounds to kilograms requires multiplying by 0.45359237. When scaling currencies or international numbers, understanding the difference between the Western numbering system (millions, billions) and the South Asian system (lakhs, crores) is crucial for accurate financial transactions and international business agreements.</p>
+<h3>Step-by-Step Guide for Accurate Conversions</h3>
+<p>Using the {Title} is simple, but keeping these tips in mind ensures error-free results:</p>
+<ul>
+  <li>Select the correct direction of conversion (e.g. from imperial to metric or metric to imperial) using the tab controls.</li>
+  <li>Input your values carefully, paying attention to decimal points and scale settings.</li>
+  <li>Understand the precision limits of your conversion. For instance, some technical applications require high decimal precision, while daily uses require rounded whole numbers.</li>
+</ul>
+<p>Our converters display results in high precision, while also providing rounded alternatives suitable for quick checks.</p>
+<h3>Real-World Scenarios for Unit Converters</h3>
+<p>Unit conversion is a daily necessity in many global sectors:</p>
+<ol>
+  <li><strong>Trade and Logistics:</strong> Freight forwarders and shipping managers convert package dimensions and weights (lbs, kg, meters, feet) to satisfy cargo regulations and international shipping fees.</li>
+  <li><strong>Finance and Press:</strong> Journalists and financial analysts convert international funding rounds from billions of dollars to Indian rupees (INR) to make financial news accessible to local readers.</li>
+  <li><strong>Science and Health:</strong> Doctors, athletes, and lab technicians convert pressure indices, fluid volumes (gallons, liters), and patient heights to standard clinical metrics.</li>
+</ol>
+<p>By using our standard conversion tools, you bypass complicated multiplication steps, eliminate conversion errors, and communicate measurements clearly across any regional boundary.</p>
+'@
+
+  $gamesTemplate = @'
+<h3>The Mathematics of Probability, Gaming, and Security</h3>
+<p>From playing board games to drawing sweepstakes and securing digital accounts, randomized numbers and logic play a massive role in our daily lives. Using specialized tools like the {Title} gives you access to unbiased, mathematically correct randomization algorithms. Whether you are calling numbers for a local bingo night, generating lottery ticket picks, or creating high-entropy passwords, digital generators ensure complete fairness and strong security.</p>
+<p>Random number generation (RNG) in web browsers uses pseudo-random algorithms that are mathematically distributed across your specified bounds. This guarantees that every number in a draw has an equal probability of appearing, eliminating the biases of manual draws. In security, randomization is used to generate cryptographic passwords that prevent brute-force attacks and protect your private data online.</p>
+<h3>How to Use Our Generators Effectively</h3>
+<p>To get the best utility out of the {Title}, check out these standard rules:</p>
+<ul>
+  <li>For lottery and random drawing tools, set the lower and upper bounds carefully to match the official rules of the game you are playing.</li>
+  <li>When generating passwords, check all key complexity options (uppercase, numbers, and special symbols) to create the strongest security key. We recommend using a length of at least 16 characters.</li>
+  <li>For gaming tools like dice rollers, customize the number of active dice to fit the rules of your tabletop game.</li>
+</ul>
+<p>Since our tools run completely client-side in your browser, your generated passwords and numbers are private and are never sent or stored on any external server.</p>
+'@
+
+  # Select and customize the template based on category
+  $selectedTemplate = ""
+  if ($catSlug -eq "date-age") { $selectedTemplate = $dateAgeTemplate }
+  elseif ($catSlug -eq "health-fitness") { $selectedTemplate = $fitnessTemplate }
+  elseif ($catSlug -eq "finance") { $selectedTemplate = $financeTemplate }
+  elseif ($catSlug -eq "math") { $selectedTemplate = $mathTemplate }
+  elseif ($catSlug -eq "conversions") { $selectedTemplate = $conversionsTemplate }
+  elseif ($catSlug -eq "games") { $selectedTemplate = $gamesTemplate }
+  else { $selectedTemplate = $mathTemplate }
+
+  $seoExtension = $selectedTemplate -replace '\{Title\}', $title
+
+  # FAQ processing (HTML & JSON-LD schema)
+  $faqHtml = ""
+  $faqSchemaJson = ""
+  if ($faq) {
+    try {
+      $faqItems = ConvertFrom-Json $faq
+      if ($faqItems -and $faqItems.Count -gt 0) {
+        $faqHtml = @"
+      <!-- FAQ Section -->
+      <section class="faq-section">
+        <h2 class="faq-header">Frequently Asked Questions</h2>
+        <div class="faq-grid">
+"@
+        foreach ($item in $faqItems) {
+          $q = $item.question
+          $a = $item.answer
+          $faqHtml += @"
+          <div class="faq-item">
+            <h3 class="faq-question">$q</h3>
+            <p class="faq-answer">$a</p>
+          </div>
+"@
+        }
+        $faqHtml += @"
+        </div>
+      </section>
+"@
+
+        $schemaList = @()
+        foreach ($item in $faqItems) {
+          $q = $item.question
+          $a = $item.answer
+          $qEsc = $q -replace '"', '\"'
+          $aEsc = $a -replace '"', '\"'
+          $schemaList += @"
+    {
+      "@type": "Question",
+      "name": "$qEsc",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "$aEsc"
+      }
+    }
+"@
+        }
+        $schemaMembers = $schemaList -join ",`n"
+        $faqSchemaJson = @"
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+$schemaMembers
+    ]
+  }
+  </script>
+"@
+      }
+    } catch {
+      Write-Host "Warning: Failed to parse FAQ JSON for $slug" -ForegroundColor Yellow
+    }
+  }
+
+  # Build the final page (clean URLs configuration - pointing stylesheets/scripts/links 2 levels up)
   $output = @"
 <!DOCTYPE html>
 <html lang="en">
@@ -2590,23 +4651,24 @@ function Generate-CalculatorPage($calc) {
   <title>$metaTitle</title>
   <meta name="description" content="$metaDesc">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.calcuportal.com/calculators/$slug.html">
-  <link rel="stylesheet" href="../styles.css">
-  <script src="../script.js"></script>
+  <link rel="canonical" href="https://www.calcuportal.com/calculators/$slug">
+  <link rel="stylesheet" href="../../styles.css">
+  <script src="../../script.js"></script>
+  $faqSchemaJson
 </head>
 <body>
 
   <!-- Header -->
   <header>
     <div class="nav-container">
-      <a href="../index.html" class="logo">
+      <a href="../../index.html" class="logo">
         <span class="logo-icon">🧮</span>
         <span>CalcuPortal</span>
       </a>
       <nav class="nav-links">
-        <a href="../index.html" class="nav-link">Home</a>
-        <a href="../pages/about.html" class="nav-link">About</a>
-        <a href="../pages/contact.html" class="nav-link">Contact</a>
+        <a href="../../index.html" class="nav-link">Home</a>
+        <a href="../../pages/about/" class="nav-link">About</a>
+        <a href="../../pages/contact/" class="nav-link">Contact</a>
         <button class="theme-btn" title="Toggle Theme">
           <span class="theme-btn-icon"></span>
         </button>
@@ -2616,8 +4678,15 @@ function Generate-CalculatorPage($calc) {
 
   <main>
     <div class="detail-container">
-      <a href="../index.html" class="back-btn">← Back to Directory</a>
-      
+      <!-- Breadcrumbs -->
+      <div class="breadcrumbs">
+        <a href="../../index.html">Home</a>
+        <span class="separator">&rsaquo;</span>
+        <a href="../../categories/$catSlug/">$catTitle</a>
+        <span class="separator">&rsaquo;</span>
+        <span class="current">$title</span>
+      </div>
+
       <div class="detail-header">
         <h1>$title</h1>
       </div>
@@ -2634,8 +4703,11 @@ function Generate-CalculatorPage($calc) {
         </div>
         <div class="article-content">
           $seo
+          $seoExtension
         </div>
       </section>
+
+      $faqHtml
     </div>
   </main>
 
@@ -2663,7 +4735,12 @@ function Generate-CalculatorPage($calc) {
 </html>
 "@
   
-  $outputFile = "calculators/$slug.html"
+  # Clean URL directory write
+  $folder = "calculators/$slug"
+  if (-not (Test-Path $folder)) {
+    New-Item -ItemType Directory -Path $folder
+  }
+  $outputFile = "$folder/index.html"
   Set-Content -Path $outputFile -Value $output -Encoding utf8
   Write-Host "Generated $outputFile"
 }

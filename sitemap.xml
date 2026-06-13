@@ -6,302 +6,407 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/age-calculator.html</loc>
+    <loc>https://www.calcuportal.com/categories/date-age/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.calcuportal.com/categories/health-fitness/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.calcuportal.com/categories/finance/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.calcuportal.com/categories/math/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.calcuportal.com/categories/conversions/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.calcuportal.com/categories/games/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.calcuportal.com/calculators/age-calculator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/date-calculator.html</loc>
+    <loc>https://www.calcuportal.com/calculators/date-calculator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/time-age-checker.html</loc>
+    <loc>https://www.calcuportal.com/calculators/time-age-checker/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/day-counter.html</loc>
+    <loc>https://www.calcuportal.com/calculators/day-counter/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/time-how-old-am-i.html</loc>
+    <loc>https://www.calcuportal.com/calculators/time-how-old-am-i/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/time-duration.html</loc>
+    <loc>https://www.calcuportal.com/calculators/time-duration/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/time-work-hours.html</loc>
+    <loc>https://www.calcuportal.com/calculators/time-work-hours/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/age-difference-calculator.html</loc>
+    <loc>https://www.calcuportal.com/calculators/age-difference-calculator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/time-date-day.html</loc>
+    <loc>https://www.calcuportal.com/calculators/time-date-day/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/time-time-calculator.html</loc>
+    <loc>https://www.calcuportal.com/calculators/time-time-calculator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/bmi-calculator.html</loc>
+    <loc>https://www.calcuportal.com/calculators/bmi-calculator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/calorie-calculator.html</loc>
+    <loc>https://www.calcuportal.com/calculators/calorie-calculator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/pregnancy-calculator.html</loc>
+    <loc>https://www.calcuportal.com/calculators/pregnancy-calculator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/tdee-calculator.html</loc>
+    <loc>https://www.calcuportal.com/calculators/tdee-calculator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/weight-watchers-points.html</loc>
+    <loc>https://www.calcuportal.com/calculators/weight-watchers-points/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/bmr-calculator.html</loc>
+    <loc>https://www.calcuportal.com/calculators/bmr-calculator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/compound-interest-calculator.html</loc>
+    <loc>https://www.calcuportal.com/calculators/compound-interest-calculator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/loan-emi-calculator.html</loc>
+    <loc>https://www.calcuportal.com/calculators/loan-emi-calculator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/discount-calculator.html</loc>
+    <loc>https://www.calcuportal.com/calculators/discount-calculator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/fuel-cost-calculator.html</loc>
+    <loc>https://www.calcuportal.com/calculators/fuel-cost-calculator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/profit-calculator.html</loc>
+    <loc>https://www.calcuportal.com/calculators/profit-calculator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/amortization-calculator.html</loc>
+    <loc>https://www.calcuportal.com/calculators/amortization-calculator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/mileage-calculator.html</loc>
+    <loc>https://www.calcuportal.com/calculators/mileage-calculator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/electricity-calculator.html</loc>
+    <loc>https://www.calcuportal.com/calculators/electricity-calculator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/irr-calculator.html</loc>
+    <loc>https://www.calcuportal.com/calculators/irr-calculator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/scientific-calculator.html</loc>
+    <loc>https://www.calcuportal.com/calculators/scientific-calculator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/percentage-calculator.html</loc>
+    <loc>https://www.calcuportal.com/calculators/percentage-calculator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/cgpa-calculator.html</loc>
+    <loc>https://www.calcuportal.com/calculators/cgpa-calculator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/statistics-percentile.html</loc>
+    <loc>https://www.calcuportal.com/calculators/statistics-percentile/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/hcf-calculator.html</loc>
+    <loc>https://www.calcuportal.com/calculators/hcf-calculator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/math-rounding-numbers.html</loc>
+    <loc>https://www.calcuportal.com/calculators/math-rounding-numbers/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/math-long-division.html</loc>
+    <loc>https://www.calcuportal.com/calculators/math-long-division/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/remainder-calculator.html</loc>
+    <loc>https://www.calcuportal.com/calculators/remainder-calculator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/square-footage-calculator.html</loc>
+    <loc>https://www.calcuportal.com/calculators/square-footage-calculator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/rounding-calculator.html</loc>
+    <loc>https://www.calcuportal.com/calculators/rounding-calculator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/gpa-calculator.html</loc>
+    <loc>https://www.calcuportal.com/calculators/gpa-calculator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/big-number-calculator.html</loc>
+    <loc>https://www.calcuportal.com/calculators/big-number-calculator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/grade-calculator.html</loc>
+    <loc>https://www.calcuportal.com/calculators/grade-calculator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/conversions-numbers-to-words.html</loc>
+    <loc>https://www.calcuportal.com/calculators/conversions-numbers-to-words/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/conversions-height-ft-cm.html</loc>
+    <loc>https://www.calcuportal.com/calculators/conversions-height-ft-cm/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/million-to-rupees.html</loc>
+    <loc>https://www.calcuportal.com/calculators/million-to-rupees/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/lbs-to-kg-converter.html</loc>
+    <loc>https://www.calcuportal.com/calculators/lbs-to-kg-converter/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/billion-to-rupees.html</loc>
+    <loc>https://www.calcuportal.com/calculators/billion-to-rupees/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/million-to-crore.html</loc>
+    <loc>https://www.calcuportal.com/calculators/million-to-crore/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/conversions-roman-numeral-date-converter.html</loc>
+    <loc>https://www.calcuportal.com/calculators/conversions-roman-numeral-date-converter/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/meter-to-feet.html</loc>
+    <loc>https://www.calcuportal.com/calculators/meter-to-feet/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/square-meter-to-square-feet.html</loc>
+    <loc>https://www.calcuportal.com/calculators/square-meter-to-square-feet/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/centimeter-to-meter.html</loc>
+    <loc>https://www.calcuportal.com/calculators/centimeter-to-meter/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/conversions-pressure.html</loc>
+    <loc>https://www.calcuportal.com/calculators/conversions-pressure/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/gallons-to-liters.html</loc>
+    <loc>https://www.calcuportal.com/calculators/gallons-to-liters/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/conversions-time.html</loc>
+    <loc>https://www.calcuportal.com/calculators/conversions-time/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/games-lottery-number-generator.html</loc>
+    <loc>https://www.calcuportal.com/calculators/games-lottery-number-generator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/games-bingo-number-generator.html</loc>
+    <loc>https://www.calcuportal.com/calculators/games-bingo-number-generator/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/calculators/games-dice-roller.html</loc>
+    <loc>https://www.calcuportal.com/calculators/games-dice-roller/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/pages/about.html</loc>
+    <loc>https://www.calcuportal.com/calculators/mortgage-calculator/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.calcuportal.com/calculators/auto-loan-calculator/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.calcuportal.com/calculators/investment-calculator/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.calcuportal.com/calculators/inflation-calculator/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.calcuportal.com/calculators/income-tax-calculator/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.calcuportal.com/calculators/sales-tax-calculator/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.calcuportal.com/calculators/credit-card-payoff/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.calcuportal.com/calculators/ideal-weight-calculator/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.calcuportal.com/calculators/body-fat-calculator/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.calcuportal.com/calculators/pace-calculator/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.calcuportal.com/calculators/calorie-burn-met-calculator/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.calcuportal.com/calculators/fraction-calculator/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.calcuportal.com/calculators/standard-deviation-calculator/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.calcuportal.com/calculators/password-generator/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.calcuportal.com/calculators/random-number-generator/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.calcuportal.com/pages/about/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/pages/contact.html</loc>
+    <loc>https://www.calcuportal.com/pages/contact/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/pages/privacy-policy.html</loc>
+    <loc>https://www.calcuportal.com/pages/privacy-policy/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/pages/terms-conditions.html</loc>
+    <loc>https://www.calcuportal.com/pages/terms-conditions/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/pages/disclaimer.html</loc>
+    <loc>https://www.calcuportal.com/pages/disclaimer/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/pages/advertise.html</loc>
+    <loc>https://www.calcuportal.com/pages/advertise/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

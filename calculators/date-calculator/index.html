@@ -1,0 +1,281 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Date Calculator - Calculate Days Between Dates &amp; Add Days</title>
+  <meta name="description" content="Calculate the number of days, weeks, months, or years between two dates, or add/subtract days from a specific calendar date.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.calcuportal.com/calculators/date-calculator">
+  <link rel="stylesheet" href="../../styles.css">
+  <script src="../../script.js"></script>
+  
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="../../index.html" class="logo">
+        <span class="logo-icon">🧮</span>
+        <span>CalcuPortal</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../../index.html" class="nav-link">Home</a>
+        <a href="../../pages/about/" class="nav-link">About</a>
+        <a href="../../pages/contact/" class="nav-link">Contact</a>
+        <button class="theme-btn" title="Toggle Theme">
+          <span class="theme-btn-icon"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="detail-container">
+      <!-- Breadcrumbs -->
+      <div class="breadcrumbs">
+        <a href="../../index.html">Home</a>
+        <span class="separator">&rsaquo;</span>
+        <a href="../../categories/date-age/">Date & Age Calculators</a>
+        <span class="separator">&rsaquo;</span>
+        <span class="current">Date &amp; Calendar Calculator</span>
+      </div>
+
+      <div class="detail-header">
+        <h1>Date &amp; Calendar Calculator</h1>
+      </div>
+
+      <!-- Calculator Widget -->
+      <div class="calc-widget">
+        <div class="unit-tabs">
+          <button id="date-diff-tab" class="tab-btn active">Days Between Dates</button>
+          <button id="date-add-tab" class="tab-btn">Add/Subtract Days</button>
+        </div>
+
+        <!-- Tab 1: Days Between Dates -->
+        <div id="date-diff-form" class="form-section">
+          <div class="form-group">
+            <label for="diff-start">Start Date</label>
+            <input type="date" id="diff-start" class="input-field" />
+          </div>
+          <div class="form-group">
+            <label for="diff-end">End Date</label>
+            <input type="date" id="diff-end" class="input-field" />
+          </div>
+          <button id="date-diff-btn" class="calc-btn">Calculate Difference</button>
+          
+          <div id="diff-result" class="result-section hidden" style="text-align: center;">
+            <div class="summary-title" style="font-size: 0.875rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase;">Time Difference</div>
+            <div class="total-balance" id="diff-days-val" style="font-size: 2.25rem; font-weight: 900; color: var(--primary); margin: 0.5rem 0;">0 Days</div>
+            <div class="diff-breakdown" id="diff-breakdown-val">...</div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Add/Subtract Days -->
+        <div id="date-add-form" class="form-section hidden">
+          <div class="form-group">
+            <label for="add-start">Start Date</label>
+            <input type="date" id="add-start" class="input-field" />
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="add-op">Operation</label>
+              <select id="add-op" class="select-field">
+                <option value="add" selected>Add (+)</option>
+                <option value="sub">Subtract (-)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="add-val">Value</label>
+              <input type="number" id="add-val" value="10" class="input-field" min="1" />
+            </div>
+            <div class="form-group">
+              <label for="add-unit">Unit</label>
+              <select id="add-unit" class="select-field">
+                <option value="days" selected>Days</option>
+                <option value="weeks">Weeks</option>
+                <option value="months">Months</option>
+                <option value="years">Years</option>
+              </select>
+            </div>
+          </div>
+          
+          <button id="date-add-btn" class="calc-btn">Compute New Date</button>
+          
+          <div id="add-result" class="result-section hidden" style="text-align: center;">
+            <div class="summary-title" style="font-size: 0.875rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase;">Resulting Date</div>
+            <div class="total-balance" id="add-res-date" style="font-size: 2.25rem; font-weight: 900; color: var(--primary); margin: 0.5rem 0;">June 23, 2026</div>
+            <p id="add-res-sub" class="res-sub-text">Tuesday</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEO Article -->
+      <section class="article-section">
+        <div class="article-header">
+          <h2>Date &amp; Calendar Calculator Guides</h2>
+        </div>
+        <div class="article-content">
+          <p>Manual calendar calculations can lead to errors due to changing month lengths (28, 30, or 31 days) and leap years. Our date calculator solves calendar interval differences and projections client-side with 100% precision.</p>
+          <h3>The Value of Accurate Timeline Tracking</h3>
+<p>In our fast-paced globalized world, tracking time intervals, milestones, and chronological ages is crucial for both personal planning and professional operations. Whether you are calculating employee hours, project deadlines, or checking age thresholds for legal compliance, having a reliable online tool like the Date &amp; Calendar Calculator makes these processes seamless and error-free.</p>
+<p>Modern time-tracking utilizes advanced algorithms to account for the irregularities of our calendar system. Unlike simple division, which might assume every month has 30 days or every year has 365 days, a proper calendar solver evaluates leap years, the varying length of months (from 28 to 31 days), and precise timezone boundaries. This level of accuracy is essential for contract agreements, logistics, billing systems, and medical health assessments.</p>
+<h3>Step-by-Step Instructions & Best Practices</h3>
+<p>Using the Date &amp; Calendar Calculator is straightforward, but following a few simple steps ensures you get the most accurate results:</p>
+<ul>
+  <li>First, verify that your browser's date and time settings are correct, as the calculator uses your local system clock for default values.</li>
+  <li>Ensure that dates are input in the standard format (YYYY-MM-DD) or selected correctly using the interactive date picker.</li>
+  <li>Double-check the boundaries of your calculation. For instance, determine whether you need to include or exclude the starting or ending day, as this can change the final count by one day (an occurrence known as the fencepost error).</li>
+</ul>
+<p>For best results, always review the generated breakdown, which displays the interval in years, months, weeks, and days, giving you multiple ways to understand the duration.</p>
+<h3>Real-World Scenarios and Practical Examples</h3>
+<p>Let us explore some common practical applications where this calculation plays a major role:</p>
+<ol>
+  <li><strong>Project Management:</strong> When planning a software development sprint or construction project, managers need to compute the exact working days between the kickoff and the deadline, factoring in weekends and holidays.</li>
+  <li><strong>Legal and Compliance Checks:</strong> Businesses and event organizers frequently verify age gates (such as 18+ or 21+ restrictions) to ensure regulatory compliance. A quick scan of a birthdate using a verified tool eliminates human mathematical errors in high-pressure environments.</li>
+  <li><strong>Personal Milestones:</strong> Tracking gestational weeks during pregnancy, counting down days to a wedding, or estimating exact retirement milestones are all simplified using digital calendar tools.</li>
+</ol>
+<p>By using a dedicated tool instead of manual head math, you eliminate the risk of leap-year discrepancies and minor addition errors, ensuring peace of mind in both your personal and professional life.</p>
+        </div>
+      </section>
+
+      
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="copyright-bar" style="border-top: none; padding-top: 0;">
+      © <span id="year">2026</span> CalcuPortal. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').innerText = new Date().getFullYear();
+    
+    // Injected calculation script
+    // Rename calculate button triggers
+    const calculateBtn = document.getElementById('calc-btn');
+    if (calculateBtn) {
+      calculateBtn.id = 'calculate-btn';
+    }
+  </script>
+  <script>
+    
+    // Set defaults
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    const todayStr = `${yyyy}-${mm}-${dd}`;
+
+    document.getElementById('diff-start').value = todayStr;
+    document.getElementById('diff-end').value = todayStr;
+    document.getElementById('add-start').value = todayStr;
+
+    const diffTab = document.getElementById('date-diff-tab');
+    const addTab = document.getElementById('date-add-tab');
+    const diffForm = document.getElementById('date-diff-form');
+    const addForm = document.getElementById('date-add-form');
+
+    diffTab.addEventListener('click', () => {
+      diffTab.classList.add('active');
+      addTab.classList.remove('active');
+      diffForm.classList.remove('hidden');
+      addForm.classList.add('hidden');
+    });
+
+    addTab.addEventListener('click', () => {
+      addTab.classList.add('active');
+      diffTab.classList.remove('active');
+      addForm.classList.remove('hidden');
+      diffForm.classList.add('hidden');
+    });
+
+    document.getElementById('date-diff-btn').addEventListener('click', () => {
+      const startVal = document.getElementById('diff-start').value;
+      const endVal = document.getElementById('diff-end').value;
+      
+      if (!startVal || !endVal) {
+        alert('Please enter valid dates.');
+        return;
+      }
+      
+      const d1 = new Date(startVal);
+      const d2 = new Date(endVal);
+      const diffTime = d2 - d1;
+      const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+      
+      let years = d2.getFullYear() - d1.getFullYear();
+      let months = d2.getMonth() - d1.getMonth();
+      let days = d2.getDate() - d1.getDate();
+      
+      if (days < 0) {
+        months--;
+        const prevMonth = new Date(d2.getFullYear(), d2.getMonth(), 0);
+        days += prevMonth.getDate();
+      }
+      
+      if (months < 0) {
+        years--;
+        months += 12;
+      }
+      
+      const absDays = Math.abs(diffDays);
+      document.getElementById('diff-days-val').innerText = `${absDays} ${absDays === 1 ? 'Day' : 'Days'}`;
+      
+      let breakdown = '';
+      if (diffDays < 0) {
+        breakdown = `End date is before start date. Difference is: `;
+      } else {
+        breakdown = 'Alternative breakdown: ';
+      }
+      
+      const absYears = Math.abs(years);
+      const absMonths = Math.abs(months);
+      const absDaysRemainder = Math.abs(days);
+      
+      breakdown += `<strong>${absYears} years, ${absMonths} months, and ${absDaysRemainder} days</strong>`;
+      
+      const weeks = Math.floor(absDays / 7);
+      const remDays = absDays % 7;
+      breakdown += `<br><span style="font-size:0.8rem; color:var(--text-muted);">Or ${weeks} weeks and ${remDays} days</span>`;
+      
+      document.getElementById('diff-breakdown-val').innerHTML = breakdown;
+      document.getElementById('diff-result').classList.remove('hidden');
+    });
+
+    document.getElementById('date-add-btn').addEventListener('click', () => {
+      const startVal = document.getElementById('add-start').value;
+      const op = document.getElementById('add-op').value;
+      const quantity = parseInt(document.getElementById('add-val').value);
+      const unit = document.getElementById('add-unit').value;
+      
+      if (!startVal || isNaN(quantity) || quantity <= 0) {
+        alert('Please select a start date and enter a positive quantity.');
+        return;
+      }
+      
+      const date = new Date(startVal);
+      const multiplier = op === 'add' ? 1 : -1;
+      const val = quantity * multiplier;
+      
+      if (unit === 'days') {
+        date.setDate(date.getDate() + val);
+      } else if (unit === 'weeks') {
+        date.setDate(date.getDate() + (val * 7));
+      } else if (unit === 'months') {
+        date.setMonth(date.getMonth() + val);
+      } else if (unit === 'years') {
+        date.setFullYear(date.getFullYear() + val);
+      }
+      
+      document.getElementById('add-res-date').innerText = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      document.getElementById('add-res-sub').innerText = date.toLocaleDateString('en-US', { weekday: 'long' });
+      document.getElementById('add-result').classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>
