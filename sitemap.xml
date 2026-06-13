@@ -2,4 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://yourusername.github.io/online-calculator/</loc></url>
   <url><loc>https://yourusername.github.io/online-calculator/calculators/age-calculator.html</loc></url>
+
+  <url>
+    <loc>https://yourusername.github.io/online-calculator/calculators/sip-calculator.html</loc>
+    <priority>0.9</priority>
+  </url>
 </urlset>
