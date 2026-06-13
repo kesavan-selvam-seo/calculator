@@ -1,76 +1,257 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style.css">
-<script defer src="/script.js"></script>
-<title>Percentage Calculator | Free Online Tool</title>
-<meta name="description" content="Find percentage, percentage increase and percentage decrease.">
-<link rel="canonical" href="https://example.com/">
+  <meta name="robots" content="index, follow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Percentage Calculator - Free Online Percent Calculations</title>
+  <meta name="description" content="Calculate percentages, proportions, and percentage increase or decrease instantly with our free online percentage calculator. Light, fast, and responsive.">
+  <link rel="canonical" href="https://www.calcuportal.com/calculators/percentage-calculator.html">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../script.js"></script>
+  <style>
+    .result-box {
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 0.75rem;
+      padding: 1rem;
+      margin-top: 1rem;
+      text-align: center;
+      animation: fadeIn 0.4s ease-out;
+    }
+    .result-text {
+      margin: 0;
+      font-size: 1rem;
+      color: var(--text-primary);
+    }
+    .result-text strong {
+      color: var(--primary);
+      font-size: 1.25rem;
+      font-weight: 800;
+    }
+    .direction-tag {
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.375rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: white;
+    }
+    .direction-tag.increase { background-color: #10b981; }
+    .direction-tag.decrease { background-color: #ef4444; }
+    .direction-tag.none { background-color: #64748b; }
+  </style>
 </head>
 <body>
-<div class="topbar"><div class="container"><span>Free online calculators for daily use</span><span>No signup required</span></div></div>
-<header>
-  <div class="container nav">
-    <a href="/index.html" class="logo">Calc<span>Stack</span></a>
-    <ul class="menu">
-      <li><a href="/categories.html">Categories</a></li>
-      <li><a href="/generic-calculators.html">Generic</a></li>
-      <li><a href="/finance-calculators.html">Finance</a></li>
-      <li><a href="/sports-calculators.html">Sports</a></li>
-      <li><a href="/about.html">About</a></li>
-      <li><a href="/contact.html">Contact</a></li>
-    </ul>
-    <a class="btn btn-primary" href="/categories.html">Explore Calculators</a>
-  </div>
-</header>
 
-<section class="hero"><div class="container"><div class="breadcrumb"><a href="/index.html">Home</a> / <a href="/generic-calculators.html">Generic Calculators</a> / Percentage Calculator</div><div class="eyebrow">L3 calculator page</div><h1>Percentage Calculator</h1><p class="lead">Find percentage, percentage increase and percentage decrease. Enter the values below and get the result instantly.</p></div></section>
-<section class="section">
- <div class="container two-col">
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="../index.html" class="logo">
+        <span class="logo-icon">🧮</span>
+        <span>CalcuPortal</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../pages/about.html" class="nav-link">About</a>
+        <a href="../pages/contact.html" class="nav-link">Contact</a>
+        <button class="theme-btn" title="Toggle Theme">
+          <span class="theme-btn-icon"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
   <main>
-   <div class="tool-card">
-    <h2>Percentage Calculator Tool</h2>
-    <p>Enter the required values and click calculate.</p>
-    <div class="form-grid"><div class="field"><label>Value</label><input id="value" value="45" type="number"></div><div class="field"><label>Total</label><input id="total" value="60" type="number"></div></div>
-    <button class="btn btn-primary" onclick="calculate('percentage')">Calculate</button>
-    <div id="result" class="result"><p>Your result will appear here.</p></div>
-   </div>
-   <div class="section content" style="margin-top:28px">
-    <h2>What is Percentage Calculator?</h2>
-    <p>Percentage Calculator is a simple online tool that helps users calculate values quickly without manual formulas. It is designed for fast use on mobile and desktop devices.</p>
-    <h2>How to Use Percentage Calculator</h2>
-    <ol><li>Enter the required input values.</li><li>Click the calculate button.</li><li>Check the result shown below the tool.</li></ol>
-    <h2>Percentage Calculator Formula</h2>
-    <p>The formula depends on the input values used in this calculator. The tool applies the standard calculation method and displays the final result instantly.</p>
-    <h2>Why Use This Calculator?</h2>
-    <p>This calculator saves time, reduces manual mistakes and gives a quick estimate for everyday planning. The result should be used for informational purposes only.</p>
-   </div>
-   <div class="section" style="padding-bottom:0">
-    <h2>FAQs on Percentage Calculator</h2>
-    <div class="faq"><h3>Is this Percentage Calculator free?</h3><p>Yes, this calculator is free to use and does not require signup.</p></div>
-    <div class="faq"><h3>Can I use this calculator on mobile?</h3><p>Yes, the calculator is designed to work on mobile, tablet and desktop screens.</p></div>
-    <div class="faq"><h3>Are the results final?</h3><p>The results are estimates for informational use. For finance, health or legal decisions, consult a qualified professional.</p></div>
-   </div>
-  </main>
-  <aside class="sidebar"><div class="link-list"><h3>Related Calculators</h3><a href="/age-calculator.html">Age Calculator</a><a href="/discount-calculator.html">Discount Calculator</a><a href="/generic-calculators.html">Back to Generic Calculators</a></div></aside>
- </div>
-</section>
+    <div class="detail-container">
+      <a href="../index.html" class="back-btn">← Back to Directory</a>
+      
+      <div class="detail-header">
+        <h1>Percentage Calculator</h1>
+        <p>Find percentage of a value, calculate proportion percentages, or trace percentage changes.</p>
+      </div>
 
-<footer>
- <div class="container">
-  <div class="footer-grid">
-   <div><h3>CalcStack</h3><p>SEO-friendly calculator website structure with category pages and individual calculator pages.</p></div>
-   <div><h3>Categories</h3><a href="/generic-calculators.html">Generic Calculators</a><a href="/finance-calculators.html">Finance Calculators</a><a href="/health-calculators.html">Health Calculators</a><a href="/student-calculators.html">Student Calculators</a><a href="/sports-calculators.html">Sports Calculators</a></div>
-   <div><h3>Pages</h3><a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/privacy-policy.html">Privacy Policy</a><a href="/disclaimer.html">Disclaimer</a></div>
-   <div><h3>Popular</h3><a href="/sip-calculator.html">SIP Calculator</a><a href="/age-calculator.html">Age Calculator</a><a href="/bmi-calculator.html">BMI Calculator</a></div>
-  </div>
-  <div class="small">© 2026 CalcStack. Calculator results are for informational purposes only.</div>
- </div>
-</footer>
+      <!-- Calculator Widget -->
+      <div class="calc-widget">
+        <div class="unit-tabs">
+          <button id="find-pct-tab" class="tab-btn active">Find Percentage</button>
+          <button id="find-prop-tab" class="tab-btn">Find Proportion</button>
+          <button id="change-pct-tab" class="tab-btn">Percentage Change</button>
+        </div>
+
+        <!-- Tab 1: Find Percentage -->
+        <div id="find-pct-form" class="form-section">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="pct-x">Percentage (%)</label>
+              <input type="number" id="pct-x" placeholder="e.g. 15" class="input-field" step="any" />
+            </div>
+            <div class="form-group">
+              <label for="pct-y">Of Value</label>
+              <input type="number" id="pct-y" placeholder="e.g. 200" class="input-field" step="any" />
+            </div>
+          </div>
+          <button id="calc-pct-btn" class="calc-btn">Calculate Percentage</button>
+          <div id="pct-result" class="result-box hidden">
+            <p class="result-text"><span id="pct-x-val">15</span>% of <span id="pct-y-val">200</span> is <strong id="pct-res-val">30</strong></p>
+          </div>
+        </div>
+
+        <!-- Tab 2: Find Proportion -->
+        <div id="find-prop-form" class="form-section hidden">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="prop-x">Value X</label>
+              <input type="number" id="prop-x" placeholder="e.g. 50" class="input-field" step="any" />
+            </div>
+            <div class="form-group">
+              <label for="prop-y">Is What Percent of Value Y</label>
+              <input type="number" id="prop-y" placeholder="e.g. 200" class="input-field" step="any" />
+            </div>
+          </div>
+          <button id="calc-prop-btn" class="calc-btn">Calculate Proportion</button>
+          <div id="prop-result" class="result-box hidden">
+            <p class="result-text"><span id="prop-x-val">50</span> is <strong id="prop-res-val">25%</strong> of <span id="prop-y-val">200</span></p>
+          </div>
+        </div>
+
+        <!-- Tab 3: Percentage Change -->
+        <div id="change-pct-form" class="form-section hidden">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="change-x">Original Value (From)</label>
+              <input type="number" id="change-x" placeholder="e.g. 80" class="input-field" step="any" />
+            </div>
+            <div class="form-group">
+              <label for="change-y">New Value (To)</label>
+              <input type="number" id="change-y" placeholder="e.g. 100" class="input-field" step="any" />
+            </div>
+          </div>
+          <button id="calc-change-btn" class="calc-btn">Calculate Change</button>
+          <div id="change-result" class="result-box hidden">
+            <p class="result-text">From <span id="change-x-val">80</span> to <span id="change-y-val">100</span> is a <span id="change-direction" class="direction-tag">...</span> of <strong id="change-res-val">25%</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEO Article -->
+      <section class="article-section">
+        <div class="article-header">
+          <h2>Understanding Percentage Calculations</h2>
+        </div>
+        <div class="article-content">
+          <p>A percentage represents a fraction of 100. It is symbolized using the percent sign (%). The word percentage comes from the Latin <i>per centum</i>, meaning "by the hundred".</p>
+          <h3>Core Formulas Utilized</h3>
+          <ul>
+            <li><strong>Percentage of a Value:</strong> <code>(Percentage / 100) &times; Value</code></li>
+            <li><strong>Proportion:</strong> <code>(Part / Whole) &times; 100</code></li>
+            <li><strong>Percentage Change:</strong> <code>((New Value - Original Value) / Original Value) &times; 100</code></li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="copyright-bar" style="border-top: none; padding-top: 0;">
+      © <span id="year">2026</span> CalcuPortal. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').innerText = new Date().getFullYear();
+
+    const tabs = [
+      { btn: 'find-pct-tab', form: 'find-pct-form' },
+      { btn: 'find-prop-tab', form: 'find-prop-form' },
+      { btn: 'change-pct-tab', form: 'change-pct-form' }
+    ];
+
+    tabs.forEach((tab) => {
+      const btnEl = document.getElementById(tab.btn);
+      btnEl.addEventListener('click', () => {
+        tabs.forEach(t => {
+          document.getElementById(t.btn).classList.remove('active');
+          document.getElementById(t.form).classList.add('hidden');
+        });
+        btnEl.classList.add('active');
+        document.getElementById(tab.form).classList.remove('hidden');
+      });
+    });
+
+    // Calc 1: Find Percentage
+    document.getElementById('calc-pct-btn').addEventListener('click', () => {
+      const x = parseFloat(document.getElementById('pct-x').value);
+      const y = parseFloat(document.getElementById('pct-y').value);
+      
+      if (isNaN(x) || isNaN(y)) {
+        alert('Please enter valid numeric inputs.');
+        return;
+      }
+      
+      const result = (x / 100) * y;
+      const roundedRes = Math.round(result * 10000) / 10000;
+      
+      document.getElementById('pct-x-val').innerText = x;
+      document.getElementById('pct-y-val').innerText = y;
+      document.getElementById('pct-res-val').innerText = roundedRes;
+      document.getElementById('pct-result').classList.remove('hidden');
+    });
+
+    // Calc 2: Find Proportion
+    document.getElementById('calc-prop-btn').addEventListener('click', () => {
+      const x = parseFloat(document.getElementById('prop-x').value);
+      const y = parseFloat(document.getElementById('prop-y').value);
+      
+      if (isNaN(x) || isNaN(y) || y === 0) {
+        alert('Please enter valid inputs. Value Y cannot be zero.');
+        return;
+      }
+      
+      const result = (x / y) * 100;
+      const roundedRes = Math.round(result * 10000) / 10000;
+      
+      document.getElementById('prop-x-val').innerText = x;
+      document.getElementById('prop-y-val').innerText = y;
+      document.getElementById('prop-res-val').innerText = roundedRes + '%';
+      document.getElementById('prop-result').classList.remove('hidden');
+    });
+
+    // Calc 3: Percentage Change
+    document.getElementById('calc-change-btn').addEventListener('click', () => {
+      const x = parseFloat(document.getElementById('change-x').value);
+      const y = parseFloat(document.getElementById('change-y').value);
+      
+      if (isNaN(x) || isNaN(y) || x === 0) {
+        alert('Please enter valid inputs. Original value (From) cannot be zero.');
+        return;
+      }
+      
+      const diff = y - x;
+      const pctChange = (diff / Math.abs(x)) * 100;
+      const roundedChange = Math.round(Math.abs(pctChange) * 10000) / 10000;
+      
+      let direction = 'increase';
+      let tagClass = 'direction-tag increase';
+      if (diff < 0) {
+        direction = 'decrease';
+        tagClass = 'direction-tag decrease';
+      } else if (diff === 0) {
+        direction = 'no change';
+        tagClass = 'direction-tag none';
+      }
+      
+      document.getElementById('change-x-val').innerText = x;
+      document.getElementById('change-y-val').innerText = y;
+      
+      const dirEl = document.getElementById('change-direction');
+      dirEl.innerText = direction;
+      dirEl.className = tagClass;
+      
+      document.getElementById('change-res-val').innerText = roundedChange + '%';
+      document.getElementById('change-result').classList.remove('hidden');
+    });
+  </script>
 </body>
 </html>
+

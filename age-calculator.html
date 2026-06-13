@@ -1,76 +1,195 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style.css">
-<script defer src="/script.js"></script>
-<title>Age Calculator | Free Online Tool</title>
-<meta name="description" content="Calculate exact age in years, months and days.">
-<link rel="canonical" href="https://example.com/">
+  <meta name="robots" content="index, follow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Age Calculator - Calculate Exact Age Online</title>
+  <meta name="description" content="Calculate your exact age in years, months, days, weeks, and minutes. See how many days are left until your next birthday. Free and responsive.">
+  <link rel="canonical" href="https://www.calcuportal.com/calculators/age-calculator.html">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../script.js"></script>
 </head>
 <body>
-<div class="topbar"><div class="container"><span>Free online calculators for daily use</span><span>No signup required</span></div></div>
-<header>
-  <div class="container nav">
-    <a href="/index.html" class="logo">Calc<span>Stack</span></a>
-    <ul class="menu">
-      <li><a href="/categories.html">Categories</a></li>
-      <li><a href="/generic-calculators.html">Generic</a></li>
-      <li><a href="/finance-calculators.html">Finance</a></li>
-      <li><a href="/sports-calculators.html">Sports</a></li>
-      <li><a href="/about.html">About</a></li>
-      <li><a href="/contact.html">Contact</a></li>
-    </ul>
-    <a class="btn btn-primary" href="/categories.html">Explore Calculators</a>
-  </div>
-</header>
 
-<section class="hero"><div class="container"><div class="breadcrumb"><a href="/index.html">Home</a> / <a href="/generic-calculators.html">Generic Calculators</a> / Age Calculator</div><div class="eyebrow">L3 calculator page</div><h1>Age Calculator</h1><p class="lead">Calculate exact age in years, months and days. Enter the values below and get the result instantly.</p></div></section>
-<section class="section">
- <div class="container two-col">
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="../index.html" class="logo">
+        <span class="logo-icon">🧮</span>
+        <span>CalcuPortal</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../pages/about.html" class="nav-link">About</a>
+        <a href="../pages/contact.html" class="nav-link">Contact</a>
+        <button class="theme-btn" title="Toggle Theme">
+          <span class="theme-btn-icon"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
   <main>
-   <div class="tool-card">
-    <h2>Age Calculator Tool</h2>
-    <p>Enter the required values and click calculate.</p>
-    <div class="form-grid"><div class="field"><label>Date of Birth</label><input id="dob" type="date"></div></div>
-    <button class="btn btn-primary" onclick="calculate('age')">Calculate</button>
-    <div id="result" class="result"><p>Your result will appear here.</p></div>
-   </div>
-   <div class="section content" style="margin-top:28px">
-    <h2>What is Age Calculator?</h2>
-    <p>Age Calculator is a simple online tool that helps users calculate values quickly without manual formulas. It is designed for fast use on mobile and desktop devices.</p>
-    <h2>How to Use Age Calculator</h2>
-    <ol><li>Enter the required input values.</li><li>Click the calculate button.</li><li>Check the result shown below the tool.</li></ol>
-    <h2>Age Calculator Formula</h2>
-    <p>The formula depends on the input values used in this calculator. The tool applies the standard calculation method and displays the final result instantly.</p>
-    <h2>Why Use This Calculator?</h2>
-    <p>This calculator saves time, reduces manual mistakes and gives a quick estimate for everyday planning. The result should be used for informational purposes only.</p>
-   </div>
-   <div class="section" style="padding-bottom:0">
-    <h2>FAQs on Age Calculator</h2>
-    <div class="faq"><h3>Is this Age Calculator free?</h3><p>Yes, this calculator is free to use and does not require signup.</p></div>
-    <div class="faq"><h3>Can I use this calculator on mobile?</h3><p>Yes, the calculator is designed to work on mobile, tablet and desktop screens.</p></div>
-    <div class="faq"><h3>Are the results final?</h3><p>The results are estimates for informational use. For finance, health or legal decisions, consult a qualified professional.</p></div>
-   </div>
-  </main>
-  <aside class="sidebar"><div class="link-list"><h3>Related Calculators</h3><a href="/percentage-calculator.html">Percentage Calculator</a><a href="/discount-calculator.html">Discount Calculator</a><a href="/generic-calculators.html">Back to Generic Calculators</a></div></aside>
- </div>
-</section>
+    <div class="detail-container">
+      <a href="../index.html" class="back-btn">← Back to Directory</a>
+      
+      <div class="detail-header">
+        <h1>Age Calculator</h1>
+        <p>Determine your exact age in years, months, days, and count down to your next birthday milestone.</p>
+      </div>
 
-<footer>
- <div class="container">
-  <div class="footer-grid">
-   <div><h3>CalcStack</h3><p>SEO-friendly calculator website structure with category pages and individual calculator pages.</p></div>
-   <div><h3>Categories</h3><a href="/generic-calculators.html">Generic Calculators</a><a href="/finance-calculators.html">Finance Calculators</a><a href="/health-calculators.html">Health Calculators</a><a href="/student-calculators.html">Student Calculators</a><a href="/sports-calculators.html">Sports Calculators</a></div>
-   <div><h3>Pages</h3><a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/privacy-policy.html">Privacy Policy</a><a href="/disclaimer.html">Disclaimer</a></div>
-   <div><h3>Popular</h3><a href="/sip-calculator.html">SIP Calculator</a><a href="/age-calculator.html">Age Calculator</a><a href="/bmi-calculator.html">BMI Calculator</a></div>
-  </div>
-  <div class="small">© 2026 CalcStack. Calculator results are for informational purposes only.</div>
- </div>
-</footer>
+      <!-- Calculator Widget -->
+      <div class="calc-widget">
+        <div class="form-group">
+          <label for="dob">Date of Birth</label>
+          <input type="date" id="dob" class="input-field" />
+        </div>
+        <div class="form-group">
+          <label for="today-date">Calculate Age As Of</label>
+          <input type="date" id="today-date" class="input-field" />
+        </div>
+        <button id="calculate-btn" class="calc-btn">Calculate Age</button>
+
+        <!-- Result -->
+        <div id="result-section" class="result-section hidden">
+          <div class="summary-title" style="font-size: 0.875rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; text-align: center; margin-bottom: 0.5rem;">Your Age is</div>
+          <div class="metric-grid">
+            <div class="metric-card">
+              <span class="metric-title">Years</span>
+              <span class="metric-value" id="res-years">0</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-title">Months</span>
+              <span class="metric-value" id="res-months">0</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-title">Days</span>
+              <span class="metric-value" id="res-days">0</span>
+            </div>
+          </div>
+          <div class="breakdown-info">
+            <p>Your exact age is: <strong id="full-sentence">...</strong></p>
+            <p style="margin-top: 0.5rem;">Next birthday in: <strong id="next-birthday">...</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEO Article -->
+      <section class="article-section">
+        <div class="article-header">
+          <h2>How Does the Age Calculator Work?</h2>
+        </div>
+        <div class="article-content">
+          <p>Our online age calculator deduces the exact timeline between a specific date of birth and your targeted chronological date (which defaults to today's date). The calculator breaks down the calculation into years, months, and days, so you do not have to manually account for leap years or month lengths.</p>
+          <h3>Step-by-Step Calculation Guide</h3>
+          <p>To compute your age manually, follow these calendar rules:</p>
+          <ol>
+            <li>Subtract the birth year from the target year.</li>
+            <li>Subtract the birth month from the target month. If the result is negative, subtract 1 from the year value and add 12 to the month value.</li>
+            <li>Subtract the birth day from the target day. If this result is negative, subtract 1 from the month and add the number of days in the previous month.</li>
+          </ol>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="copyright-bar" style="border-top: none; padding-top: 0;">
+      © <span id="year">2026</span> CalcuPortal. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does this age calculator account for leap years?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, our age calculator accounts for leap years by checking the exact calendar date boundaries, including February 29th."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script>
+    document.getElementById('year').innerText = new Date().getFullYear();
+
+    // Set defaults
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    const todayStr = `${yyyy}-${mm}-${dd}`;
+    
+    document.getElementById('today-date').value = todayStr;
+    document.getElementById('dob').setAttribute('max', todayStr);
+
+    document.getElementById('calculate-btn').addEventListener('click', () => {
+      const dobVal = document.getElementById('dob').value;
+      const targetVal = document.getElementById('today-date').value;
+      
+      if (!dobVal || !targetVal) {
+        alert('Please fill in both date inputs!');
+        return;
+      }
+      
+      const dob = new Date(dobVal);
+      const target = new Date(targetVal);
+      
+      if (dob > target) {
+        alert('Birth date cannot be after the target date!');
+        return;
+      }
+      
+      let years = target.getFullYear() - dob.getFullYear();
+      let months = target.getMonth() - dob.getMonth();
+      let days = target.getDate() - dob.getDate();
+      
+      if (days < 0) {
+        months--;
+        const prevMonth = new Date(target.getFullYear(), target.getMonth(), 0);
+        days += prevMonth.getDate();
+      }
+      
+      if (months < 0) {
+        years--;
+        months += 12;
+      }
+      
+      // Calculate next birthday countdown
+      let nextBdayYear = target.getFullYear();
+      let nextBday = new Date(nextBdayYear, dob.getMonth(), dob.getDate());
+      if (nextBday < target) {
+        nextBdayYear++;
+        nextBday = new Date(nextBdayYear, dob.getMonth(), dob.getDate());
+      }
+      const diffTime = Math.abs(nextBday - target);
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      
+      // Output
+      document.getElementById('res-years').innerText = years;
+      document.getElementById('res-months').innerText = months;
+      document.getElementById('res-days').innerText = days;
+      
+      document.getElementById('full-sentence').innerText = `${years} years, ${months} months, and ${days} days`;
+      
+      if (diffDays === 0 || (dob.getMonth() === target.getMonth() && dob.getDate() === target.getDate())) {
+        document.getElementById('next-birthday').innerText = "Happy Birthday! Today is your birthday! 🎉";
+      } else {
+        document.getElementById('next-birthday').innerText = `${diffDays} days left`;
+      }
+      
+      document.getElementById('result-section').classList.remove('hidden');
+    });
+  </script>
 </body>
 </html>
+

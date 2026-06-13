@@ -1,76 +1,148 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style.css">
-<script defer src="/script.js"></script>
-<title>Discount Calculator | Free Online Tool</title>
-<meta name="description" content="Calculate sale price after discount.">
-<link rel="canonical" href="https://example.com/">
+  <meta name="robots" content="index, follow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discount Calculator - Calculate Sale Prices &amp; Savings</title>
+  <meta name="description" content="Calculate discount percentages, savings amounts, and final prices including sales tax with our free online discount calculator.">
+  <link rel="canonical" href="https://www.calcuportal.com/calculators/discount-calculator.html">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../script.js"></script>
 </head>
 <body>
-<div class="topbar"><div class="container"><span>Free online calculators for daily use</span><span>No signup required</span></div></div>
-<header>
-  <div class="container nav">
-    <a href="/index.html" class="logo">Calc<span>Stack</span></a>
-    <ul class="menu">
-      <li><a href="/categories.html">Categories</a></li>
-      <li><a href="/generic-calculators.html">Generic</a></li>
-      <li><a href="/finance-calculators.html">Finance</a></li>
-      <li><a href="/sports-calculators.html">Sports</a></li>
-      <li><a href="/about.html">About</a></li>
-      <li><a href="/contact.html">Contact</a></li>
-    </ul>
-    <a class="btn btn-primary" href="/categories.html">Explore Calculators</a>
-  </div>
-</header>
 
-<section class="hero"><div class="container"><div class="breadcrumb"><a href="/index.html">Home</a> / <a href="/generic-calculators.html">Generic Calculators</a> / Discount Calculator</div><div class="eyebrow">L3 calculator page</div><h1>Discount Calculator</h1><p class="lead">Calculate sale price after discount. Enter the values below and get the result instantly.</p></div></section>
-<section class="section">
- <div class="container two-col">
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="../index.html" class="logo">
+        <span class="logo-icon">🧮</span>
+        <span>CalcuPortal</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../pages/about.html" class="nav-link">About</a>
+        <a href="../pages/contact.html" class="nav-link">Contact</a>
+        <button class="theme-btn" title="Toggle Theme">
+          <span class="theme-btn-icon"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
   <main>
-   <div class="tool-card">
-    <h2>Discount Calculator Tool</h2>
-    <p>Enter the required values and click calculate.</p>
-    <div class="form-grid"><div class="field"><label>Original Price</label><input id="price" value="1000" type="number"></div><div class="field"><label>Discount %</label><input id="discount" value="20" type="number"></div></div>
-    <button class="btn btn-primary" onclick="calculate('discount')">Calculate</button>
-    <div id="result" class="result"><p>Your result will appear here.</p></div>
-   </div>
-   <div class="section content" style="margin-top:28px">
-    <h2>What is Discount Calculator?</h2>
-    <p>Discount Calculator is a simple online tool that helps users calculate values quickly without manual formulas. It is designed for fast use on mobile and desktop devices.</p>
-    <h2>How to Use Discount Calculator</h2>
-    <ol><li>Enter the required input values.</li><li>Click the calculate button.</li><li>Check the result shown below the tool.</li></ol>
-    <h2>Discount Calculator Formula</h2>
-    <p>The formula depends on the input values used in this calculator. The tool applies the standard calculation method and displays the final result instantly.</p>
-    <h2>Why Use This Calculator?</h2>
-    <p>This calculator saves time, reduces manual mistakes and gives a quick estimate for everyday planning. The result should be used for informational purposes only.</p>
-   </div>
-   <div class="section" style="padding-bottom:0">
-    <h2>FAQs on Discount Calculator</h2>
-    <div class="faq"><h3>Is this Discount Calculator free?</h3><p>Yes, this calculator is free to use and does not require signup.</p></div>
-    <div class="faq"><h3>Can I use this calculator on mobile?</h3><p>Yes, the calculator is designed to work on mobile, tablet and desktop screens.</p></div>
-    <div class="faq"><h3>Are the results final?</h3><p>The results are estimates for informational use. For finance, health or legal decisions, consult a qualified professional.</p></div>
-   </div>
-  </main>
-  <aside class="sidebar"><div class="link-list"><h3>Related Calculators</h3><a href="/age-calculator.html">Age Calculator</a><a href="/percentage-calculator.html">Percentage Calculator</a><a href="/generic-calculators.html">Back to Generic Calculators</a></div></aside>
- </div>
-</section>
+    <div class="detail-container">
+      <a href="../index.html" class="back-btn">← Back to Directory</a>
+      
+      <div class="detail-header">
+        <h1>Discount &amp; Savings Calculator</h1>
+        <p>Calculate final sale prices, discount savings, and post-tax retail costs instantly.</p>
+      </div>
 
-<footer>
- <div class="container">
-  <div class="footer-grid">
-   <div><h3>CalcStack</h3><p>SEO-friendly calculator website structure with category pages and individual calculator pages.</p></div>
-   <div><h3>Categories</h3><a href="/generic-calculators.html">Generic Calculators</a><a href="/finance-calculators.html">Finance Calculators</a><a href="/health-calculators.html">Health Calculators</a><a href="/student-calculators.html">Student Calculators</a><a href="/sports-calculators.html">Sports Calculators</a></div>
-   <div><h3>Pages</h3><a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/privacy-policy.html">Privacy Policy</a><a href="/disclaimer.html">Disclaimer</a></div>
-   <div><h3>Popular</h3><a href="/sip-calculator.html">SIP Calculator</a><a href="/age-calculator.html">Age Calculator</a><a href="/bmi-calculator.html">BMI Calculator</a></div>
-  </div>
-  <div class="small">© 2026 CalcStack. Calculator results are for informational purposes only.</div>
- </div>
-</footer>
+      <!-- Calculator Widget -->
+      <div class="calc-widget">
+        <div class="form-group">
+          <label for="disc-price">Original Price ($)</label>
+          <input type="number" id="disc-price" value="100" class="input-field" min="0" step="0.01" />
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="disc-pct">Discount (%)</label>
+            <input type="number" id="disc-pct" value="20" class="input-field" min="0" max="100" step="any" />
+          </div>
+          <div class="form-group">
+            <label for="disc-tax">Sales Tax (%) (Optional)</label>
+            <input type="number" id="disc-tax" value="0" class="input-field" min="0" max="100" step="any" />
+          </div>
+        </div>
+        
+        <button id="calculate-btn" class="calc-btn">Calculate Savings</button>
+
+        <!-- Result -->
+        <div id="result-section" class="result-section hidden" style="text-align: center;">
+          <div class="summary-title" style="font-size: 0.875rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase;">Final Price</div>
+          <div class="total-balance" id="disc-final-price" style="font-size: 2.5rem; font-weight: 900; color: var(--accent); margin: 0.5rem 0 1.5rem 0; line-height: 1;">$80.00</div>
+          
+          <div class="metric-grid">
+            <div class="metric-card">
+              <span class="metric-title">Original Price</span>
+              <span class="metric-value" id="disc-orig-val">$100.00</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-title">Total Savings</span>
+              <span class="metric-value" id="disc-savings-val" style="color: var(--accent);">$20.00</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-title">Tax Amount</span>
+              <span class="metric-value" id="disc-tax-val">$0.00</span>
+            </div>
+          </div>
+          
+          <div class="breakdown-info" style="text-align: left;">
+            <p>By applying a <strong><span id="disc-pct-txt">20</span>%</strong> discount on <strong>$<span id="orig-txt">100</span></strong>, you save <strong>$<span id="save-txt">20</span></strong>. The final price after adding <strong><span id="tax-pct-txt">0</span>%</strong> sales tax is <strong>$<span id="final-txt">80</span></strong>.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEO Article -->
+      <section class="article-section">
+        <div class="article-header">
+          <h2>Store Discount Calculations</h2>
+        </div>
+        <div class="article-content">
+          <p>Discounts lower checkout totals. When applying sales tax, the tax percentage is calculated on the already-discounted price rather than the original product cost.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="copyright-bar" style="border-top: none; padding-top: 0;">
+      © <span id="year">2026</span> CalcuPortal. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').innerText = new Date().getFullYear();
+
+    document.getElementById('calculate-btn').addEventListener('click', () => {
+      const origPrice = parseFloat(document.getElementById('disc-price').value);
+      const discount = parseFloat(document.getElementById('disc-pct').value);
+      const tax = parseFloat(document.getElementById('disc-tax').value) || 0;
+      
+      if (isNaN(origPrice) || isNaN(discount) || origPrice < 0 || discount < 0 || discount > 100 || tax < 0 || tax > 100) {
+        alert('Please enter valid inputs. Discount and tax values must be between 0 and 100.');
+        return;
+      }
+      
+      const savings = origPrice * (discount / 100);
+      const discountedPrice = origPrice - savings;
+      const taxAmount = discountedPrice * (tax / 100);
+      const finalPrice = discountedPrice + taxAmount;
+      
+      const fmt = (val) => {
+        return new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: 'USD'
+        }).format(val);
+      };
+      
+      document.getElementById('disc-final-price').innerText = fmt(finalPrice);
+      document.getElementById('disc-orig-val').innerText = fmt(origPrice);
+      document.getElementById('disc-savings-val').innerText = fmt(savings);
+      document.getElementById('disc-tax-val').innerText = fmt(taxAmount);
+      
+      document.getElementById('disc-pct-txt').innerText = discount;
+      document.getElementById('orig-txt').innerText = origPrice.toLocaleString();
+      document.getElementById('save-txt').innerText = savings.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+      document.getElementById('tax-pct-txt').innerText = tax;
+      document.getElementById('final-txt').innerText = finalPrice.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+      
+      document.getElementById('result-section').classList.remove('hidden');
+    });
+  </script>
 </body>
 </html>
+

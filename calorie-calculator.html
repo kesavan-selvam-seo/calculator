@@ -1,76 +1,230 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style.css">
-<script defer src="/script.js"></script>
-<title>Calorie Calculator | Free Online Tool</title>
-<meta name="description" content="Estimate daily calorie needs.">
-<link rel="canonical" href="https://example.com/">
+  <meta name="robots" content="index, follow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calorie Calculator - Daily Caloric Intake &amp; BMR Calculator</title>
+  <meta name="description" content="Calculate your BMR and daily calorie requirements to maintain, lose, or gain weight. Uses standard Mifflin-St Jeor formula. Free and responsive.">
+  <link rel="canonical" href="https://www.calcuportal.com/calculators/calorie-calculator.html">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../script.js"></script>
 </head>
 <body>
-<div class="topbar"><div class="container"><span>Free online calculators for daily use</span><span>No signup required</span></div></div>
-<header>
-  <div class="container nav">
-    <a href="/index.html" class="logo">Calc<span>Stack</span></a>
-    <ul class="menu">
-      <li><a href="/categories.html">Categories</a></li>
-      <li><a href="/generic-calculators.html">Generic</a></li>
-      <li><a href="/finance-calculators.html">Finance</a></li>
-      <li><a href="/sports-calculators.html">Sports</a></li>
-      <li><a href="/about.html">About</a></li>
-      <li><a href="/contact.html">Contact</a></li>
-    </ul>
-    <a class="btn btn-primary" href="/categories.html">Explore Calculators</a>
-  </div>
-</header>
 
-<section class="hero"><div class="container"><div class="breadcrumb"><a href="/index.html">Home</a> / <a href="/health-calculators.html">Health Calculators</a> / Calorie Calculator</div><div class="eyebrow">L3 calculator page</div><h1>Calorie Calculator</h1><p class="lead">Estimate daily calorie needs. Enter the values below and get the result instantly.</p></div></section>
-<section class="section">
- <div class="container two-col">
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="../index.html" class="logo">
+        <span class="logo-icon">🧮</span>
+        <span>CalcuPortal</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../pages/about.html" class="nav-link">About</a>
+        <a href="../pages/contact.html" class="nav-link">Contact</a>
+        <button class="theme-btn" title="Toggle Theme">
+          <span class="theme-btn-icon"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
   <main>
-   <div class="tool-card">
-    <h2>Calorie Calculator Tool</h2>
-    <p>Enter the required values and click calculate.</p>
-    <div class="form-grid"><div class="field"><label>Weight kg</label><input id="weight" value="70" type="number"></div><div class="field"><label>Height cm</label><input id="height" value="170" type="number"></div><div class="field"><label>Age</label><input id="age" value="30" type="number"></div><div class="field"><label>Gender</label><select id="gender"><option value="male">Male</option><option value="female">Female</option></select></div></div>
-    <button class="btn btn-primary" onclick="calculate('calorie')">Calculate</button>
-    <div id="result" class="result"><p>Your result will appear here.</p></div>
-   </div>
-   <div class="section content" style="margin-top:28px">
-    <h2>What is Calorie Calculator?</h2>
-    <p>Calorie Calculator is a simple online tool that helps users calculate values quickly without manual formulas. It is designed for fast use on mobile and desktop devices.</p>
-    <h2>How to Use Calorie Calculator</h2>
-    <ol><li>Enter the required input values.</li><li>Click the calculate button.</li><li>Check the result shown below the tool.</li></ol>
-    <h2>Calorie Calculator Formula</h2>
-    <p>The formula depends on the input values used in this calculator. The tool applies the standard calculation method and displays the final result instantly.</p>
-    <h2>Why Use This Calculator?</h2>
-    <p>This calculator saves time, reduces manual mistakes and gives a quick estimate for everyday planning. The result should be used for informational purposes only.</p>
-   </div>
-   <div class="section" style="padding-bottom:0">
-    <h2>FAQs on Calorie Calculator</h2>
-    <div class="faq"><h3>Is this Calorie Calculator free?</h3><p>Yes, this calculator is free to use and does not require signup.</p></div>
-    <div class="faq"><h3>Can I use this calculator on mobile?</h3><p>Yes, the calculator is designed to work on mobile, tablet and desktop screens.</p></div>
-    <div class="faq"><h3>Are the results final?</h3><p>The results are estimates for informational use. For finance, health or legal decisions, consult a qualified professional.</p></div>
-   </div>
-  </main>
-  <aside class="sidebar"><div class="link-list"><h3>Related Calculators</h3><a href="/bmi-calculator.html">BMI Calculator</a><a href="/health-calculators.html">Back to Health Calculators</a></div></aside>
- </div>
-</section>
+    <div class="detail-container">
+      <a href="../index.html" class="back-btn">← Back to Directory</a>
+      
+      <div class="detail-header">
+        <h1>Calorie Intake &amp; BMR Calculator</h1>
+        <p>Determine your daily calorie needs to maintain, lose, or gain weight based on your physical activity.</p>
+      </div>
 
-<footer>
- <div class="container">
-  <div class="footer-grid">
-   <div><h3>CalcStack</h3><p>SEO-friendly calculator website structure with category pages and individual calculator pages.</p></div>
-   <div><h3>Categories</h3><a href="/generic-calculators.html">Generic Calculators</a><a href="/finance-calculators.html">Finance Calculators</a><a href="/health-calculators.html">Health Calculators</a><a href="/student-calculators.html">Student Calculators</a><a href="/sports-calculators.html">Sports Calculators</a></div>
-   <div><h3>Pages</h3><a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/privacy-policy.html">Privacy Policy</a><a href="/disclaimer.html">Disclaimer</a></div>
-   <div><h3>Popular</h3><a href="/sip-calculator.html">SIP Calculator</a><a href="/age-calculator.html">Age Calculator</a><a href="/bmi-calculator.html">BMI Calculator</a></div>
-  </div>
-  <div class="small">© 2026 CalcStack. Calculator results are for informational purposes only.</div>
- </div>
-</footer>
+      <!-- Calculator Widget -->
+      <div class="calc-widget">
+        <div class="unit-tabs">
+          <button id="cal-metric-tab" class="tab-btn active">Metric (cm/kg)</button>
+          <button id="cal-imperial-tab" class="tab-btn">Imperial (in/lbs)</button>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cal-age">Age (years)</label>
+            <input type="number" id="cal-age" value="25" class="input-field" min="15" max="80" />
+          </div>
+          <div class="form-group">
+            <label for="cal-gender">Gender</label>
+            <select id="cal-gender" class="select-field">
+              <option value="male" selected>Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Metric Fields -->
+        <div id="cal-metric-form" class="form-section">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cal-height-cm">Height (cm)</label>
+              <input type="number" id="cal-height-cm" value="175" class="input-field" />
+            </div>
+            <div class="form-group">
+              <label for="cal-weight-kg">Weight (kg)</label>
+              <input type="number" id="cal-weight-kg" value="70" class="input-field" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Imperial Fields -->
+        <div id="cal-imperial-form" class="form-section hidden">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cal-height-ft">Height (ft)</label>
+              <input type="number" id="cal-height-ft" value="5" class="input-field" />
+            </div>
+            <div class="form-group">
+              <label for="cal-height-in">Height (in)</label>
+              <input type="number" id="cal-height-in" value="9" class="input-field" />
+            </div>
+            <div class="form-group">
+              <label for="cal-weight-lbs">Weight (lbs)</label>
+              <input type="number" id="cal-weight-lbs" value="154" class="input-field" />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="cal-activity">Activity Level</label>
+          <select id="cal-activity" class="select-field">
+            <option value="1.2" selected>Sedentary (Little or no exercise)</option>
+            <option value="1.375">Lightly Active (Exercise 1-3 times/week)</option>
+            <option value="1.55">Moderately Active (Exercise 4-5 times/week)</option>
+            <option value="1.725">Very Active (Intense exercise 6-7 times/week)</option>
+            <option value="1.9">Extra Active (Hard daily exercise / physical job)</option>
+          </select>
+        </div>
+
+        <button id="cal-calc-btn" class="calc-btn">Calculate Calories</button>
+
+        <!-- Result -->
+        <div id="cal-result-section" class="result-section hidden" style="text-align: center;">
+          <div class="summary-title" style="font-size: 0.875rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Daily Maintenance Calories</div>
+          <div class="total-balance" id="cal-maintenance" style="font-size: 2.5rem; font-weight: 900; color: var(--accent); margin: 0.5rem 0 1.5rem 0; line-height: 1;">2,200 kcal</div>
+          
+          <div class="metric-grid">
+            <div class="metric-card">
+              <span class="metric-title" style="font-size: 0.625rem;">Mild Weight Loss (-0.25kg/wk)</span>
+              <span class="metric-value" id="cal-lose-mild">1,950 kcal</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-title" style="font-size: 0.625rem;">Weight Loss (-0.5kg/wk)</span>
+              <span class="metric-value" id="cal-lose">1,700 kcal</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-title" style="font-size: 0.625rem;">Weight Gain (+0.5kg/wk)</span>
+              <span class="metric-value" id="cal-gain">2,700 kcal</span>
+            </div>
+          </div>
+          
+          <div class="breakdown-info" style="text-align: left;">
+            <p>Your calculated <strong>Basal Metabolic Rate (BMR)</strong> is <strong><span id="bmr-val">1,650</span> kcal</strong>. This represents the baseline energy your body needs to function at rest.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEO Article -->
+      <section class="article-section">
+        <div class="article-header">
+          <h2>Understanding BMR &amp; Caloric Needs</h2>
+        </div>
+        <div class="article-content">
+          <p>Your Basal Metabolic Rate (BMR) represents the energy expenditure required to sustain basic life processes. TDEE is BMR multiplied by your physical activity score. Adjusting your daily calories relative to TDEE lets you lose, maintain, or gain weight.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="copyright-bar" style="border-top: none; padding-top: 0;">
+      © <span id="year">2026</span> CalcuPortal. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').innerText = new Date().getFullYear();
+
+    let activeUnit = 'metric';
+    const metricTab = document.getElementById('cal-metric-tab');
+    const imperialTab = document.getElementById('cal-imperial-tab');
+    const metricForm = document.getElementById('cal-metric-form');
+    const imperialForm = document.getElementById('cal-imperial-form');
+
+    metricTab.addEventListener('click', () => {
+      activeUnit = 'metric';
+      metricTab.classList.add('active');
+      imperialTab.classList.remove('active');
+      metricForm.classList.remove('hidden');
+      imperialForm.classList.add('hidden');
+    });
+
+    imperialTab.addEventListener('click', () => {
+      activeUnit = 'imperial';
+      imperialTab.classList.add('active');
+      metricTab.classList.remove('active');
+      imperialForm.classList.remove('hidden');
+      metricForm.classList.add('hidden');
+    });
+
+    document.getElementById('cal-calc-btn').addEventListener('click', () => {
+      const age = parseFloat(document.getElementById('cal-age').value);
+      const gender = document.getElementById('cal-gender').value;
+      const activity = parseFloat(document.getElementById('cal-activity').value);
+      
+      let weight = 0;
+      let height = 0;
+      
+      if (activeUnit === 'metric') {
+        height = parseFloat(document.getElementById('cal-height-cm').value);
+        weight = parseFloat(document.getElementById('cal-weight-kg').value);
+        
+        if (!height || !weight || height <= 0 || weight <= 0) {
+          alert('Please enter valid height and weight values!');
+          return;
+        }
+      } else {
+        const ft = parseFloat(document.getElementById('cal-height-ft').value) || 0;
+        const inch = parseFloat(document.getElementById('cal-height-in').value) || 0;
+        const lbs = parseFloat(document.getElementById('cal-weight-lbs').value) || 0;
+        
+        const totalInches = (ft * 12) + inch;
+        if (totalInches <= 0 || lbs <= 0) {
+          alert('Please enter valid height and weight values!');
+          return;
+        }
+        
+        height = totalInches * 2.54;
+        weight = lbs * 0.45359237;
+      }
+      
+      let bmr = 0;
+      if (gender === 'male') {
+        bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5;
+      } else {
+        bmr = (10 * weight) + (6.25 * height) - (5 * age) - 161;
+      }
+      
+      const maintenance = bmr * activity;
+      const fmt = (num) => Math.round(num).toLocaleString() + ' kcal';
+      
+      document.getElementById('cal-maintenance').innerText = fmt(maintenance);
+      document.getElementById('cal-lose-mild').innerText = fmt(maintenance - 250);
+      document.getElementById('cal-lose').innerText = fmt(maintenance - 500);
+      document.getElementById('cal-gain').innerText = fmt(maintenance + 500);
+      
+      document.getElementById('bmr-val').innerText = Math.round(bmr).toLocaleString();
+      document.getElementById('cal-result-section').classList.remove('hidden');
+    });
+  </script>
 </body>
 </html>
+
