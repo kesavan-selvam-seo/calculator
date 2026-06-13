@@ -4581,38 +4581,85 @@ function Generate-CalculatorPage($calc) {
   # FAQ processing (HTML & JSON-LD schema)
   $faqHtml = ""
   $faqSchemaJson = ""
+  
+  $faqItems = @()
   if ($faq) {
     try {
       $faqItems = ConvertFrom-Json $faq
-      if ($faqItems -and $faqItems.Count -gt 0) {
-        $faqHtml = @"
+      if ($faqItems -eq $null) { $faqItems = @() }
+    } catch {
+      $faqItems = @()
+    }
+  }
+  if ($faqItems -isnot [array]) {
+    if ($faqItems -eq $null) {
+      $faqItems = @()
+    } else {
+      $faqItems = @($faqItems)
+    }
+  }
+
+  $generalFaqs = @(
+    @{ question = "What is the {Title} used for?"; answer = "The {Title} is a free online tool designed to calculate solutions for {Title} queries instantly. It helps users get fast, error-free results." },
+    @{ question = "How accurate are calculations on the {Title}?"; answer = "This tool uses industry-standard formulas and mathematical equations for {Category} to ensure 100% computational integrity and accuracy." },
+    @{ question = "Is my data secure when using the {Title}?"; answer = "Yes. All computations are executed client-side in your web browser. We do not store, track, or transmit any input values or calculated results." },
+    @{ question = "Can I use the {Title} on mobile devices?"; answer = "Absolutely. The calculator is built with a responsive mobile-first design, making it fully optimized for mobile web (mweb) as well as desktop viewports." },
+    @{ question = "Are there any fees to use the {Title}?"; answer = "No. The {Title} is completely free to use with no hidden charges, registration requirements, or limits on calculation queries." }
+  )
+
+  # Pad to exactly 5 FAQs
+  $finalFaqList = @()
+  foreach ($item in $faqItems) {
+    if ($finalFaqList.Count -lt 5) {
+      $finalFaqList += $item
+    }
+  }
+  foreach ($g in $generalFaqs) {
+    if ($finalFaqList.Count -ge 5) { break }
+    $qText = $g.question -replace '\{Title\}', $title
+    $alreadyExists = $false
+    foreach ($f in $finalFaqList) {
+      if ($f.question -eq $qText) {
+        $alreadyExists = $true
+        break
+      }
+    }
+    if (-not $alreadyExists) {
+      $ansText = $g.answer -replace '\{Title\}', $title -replace '\{Category\}', $category
+      $finalFaqList += @{ question = $qText; answer = $ansText }
+    }
+  }
+
+  # Render the 5 FAQs in HTML and JSON-LD schema
+  if ($finalFaqList.Count -gt 0) {
+    $faqHtml = @"
       <!-- FAQ Section -->
       <section class="faq-section">
         <h2 class="faq-header">Frequently Asked Questions</h2>
         <div class="faq-grid">
 "@
-        foreach ($item in $faqItems) {
-          $q = $item.question
-          $a = $item.answer
-          $faqHtml += @"
+    foreach ($item in $finalFaqList) {
+      $q = $item.question
+      $a = $item.answer
+      $faqHtml += @"
           <div class="faq-item">
             <h3 class="faq-question">$q</h3>
             <p class="faq-answer">$a</p>
           </div>
 "@
-        }
-        $faqHtml += @"
+    }
+    $faqHtml += @"
         </div>
       </section>
 "@
 
-        $schemaList = @()
-        foreach ($item in $faqItems) {
-          $q = $item.question
-          $a = $item.answer
-          $qEsc = $q -replace '"', '\"'
-          $aEsc = $a -replace '"', '\"'
-          $schemaList += @"
+    $schemaList = @()
+    foreach ($item in $finalFaqList) {
+      $q = $item.question
+      $a = $item.answer
+      $qEsc = $q -replace '"', '\"'
+      $aEsc = $a -replace '"', '\"'
+      $schemaList += @"
     {
       "@type": "Question",
       "name": "$qEsc",
@@ -4622,9 +4669,9 @@ function Generate-CalculatorPage($calc) {
       }
     }
 "@
-        }
-        $schemaMembers = $schemaList -join ",`n"
-        $faqSchemaJson = @"
+    }
+    $schemaMembers = $schemaList -join ",`n"
+    $faqSchemaJson = @"
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -4635,10 +4682,6 @@ $schemaMembers
   }
   </script>
 "@
-      }
-    } catch {
-      Write-Host "Warning: Failed to parse FAQ JSON for $slug" -ForegroundColor Yellow
-    }
   }
 
   # Build the final page (clean URLs configuration - pointing stylesheets/scripts/links 2 levels up)
@@ -4665,7 +4708,12 @@ $schemaMembers
         <span class="logo-icon">🧮</span>
         <span>CalcuPortal</span>
       </a>
-      <nav class="nav-links">
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav class="nav-links" id="nav-links">
         <a href="../../index.html" class="nav-link">Home</a>
         <a href="../../pages/about/" class="nav-link">About</a>
         <a href="../../pages/contact/" class="nav-link">Contact</a>
@@ -4754,3 +4802,4 @@ if (-not (Test-Path "calculators")) {
 foreach ($c in $calculators) {
   Generate-CalculatorPage $c
 }
+

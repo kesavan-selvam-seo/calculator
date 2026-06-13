@@ -126,6 +126,27 @@ header {
   background-color: var(--primary-light);
 }
 
+/* Mobile Menu Toggle Button */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 100;
+}
+.menu-toggle .bar {
+  width: 24px;
+  height: 2px;
+  background-color: var(--text-primary);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
 /* Main Layout */
 main {
   flex-grow: 1;
@@ -601,6 +622,46 @@ footer {
 }
 
 @media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 4.5rem;
+    left: 0;
+    right: 0;
+    background-color: var(--bg-card);
+    border-bottom: 1px solid var(--border-color);
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1rem;
+    box-shadow: var(--shadow-lg);
+    z-index: 100;
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  .nav-link {
+    width: 100%;
+    text-align: center;
+  }
+  .theme-btn {
+    align-self: center;
+    margin-top: 0.5rem;
+  }
+  
+  /* Animate menu toggle to X */
+  .menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
   .footer-container {
     grid-template-columns: 1fr;
     gap: 2rem;

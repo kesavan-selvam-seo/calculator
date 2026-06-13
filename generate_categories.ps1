@@ -147,7 +147,12 @@ foreach ($cat in $categories) {
         <span class="logo-icon">🧮</span>
         <span>CalcuPortal</span>
       </a>
-      <nav class="nav-links">
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav class="nav-links" id="nav-links">
         <a href="../../index.html" class="nav-link">Home</a>
         <a href="../../pages/about/" class="nav-link">About</a>
         <a href="../../pages/contact/" class="nav-link">Contact</a>
@@ -203,4 +208,5 @@ $cardsHtml
   Set-Content -Path $outputFile -Value $output -Encoding utf8
   Write-Host "Generated category page: $outputFile"
 }
+
 

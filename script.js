@@ -35,4 +35,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // Set initial icons on load
   const initialTheme = document.documentElement.getAttribute('data-theme') || 'light';
   updateThemeIcons(initialTheme);
+
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+  }
 });
