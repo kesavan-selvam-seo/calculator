@@ -134,7 +134,7 @@ foreach ($cat in $categories) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>$catTitle - Free Online Tools</title>
   <meta name="description" content="Access free online $catTitle. Fast, accurate, responsive, and 100% free to use.">
-  <link rel="canonical" href="https://www.calcuportal.com/categories/$catSlug/">
+  <link rel="canonical" href="https://calcuportal.com/categories/$catSlug/">
   <link rel="stylesheet" href="../../styles.css">
   <script src="../../script.js"></script>
 </head>
