@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Calculator Categories - CalcuPortal</title>
+  <meta name="description" content="Browse every calculator category on CalcuPortal: date and age, health and fitness, finance and loans, scientific and math, unit conversions, and games.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.calcuportal.com/categories/">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../script.js"></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="../index.html" class="logo">
+        <span class="logo-icon">🧮</span>
+        <span>CalcuPortal</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav class="nav-links" id="nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../pages/about/" class="nav-link">About</a>
+        <a href="../pages/contact/" class="nav-link">Contact</a>
+        <button class="theme-btn" title="Toggle Theme">
+          <span class="theme-btn-icon"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+      <a href="../index.html">Home</a>
+      <span class="separator">&rsaquo;</span>
+      <span class="current">Calculator Categories</span>
+    </div>
+
+    <!-- Section -->
+    <section class="category-section">
+      <div class="category-header">
+        <span class="category-title">📂 Calculator Categories</span>
+      </div>
+      <p style="margin-bottom: 2rem; color: var(--text-secondary); max-width: 800px; line-height: 1.6;">
+        Browse all of our calculator categories. Pick a category to see every free tool inside it, complete with instructions, formulas, and FAQs.
+      </p>
+
+      <div class="category-grid">
+        <a href="date-age/" class="calc-card">
+          <div class="calc-card-header">
+            <h3 class="calc-card-title">📅 Date & Age Calculators</h3>
+          </div>
+          <p class="calc-card-desc">Verify age milestones, check dates, work hours, duration, and birthdays. (10 tools)</p>
+          <div class="calc-card-footer">
+            <span>Explore Category</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+        <a href="health-fitness/" class="calc-card">
+          <div class="calc-card-header">
+            <h3 class="calc-card-title">💪 Health & Fitness Calculators</h3>
+          </div>
+          <p class="calc-card-desc">Track BMI, calculate daily caloric needs, pregnancy milestone tracking, and TDEE. (10 tools)</p>
+          <div class="calc-card-footer">
+            <span>Explore Category</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+        <a href="finance/" class="calc-card">
+          <div class="calc-card-header">
+            <h3 class="calc-card-title">💵 Finance & Loan Calculators</h3>
+          </div>
+          <p class="calc-card-desc">Compute compound interest growth, loan EMIs, auto loans, mortgages, inflation, and income tax brackets. (16 tools)</p>
+          <div class="calc-card-footer">
+            <span>Explore Category</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+        <a href="math/" class="calc-card">
+          <div class="calc-card-header">
+            <h3 class="calc-card-title">📐 Scientific & Math Tools</h3>
+          </div>
+          <p class="calc-card-desc">Perform algebra operations, long division, GPA, fractions, and standard deviations. (15 tools)</p>
+          <div class="calc-card-footer">
+            <span>Explore Category</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+        <a href="conversions/" class="calc-card">
+          <div class="calc-card-header">
+            <h3 class="calc-card-title">⚖️ Conversions & Unit Tools</h3>
+          </div>
+          <p class="calc-card-desc">Convert millions to crores, feet to meters, pounds to kg, and numbers to words. (13 tools)</p>
+          <div class="calc-card-footer">
+            <span>Explore Category</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+        <a href="games/" class="calc-card">
+          <div class="calc-card-header">
+            <h3 class="calc-card-title">🎰 Games & Fun Tools</h3>
+          </div>
+          <p class="calc-card-desc">Roll dice, generate bingo lists, draw lottery ticket integers, and create secure passwords. (5 tools)</p>
+          <div class="calc-card-footer">
+            <span>Explore Category</span>
+            <span>&rarr;</span>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="copyright-bar" style="border-top: none; padding-top: 0;">
+      © <span id="year">2026</span> CalcuPortal. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').innerText = new Date().getFullYear();
+  </script>
+</body>
+</html>
