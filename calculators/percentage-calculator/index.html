@@ -1,0 +1,264 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Percentage Calculator - Find Percentages, Ratios & Changes</title>
+  <meta name="description" content="Find percentages of numbers, proportion percentages, and percentage increases or decreases instantly with our free percentage calculator.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.calcuportal.com/calculators/percentage-calculator/">
+  <link rel="stylesheet" href="../../styles.css">
+  <script src="../../script.js"></script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I calculate a percentage of a number?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Multiply the number by the percentage and divide by 100. For example, 25% of 80 is (25 × 80) ÷ 100 = 20."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I find what percent one number is of another?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide the first number by the second and multiply by 100. For example, 30 out of 150 is (30 ÷ 150) × 100 = 20%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is percentage change calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Subtract the original value from the new value, divide by the original value, and multiply by 100. A positive result is an increase and a negative result is a decrease."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between a percent and a percentage point?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A percentage point is the simple difference between two percentages, while a percent change is relative. Moving from 4% to 6% is a rise of two percentage points but a 50% relative increase."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Percentage Calculator used for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It finds percentages of numbers, proportion percentages, and percentage increases or decreases instantly, which is useful for discounts, scores, tips, and growth tracking."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data secure when using the Percentage Calculator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. All computations are executed client-side in your web browser. We do not store, track, or transmit any input values or calculated results."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use the Percentage Calculator on mobile devices?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. The calculator is built with a responsive mobile-first design, making it fully optimized for mobile web as well as desktop viewports."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="../../index.html" class="logo">
+        <span class="logo-icon">🧮</span>
+        <span>CalcuPortal</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav class="nav-links" id="nav-links">
+        <a href="../../index.html" class="nav-link">Home</a>
+        <a href="../../pages/about/" class="nav-link">About</a>
+        <a href="../../pages/contact/" class="nav-link">Contact</a>
+        <button class="theme-btn" title="Toggle Theme">
+          <span class="theme-btn-icon"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="detail-container">
+      <!-- Breadcrumbs -->
+      <div class="breadcrumbs">
+        <a href="../../index.html">Home</a>
+        <span class="separator">&rsaquo;</span>
+        <a href="../../categories/math/">Scientific & Math Tools</a>
+        <span class="separator">&rsaquo;</span>
+        <span class="current">Percentage Calculator</span>
+      </div>
+
+      <div class="detail-header">
+        <h1>Percentage Calculator</h1>
+      </div>
+
+      <!-- Calculator Widget -->
+      <div class="calc-widget">
+        <div class="form-row">
+          <div class="form-group" style="flex:1 1 100%;">
+            <label for="pct-mode">Calculation Type</label>
+            <select id="pct-mode" class="input-field">
+              <option value="of">What is X% of Y</option>
+              <option value="is">X is what percent of Y</option>
+              <option value="change">Percentage change from X to Y</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label id="lbl-a" for="pct-a">Percentage (X%)</label>
+            <input type="number" id="pct-a" value="20" class="input-field" step="any" />
+          </div>
+          <div class="form-group">
+            <label id="lbl-b" for="pct-b">Of Value (Y)</label>
+            <input type="number" id="pct-b" value="150" class="input-field" step="any" />
+          </div>
+        </div>
+        <button id="calculate-btn" class="calc-btn">Calculate</button>
+        <div id="result-section" class="result-section hidden">
+          <div class="metric-grid">
+            <div class="metric-card">
+              <span class="metric-title">Result</span>
+              <span class="metric-value" id="pct-result" style="color:var(--accent);">0</span>
+            </div>
+          </div>
+          <p id="pct-summary" style="margin-top:1rem;"></p>
+        </div>
+      </div>
+
+      <!-- SEO Article -->
+      <section class="article-section">
+        <div class="article-header">
+          <h2>Percentage Calculator Guides</h2>
+        </div>
+        <div class="article-content">
+          <h2>Working with Percentages</h2>
+<p>A percentage expresses a number as a fraction of one hundred, which makes very different quantities easy to compare on a common scale. Percentages appear everywhere &mdash; discounts and sales tax, exam scores, interest rates, tips, and statistics. This calculator brings the three most common percentage problems together so you can solve any of them without rearranging formulas by hand.</p>
+<h3>The Three Calculation Modes</h3>
+<ul>
+  <li><strong>What is X% of Y:</strong> multiply Y by X and divide by 100. For example, 20% of 150 is 30. This is how you find a discount amount or a tip.</li>
+  <li><strong>X is what percent of Y:</strong> divide X by Y and multiply by 100. For example, 30 is 20% of 150. This is how you turn a score into a percentage.</li>
+  <li><strong>Percentage change:</strong> subtract the old value from the new value, divide by the old value, and multiply by 100. A positive answer is an increase and a negative answer is a decrease.</li>
+</ul>
+<h3>Percentages Versus Percentage Points</h3>
+<p>It helps to keep two ideas separate. If an interest rate rises from 4% to 6%, that is an increase of two percentage points, but it is a 50% increase in relative terms. Confusing the two is a common source of error in headlines and reports, so always be clear about which one a situation calls for.</p>
+<h3>How to Use This Calculator</h3>
+<ul>
+  <li>Select the calculation type from the dropdown.</li>
+  <li>Enter your two values in the fields, which relabel themselves to match the chosen mode.</li>
+  <li>Read the result along with a plain-language sentence explaining what it means.</li>
+</ul>
+<h3>Everyday Examples</h3>
+<p>Shoppers use it to check a sale price, students convert marks into grades, and businesses track month-over-month growth or decline. Because the tool shows the reasoning behind each answer, it doubles as a quick way to learn the underlying method rather than just returning a number you cannot check.</p>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="faq-section">
+        <h2 class="faq-header">Frequently Asked Questions</h2>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <h3 class="faq-question">How do I calculate a percentage of a number?</h3>
+            <p class="faq-answer">Multiply the number by the percentage and divide by 100. For example, 25% of 80 is (25 × 80) ÷ 100 = 20.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">How do I find what percent one number is of another?</h3>
+            <p class="faq-answer">Divide the first number by the second and multiply by 100. For example, 30 out of 150 is (30 ÷ 150) × 100 = 20%.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">How is percentage change calculated?</h3>
+            <p class="faq-answer">Subtract the original value from the new value, divide by the original value, and multiply by 100. A positive result is an increase and a negative result is a decrease.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">What is the difference between a percent and a percentage point?</h3>
+            <p class="faq-answer">A percentage point is the simple difference between two percentages, while a percent change is relative. Moving from 4% to 6% is a rise of two percentage points but a 50% relative increase.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">What is the Percentage Calculator used for?</h3>
+            <p class="faq-answer">It finds percentages of numbers, proportion percentages, and percentage increases or decreases instantly, which is useful for discounts, scores, tips, and growth tracking.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">Is my data secure when using the Percentage Calculator?</h3>
+            <p class="faq-answer">Yes. All computations are executed client-side in your web browser. We do not store, track, or transmit any input values or calculated results.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">Can I use the Percentage Calculator on mobile devices?</h3>
+            <p class="faq-answer">Absolutely. The calculator is built with a responsive mobile-first design, making it fully optimized for mobile web as well as desktop viewports.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="copyright-bar" style="border-top: none; padding-top: 0;">
+      © <span id="year">2026</span> CalcuPortal. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').innerText = new Date().getFullYear();
+  </script>
+  <script>
+    const modeSel = document.getElementById('pct-mode');
+    const lblA = document.getElementById('lbl-a');
+    const lblB = document.getElementById('lbl-b');
+    const num = (v) => new Intl.NumberFormat('en-US', { maximumFractionDigits: 4 }).format(v);
+    function updateLabels() {
+      const m = modeSel.value;
+      if (m === 'of') { lblA.innerText = 'Percentage (X%)'; lblB.innerText = 'Of Value (Y)'; }
+      else if (m === 'is') { lblA.innerText = 'Value (X)'; lblB.innerText = 'Total (Y)'; }
+      else { lblA.innerText = 'Original Value (X)'; lblB.innerText = 'New Value (Y)'; }
+    }
+    modeSel.addEventListener('change', updateLabels);
+    updateLabels();
+    document.getElementById('calculate-btn').addEventListener('click', () => {
+      const a = parseFloat(document.getElementById('pct-a').value) || 0;
+      const b = parseFloat(document.getElementById('pct-b').value) || 0;
+      const m = modeSel.value;
+      let result, summary;
+      if (m === 'of') {
+        result = (a / 100) * b;
+        summary = '<strong>' + num(a) + '%</strong> of <strong>' + num(b) + '</strong> is <strong>' + num(result) + '</strong>.';
+        document.getElementById('pct-result').innerText = num(result);
+      } else if (m === 'is') {
+        if (b === 0) { alert('The total (Y) cannot be zero.'); return; }
+        result = (a / b) * 100;
+        summary = '<strong>' + num(a) + '</strong> is <strong>' + num(result) + '%</strong> of <strong>' + num(b) + '</strong>.';
+        document.getElementById('pct-result').innerText = num(result) + '%';
+      } else {
+        if (a === 0) { alert('The original value (X) cannot be zero.'); return; }
+        result = ((b - a) / Math.abs(a)) * 100;
+        const dir = result >= 0 ? 'increase' : 'decrease';
+        summary = 'Going from <strong>' + num(a) + '</strong> to <strong>' + num(b) + '</strong> is a <strong>' + num(Math.abs(result)) + '% ' + dir + '</strong>.';
+        document.getElementById('pct-result').innerText = num(result) + '%';
+      }
+      document.getElementById('pct-summary').innerHTML = summary;
+      document.getElementById('result-section').classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calorie Burn MET Calculator - Estimate Exercise Calories</title>
+  <meta name="description" content="Estimate calories burned during workouts using standard clinical MET activity ratings, your body weight, and duration.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.calcuportal.com/calculators/calorie-burn-met-calculator/">
+  <link rel="stylesheet" href="../../styles.css">
+  <script src="../../script.js"></script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a MET value?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A MET (Metabolic Equivalent of Task) measures the energy cost of an activity relative to resting. An activity at 5 MET uses about five times the energy of sitting still."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How are calories burned calculated from MET?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The formula is calories per minute = (MET × 3.5 × body weight in kg) ÷ 200. Multiply that by the number of minutes exercised to get the total calories burned."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does body weight change the result?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Moving a heavier body requires more energy, so weight is part of the formula. Two people doing the same activity for the same time will burn different amounts if their weights differ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are MET-based estimates accurate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They are reliable estimates based on population averages. Actual burn varies with fitness, body composition, intensity, and terrain, so use the figure as a guide rather than an exact measurement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Calorie Burn MET Calculator used for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It estimates the calories you burn during workouts using standard clinical MET activity ratings, your body weight, and the duration of the activity."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data secure when using the Calorie Burn MET Calculator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. All computations are executed client-side in your web browser. We do not store, track, or transmit any input values or calculated results."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use the Calorie Burn MET Calculator on mobile devices?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. The calculator is built with a responsive mobile-first design, making it fully optimized for mobile web as well as desktop viewports."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="../../index.html" class="logo">
+        <span class="logo-icon">🧮</span>
+        <span>CalcuPortal</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav class="nav-links" id="nav-links">
+        <a href="../../index.html" class="nav-link">Home</a>
+        <a href="../../pages/about/" class="nav-link">About</a>
+        <a href="../../pages/contact/" class="nav-link">Contact</a>
+        <button class="theme-btn" title="Toggle Theme">
+          <span class="theme-btn-icon"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="detail-container">
+      <!-- Breadcrumbs -->
+      <div class="breadcrumbs">
+        <a href="../../index.html">Home</a>
+        <span class="separator">&rsaquo;</span>
+        <a href="../../categories/health-fitness/">Health & Fitness Calculators</a>
+        <span class="separator">&rsaquo;</span>
+        <span class="current">Calorie Burn MET Calculator</span>
+      </div>
+
+      <div class="detail-header">
+        <h1>Calorie Burn MET Calculator</h1>
+      </div>
+
+      <!-- Calculator Widget -->
+      <div class="calc-widget">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cb-weight">Body Weight (kg)</label>
+            <input type="number" id="cb-weight" value="70" class="input-field" step="any" />
+          </div>
+          <div class="form-group">
+            <label for="cb-minutes">Duration (minutes)</label>
+            <input type="number" id="cb-minutes" value="30" class="input-field" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group" style="flex:1 1 100%;">
+            <label for="cb-activity">Activity (MET value)</label>
+            <select id="cb-activity" class="input-field">
+              <option value="3.5">Walking, moderate pace (3.5 MET)</option>
+              <option value="4.3">Walking, brisk (4.3 MET)</option>
+              <option value="7">Jogging, general (7 MET)</option>
+              <option value="9.8">Running, 6 mph (9.8 MET)</option>
+              <option value="7.5">Cycling, moderate (7.5 MET)</option>
+              <option value="5.8">Swimming, leisurely (5.8 MET)</option>
+              <option value="6">Weight training, vigorous (6 MET)</option>
+              <option value="3.5">Yoga, hatha (3.5 MET)</option>
+              <option value="7.3">Aerobics, high impact (7.3 MET)</option>
+              <option value="8">Jump rope, moderate (8 MET)</option>
+              <option value="5">Hiking, cross-country (5 MET)</option>
+              <option value="3.3">Housework, general (3.3 MET)</option>
+            </select>
+          </div>
+        </div>
+        <button id="calculate-btn" class="calc-btn">Calculate Calories Burned</button>
+        <div id="result-section" class="result-section hidden">
+          <div class="metric-grid">
+            <div class="metric-card">
+              <span class="metric-title">Calories Burned</span>
+              <span class="metric-value" id="cb-total" style="color:var(--accent);">0 kcal</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-title">Burn Rate</span>
+              <span class="metric-value" id="cb-rate">0 kcal/min</span>
+            </div>
+          </div>
+          <p id="cb-summary" style="margin-top:1rem;"></p>
+        </div>
+      </div>
+
+      <!-- SEO Article -->
+      <section class="article-section">
+        <div class="article-header">
+          <h2>Calorie Burn MET Calculator Guides</h2>
+        </div>
+        <div class="article-content">
+          <h2>How MET-Based Calorie Burn Works</h2>
+<p>MET stands for Metabolic Equivalent of Task. One MET is the energy your body uses while sitting quietly at rest, so an activity rated at 7 MET burns roughly seven times that resting energy. Researchers have measured MET values for hundreds of activities, which lets you estimate the calories burned during exercise from just three pieces of information: the activity, your body weight, and how long you keep it up.</p>
+<h3>The Calculation</h3>
+<p>The calculator uses the widely accepted formula: calories per minute = (MET &times; 3.5 &times; body weight in kilograms) &divide; 200. Multiplying that figure by the number of minutes you exercised gives the total calories burned. Because weight appears in the formula, a heavier person burns more calories than a lighter person doing exactly the same activity for the same length of time.</p>
+<h3>What Affects How Much You Burn</h3>
+<p>Three inputs move the result. A higher-MET activity, such as running or high-impact aerobics, burns far more than a gentle walk. Greater body weight raises the energy cost of moving. And a longer duration scales the total directly. Intensity matters too &mdash; jogging and sprinting fall in the same family of activities but carry very different MET ratings.</p>
+<h3>How to Use This Calculator</h3>
+<ul>
+  <li>Enter your body weight in kilograms.</li>
+  <li>Enter how many minutes the activity lasted.</li>
+  <li>Pick the closest matching activity to load its standard MET rating.</li>
+  <li>Read the total calories burned and the per-minute burn rate.</li>
+</ul>
+<h3>Understanding the Limits</h3>
+<p>MET values are population averages, so treat the result as a solid estimate rather than an exact measurement. Your real expenditure depends on fitness level, body composition, terrain, and effort. For tracking trends across weeks the estimate is very useful, but for medical or clinical decisions you should consult a qualified professional.</p>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="faq-section">
+        <h2 class="faq-header">Frequently Asked Questions</h2>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <h3 class="faq-question">What is a MET value?</h3>
+            <p class="faq-answer">A MET (Metabolic Equivalent of Task) measures the energy cost of an activity relative to resting. An activity at 5 MET uses about five times the energy of sitting still.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">How are calories burned calculated from MET?</h3>
+            <p class="faq-answer">The formula is calories per minute = (MET × 3.5 × body weight in kg) ÷ 200. Multiply that by the number of minutes exercised to get the total calories burned.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">Why does body weight change the result?</h3>
+            <p class="faq-answer">Moving a heavier body requires more energy, so weight is part of the formula. Two people doing the same activity for the same time will burn different amounts if their weights differ.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">Are MET-based estimates accurate?</h3>
+            <p class="faq-answer">They are reliable estimates based on population averages. Actual burn varies with fitness, body composition, intensity, and terrain, so use the figure as a guide rather than an exact measurement.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">What is the Calorie Burn MET Calculator used for?</h3>
+            <p class="faq-answer">It estimates the calories you burn during workouts using standard clinical MET activity ratings, your body weight, and the duration of the activity.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">Is my data secure when using the Calorie Burn MET Calculator?</h3>
+            <p class="faq-answer">Yes. All computations are executed client-side in your web browser. We do not store, track, or transmit any input values or calculated results.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">Can I use the Calorie Burn MET Calculator on mobile devices?</h3>
+            <p class="faq-answer">Absolutely. The calculator is built with a responsive mobile-first design, making it fully optimized for mobile web as well as desktop viewports.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="copyright-bar" style="border-top: none; padding-top: 0;">
+      © <span id="year">2026</span> CalcuPortal. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').innerText = new Date().getFullYear();
+  </script>
+  <script>
+    document.getElementById('calculate-btn').addEventListener('click', () => {
+      const weight = parseFloat(document.getElementById('cb-weight').value) || 0;
+      const minutes = parseFloat(document.getElementById('cb-minutes').value) || 0;
+      const met = parseFloat(document.getElementById('cb-activity').value) || 0;
+      const label = document.getElementById('cb-activity').selectedOptions[0].text.replace(/\s*\(.*\)$/, '');
+      if (weight <= 0 || minutes <= 0) {
+        alert('Please enter a valid body weight and duration.');
+        return;
+      }
+      const perMin = (met * 3.5 * weight) / 200;   // kcal per minute
+      const total = perMin * minutes;
+      document.getElementById('cb-total').innerText = Math.round(total).toLocaleString() + ' kcal';
+      document.getElementById('cb-rate').innerText = perMin.toFixed(1) + ' kcal/min';
+      document.getElementById('cb-summary').innerHTML =
+        '<strong>' + label + '</strong> for <strong>' + minutes + ' minutes</strong> at <strong>' + weight +
+        ' kg</strong> burns approximately <strong>' + Math.round(total).toLocaleString() + ' calories</strong>.';
+      document.getElementById('result-section').classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>

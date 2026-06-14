@@ -1,0 +1,320 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scientific Calculator - Free Online Advanced Math Tool</title>
+  <meta name="description" content="Free online scientific calculator for trigonometry, logarithms, powers, roots, factorials, and constants. Switch between degrees and radians.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.calcuportal.com/calculators/scientific-calculator/">
+  <link rel="stylesheet" href="../../styles.css">
+  <script src="../../script.js"></script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What functions does the Scientific Calculator support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It supports basic arithmetic, parentheses, trigonometric functions (sin, cos, tan), logarithms (log base 10 and natural ln), square roots, powers, factorials, and the constants pi and e."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work in degrees or radians?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both. Use the DEG / RAD toggle to choose how trigonometric functions interpret angles before you calculate. For example, sin(30) equals 0.5 in degree mode."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What order of operations does it follow?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It follows standard precedence: parentheses first, then powers, then multiplication and division, and finally addition and subtraction. Use parentheses to group parts you want evaluated first."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate a factorial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Type a whole number and press the x! key. The calculator multiplies every whole number from 1 up to that value, so 5! returns 120."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Scientific Calculator used for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is a free online tool for advanced arithmetic, trigonometry, logarithms, exponential powers, roots, and factorial calculations for study and everyday math."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my data secure when using the Scientific Calculator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. All computations are executed client-side in your web browser. We do not store, track, or transmit any input values or calculated results."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use the Scientific Calculator on mobile devices?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. The calculator is built with a responsive mobile-first design, making it fully optimized for mobile web as well as desktop viewports."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="../../index.html" class="logo">
+        <span class="logo-icon">🧮</span>
+        <span>CalcuPortal</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav class="nav-links" id="nav-links">
+        <a href="../../index.html" class="nav-link">Home</a>
+        <a href="../../pages/about/" class="nav-link">About</a>
+        <a href="../../pages/contact/" class="nav-link">Contact</a>
+        <button class="theme-btn" title="Toggle Theme">
+          <span class="theme-btn-icon"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="detail-container">
+      <!-- Breadcrumbs -->
+      <div class="breadcrumbs">
+        <a href="../../index.html">Home</a>
+        <span class="separator">&rsaquo;</span>
+        <a href="../../categories/math/">Scientific & Math Tools</a>
+        <span class="separator">&rsaquo;</span>
+        <span class="current">Scientific Calculator</span>
+      </div>
+
+      <div class="detail-header">
+        <h1>Scientific Calculator</h1>
+      </div>
+
+      <!-- Calculator Widget -->
+      <div class="calc-widget">
+        <div class="sci-calc" style="max-width:460px;margin:0 auto;">
+          <input type="text" id="sci-display" class="input-field" readonly
+                 style="text-align:right;font-size:1.4rem;font-family:monospace;margin-bottom:0.5rem;" value="0" />
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.5rem;">
+            <label style="display:flex;gap:0.4rem;align-items:center;cursor:pointer;font-size:0.9rem;">
+              <input type="checkbox" id="sci-deg" checked /> Degrees (DEG)
+            </label>
+            <span id="sci-mode-label" style="font-size:0.85rem;color:var(--text-muted);">Mode: DEG</span>
+          </div>
+          <div class="sci-grid"
+               style="display:grid;grid-template-columns:repeat(5,1fr);gap:6px;">
+            <button class="calc-btn sci-key" data-fn="sin(">sin</button>
+            <button class="calc-btn sci-key" data-fn="cos(">cos</button>
+            <button class="calc-btn sci-key" data-fn="tan(">tan</button>
+            <button class="calc-btn sci-key" data-fn="log(">log</button>
+            <button class="calc-btn sci-key" data-fn="ln(">ln</button>
+
+            <button class="calc-btn sci-key" data-fn="sqrt(">&radic;</button>
+            <button class="calc-btn sci-key" data-fn="^">x^y</button>
+            <button class="calc-btn sci-key" data-fn="!">x!</button>
+            <button class="calc-btn sci-key" data-fn="pi">&pi;</button>
+            <button class="calc-btn sci-key" data-fn="e">e</button>
+
+            <button class="calc-btn sci-key" data-fn="(">(</button>
+            <button class="calc-btn sci-key" data-fn=")">)</button>
+            <button class="calc-btn sci-key" data-act="clear" style="background:var(--accent);">C</button>
+            <button class="calc-btn sci-key" data-act="back">&#9003;</button>
+            <button class="calc-btn sci-key" data-fn="/">&divide;</button>
+
+            <button class="calc-btn sci-key" data-fn="7">7</button>
+            <button class="calc-btn sci-key" data-fn="8">8</button>
+            <button class="calc-btn sci-key" data-fn="9">9</button>
+            <button class="calc-btn sci-key" data-fn="*">&times;</button>
+            <button class="calc-btn sci-key" data-fn="%">%</button>
+
+            <button class="calc-btn sci-key" data-fn="4">4</button>
+            <button class="calc-btn sci-key" data-fn="5">5</button>
+            <button class="calc-btn sci-key" data-fn="6">6</button>
+            <button class="calc-btn sci-key" data-fn="-">&minus;</button>
+            <button class="calc-btn sci-key" data-fn="+">+</button>
+
+            <button class="calc-btn sci-key" data-fn="1">1</button>
+            <button class="calc-btn sci-key" data-fn="2">2</button>
+            <button class="calc-btn sci-key" data-fn="3">3</button>
+            <button class="calc-btn sci-key" data-fn="0">0</button>
+            <button class="calc-btn sci-key" data-fn=".">.</button>
+          </div>
+          <button id="sci-equals" class="calc-btn" style="width:100%;margin-top:8px;background:var(--accent);">=</button>
+        </div>
+      </div>
+
+      <!-- SEO Article -->
+      <section class="article-section">
+        <div class="article-header">
+          <h2>Scientific Calculator Guides</h2>
+        </div>
+        <div class="article-content">
+          <h2>Using the Scientific Calculator</h2>
+<p>This scientific calculator extends ordinary arithmetic with the functions students, engineers, and analysts rely on every day: trigonometry, logarithms, exponential powers, square roots, and factorials. Tap the keys to build an expression in the display, then press the equals key to evaluate the whole thing at once. You can chain several operations together and use parentheses to control exactly how they are grouped.</p>
+<h3>Supported Operations</h3>
+<ul>
+  <li><strong>Trigonometry:</strong> sin, cos, and tan, with a DEG / RAD toggle so angles are read in the unit you expect.</li>
+  <li><strong>Logarithms:</strong> log for base-10 and ln for the natural logarithm based on the constant e.</li>
+  <li><strong>Powers and roots:</strong> the x^y key raises a number to any power, and the square-root key returns the root of a value.</li>
+  <li><strong>Factorials and constants:</strong> x! multiplies every whole number up to your input, while &pi; and e insert their precise mathematical values.</li>
+</ul>
+<h3>Degrees Versus Radians</h3>
+<p>Trigonometric functions can interpret angles in two ways. Degrees divide a circle into 360 parts and are common in geometry and everyday measurement, while radians measure angles by arc length and appear throughout calculus and physics. Set the toggle before you calculate, because sin(30) returns 0.5 in degree mode but a very different value in radian mode.</p>
+<h3>Order of Operations</h3>
+<p>The calculator follows standard mathematical precedence: expressions inside parentheses are resolved first, then powers, then multiplication and division, and finally addition and subtraction. When you are unsure how a long expression will be grouped, wrap the part you want evaluated first in parentheses to remove any ambiguity.</p>
+<h3>Practical Uses</h3>
+<p>Use it to check homework, work through trigonometry and logarithm problems, compute growth with powers, or evaluate probability questions that rely on factorials. Because every calculation runs instantly in your browser, you can experiment freely and correct mistakes with the clear and backspace keys without losing your place.</p>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="faq-section">
+        <h2 class="faq-header">Frequently Asked Questions</h2>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <h3 class="faq-question">What functions does the Scientific Calculator support?</h3>
+            <p class="faq-answer">It supports basic arithmetic, parentheses, trigonometric functions (sin, cos, tan), logarithms (log base 10 and natural ln), square roots, powers, factorials, and the constants pi and e.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">Does it work in degrees or radians?</h3>
+            <p class="faq-answer">Both. Use the DEG / RAD toggle to choose how trigonometric functions interpret angles before you calculate. For example, sin(30) equals 0.5 in degree mode.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">What order of operations does it follow?</h3>
+            <p class="faq-answer">It follows standard precedence: parentheses first, then powers, then multiplication and division, and finally addition and subtraction. Use parentheses to group parts you want evaluated first.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">How do I calculate a factorial?</h3>
+            <p class="faq-answer">Type a whole number and press the x! key. The calculator multiplies every whole number from 1 up to that value, so 5! returns 120.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">What is the Scientific Calculator used for?</h3>
+            <p class="faq-answer">It is a free online tool for advanced arithmetic, trigonometry, logarithms, exponential powers, roots, and factorial calculations for study and everyday math.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">Is my data secure when using the Scientific Calculator?</h3>
+            <p class="faq-answer">Yes. All computations are executed client-side in your web browser. We do not store, track, or transmit any input values or calculated results.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-question">Can I use the Scientific Calculator on mobile devices?</h3>
+            <p class="faq-answer">Absolutely. The calculator is built with a responsive mobile-first design, making it fully optimized for mobile web as well as desktop viewports.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="copyright-bar" style="border-top: none; padding-top: 0;">
+      © <span id="year">2026</span> CalcuPortal. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').innerText = new Date().getFullYear();
+  </script>
+  <script>
+    (function () {
+      const display = document.getElementById('sci-display');
+      const degBox = document.getElementById('sci-deg');
+      const modeLabel = document.getElementById('sci-mode-label');
+      let expr = '';
+
+      function render() { display.value = expr === '' ? '0' : expr; }
+
+      degBox.addEventListener('change', () => {
+        modeLabel.innerText = 'Mode: ' + (degBox.checked ? 'DEG' : 'RAD');
+      });
+
+      document.querySelectorAll('.sci-key').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const act = btn.getAttribute('data-act');
+          const fn = btn.getAttribute('data-fn');
+          if (act === 'clear') { expr = ''; render(); return; }
+          if (act === 'back') { expr = expr.slice(0, -1); render(); return; }
+          if (fn === 'pi') { expr += 'pi'; }
+          else { expr += fn; }
+          render();
+        });
+      });
+
+      function factorial(n) {
+        if (n < 0 || !Number.isFinite(n)) return NaN;
+        n = Math.round(n);
+        let r = 1;
+        for (let i = 2; i <= n; i++) r *= i;
+        return r;
+      }
+
+      function evaluate() {
+        if (!expr.trim()) return;
+        // Only allow a safe character/token set built from the buttons.
+        if (!/^[0-9+\-*/%.()^!a-z\s]+$/i.test(expr)) {
+          display.value = 'Error';
+          return;
+        }
+        const useDeg = degBox.checked;
+        const toRad = (x) => useDeg ? x * Math.PI / 180 : x;
+        let js = expr
+          .replace(/\bpi\b/g, '(' + Math.PI + ')')
+          .replace(/\be\b/g, '(' + Math.E + ')')
+          .replace(/\^/g, '**')
+          .replace(/(\d+(?:\.\d+)?)\s*!/g, 'fact($1)');
+        const scope = {
+          sin: (x) => Math.sin(toRad(x)),
+          cos: (x) => Math.cos(toRad(x)),
+          tan: (x) => Math.tan(toRad(x)),
+          log: (x) => Math.log10(x),
+          ln: (x) => Math.log(x),
+          sqrt: (x) => Math.sqrt(x),
+          fact: factorial
+        };
+        try {
+          const f = new Function('sin','cos','tan','log','ln','sqrt','fact',
+                                  'return (' + js + ');');
+          const result = f(scope.sin, scope.cos, scope.tan, scope.log,
+                            scope.ln, scope.sqrt, scope.fact);
+          if (typeof result !== 'number' || !Number.isFinite(result)) {
+            display.value = 'Error';
+            expr = '';
+            return;
+          }
+          expr = String(Math.round(result * 1e10) / 1e10);
+          render();
+        } catch (err) {
+          display.value = 'Error';
+          expr = '';
+        }
+      }
+
+      document.getElementById('sci-equals').addEventListener('click', evaluate);
+      render();
+    })();
+  </script>
+</body>
+</html>
