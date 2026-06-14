@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://calcuportal.com/sitemap.xml
+Sitemap: https://www.calcuportal.com/sitemap.xml
