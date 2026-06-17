@@ -96,6 +96,12 @@ header {
   -webkit-text-fill-color: transparent;
 }
 .logo-icon {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: middle;
+} {
   background: linear-gradient(135deg, var(--primary) 0%, #a855f7 100%);
   color: white;
   width: 2.25rem;

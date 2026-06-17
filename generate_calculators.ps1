@@ -4708,7 +4708,7 @@ $schemaMembers
   <header>
     <div class="nav-container">
       <a href="../../index.html" class="logo">
-        <span class="logo-icon">🧮</span>
+        <img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon">
         <span>CalcuPortal</span>
       </a>
       <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">

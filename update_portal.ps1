@@ -162,7 +162,7 @@ $indexOutput = @"
   <header>
     <div class="nav-container">
       <a href="index.html" class="logo">
-        <span class="logo-icon">🧮</span>
+        <img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon">
         <span>CalcuPortal</span>
       </a>
       <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
@@ -224,7 +224,7 @@ $categoryCardsHtml
     <div class="footer-container">
       <div class="footer-info">
         <a href="index.html" class="logo" style="display:inline-flex;">
-          <span class="logo-icon">🧮</span>
+          <img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon">
           <span>CalcuPortal</span>
         </a>
         <p>Your ultimate directory for free online calculators. Get clean, correct calculations with comprehensive educational guides and schemas.</p>
