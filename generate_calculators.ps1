@@ -4697,7 +4697,7 @@ $schemaMembers
   <title>$metaTitle</title>
   <meta name="description" content="$metaDesc">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://calcuportal.com/calculators/$slug">
+  <link rel="canonical" href="https://www.calcuportal.com/calculators/$slug">
   <link rel="stylesheet" href="../../styles.css">
   <script src="../../script.js"></script>
   $faqSchemaJson

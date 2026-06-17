@@ -152,7 +152,7 @@ $indexOutput = @"
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CalcuPortal - Free Online Calculators for Daily Needs</title>
   <meta name="description" content="Access free online calculators for finance, health, BMI, compound growth, age, date difference, scientific computations, and loan EMIs. Light, fast, and 100% accurate.">
-  <link rel="canonical" href="https://calcuportal.com/">
+  <link rel="canonical" href="https://www.calcuportal.com/">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js"></script>
 </head>
@@ -322,7 +322,7 @@ $sitemapHtml = @"
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://calcuportal.com/</loc>
+    <loc>https://www.calcuportal.com/</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -333,7 +333,7 @@ foreach ($cat in $categories) {
   $sitemapHtml += @"
 
   <url>
-    <loc>https://calcuportal.com/categories/$slug/</loc>
+    <loc>https://www.calcuportal.com/categories/$slug/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -345,7 +345,7 @@ foreach ($calc in $calculators) {
   $sitemapHtml += @"
 
   <url>
-    <loc>https://calcuportal.com/calculators/$slug/</loc>
+    <loc>https://www.calcuportal.com/calculators/$slug/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -357,7 +357,7 @@ foreach ($page in $pages) {
   $sitemapHtml += @"
 
   <url>
-    <loc>https://calcuportal.com/pages/$page</loc>
+    <loc>https://www.calcuportal.com/pages/$page</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
