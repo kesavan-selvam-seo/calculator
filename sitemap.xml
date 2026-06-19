@@ -391,32 +391,32 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/pages/about/</loc>
+    <loc>https://www.calcuportal.com/about/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/pages/contact/</loc>
+    <loc>https://www.calcuportal.com/contact/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/pages/privacy-policy/</loc>
+    <loc>https://www.calcuportal.com/privacy-policy/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/pages/terms-conditions/</loc>
+    <loc>https://www.calcuportal.com/terms-conditions/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/pages/disclaimer/</loc>
+    <loc>https://www.calcuportal.com/disclaimer/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.calcuportal.com/pages/advertise/</loc>
+    <loc>https://www.calcuportal.com/advertise/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
