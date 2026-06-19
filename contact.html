@@ -1,47 +1,65 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="shortcut icon" href="/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/favicon.png">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style.css">
-<script defer src="/script.js"></script>
-<title>Contact CalcStack</title>
-<meta name="description" content="Contact the calculator website team.">
-<link rel="canonical" href="https://example.com/">
+  <meta name="robots" content="index, follow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - CalcuPortal</title>
+  <meta name="description" content="Get in touch with CalcuPortal for questions, suggestions, or advertising partnerships.">
+  <link rel="canonical" href="https://www.calcuportal.com/contact/">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../script.js"></script>
 </head>
 <body>
-<div class="topbar"><div class="container"><span>Free online calculators for daily use</span><span>No signup required</span></div></div>
-<header>
-  <div class="container nav">
-    <a href="/index.html" class="logo">Calc<span>Stack</span></a>
-    <ul class="menu">
-      <li><a href="/categories.html">Categories</a></li>
-      <li><a href="/generic-calculators.html">Generic</a></li>
-      <li><a href="/finance-calculators.html">Finance</a></li>
-      <li><a href="/sports-calculators.html">Sports</a></li>
-      <li><a href="/about.html">About</a></li>
-      <li><a href="/contact.html">Contact</a></li>
-    </ul>
-    <a class="btn btn-primary" href="/categories.html">Explore Calculators</a>
-  </div>
-</header>
-<section class="hero"><div class="container"><h1>Contact Us</h1><p class="lead">For feedback or calculator suggestions, contact us through this page.</p></div></section><section class="section"><div class="container content"><h2>Contact Information</h2><p>Email: hello@example.com</p><p>Replace this with your real business email before launch.</p></div></section>
-<footer>
- <div class="container">
-  <div class="footer-grid">
-   <div><h3>CalcStack</h3><p>SEO-friendly calculator website structure with category pages and individual calculator pages.</p></div>
-   <div><h3>Categories</h3><a href="/generic-calculators.html">Generic Calculators</a><a href="/finance-calculators.html">Finance Calculators</a><a href="/health-calculators.html">Health Calculators</a><a href="/student-calculators.html">Student Calculators</a><a href="/sports-calculators.html">Sports Calculators</a></div>
-   <div><h3>Pages</h3><a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/privacy-policy.html">Privacy Policy</a><a href="/disclaimer.html">Disclaimer</a></div>
-   <div><h3>Popular</h3><a href="/sip-calculator.html">SIP Calculator</a><a href="/age-calculator.html">Age Calculator</a><a href="/bmi-calculator.html">BMI Calculator</a></div>
-  </div>
-  <div class="small">© 2026 CalcStack. Calculator results are for informational purposes only.</div>
- </div>
-</footer>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="../index.html" class="logo">
+        <img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon">
+        <span>CalcuPortal</span>
+      </a>
+      <nav class="nav-links">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+        <button class="theme-btn" title="Toggle Theme">
+          <span class="theme-btn-icon"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="detail-container">
+      <section class="article-section" style="margin-top: 2rem;">
+        <div class="article-header">
+          <h1>Contact Us</h1>
+        </div>
+        <div class="article-content">
+          <p>We value feedback from our users! If you have suggestions for a new calculator, notice a mathematical calculation bug, or want to discuss display ad partnerships, send us an email.</p>
+          <p style="margin-top: 1.5rem; font-size: 1.125rem;">
+            <strong>Email:</strong> <a href="mailto:rockypandazero@gmail.com" style="color: var(--primary); text-decoration: none;">rockypandazero@gmail.com</a>
+          </p>
+          <p style="margin-top: 1rem; font-size: 0.875rem; color: var(--text-muted);">We typically respond to inquiries within 24 to 48 hours.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="copyright-bar" style="border-top: none; padding-top: 0;">
+      © <span id="year">2026</span> CalcuPortal. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').innerText = new Date().getFullYear();
+  </script>
 </body>
 </html>
+
