@@ -5,6 +5,7 @@
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="shortcut icon" href="/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/favicon.png">
+
   <meta name="robots" content="index, follow">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +16,67 @@
 
   <link rel="stylesheet" href="/styles.css">
   <script src="/script.js"></script>
+
+  <style>
+    .contact-form {
+      margin-top: 1.5rem;
+      margin-bottom: 2rem;
+      display: grid;
+      gap: 1rem;
+      width: 100%;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #d9e2ef;
+      border-radius: 10px;
+      background: #ffffff;
+      color: #111827;
+      font-size: 1rem;
+      font-family: inherit;
+      outline: none;
+      box-sizing: border-box;
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #8b5cf6;
+      box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+    }
+
+    .contact-form button {
+      width: 100%;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 10px;
+      background: #8b5cf6;
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .contact-form button:hover {
+      opacity: 0.92;
+    }
+
+    .contact-note {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      text-align: justify;
+    }
+  </style>
 </head>
+
 <body>
 
   <!-- Header -->
@@ -45,14 +106,10 @@
         </div>
 
         <div class="article-content">
+
           <p style="text-align: justify;">Have a question, suggestion, or correction request? We would be happy to hear from you. CalcuPortal is built to make everyday calculations easier, and user feedback plays an important role in improving our calculators, content, page experience, and overall accuracy.</p>
 
           <p style="text-align: justify;">Whether you are using our finance calculators, health tools, math calculators, conversion utilities, date tools, or student-friendly calculators, you can contact us if something needs attention or if you want to suggest a new tool that could help more users.</p>
-
-          <h2>How We Can Help</h2>
-          <p style="text-align: justify;">You can reach out to CalcuPortal for calculator suggestions, formula corrections, page errors, broken links, content improvements, usability feedback, advertising inquiries, and general questions related to the website. We review feedback carefully and use it to improve the quality of our tools.</p>
-
-          <p style="text-align: justify;">If you are reporting a calculator issue, please share the calculator page URL, the values you entered, the result shown on the page, and the result you expected. This helps us understand the issue clearly and review the calculation faster.</p>
 
           <h2>Send Us a Message</h2>
           <p style="text-align: justify;">Use the contact form below to send feedback, report a calculator issue, suggest a new tool, or contact us for advertising and collaboration inquiries. Please add clear details so we can understand your request better.</p>
@@ -67,6 +124,11 @@
 
             <button type="submit">Send Message</button>
           </form>
+
+          <h2>How We Can Help</h2>
+          <p style="text-align: justify;">You can reach out to CalcuPortal for calculator suggestions, formula corrections, page errors, broken links, content improvements, usability feedback, advertising inquiries, and general questions related to the website. We review feedback carefully and use it to improve the quality of our tools.</p>
+
+          <p style="text-align: justify;">If you are reporting a calculator issue, please share the calculator page URL, the values you entered, the result shown on the page, and the result you expected. This helps us understand the issue clearly and review the calculation faster.</p>
 
           <h2>Suggest a New Calculator</h2>
           <p style="text-align: justify;">CalcuPortal is continuously expanding with new calculators and online tools. If you need a calculator that is not currently available on our website, you can send us your suggestion. We welcome ideas related to finance, health, education, math, unit conversions, date calculations, business utilities, and daily life tools.</p>
@@ -87,12 +149,13 @@
             <a href="mailto:rockypandazero@gmail.com" style="color: var(--primary); text-decoration: none;">rockypandazero@gmail.com</a>
           </p>
 
-          <p style="text-align: justify; margin-top: 1rem; font-size: 0.95rem; color: var(--text-muted);">We usually try to respond within 24 to 48 hours. Response time may vary depending on the type of request and the number of messages we receive.</p>
+          <p class="contact-note">We usually try to respond within 24 to 48 hours. Response time may vary depending on the type of request and the number of messages we receive.</p>
 
           <h2>Before You Use Our Calculators</h2>
           <p style="text-align: justify;">CalcuPortal provides calculators and informational content for general guidance, learning, and quick estimation. The results shown by our tools should not be treated as professional advice. For financial, medical, tax, legal, academic, or business decisions, please verify results with an official source or a qualified professional.</p>
 
           <p style="text-align: justify;">Thank you for helping us improve CalcuPortal. Your suggestions and feedback help us build better calculators and make the website more useful for everyone.</p>
+
         </div>
       </section>
     </div>
@@ -108,56 +171,7 @@
   <script>
     document.getElementById('year').innerText = new Date().getFullYear();
   </script>
+
 </body>
 </html>
-```
-```css
-.contact-form {
-  margin-top: 1.5rem;
-  margin-bottom: 2rem;
-  display: grid;
-  gap: 1rem;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 14px 16px;
-  border: 1px solid var(--border-color, #d9e2ef);
-  border-radius: 10px;
-  background: var(--card-bg, #ffffff);
-  color: var(--text-color, #111827);
-  font-size: 1rem;
-  font-family: inherit;
-  outline: none;
-  box-sizing: border-box;
-}
-
-.contact-form textarea {
-  resize: vertical;
-  min-height: 140px;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: var(--primary, #8b5cf6);
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
-}
-
-.contact-form button {
-  width: 100%;
-  padding: 14px 20px;
-  border: none;
-  border-radius: 10px;
-  background: var(--primary, #8b5cf6);
-  color: #ffffff;
-  font-size: 1rem;
-  font-weight: 700;
-  cursor: pointer;
-  font-family: inherit;
-}
-
-.contact-form button:hover {
-  opacity: 0.92;
-}
 ```
