@@ -1,164 +1,363 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="shortcut icon" href="/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/favicon.png">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bingo Number Generator - Random Caller</title>
-  <meta name="description" content="Call random Bingo numbers from 1 to 75. Keep track of previous draws.">
+
+  <title>Bingo Number Generator - Free Random Bingo Caller</title>
+  <meta name="description" content="Use the free Bingo Number Generator to call random Bingo numbers from 1 to 75. Track called numbers, reset the board, and play Bingo online.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.calcuportal.com/calculators/games-bingo-number-generator/">
-  <link rel="stylesheet" href="../../styles.css">
-  <script src="../../script.js"></script>
-    <script type="application/ld+json">
+
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/script.js"></script>
+
+  <style>
+    .bingo-widget {
+      text-align: center;
+    }
+
+    .bingo-actions {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .bingo-reset-btn {
+      background: var(--border-light);
+      color: var(--text-primary);
+    }
+
+    .bingo-result-wrap {
+      text-align: center;
+    }
+
+    .called-number-box {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--primary);
+      margin: 1rem 0;
+      line-height: 1;
+    }
+
+    .bingo-history-box {
+      text-align: left;
+      margin-top: 1rem;
+      line-height: 1.7;
+    }
+
+    .bingo-history-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+
+    .bingo-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.45rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(139, 92, 246, 0.12);
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .bingo-board {
+      margin-top: 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.75rem;
+    }
+
+    .bingo-column {
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--card-bg);
+    }
+
+    .bingo-column-title {
+      background: var(--primary);
+      color: #ffffff;
+      font-weight: 800;
+      padding: 0.6rem;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    .bingo-column-numbers {
+      padding: 0.75rem;
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .bingo-board-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 30px;
+      border-radius: 8px;
+      background: var(--background);
+      color: var(--text-primary);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .bingo-board-num.called {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .bingo-note {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .called-number-box {
+        font-size: 2.75rem;
+      }
+
+      .bingo-board {
+        grid-template-columns: 1fr;
+      }
+
+      .bingo-column-numbers {
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How many numbers are in standard Bingo?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Standard American Bingo has 75 numbers categorized under B, I, N, G, and O."
+      {
+        "@type": "Question",
+        "name": "What is a Bingo Number Generator?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A Bingo Number Generator is an online caller tool that randomly draws Bingo numbers from 1 to 75 and helps track previously called numbers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many numbers are used in standard Bingo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Standard 75-ball Bingo uses numbers from 1 to 75, divided into B, I, N, G and O groups."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does this Bingo caller repeat numbers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The tool keeps track of called numbers and does not repeat a number until the board is reset."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I reset the Bingo board?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. You can click the Reset Board button to clear the history and start a new Bingo calling session."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this Bingo Number Generator free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The Bingo Number Generator on CalcuPortal is free to use and works directly in your browser."
+        }
       }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the Bingo Number Generator used for?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The Bingo Number Generator is a free online tool designed to calculate solutions for Bingo Number Generator queries instantly. It helps users get fast, error-free results."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How accurate are calculations on the Bingo Number Generator?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "This tool uses industry-standard formulas and mathematical equations for Games & Fun to ensure 100% computational integrity and accuracy."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is my data secure when using the Bingo Number Generator?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. All computations are executed client-side in your web browser. We do not store, track, or transmit any input values or calculated results."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use the Bingo Number Generator on mobile devices?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absolutely. The calculator is built with a responsive mobile-first design, making it fully optimized for mobile web (mweb) as well as desktop viewports."
-      }
-    }
     ]
   }
   </script>
+
 </head>
+
 <body>
 
   <!-- Header -->
+
   <header>
     <div class="nav-container">
-      <a href="../../" class="logo">
+      <a href="/" class="logo">
         <img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon">
         <span>CalcuPortal</span>
       </a>
-      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-      <nav class="nav-links" id="nav-links">
-        <a href="../../" class="nav-link">Home</a>
-        <a href="../../pages/about/" class="nav-link">About</a>
-        <a href="../../pages/contact/" class="nav-link">Contact</a>
-        <button class="theme-btn" title="Toggle Theme">
-          <span class="theme-btn-icon"></span>
-        </button>
-      </nav>
-    </div>
+
+
+  <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+
+  <nav class="nav-links" id="nav-links">
+    <a href="/" class="nav-link">Home</a>
+    <a href="/about/" class="nav-link">About</a>
+    <a href="/contact/" class="nav-link">Contact</a>
+    <button class="theme-btn" title="Toggle Theme">
+      <span class="theme-btn-icon"></span>
+    </button>
+  </nav>
+</div>
+
+
   </header>
 
   <main>
     <div class="detail-container">
-      <!-- Breadcrumbs -->
-      <div class="breadcrumbs">
-        <a href="../../">Home</a>
-        <span class="separator">&rsaquo;</span>
-        <a href="../../categories/games/">Games & Fun Tools</a>
-        <span class="separator">&rsaquo;</span>
-        <span class="current">Bingo Number Generator</span>
-      </div>
 
-      <div class="detail-header">
-        <h1>Bingo Number Generator</h1>
-      </div>
 
-      <!-- Calculator Widget -->
-      <div class="calc-widget">
-                <button id="draw-btn" class="calc-btn">Draw Next Number</button>
-        <button id="reset-btn" class="calc-btn" style="background:var(--border-light); color:var(--text-primary); margin-top:0.5rem;">Reset Board</button>
-        <div id="result-section" class="result-section hidden" style="text-align: center;">
-          <div class="summary-title">Called Number</div>
-          <div class="total-balance" id="called-num" style="font-size: 3.5rem; color:var(--primary); margin:1rem 0;">G-46</div>
-          <div class="breakdown-info" style="text-align:left;">
-            <p>Called Numbers History: <span id="bingo-history">...</span></p>
-          </div>
-        </div>
-      </div>
+  <!-- Breadcrumbs -->
+  <div class="breadcrumbs">
+    <a href="/">Home</a>
+    <span class="separator">&rsaquo;</span>
+    <a href="/categories/games/">Games & Fun Tools</a>
+    <span class="separator">&rsaquo;</span>
+    <span class="current">Bingo Number Generator</span>
+  </div>
 
-      <!-- SEO Article -->
-      <section class="article-section">
-        <div class="article-header">
-          <h2>Bingo Number Generator Guides</h2>
-        </div>
-        <div class="article-content">
-          <h2>Automated Bingo Caller</h2><p>Host Bingo game nights without a physical rolling cage using our automated 1-75 caller.</p>
-          <h3>The Mathematics of Probability, Gaming, and Security</h3>
-<p>From playing board games to drawing sweepstakes and securing digital accounts, randomized numbers and logic play a massive role in our daily lives. Using specialized tools like the Bingo Number Generator gives you access to unbiased, mathematically correct randomization algorithms. Whether you are calling numbers for a local bingo night, generating lottery ticket picks, or creating high-entropy passwords, digital generators ensure complete fairness and strong security.</p>
-<p>Random number generation (RNG) in web browsers uses pseudo-random algorithms that are mathematically distributed across your specified bounds. This guarantees that every number in a draw has an equal probability of appearing, eliminating the biases of manual draws. In security, randomization is used to generate cryptographic passwords that prevent brute-force attacks and protect your private data online.</p>
-<h3>How to Use Our Generators Effectively</h3>
-<p>To get the best utility out of the Bingo Number Generator, check out these standard rules:</p>
-<ul>
-  <li>For lottery and random drawing tools, set the lower and upper bounds carefully to match the official rules of the game you are playing.</li>
-  <li>When generating passwords, check all key complexity options (uppercase, numbers, and special symbols) to create the strongest security key. We recommend using a length of at least 16 characters.</li>
-  <li>For gaming tools like dice rollers, customize the number of active dice to fit the rules of your tabletop game.</li>
-</ul>
-<p>Since our tools run completely client-side in your browser, your generated passwords and numbers are private and are never sent or stored on any external server.</p>
-        </div>
-      </section>
+  <div class="detail-header">
+    <h1>Bingo Number Generator</h1>
+  </div>
 
-            <!-- FAQ Section -->
-      <section class="faq-section">
-        <h2 class="faq-header">Frequently Asked Questions</h2>
-        <div class="faq-grid">          <div class="faq-item">
-            <h3 class="faq-question">How many numbers are in standard Bingo?</h3>
-            <p class="faq-answer">Standard American Bingo has 75 numbers categorized under B, I, N, G, and O.</p>
-          </div>          <div class="faq-item">
-            <h3 class="faq-question">What is the Bingo Number Generator used for?</h3>
-            <p class="faq-answer">The Bingo Number Generator is a free online tool designed to calculate solutions for Bingo Number Generator queries instantly. It helps users get fast, error-free results.</p>
-          </div>          <div class="faq-item">
-            <h3 class="faq-question">How accurate are calculations on the Bingo Number Generator?</h3>
-            <p class="faq-answer">This tool uses industry-standard formulas and mathematical equations for Games & Fun to ensure 100% computational integrity and accuracy.</p>
-          </div>          <div class="faq-item">
-            <h3 class="faq-question">Is my data secure when using the Bingo Number Generator?</h3>
-            <p class="faq-answer">Yes. All computations are executed client-side in your web browser. We do not store, track, or transmit any input values or calculated results.</p>
-          </div>          <div class="faq-item">
-            <h3 class="faq-question">Can I use the Bingo Number Generator on mobile devices?</h3>
-            <p class="faq-answer">Absolutely. The calculator is built with a responsive mobile-first design, making it fully optimized for mobile web (mweb) as well as desktop viewports.</p>
-          </div>        </div>
-      </section>
+  <!-- Calculator Widget -->
+  <div class="calc-widget bingo-widget">
+    <div class="bingo-actions">
+      <button id="draw-btn" class="calc-btn">Draw Next Number</button>
+      <button id="reset-btn" class="calc-btn bingo-reset-btn">Reset Board</button>
     </div>
+
+    <div id="result-section" class="result-section hidden bingo-result-wrap">
+      <div class="summary-title">Called Number</div>
+      <div class="called-number-box" id="called-num">--</div>
+
+      <div class="bingo-history-box">
+        <strong>Called Numbers History:</strong>
+        <div id="bingo-history" class="bingo-history-list">
+          <span class="bingo-chip">None</span>
+        </div>
+      </div>
+
+      <p class="bingo-note">This tool randomly calls Bingo numbers from 1 to 75 without repeating numbers in the same session.</p>
+    </div>
+
+    <div class="bingo-board" id="bingo-board"></div>
+  </div>
+
+  <!-- SEO Article -->
+  <section class="article-section">
+    <div class="article-header">
+      <h2>Bingo Number Generator Guide</h2>
+    </div>
+
+    <div class="article-content">
+      <h2>What is a Bingo Number Generator?</h2>
+      <p style="text-align: justify;">A Bingo Number Generator is an online tool that randomly calls Bingo numbers for a game. Instead of using a physical Bingo cage or manual number slips, this tool draws numbers digitally and keeps a record of the numbers that have already been called.</p>
+
+      <p style="text-align: justify;">CalcuPortal’s Bingo Number Generator is designed for standard 75-ball Bingo, where numbers are grouped under the letters B, I, N, G and O. It can be used for casual games, classroom activities, family game nights, virtual Bingo sessions, and small group events.</p>
+
+      <h2>How to Use the Bingo Number Generator</h2>
+      <p style="text-align: justify;">Using the Bingo caller is simple. Click the Draw Next Number button to call a random Bingo number. The tool will show the called number with its letter, such as B-10, I-25, N-40, G-55 or O-70. Every called number is saved in the history section.</p>
+
+      <ul>
+        <li>Click <strong>Draw Next Number</strong> to call a new Bingo number.</li>
+        <li>Check the called number shown on the screen.</li>
+        <li>Use the history section to view previously called numbers.</li>
+        <li>Continue drawing numbers until the game is complete.</li>
+        <li>Click <strong>Reset Board</strong> to start a new Bingo game.</li>
+      </ul>
+
+      <h2>Standard 75-Ball Bingo Number Groups</h2>
+      <p style="text-align: justify;">In standard 75-ball Bingo, numbers are divided into five letter groups. The letter helps players quickly find the number on their Bingo cards.</p>
+
+      <ul>
+        <li><strong>B:</strong> Numbers 1 to 15</li>
+        <li><strong>I:</strong> Numbers 16 to 30</li>
+        <li><strong>N:</strong> Numbers 31 to 45</li>
+        <li><strong>G:</strong> Numbers 46 to 60</li>
+        <li><strong>O:</strong> Numbers 61 to 75</li>
+      </ul>
+
+      <h2>Does the Bingo Caller Repeat Numbers?</h2>
+      <p style="text-align: justify;">No. This Bingo Number Generator keeps track of every number called in the current session. Once a number is drawn, it will not be repeated again until you reset the board.</p>
+
+      <p style="text-align: justify;">This makes it useful for hosting a complete Bingo game because players can trust that each number is called only once per round.</p>
+
+      <h2>When Can You Use This Tool?</h2>
+      <p style="text-align: justify;">The Bingo Number Generator can be used for many casual and educational activities. It is helpful when you need a simple, fair and quick way to call numbers without physical game equipment.</p>
+
+      <ul>
+        <li><strong>Family game nights:</strong> Run a Bingo session at home.</li>
+        <li><strong>Classroom activities:</strong> Use Bingo for learning games.</li>
+        <li><strong>Virtual events:</strong> Call Bingo numbers during online meetings.</li>
+        <li><strong>Small parties:</strong> Host fun Bingo rounds with friends.</li>
+        <li><strong>Practice games:</strong> Test Bingo cards or game rules.</li>
+      </ul>
+
+      <h2>Important Note</h2>
+      <p style="text-align: justify;">This Bingo Number Generator is made for casual, entertainment, and educational use. It does not provide gambling advice or betting recommendations. Users should follow local rules and play responsibly where applicable.</p>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <h2 class="faq-header">Frequently Asked Questions</h2>
+    <div class="faq-grid">
+
+      <div class="faq-item">
+        <h3 class="faq-question">What is the Bingo Number Generator used for?</h3>
+        <p class="faq-answer">The Bingo Number Generator is used to randomly call Bingo numbers from 1 to 75 and track the numbers already called in the current game.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">How many numbers are in standard Bingo?</h3>
+        <p class="faq-answer">Standard 75-ball Bingo has numbers from 1 to 75, divided into B, I, N, G and O groups.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">Will this Bingo caller repeat numbers?</h3>
+        <p class="faq-answer">No. The tool does not repeat numbers during the same session. A number can appear again only after you reset the board.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">Can I reset the Bingo game?</h3>
+        <p class="faq-answer">Yes. Click the Reset Board button to clear the current history and start a new Bingo calling session.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">Is this Bingo Number Generator free?</h3>
+        <p class="faq-answer">Yes. The Bingo Number Generator on CalcuPortal is free to use and works directly in your browser.</p>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+
   </main>
 
   <!-- Footer -->
+
   <footer>
     <div class="copyright-bar" style="border-top: none; padding-top: 0;">
       © <span id="year">2026</span> CalcuPortal. All rights reserved.
@@ -167,54 +366,98 @@
 
   <script>
     document.getElementById('year').innerText = new Date().getFullYear();
-    
-    // Injected calculation script
-    // Rename calculate button triggers
-    const calculateBtn = document.getElementById('calc-btn');
-    if (calculateBtn) {
-      calculateBtn.id = 'calculate-btn';
+
+    let drawn = [];
+
+    const letterRanges = [
+      { letter: 'B', min: 1, max: 15 },
+      { letter: 'I', min: 16, max: 30 },
+      { letter: 'N', min: 31, max: 45 },
+      { letter: 'G', min: 46, max: 60 },
+      { letter: 'O', min: 61, max: 75 }
+    ];
+
+    const drawBtn = document.getElementById('draw-btn');
+    const resetBtn = document.getElementById('reset-btn');
+    const calledNum = document.getElementById('called-num');
+    const bingoHistory = document.getElementById('bingo-history');
+    const resultSection = document.getElementById('result-section');
+    const bingoBoard = document.getElementById('bingo-board');
+
+    function getBingoCode(number) {
+      const range = letterRanges.find(function(item) {
+        return number >= item.min && number <= item.max;
+      });
+
+      return range.letter + '-' + number;
     }
-  </script>
-  <script>
-          let drawn = [];
-      const letterRanges = [
-        { letter: 'B', min: 1, max: 15 },
-        { letter: 'I', min: 16, max: 30 },
-        { letter: 'N', min: 31, max: 45 },
-        { letter: 'G', min: 46, max: 60 },
-        { letter: 'O', min: 61, max: 75 }
-      ];
-      
-      document.getElementById('calculate-btn').addEventListener('click', () => {
+
+    function renderBoard() {
+      let boardHtml = '';
+
+      letterRanges.forEach(function(range) {
+        boardHtml += '<div class="bingo-column">';
+        boardHtml += '<div class="bingo-column-title">' + range.letter + '</div>';
+        boardHtml += '<div class="bingo-column-numbers">';
+
+        for (let number = range.min; number <= range.max; number++) {
+          const calledClass = drawn.includes(number) ? ' called' : '';
+          boardHtml += '<span class="bingo-board-num' + calledClass + '">' + number + '</span>';
+        }
+
+        boardHtml += '</div>';
+        boardHtml += '</div>';
+      });
+
+      bingoBoard.innerHTML = boardHtml;
+    }
+
+    function renderHistory() {
+      if (drawn.length === 0) {
+        bingoHistory.innerHTML = '<span class="bingo-chip">None</span>';
+        return;
+      }
+
+      bingoHistory.innerHTML = drawn.map(function(number) {
+        return '<span class="bingo-chip">' + getBingoCode(number) + '</span>';
+      }).join('');
+    }
+
+    if (drawBtn) {
+      drawBtn.addEventListener('click', function() {
         if (drawn.length >= 75) {
           alert('All numbers drawn! Reset board to play again.');
           return;
         }
-        let rand = 0;
+
+        let randomNumber = 0;
+
         do {
-          rand = Math.floor(Math.random() * 75) + 1;
-        } while (drawn.includes(rand));
-        
-        drawn.push(rand);
-        
-        let rangeObj = letterRanges.find(r => rand >= r.min && rand <= r.max);
-        const code = rangeObj.letter + '-' + rand;
-        
-        document.getElementById('called-num').innerText = code;
-        document.getElementById('bingo-history').innerText = drawn.map(n => {
-          let r = letterRanges.find(x => n >= x.min && n <= x.max);
-          return r.letter + n;
-        }).join(', ');
-        
-        document.getElementById('result-section').classList.remove('hidden');
+          randomNumber = Math.floor(Math.random() * 75) + 1;
+        } while (drawn.includes(randomNumber));
+
+        drawn.push(randomNumber);
+
+        calledNum.innerText = getBingoCode(randomNumber);
+        resultSection.classList.remove('hidden');
+
+        renderHistory();
+        renderBoard();
       });
-      
-      document.getElementById('reset-btn').addEventListener('click', () => {
+    }
+
+    if (resetBtn) {
+      resetBtn.addEventListener('click', function() {
         drawn = [];
-        document.getElementById('called-num').innerText = '--';
-        document.getElementById('bingo-history').innerText = 'None';
-        document.getElementById('result-section').classList.add('hidden');
+        calledNum.innerText = '--';
+        resultSection.classList.add('hidden');
+        renderHistory();
+        renderBoard();
       });
+    }
+
+    renderBoard();
   </script>
+
 </body>
 </html>
