@@ -1,174 +1,306 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="shortcut icon" href="/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/favicon.png">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lottery Number Generator - Random Numbers</title>
-  <meta name="description" content="Generate random lottery ticket numbers. Choose your range size and count to customize tickets.">
+
+  <title>Lottery Number Generator - Free Random Lottery Numbers</title>
+  <meta name="description" content="Use the free Lottery Number Generator to create random lottery numbers instantly. Choose minimum value, maximum value and number count for custom lottery picks.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.calcuportal.com/calculators/games-lottery-number-generator/">
-  <link rel="stylesheet" href="../../styles.css">
-  <script src="../../script.js"></script>
-    <script type="application/ld+json">
+
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/script.js"></script>
+
+  <style>
+    .lottery-widget {
+      text-align: center;
+    }
+
+    .lottery-widget .form-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .lottery-widget .form-group {
+      text-align: left;
+    }
+
+    .lottery-widget .input-field {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .lottery-result-wrap {
+      text-align: center;
+    }
+
+    .lottery-numbers-wrap {
+      display: flex;
+      justify-content: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .lottery-ball {
+      background: var(--primary);
+      color: #ffffff;
+      font-size: 1.25rem;
+      font-weight: 800;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .lottery-note {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .lottery-widget .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Are these numbers truly random?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "They are generated using JavaScript's pseudo-random number generator, which yields high randomness for casual games."
+      {
+        "@type": "Question",
+        "name": "What is a Lottery Number Generator?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A Lottery Number Generator is a tool that creates random numbers within a selected range. It can be used for casual lottery picks, lucky number ideas, games, raffles and random draws."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I use the Lottery Number Generator?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Enter the minimum value, maximum value and how many numbers you want to generate. Then click the Generate Ticket button to get a random set of numbers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are the generated lottery numbers guaranteed to win?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The generated numbers are random and are for fun, casual use and number selection only. They do not increase or guarantee any chance of winning a lottery."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I choose my own lottery range?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. You can set your own minimum and maximum values to match the number range used by your preferred game or random draw."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does this tool repeat numbers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The tool generates unique numbers in one ticket. It will not repeat the same number in the same generated set."
+        }
       }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the Lottery Number Generator used for?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The Lottery Number Generator is a free online tool designed to calculate solutions for Lottery Number Generator queries instantly. It helps users get fast, error-free results."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How accurate are calculations on the Lottery Number Generator?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "This tool uses industry-standard formulas and mathematical equations for Games & Fun to ensure 100% computational integrity and accuracy."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is my data secure when using the Lottery Number Generator?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. All computations are executed client-side in your web browser. We do not store, track, or transmit any input values or calculated results."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use the Lottery Number Generator on mobile devices?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absolutely. The calculator is built with a responsive mobile-first design, making it fully optimized for mobile web (mweb) as well as desktop viewports."
-      }
-    }
     ]
   }
   </script>
+
 </head>
+
 <body>
 
   <!-- Header -->
+
   <header>
     <div class="nav-container">
-      <a href="../../" class="logo">
+      <a href="/" class="logo">
         <img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon">
         <span>CalcuPortal</span>
       </a>
-      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-      <nav class="nav-links" id="nav-links">
-        <a href="../../" class="nav-link">Home</a>
-        <a href="../../pages/about/" class="nav-link">About</a>
-        <a href="../../pages/contact/" class="nav-link">Contact</a>
-        <button class="theme-btn" title="Toggle Theme">
-          <span class="theme-btn-icon"></span>
-        </button>
-      </nav>
-    </div>
+
+
+  <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+
+  <nav class="nav-links" id="nav-links">
+    <a href="/" class="nav-link">Home</a>
+    <a href="/about/" class="nav-link">About</a>
+    <a href="/contact/" class="nav-link">Contact</a>
+    <button class="theme-btn" title="Toggle Theme">
+      <span class="theme-btn-icon"></span>
+    </button>
+  </nav>
+</div>
+
+
   </header>
 
   <main>
     <div class="detail-container">
-      <!-- Breadcrumbs -->
-      <div class="breadcrumbs">
-        <a href="../../">Home</a>
-        <span class="separator">&rsaquo;</span>
-        <a href="../../categories/games/">Games & Fun Tools</a>
-        <span class="separator">&rsaquo;</span>
-        <span class="current">Lottery Number Generator</span>
+
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumbs">
+    <a href="/">Home</a>
+    <span class="separator">&rsaquo;</span>
+    <a href="/categories/games/">Games & Fun Tools</a>
+    <span class="separator">&rsaquo;</span>
+    <span class="current">Lottery Number Generator</span>
+  </div>
+
+  <div class="detail-header">
+    <h1>Lottery Number Generator</h1>
+  </div>
+
+  <!-- Calculator Widget -->
+  <div class="calc-widget lottery-widget">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="lot-min">Min Value</label>
+        <input type="number" id="lot-min" value="1" class="input-field" min="0">
       </div>
 
-      <div class="detail-header">
-        <h1>Lottery Number Generator</h1>
+      <div class="form-group">
+        <label for="lot-max">Max Value</label>
+        <input type="number" id="lot-max" value="49" class="input-field" min="1">
       </div>
 
-      <!-- Calculator Widget -->
-      <div class="calc-widget">
-                <div class="form-row">
-          <div class="form-group">
-            <label for="lot-min">Min Value</label>
-            <input type="number" id="lot-min" value="1" class="input-field" />
-          </div>
-          <div class="form-group">
-            <label for="lot-max">Max Value</label>
-            <input type="number" id="lot-max" value="49" class="input-field" />
-          </div>
-          <div class="form-group">
-            <label for="lot-count">Numbers Count</label>
-            <input type="number" id="lot-count" value="6" class="input-field" />
-          </div>
-        </div>
-        <button id="calc-btn" class="calc-btn">Generate Ticket</button>
-        <div id="result-section" class="result-section hidden" style="text-align: center;">
-          <div class="summary-title">Your Numbers</div>
-          <div class="total-balance" id="lottery-numbers" style="display:flex; justify-content:center; gap:0.5rem; flex-wrap:wrap; margin-top:1rem;">...</div>
-        </div>
+      <div class="form-group">
+        <label for="lot-count">Numbers Count</label>
+        <input type="number" id="lot-count" value="6" class="input-field" min="1">
       </div>
-
-      <!-- SEO Article -->
-      <section class="article-section">
-        <div class="article-header">
-          <h2>Lottery Number Generator Guides</h2>
-        </div>
-        <div class="article-content">
-          <h2>Generate Lucky Numbers</h2><p>Draw randomized lottery entries based on configurable bounds. Great for Powerball, Mega Millions, or general prize draws.</p>
-          <h3>The Mathematics of Probability, Gaming, and Security</h3>
-<p>From playing board games to drawing sweepstakes and securing digital accounts, randomized numbers and logic play a massive role in our daily lives. Using specialized tools like the Lottery Number Generator gives you access to unbiased, mathematically correct randomization algorithms. Whether you are calling numbers for a local bingo night, generating lottery ticket picks, or creating high-entropy passwords, digital generators ensure complete fairness and strong security.</p>
-<p>Random number generation (RNG) in web browsers uses pseudo-random algorithms that are mathematically distributed across your specified bounds. This guarantees that every number in a draw has an equal probability of appearing, eliminating the biases of manual draws. In security, randomization is used to generate cryptographic passwords that prevent brute-force attacks and protect your private data online.</p>
-<h3>How to Use Our Generators Effectively</h3>
-<p>To get the best utility out of the Lottery Number Generator, check out these standard rules:</p>
-<ul>
-  <li>For lottery and random drawing tools, set the lower and upper bounds carefully to match the official rules of the game you are playing.</li>
-  <li>When generating passwords, check all key complexity options (uppercase, numbers, and special symbols) to create the strongest security key. We recommend using a length of at least 16 characters.</li>
-  <li>For gaming tools like dice rollers, customize the number of active dice to fit the rules of your tabletop game.</li>
-</ul>
-<p>Since our tools run completely client-side in your browser, your generated passwords and numbers are private and are never sent or stored on any external server.</p>
-        </div>
-      </section>
-
-            <!-- FAQ Section -->
-      <section class="faq-section">
-        <h2 class="faq-header">Frequently Asked Questions</h2>
-        <div class="faq-grid">          <div class="faq-item">
-            <h3 class="faq-question">Are these numbers truly random?</h3>
-            <p class="faq-answer">They are generated using JavaScript's pseudo-random number generator, which yields high randomness for casual games.</p>
-          </div>          <div class="faq-item">
-            <h3 class="faq-question">What is the Lottery Number Generator used for?</h3>
-            <p class="faq-answer">The Lottery Number Generator is a free online tool designed to calculate solutions for Lottery Number Generator queries instantly. It helps users get fast, error-free results.</p>
-          </div>          <div class="faq-item">
-            <h3 class="faq-question">How accurate are calculations on the Lottery Number Generator?</h3>
-            <p class="faq-answer">This tool uses industry-standard formulas and mathematical equations for Games & Fun to ensure 100% computational integrity and accuracy.</p>
-          </div>          <div class="faq-item">
-            <h3 class="faq-question">Is my data secure when using the Lottery Number Generator?</h3>
-            <p class="faq-answer">Yes. All computations are executed client-side in your web browser. We do not store, track, or transmit any input values or calculated results.</p>
-          </div>          <div class="faq-item">
-            <h3 class="faq-question">Can I use the Lottery Number Generator on mobile devices?</h3>
-            <p class="faq-answer">Absolutely. The calculator is built with a responsive mobile-first design, making it fully optimized for mobile web (mweb) as well as desktop viewports.</p>
-          </div>        </div>
-      </section>
     </div>
+
+    <button id="generate-btn" class="calc-btn">Generate Ticket</button>
+
+    <div id="result-section" class="result-section hidden lottery-result-wrap">
+      <div class="summary-title">Your Numbers</div>
+      <div id="lottery-numbers" class="lottery-numbers-wrap">...</div>
+      <p class="lottery-note">These numbers are randomly generated for casual use and do not guarantee any lottery result.</p>
+    </div>
+  </div>
+
+  <!-- SEO Article -->
+  <section class="article-section">
+    <div class="article-header">
+      <h2>Lottery Number Generator Guide</h2>
+    </div>
+
+    <div class="article-content">
+      <h2>What is a Lottery Number Generator?</h2>
+      <p style="text-align: justify;">A Lottery Number Generator is an online tool that creates a random set of numbers based on the range and count selected by the user. It can be used for casual lottery picks, lucky number ideas, raffles, prize draws, classroom activities, party games and other random number selection needs.</p>
+
+      <p style="text-align: justify;">With CalcuPortal’s Lottery Number Generator, you can choose the minimum value, maximum value and how many numbers you want in one ticket. The tool then generates a unique set of random numbers within your selected range.</p>
+
+      <h2>How to Use the Lottery Number Generator</h2>
+      <p style="text-align: justify;">Using this tool is simple. Enter the minimum number, maximum number and the number count you want to generate. After that, click the Generate Ticket button to create your random lottery number set instantly.</p>
+
+      <ul>
+        <li>Enter the minimum value for your number range.</li>
+        <li>Enter the maximum value for your number range.</li>
+        <li>Enter how many numbers you want to generate.</li>
+        <li>Click <strong>Generate Ticket</strong> to get your random numbers.</li>
+        <li>Use the result for casual games, number picks or random draws.</li>
+      </ul>
+
+      <h2>Custom Lottery Number Range</h2>
+      <p style="text-align: justify;">Different lottery games and random draws may use different number ranges. Some games may use numbers from 1 to 49, while others may use 1 to 60, 1 to 70 or any custom range. This generator allows you to set your own range so the output matches your requirement.</p>
+
+      <p style="text-align: justify;">For example, if you want six numbers between 1 and 49, enter 1 as the minimum value, 49 as the maximum value and 6 as the number count. The tool will generate six unique random numbers within that range.</p>
+
+      <h2>Does the Tool Repeat Numbers?</h2>
+      <p style="text-align: justify;">No. The Lottery Number Generator creates unique numbers in a single generated set. If the number count is 6, the tool will generate six different numbers without repeating the same value in that ticket.</p>
+
+      <p style="text-align: justify;">To avoid errors, the selected number count must be smaller than or equal to the total available numbers in the selected range. For example, if your range is 1 to 5, you cannot generate 6 unique numbers.</p>
+
+      <h2>Important Lottery Disclaimer</h2>
+      <p style="text-align: justify;">This tool is designed for fun, casual use and random number selection. It does not predict lottery results, improve winning chances, or guarantee any prize. Lottery outcomes are random, and users should play responsibly where lottery participation is legal and allowed.</p>
+
+      <p style="text-align: justify;">CalcuPortal does not provide gambling advice, betting advice or lottery-winning strategies. The generated numbers should be treated as random suggestions only.</p>
+
+      <h2>Where Can You Use Random Lottery Numbers?</h2>
+      <p style="text-align: justify;">Random number generation can be useful in many situations beyond lottery ticket ideas. You can use this tool for simple games, classroom activities, random selection tasks, raffle drawings, team activities, lucky number ideas or entertainment purposes.</p>
+
+      <ul>
+        <li><strong>Casual lottery picks:</strong> Generate random number combinations for fun.</li>
+        <li><strong>Raffles:</strong> Pick numbers for local or informal prize draws.</li>
+        <li><strong>Games:</strong> Create random numbers for party games or classroom activities.</li>
+        <li><strong>Lucky numbers:</strong> Generate a random set of numbers for personal use.</li>
+        <li><strong>Practice:</strong> Use random numbers for probability and math learning examples.</li>
+      </ul>
+
+      <h2>Why Use CalcuPortal Lottery Number Generator?</h2>
+      <p style="text-align: justify;">CalcuPortal’s Lottery Number Generator is free, quick and easy to use. It works directly in your browser and gives instant output without sign-up. The tool is mobile-friendly and can be used anytime you need a random set of numbers.</p>
+
+      <p style="text-align: justify;">The generator is built for casual use and simple randomization. It is helpful for users who want a quick random number set without manually picking numbers.</p>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <h2 class="faq-header">Frequently Asked Questions</h2>
+    <div class="faq-grid">
+
+      <div class="faq-item">
+        <h3 class="faq-question">What is the Lottery Number Generator used for?</h3>
+        <p class="faq-answer">The Lottery Number Generator is used to create random number sets within a selected range. It can be used for casual lottery picks, raffles, games, lucky numbers and random draws.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">Are these lottery numbers guaranteed to win?</h3>
+        <p class="faq-answer">No. The generated numbers are random and do not guarantee any lottery result, prize or winning chance. The tool is for casual use and number selection only.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">Can I choose my own number range?</h3>
+        <p class="faq-answer">Yes. You can enter your own minimum value, maximum value and number count to generate a custom lottery ticket.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">Will the same number repeat in one ticket?</h3>
+        <p class="faq-answer">No. The tool generates unique numbers in one ticket, so the same number will not repeat in the same generated set.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">Is this Lottery Number Generator free?</h3>
+        <p class="faq-answer">Yes. The Lottery Number Generator on CalcuPortal is free to use and works directly in your browser.</p>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+
   </main>
 
   <!-- Footer -->
+
   <footer>
     <div class="copyright-bar" style="border-top: none; padding-top: 0;">
       © <span id="year">2026</span> CalcuPortal. All rights reserved.
@@ -177,36 +309,55 @@
 
   <script>
     document.getElementById('year').innerText = new Date().getFullYear();
-    
-    // Injected calculation script
-    // Rename calculate button triggers
-    const calculateBtn = document.getElementById('calc-btn');
-    if (calculateBtn) {
-      calculateBtn.id = 'calculate-btn';
-    }
-  </script>
-  <script>
-          document.getElementById('calculate-btn').addEventListener('click', () => {
-        const min = parseInt(document.getElementById('lot-min').value);
-        const max = parseInt(document.getElementById('lot-max').value);
-        const count = parseInt(document.getElementById('lot-count').value);
-        
-        if (isNaN(min) || isNaN(max) || isNaN(count) || count <= 0 || max <= min || (max - min + 1) < count) {
-          alert('Please enter valid configuration ranges.');
+
+    const generateBtn = document.getElementById('generate-btn');
+
+    if (generateBtn) {
+      generateBtn.addEventListener('click', function () {
+        const min = parseInt(document.getElementById('lot-min').value, 10);
+        const max = parseInt(document.getElementById('lot-max').value, 10);
+        const count = parseInt(document.getElementById('lot-count').value, 10);
+
+        if (isNaN(min) || isNaN(max) || isNaN(count)) {
+          alert('Please enter valid numbers.');
           return;
         }
-        
-        const set = new Set();
-        while (set.size < count) {
-          const rand = Math.floor(Math.random() * (max - min + 1)) + min;
-          set.add(rand);
+
+        if (count <= 0) {
+          alert('Numbers count must be greater than 0.');
+          return;
         }
-        
-        const nums = Array.from(set).sort((a,b) => a-b);
-        const html = nums.map(n => <span style="background:var(--primary); color:white; font-size:1.25rem; font-weight:800; width:3rem; height:3rem; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; box-shadow:var(--shadow-sm);"></span>).join('');
+
+        if (max <= min) {
+          alert('Max value must be greater than min value.');
+          return;
+        }
+
+        if ((max - min + 1) < count) {
+          alert('Numbers count cannot be greater than the available number range.');
+          return;
+        }
+
+        const numberSet = new Set();
+
+        while (numberSet.size < count) {
+          const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+          numberSet.add(randomNumber);
+        }
+
+        const numbers = Array.from(numberSet).sort(function (a, b) {
+          return a - b;
+        });
+
+        const html = numbers.map(function (number) {
+          return '<span class="lottery-ball">' + number + '</span>';
+        }).join('');
+
         document.getElementById('lottery-numbers').innerHTML = html;
         document.getElementById('result-section').classList.remove('hidden');
       });
+    }
   </script>
+
 </body>
 </html>
