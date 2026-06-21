@@ -158,7 +158,7 @@ foreach ($cat in $categories) {
       <nav class="nav-links" id="nav-links">
         <a href="../../index.html" class="nav-link">Home</a>
         <a href="../../about/" class="nav-link">About</a>
-        <a href="../../pages/contact/" class="nav-link">Contact</a>
+        <a href="../../contact/" class="nav-link">Contact</a>
         <button class="theme-btn" title="Toggle Theme">
           <span class="theme-btn-icon"></span>
         </button>
