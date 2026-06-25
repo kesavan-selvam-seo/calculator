@@ -1,165 +1,296 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="shortcut icon" href="/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/favicon.png">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Dice Roller - Roll Random Dice Online</title>
-  <meta name="description" content="Roll standard 6-sided dice for board games. Customize the number of dice rolled.">
+  <meta name="description" content="Use the free Dice Roller to roll random dice online. Choose 1 to 10 dice, roll instantly, and get dice results with total score.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.calcuportal.com/calculators/games-dice-roller/">
-  <link rel="stylesheet" href="../../styles.css">
-  <script src="../../script.js"></script>
-    <script type="application/ld+json">
+
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/script.js"></script>
+
+  <style>
+    .dice-widget {
+      text-align: center;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .dice-widget .form-group {
+      text-align: left;
+      max-width: 280px;
+      margin: 0 auto 1.25rem auto;
+    }
+
+    .dice-widget .input-field {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .dice-results-wrap {
+      text-align: center;
+    }
+
+    .dice-container {
+      display: flex;
+      justify-content: center;
+      gap: 0.65rem;
+      margin: 1rem 0;
+      flex-wrap: wrap;
+    }
+
+    .dice-box {
+      background: var(--background);
+      border: 2px solid var(--border-light);
+      color: var(--text-primary);
+      font-size: 1.5rem;
+      font-weight: 800;
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .dice-total-box {
+      margin-top: 1rem;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .dice-note {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    @media (max-width: 480px) {
+      .dice-box {
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What are the odds of rolling double sixes?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The probability of rolling double sixes with two dice is 1 in 36 (or roughly 2.78%)."
+      {
+        "@type": "Question",
+        "name": "What is a Dice Roller?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A Dice Roller is an online tool that rolls random dice virtually. It is useful for board games, classroom activities, probability examples and casual games."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many dice can I roll?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can roll between 1 and 10 standard six-sided dice using this Dice Roller."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the odds of rolling double sixes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The probability of rolling double sixes with two standard dice is 1 in 36, which is about 2.78%."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use this Dice Roller for board games?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. This Dice Roller can be used for board games, party games, learning activities and casual dice rolling when physical dice are not available."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this Dice Roller free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The Dice Roller on CalcuPortal is free to use and works directly in your browser."
+        }
       }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the Dice Roller used for?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The Dice Roller is a free online tool designed to calculate solutions for Dice Roller queries instantly. It helps users get fast, error-free results."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How accurate are calculations on the Dice Roller?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "This tool uses industry-standard formulas and mathematical equations for Games & Fun to ensure 100% computational integrity and accuracy."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is my data secure when using the Dice Roller?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. All computations are executed client-side in your web browser. We do not store, track, or transmit any input values or calculated results."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use the Dice Roller on mobile devices?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absolutely. The calculator is built with a responsive mobile-first design, making it fully optimized for mobile web (mweb) as well as desktop viewports."
-      }
-    }
     ]
   }
   </script>
+
 </head>
+
 <body>
 
   <!-- Header -->
+
   <header>
     <div class="nav-container">
-      <a href="../../" class="logo">
+      <a href="/" class="logo">
         <img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon">
         <span>CalcuPortal</span>
       </a>
-      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-      <nav class="nav-links" id="nav-links">
-        <a href="../../" class="nav-link">Home</a>
-        <a href="../../about/" class="nav-link">About</a>
-        <a href="../../contact/" class="nav-link">Contact</a>
-        <button class="theme-btn" title="Toggle Theme">
-          <span class="theme-btn-icon"></span>
-        </button>
-      </nav>
-    </div>
+
+
+  <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+
+  <nav class="nav-links" id="nav-links">
+    <a href="/" class="nav-link">Home</a>
+    <a href="/about/" class="nav-link">About</a>
+    <a href="/contact/" class="nav-link">Contact</a>
+    <button class="theme-btn" title="Toggle Theme">
+      <span class="theme-btn-icon"></span>
+    </button>
+  </nav>
+</div>
+
+
   </header>
 
   <main>
     <div class="detail-container">
-      <!-- Breadcrumbs -->
-      <div class="breadcrumbs">
-        <a href="../../">Home</a>
-        <span class="separator">&rsaquo;</span>
-        <a href="../../categories/games/">Games & Fun Tools</a>
-        <span class="separator">&rsaquo;</span>
-        <span class="current">Dice Roller</span>
-      </div>
 
-      <div class="detail-header">
-        <h1>Dice Roller</h1>
-      </div>
 
-      <!-- Calculator Widget -->
-      <div class="calc-widget">
-                <div class="form-group">
-          <label for="dice-count">Number of Dice</label>
-          <input type="number" id="dice-count" value="2" min="1" max="10" class="input-field" />
-        </div>
-        <button id="calc-btn" class="calc-btn">Roll Dice</button>
-        <div id="result-section" class="result-section hidden" style="text-align: center;">
-          <div class="summary-title">Roll Results</div>
-          <div id="dice-container" style="display:flex; justify-content:center; gap:0.5rem; margin:1rem 0;">...</div>
-          <div class="total-balance" id="dice-total">Total: 7</div>
-        </div>
-      </div>
+  <!-- Breadcrumbs -->
+  <div class="breadcrumbs">
+    <a href="/">Home</a>
+    <span class="separator">&rsaquo;</span>
+    <a href="/categories/games/">Games & Fun Tools</a>
+    <span class="separator">&rsaquo;</span>
+    <span class="current">Dice Roller</span>
+  </div>
 
-      <!-- SEO Article -->
-      <section class="article-section">
-        <div class="article-header">
-          <h2>Dice Roller Guides</h2>
-        </div>
-        <div class="article-content">
-          <h2>Virtual Dice Roller</h2><p>Missing dice for Monopoly or Yahtzee? Roll up to 10 standard 6-sided virtual dice simultaneously.</p>
-          <h3>The Mathematics of Probability, Gaming, and Security</h3>
-<p>From playing board games to drawing sweepstakes and securing digital accounts, randomized numbers and logic play a massive role in our daily lives. Using specialized tools like the Dice Roller gives you access to unbiased, mathematically correct randomization algorithms. Whether you are calling numbers for a local bingo night, generating lottery ticket picks, or creating high-entropy passwords, digital generators ensure complete fairness and strong security.</p>
-<p>Random number generation (RNG) in web browsers uses pseudo-random algorithms that are mathematically distributed across your specified bounds. This guarantees that every number in a draw has an equal probability of appearing, eliminating the biases of manual draws. In security, randomization is used to generate cryptographic passwords that prevent brute-force attacks and protect your private data online.</p>
-<h3>How to Use Our Generators Effectively</h3>
-<p>To get the best utility out of the Dice Roller, check out these standard rules:</p>
-<ul>
-  <li>For lottery and random drawing tools, set the lower and upper bounds carefully to match the official rules of the game you are playing.</li>
-  <li>When generating passwords, check all key complexity options (uppercase, numbers, and special symbols) to create the strongest security key. We recommend using a length of at least 16 characters.</li>
-  <li>For gaming tools like dice rollers, customize the number of active dice to fit the rules of your tabletop game.</li>
-</ul>
-<p>Since our tools run completely client-side in your browser, your generated passwords and numbers are private and are never sent or stored on any external server.</p>
-        </div>
-      </section>
+  <div class="detail-header">
+    <h1>Dice Roller</h1>
+  </div>
 
-            <!-- FAQ Section -->
-      <section class="faq-section">
-        <h2 class="faq-header">Frequently Asked Questions</h2>
-        <div class="faq-grid">          <div class="faq-item">
-            <h3 class="faq-question">What are the odds of rolling double sixes?</h3>
-            <p class="faq-answer">The probability of rolling double sixes with two dice is 1 in 36 (or roughly 2.78%).</p>
-          </div>          <div class="faq-item">
-            <h3 class="faq-question">What is the Dice Roller used for?</h3>
-            <p class="faq-answer">The Dice Roller is a free online tool designed to calculate solutions for Dice Roller queries instantly. It helps users get fast, error-free results.</p>
-          </div>          <div class="faq-item">
-            <h3 class="faq-question">How accurate are calculations on the Dice Roller?</h3>
-            <p class="faq-answer">This tool uses industry-standard formulas and mathematical equations for Games & Fun to ensure 100% computational integrity and accuracy.</p>
-          </div>          <div class="faq-item">
-            <h3 class="faq-question">Is my data secure when using the Dice Roller?</h3>
-            <p class="faq-answer">Yes. All computations are executed client-side in your web browser. We do not store, track, or transmit any input values or calculated results.</p>
-          </div>          <div class="faq-item">
-            <h3 class="faq-question">Can I use the Dice Roller on mobile devices?</h3>
-            <p class="faq-answer">Absolutely. The calculator is built with a responsive mobile-first design, making it fully optimized for mobile web (mweb) as well as desktop viewports.</p>
-          </div>        </div>
-      </section>
+  <!-- Calculator Widget -->
+  <div class="calc-widget dice-widget">
+    <div class="form-group">
+      <label for="dice-count">Number of Dice</label>
+      <input type="number" id="dice-count" value="2" min="1" max="10" class="input-field">
     </div>
+
+    <button id="roll-btn" class="calc-btn">Roll Dice</button>
+
+    <div id="result-section" class="result-section hidden dice-results-wrap">
+      <div class="summary-title">Roll Results</div>
+      <div id="dice-container" class="dice-container">...</div>
+      <div class="dice-total-box" id="dice-total">Total: 0</div>
+      <p class="dice-note">Each dice roll is generated randomly for casual games and learning use.</p>
+    </div>
+  </div>
+
+  <!-- SEO Article -->
+  <section class="article-section">
+    <div class="article-header">
+      <h2>Dice Roller Guide</h2>
+    </div>
+
+    <div class="article-content">
+      <h2>What is a Dice Roller?</h2>
+      <p style="text-align: justify;">A Dice Roller is an online tool that lets you roll virtual dice instantly. It is useful when you do not have physical dice available or when you want a quick random dice result for games, learning, classroom activities or probability examples.</p>
+
+      <p style="text-align: justify;">CalcuPortal’s Dice Roller allows you to roll 1 to 10 standard six-sided dice at the same time. After each roll, the tool shows every dice result and the total score.</p>
+
+      <h2>How to Use the Dice Roller</h2>
+      <p style="text-align: justify;">Using the Dice Roller is simple. Enter how many dice you want to roll, then click the Roll Dice button. The tool will instantly show the result for each die and calculate the total value.</p>
+
+      <ul>
+        <li>Enter the number of dice you want to roll.</li>
+        <li>You can choose any value from 1 to 10.</li>
+        <li>Click <strong>Roll Dice</strong> to generate random dice results.</li>
+        <li>Check each dice value shown on the screen.</li>
+        <li>Use the total score for your game or activity.</li>
+      </ul>
+
+      <h2>Where Can You Use an Online Dice Roller?</h2>
+      <p style="text-align: justify;">An online dice roller can be used in many situations where random dice results are needed. It is helpful for board games, educational activities, classroom probability lessons, party games, decision-making games and casual entertainment.</p>
+
+      <ul>
+        <li><strong>Board games:</strong> Roll dice for games when physical dice are missing.</li>
+        <li><strong>Classroom activities:</strong> Teach probability, counting and random outcomes.</li>
+        <li><strong>Party games:</strong> Use dice results for quick fun activities.</li>
+        <li><strong>Practice:</strong> Test probability examples and dice combinations.</li>
+        <li><strong>Casual use:</strong> Generate quick random numbers from 1 to 6.</li>
+      </ul>
+
+      <h2>How Random Are the Dice Results?</h2>
+      <p style="text-align: justify;">This Dice Roller uses browser-based random number generation to create results between 1 and 6 for each die. Each roll is generated separately, so the result can change every time you click the button.</p>
+
+      <p style="text-align: justify;">For casual games and learning activities, this tool provides a quick and fair way to roll virtual dice. It is not intended for gambling, betting or official gaming systems.</p>
+
+      <h2>Dice Probability Example</h2>
+      <p style="text-align: justify;">With one standard six-sided die, each number from 1 to 6 has one possible outcome. With two dice, there are 36 possible result combinations. For example, rolling double sixes has only one matching combination out of 36 possible combinations.</p>
+
+      <p style="text-align: justify;">This makes the Dice Roller useful for understanding probability, randomness and total score combinations in a simple visual way.</p>
+
+      <h2>Important Note</h2>
+      <p style="text-align: justify;">This Dice Roller is created for casual, educational and entertainment use. It should not be used for gambling, betting, prize decisions or official gaming outcomes where certified random systems are required.</p>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <h2 class="faq-header">Frequently Asked Questions</h2>
+    <div class="faq-grid">
+
+      <div class="faq-item">
+        <h3 class="faq-question">What is the Dice Roller used for?</h3>
+        <p class="faq-answer">The Dice Roller is used to roll virtual dice online. It is useful for board games, classroom activities, casual games and probability examples.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">How many dice can I roll at once?</h3>
+        <p class="faq-answer">You can roll 1 to 10 standard six-sided dice at once using this tool.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">What are the odds of rolling double sixes?</h3>
+        <p class="faq-answer">The probability of rolling double sixes with two standard dice is 1 in 36, or about 2.78%.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">Can I use this Dice Roller for board games?</h3>
+        <p class="faq-answer">Yes. You can use this tool for board games, party games, learning activities and casual dice rolling.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">Is this Dice Roller free?</h3>
+        <p class="faq-answer">Yes. The Dice Roller on CalcuPortal is free to use and works directly in your browser.</p>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+
   </main>
 
   <!-- Footer -->
+
   <footer>
     <div class="copyright-bar" style="border-top: none; padding-top: 0;">
       © <span id="year">2026</span> CalcuPortal. All rights reserved.
@@ -168,34 +299,33 @@
 
   <script>
     document.getElementById('year').innerText = new Date().getFullYear();
-    
-    // Injected calculation script
-    // Rename calculate button triggers
-    const calculateBtn = document.getElementById('calc-btn');
-    if (calculateBtn) {
-      calculateBtn.id = 'calculate-btn';
-    }
-  </script>
-  <script>
-          document.getElementById('calculate-btn').addEventListener('click', () => {
-        const count = parseInt(document.getElementById('dice-count').value);
-        if (isNaN(count) || count <= 0 || count > 10) {
+
+    const rollBtn = document.getElementById('roll-btn');
+
+    if (rollBtn) {
+      rollBtn.addEventListener('click', function() {
+        const count = parseInt(document.getElementById('dice-count').value, 10);
+
+        if (isNaN(count) || count < 1 || count > 10) {
           alert('Please enter a valid count between 1 and 10.');
           return;
         }
-        
+
         let total = 0;
-        let html = '';
+        let diceHtml = '';
+
         for (let i = 0; i < count; i++) {
           const roll = Math.floor(Math.random() * 6) + 1;
           total += roll;
-          html += <span style="background:var(--bg-primary); border:2px solid var(--border-color); font-size:1.5rem; font-weight:800; width:3.5rem; height:3.5rem; border-radius:0.5rem; display:inline-flex; align-items:center; justify-content:center; box-shadow:var(--shadow-sm);"></span>;
+          diceHtml += '<span class="dice-box">' + roll + '</span>';
         }
-        
-        document.getElementById('dice-container').innerHTML = html;
+
+        document.getElementById('dice-container').innerHTML = diceHtml;
         document.getElementById('dice-total').innerText = 'Total: ' + total;
         document.getElementById('result-section').classList.remove('hidden');
       });
+    }
   </script>
+
 </body>
 </html>
