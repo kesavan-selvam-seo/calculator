@@ -1,66 +1,260 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="shortcut icon" href="/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/favicon.png">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calorie Calculator - Daily Caloric Intake &amp; BMR Calculator</title>
-  <meta name="description" content="Calculate your BMR and daily calorie requirements to maintain, lose, or gain weight. Uses standard Mifflin-St Jeor formula. Free and responsive.">
+
+  <title>Calorie Calculator - BMR, TDEE & Daily Calorie Intake</title>
+  <meta name="description" content="Use this free Calorie Calculator to estimate your BMR, TDEE and daily calorie intake for maintenance, weight loss or weight gain using the Mifflin-St Jeor formula.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.calcuportal.com/calculators/calorie-calculator/">
+
   <link rel="stylesheet" href="../../styles.css">
   <script src="../../script.js"></script>
-    <script type="application/ld+json">
+
+  <style>
+    .article-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 18px 0;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .article-content th {
+      background: #a855f7;
+      color: #ffffff;
+      padding: 12px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .article-content td {
+      padding: 12px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .article-content p {
+      text-align: justify;
+    }
+
+    .formula-box,
+    .note-box {
+      background: #f8fafc;
+      border-left: 4px solid #a855f7;
+      padding: 14px 16px;
+      border-radius: 10px;
+      margin: 14px 0;
+    }
+
+    .calorie-result-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .calorie-card {
+      background: var(--background, #ffffff);
+      border: 1px solid var(--border-light, #e5e7eb);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: var(--shadow-sm, 0 2px 8px rgba(0,0,0,0.06));
+      text-align: center;
+    }
+
+    .calorie-card span {
+      display: block;
+      font-size: 12px;
+      color: var(--text-muted, #6b7280);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-weight: 700;
+    }
+
+    .calorie-card strong {
+      display: block;
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--text-primary, #111827);
+    }
+
+    .calorie-main-result {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .calorie-main-result .summary-title {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--text-muted, #6b7280);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .calorie-main-result .total-balance {
+      font-size: 2.6rem;
+      font-weight: 900;
+      color: var(--accent, #a855f7);
+      margin: 0.5rem 0 1rem 0;
+      line-height: 1;
+    }
+
+    .calorie-visual-box {
+      margin-top: 22px;
+      padding: 18px;
+      border-radius: 16px;
+      border: 1px solid var(--border-light, #e5e7eb);
+      background: var(--background, #ffffff);
+      box-shadow: var(--shadow-sm, 0 2px 8px rgba(0,0,0,0.06));
+    }
+
+    .calorie-bar-row {
+      display: grid;
+      grid-template-columns: 130px 1fr 90px;
+      align-items: center;
+      gap: 10px;
+      margin: 12px 0;
+      font-size: 13px;
+    }
+
+    .calorie-bar-track {
+      height: 12px;
+      background: #e5e7eb;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .calorie-bar-fill {
+      height: 100%;
+      width: 0;
+      background: #a855f7;
+      border-radius: 999px;
+      transition: width 0.4s ease;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      .calorie-bar-row {
+        grid-template-columns: 100px 1fr 72px;
+        font-size: 12px;
+      }
+
+      .calorie-main-result .total-balance {
+        font-size: 2.1rem;
+      }
+    }
+  </style>
+
+  <!-- WebApplication Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Calorie Calculator",
+    "url": "https://www.calcuportal.com/calculators/calorie-calculator/",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "All",
+    "description": "Free online calorie calculator to estimate BMR, TDEE and daily calorie intake for maintenance, weight loss and weight gain.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Calculate daily calorie needs",
+      "Estimate BMR",
+      "Estimate TDEE",
+      "Metric and imperial unit support",
+      "Weight loss calorie target",
+      "Weight gain calorie target",
+      "Mobile-friendly calculator"
+    ]
+  }
+  </script>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is the Calorie Intake &amp; BMR Calculator used for?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The Calorie Intake &amp; BMR Calculator is a free online tool designed to calculate solutions for Calorie Intake &amp; BMR Calculator queries instantly. It helps users get fast, error-free results."
+      {
+        "@type": "Question",
+        "name": "What is a Calorie Calculator?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A Calorie Calculator is an online tool that estimates your daily calorie needs based on your age, gender, height, weight and activity level."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is BMR?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "BMR stands for Basal Metabolic Rate. It is the estimated number of calories your body needs at rest to support basic functions like breathing, circulation and cell repair."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is TDEE?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "TDEE stands for Total Daily Energy Expenditure. It is your estimated total daily calorie burn after including your activity level."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which formula does this calculator use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This calculator uses the Mifflin-St Jeor equation to estimate BMR, then multiplies it by your activity factor to estimate TDEE."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many calories should I eat to lose weight?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For weight loss, many people start with a moderate calorie deficit below maintenance calories. This calculator shows estimated mild and regular weight loss targets."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many calories should I eat to gain weight?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For weight gain, you generally need to eat above your maintenance calories. This calculator shows an estimated calorie surplus target for weight gain."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are calorie calculator results accurate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Calorie calculator results are estimates. Your actual calorie needs can vary based on body composition, activity, sleep, health condition, stress and metabolism."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this Calorie Calculator free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. This Calorie Calculator is free to use and does not require sign-up or installation."
+        }
       }
-    },
-    {
-      "@type": "Question",
-      "name": "How accurate are calculations on the Calorie Intake &amp; BMR Calculator?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "This tool uses industry-standard formulas and mathematical equations for Fitness & Health to ensure 100% computational integrity and accuracy."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is my data secure when using the Calorie Intake &amp; BMR Calculator?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. All computations are executed client-side in your web browser. We do not store, track, or transmit any input values or calculated results."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use the Calorie Intake &amp; BMR Calculator on mobile devices?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absolutely. The calculator is built with a responsive mobile-first design, making it fully optimized for mobile web (mweb) as well as desktop viewports."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Are there any fees to use the Calorie Intake &amp; BMR Calculator?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. The Calorie Intake &amp; BMR Calculator is completely free to use with no hidden charges, registration requirements, or limits on calculation queries."
-      }
-    }
     ]
   }
   </script>
 </head>
+
 <body>
 
   <!-- Header -->
@@ -70,11 +264,13 @@
         <img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon">
         <span>CalcuPortal</span>
       </a>
+
       <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
       </button>
+
       <nav class="nav-links" id="nav-links">
         <a href="../../" class="nav-link">Home</a>
         <a href="../../about/" class="nav-link">About</a>
@@ -88,31 +284,34 @@
 
   <main>
     <div class="detail-container">
+
       <!-- Breadcrumbs -->
       <div class="breadcrumbs">
         <a href="../../">Home</a>
         <span class="separator">&rsaquo;</span>
         <a href="../../categories/health-fitness/">Health & Fitness Calculators</a>
         <span class="separator">&rsaquo;</span>
-        <span class="current">Calorie Intake &amp; BMR Calculator</span>
+        <span class="current">Calorie Calculator</span>
       </div>
 
       <div class="detail-header">
-        <h1>Calorie Intake &amp; BMR Calculator</h1>
+        <h1>Calorie Calculator</h1>
+        <p>Estimate your BMR, TDEE and daily calorie needs for weight maintenance, loss or gain.</p>
       </div>
 
       <!-- Calculator Widget -->
       <div class="calc-widget">
         <div class="unit-tabs">
           <button id="cal-metric-tab" class="tab-btn active">Metric (cm/kg)</button>
-          <button id="cal-imperial-tab" class="tab-btn">Imperial (in/lbs)</button>
+          <button id="cal-imperial-tab" class="tab-btn">Imperial (ft/in/lbs)</button>
         </div>
 
         <div class="form-row">
           <div class="form-group">
             <label for="cal-age">Age (years)</label>
-            <input type="number" id="cal-age" value="25" class="input-field" min="15" max="80" />
+            <input type="number" id="cal-age" value="25" class="input-field" min="15" max="80">
           </div>
+
           <div class="form-group">
             <label for="cal-gender">Gender</label>
             <select id="cal-gender" class="select-field">
@@ -127,11 +326,12 @@
           <div class="form-row">
             <div class="form-group">
               <label for="cal-height-cm">Height (cm)</label>
-              <input type="number" id="cal-height-cm" value="175" class="input-field" />
+              <input type="number" id="cal-height-cm" value="175" class="input-field">
             </div>
+
             <div class="form-group">
               <label for="cal-weight-kg">Weight (kg)</label>
-              <input type="number" id="cal-weight-kg" value="70" class="input-field" />
+              <input type="number" id="cal-weight-kg" value="70" class="input-field">
             </div>
           </div>
         </div>
@@ -141,15 +341,17 @@
           <div class="form-row">
             <div class="form-group">
               <label for="cal-height-ft">Height (ft)</label>
-              <input type="number" id="cal-height-ft" value="5" class="input-field" />
+              <input type="number" id="cal-height-ft" value="5" class="input-field">
             </div>
+
             <div class="form-group">
               <label for="cal-height-in">Height (in)</label>
-              <input type="number" id="cal-height-in" value="9" class="input-field" />
+              <input type="number" id="cal-height-in" value="9" class="input-field">
             </div>
+
             <div class="form-group">
               <label for="cal-weight-lbs">Weight (lbs)</label>
-              <input type="number" id="cal-weight-lbs" value="154" class="input-field" />
+              <input type="number" id="cal-weight-lbs" value="154" class="input-field">
             </div>
           </div>
         </div>
@@ -168,27 +370,79 @@
         <button id="cal-calc-btn" class="calc-btn">Calculate Calories</button>
 
         <!-- Result -->
-        <div id="cal-result-section" class="result-section hidden" style="text-align: center;">
-          <div class="summary-title" style="font-size: 0.875rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">Daily Maintenance Calories</div>
-          <div class="total-balance" id="cal-maintenance" style="font-size: 2.5rem; font-weight: 900; color: var(--accent); margin: 0.5rem 0 1.5rem 0; line-height: 1;">2,200 kcal</div>
-          
-          <div class="metric-grid">
-            <div class="metric-card">
-              <span class="metric-title" style="font-size: 0.625rem;">Mild Weight Loss (-0.25kg/wk)</span>
-              <span class="metric-value" id="cal-lose-mild">1,950 kcal</span>
+        <div id="cal-result-section" class="result-section hidden">
+
+          <div class="calorie-main-result">
+            <div class="summary-title">Daily Maintenance Calories</div>
+            <div class="total-balance" id="cal-maintenance">2,200 kcal</div>
+          </div>
+
+          <div class="calorie-result-grid">
+            <div class="calorie-card">
+              <span>BMR</span>
+              <strong id="bmr-val">1,650 kcal</strong>
             </div>
-            <div class="metric-card">
-              <span class="metric-title" style="font-size: 0.625rem;">Weight Loss (-0.5kg/wk)</span>
-              <span class="metric-value" id="cal-lose">1,700 kcal</span>
+
+            <div class="calorie-card">
+              <span>Maintenance</span>
+              <strong id="cal-maintenance-card">2,200 kcal</strong>
             </div>
-            <div class="metric-card">
-              <span class="metric-title" style="font-size: 0.625rem;">Weight Gain (+0.5kg/wk)</span>
-              <span class="metric-value" id="cal-gain">2,700 kcal</span>
+
+            <div class="calorie-card">
+              <span>Mild Weight Loss</span>
+              <strong id="cal-lose-mild">1,950 kcal</strong>
+            </div>
+
+            <div class="calorie-card">
+              <span>Weight Loss</span>
+              <strong id="cal-lose">1,700 kcal</strong>
+            </div>
+
+            <div class="calorie-card">
+              <span>Weight Gain</span>
+              <strong id="cal-gain">2,700 kcal</strong>
             </div>
           </div>
-          
+
+          <div class="calorie-visual-box">
+            <h3>Calorie Goal Comparison</h3>
+
+            <div class="calorie-bar-row">
+              <span>Mild Loss</span>
+              <div class="calorie-bar-track">
+                <div id="bar-lose-mild" class="calorie-bar-fill"></div>
+              </div>
+              <strong id="bar-lose-mild-val">0 kcal</strong>
+            </div>
+
+            <div class="calorie-bar-row">
+              <span>Weight Loss</span>
+              <div class="calorie-bar-track">
+                <div id="bar-lose" class="calorie-bar-fill"></div>
+              </div>
+              <strong id="bar-lose-val">0 kcal</strong>
+            </div>
+
+            <div class="calorie-bar-row">
+              <span>Maintenance</span>
+              <div class="calorie-bar-track">
+                <div id="bar-maintenance" class="calorie-bar-fill"></div>
+              </div>
+              <strong id="bar-maintenance-val">0 kcal</strong>
+            </div>
+
+            <div class="calorie-bar-row">
+              <span>Weight Gain</span>
+              <div class="calorie-bar-track">
+                <div id="bar-gain" class="calorie-bar-fill"></div>
+              </div>
+              <strong id="bar-gain-val">0 kcal</strong>
+            </div>
+          </div>
+
           <div class="breakdown-info" style="text-align: left;">
-            <p>Your calculated <strong>Basal Metabolic Rate (BMR)</strong> is <strong><span id="bmr-val">1,650</span> kcal</strong>. This represents the baseline energy your body needs to function at rest.</p>
+            <p id="cal-summary-text">Your calorie results will appear here.</p>
+            <p><strong>Note:</strong> These values are estimates. Your actual calorie needs may vary based on body composition, health condition, sleep, stress and daily movement.</p>
           </div>
         </div>
       </div>
@@ -196,52 +450,257 @@
       <!-- SEO Article -->
       <section class="article-section">
         <div class="article-header">
-          <h2>Calorie Intake &amp; BMR Calculator Guides</h2>
+          <h2>Calorie Calculator - Calculate BMR, TDEE and Daily Calorie Needs</h2>
         </div>
+
         <div class="article-content">
-          <p>Your Basal Metabolic Rate (BMR) represents the energy expenditure required to sustain basic life processes. TDEE is BMR multiplied by your physical activity score. Adjusting your daily calories relative to TDEE lets you lose, maintain, or gain weight.</p>
-          <h3>Understanding Modern Health & Metabolic Tracking</h3>
-<p>Maintaining a healthy lifestyle requires a balance of proper nutrition, regular exercise, and accurate metabolic tracking. Utilizing tools like the Calorie Intake &amp; BMR Calculator allows you to calculate baseline physiological scores, providing actionable data to optimize your fitness journey. Whether you are tracking Body Mass Index, estimating daily caloric limits, or calculating body fat percentages, these assessments serve as the foundation of any health plan.</p>
-<p>Metabolic rate equations (such as the Mifflin-St Jeor or Harris-Benedict formulas) take your age, gender, height, and weight to calculate how many calories your body burns at rest (BMR). By factoring in your activity level, you get your Total Daily Energy Expenditure (TDEE). This helps you determine your target calorie goals, whether your objective is weight maintenance, healthy fat loss, or muscle gain.</p>
-<h3>How to Use This Tool Effectively</h3>
-<p>To get the most accurate results from the Calorie Intake &amp; BMR Calculator, follow these best practices:</p>
-<ul>
-  <li>Take your measurements at the same time each day (preferably in the morning before eating or working out) to minimize fluctuations from water retention.</li>
-  <li>Ensure you select the correct unit tab (Metric or Imperial) to avoid converting measurements manually, which can introduce calculation errors.</li>
-  <li>Input your current physical activity level honestly. Overestimating activity levels is a common pitfall that leads to inflated energy expenditure estimates.</li>
-</ul>
-<p>Always remember that calculator outputs are estimations meant to serve as guidelines. Combining these digital tools with regular fitness reviews yields the best long-term success.</p>
-<h3>Real-World Applications of Fitness Calculators</h3>
-<p>Physiological calculators are used across several domains to tailor health programs:</p>
-<ol>
-  <li><strong>Nutritional Coaching:</strong> Certified nutritionists use caloric estimators to establish dietary baselines, adjusting protein, carbohydrate, and fat ratios to fit client goals.</li>
-  <li><strong>Athletic Training:</strong> Runners and triathletes track activity METs and running paces to schedule workouts, prevent overtraining, and monitor metabolic burn rates.</li>
-  <li><strong>Clinical Screening:</strong> Healthcare professionals use body mass indicators as a quick screening tool to identify potential health risks associated with weight categories.</li>
-</ol>
-<p>By leveraging these tools, you replace guesswork with scientifically validated estimations, enabling you to make informed decisions about your diet, workouts, and overall lifestyle habits.</p>
+
+          <p>The Calorie Calculator helps you estimate how many calories your body may need each day. It calculates your Basal Metabolic Rate (BMR), Total Daily Energy Expenditure (TDEE), and calorie targets for maintaining, losing or gaining weight.</p>
+
+          <p>This free online calorie calculator uses your age, gender, height, weight and activity level to estimate daily calorie intake. You can use metric units such as centimetres and kilograms, or imperial units such as feet, inches and pounds.</p>
+
+          <h3>What is a Calorie Calculator?</h3>
+          <p>A Calorie Calculator is an online tool that estimates your daily energy needs. It helps you understand how many calories you may need to maintain your current weight, create a calorie deficit for weight loss, or create a calorie surplus for weight gain.</p>
+
+          <p>The result is an estimate, not a fixed medical target. Your actual calorie needs can vary based on body composition, health condition, sleep, stress, food quality, hormones and daily movement.</p>
+
+          <h3>What is BMR?</h3>
+          <p>BMR stands for Basal Metabolic Rate. It is the estimated number of calories your body needs at complete rest to support basic functions such as breathing, blood circulation, cell repair and body temperature control.</p>
+
+          <p>BMR does not include calories burned through walking, exercise, work, digestion or daily activity. That is why TDEE is calculated separately.</p>
+
+          <h3>What is TDEE?</h3>
+          <p>TDEE stands for Total Daily Energy Expenditure. It is the estimated total number of calories your body burns in a full day, including your BMR and your activity level.</p>
+
+          <div class="formula-box">
+            <strong>TDEE = BMR × Activity Factor</strong>
+          </div>
+
+          <p>If your goal is to maintain weight, your daily calorie intake is usually close to your TDEE. If your goal is weight loss, you may need to eat below your TDEE. If your goal is weight gain, you may need to eat above your TDEE.</p>
+
+          <h3>Mifflin-St Jeor BMR Formula</h3>
+          <p>This calculator uses the Mifflin-St Jeor equation to estimate BMR. It is widely used because it considers age, gender, height and weight.</p>
+
+          <p><strong>For men:</strong></p>
+          <div class="formula-box">
+            <strong>BMR = (10 × weight in kg) + (6.25 × height in cm) - (5 × age) + 5</strong>
+          </div>
+
+          <p><strong>For women:</strong></p>
+          <div class="formula-box">
+            <strong>BMR = (10 × weight in kg) + (6.25 × height in cm) - (5 × age) - 161</strong>
+          </div>
+
+          <h3>Activity Level Table</h3>
+          <p>Your activity level affects your TDEE. Selecting the right activity level is important because overestimating activity can make your calorie target too high.</p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>S.No</th>
+                <th>Activity Level</th>
+                <th>Multiplier</th>
+                <th>Best For</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Sedentary</td>
+                <td>1.2</td>
+                <td>Little or no exercise</td>
+              </tr>
+
+              <tr>
+                <td>2</td>
+                <td>Lightly Active</td>
+                <td>1.375</td>
+                <td>Exercise 1-3 days per week</td>
+              </tr>
+
+              <tr>
+                <td>3</td>
+                <td>Moderately Active</td>
+                <td>1.55</td>
+                <td>Exercise 4-5 days per week</td>
+              </tr>
+
+              <tr>
+                <td>4</td>
+                <td>Very Active</td>
+                <td>1.725</td>
+                <td>Hard exercise 6-7 days per week</td>
+              </tr>
+
+              <tr>
+                <td>5</td>
+                <td>Extra Active</td>
+                <td>1.9</td>
+                <td>Physical job or intense daily training</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>How to Use the Calorie Calculator</h3>
+          <ol>
+            <li>Select Metric or Imperial units.</li>
+            <li>Enter your age, gender, height and weight.</li>
+            <li>Choose the activity level that matches your normal routine.</li>
+            <li>Click the Calculate Calories button.</li>
+            <li>Check your BMR, maintenance calories and calorie targets.</li>
+          </ol>
+
+          <h3>Calorie Targets for Weight Goals</h3>
+          <p>After calculating your maintenance calories, this tool shows estimated calorie targets for mild weight loss, regular weight loss and weight gain.</p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>S.No</th>
+                <th>Goal</th>
+                <th>Daily Calorie Adjustment</th>
+                <th>Meaning</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Maintenance</td>
+                <td>No change</td>
+                <td>Eat near your TDEE to maintain weight</td>
+              </tr>
+
+              <tr>
+                <td>2</td>
+                <td>Mild Weight Loss</td>
+                <td>About -250 kcal/day</td>
+                <td>Small calorie deficit for gradual progress</td>
+              </tr>
+
+              <tr>
+                <td>3</td>
+                <td>Weight Loss</td>
+                <td>About -500 kcal/day</td>
+                <td>Moderate calorie deficit for fat loss</td>
+              </tr>
+
+              <tr>
+                <td>4</td>
+                <td>Weight Gain</td>
+                <td>About +500 kcal/day</td>
+                <td>Calorie surplus for gaining weight</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Example Calorie Calculation</h3>
+          <p>Suppose a 25-year-old male weighs 70 kg, has a height of 175 cm and follows a sedentary lifestyle. His BMR using the Mifflin-St Jeor equation will be around 1,674 calories per day.</p>
+
+          <p>If his activity multiplier is 1.2, his estimated maintenance calories will be:</p>
+
+          <div class="formula-box">
+            <strong>TDEE = 1,674 × 1.2 = 2,009 calories/day</strong>
+          </div>
+
+          <p>This means he may need around 2,009 calories per day to maintain his current weight. For weight loss, his intake may be lower than this. For weight gain, his intake may be higher.</p>
+
+          <h3>Calories for Weight Loss</h3>
+          <p>Weight loss usually happens when you consume fewer calories than your body burns. This is called a calorie deficit. A smaller deficit is usually easier to follow and may support more sustainable progress.</p>
+
+          <p>Very low calorie intake can make it harder to get enough protein, fibre, vitamins and minerals. If you have a medical condition, are pregnant, breastfeeding, under 18, or recovering from illness, speak with a healthcare professional before changing your calorie intake.</p>
+
+          <h3>Calories for Weight Gain</h3>
+          <p>Weight gain usually happens when you consume more calories than your body burns. This is called a calorie surplus. A steady surplus, combined with strength training and enough protein, may support healthy weight and muscle gain.</p>
+
+          <p>For healthy weight gain, focus on nutrient-dense foods instead of only increasing sugar or highly processed foods.</p>
+
+          <h3>Why Your Calorie Needs Can Change</h3>
+          <p>Your calorie needs are not fixed forever. They can change when your weight, muscle mass, activity level, sleep, stress, age or health status changes.</p>
+
+          <p>If your weight goal progress stops for several weeks, you may need to review your calorie intake, physical activity and consistency. Use calculator results as a starting point and adjust based on real progress.</p>
+
+          <h3>Why Use CalcuPortal Calorie Calculator?</h3>
+          <ul>
+            <li>Free online calorie calculator</li>
+            <li>Calculates BMR and TDEE</li>
+            <li>Supports metric and imperial units</li>
+            <li>Uses the Mifflin-St Jeor equation</li>
+            <li>Shows maintenance, weight loss and weight gain targets</li>
+            <li>Works on mobile, tablet and desktop</li>
+            <li>No sign-up or installation required</li>
+            <li>Calculations run directly in your browser</li>
+          </ul>
+
+          <h3>Related Health Calculators</h3>
+          <p>You can also try our <a href="/calculators/bmi-calculator/">BMI Calculator</a>, <a href="/calculators/calorie-burn-calculator/">Calorie Burn Calculator</a>, and <a href="/calculators/ideal-weight-calculator/">Ideal Weight Calculator</a> for related fitness and health estimates.</p>
+
+          <h3>Important Health Note</h3>
+          <p>This Calorie Calculator is for general information only. It should not replace advice from a doctor, dietitian or qualified healthcare professional. Calorie needs are estimates and may vary from person to person.</p>
+
         </div>
       </section>
 
-            <!-- FAQ Section -->
+      <!-- FAQ Section -->
       <section class="faq-section">
         <h2 class="faq-header">Frequently Asked Questions</h2>
-        <div class="faq-grid">          <div class="faq-item">
-            <h3 class="faq-question">What is the Calorie Intake &amp; BMR Calculator used for?</h3>
-            <p class="faq-answer">The Calorie Intake &amp; BMR Calculator is a free online tool designed to calculate solutions for Calorie Intake &amp; BMR Calculator queries instantly. It helps users get fast, error-free results.</p>
-          </div>          <div class="faq-item">
-            <h3 class="faq-question">How accurate are calculations on the Calorie Intake &amp; BMR Calculator?</h3>
-            <p class="faq-answer">This tool uses industry-standard formulas and mathematical equations for Fitness & Health to ensure 100% computational integrity and accuracy.</p>
-          </div>          <div class="faq-item">
-            <h3 class="faq-question">Is my data secure when using the Calorie Intake &amp; BMR Calculator?</h3>
-            <p class="faq-answer">Yes. All computations are executed client-side in your web browser. We do not store, track, or transmit any input values or calculated results.</p>
-          </div>          <div class="faq-item">
-            <h3 class="faq-question">Can I use the Calorie Intake &amp; BMR Calculator on mobile devices?</h3>
-            <p class="faq-answer">Absolutely. The calculator is built with a responsive mobile-first design, making it fully optimized for mobile web (mweb) as well as desktop viewports.</p>
-          </div>          <div class="faq-item">
-            <h3 class="faq-question">Are there any fees to use the Calorie Intake &amp; BMR Calculator?</h3>
-            <p class="faq-answer">No. The Calorie Intake &amp; BMR Calculator is completely free to use with no hidden charges, registration requirements, or limits on calculation queries.</p>
-          </div>        </div>
+
+        <div class="faq-grid">
+
+          <div class="faq-item">
+            <h3 class="faq-question">What is a Calorie Calculator?</h3>
+            <p class="faq-answer">A Calorie Calculator is an online tool that estimates your daily calorie needs based on your age, gender, height, weight and activity level.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">What is BMR?</h3>
+            <p class="faq-answer">BMR stands for Basal Metabolic Rate. It is the estimated number of calories your body needs at rest to support basic functions like breathing, circulation and cell repair.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">What is TDEE?</h3>
+            <p class="faq-answer">TDEE stands for Total Daily Energy Expenditure. It is your estimated total daily calorie burn after including your activity level.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Which formula does this calculator use?</h3>
+            <p class="faq-answer">This calculator uses the Mifflin-St Jeor equation to estimate BMR, then multiplies it by your activity factor to estimate TDEE.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">How many calories should I eat to lose weight?</h3>
+            <p class="faq-answer">For weight loss, many people start with a moderate calorie deficit below maintenance calories. This calculator shows estimated mild and regular weight loss targets.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">How many calories should I eat to gain weight?</h3>
+            <p class="faq-answer">For weight gain, you generally need to eat above your maintenance calories. This calculator shows an estimated calorie surplus target for weight gain.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Are calorie calculator results accurate?</h3>
+            <p class="faq-answer">Calorie calculator results are estimates. Your actual calorie needs can vary based on body composition, activity, sleep, health condition, stress and metabolism.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Can I use this calculator on mobile?</h3>
+            <p class="faq-answer">Yes. This Calorie Calculator works on mobile, tablet and desktop browsers.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Is this Calorie Calculator free?</h3>
+            <p class="faq-answer">Yes. This Calorie Calculator is free to use and does not require sign-up or installation.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Is my data stored?</h3>
+            <p class="faq-answer">No. The calculation runs in your browser. Your age, height, weight and result values are not stored by this tool.</p>
+          </div>
+
+        </div>
       </section>
+
     </div>
   </main>
 
@@ -252,89 +711,126 @@
     </div>
   </footer>
 
+  <!-- Calculator Script -->
   <script>
     document.getElementById('year').innerText = new Date().getFullYear();
-    
-    // Injected calculation script
-    // Rename calculate button triggers
-    const calculateBtn = document.getElementById('calc-btn');
-    if (calculateBtn) {
-      calculateBtn.id = 'calculate-btn';
-    }
-  </script>
-  <script>
-    
+
     let activeUnit = 'metric';
+
     const metricTab = document.getElementById('cal-metric-tab');
     const imperialTab = document.getElementById('cal-imperial-tab');
     const metricForm = document.getElementById('cal-metric-form');
     const imperialForm = document.getElementById('cal-imperial-form');
+    const calcBtn = document.getElementById('cal-calc-btn');
 
-    metricTab.addEventListener('click', () => {
+    metricTab.addEventListener('click', function () {
       activeUnit = 'metric';
+
       metricTab.classList.add('active');
       imperialTab.classList.remove('active');
+
       metricForm.classList.remove('hidden');
       imperialForm.classList.add('hidden');
+
+      document.getElementById('cal-result-section').classList.add('hidden');
     });
 
-    imperialTab.addEventListener('click', () => {
+    imperialTab.addEventListener('click', function () {
       activeUnit = 'imperial';
+
       imperialTab.classList.add('active');
       metricTab.classList.remove('active');
+
       imperialForm.classList.remove('hidden');
       metricForm.classList.add('hidden');
+
+      document.getElementById('cal-result-section').classList.add('hidden');
     });
 
-    document.getElementById('cal-calc-btn').addEventListener('click', () => {
+    function formatCalories(num) {
+      return Math.round(num).toLocaleString() + ' kcal';
+    }
+
+    function setBarWidth(id, value, maxValue) {
+      const percentage = Math.max(5, Math.min(100, (value / maxValue) * 100));
+      document.getElementById(id).style.width = percentage + '%';
+    }
+
+    calcBtn.addEventListener('click', function () {
       const age = parseFloat(document.getElementById('cal-age').value);
       const gender = document.getElementById('cal-gender').value;
       const activity = parseFloat(document.getElementById('cal-activity').value);
-      
+
       let weight = 0;
       let height = 0;
-      
+
+      if (!age || age < 15 || age > 80) {
+        alert('Please enter a valid age between 15 and 80.');
+        return;
+      }
+
       if (activeUnit === 'metric') {
         height = parseFloat(document.getElementById('cal-height-cm').value);
         weight = parseFloat(document.getElementById('cal-weight-kg').value);
-        
+
         if (!height || !weight || height <= 0 || weight <= 0) {
-          alert('Please enter valid height and weight values!');
+          alert('Please enter valid height and weight values.');
           return;
         }
       } else {
         const ft = parseFloat(document.getElementById('cal-height-ft').value) || 0;
         const inch = parseFloat(document.getElementById('cal-height-in').value) || 0;
         const lbs = parseFloat(document.getElementById('cal-weight-lbs').value) || 0;
-        
+
         const totalInches = (ft * 12) + inch;
+
         if (totalInches <= 0 || lbs <= 0) {
-          alert('Please enter valid height and weight values!');
+          alert('Please enter valid height and weight values.');
           return;
         }
-        
+
         height = totalInches * 2.54;
         weight = lbs * 0.45359237;
       }
-      
+
       let bmr = 0;
+
       if (gender === 'male') {
         bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5;
       } else {
         bmr = (10 * weight) + (6.25 * height) - (5 * age) - 161;
       }
-      
+
       const maintenance = bmr * activity;
-      const fmt = (num) => Math.round(num).toLocaleString() + ' kcal';
-      
-      document.getElementById('cal-maintenance').innerText = fmt(maintenance);
-      document.getElementById('cal-lose-mild').innerText = fmt(maintenance - 250);
-      document.getElementById('cal-lose').innerText = fmt(maintenance - 500);
-      document.getElementById('cal-gain').innerText = fmt(maintenance + 500);
-      
-      document.getElementById('bmr-val').innerText = Math.round(bmr).toLocaleString();
+      const mildLoss = maintenance - 250;
+      const regularLoss = maintenance - 500;
+      const gain = maintenance + 500;
+
+      document.getElementById('cal-maintenance').innerText = formatCalories(maintenance);
+      document.getElementById('cal-maintenance-card').innerText = formatCalories(maintenance);
+      document.getElementById('cal-lose-mild').innerText = formatCalories(mildLoss);
+      document.getElementById('cal-lose').innerText = formatCalories(regularLoss);
+      document.getElementById('cal-gain').innerText = formatCalories(gain);
+      document.getElementById('bmr-val').innerText = formatCalories(bmr);
+
+      document.getElementById('bar-lose-mild-val').innerText = formatCalories(mildLoss);
+      document.getElementById('bar-lose-val').innerText = formatCalories(regularLoss);
+      document.getElementById('bar-maintenance-val').innerText = formatCalories(maintenance);
+      document.getElementById('bar-gain-val').innerText = formatCalories(gain);
+
+      const maxValue = gain;
+
+      setBarWidth('bar-lose-mild', mildLoss, maxValue);
+      setBarWidth('bar-lose', regularLoss, maxValue);
+      setBarWidth('bar-maintenance', maintenance, maxValue);
+      setBarWidth('bar-gain', gain, maxValue);
+
+      document.getElementById('cal-summary-text').innerHTML =
+        'Your estimated <strong>BMR</strong> is <strong>' + formatCalories(bmr) + '</strong>. Your estimated <strong>TDEE or maintenance calories</strong> is <strong>' + formatCalories(maintenance) + '</strong> based on your selected activity level.';
+
       document.getElementById('cal-result-section').classList.remove('hidden');
     });
   </script>
+
 </body>
 </html>
