@@ -179,14 +179,6 @@
       },
       {
         "@type": "Question",
-        "name": "What is a words to numbers converter?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "A words to numbers converter changes written number words back into digits. For example, One Lakh becomes 100000. This is useful for checking written amounts and converting text amounts into numeric values."
-        }
-      },
-      {
-        "@type": "Question",
         "name": "How do I write numbers in words in English rupees?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -202,6 +194,36 @@
         }
       }
     ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Numbers to Words Converter",
+    "url": "https://www.calcuportal.com/calculators/conversions-numbers-to-words/",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript",
+    "description": "Free online numbers to words converter for English, Hindi, Telugu, Tamil and Malayalam. Converts numbers into Indian rupees, paise, dollars and cents words.",
+    "featureList": [
+      "Numbers to words converter",
+      "Indian rupees and paise format",
+      "Indian lakh and crore number system",
+      "International million and billion number system",
+      "English, Hindi, Telugu, Tamil and Malayalam output"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CalcuPortal",
+      "url": "https://www.calcuportal.com/"
+    }
   }
   </script>
 </head>
@@ -243,22 +265,18 @@
 
       <div class="detail-header">
         <h1>Numbers to Words Converter Online</h1>
-        <p>Convert numbers into words in English, Hindi, Telugu, Tamil and Malayalam. You can also convert written words back into numbers.</p>
+        <p>Convert numbers into words in English, Hindi, Telugu, Tamil and Malayalam.</p>
       </div>
 
       <div class="calc-widget numbers-to-words-widget">
         <h2 class="tool-title">Numbers to Words Converter<br><span>Indian Rupees, English, Hindi, Telugu, Tamil & Malayalam</span></h2>
 
         <div class="number-word-form">
-          <select id="conversion-mode" class="input-field select-field">
-            <option value="number-to-words">Numbers to Words Converter</option>
-            <option value="words-to-number">Words to Numbers Converter</option>
-          </select>
 
           <textarea
             id="num-input"
             class="textarea-field"
-            placeholder="Enter number, e.g. 125000 or words, e.g. one lakh twenty five thousand"
+            placeholder="Enter number, e.g. 125000 or 1250.75"
             inputmode="decimal"
           ></textarea>
 
@@ -352,26 +370,6 @@
 
           <p style="text-align: justify;">Multilingual number conversion is useful for students, parents, teachers, regional language users, content creators and people who need number names in their native language.</p>
 
-          <h2>Words to Numbers Converter</h2>
-          <p style="text-align: justify;">A <strong>words to numbers converter</strong> does the reverse of number to words conversion. It changes written number words into digits. For example, <strong>One Lakh Twenty Five Thousand</strong> becomes <strong>125000</strong>.</p>
-
-          <p style="text-align: justify;">This feature is useful when you want to check a written amount, convert text-based numbers into numeric values, or verify whether a cheque amount or invoice amount is written correctly.</p>
-
-          <table class="seo-table">
-            <thead>
-              <tr>
-                <th>Words</th>
-                <th>Number</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>One Hundred</td><td>100</td></tr>
-              <tr><td>One Thousand Five Hundred</td><td>1500</td></tr>
-              <tr><td>One Lakh</td><td>100000</td></tr>
-              <tr><td>Ten Lakh Fifty Thousand</td><td>1050000</td></tr>
-              <tr><td>One Crore</td><td>10000000</td></tr>
-            </tbody>
-          </table>
 
           <h2>Indian Number System vs International Number System</h2>
           <p style="text-align: justify;">The Indian number system and international number system use different names for large numbers. In India, people commonly use lakh and crore. In the international system, people use million and billion.</p>
@@ -394,11 +392,9 @@
           </table>
 
           <h2>How to Use the Numbers to Words Converter</h2>
-          <p style="text-align: justify;">Using this converter is simple. Enter the number, choose the conversion mode, select the language, choose the number system and click the convert button. The result will appear instantly.</p>
+          <p style="text-align: justify;">Using this converter is simple. Enter the number, select the language, choose the number system or currency format and click the convert button. The result will appear instantly.</p>
 
           <ul>
-            <li>Select <strong>Numbers to Words Converter</strong> to convert digits into words.</li>
-            <li>Select <strong>Words to Numbers Converter</strong> to convert written words into digits.</li>
             <li>Choose English, Hindi, Telugu, Tamil or Malayalam as the output language.</li>
             <li>Select Indian System for lakh and crore formatting.</li>
             <li>Select International System for million and billion formatting.</li>
@@ -431,7 +427,6 @@
 
           <ul>
             <li>Free numbers to words converter.</li>
-            <li>Supports words to numbers converter option.</li>
             <li>Works for Indian rupees and paise.</li>
             <li>Supports English, Hindi, Telugu, Tamil and Malayalam.</li>
             <li>Useful for cheques, invoices, receipts and school work.</li>
@@ -479,11 +474,6 @@
           <div class="faq-item">
             <h3 class="faq-question">Can I convert numbers to words in Malayalam?</h3>
             <p class="faq-answer">Yes. You can select Malayalam as the output language and convert numbers into Malayalam words.</p>
-          </div>
-
-          <div class="faq-item">
-            <h3 class="faq-question">What is a words to numbers converter?</h3>
-            <p class="faq-answer">A words to numbers converter changes written number words into digits. For example, One Lakh becomes 100000.</p>
           </div>
 
           <div class="faq-item">
@@ -672,63 +662,6 @@
       }
       return result + ' ' + data.only;
     }
-
-    function buildWordsToNumberDictionary() {
-      const map = {};
-      Object.keys(languageData).forEach(function(lang) {
-        const data = languageData[lang];
-        data.ones.forEach(function(word, index) { if (word) map[word.toLowerCase()] = index; });
-        data.tens.forEach(function(word, index) { if (word) map[word.toLowerCase()] = index * 10; });
-        map[data.zero.toLowerCase()] = 0;
-        map[data.hundred.toLowerCase()] = 100;
-        data.indianScales.forEach(function(word, index) {
-          if (!word) return;
-          const values = [1, 1000, 100000, 10000000, 1000000000, 100000000000];
-          map[word.toLowerCase()] = values[index];
-        });
-        data.internationalScales.forEach(function(word, index) {
-          if (!word) return;
-          const values = [1, 1000, 1000000, 1000000000, 1000000000000, 1000000000000000];
-          map[word.toLowerCase()] = values[index];
-        });
-        Object.values(data.currency).forEach(function(word) { map[word.toLowerCase()] = 'skip'; });
-        [data.and, data.only, data.point].forEach(function(word) { map[word.toLowerCase()] = 'skip'; });
-      });
-
-      const englishExtra = {
-        a: 1, an: 1, rupee: 'skip', rupees: 'skip', paise: 'skip', paisa: 'skip', dollar: 'skip', dollars: 'skip', cents: 'skip', cent: 'skip', only: 'skip', and: 'skip'
-      };
-      Object.assign(map, englishExtra);
-      return map;
-    }
-
-    const wordNumberMap = buildWordsToNumberDictionary();
-
-    function convertWordsToNumber(text) {
-      const cleaned = text.toLowerCase().replace(/[-,₹$]/g, ' ').replace(/\s+/g, ' ').trim();
-      if (!cleaned) return '';
-      const tokens = cleaned.split(' ');
-      let total = 0;
-      let current = 0;
-      let hasValue = false;
-      const largeScales = [1000, 100000, 1000000, 10000000, 1000000000, 1000000000000, 1000000000000000];
-
-      tokens.forEach(function(token) {
-        const value = wordNumberMap[token];
-        if (value === undefined || value === 'skip') return;
-        hasValue = true;
-        if (value === 100) {
-          current = (current || 1) * 100;
-        } else if (largeScales.includes(value)) {
-          total += (current || 1) * value;
-          current = 0;
-        } else {
-          current += value;
-        }
-      });
-      return hasValue ? String(total + current) : 'Could not understand the words. Try English words like one lakh twenty five thousand.';
-    }
-
     function showError(message) {
       outputBox.innerText = message;
       document.getElementById('result-section').classList.remove('hidden');
@@ -736,7 +669,6 @@
 
     if (calculateBtn) {
       calculateBtn.addEventListener('click', function() {
-        const mode = document.getElementById('conversion-mode').value;
         const rawInput = document.getElementById('num-input').value;
         const lang = document.getElementById('output-language').value;
         const system = document.getElementById('number-system').value;
@@ -744,27 +676,23 @@
         const value = cleanNumberInput(rawInput);
 
         if (!value) {
-          showError('Please enter a number or written words.');
+          showError('Please enter a number.');
+          return;
+        }
+
+        if (!/^\d+(\.\d+)?$/.test(value)) {
+          showError('Please enter a valid positive number.');
           return;
         }
 
         let output = '';
 
-        if (mode === 'words-to-number') {
-          output = convertWordsToNumber(value);
-        } else {
-          if (!/^\d+(\.\d+)?$/.test(value)) {
-            showError('Please enter a valid positive number.');
-            return;
-          }
-
-          if (format === 'plain') {
-            output = convertNumberToWords(value, system, lang);
-          } else if (format === 'inr') {
-            output = convertCurrency(value, 'inr', lang);
-          } else if (format === 'usd') {
-            output = convertCurrency(value, 'usd', lang);
-          }
+        if (format === 'plain') {
+          output = convertNumberToWords(value, system, lang);
+        } else if (format === 'inr') {
+          output = convertCurrency(value, 'inr', lang);
+        } else if (format === 'usd') {
+          output = convertCurrency(value, 'usd', lang);
         }
 
         outputBox.innerText = toTitleCase(output, lang);
