@@ -339,4 +339,27 @@
     <loc>https://www.calcuportal.com/advertise/</loc>
     <lastmod>2026-06-27</lastmod>
   </url>
+  <url>
+  <loc>https://www.calcuportal.com/categories/love-relationship/</loc>
+  <lastmod>2026-07-05</lastmod>
+  <priority>0.8</priority>
+</url>
+
+<url>
+  <loc>https://www.calcuportal.com/calculators/love-calculator-by-name/</loc>
+  <lastmod>2026-07-05</lastmod>
+  <priority>0.7</priority>
+</url>
+
+<url>
+  <loc>https://www.calcuportal.com/calculators/love-tester/</loc>
+  <lastmod>2026-07-05</lastmod>
+  <priority>0.7</priority>
+</url>
+
+<url>
+  <loc>https://www.calcuportal.com/calculators/flames-calculator/</loc>
+  <lastmod>2026-07-05</lastmod>
+  <priority>0.7</priority>
+</url>
 </urlset>
