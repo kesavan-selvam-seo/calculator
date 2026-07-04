@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="shortcut icon" href="/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Love Tester Online - Free Love Compatibility Quiz</title>
+  <meta name="description" content="Use the free Love Tester online to check a fun love compatibility score with names and quiz questions. Test love percentage and playful match result instantly.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.calcuportal.com/calculators/love-tester/">
+
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/script.js"></script>
+
+  <style>
+    .love-tester-widget {
+      background: linear-gradient(135deg, #fff1f2 0%, #ffffff 55%, #fdf2f8 100%);
+      border: 1px solid rgba(244, 114, 182, 0.35);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 3rem;
+    }
+
+    .love-tester-intro {
+      margin-bottom: 1.5rem;
+    }
+
+    .love-tester-intro h2 {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 850;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .love-tester-intro p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      text-align: justify;
+      margin-bottom: 0;
+    }
+
+    .love-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .love-field label,
+    .quiz-question label {
+      display: block;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      font-family: var(--font-heading);
+    }
+
+    .love-field input,
+    .quiz-question select {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      border: 1px solid rgba(244, 114, 182, 0.4);
+      border-radius: 0.9rem;
+      font-size: 1rem;
+      background: var(--bg-card);
+      color: var(--text-primary);
+      outline: none;
+      font-family: var(--font-sans);
+    }
+
+    .love-field input:focus,
+    .quiz-question select:focus {
+      border-color: #f43f5e;
+      box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.12);
+    }
+
+    .love-quiz-box {
+      display: grid;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .quiz-question {
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(244, 114, 182, 0.28);
+      border-radius: 1rem;
+      padding: 1rem;
+    }
+
+    .love-btn {
+      width: 100%;
+      padding: 0.95rem 1.2rem;
+      border: none;
+      border-radius: 0.9rem;
+      background: linear-gradient(135deg, #f43f5e 0%, #a855f7 100%);
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 900;
+      cursor: pointer;
+      font-family: var(--font-heading);
+      box-shadow: 0 12px 28px rgba(244, 63, 94, 0.18);
+    }
+
+    .love-btn:hover {
+      opacity: 0.95;
+    }
+
+    .love-result {
+      display: none;
+      margin-top: 2rem;
+      padding: 1.5rem;
+      border-radius: 1.25rem;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(244, 114, 182, 0.3);
+      text-align: center;
+    }
+
+    .love-score {
+      font-size: 3rem;
+      font-weight: 950;
+      color: #f43f5e;
+      font-family: var(--font-heading);
+      margin-bottom: 0.5rem;
+    }
+
+    .love-meter {
+      width: 100%;
+      height: 18px;
+      background: rgba(244, 114, 182, 0.18);
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 1rem 0;
+    }
+
+    .love-meter-fill {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(135deg, #f43f5e 0%, #a855f7 100%);
+      border-radius: 999px;
+      transition: width 0.5s ease;
+    }
+
+    .love-result h2 {
+      font-family: var(--font-heading);
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+    }
+
+    .love-result p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 0;
+      text-align: center;
+    }
+
+    .love-disclaimer {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: rgba(244, 63, 94, 0.08);
+      border: 1px solid rgba(244, 63, 94, 0.18);
+      border-radius: 1rem;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      text-align: justify;
+    }
+
+    .love-related-tools {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .love-related-tools a {
+      display: block;
+      padding: 1rem;
+      border: 1px solid rgba(244, 114, 182, 0.25);
+      border-radius: 1rem;
+      text-decoration: none;
+      color: var(--text-primary);
+      background: var(--bg-card);
+      font-weight: 800;
+    }
+
+    .love-related-tools a:hover {
+      border-color: #f43f5e;
+      color: #e11d48;
+    }
+
+    .love-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+
+    .love-table th {
+      background-color: #a855f7;
+      color: #ffffff;
+      text-align: center;
+      font-size: 13px;
+      padding: 0.75rem;
+      border: 1px solid var(--border-color);
+    }
+
+    .love-table td {
+      text-align: center;
+      font-size: 13px;
+      padding: 0.75rem;
+      border: 1px solid var(--border-color);
+    }
+
+    @media (max-width: 768px) {
+      .love-form-grid,
+      .love-related-tools {
+        grid-template-columns: 1fr;
+      }
+
+      .love-tester-widget {
+        padding: 1.4rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="/" class="logo">
+        <img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon">
+        <span>CalcuPortal</span>
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/about/" class="nav-link">About</a>
+        <a href="/contact/" class="nav-link">Contact</a>
+        <a href="/blog/" class="nav-link">Blog</a>
+        <button class="theme-btn" title="Toggle Theme">
+          <span class="theme-btn-icon"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="detail-container">
+
+      <!-- Breadcrumbs -->
+      <div class="breadcrumbs">
+        <a href="/">Home</a>
+        <span class="separator">&rsaquo;</span>
+        <a href="/categories/love-relationship/">Love & Relationship Calculators</a>
+        <span class="separator">&rsaquo;</span>
+        <span class="current">Love Tester</span>
+      </div>
+
+      <div class="detail-header">
+        <h1>Love Tester Online</h1>
+      </div>
+
+      <!-- Calculator Widget -->
+      <div class="love-tester-widget">
+        <div class="love-tester-intro">
+          <h2>Free Love Tester Quiz</h2>
+          <p>Take this fun love tester quiz by entering two names and answering simple relationship-style questions. The tool combines name match and quiz answers to show a playful compatibility score.</p>
+        </div>
+
+        <div class="love-form-grid">
+          <div class="love-field">
+            <label for="firstName">Your Name</label>
+            <input type="text" id="firstName" placeholder="Enter your name">
+          </div>
+
+          <div class="love-field">
+            <label for="secondName">Partner or Crush Name</label>
+            <input type="text" id="secondName" placeholder="Enter partner or crush name">
+          </div>
+        </div>
+
+        <div class="love-quiz-box">
+          <div class="quiz-question">
+            <label for="talkScore">1. How often do you both talk?</label>
+            <select id="talkScore">
+              <option value="10">Rarely</option>
+              <option value="18">Sometimes</option>
+              <option value="25">Every day</option>
+            </select>
+          </div>
+
+          <div class="quiz-question">
+            <label for="knowScore">2. How well do you know each other?</label>
+            <select id="knowScore">
+              <option value="10">Not much</option>
+              <option value="18">Fairly well</option>
+              <option value="25">Very well</option>
+            </select>
+          </div>
+
+          <div class="quiz-question">
+            <label for="interestScore">3. Do you share common interests?</label>
+            <select id="interestScore">
+              <option value="10">Very few</option>
+              <option value="18">Some interests</option>
+              <option value="25">Many interests</option>
+            </select>
+          </div>
+
+          <div class="quiz-question">
+            <label for="trustScore">4. How strong is the trust?</label>
+            <select id="trustScore">
+              <option value="10">Still growing</option>
+              <option value="18">Good</option>
+              <option value="25">Very strong</option>
+            </select>
+          </div>
+
+          <div class="quiz-question">
+            <label for="matchType">5. What type of match is this?</label>
+            <select id="matchType">
+              <option value="12">Crush</option>
+              <option value="18">Friendship</option>
+              <option value="22">Relationship</option>
+              <option value="25">Couple</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="love-btn" id="testLove">Test Love Compatibility 💘</button>
+
+        <div class="love-result" id="loveResult">
+          <div class="love-score" id="loveScore">0%</div>
+          <div class="love-meter">
+            <div class="love-meter-fill" id="loveMeterFill"></div>
+          </div>
+          <h2 id="loveTitle">Your Love Test Result</h2>
+          <p id="loveMessage"></p>
+        </div>
+
+        <div class="love-disclaimer">
+          <strong>Disclaimer:</strong> This Love Tester quiz is created for fun and entertainment purposes only. The result is not scientific and should not be used as real relationship advice.
+        </div>
+      </div>
+
+      <!-- SEO Article -->
+      <section class="article-section">
+        <div class="article-header">
+          <h2>Love Tester Online Guide</h2>
+        </div>
+
+        <div class="article-content">
+          <h2>What is a Love Tester?</h2>
+          <p style="text-align: justify;">A Love Tester is a fun online tool that checks a playful compatibility score between two names. Unlike a simple love calculator by name, this tool also includes a short quiz to make the result more interactive and unique.</p>
+
+          <p style="text-align: justify;">Users can enter their name and another person’s name, answer a few simple questions, and get a fun love test score. This Love Tester is made for entertainment, friendly sharing, and playful relationship checks.</p>
+
+          <h2>How to Use the Love Tester</h2>
+          <p style="text-align: justify;">Using this love test calculator is easy. Enter both names, answer the quiz questions, and click the test button. The tool will instantly show a love compatibility score with a fun message.</p>
+
+          <ul>
+            <li>Enter your name in the first input box.</li>
+            <li>Enter your partner, crush, or friend name in the second input box.</li>
+            <li>Select answers for the love tester quiz questions.</li>
+            <li>Click the Test Love Compatibility button.</li>
+            <li>Check your playful love score and result message.</li>
+          </ul>
+
+          <h2>Love Tester by Name and Quiz</h2>
+          <p style="text-align: justify;">This Love Tester uses both name match and quiz answers to create a fun compatibility score. The name part gives a playful base score, while the quiz answers add more interaction to the final result.</p>
+
+          <p style="text-align: justify;">The quiz includes simple questions about how often you talk, how well you know each other, common interests, trust, and match type. These questions make the tool more useful than a normal name-only love calculator.</p>
+
+          <h2>Love Compatibility Test</h2>
+          <p style="text-align: justify;">A love compatibility test is commonly used for fun relationship checks. Users may test compatibility with a partner, crush, friend, or someone special. This tool gives a playful score and should not be treated as a real relationship prediction.</p>
+
+          <p style="text-align: justify;">Real compatibility depends on trust, communication, honesty, care, emotional maturity, and mutual respect. This calculator is only a fun online love tester for entertainment.</p>
+
+          <h2>Love Tester Result Meaning</h2>
+          <p style="text-align: justify;">The Love Tester result is only a fun interpretation. Use the table below to understand the playful meaning of different score ranges.</p>
+
+          <table class="love-table">
+            <thead>
+              <tr>
+                <th>S.No</th>
+                <th>Love Tester Score</th>
+                <th>Fun Meaning</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>90% - 100%</td>
+                <td>Amazing fun compatibility</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>75% - 89%</td>
+                <td>Strong playful connection</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>60% - 74%</td>
+                <td>Good friendly match</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>45% - 59%</td>
+                <td>Average fun match</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Below 45%</td>
+                <td>Light entertainment result</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>Love Tester vs Love Calculator by Name</h2>
+          <p style="text-align: justify;">A Love Calculator by Name usually calculates a score using only two names. A Love Tester can be more interactive because it may include extra questions, relationship-style inputs, or a compatibility quiz.</p>
+
+          <p style="text-align: justify;">On CalcuPortal, the Love Calculator by Name is simple and name-based, while this Love Tester includes both names and quiz answers. This gives users two different ways to enjoy fun love match tools.</p>
+
+          <h2>Why Use CalcuPortal Love Tester?</h2>
+          <p style="text-align: justify;">CalcuPortal’s Love Tester is free, simple, mobile-friendly, and works directly in your browser. You do not need to download an app or create an account to use the tool.</p>
+
+          <p style="text-align: justify;">The tool is useful for users who want a fun love test, crush match, name compatibility result, or playful relationship score. It is designed to be light, quick, and easy to understand.</p>
+
+          <h2>Related Love Tools</h2>
+          <div class="love-related-tools">
+            <a href="/calculators/love-calculator-by-name/">❤️ Love Calculator by Name</a>
+            <a href="/calculators/flames-calculator/">💞 FLAMES Calculator</a>
+          </div>
+
+          <h2>Important Note</h2>
+          <p style="text-align: justify;">This Love Tester is created only for entertainment. It does not predict love, relationship success, marriage compatibility, or emotional connection.</p>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="faq-section">
+        <h2 class="faq-header">Frequently Asked Questions</h2>
+        <div class="faq-grid">
+
+          <div class="faq-item">
+            <h3 class="faq-question">What is a Love Tester?</h3>
+            <p class="faq-answer">A Love Tester is a fun online tool that gives a playful compatibility score between two names and simple quiz answers. It is made for entertainment only.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">How is this Love Tester different from a love calculator?</h3>
+            <p class="faq-answer">A normal love calculator usually checks only names. This Love Tester uses both names and quiz answers to create a more interactive fun compatibility score.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Is this Love Tester accurate?</h3>
+            <p class="faq-answer">No. This Love Tester is not scientifically accurate. It gives a fun result for entertainment and friendly sharing.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Can I use this Love Tester for my crush?</h3>
+            <p class="faq-answer">Yes. You can enter your name and your crush name, answer the quiz, and get a playful love compatibility score.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Does this Love Tester store names?</h3>
+            <p class="faq-answer">No. The calculator works in your browser and uses the names only to show the result on the page.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Is this Love Tester free?</h3>
+            <p class="faq-answer">Yes. This Love Tester is free to use online on CalcuPortal.</p>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="copyright-bar" style="border-top: none; padding-top: 0;">
+      © <span id="year">2026</span> CalcuPortal. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').innerText = new Date().getFullYear();
+
+    const firstNameInput = document.getElementById('firstName');
+    const secondNameInput = document.getElementById('secondName');
+    const testBtn = document.getElementById('testLove');
+    const loveResult = document.getElementById('loveResult');
+    const loveScore = document.getElementById('loveScore');
+    const loveMeterFill = document.getElementById('loveMeterFill');
+    const loveTitle = document.getElementById('loveTitle');
+    const loveMessage = document.getElementById('loveMessage');
+
+    function cleanLoveName(name) {
+      return name.trim().toLowerCase().replace(/[^a-z]/g, '');
+    }
+
+    function getNameBaseScore(name1, name2) {
+      const combined = cleanLoveName(name1) + 'testerquiz' + cleanLoveName(name2);
+
+      let hash = 0;
+
+      for (let i = 0; i < combined.length; i++) {
+        hash = ((hash << 5) - hash) + combined.charCodeAt(i);
+        hash = hash & hash;
+      }
+
+      return Math.abs(hash % 41) + 20;
+    }
+
+    function getQuizScore() {
+      const talk = Number(document.getElementById('talkScore').value);
+      const know = Number(document.getElementById('knowScore').value);
+      const interest = Number(document.getElementById('interestScore').value);
+      const trust = Number(document.getElementById('trustScore').value);
+      const matchType = Number(document.getElementById('matchType').value);
+
+      return Math.round((talk + know + interest + trust + matchType) / 5);
+    }
+
+    function calculateFinalTesterScore(name1, name2) {
+      const nameScore = getNameBaseScore(name1, name2);
+      const quizScore = getQuizScore();
+
+      let finalScore = Math.round((nameScore * 0.45) + (quizScore * 2.2));
+
+      if (finalScore > 100) {
+        finalScore = 100;
+      }
+
+      if (finalScore < 20) {
+        finalScore = 20;
+      }
+
+      return finalScore;
+    }
+
+    function getTesterMessage(score, name1, name2) {
+      if (score >= 90) {
+        return name1 + ' and ' + name2 + ' have an amazing fun compatibility score. Your answers show a very sweet match!';
+      }
+
+      if (score >= 75) {
+        return name1 + ' and ' + name2 + ' have a strong playful connection. This Love Tester quiz result looks lovely.';
+      }
+
+      if (score >= 60) {
+        return name1 + ' and ' + name2 + ' have a nice match with good friendly energy.';
+      }
+
+      if (score >= 45) {
+        return name1 + ' and ' + name2 + ' have an average fun match. Keep it light and enjoy the result.';
+      }
+
+      return name1 + ' and ' + name2 + ' got a light score. Remember, this quiz is only for fun and entertainment.';
+    }
+
+    testBtn.addEventListener('click', function() {
+      const name1 = firstNameInput.value.trim();
+      const name2 = secondNameInput.value.trim();
+
+      if (!name1 || !name2) {
+        loveResult.style.display = 'block';
+        loveScore.innerText = '0%';
+        loveMeterFill.style.width = '0%';
+        loveTitle.innerText = 'Enter Both Names';
+        loveMessage.innerText = 'Please enter both names to test a fun love compatibility score.';
+        return;
+      }
+
+      const score = calculateFinalTesterScore(name1, name2);
+
+      loveResult.style.display = 'block';
+      loveScore.innerText = score + '%';
+      loveMeterFill.style.width = score + '%';
+      loveTitle.innerText = name1 + ' ❤ ' + name2;
+      loveMessage.innerText = getTesterMessage(score, name1, name2);
+    });
+
+    firstNameInput.addEventListener('keydown', function(event) {
+      if (event.key === 'Enter') {
+        testBtn.click();
+      }
+    });
+
+    secondNameInput.addEventListener('keydown', function(event) {
+      if (event.key === 'Enter') {
+        testBtn.click();
+      }
+    });
+  </script>
+
+</body>
+</html>
