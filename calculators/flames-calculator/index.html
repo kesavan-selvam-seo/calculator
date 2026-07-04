@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="shortcut icon" href="/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>FLAMES Calculator Online - Free Flames Love Test</title>
+  <meta name="description" content="Use the free FLAMES Calculator online to check Friendship, Love, Affection, Marriage, Enemy, or Sibling result between two names instantly.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.calcuportal.com/calculators/flames-calculator/">
+
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/script.js"></script>
+
+  <style>
+    .flames-widget {
+      background: linear-gradient(135deg, #fff1f2 0%, #ffffff 55%, #fdf2f8 100%);
+      border: 1px solid rgba(244, 114, 182, 0.35);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 3rem;
+    }
+
+    .flames-intro {
+      margin-bottom: 1.5rem;
+    }
+
+    .flames-intro h2 {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 850;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .flames-intro p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      text-align: justify;
+      margin-bottom: 0;
+    }
+
+    .flames-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .flames-field label {
+      display: block;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      font-family: var(--font-heading);
+    }
+
+    .flames-field input {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      border: 1px solid rgba(244, 114, 182, 0.4);
+      border-radius: 0.9rem;
+      font-size: 1rem;
+      background: var(--bg-card);
+      color: var(--text-primary);
+      outline: none;
+      font-family: var(--font-sans);
+    }
+
+    .flames-field input:focus {
+      border-color: #f43f5e;
+      box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.12);
+    }
+
+    .flames-btn {
+      width: 100%;
+      padding: 0.95rem 1.2rem;
+      border: none;
+      border-radius: 0.9rem;
+      background: linear-gradient(135deg, #f43f5e 0%, #a855f7 100%);
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 900;
+      cursor: pointer;
+      font-family: var(--font-heading);
+      box-shadow: 0 12px 28px rgba(244, 63, 94, 0.18);
+    }
+
+    .flames-btn:hover {
+      opacity: 0.95;
+    }
+
+    .flames-result {
+      display: none;
+      margin-top: 2rem;
+      padding: 1.5rem;
+      border-radius: 1.25rem;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(244, 114, 182, 0.3);
+      text-align: center;
+    }
+
+    .flames-result-icon {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .flames-result-word {
+      font-size: 2.2rem;
+      font-weight: 950;
+      color: #f43f5e;
+      font-family: var(--font-heading);
+      margin-bottom: 0.5rem;
+    }
+
+    .flames-result h2 {
+      font-family: var(--font-heading);
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+    }
+
+    .flames-result p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 0;
+      text-align: center;
+    }
+
+    .flames-letters {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0.75rem;
+      margin: 1.5rem 0;
+    }
+
+    .flames-letter-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(244, 114, 182, 0.28);
+      border-radius: 1rem;
+      padding: 1rem 0.5rem;
+      text-align: center;
+    }
+
+    .flames-letter-card strong {
+      display: block;
+      font-size: 1.5rem;
+      color: #e11d48;
+      font-family: var(--font-heading);
+      margin-bottom: 0.25rem;
+    }
+
+    .flames-letter-card span {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      font-weight: 700;
+    }
+
+    .flames-breakdown {
+      display: none;
+      margin-top: 1rem;
+      padding: 1rem;
+      border-radius: 1rem;
+      background: rgba(244, 63, 94, 0.08);
+      border: 1px solid rgba(244, 63, 94, 0.18);
+      color: var(--text-secondary);
+      line-height: 1.7;
+      text-align: justify;
+    }
+
+    .flames-disclaimer {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: rgba(244, 63, 94, 0.08);
+      border: 1px solid rgba(244, 63, 94, 0.18);
+      border-radius: 1rem;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      text-align: justify;
+    }
+
+    .love-related-tools {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .love-related-tools a {
+      display: block;
+      padding: 1rem;
+      border: 1px solid rgba(244, 114, 182, 0.25);
+      border-radius: 1rem;
+      text-decoration: none;
+      color: var(--text-primary);
+      background: var(--bg-card);
+      font-weight: 800;
+    }
+
+    .love-related-tools a:hover {
+      border-color: #f43f5e;
+      color: #e11d48;
+    }
+
+    .flames-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+
+    .flames-table th {
+      background-color: #a855f7;
+      color: #ffffff;
+      text-align: center;
+      font-size: 13px;
+      padding: 0.75rem;
+      border: 1px solid var(--border-color);
+    }
+
+    .flames-table td {
+      text-align: center;
+      font-size: 13px;
+      padding: 0.75rem;
+      border: 1px solid var(--border-color);
+    }
+
+    @media (max-width: 768px) {
+      .flames-form-grid,
+      .love-related-tools {
+        grid-template-columns: 1fr;
+      }
+
+      .flames-widget {
+        padding: 1.4rem;
+      }
+
+      .flames-letters {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="nav-container">
+      <a href="/" class="logo">
+        <img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon">
+        <span>CalcuPortal</span>
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/about/" class="nav-link">About</a>
+        <a href="/contact/" class="nav-link">Contact</a>
+        <a href="/blog/" class="nav-link">Blog</a>
+        <button class="theme-btn" title="Toggle Theme">
+          <span class="theme-btn-icon"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="detail-container">
+
+      <div class="breadcrumbs">
+        <a href="/">Home</a>
+        <span class="separator">&rsaquo;</span>
+        <a href="/categories/love-relationship/">Love & Relationship Calculators</a>
+        <span class="separator">&rsaquo;</span>
+        <span class="current">FLAMES Calculator</span>
+      </div>
+
+      <div class="detail-header">
+        <h1>FLAMES Calculator Online</h1>
+      </div>
+
+      <div class="flames-widget">
+        <div class="flames-intro">
+          <h2>Free FLAMES Love Test</h2>
+          <p>Enter two names and check the classic FLAMES result online. This calculator shows one of six fun results: Friendship, Love, Affection, Marriage, Enemy, or Sibling.</p>
+        </div>
+
+        <div class="flames-letters">
+          <div class="flames-letter-card">
+            <strong>F</strong>
+            <span>Friendship</span>
+          </div>
+          <div class="flames-letter-card">
+            <strong>L</strong>
+            <span>Love</span>
+          </div>
+          <div class="flames-letter-card">
+            <strong>A</strong>
+            <span>Affection</span>
+          </div>
+          <div class="flames-letter-card">
+            <strong>M</strong>
+            <span>Marriage</span>
+          </div>
+          <div class="flames-letter-card">
+            <strong>E</strong>
+            <span>Enemy</span>
+          </div>
+          <div class="flames-letter-card">
+            <strong>S</strong>
+            <span>Sibling</span>
+          </div>
+        </div>
+
+        <div class="flames-form-grid">
+          <div class="flames-field">
+            <label for="firstName">Your Name</label>
+            <input type="text" id="firstName" placeholder="Enter your name">
+          </div>
+
+          <div class="flames-field">
+            <label for="secondName">Partner or Friend Name</label>
+            <input type="text" id="secondName" placeholder="Enter another name">
+          </div>
+        </div>
+
+        <button class="flames-btn" id="calculateFlames">Calculate FLAMES Result 🔥</button>
+
+        <div class="flames-result" id="flamesResult">
+          <div class="flames-result-icon" id="flamesIcon">🔥</div>
+          <div class="flames-result-word" id="flamesWord">Result</div>
+          <h2 id="flamesTitle">Your FLAMES Result</h2>
+          <p id="flamesMessage"></p>
+        </div>
+
+        <div class="flames-breakdown" id="flamesBreakdown"></div>
+
+        <div class="flames-disclaimer">
+          <strong>Disclaimer:</strong> This FLAMES Calculator is created for fun and entertainment purposes only. The result is not scientific and should not be treated as real relationship advice.
+        </div>
+      </div>
+
+      <section class="article-section">
+        <div class="article-header">
+          <h2>FLAMES Calculator Online Guide</h2>
+        </div>
+
+        <div class="article-content">
+          <h2>What is a FLAMES Calculator?</h2>
+          <p style="text-align: justify;">A FLAMES Calculator is a fun online tool based on the classic childhood FLAMES game. It checks the relationship-style result between two names and gives one result from Friendship, Love, Affection, Marriage, Enemy, or Sibling.</p>
+
+          <p style="text-align: justify;">The word FLAMES is made from six result categories. F stands for Friendship, L stands for Love, A stands for Affection, M stands for Marriage, E stands for Enemy, and S stands for Sibling. This calculator makes the classic game quick and easy to use online.</p>
+
+          <h2>How to Use the FLAMES Calculator</h2>
+          <p style="text-align: justify;">Using this FLAMES Calculator online is simple. Enter two names, click the calculate button, and the tool will instantly show the FLAMES result with a fun explanation.</p>
+
+          <ul>
+            <li>Enter your name in the first input box.</li>
+            <li>Enter your partner, crush, or friend name in the second input box.</li>
+            <li>Click the Calculate FLAMES Result button.</li>
+            <li>Check the result from Friendship, Love, Affection, Marriage, Enemy, or Sibling.</li>
+            <li>Use the result only for fun and entertainment.</li>
+          </ul>
+
+          <h2>FLAMES Full Form</h2>
+          <p style="text-align: justify;">FLAMES is a popular name-based relationship game. Each letter represents a possible relationship result. The table below shows the meaning of each FLAMES letter.</p>
+
+          <table class="flames-table">
+            <thead>
+              <tr>
+                <th>S.No</th>
+                <th>Letter</th>
+                <th>Full Form</th>
+                <th>Meaning</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>F</td>
+                <td>Friendship</td>
+                <td>A friendly and caring bond</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>L</td>
+                <td>Love</td>
+                <td>A sweet and romantic match</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>A</td>
+                <td>Affection</td>
+                <td>A warm and soft connection</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>M</td>
+                <td>Marriage</td>
+                <td>A playful future match result</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>E</td>
+                <td>Enemy</td>
+                <td>A funny opposite-style result</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>S</td>
+                <td>Sibling</td>
+                <td>A brother-sister style bond</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>How Does the FLAMES Game Work?</h2>
+          <p style="text-align: justify;">The classic FLAMES game removes common letters from two names and counts the remaining letters. That count is then used to remove letters from the word FLAMES until one final letter remains.</p>
+
+          <p style="text-align: justify;">This calculator follows the same playful idea in an online format. It cleans the names, compares letters, calculates the remaining count, and then gives the final FLAMES result instantly.</p>
+
+          <h2>FLAMES Calculator for Friends and Crush</h2>
+          <p style="text-align: justify;">You can use this FLAMES Calculator with a friend name, crush name, partner name, or any two names. Many users play this game for fun with classmates, friends, couples, or someone special.</p>
+
+          <p style="text-align: justify;">The result is only a game. Real relationships depend on communication, respect, trust, kindness, understanding, and emotional maturity.</p>
+
+          <h2>FLAMES Calculator vs Love Calculator</h2>
+          <p style="text-align: justify;">A Love Calculator usually shows a love percentage between two names. A FLAMES Calculator gives a category result such as Friendship, Love, Affection, Marriage, Enemy, or Sibling.</p>
+
+          <p style="text-align: justify;">On CalcuPortal, you can use the Love Calculator by Name for a percentage score, the Love Tester for a quiz-based compatibility score, and the FLAMES Calculator for the classic FLAMES result.</p>
+
+          <h2>Why Use CalcuPortal FLAMES Calculator?</h2>
+          <p style="text-align: justify;">CalcuPortal’s FLAMES Calculator is free, fast, and mobile-friendly. It works directly in your browser and does not require sign-up or app download.</p>
+
+          <p style="text-align: justify;">The tool is useful for users who want a quick FLAMES love test, friendship result, crush match, or fun name-based relationship game online.</p>
+
+          <h2>Related Love Tools</h2>
+          <div class="love-related-tools">
+            <a href="/calculators/love-calculator-by-name/">❤️ Love Calculator by Name</a>
+            <a href="/calculators/love-tester/">💘 Love Tester</a>
+          </div>
+
+          <h2>Important Note</h2>
+          <p style="text-align: justify;">This FLAMES Calculator is created only for entertainment. It does not predict love, friendship, marriage, relationship success, or emotional compatibility.</p>
+        </div>
+      </section>
+
+      <section class="faq-section">
+        <h2 class="faq-header">Frequently Asked Questions</h2>
+        <div class="faq-grid">
+
+          <div class="faq-item">
+            <h3 class="faq-question">What is a FLAMES Calculator?</h3>
+            <p class="faq-answer">A FLAMES Calculator is a fun online tool that checks a playful relationship result between two names using the classic FLAMES game.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">What is the full form of FLAMES?</h3>
+            <p class="faq-answer">FLAMES stands for Friendship, Love, Affection, Marriage, Enemy, and Sibling.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Is the FLAMES Calculator accurate?</h3>
+            <p class="faq-answer">No. The FLAMES Calculator is not scientifically accurate. It is made only for fun and entertainment.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Can I use FLAMES Calculator for my crush?</h3>
+            <p class="faq-answer">Yes. You can enter your name and your crush name to get a fun FLAMES result.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Does this FLAMES Calculator store names?</h3>
+            <p class="faq-answer">No. The calculator works in your browser and uses the names only to show the result on the page.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Is this FLAMES Calculator free?</h3>
+            <p class="faq-answer">Yes. This FLAMES Calculator is free to use online on CalcuPortal.</p>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="copyright-bar" style="border-top: none; padding-top: 0;">
+      © <span id="year">2026</span> CalcuPortal. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').innerText = new Date().getFullYear();
+
+    const firstNameInput = document.getElementById('firstName');
+    const secondNameInput = document.getElementById('secondName');
+    const calculateBtn = document.getElementById('calculateFlames');
+    const flamesResult = document.getElementById('flamesResult');
+    const flamesIcon = document.getElementById('flamesIcon');
+    const flamesWord = document.getElementById('flamesWord');
+    const flamesTitle = document.getElementById('flamesTitle');
+    const flamesMessage = document.getElementById('flamesMessage');
+    const flamesBreakdown = document.getElementById('flamesBreakdown');
+
+    const resultDetails = {
+      Friendship: {
+        icon: '🤝',
+        message: 'This FLAMES result shows a friendly bond. It is a sweet friendship-style match for fun.'
+      },
+      Love: {
+        icon: '❤️',
+        message: 'This FLAMES result shows Love. It is a playful romantic-style match result.'
+      },
+      Affection: {
+        icon: '💖',
+        message: 'This FLAMES result shows Affection. It suggests a warm and caring connection for fun.'
+      },
+      Marriage: {
+        icon: '💍',
+        message: 'This FLAMES result shows Marriage. It is a playful future-match result in the classic FLAMES game.'
+      },
+      Enemy: {
+        icon: '😅',
+        message: 'This FLAMES result shows Enemy. Do not worry, this is only a funny game result.'
+      },
+      Sibling: {
+        icon: '👫',
+        message: 'This FLAMES result shows Sibling. It is a playful brother-sister style result.'
+      }
+    };
+
+    function cleanName(name) {
+      return name.toLowerCase().replace(/[^a-z]/g, '');
+    }
+
+    function getRemainingLetterCount(name1, name2) {
+      let arr1 = cleanName(name1).split('');
+      let arr2 = cleanName(name2).split('');
+
+      for (let i = 0; i < arr1.length; i++) {
+        const index = arr2.indexOf(arr1[i]);
+
+        if (index !== -1) {
+          arr1.splice(i, 1);
+          arr2.splice(index, 1);
+          i--;
+        }
+      }
+
+      return arr1.length + arr2.length;
+    }
+
+    function calculateFlamesResult(count) {
+      const flames = ['Friendship', 'Love', 'Affection', 'Marriage', 'Enemy', 'Sibling'];
+
+      if (count === 0) {
+        count = 1;
+      }
+
+      let index = 0;
+
+      while (flames.length > 1) {
+        index = (index + count - 1) % flames.length;
+        flames.splice(index, 1);
+      }
+
+      return flames[0];
+    }
+
+    function showFlamesResult() {
+      const name1 = firstNameInput.value.trim();
+      const name2 = secondNameInput.value.trim();
+
+      if (!name1 || !name2) {
+        flamesResult.style.display = 'block';
+        flamesBreakdown.style.display = 'none';
+        flamesIcon.innerText = '🔥';
+        flamesWord.innerText = 'Enter Names';
+        flamesTitle.innerText = 'Enter Both Names';
+        flamesMessage.innerText = 'Please enter both names to calculate the FLAMES result.';
+        return;
+      }
+
+      const count = getRemainingLetterCount(name1, name2);
+      const finalResult = calculateFlamesResult(count);
+      const details = resultDetails[finalResult];
+
+      flamesResult.style.display = 'block';
+      flamesBreakdown.style.display = 'block';
+
+      flamesIcon.innerText = details.icon;
+      flamesWord.innerText = finalResult;
+      flamesTitle.innerText = name1 + ' + ' + name2;
+      flamesMessage.innerText = details.message;
+
+      flamesBreakdown.innerHTML = '<strong>Calculation Note:</strong> After removing common letters from both names, the remaining letter count is <strong>' + count + '</strong>. This count is used in the classic FLAMES elimination method to get the final result.';
+    }
+
+    calculateBtn.addEventListener('click', showFlamesResult);
+
+    firstNameInput.addEventListener('keydown', function(event) {
+      if (event.key === 'Enter') {
+        showFlamesResult();
+      }
+    });
+
+    secondNameInput.addEventListener('keydown', function(event) {
+      if (event.key === 'Enter') {
+        showFlamesResult();
+      }
+    });
+  </script>
+
+</body>
+</html>
