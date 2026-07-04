@@ -1,1 +1,715 @@
+<!DOCTYPE html>
 
+<html lang="en">
+<head>
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="shortcut icon" href="/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Love Calculator by Name - Free Love Percentage Calculator</title>
+  <meta name="description" content="Use the free Love Calculator by Name to check love percentage, name compatibility, crush match, and fun relationship score instantly online.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.calcuportal.com/calculators/love-calculator-by-name/">
+
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/script.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Love Calculator by Name",
+    "url": "https://www.calcuportal.com/calculators/love-calculator-by-name/",
+    "applicationCategory": "EntertainmentApplication",
+    "operatingSystem": "All",
+    "description": "Free Love Calculator by Name to check love percentage, name compatibility, crush match, and playful relationship score online.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a Love Calculator by Name?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A Love Calculator by Name is a fun online tool that calculates a playful love percentage between two names. It is made for entertainment and should not be treated as scientific relationship advice."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the love calculator by name work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The love calculator uses the two names entered by the user and applies a playful name-based calculation to generate a love percentage and compatibility message."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this love percentage calculator accurate?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. This love percentage calculator is not scientifically accurate. It is designed only for fun, entertainment, and friendly sharing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use this love calculator for my crush?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. You can enter your name and your crush name to get a playful love percentage result. The result should be used only for fun."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does this love calculator store names?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The calculator works directly in your browser and does not require sign-up. The names are used only to show the result on the page."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this Love Calculator by Name free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. CalcuPortal Love Calculator by Name is free to use online on mobile, tablet, and desktop browsers."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    .love-widget {
+      background: linear-gradient(135deg, #fff1f2 0%, #ffffff 52%, #fdf2f8 100%);
+      border: 1px solid rgba(244, 114, 182, 0.32);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    [data-theme="dark"] .love-widget {
+      background: linear-gradient(135deg, #190711 0%, #0b0f19 55%, #1e1020 100%);
+      border-color: rgba(244, 114, 182, 0.28);
+    }
+
+    .love-widget::before {
+      content: "♥";
+      position: absolute;
+      right: 1.5rem;
+      top: -1.2rem;
+      font-size: 7.5rem;
+      color: rgba(244, 63, 94, 0.08);
+      font-family: serif;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .love-tool-intro {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .love-tool-intro h2 {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 850;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .love-tool-intro p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      text-align: justify;
+      margin-bottom: 0;
+    }
+
+    .love-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .love-field label {
+      display: block;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      font-family: var(--font-heading);
+    }
+
+    .love-field input {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      border: 1px solid rgba(244, 114, 182, 0.38);
+      border-radius: 0.9rem;
+      font-size: 1rem;
+      background: var(--bg-card);
+      color: var(--text-primary);
+      outline: none;
+      font-family: var(--font-sans);
+      transition: all 0.2s ease;
+    }
+
+    .love-field input:focus {
+      border-color: #f43f5e;
+      box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.12);
+    }
+
+    .love-btn {
+      width: 100%;
+      padding: 0.95rem 1.2rem;
+      border: none;
+      border-radius: 0.9rem;
+      background: linear-gradient(135deg, #f43f5e 0%, #a855f7 100%);
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 12px 28px rgba(244, 63, 94, 0.18);
+      transition: transform 0.15s ease, opacity 0.15s ease;
+      position: relative;
+      z-index: 1;
+      font-family: var(--font-heading);
+    }
+
+    .love-btn:hover {
+      transform: translateY(-1px);
+      opacity: 0.95;
+    }
+
+    .love-result {
+      display: none;
+      margin-top: 2rem;
+      padding: 1.5rem;
+      border-radius: 1.25rem;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(244, 114, 182, 0.28);
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    [data-theme="dark"] .love-result {
+      background: rgba(15, 23, 42, 0.78);
+    }
+
+    .love-score-circle {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      background: conic-gradient(#f43f5e 0deg, #f43f5e var(--score-angle), rgba(244, 114, 182, 0.18) var(--score-angle), rgba(244, 114, 182, 0.18) 360deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: 0 12px 30px rgba(244, 63, 94, 0.14);
+    }
+
+    .love-score-circle::before {
+      content: "";
+      position: absolute;
+      width: 112px;
+      height: 112px;
+      border-radius: 50%;
+      background: var(--bg-card);
+    }
+
+    .love-score {
+      position: relative;
+      z-index: 1;
+      font-size: 2.2rem;
+      font-weight: 950;
+      color: #f43f5e;
+      font-family: var(--font-heading);
+    }
+
+    .love-result h2 {
+      font-family: var(--font-heading);
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+    }
+
+    .love-result p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 0;
+      text-align: center;
+    }
+
+    .love-names {
+      font-weight: 850;
+      color: #e11d48;
+    }
+
+    .love-result-tags {
+      display: flex;
+      justify-content: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .love-result-tags span {
+      background: rgba(244, 63, 94, 0.1);
+      color: #e11d48;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
+    .love-disclaimer {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: rgba(244, 63, 94, 0.08);
+      border: 1px solid rgba(244, 63, 94, 0.18);
+      border-radius: 1rem;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      text-align: justify;
+      position: relative;
+      z-index: 1;
+    }
+
+    .love-related-tools {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .love-related-tools a {
+      display: block;
+      padding: 1rem;
+      border: 1px solid rgba(244, 114, 182, 0.25);
+      border-radius: 1rem;
+      text-decoration: none;
+      color: var(--text-primary);
+      background: var(--bg-card);
+      font-weight: 800;
+      transition: all 0.2s ease;
+    }
+
+    .love-related-tools a:hover {
+      border-color: #f43f5e;
+      color: #e11d48;
+      transform: translateY(-2px);
+    }
+
+    .love-seo-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      overflow: hidden;
+      border-radius: 0.8rem;
+    }
+
+    .love-seo-table th {
+      background-color: #a855f7;
+      color: #ffffff;
+      text-align: center;
+      font-size: 13px;
+      padding: 0.75rem;
+      border: 1px solid var(--border-color);
+    }
+
+    .love-seo-table td {
+      text-align: center;
+      font-size: 13px;
+      padding: 0.75rem;
+      border: 1px solid var(--border-color);
+    }
+
+    @media (max-width: 768px) {
+      .love-form-grid,
+      .love-related-tools {
+        grid-template-columns: 1fr;
+      }
+
+      .love-widget {
+        padding: 1.4rem;
+      }
+
+      .love-score-circle {
+        width: 132px;
+        height: 132px;
+      }
+
+      .love-score-circle::before {
+        width: 98px;
+        height: 98px;
+      }
+
+      .love-score {
+        font-size: 1.9rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="/" class="logo">
+        <img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon">
+        <span>CalcuPortal</span>
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/about/" class="nav-link">About</a>
+        <a href="/contact/" class="nav-link">Contact</a>
+        <a href="/blog/" class="nav-link">Blog</a>
+        <button class="theme-btn" title="Toggle Theme">
+          <span class="theme-btn-icon"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="detail-container">
+
+      <!-- Breadcrumbs -->
+      <div class="breadcrumbs">
+        <a href="/">Home</a>
+        <span class="separator">&rsaquo;</span>
+        <a href="/categories/love-relationship/">Love & Relationship Calculators</a>
+        <span class="separator">&rsaquo;</span>
+        <span class="current">Love Calculator by Name</span>
+      </div>
+
+      <div class="detail-header">
+        <h1>Love Calculator by Name</h1>
+      </div>
+
+      <!-- Calculator Widget -->
+      <div class="love-widget">
+        <div class="love-tool-intro">
+          <h2>Free Love Percentage Calculator</h2>
+          <p>Enter your name and your partner, crush, or friend name to check a fun love percentage and playful compatibility result. This love calculator by name is made for entertainment and friendly sharing.</p>
+        </div>
+
+        <div class="love-form-grid">
+          <div class="love-field">
+            <label for="yourName">Your Name</label>
+            <input type="text" id="yourName" placeholder="Enter your name">
+          </div>
+
+          <div class="love-field">
+            <label for="partnerName">Partner Name</label>
+            <input type="text" id="partnerName" placeholder="Enter partner or crush name">
+          </div>
+        </div>
+
+        <button class="love-btn" id="calculateLove">Calculate Love Percentage ❤️</button>
+
+        <div class="love-result" id="loveResult">
+          <div class="love-score-circle" id="scoreCircle">
+            <div class="love-score" id="loveScore">0%</div>
+          </div>
+
+          <h2 id="loveTitle">Your Love Result</h2>
+          <p id="loveMessage"></p>
+
+          <div class="love-result-tags">
+            <span>Love Score</span>
+            <span>Name Match</span>
+            <span>Fun Result</span>
+          </div>
+        </div>
+
+        <div class="love-disclaimer">
+          <strong>Disclaimer:</strong> This Love Calculator by Name is created for fun and entertainment purposes only. The result is not scientific and should not be treated as real relationship advice.
+        </div>
+      </div>
+
+      <!-- SEO Article -->
+      <section class="article-section">
+        <div class="article-header">
+          <h2>Love Calculator by Name Guide</h2>
+        </div>
+
+        <div class="article-content">
+          <h2>What is a Love Calculator by Name?</h2>
+          <p style="text-align: justify;">A Love Calculator by Name is a fun online tool that checks a playful love percentage between two names. Users enter their name and another person’s name, and the tool displays a love score with a friendly compatibility message.</p>
+
+          <p style="text-align: justify;">This type of love percentage calculator is popular among users who want to check a fun name match with a partner, crush, friend, or special person. The result is designed for entertainment and should not be used as real relationship advice.</p>
+
+          <h2>How to Use the Love Calculator by Name</h2>
+          <p style="text-align: justify;">Using this love calculator online is simple. You only need to enter two names and click the calculate button. The calculator will instantly show a playful love percentage and a short match message.</p>
+
+          <ul>
+            <li>Enter your name in the first input box.</li>
+            <li>Enter your partner, crush, or friend name in the second input box.</li>
+            <li>Click the calculate love percentage button.</li>
+            <li>View your love score and compatibility message.</li>
+            <li>Share the result with friends for fun if you want.</li>
+          </ul>
+
+          <h2>Love Percentage Calculator</h2>
+          <p style="text-align: justify;">A love percentage calculator gives a score between 0% and 100% based on the names entered by the user. A higher score gives a more positive and playful match message, while a lower score gives a lighter entertainment result.</p>
+
+          <p style="text-align: justify;">The score is not based on real emotions, psychology, astrology, or relationship science. It is a fun calculation created to make the page interactive and enjoyable for users searching for a love calculator by name.</p>
+
+          <h2>Love Compatibility by Name</h2>
+          <p style="text-align: justify;">Love compatibility by name is a popular entertainment search where users check whether two names look like a good match. This tool provides a quick result without asking for personal details, photos, phone numbers, or sign-up information.</p>
+
+          <p style="text-align: justify;">You can use the calculator for couples, crush names, friendship matches, or playful relationship checks. The result should always be taken lightly because real relationships depend on trust, communication, respect, care, and understanding.</p>
+
+          <h2>Love Calculator for Crush Name</h2>
+          <p style="text-align: justify;">Many users search for a love calculator for crush name to check a fun match score with someone they like. This tool lets you enter your name and your crush name to generate a playful love score instantly.</p>
+
+          <p style="text-align: justify;">The calculator does not tell whether your crush likes you or not. It only creates a fun result based on the names entered. If you are using it with friends, treat the result as a light-hearted game.</p>
+
+          <h2>Love Tester Online</h2>
+          <p style="text-align: justify;">A love tester online is another name for a love calculator that shows a relationship score or match result. Some users call it a love meter, love test, love percentage test, or name compatibility test.</p>
+
+          <p style="text-align: justify;">CalcuPortal’s love calculator is built to be simple, fast, and mobile-friendly. It works directly in your browser and does not require an app download.</p>
+
+          <h2>Love Calculator Result Meaning</h2>
+          <p style="text-align: justify;">The love score shown by this calculator is only a fun interpretation. You can use the table below to understand the playful meaning of different score ranges.</p>
+
+          <table class="love-seo-table">
+            <thead>
+              <tr>
+                <th>S.No</th>
+                <th>Love Score</th>
+                <th>Fun Meaning</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>90% - 100%</td>
+                <td>Magical match and super sweet connection</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>75% - 89%</td>
+                <td>Strong and lovely compatibility</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>60% - 74%</td>
+                <td>Warm bond with a cute spark</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>45% - 59%</td>
+                <td>Playful match for fun and smiles</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Below 45%</td>
+                <td>Light match score for entertainment only</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>Why Use CalcuPortal Love Calculator?</h2>
+          <p style="text-align: justify;">CalcuPortal’s Love Calculator by Name is free, simple, and easy to use. You can calculate a fun love percentage without creating an account or installing an app. The page is designed for quick use on mobile, tablet, and desktop devices.</p>
+
+          <p style="text-align: justify;">The calculator is suitable for users who want a fun love test, name match, crush compatibility result, or playful relationship score. It also includes a clear disclaimer so users understand that the result is not scientific.</p>
+
+          <h2>Important Note</h2>
+          <p style="text-align: justify;">This love calculator is created for entertainment and casual use. It does not measure real love, emotions, relationship quality, marriage compatibility, or future relationship success. Healthy relationships depend on honesty, trust, communication, emotional maturity, and mutual respect.</p>
+
+          <h2>Related Love Tools</h2>
+          <div class="love-related-tools">
+            <a href="/calculators/love-tester/">💘 Love Tester</a>
+            <a href="/calculators/flames-calculator/">💞 FLAMES Calculator</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="faq-section">
+        <h2 class="faq-header">Frequently Asked Questions</h2>
+        <div class="faq-grid">
+
+          <div class="faq-item">
+            <h3 class="faq-question">What is a Love Calculator by Name?</h3>
+            <p class="faq-answer">A Love Calculator by Name is a fun online tool that calculates a playful love percentage between two names. It is made for entertainment and should not be treated as scientific relationship advice.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">How does the love calculator by name work?</h3>
+            <p class="faq-answer">The love calculator uses the two names entered by the user and applies a playful name-based calculation to generate a love percentage and compatibility message.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Is this love percentage calculator accurate?</h3>
+            <p class="faq-answer">No. This love percentage calculator is not scientifically accurate. It is designed only for fun, entertainment, and friendly sharing.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Can I use this love calculator for my crush?</h3>
+            <p class="faq-answer">Yes. You can enter your name and your crush name to get a playful love percentage result. The result should be used only for fun.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Does this love calculator store names?</h3>
+            <p class="faq-answer">No. The calculator works directly in your browser and does not require sign-up. The names are used only to show the result on the page.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Is this Love Calculator by Name free?</h3>
+            <p class="faq-answer">Yes. CalcuPortal Love Calculator by Name is free to use online on mobile, tablet, and desktop browsers.</p>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="copyright-bar" style="border-top: none; padding-top: 0;">
+      © <span id="year">2026</span> CalcuPortal. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').innerText = new Date().getFullYear();
+
+    const yourNameInput = document.getElementById('yourName');
+    const partnerNameInput = document.getElementById('partnerName');
+    const calculateBtn = document.getElementById('calculateLove');
+    const loveResult = document.getElementById('loveResult');
+    const loveScore = document.getElementById('loveScore');
+    const scoreCircle = document.getElementById('scoreCircle');
+    const loveTitle = document.getElementById('loveTitle');
+    const loveMessage = document.getElementById('loveMessage');
+
+    function cleanName(name) {
+      return name.trim().toLowerCase().replace(/[^a-z]/g, '');
+    }
+
+    function getLoveScore(name1, name2) {
+      const cleanedName1 = cleanName(name1);
+      const cleanedName2 = cleanName(name2);
+      const combined = cleanedName1 + 'loves' + cleanedName2;
+
+      if (!cleanedName1 || !cleanedName2) {
+        return 0;
+      }
+
+      let hash = 0;
+
+      for (let i = 0; i < combined.length; i++) {
+        hash = ((hash << 5) - hash) + combined.charCodeAt(i);
+        hash = hash & hash;
+      }
+
+      let score = Math.abs(hash % 101);
+
+      const loveLetters = 'love';
+      let bonus = 0;
+
+      for (let char of combined) {
+        if (loveLetters.includes(char)) {
+          bonus += 2;
+        }
+      }
+
+      score = Math.min(100, score + bonus);
+
+      if (score < 35) {
+        score += 25;
+      }
+
+      if (score > 100) {
+        score = 100;
+      }
+
+      return score;
+    }
+
+    function getLoveMessage(score, name1, name2) {
+      if (score >= 90) {
+        return `${name1} and ${name2} have a magical match! This looks like a super sweet love score.`;
+      }
+
+      if (score >= 75) {
+        return `${name1} and ${name2} have a strong and lovely connection. This is a cute match result!`;
+      }
+
+      if (score >= 60) {
+        return `${name1} and ${name2} share a warm and friendly bond. There is a nice spark here.`;
+      }
+
+      if (score >= 45) {
+        return `${name1} and ${name2} have a playful match. Keep smiling and enjoy the fun result.`;
+      }
+
+      return `${name1} and ${name2} got a light match score. Remember, this is just for fun and entertainment.`;
+    }
+
+    calculateBtn.addEventListener('click', () => {
+      const name1 = yourNameInput.value.trim();
+      const name2 = partnerNameInput.value.trim();
+
+      if (!name1 || !name2) {
+        loveResult.style.display = 'block';
+        loveScore.textContent = '0%';
+        scoreCircle.style.setProperty('--score-angle', '0deg');
+        loveTitle.textContent = 'Enter Both Names';
+        loveMessage.textContent = 'Please enter both names to calculate a fun love percentage.';
+        return;
+      }
+
+      const score = getLoveScore(name1, name2);
+      const angle = score * 3.6;
+
+      loveResult.style.display = 'block';
+      loveScore.textContent = score + '%';
+      scoreCircle.style.setProperty('--score-angle', angle + 'deg');
+      loveTitle.innerHTML = `<span class="love-names">${name1}</span> ❤ <span class="love-names">${name2}</span>`;
+      loveMessage.textContent = getLoveMessage(score, name1, name2);
+    });
+
+    [yourNameInput, partnerNameInput].forEach(input => {
+      input.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+          calculateBtn.click();
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
