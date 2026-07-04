@@ -1,0 +1,119 @@
+# CalcuPortal
+
+> CalcuPortal (https://www.calcuportal.com) is a free online calculator platform offering 100+ fast, accurate, mobile-friendly tools across finance, health & fitness, math, date & age, unit conversions, and games. Each calculator includes instructions, formulas, and FAQs. All results are for educational purposes only and are not a substitute for professional financial or medical advice.
+
+Key facts:
+- 100+ free calculators organized into 6 categories
+- No sign-up required; all tools run instantly in the browser
+- Every tool page includes usage instructions, underlying formulas, and FAQs
+
+## Main Pages
+
+- [Home](https://www.calcuportal.com/): Overview of all calculator categories with search
+- [All Calculators](https://www.calcuportal.com/calculators/): Full alphabetical directory of all 100+ tools
+- [Blog](https://www.calcuportal.com/blog/): Articles and guides related to calculations
+- [About Us](https://www.calcuportal.com/about/): Information about CalcuPortal
+- [Contact Us](https://www.calcuportal.com/contact/): Contact form and details
+
+## Categories
+
+- [Date & Age Calculators](https://www.calcuportal.com/categories/date-age/): Age milestones, date differences, work hours, durations, birthdays (10 tools)
+- [Health & Fitness Calculators](https://www.calcuportal.com/categories/health-fitness/): BMI, calorie needs, pregnancy tracking, TDEE (10 tools)
+- [Finance & Loan Calculators](https://www.calcuportal.com/categories/finance/): Compound interest, loan EMIs, auto loans, mortgages, inflation, income tax (16 tools)
+- [Scientific & Math Tools](https://www.calcuportal.com/categories/math/): Algebra, long division, GPA, fractions, standard deviation (15 tools)
+- [Conversions & Unit Tools](https://www.calcuportal.com/categories/conversions/): Millions to crores, feet to meters, pounds to kg, numbers to words (13 tools)
+- [Games & Fun Tools](https://www.calcuportal.com/categories/games/): Dice roller, bingo numbers, lottery numbers, password generator (5 tools)
+
+## Finance & Loan Calculators
+
+- [Loan EMI Calculator](https://www.calcuportal.com/calculators/loan-emi-calculator/): Monthly equated installments, interest payable, and total loan payment
+- [Mortgage Calculator](https://www.calcuportal.com/calculators/mortgage-calculator/): Monthly mortgage payments with taxes and insurance
+- [Auto Loan Calculator](https://www.calcuportal.com/calculators/auto-loan-calculator/): Monthly car payments with down payment and trade-in
+- [Loan Amortization Calculator](https://www.calcuportal.com/calculators/amortization-calculator/): Full amortization schedule with principal/interest breakdown
+- [Compound Interest Calculator](https://www.calcuportal.com/calculators/compound-interest-calculator/): Money growth with compounding and monthly deposits
+- [Investment Calculator](https://www.calcuportal.com/calculators/investment-calculator/): Future investment value with monthly contributions
+- [IRR Calculator](https://www.calcuportal.com/calculators/irr-calculator/): Internal Rate of Return for annual cash flows
+- [Inflation Calculator](https://www.calcuportal.com/calculators/inflation-calculator/): Future buying power adjusted for inflation
+- [Income Tax Calculator](https://www.calcuportal.com/calculators/income-tax-calculator/): Federal tax brackets, deductions, take-home pay
+- [Credit Card Payoff Calculator](https://www.calcuportal.com/calculators/credit-card-payoff/): Debt payoff time by interest rate and payment
+- [Discount & Savings Calculator](https://www.calcuportal.com/calculators/discount-calculator/): Sale prices, markdowns, percentage savings, sales tax
+- [Sales Tax Calculator](https://www.calcuportal.com/calculators/sales-tax-calculator/): Total retail cost and tax amount
+- [Profit & Margin Calculator](https://www.calcuportal.com/calculators/profit-calculator/): Profit, markup ratios, and margins
+- [Electricity Cost Calculator](https://www.calcuportal.com/calculators/electricity-calculator/): Appliance electricity cost by wattage, hours, and rate
+- [Fuel Cost Calculator](https://www.calcuportal.com/calculators/fuel-cost-calculator/): Trip fuel cost from distance, efficiency, and price
+- [Gas Mileage Calculator](https://www.calcuportal.com/calculators/mileage-calculator/): Vehicle MPG or km/L from distance and fuel used
+
+## Health & Fitness Calculators
+
+- [BMI Calculator](https://www.calcuportal.com/calculators/bmi-calculator/): Body Mass Index with weight-category ranges
+- [BMR Calculator](https://www.calcuportal.com/calculators/bmr-calculator/): Basal Metabolic Rate using Mifflin-St Jeor
+- [Calorie Intake & BMR Calculator](https://www.calcuportal.com/calculators/calorie-calculator/): Daily caloric needs for maintenance, loss, or gain
+- [TDEE Calculator](https://www.calcuportal.com/calculators/tdee-calculator/): Total Daily Energy Expenditure from BMR and activity
+- [Calorie Burn MET Calculator](https://www.calcuportal.com/calculators/calorie-burn-met-calculator/): Workout calories burned using MET ratings
+- [Body Fat Calculator](https://www.calcuportal.com/calculators/body-fat-calculator/): Body fat percentage via US Navy tape method
+- [Ideal Weight Calculator](https://www.calcuportal.com/calculators/ideal-weight-calculator/): Ideal weight range via Devine and Robinson formulas
+- [Pregnancy Due Date Calculator](https://www.calcuportal.com/calculators/pregnancy-calculator/): Due date and gestational age from LMP
+- [Running Pace Calculator](https://www.calcuportal.com/calculators/pace-calculator/): Average pace, duration, or distance for runs
+- [Weight Watchers Points Calculator](https://www.calcuportal.com/calculators/weight-watchers-points/): Dietary points from calories, fat, and fiber
+
+## Date & Age Calculators
+
+- [Online Age Calculator](https://www.calcuportal.com/calculators/age-calculator/): Exact age in years, months, days, plus birthday countdown
+- [Age Difference Calculator](https://www.calcuportal.com/calculators/age-difference-calculator/): Exact age gap between two birthdays
+- [Date & Calendar Calculator](https://www.calcuportal.com/calculators/date-calculator/): Days between dates; add/subtract time from a date
+- [Day Counter](https://www.calcuportal.com/calculators/day-counter/): Exact days between two dates
+- [Day of Week Finder](https://www.calcuportal.com/calculators/time-date-day/): Weekday for any calendar date
+- [Time Duration Calculator](https://www.calcuportal.com/calculators/time-duration/): Elapsed hours and minutes between two times
+- [Time Add & Subtract Calculator](https://www.calcuportal.com/calculators/time-time-calculator/): Add/subtract days, hours, minutes from a time
+- [Time How Old Am I](https://www.calcuportal.com/calculators/time-how-old-am-i/): Exact age in years down to seconds, realtime
+- [Time Age Checker](https://www.calcuportal.com/calculators/time-age-checker/): Verify age thresholds (18+, 21+) from birthday
+- [Work Hours Calculator](https://www.calcuportal.com/calculators/time-work-hours/): Daily/weekly work hours, breaks, and gross pay
+
+## Scientific & Math Tools
+
+- [Scientific Calculator](https://www.calcuportal.com/calculators/scientific-calculator/): Trigonometry, logarithms, exponents, and roots
+- [Percentage Calculator](https://www.calcuportal.com/calculators/percentage-calculator/): Percentages, proportions, and percentage changes
+- [Fraction Calculator](https://www.calcuportal.com/calculators/fraction-calculator/): Add, subtract, multiply, divide fractions with simplified answers
+- [Long Division Calculator](https://www.calcuportal.com/calculators/math-long-division/): Quotients and remainders instantly
+- [Remainder Calculator](https://www.calcuportal.com/calculators/remainder-calculator/): Division remainders for modular arithmetic
+- [HCF & LCM Calculator](https://www.calcuportal.com/calculators/hcf-calculator/): Highest Common Factor and Least Common Multiple
+- [Rounding Calculator](https://www.calcuportal.com/calculators/rounding-calculator/): Round decimals/fractions up, down, or nearest
+- [Rounding Numbers Calculator](https://www.calcuportal.com/calculators/math-rounding-numbers/): Round to nearest unit, ten, hundred, thousand, or decimal
+- [Big Number Calculator](https://www.calcuportal.com/calculators/big-number-calculator/): Arithmetic on extremely large numbers
+- [Standard Deviation Calculator](https://www.calcuportal.com/calculators/standard-deviation-calculator/): Population/sample SD, variance, and mean
+- [Statistics Percentile Calculator](https://www.calcuportal.com/calculators/statistics-percentile/): k-th percentile for any data set
+- [GPA Calculator](https://www.calcuportal.com/calculators/gpa-calculator/): Semester GPA from credits and grade letters
+- [CGPA Calculator](https://www.calcuportal.com/calculators/cgpa-calculator/): Cumulative GPA from semester marks
+- [Class Grade Calculator](https://www.calcuportal.com/calculators/grade-calculator/): Current grade average and required final-exam score
+- [Square Footage Calculator](https://www.calcuportal.com/calculators/square-footage-calculator/): Room area from length and width
+
+## Conversions & Unit Tools
+
+- [Million to Crore Converter](https://www.calcuportal.com/calculators/million-to-crore/): Millions to Indian crore format
+- [Million to Rupees Converter](https://www.calcuportal.com/calculators/million-to-rupees/): Millions to INR with lakhs and crores
+- [Billion to Rupees Converter](https://www.calcuportal.com/calculators/billion-to-rupees/): Billions to INR in crores and lakhs
+- [Numbers to Words Converter](https://www.calcuportal.com/calculators/conversions-numbers-to-words/): Numbers to English words, supports large numbers and decimals
+- [Meters to Feet Converter](https://www.calcuportal.com/calculators/meter-to-feet/): Meters to feet and vice versa
+- [Centimeters to Meters Converter](https://www.calcuportal.com/calculators/centimeter-to-meter/): Cm to m and back
+- [Height Ft to Cm Converter](https://www.calcuportal.com/calculators/conversions-height-ft-cm/): Feet/inches to centimeters
+- [Square Meters to Square Feet](https://www.calcuportal.com/calculators/square-meter-to-square-feet/): Area conversion for real estate and flooring
+- [Pounds to Kilograms Converter](https://www.calcuportal.com/calculators/lbs-to-kg-converter/): Lbs to kg and back
+- [Gallons to Liters Converter](https://www.calcuportal.com/calculators/gallons-to-liters/): US gallons to liters and back
+- [Pressure Units Converter](https://www.calcuportal.com/calculators/conversions-pressure/): PSI, Bar, Pascal, and Atmospheres
+- [Time Unit Converter](https://www.calcuportal.com/calculators/conversions-time/): Seconds through years
+- [Roman Numeral Date Converter](https://www.calcuportal.com/calculators/conversions-roman-numeral-date-converter/): Dates to Roman numerals
+
+## Games & Fun Tools
+
+- [Random Number Generator](https://www.calcuportal.com/calculators/random-number-generator/): Random integers in custom ranges
+- [Dice Roller](https://www.calcuportal.com/calculators/games-dice-roller/): Roll customizable 6-sided dice
+- [Bingo Number Generator](https://www.calcuportal.com/calculators/games-bingo-number-generator/): Random bingo calls 1–75 with draw history
+- [Lottery Number Generator](https://www.calcuportal.com/calculators/games-lottery-number-generator/): Random lottery numbers with custom range and count
+- [Secure Password Generator](https://www.calcuportal.com/calculators/password-generator/): Strong randomized passwords
+
+## Optional
+
+- [Privacy Policy](https://www.calcuportal.com/privacy-policy/): How user data is handled
+- [Disclaimer](https://www.calcuportal.com/disclaimer/): Educational-use-only notice for all calculations
+- [Terms & Conditions](https://www.calcuportal.com/terms-conditions): Site usage terms
+- [Advertise](https://www.calcuportal.com/advertise/): Advertising opportunities on CalcuPortal
