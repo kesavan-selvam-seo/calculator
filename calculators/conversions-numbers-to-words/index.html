@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +8,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Numbers to Words Converter Online | Indian Rupees & Multi Language</title>
-  <meta name="description" content="Use the free numbers to words converter to translate numbers to words in English, Hindi, Telugu, Tamil and Malayalam. Convert amounts into Indian rupees, paise and words instantly.">
+  <title>Numbers to Words Converter Online | Rupees & Amount in Words</title>
+  <meta name="description" content="Use our free numbers to words converter to convert numbers, amounts, rupees and paise into words. Supports Indian system, lakh, crore, English, Hindi, Telugu, Tamil and Malayalam.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.calcuportal.com/calculators/conversions-numbers-to-words/">
 
@@ -19,7 +18,7 @@
 
   <style>
     .numbers-to-words-widget {
-      max-width: 520px;
+      max-width: 540px;
       margin-left: auto;
       margin-right: auto;
       text-align: center;
@@ -29,12 +28,15 @@
       font-size: 1.35rem;
       line-height: 1.35;
       margin-bottom: 1.25rem;
-      text-align: left;
+      text-align: center;
     }
 
     .numbers-to-words-widget .tool-title span {
-      font-size: 1.05rem;
+      display: block;
+      margin-top: 0.35rem;
+      font-size: 1rem;
       font-weight: 500;
+      color: var(--text-muted);
     }
 
     .number-word-form {
@@ -44,10 +46,9 @@
     }
 
     .number-word-form .input-field,
-    .number-word-form .select-field,
-    .number-word-form .textarea-field {
+    .number-word-form .select-field {
       width: 100%;
-      max-width: 360px;
+      max-width: 420px;
       padding: 13px 15px;
       border: 1px solid #d1d5db;
       border-radius: 10px;
@@ -59,14 +60,16 @@
       box-sizing: border-box;
     }
 
-    .number-word-form .textarea-field {
-      min-height: 92px;
-      resize: vertical;
+    .number-size-input {
+      height: 54px;
+      min-height: 54px;
+      line-height: 1.3;
+      font-size: 1.05rem;
+      text-align: left;
     }
 
     .number-word-form .input-field:focus,
-    .number-word-form .select-field:focus,
-    .number-word-form .textarea-field:focus {
+    .number-word-form .select-field:focus {
       border-color: #ff6b35;
       box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.15);
     }
@@ -81,7 +84,7 @@
 
     .helper-text {
       width: 100%;
-      max-width: 360px;
+      max-width: 420px;
       margin-top: -0.5rem;
       font-size: 0.86rem;
       line-height: 1.45;
@@ -126,8 +129,13 @@
     }
 
     .seo-table th {
-      background: #f5f5f5;
+      background: #a855f7;
+      color: #ffffff;
       font-weight: 700;
+    }
+
+    .article-content p {
+      text-align: justify;
     }
 
     @media (max-width: 480px) {
@@ -137,7 +145,6 @@
 
       .number-word-form .input-field,
       .number-word-form .select-field,
-      .number-word-form .textarea-field,
       .helper-text {
         max-width: 100%;
       }
@@ -148,6 +155,7 @@
     }
   </style>
 
+  <!-- FAQ Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -158,31 +166,31 @@
         "name": "What is a numbers to words converter?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A numbers to words converter is an online tool that changes numeric values into written words. It helps users write numbers clearly for cheques, invoices, receipts, school work, banking forms and business documents."
+          "text": "A numbers to words converter is an online tool that changes numbers into written words. It is useful for cheques, invoices, receipts, banking forms, school work, accounting and business documents."
         }
       },
       {
         "@type": "Question",
-        "name": "Can I use this as a numbers to words converter Indian rupees tool?",
+        "name": "How do I convert numbers to words in Indian rupees?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. This tool can convert numbers into Indian rupees and paise format, such as One Lakh Twenty Five Thousand Rupees Only. It is useful for cheque writing, invoices and payment records."
+          "text": "Enter the amount, choose English, select Indian System and Indian Rupees Format, then click convert. The tool will show the amount in rupees and paise words."
         }
       },
       {
         "@type": "Question",
-        "name": "Can I translate numbers to words in Hindi, Telugu, Tamil and Malayalam?",
+        "name": "Can I use this tool for cheque amount in words?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. The converter supports number to words output in English, Hindi, Telugu, Tamil and Malayalam for common number conversion needs."
+          "text": "Yes. You can use this tool to convert cheque amounts into words in Indian rupees format, such as One Lakh Twenty Five Thousand Rupees Only."
         }
       },
       {
         "@type": "Question",
-        "name": "How do I write numbers in words in English rupees?",
+        "name": "Can I convert decimal numbers into words?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Enter the amount, choose Indian Rupees Format and select English. The tool will show the amount in words using rupees and paise where applicable."
+          "text": "Yes. The converter supports decimal numbers. In rupees format, the decimal part is converted into paise. For example, 1250.75 becomes One Thousand Two Hundred Fifty Rupees and Seventy Five Paise Only."
         }
       },
       {
@@ -192,11 +200,56 @@
           "@type": "Answer",
           "text": "The Indian number system uses lakh and crore, while the international number system uses million and billion. For example, 1000000 is Ten Lakh in Indian format and One Million in international format."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I translate numbers to words in Hindi, Telugu, Tamil and Malayalam?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. This converter supports number to words output in English, Hindi, Telugu, Tamil and Malayalam for common number conversion needs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this numbers to words converter free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. This numbers to words converter is free to use and works directly in your browser without sign-up."
+        }
       }
     ]
   }
   </script>
 
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.calcuportal.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Conversions & Unit Tools",
+        "item": "https://www.calcuportal.com/categories/conversions/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Numbers to Words Converter",
+        "item": "https://www.calcuportal.com/calculators/conversions-numbers-to-words/"
+      }
+    ]
+  }
+  </script>
+
+  <!-- WebApplication Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -204,12 +257,14 @@
     "name": "Numbers to Words Converter",
     "url": "https://www.calcuportal.com/calculators/conversions-numbers-to-words/",
     "applicationCategory": "UtilityApplication",
-    "operatingSystem": "Any",
-    "browserRequirements": "Requires JavaScript",
-    "description": "Free online numbers to words converter for English, Hindi, Telugu, Tamil and Malayalam. Converts numbers into Indian rupees, paise, dollars and cents words.",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript enabled",
+    "description": "A free online numbers to words converter that converts numbers, amounts, rupees, paise, dollars and decimals into words. Supports Indian number system, international number system and multiple Indian languages.",
     "featureList": [
       "Numbers to words converter",
+      "Amount to words converter",
       "Indian rupees and paise format",
+      "Cheque amount in words",
       "Indian lakh and crore number system",
       "International million and billion number system",
       "English, Hindi, Telugu, Tamil and Malayalam output"
@@ -222,7 +277,11 @@
     "publisher": {
       "@type": "Organization",
       "name": "CalcuPortal",
-      "url": "https://www.calcuportal.com/"
+      "url": "https://www.calcuportal.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.calcuportal.com/logo.png"
+      }
     }
   }
   </script>
@@ -265,20 +324,21 @@
 
       <div class="detail-header">
         <h1>Numbers to Words Converter Online</h1>
-        <p>Convert numbers into words in English, Hindi, Telugu, Tamil and Malayalam.</p>
+        <p>Convert numbers, amounts, rupees and paise into words in English and Indian languages.</p>
       </div>
 
       <div class="calc-widget numbers-to-words-widget">
-        <h2 class="tool-title">Numbers to Words Converter<br><span>Indian Rupees, English, Hindi, Telugu, Tamil & Malayalam</span></h2>
+        <h2 class="tool-title">Numbers to Words Converter<span>Indian Rupees, Cheque Amount, English, Hindi, Telugu, Tamil & Malayalam</span></h2>
 
         <div class="number-word-form">
-
-          <textarea
+          <input
+            type="text"
             id="num-input"
-            class="textarea-field"
+            class="input-field number-size-input"
             placeholder="Enter number, e.g. 125000 or 1250.75"
             inputmode="decimal"
-          ></textarea>
+            autocomplete="off"
+          >
 
           <select id="output-language" class="input-field select-field">
             <option value="en">English</option>
@@ -299,7 +359,7 @@
             <option value="usd">US Dollar Format</option>
           </select>
 
-          <p class="helper-text">Tip: For cheque writing, choose English + Indian Rupees Format. For regional output, choose Hindi, Telugu, Tamil or Malayalam.</p>
+          <p class="helper-text">Tip: For cheque writing, choose English + Indian System + Indian Rupees Format.</p>
 
           <button id="calculate-btn" class="calc-btn">Convert</button>
         </div>
@@ -318,123 +378,136 @@
 
         <div class="article-content">
           <h2>What is a Numbers to Words Converter?</h2>
-          <p style="text-align: justify;">A <strong>numbers to words converter</strong> is an online tool that changes numeric values into readable words. It helps users write numbers correctly for cheques, invoices, receipts, banking forms, school work, accounting records and business documents.</p>
+          <p>A numbers to words converter is an online tool that changes numeric values into written words. Instead of manually writing number names, you can enter a number and get the word format instantly. This is useful for cheque writing, invoices, receipts, banking forms, school assignments, accounting records and business documents.</p>
 
-          <p style="text-align: justify;">For example, the number <strong>125000</strong> can be written as <strong>One Lakh Twenty Five Thousand</strong> in the Indian number system. In currency format, it can be written as <strong>One Lakh Twenty Five Thousand Rupees Only</strong>.</p>
+          <p>For example, the number 125000 can be written as One Lakh Twenty Five Thousand in the Indian number system. If you choose Indian rupees format, the same amount becomes One Lakh Twenty Five Thousand Rupees Only. This makes the value easier to read and reduces mistakes in official or financial documents.</p>
 
           <h2>Numbers to Words Converter Indian Rupees</h2>
-          <p style="text-align: justify;">The <strong>numbers to words converter Indian rupees</strong> option helps you write amounts in proper rupees and paise format. This is useful for cheque writing, invoices, receipts, salary slips, payment records and official documents.</p>
+          <p>The numbers to words converter Indian rupees option helps you convert amounts into proper rupees and paise format. This is commonly needed while writing cheques, demand drafts, invoices, payment receipts, salary slips, rent agreements, bills and accounting records.</p>
 
-          <p style="text-align: justify;">For example, <strong>₹1,250.75</strong> can be written as <strong>One Thousand Two Hundred Fifty Rupees and Seventy Five Paise Only</strong>. This format reduces confusion when numeric amounts must also be shown in words.</p>
+          <p>In India, amounts are often written using lakh and crore. So, a normal international number converter may not always give the format Indian users expect. This tool supports the Indian place value system and can convert amounts like 125000, 1050500 and 12550000 into clear rupees words.</p>
 
           <table class="seo-table">
             <thead>
               <tr>
+                <th>S.No</th>
                 <th>Amount</th>
                 <th>Numbers in Words in English Rupees</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td>₹500</td><td>Five Hundred Rupees Only</td></tr>
-              <tr><td>₹1,250</td><td>One Thousand Two Hundred Fifty Rupees Only</td></tr>
-              <tr><td>₹25,000</td><td>Twenty Five Thousand Rupees Only</td></tr>
-              <tr><td>₹1,25,000</td><td>One Lakh Twenty Five Thousand Rupees Only</td></tr>
-              <tr><td>₹10,50,500</td><td>Ten Lakh Fifty Thousand Five Hundred Rupees Only</td></tr>
-              <tr><td>₹1,25,50,000</td><td>One Crore Twenty Five Lakh Fifty Thousand Rupees Only</td></tr>
+              <tr><td>1</td><td>₹500</td><td>Five Hundred Rupees Only</td></tr>
+              <tr><td>2</td><td>₹1,250</td><td>One Thousand Two Hundred Fifty Rupees Only</td></tr>
+              <tr><td>3</td><td>₹25,000</td><td>Twenty Five Thousand Rupees Only</td></tr>
+              <tr><td>4</td><td>₹1,25,000</td><td>One Lakh Twenty Five Thousand Rupees Only</td></tr>
+              <tr><td>5</td><td>₹10,50,500</td><td>Ten Lakh Fifty Thousand Five Hundred Rupees Only</td></tr>
+              <tr><td>6</td><td>₹1,25,50,000</td><td>One Crore Twenty Five Lakh Fifty Thousand Rupees Only</td></tr>
             </tbody>
           </table>
 
-          <h2>Numbers in Words in English Rupees</h2>
-          <p style="text-align: justify;">If you want to write <strong>numbers in words in English rupees</strong>, this tool gives a clear output using the Indian place value system. It supports common terms such as hundred, thousand, lakh, crore, arab and kharab.</p>
+          <h2>Amount to Words Converter for Cheque Writing</h2>
+          <p>An amount to words converter is especially useful for cheque writing. In cheques, the amount is usually written in both numbers and words. If the amount in words is unclear or wrong, it can create confusion during payment processing. This tool helps you quickly convert the numeric amount into proper words.</p>
 
-          <p style="text-align: justify;">This is helpful for Indian users because banking and business documents often require amounts to be written in rupees and paise. You can use the converted result as a reference while preparing cheques, invoices and forms.</p>
+          <p>For cheque writing, enter the amount, select English as the language, choose Indian System and select Indian Rupees Format. The result will include rupees and paise where applicable. For example, 1250.75 becomes One Thousand Two Hundred Fifty Rupees and Seventy Five Paise Only.</p>
+
+          <h2>Numbers in Words in English Rupees</h2>
+          <p>Many users search for numbers in words in English rupees because they need a clean format for banking and business use. This calculator gives a simple output using words like rupees, paise and only. It is helpful when you want to write amounts correctly in forms, bills, receipts and payment documents.</p>
+
+          <p>The tool supports whole numbers and decimal values. If you enter a decimal amount, the value after the decimal point is treated as paise in Indian rupees format. For example, 99.50 becomes Ninety Nine Rupees and Fifty Paise Only.</p>
 
           <h2>Translate Numbers to Words in English, Hindi, Telugu, Tamil and Malayalam</h2>
-          <p style="text-align: justify;">This tool can <strong>translate numbers to words</strong> in multiple languages. You can convert numbers into English, Hindi, Telugu, Tamil and Malayalam based on your preferred output language.</p>
+          <p>This converter can translate numbers to words in multiple languages. You can choose English, Hindi, Telugu, Tamil or Malayalam based on your need. This is useful for students, teachers, regional language users, parents, content writers and people preparing bilingual or local language documents.</p>
 
           <table class="seo-table">
             <thead>
               <tr>
+                <th>S.No</th>
                 <th>Language</th>
                 <th>Example for 125000</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td>English</td><td>One Lakh Twenty Five Thousand</td></tr>
-              <tr><td>Hindi</td><td>एक लाख पच्चीस हजार</td></tr>
-              <tr><td>Telugu</td><td>ఒక లక్ష ఇరవై ఐదు వేల</td></tr>
-              <tr><td>Tamil</td><td>ஒரு லட்சத்து இருபத்து ஐந்து ஆயிரம்</td></tr>
-              <tr><td>Malayalam</td><td>ഒരു ലക്ഷം ഇരുപത്തയ്യായിരം</td></tr>
+              <tr><td>1</td><td>English</td><td>One Lakh Twenty Five Thousand</td></tr>
+              <tr><td>2</td><td>Hindi</td><td>एक लाख पच्चीस हजार</td></tr>
+              <tr><td>3</td><td>Telugu</td><td>ఒక లక్ష ఇరవై ఐదు వేల</td></tr>
+              <tr><td>4</td><td>Tamil</td><td>ஒரு லட்சத்து இருபத்து ஐந்து ஆயிரம்</td></tr>
+              <tr><td>5</td><td>Malayalam</td><td>ഒരു ലക്ഷം ഇരുപത്തയ്യായിരം</td></tr>
             </tbody>
           </table>
 
-          <p style="text-align: justify;">Multilingual number conversion is useful for students, parents, teachers, regional language users, content creators and people who need number names in their native language.</p>
-
-
           <h2>Indian Number System vs International Number System</h2>
-          <p style="text-align: justify;">The Indian number system and international number system use different names for large numbers. In India, people commonly use lakh and crore. In the international system, people use million and billion.</p>
+          <p>The Indian number system and international number system use different names for large values. In India, people commonly use lakh and crore. In the international system, people use million and billion. This difference is important for banking, business, finance, education and global communication.</p>
 
           <table class="seo-table">
             <thead>
               <tr>
+                <th>S.No</th>
                 <th>Number</th>
                 <th>Indian System</th>
                 <th>International System</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td>1,000</td><td>One Thousand</td><td>One Thousand</td></tr>
-              <tr><td>1,00,000</td><td>One Lakh</td><td>One Hundred Thousand</td></tr>
-              <tr><td>10,00,000</td><td>Ten Lakh</td><td>One Million</td></tr>
-              <tr><td>1,00,00,000</td><td>One Crore</td><td>Ten Million</td></tr>
-              <tr><td>100,00,00,000</td><td>One Hundred Crore</td><td>One Billion</td></tr>
+              <tr><td>1</td><td>1,000</td><td>One Thousand</td><td>One Thousand</td></tr>
+              <tr><td>2</td><td>1,00,000</td><td>One Lakh</td><td>One Hundred Thousand</td></tr>
+              <tr><td>3</td><td>10,00,000</td><td>Ten Lakh</td><td>One Million</td></tr>
+              <tr><td>4</td><td>1,00,00,000</td><td>One Crore</td><td>Ten Million</td></tr>
+              <tr><td>5</td><td>100,00,00,000</td><td>One Hundred Crore</td><td>One Billion</td></tr>
             </tbody>
           </table>
 
           <h2>How to Use the Numbers to Words Converter</h2>
-          <p style="text-align: justify;">Using this converter is simple. Enter the number, select the language, choose the number system or currency format and click the convert button. The result will appear instantly.</p>
+          <p>Using this number to words converter is simple. Enter the number or amount, select your language, choose the number system and choose the output format. Then click the convert button. The tool will show the converted words instantly.</p>
 
           <ul>
-            <li>Choose English, Hindi, Telugu, Tamil or Malayalam as the output language.</li>
-            <li>Select Indian System for lakh and crore formatting.</li>
-            <li>Select International System for million and billion formatting.</li>
-            <li>Choose Indian Rupees Format for rupees and paise output.</li>
-            <li>Click the convert button and copy the result.</li>
+            <li>Enter a number such as 125000 or 1250.75.</li>
+            <li>Select English, Hindi, Telugu, Tamil or Malayalam.</li>
+            <li>Choose Indian System for lakh and crore format.</li>
+            <li>Choose International System for million and billion format.</li>
+            <li>Select Indian Rupees Format for rupees and paise output.</li>
+            <li>Click Convert and copy the final result.</li>
           </ul>
 
           <h2>Where Can You Use Number to Words Conversion?</h2>
-          <p style="text-align: justify;">Number to words conversion is useful whenever numeric values must be written clearly in text format. It helps avoid spelling errors, place value confusion and mismatch between numbers and written amounts.</p>
+          <p>Number to words conversion is useful whenever a number must be written clearly in text format. It helps avoid spelling mistakes, place value confusion and mismatch between numeric amount and written amount.</p>
 
           <table class="seo-table">
             <thead>
               <tr>
+                <th>S.No</th>
                 <th>Use Case</th>
                 <th>How It Helps</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td>Cheque Writing</td><td>Converts amounts into rupees and paise words.</td></tr>
-              <tr><td>Banking Forms</td><td>Helps write amount in words correctly.</td></tr>
-              <tr><td>Invoices</td><td>Adds clear amount in words for payment records.</td></tr>
-              <tr><td>School Learning</td><td>Helps students learn number names and place values.</td></tr>
-              <tr><td>Regional Language Use</td><td>Converts numbers into Hindi, Telugu, Tamil and Malayalam.</td></tr>
-              <tr><td>Business Documents</td><td>Reduces confusion in bills, receipts and agreements.</td></tr>
+              <tr><td>1</td><td>Cheque Writing</td><td>Converts cheque amounts into rupees and paise words.</td></tr>
+              <tr><td>2</td><td>Banking Forms</td><td>Helps write amount in words correctly.</td></tr>
+              <tr><td>3</td><td>Invoices</td><td>Adds readable amount in words for payment records.</td></tr>
+              <tr><td>4</td><td>Receipts</td><td>Makes collected or paid amount clear.</td></tr>
+              <tr><td>5</td><td>School Learning</td><td>Helps students learn number names and place values.</td></tr>
+              <tr><td>6</td><td>Business Documents</td><td>Reduces confusion in bills, agreements and ledgers.</td></tr>
             </tbody>
           </table>
 
+          <h2>How Decimal Numbers Are Converted</h2>
+          <p>Decimal numbers are converted based on the selected output format. In plain words format, the digits after the decimal are read after the word point. For example, 1250.75 may be shown as One Thousand Two Hundred Fifty Point Seven Five.</p>
+
+          <p>In Indian rupees format, the decimal part is treated as paise. For example, 1250.75 becomes One Thousand Two Hundred Fifty Rupees and Seventy Five Paise Only. This makes the tool useful for payments and currency-related documents.</p>
+
           <h2>Why Use CalcuPortal Numbers to Words Converter?</h2>
-          <p style="text-align: justify;">CalcuPortal’s numbers to words converter is designed for quick and easy conversion. It supports Indian rupees, plain words, international numbers and multiple Indian languages.</p>
+          <p>CalcuPortal’s numbers to words converter is designed for quick, easy and practical conversion. It supports plain number words, Indian rupees format, US dollar format, Indian number system, international number system and multiple Indian languages.</p>
 
           <ul>
-            <li>Free numbers to words converter.</li>
-            <li>Works for Indian rupees and paise.</li>
-            <li>Supports English, Hindi, Telugu, Tamil and Malayalam.</li>
+            <li>Free numbers to words converter online.</li>
+            <li>Useful as an amount to words converter.</li>
+            <li>Supports Indian rupees and paise format.</li>
             <li>Useful for cheques, invoices, receipts and school work.</li>
-            <li>Simple tool with instant browser-based output.</li>
+            <li>Supports English, Hindi, Telugu, Tamil and Malayalam.</li>
+            <li>Works directly in your browser without sign-up.</li>
           </ul>
 
           <h2>Important Note</h2>
-          <p style="text-align: justify;">This calculator is created for general informational and educational use. Please verify important banking, legal, tax, financial or official documents before submission.</p>
+          <p>This converter is created for general informational and educational use. For banking, legal, tax, financial or official documents, always verify the final written amount before submission.</p>
         </div>
       </section>
 
@@ -447,33 +520,28 @@
           </div>
 
           <div class="faq-item">
-            <h3 class="faq-question">How do I use the numbers to words converter Indian rupees option?</h3>
-            <p class="faq-answer">Enter the amount, select Indian Rupees Format and click convert. The tool will show the amount in rupees and paise words where applicable.</p>
+            <h3 class="faq-question">How do I convert numbers to words in Indian rupees?</h3>
+            <p class="faq-answer">Enter the amount, select English, choose Indian System and select Indian Rupees Format. The tool will show the amount in rupees and paise words.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Can I use this for cheque amount in words?</h3>
+            <p class="faq-answer">Yes. You can use this converter to write cheque amounts in words, such as One Lakh Twenty Five Thousand Rupees Only.</p>
           </div>
 
           <div class="faq-item">
             <h3 class="faq-question">How do I write numbers in words in English rupees?</h3>
-            <p class="faq-answer">To write numbers in words in English rupees, choose English as the language and Indian Rupees Format as the output. For example, ₹1,25,000 becomes One Lakh Twenty Five Thousand Rupees Only.</p>
+            <p class="faq-answer">Choose English as the language and Indian Rupees Format as the output. For example, ₹1,25,000 becomes One Lakh Twenty Five Thousand Rupees Only.</p>
           </div>
 
           <div class="faq-item">
-            <h3 class="faq-question">Can I translate numbers to words in Hindi?</h3>
-            <p class="faq-answer">Yes. You can translate numbers to words in Hindi by selecting Hindi as the output language.</p>
+            <h3 class="faq-question">Can I convert decimal amounts into paise?</h3>
+            <p class="faq-answer">Yes. In Indian Rupees Format, decimal values are converted into paise. For example, 1250.75 becomes One Thousand Two Hundred Fifty Rupees and Seventy Five Paise Only.</p>
           </div>
 
           <div class="faq-item">
-            <h3 class="faq-question">Can I convert numbers to words in Telugu?</h3>
-            <p class="faq-answer">Yes. The tool supports Telugu number word output for common number conversion needs.</p>
-          </div>
-
-          <div class="faq-item">
-            <h3 class="faq-question">Can I convert numbers to words in Tamil?</h3>
-            <p class="faq-answer">Yes. You can select Tamil as the output language and convert numbers into Tamil words.</p>
-          </div>
-
-          <div class="faq-item">
-            <h3 class="faq-question">Can I convert numbers to words in Malayalam?</h3>
-            <p class="faq-answer">Yes. You can select Malayalam as the output language and convert numbers into Malayalam words.</p>
+            <h3 class="faq-question">Can I translate numbers to words in Hindi, Telugu, Tamil and Malayalam?</h3>
+            <p class="faq-answer">Yes. The converter supports number to words output in English, Hindi, Telugu, Tamil and Malayalam.</p>
           </div>
 
           <div class="faq-item">
@@ -483,7 +551,7 @@
 
           <div class="faq-item">
             <h3 class="faq-question">Is this numbers to words converter free?</h3>
-            <p class="faq-answer">Yes. This numbers to words converter is free to use and works directly in your browser.</p>
+            <p class="faq-answer">Yes. This numbers to words converter is free to use and works directly in your browser without sign-up.</p>
           </div>
         </div>
       </section>
@@ -609,6 +677,7 @@
       if (integerPart === '0') return data.zero;
       const scales = data.indianScales;
       let groups = [];
+
       if (integerPart.length > 3) {
         groups.unshift(integerPart.slice(-3));
         integerPart = integerPart.slice(0, -3);
@@ -619,9 +688,12 @@
       } else {
         groups.unshift(integerPart);
       }
+
       if (groups.length > scales.length) return 'Number is too large to convert.';
+
       let words = [];
       const totalGroups = groups.length;
+
       groups.forEach(function(group, index) {
         const groupNum = Number(group);
         if (groupNum > 0) {
@@ -630,6 +702,7 @@
           words.push(groupWords + (scales[scaleIndex] ? ' ' + scales[scaleIndex] : ''));
         }
       });
+
       return words.join(' ').trim();
     }
 
@@ -655,13 +728,17 @@
       const whole = parts[0] || '0';
       const decimal = parts[1] ? Math.round(Number('0.' + parts[1]) * 100) : 0;
       const wholeWords = currencyType === 'inr' ? indianWords(whole, lang) : internationalWords(whole, lang);
+
       let result = wholeWords + ' ' + (currencyType === 'inr' ? data.currency.inrMain : data.currency.usdMain);
+
       if (decimal > 0) {
         const subWords = currencyType === 'inr' ? indianWords(String(decimal), lang) : internationalWords(String(decimal), lang);
         result += ' ' + data.and + ' ' + subWords + ' ' + (currencyType === 'inr' ? data.currency.inrSub : data.currency.usdSub);
       }
+
       return result + ' ' + data.only;
     }
+
     function showError(message) {
       outputBox.innerText = message;
       document.getElementById('result-section').classList.remove('hidden');
@@ -704,7 +781,9 @@
       copyBtn.addEventListener('click', function() {
         navigator.clipboard.writeText(outputBox.innerText).then(function() {
           copyBtn.innerText = 'Copied!';
-          setTimeout(function() { copyBtn.innerText = 'Copy Result'; }, 1200);
+          setTimeout(function() {
+            copyBtn.innerText = 'Copy Result';
+          }, 1200);
         });
       });
     }
