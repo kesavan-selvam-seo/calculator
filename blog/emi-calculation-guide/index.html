@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="shortcut icon" href="/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <meta name="robots" content="index, follow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>EMI Calculation Guide - Formula, Steps and Examples</title>
+  <meta name="description" content="Learn how EMI is calculated with formula, step-by-step examples, loan EMI calculation method, monthly payment details, and tips to reduce EMI.">
+  <link rel="canonical" href="https://www.calcuportal.com/blog/emi-calculation-guide/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="EMI Calculation Guide - Formula, Steps and Examples">
+  <meta property="og:description" content="Learn how EMI is calculated with formula, step-by-step examples, loan EMI calculation method, monthly payment details, and tips to reduce EMI.">
+  <meta property="og:url" content="https://www.calcuportal.com/blog/emi-calculation-guide/">
+  <meta property="og:site_name" content="CalcuPortal">
+  <meta property="og:image" content="https://www.calcuportal.com/logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="EMI Calculation Guide - Formula, Steps and Examples">
+  <meta name="twitter:description" content="Learn how EMI is calculated with formula, step-by-step examples, loan EMI calculation method, monthly payment details, and tips to reduce EMI.">
+  <meta name="twitter:image" content="https://www.calcuportal.com/logo.png">
+
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/script.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.calcuportal.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://www.calcuportal.com/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "EMI Calculation Guide",
+        "item": "https://www.calcuportal.com/blog/emi-calculation-guide/"
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.calcuportal.com/blog/emi-calculation-guide/"
+    },
+    "headline": "EMI Calculation Guide",
+    "description": "Learn how EMI is calculated with formula, step-by-step examples, loan EMI calculation method, monthly payment details, and tips to reduce EMI.",
+    "image": "https://www.calcuportal.com/logo.png",
+    "author": {
+      "@type": "Organization",
+      "name": "CalcuPortal",
+      "url": "https://www.calcuportal.com/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CalcuPortal",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.calcuportal.com/logo.png"
+      }
+    },
+    "datePublished": "2026-07-08",
+    "dateModified": "2026-07-08"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is EMI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "EMI stands for Equated Monthly Instalment. It is the fixed monthly amount a borrower pays to repay a loan, including both principal and interest."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is EMI calculated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "EMI is calculated using the loan amount, monthly interest rate, and loan tenure in months. The standard formula is EMI = P × r × (1 + r)^n / ((1 + r)^n - 1)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What details are needed to calculate EMI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You need the loan amount, annual interest rate, and loan tenure to calculate EMI. Some calculators may also ask for processing fees or prepayment details."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does a longer loan tenure reduce EMI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, a longer loan tenure usually reduces the monthly EMI. However, it can increase the total interest paid over the full loan period."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I reduce my EMI after taking a loan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You may reduce EMI by extending the loan tenure, making a part prepayment, refinancing at a lower interest rate, or discussing repayment options with your lender."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="/" class="logo">
+        <img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon">
+        <span>CalcuPortal</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/about/" class="nav-link">About</a>
+        <a href="/contact/" class="nav-link">Contact</a>
+        <a href="/blog/" class="nav-link active">Blog</a>
+        <button class="theme-btn" title="Toggle Theme">
+          <span class="theme-btn-icon"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="detail-container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span>›</span>
+        <a href="/blog/">Blog</a>
+        <span>›</span>
+        <span>EMI Calculation Guide</span>
+      </nav>
+
+      <article class="article-section" style="margin-top: 1.5rem;">
+        <div class="article-header">
+          <h1>EMI Calculation Guide</h1>
+        </div>
+
+        <div class="article-content">
+          <p style="text-align: justify;">EMI calculation helps you understand how much money you need to pay every month for a loan. Whether it is a home loan, car loan, personal loan, education loan, or business loan, EMI gives a clear idea of your monthly repayment amount.</p>
+
+          <p style="text-align: justify;">Before taking any loan, it is important to calculate EMI properly. It helps you compare loan offers, plan your monthly budget, check affordability, and avoid taking a repayment burden that is too high.</p>
+
+          <h2>What is EMI?</h2>
+          <p style="text-align: justify;">EMI stands for Equated Monthly Instalment. It is the fixed amount you pay every month to repay a loan over a selected period. An EMI includes both the principal amount and the interest charged by the lender.</p>
+
+          <p style="text-align: justify;">In the initial months, a higher portion of the EMI usually goes towards interest. As the loan progresses, the principal repayment portion increases and the interest portion reduces.</p>
+
+          <h2>EMI Calculation Formula</h2>
+          <p style="text-align: justify;">The standard EMI formula is used by most banks and lenders to calculate monthly loan repayment.</p>
+
+          <div class="formula-box">
+            EMI = [P × r × (1 + r)<sup>n</sup>] / [(1 + r)<sup>n</sup> - 1]
+          </div>
+
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>S.No</th>
+                  <th>Term</th>
+                  <th>Meaning</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>P</td>
+                  <td>Loan principal amount</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>r</td>
+                  <td>Monthly interest rate</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>n</td>
+                  <td>Loan tenure in months</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p style="text-align: justify;">To get the monthly interest rate, divide the annual interest rate by 12 and then by 100. For example, if the annual interest rate is 12%, the monthly interest rate will be 12 ÷ 12 ÷ 100 = 0.01.</p>
+
+          <h2>How to Calculate EMI Step by Step</h2>
+          <p style="text-align: justify;">You can calculate EMI manually by using the formula. However, an online EMI calculator is faster and reduces the chance of calculation mistakes.</p>
+
+          <ol>
+            <li>Enter the loan amount.</li>
+            <li>Enter the annual interest rate.</li>
+            <li>Choose the loan tenure in months or years.</li>
+            <li>Click the calculate button.</li>
+            <li>Check the monthly EMI, total interest, and total payment.</li>
+          </ol>
+
+          <h2>Example of EMI Calculation</h2>
+          <p style="text-align: justify;">Let us understand EMI calculation with a simple example. Suppose you take a loan of ₹5,00,000 at 12% annual interest for 5 years.</p>
+
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>S.No</th>
+                  <th>Loan Detail</th>
+                  <th>Example Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Loan Amount</td>
+                  <td>₹5,00,000</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Annual Interest Rate</td>
+                  <td>12%</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Loan Tenure</td>
+                  <td>5 Years</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>Tenure in Months</td>
+                  <td>60 Months</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>Approximate EMI</td>
+                  <td>₹11,122</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p style="text-align: justify;">In this example, the borrower needs to pay around ₹11,122 every month. The final amount may vary slightly depending on lender terms, processing fees, prepayments, and rounding methods.</p>
+
+          <h2>Factors That Affect EMI</h2>
+          <p style="text-align: justify;">Your EMI mainly depends on three important factors: loan amount, interest rate, and tenure. A small change in any of these values can change your monthly repayment.</p>
+
+          <ul>
+            <li><strong>Loan amount:</strong> A higher loan amount increases the EMI.</li>
+            <li><strong>Interest rate:</strong> A higher interest rate increases both EMI and total interest.</li>
+            <li><strong>Loan tenure:</strong> A longer tenure reduces EMI but may increase total interest.</li>
+            <li><strong>Prepayment:</strong> Part payments can reduce outstanding principal and interest burden.</li>
+            <li><strong>Rate type:</strong> Floating interest rates can change EMI during the loan period.</li>
+          </ul>
+
+          <h2>EMI for Different Loan Types</h2>
+          <p style="text-align: justify;">EMI calculation is commonly used for different types of loans. The basic formula remains similar, but the interest rate, tenure, charges, and repayment terms can differ based on the loan type.</p>
+
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>S.No</th>
+                  <th>Loan Type</th>
+                  <th>Common Use</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Home Loan</td>
+                  <td>Buying or constructing a house</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Car Loan</td>
+                  <td>Buying a new or used vehicle</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Personal Loan</td>
+                  <td>Personal expenses, travel, or emergencies</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>Education Loan</td>
+                  <td>Higher education and course expenses</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>Business Loan</td>
+                  <td>Business expansion or working capital</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>Why Use an Online EMI Calculator?</h2>
+          <p style="text-align: justify;">An online EMI calculator gives quick and clear results. It helps you test different loan amounts, interest rates, and tenures before choosing a loan offer.</p>
+
+          <p style="text-align: justify;">It also helps you understand the total interest payable and total repayment amount. This makes it easier to compare lenders and choose a monthly EMI that fits your budget.</p>
+
+          <h2>How to Reduce Your EMI</h2>
+          <p style="text-align: justify;">You can reduce EMI by choosing a longer tenure, making a higher down payment, selecting a lower interest rate, or refinancing the loan. However, a longer tenure can increase total interest, so compare both EMI and total cost before deciding.</p>
+
+          <ul>
+            <li>Compare interest rates before applying for a loan.</li>
+            <li>Choose a loan amount that matches your repayment capacity.</li>
+            <li>Make part prepayments whenever possible.</li>
+            <li>Maintain a good credit score for better loan offers.</li>
+            <li>Avoid selecting a very long tenure only to reduce EMI.</li>
+          </ul>
+
+          <h2>Use CalcuPortal EMI Calculator</h2>
+          <p style="text-align: justify;">You can use the CalcuPortal EMI calculator to calculate monthly EMI, total interest, and total repayment amount. The tool is simple, free, mobile-friendly, and works directly in your browser.</p>
+
+          <p style="text-align: justify;">Enter the loan amount, interest rate, and tenure to get an instant EMI estimate. You can also change the values to compare different repayment options.</p>
+
+          <p>
+            <a class="read-more" href="/calculators/loan-emi-calculator/">Use EMI Calculator →</a>
+          </p>
+
+          <h2>Frequently Asked Questions</h2>
+
+          <h3>1. What is EMI?</h3>
+          <p style="text-align: justify;">EMI stands for Equated Monthly Instalment. It is the fixed monthly amount a borrower pays to repay a loan, including both principal and interest.</p>
+
+          <h3>2. How is EMI calculated?</h3>
+          <p style="text-align: justify;">EMI is calculated using the loan amount, monthly interest rate, and loan tenure in months. The standard formula is EMI = P × r × (1 + r)<sup>n</sup> / ((1 + r)<sup>n</sup> - 1).</p>
+
+          <h3>3. What details are needed to calculate EMI?</h3>
+          <p style="text-align: justify;">You need the loan amount, annual interest rate, and loan tenure to calculate EMI. Some calculators may also ask for processing fees or prepayment details.</p>
+
+          <h3>4. Does a longer loan tenure reduce EMI?</h3>
+          <p style="text-align: justify;">Yes, a longer loan tenure usually reduces the monthly EMI. However, it can increase the total interest paid over the full loan period.</p>
+
+          <h3>5. Can I reduce my EMI after taking a loan?</h3>
+          <p style="text-align: justify;">You may reduce EMI by extending the loan tenure, making a part prepayment, refinancing at a lower interest rate, or discussing repayment options with your lender.</p>
+
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="copyright-bar" style="border-top: none; padding-top: 0;">
+      © <span id="year">2026</span> CalcuPortal. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').innerText = new Date().getFullYear();
+  </script>
+
+  <style>
+    .breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      font-size: 14px;
+      margin-top: 1.5rem;
+      color: #555;
+    }
+
+    .breadcrumb a {
+      color: #6c5cff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .formula-box {
+      margin: 1.2rem 0;
+      padding: 1rem 1.2rem;
+      border-radius: 14px;
+      background: rgba(108, 92, 255, 0.08);
+      border: 1px solid rgba(108, 92, 255, 0.18);
+      font-weight: 600;
+      text-align: center;
+      color: #4f46e5;
+      line-height: 1.7;
+    }
+
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      margin: 1.2rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    th {
+      background: #6f5cff;
+      color: #ffffff;
+      padding: 12px;
+      text-align: center;
+      border: 1px solid rgba(120, 120, 120, 0.2);
+    }
+
+    td {
+      padding: 12px;
+      text-align: center;
+      border: 1px solid rgba(120, 120, 120, 0.2);
+    }
+
+    .article-content ol,
+    .article-content ul {
+      margin-left: 1.2rem;
+      line-height: 1.8;
+    }
+
+    .read-more {
+      display: inline-block;
+      margin-top: 0.5rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: #6c5cff;
+    }
+  </style>
+</body>
+</html>
