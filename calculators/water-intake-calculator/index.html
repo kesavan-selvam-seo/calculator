@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="shortcut icon" href="/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>How Much Water Should I Drink a Day Calculator</title>
+  <meta name="description" content="Use our water intake calculator to estimate how much water you should drink daily in litres, ounces, cups and bottles based on weight, activity, climate and life stage.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://www.calcuportal.com/calculators/how-much-water-to-drink-a-day-calculator/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="How Much Water Should I Drink a Day Calculator">
+  <meta property="og:description" content="Estimate your daily water intake in litres, ounces, cups and bottles using weight, activity, climate and life-stage inputs.">
+  <meta property="og:url" content="https://www.calcuportal.com/calculators/how-much-water-to-drink-a-day-calculator/">
+  <meta property="og:site_name" content="CalcuPortal">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="How Much Water Should I Drink a Day Calculator">
+  <meta name="twitter:description" content="Calculate your estimated daily water intake in litres, ounces, cups and bottles.">
+
+  <link rel="stylesheet" href="../../styles.css">
+  <script src="../../script.js" defer></script>
+
+  <style>
+    .hydration-calculator {
+      --water-primary: #087fce;
+      --water-secondary: #38bdf8;
+      --water-soft: #e9f7ff;
+      --water-deep: #075985;
+      --water-border: #bae6fd;
+      --water-success: #15803d;
+      --water-warning: #a16207;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hydration-calculator::before,
+    .hydration-calculator::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      pointer-events: none;
+      opacity: .45;
+      filter: blur(1px);
+      animation: floatBubble 7s ease-in-out infinite;
+    }
+
+    .hydration-calculator::before {
+      width: 90px;
+      height: 90px;
+      top: -25px;
+      right: 8%;
+      background: rgba(56, 189, 248, .24);
+    }
+
+    .hydration-calculator::after {
+      width: 48px;
+      height: 48px;
+      bottom: 30px;
+      left: 5%;
+      background: rgba(8, 127, 206, .15);
+      animation-delay: -2.5s;
+    }
+
+    @keyframes floatBubble {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-15px) scale(1.06); }
+    }
+
+    .calculator-intro {
+      max-width: 820px;
+      margin: 0 auto 24px;
+      text-align: center;
+    }
+
+    .calculator-intro p {
+      margin: 8px 0 0;
+      text-align: center;
+    }
+
+    .unit-toggle {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      max-width: 420px;
+      margin: 0 auto 22px;
+      padding: 6px;
+      border: 1px solid var(--water-border);
+      border-radius: 14px;
+      background: var(--water-soft);
+    }
+
+    .unit-option {
+      border: 0;
+      border-radius: 10px;
+      padding: 11px 14px;
+      background: transparent;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease;
+    }
+
+    .unit-option.active {
+      color: #fff;
+      background: var(--water-primary);
+      box-shadow: 0 8px 20px rgba(8, 127, 206, .22);
+    }
+
+    .unit-option:hover {
+      transform: translateY(-1px);
+    }
+
+    .hydration-form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .hydration-form-grid .form-group {
+      margin: 0;
+    }
+
+    .hydration-form-grid label {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: 600;
+    }
+
+    .field-hint {
+      display: block;
+      margin-top: 6px;
+      font-size: 12px;
+      opacity: .72;
+    }
+
+    .select-field {
+      width: 100%;
+      min-height: 48px;
+      padding: 10px 12px;
+      border: 1px solid var(--water-border);
+      border-radius: 10px;
+      background: var(--card-bg, #fff);
+      color: inherit;
+      font: inherit;
+    }
+
+    .full-width {
+      grid-column: 1 / -1;
+    }
+
+    .life-stage-wrap {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .choice-card {
+      position: relative;
+    }
+
+    .choice-card input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .choice-card label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      margin: 0;
+      padding: 10px;
+      text-align: center;
+      border: 1px solid var(--water-border);
+      border-radius: 11px;
+      cursor: pointer;
+      transition: all .2s ease;
+    }
+
+    .choice-card input:checked + label {
+      color: #fff;
+      background: var(--water-primary);
+      border-color: var(--water-primary);
+      box-shadow: 0 8px 18px rgba(8, 127, 206, .2);
+    }
+
+    .calculator-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .calculator-actions .calc-btn {
+      flex: 1 1 220px;
+    }
+
+    .secondary-action {
+      flex: 0 1 130px;
+      min-height: 48px;
+      padding: 11px 18px;
+      border: 1px solid var(--water-border);
+      border-radius: 10px;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .secondary-action:hover {
+      background: var(--water-soft);
+    }
+
+    .calculator-error {
+      display: none;
+      margin-top: 14px;
+      padding: 12px 14px;
+      color: #991b1b;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      border-radius: 10px;
+      font-size: 14px;
+    }
+
+    .calculator-error.show {
+      display: block;
+    }
+
+    .hydration-results {
+      margin-top: 26px;
+      animation: resultReveal .55s ease both;
+    }
+
+    @keyframes resultReveal {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .result-top-grid {
+      display: grid;
+      grid-template-columns: minmax(190px, .75fr) minmax(0, 1.25fr);
+      gap: 22px;
+      align-items: center;
+    }
+
+    .water-visual {
+      display: flex;
+      justify-content: center;
+      min-height: 315px;
+    }
+
+    .bottle-shell {
+      position: relative;
+      width: 145px;
+      height: 285px;
+      overflow: hidden;
+      border: 5px solid var(--water-deep);
+      border-radius: 26px 26px 38px 38px;
+      background: rgba(255,255,255,.62);
+      box-shadow: inset 0 0 20px rgba(7, 89, 133, .08), 0 18px 35px rgba(7, 89, 133, .12);
+    }
+
+    .bottle-shell::before {
+      content: "";
+      position: absolute;
+      z-index: 4;
+      top: -17px;
+      left: 43px;
+      width: 49px;
+      height: 22px;
+      border: 5px solid var(--water-deep);
+      border-bottom: 0;
+      border-radius: 8px 8px 0 0;
+      background: var(--card-bg, #fff);
+    }
+
+    .water-fill {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 0;
+      background: linear-gradient(180deg, var(--water-secondary), var(--water-primary));
+      transition: height 1.2s cubic-bezier(.22,.9,.3,1);
+    }
+
+    .water-fill::before,
+    .water-fill::after {
+      content: "";
+      position: absolute;
+      left: -25%;
+      width: 150%;
+      height: 22px;
+      border-radius: 45%;
+      background: rgba(255,255,255,.42);
+      animation: waveMove 4s linear infinite;
+    }
+
+    .water-fill::before {
+      top: -10px;
+    }
+
+    .water-fill::after {
+      top: -4px;
+      opacity: .38;
+      animation-duration: 6s;
+      animation-direction: reverse;
+    }
+
+    @keyframes waveMove {
+      from { transform: translateX(-8%) rotate(0deg); }
+      to { transform: translateX(8%) rotate(360deg); }
+    }
+
+    .bottle-label {
+      position: absolute;
+      z-index: 5;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 4px;
+      color: var(--water-deep);
+      text-align: center;
+      font-weight: 700;
+      text-shadow: 0 1px 0 rgba(255,255,255,.8);
+      pointer-events: none;
+    }
+
+    .primary-result {
+      padding: 22px;
+      border: 1px solid var(--water-border);
+      border-radius: 16px;
+      background: linear-gradient(145deg, var(--water-soft), rgba(255,255,255,.84));
+    }
+
+    .result-eyebrow {
+      margin: 0 0 5px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--water-deep);
+    }
+
+    .water-total {
+      margin: 0;
+      font-size: clamp(34px, 6vw, 58px);
+      line-height: 1;
+      color: var(--water-primary);
+    }
+
+    .water-subtitle {
+      margin: 8px 0 18px;
+      font-weight: 500;
+    }
+
+    .result-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .metric-card {
+      padding: 13px;
+      border-radius: 11px;
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(186,230,253,.9);
+    }
+
+    .metric-card span {
+      display: block;
+      font-size: 12px;
+      opacity: .72;
+    }
+
+    .metric-card strong {
+      display: block;
+      margin-top: 3px;
+      font-size: 18px;
+    }
+
+    .result-note {
+      margin: 15px 0 0;
+      padding: 11px 13px;
+      border-left: 4px solid var(--water-primary);
+      background: rgba(255,255,255,.7);
+      font-size: 13px;
+    }
+
+    .breakdown-section,
+    .schedule-section {
+      margin-top: 22px;
+      padding: 20px;
+      border: 1px solid var(--water-border);
+      border-radius: 14px;
+    }
+
+    .breakdown-section h3,
+    .schedule-section h3 {
+      margin-top: 0;
+    }
+
+    .breakdown-list {
+      display: grid;
+      gap: 9px;
+    }
+
+    .breakdown-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px dashed var(--water-border);
+    }
+
+    .breakdown-row:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .schedule-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 88px;
+      padding: 13px;
+      border: 1px solid var(--water-border);
+      border-radius: 11px;
+      background: var(--water-soft);
+    }
+
+    .schedule-card::after {
+      content: "💧";
+      position: absolute;
+      right: 8px;
+      bottom: 2px;
+      font-size: 25px;
+      opacity: .18;
+    }
+
+    .schedule-card time {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--water-deep);
+    }
+
+    .schedule-card strong {
+      display: block;
+      margin-top: 5px;
+      font-size: 17px;
+    }
+
+    .schedule-card span {
+      display: block;
+      margin-top: 2px;
+      font-size: 12px;
+      opacity: .7;
+    }
+
+    .result-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 18px;
+    }
+
+    .tool-button {
+      min-height: 42px;
+      padding: 9px 14px;
+      border: 1px solid var(--water-border);
+      border-radius: 9px;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .tool-button:hover {
+      background: var(--water-soft);
+    }
+
+    .seo-answer-box {
+      margin: 0 0 24px;
+      padding: 18px 20px;
+      border-left: 5px solid var(--water-primary);
+      border-radius: 8px;
+      background: var(--water-soft);
+    }
+
+    .seo-answer-box p {
+      margin: 0;
+    }
+
+    .content-table-wrap {
+      overflow-x: auto;
+      margin: 18px 0;
+    }
+
+    .content-table {
+      width: 100%;
+      min-width: 650px;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .content-table th,
+    .content-table td {
+      padding: 11px 12px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+
+    .content-table th {
+      color: #fff;
+      background: #fc6b2d;
+    }
+
+    .content-table tbody tr:nth-child(even) {
+      background: #fafafa;
+    }
+
+    .formula-box {
+      margin: 16px 0;
+      padding: 16px;
+      text-align: center;
+      border: 1px solid var(--water-border);
+      border-radius: 10px;
+      background: var(--water-soft);
+      font-weight: 700;
+    }
+
+    .medical-disclaimer {
+      margin: 24px 0;
+      padding: 16px 18px;
+      border: 1px solid #fde68a;
+      border-radius: 10px;
+      background: #fffbeb;
+    }
+
+    .medical-disclaimer strong {
+      color: var(--water-warning);
+    }
+
+    @media (max-width: 760px) {
+      .hydration-form-grid,
+      .result-top-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .life-stage-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .schedule-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .water-visual {
+        min-height: 292px;
+      }
+    }
+
+    @media (max-width: 440px) {
+      .schedule-grid,
+      .result-metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .calculator-actions {
+        flex-direction: column;
+      }
+
+      .calculator-actions .calc-btn,
+      .secondary-action {
+        width: 100%;
+        flex-basis: auto;
+      }
+    }
+
+    @media print {
+      header,
+      footer,
+      .calculator-actions,
+      .result-tools,
+      .unit-toggle,
+      .article-section,
+      .faq-section {
+        display: none !important;
+      }
+
+      .calc-widget {
+        box-shadow: none !important;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .001ms !important;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://www.calcuportal.com/#website",
+        "url": "https://www.calcuportal.com/",
+        "name": "CalcuPortal"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://www.calcuportal.com/calculators/how-much-water-to-drink-a-day-calculator/#webpage",
+        "url": "https://www.calcuportal.com/calculators/how-much-water-to-drink-a-day-calculator/",
+        "name": "How Much Water Should I Drink a Day Calculator",
+        "description": "Estimate daily water intake in litres, ounces, cups and bottles using weight, activity, climate and life-stage inputs.",
+        "isPartOf": {
+          "@id": "https://www.calcuportal.com/#website"
+        },
+        "breadcrumb": {
+          "@id": "https://www.calcuportal.com/calculators/how-much-water-to-drink-a-day-calculator/#breadcrumb"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.calcuportal.com/calculators/how-much-water-to-drink-a-day-calculator/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.calcuportal.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Health & Fitness Calculators",
+            "item": "https://www.calcuportal.com/categories/health-fitness/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Water Intake Calculator",
+            "item": "https://www.calcuportal.com/calculators/how-much-water-to-drink-a-day-calculator/"
+          }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://www.calcuportal.com/calculators/how-much-water-to-drink-a-day-calculator/#app",
+        "name": "How Much Water Should I Drink a Day Calculator",
+        "url": "https://www.calcuportal.com/calculators/how-much-water-to-drink-a-day-calculator/",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "isAccessibleForFree": true,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "Daily water intake estimate",
+          "Litres, ounces, cups and bottle conversions",
+          "Weight-based calculation",
+          "Activity and climate adjustments",
+          "Pregnancy and breastfeeding options",
+          "Daily hydration schedule"
+        ]
+      },
+      {
+        "@type": "Article",
+        "@id": "https://www.calcuportal.com/calculators/how-much-water-to-drink-a-day-calculator/#article",
+        "headline": "How Much Water Should I Drink a Day?",
+        "description": "A practical guide to daily water intake by weight, activity, climate and life stage.",
+        "mainEntityOfPage": {
+          "@id": "https://www.calcuportal.com/calculators/how-much-water-to-drink-a-day-calculator/#webpage"
+        },
+        "author": {
+          "@type": "Organization",
+          "name": "CalcuPortal"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "CalcuPortal",
+          "url": "https://www.calcuportal.com/"
+        },
+        "dateModified": "2026-07-11"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.calcuportal.com/calculators/how-much-water-to-drink-a-day-calculator/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much water should I drink a day?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Daily fluid needs vary with body size, activity, climate, diet, health and life stage. This calculator provides a practical estimate rather than a medical prescription."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much water should I drink based on my weight?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A commonly used planning estimate is about 30 to 35 millilitres per kilogram of body weight per day before activity, climate and life-stage adjustments."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How many litres of water should I drink a day?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "There is no single amount for everyone. Many adults fall near 1.5 to 3 litres of drinks per day, but individual needs can be lower or higher."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does coffee or tea count toward daily water intake?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Water, milk and many lower-sugar drinks, including tea and coffee, can contribute to daily fluid intake. Water remains a simple calorie-free choice."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Should I drink more water when exercising?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Physical activity and sweating can increase fluid needs. The required amount depends on exercise duration, intensity, temperature and individual sweat rate."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much water should I drink in hot weather?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Hot or humid conditions can increase water loss through sweat, so many people need more fluid than usual. Drink regularly and monitor for signs of dehydration."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can drinking too much water be harmful?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Drinking excessive water too quickly can dangerously dilute blood sodium. Avoid forcing large volumes and follow medical guidance when you have kidney, heart or liver conditions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What urine colour usually indicates good hydration?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Pale yellow urine is commonly used as a simple hydration check. Very dark urine can suggest that more fluid may be needed, although medicines, foods and health conditions can affect colour."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <header>
+    <div class="nav-container">
+      <a href="../../" class="logo">
+        <img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon">
+        <span>CalcuPortal</span>
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="../../" class="nav-link">Home</a>
+        <a href="../../about/" class="nav-link">About</a>
+        <a href="../../contact/" class="nav-link">Contact</a>
+        <button class="theme-btn" title="Toggle Theme" aria-label="Toggle dark mode">
+          <span class="theme-btn-icon"></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="detail-container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="../../">Home</a>
+        <span class="separator">&rsaquo;</span>
+        <a href="../../categories/health-fitness/">Health & Fitness Calculators</a>
+        <span class="separator">&rsaquo;</span>
+        <span class="current" aria-current="page">Water Intake Calculator</span>
+      </nav>
+
+      <div class="detail-header">
+        <h1>How Much Water Should I Drink a Day Calculator</h1>
+      </div>
+
+      <div class="calculator-intro">
+        <p>Estimate your daily water target using your weight, activity level, climate and life stage. View the result in litres, ounces, cups and bottles.</p>
+      </div>
+
+      <section class="calc-widget hydration-calculator" aria-labelledby="calculator-heading">
+        <h2 id="calculator-heading" style="text-align:center; margin-top:0;">Daily Water Intake Calculator</h2>
+
+        <div class="unit-toggle" role="group" aria-label="Measurement system">
+          <button type="button" class="unit-option active" data-unit="metric" aria-pressed="true">Metric (kg, ml)</button>
+          <button type="button" class="unit-option" data-unit="imperial" aria-pressed="false">US (lb, fl oz)</button>
+        </div>
+
+        <form id="water-form" novalidate>
+          <div class="hydration-form-grid">
+            <div class="form-group">
+              <label for="weight">Your Weight <span id="weight-unit-label">(kg)</span></label>
+              <input type="number" id="weight" class="input-field" value="70" min="20" max="300" step="0.1" inputmode="decimal" required>
+              <small class="field-hint" id="weight-hint">Enter a value between 20 and 300 kg.</small>
+            </div>
+
+            <div class="form-group">
+              <label for="activity">Daily Exercise</label>
+              <select id="activity" class="select-field">
+                <option value="0">Little or no exercise</option>
+                <option value="15">About 30 minutes</option>
+                <option value="30" selected>About 60 minutes</option>
+                <option value="45">About 90 minutes</option>
+                <option value="60">About 120 minutes</option>
+                <option value="90">More than 2 hours</option>
+              </select>
+              <small class="field-hint">Used only as a planning adjustment.</small>
+            </div>
+
+            <div class="form-group">
+              <label for="climate">Climate / Environment</label>
+              <select id="climate" class="select-field">
+                <option value="0">Cool or mild</option>
+                <option value="250">Warm</option>
+                <option value="500">Hot or humid</option>
+                <option value="750">Very hot / outdoor work</option>
+              </select>
+              <small class="field-hint">Heat and humidity can increase sweat loss.</small>
+            </div>
+
+            <div class="form-group">
+              <label for="diet">Water from Food</label>
+              <select id="diet" class="select-field">
+                <option value="0.25">High — plenty of fruit, vegetables and soups</option>
+                <option value="0.20" selected>Average mixed diet</option>
+                <option value="0.15">Low — mostly dry or processed foods</option>
+              </select>
+              <small class="field-hint">The result separates estimated drinks from total water.</small>
+            </div>
+
+            <div class="form-group">
+              <label for="wake-time">Wake-up Time</label>
+              <input type="time" id="wake-time" class="input-field" value="07:00">
+              <small class="field-hint">Used to build your hydration schedule.</small>
+            </div>
+
+            <div class="form-group">
+              <label for="bed-time">Bedtime</label>
+              <input type="time" id="bed-time" class="input-field" value="23:00">
+              <small class="field-hint">The schedule spreads drinks across your day.</small>
+            </div>
+
+            <fieldset class="form-group full-width" style="border:0; padding:0; margin:0;">
+              <legend style="font-weight:600; margin-bottom:8px;">Life Stage</legend>
+              <div class="life-stage-wrap">
+                <div class="choice-card">
+                  <input type="radio" name="life-stage" id="stage-general" value="general" checked>
+                  <label for="stage-general">General Adult</label>
+                </div>
+                <div class="choice-card">
+                  <input type="radio" name="life-stage" id="stage-pregnant" value="pregnant">
+                  <label for="stage-pregnant">Pregnant</label>
+                </div>
+                <div class="choice-card">
+                  <input type="radio" name="life-stage" id="stage-breastfeeding" value="breastfeeding">
+                  <label for="stage-breastfeeding">Breastfeeding</label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="calculator-actions">
+            <button type="submit" class="calc-btn">Calculate My Water Intake</button>
+            <button type="button" class="secondary-action" id="reset-button">Reset</button>
+          </div>
+
+          <div id="calculator-error" class="calculator-error" role="alert"></div>
+        </form>
+
+        <div id="result-section" class="hydration-results hidden" aria-live="polite">
+          <div class="result-top-grid">
+            <div class="water-visual" aria-hidden="true">
+              <div class="bottle-shell">
+                <div class="water-fill" id="water-fill"></div>
+                <div class="bottle-label">
+                  <span id="bottle-label">Daily<br>target</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="primary-result">
+              <p class="result-eyebrow">Estimated daily drinks target</p>
+              <h2 class="water-total" id="primary-result">2.4 L</h2>
+              <p class="water-subtitle" id="secondary-result">About 81 fl oz per day</p>
+
+              <div class="result-metrics">
+                <div class="metric-card">
+                  <span>250 ml cups</span>
+                  <strong id="cups-result">10 cups</strong>
+                </div>
+                <div class="metric-card">
+                  <span>500 ml bottles</span>
+                  <strong id="bottles-result">5 bottles</strong>
+                </div>
+                <div class="metric-card">
+                  <span>Total water incl. food</span>
+                  <strong id="total-water-result">3.0 L</strong>
+                </div>
+                <div class="metric-card">
+                  <span>Per waking hour</span>
+                  <strong id="hourly-result">150 ml</strong>
+                </div>
+              </div>
+
+              <p class="result-note" id="result-note">
+                This is an educational estimate, not an individual medical prescription.
+              </p>
+            </div>
+          </div>
+
+          <div class="breakdown-section">
+            <h3>Your Water Intake Breakdown</h3>
+            <div class="breakdown-list" id="breakdown-list"></div>
+          </div>
+
+          <div class="schedule-section">
+            <h3>Suggested Daily Hydration Schedule</h3>
+            <p>Spread your drinks across the day instead of consuming the full amount at once.</p>
+            <div class="schedule-grid" id="schedule-grid"></div>
+          </div>
+
+          <div class="result-tools">
+            <button type="button" class="tool-button" id="copy-result">Copy Result</button>
+            <button type="button" class="tool-button" id="share-result">Share</button>
+            <button type="button" class="tool-button" id="print-result">Print Plan</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="article-section">
+        <div class="article-header">
+          <h2>How Much Water Should You Drink a Day?</h2>
+        </div>
+
+        <div class="article-content">
+          <div class="seo-answer-box">
+            <p><strong>Your daily water requirement is personal.</strong> Body weight, exercise, hot weather, diet, pregnancy, breastfeeding, illness and some medicines can change how much fluid you need. Use the calculator above for a practical daily estimate in litres, ounces, cups and bottles.</p>
+          </div>
+
+          <p>There is no single water target that is correct for every person. A smaller adult working indoors may require less fluid than a larger person exercising outdoors in humid weather. Your thirst, urine colour, food intake and medical history also matter.</p>
+
+          <p>Public-health guidance often gives a broad starting point rather than a strict universal rule. The NHS suggests that many people aim for 6 to 8 cups or glasses of fluid per day, while noting that more may be needed during pregnancy, breastfeeding, prolonged activity, hot conditions or illness.</p>
+
+          <h3>How the Water Intake Calculator Works</h3>
+
+          <p>The calculator starts with a weight-based planning estimate and then adjusts it for exercise, climate and life stage. It also estimates how much water may come from food so the main result better represents the amount to obtain from drinks.</p>
+
+          <div class="formula-box">
+            Estimated drinks target = weight-based water + activity adjustment + climate adjustment + life-stage adjustment − estimated food water
+          </div>
+
+          <p>The result is not a diagnosis or a medical prescription. Weight-based rules are convenient planning tools, but they cannot measure your exact sweat loss, kidney function, sodium balance, medications or clinical fluid restrictions.</p>
+
+          <h3>Daily Water Intake by Weight</h3>
+
+          <p>A commonly used hydration-planning range is approximately 30 to 35 millilitres per kilogram of body weight each day before other adjustments. The calculator uses a midpoint within this range and then adapts the estimate.</p>
+
+          <div class="content-table-wrap">
+            <table class="content-table">
+              <thead>
+                <tr>
+                  <th>S.No</th>
+                  <th>Body Weight</th>
+                  <th>Base Total Water Estimate</th>
+                  <th>Approx. US Fluid Ounces</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>1</td><td>45 kg / 99 lb</td><td>1.5 L</td><td>51 fl oz</td></tr>
+                <tr><td>2</td><td>55 kg / 121 lb</td><td>1.8 L</td><td>61 fl oz</td></tr>
+                <tr><td>3</td><td>65 kg / 143 lb</td><td>2.1 L</td><td>71 fl oz</td></tr>
+                <tr><td>4</td><td>75 kg / 165 lb</td><td>2.4 L</td><td>81 fl oz</td></tr>
+                <tr><td>5</td><td>85 kg / 187 lb</td><td>2.8 L</td><td>95 fl oz</td></tr>
+                <tr><td>6</td><td>95 kg / 209 lb</td><td>3.1 L</td><td>105 fl oz</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>These examples show only the starting estimate. Exercise, heat, pregnancy, breastfeeding, illness and a low-moisture diet may increase fluid needs. Certain health conditions may require a lower medically prescribed amount.</p>
+
+          <h3>How Many Litres of Water Should I Drink a Day?</h3>
+
+          <p>Many adults may fall somewhere near 1.5 to 3 litres of drinks per day, but the suitable amount can sit outside this range. A person who eats water-rich foods may obtain more fluid from meals, while someone sweating heavily may need substantially more.</p>
+
+          <p>One litre equals about 33.8 US fluid ounces. A 2-litre daily target is approximately 67.6 fluid ounces, eight 250 ml cups or four 500 ml bottles.</p>
+
+          <h3>Water Intake in Litres, Ounces, Cups and Bottles</h3>
+
+          <div class="content-table-wrap">
+            <table class="content-table">
+              <thead>
+                <tr>
+                  <th>S.No</th>
+                  <th>Litres</th>
+                  <th>US Fluid Ounces</th>
+                  <th>250 ml Cups</th>
+                  <th>500 ml Bottles</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>1</td><td>1.5 L</td><td>50.7 fl oz</td><td>6 cups</td><td>3 bottles</td></tr>
+                <tr><td>2</td><td>2.0 L</td><td>67.6 fl oz</td><td>8 cups</td><td>4 bottles</td></tr>
+                <tr><td>3</td><td>2.5 L</td><td>84.5 fl oz</td><td>10 cups</td><td>5 bottles</td></tr>
+                <tr><td>4</td><td>3.0 L</td><td>101.4 fl oz</td><td>12 cups</td><td>6 bottles</td></tr>
+                <tr><td>5</td><td>3.5 L</td><td>118.3 fl oz</td><td>14 cups</td><td>7 bottles</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>How Much Water Should I Drink When Exercising?</h3>
+
+          <p>Exercise raises fluid needs when it causes sweating. The actual increase depends on workout duration, intensity, clothing, body size, temperature, humidity and individual sweat rate.</p>
+
+          <p>For demanding exercise, long events or work in extreme heat, a personalised hydration plan is safer than a general calculator. Replacing electrolytes may also become important during prolonged heavy sweating.</p>
+
+          <h3>How Much Water Should I Drink in Hot Weather?</h3>
+
+          <p>Hot and humid conditions can increase sweat loss even when exercise does not change. People working outdoors, travelling in a hot climate or spending long periods without air conditioning may need more fluid than usual.</p>
+
+          <p>Drink regularly, take cooling breaks and do not rely only on thirst during intense heat exposure. Headache, dizziness, weakness, confusion, fainting or very limited urination require prompt attention.</p>
+
+          <h3>Water Intake During Pregnancy and Breastfeeding</h3>
+
+          <p>Pregnancy and breastfeeding can increase fluid requirements. The American College of Obstetricians and Gynecologists advises 8 to 12 cups of water daily during pregnancy. Individual needs may vary with activity, climate, nausea, vomiting and medical advice.</p>
+
+          <p>Breastfeeding also increases water use. Drink regularly and follow advice from your doctor or dietitian when you have a medical condition, take diuretics or have been given a fluid limit.</p>
+
+          <h3>Do Tea, Coffee and Food Count as Water Intake?</h3>
+
+          <p>Daily fluid does not come only from plain water. Milk, tea, coffee, soups and water-rich fruits and vegetables can contribute. Lower-sugar drinks are usually easier to fit into a balanced diet than sugary beverages.</p>
+
+          <p>The calculator estimates a percentage of total water from food. People eating plenty of fruit, vegetables, yoghurt, soups and similar foods may obtain more water from meals than people eating mostly dry or processed foods.</p>
+
+          <h3>Signs You May Need More Fluid</h3>
+
+          <ul>
+            <li>Thirst or a dry mouth</li>
+            <li>Dark yellow urine</li>
+            <li>Urinating less often than usual</li>
+            <li>Headache, tiredness or reduced concentration</li>
+            <li>Dizziness, especially during heat or exercise</li>
+          </ul>
+
+          <p>Pale yellow urine is commonly used as a simple hydration check. However, urine colour can also change because of food, vitamins, medicines and health conditions.</p>
+
+          <h3>Can You Drink Too Much Water?</h3>
+
+          <p>Yes. Consuming excessive water rapidly can dilute sodium in the blood, a dangerous condition called hyponatremia. Avoid forcing large quantities beyond thirst and practical needs, especially within a short period.</p>
+
+          <p>People with kidney disease, heart failure, liver disease, endocrine conditions or prescribed fluid restrictions should not use a general calculator as their primary guide.</p>
+
+          <div class="medical-disclaimer">
+            <strong>Medical disclaimer:</strong> This calculator provides a general educational estimate for healthy adults. It is not intended for infants, children, endurance-event planning, medical treatment or people with prescribed fluid restrictions. Seek professional advice for illness, pregnancy complications, kidney, heart or liver conditions, persistent dehydration symptoms, or concerns about excessive thirst.
+          </div>
+        </div>
+      </section>
+
+      <section class="faq-section">
+        <h2 class="faq-header">Frequently Asked Questions</h2>
+
+        <div class="faq-grid">
+          <div class="faq-item">
+            <h3 class="faq-question">How much water should I drink a day?</h3>
+            <p class="faq-answer">Your ideal amount depends on body size, activity, climate, diet, health and life stage. Use the calculator for a practical estimate rather than treating one fixed number as correct for everyone.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">How much water should I drink based on my weight?</h3>
+            <p class="faq-answer">A commonly used planning estimate is around 30 to 35 ml per kilogram of body weight per day before adjusting for exercise, heat and other factors.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">How many ounces of water should I drink a day?</h3>
+            <p class="faq-answer">The amount varies. Enter your weight in pounds and choose the US unit option to receive an estimate in fluid ounces, litres, cups and bottles.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Is eight glasses of water a day enough?</h3>
+            <p class="faq-answer">Eight glasses can be a useful simple target, but it may be too much for some people and too little for others. Exercise, heat, food and medical conditions affect the requirement.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Does coffee count toward water intake?</h3>
+            <p class="faq-answer">Coffee and tea can contribute to daily fluid intake. Plain water remains a convenient calorie-free option, and caffeine intake should still be kept appropriate for your circumstances.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Should I drink more water while exercising?</h3>
+            <p class="faq-answer">You may need more fluid when exercise causes sweating. Duration, intensity, heat, humidity and your individual sweat rate determine how much extra is suitable.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">Can drinking too much water be dangerous?</h3>
+            <p class="faq-answer">Yes. Excessive intake over a short period can dangerously lower blood sodium. Avoid forcing very large volumes and seek medical guidance when you have a fluid restriction.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-question">What colour should urine be when hydrated?</h3>
+            <p class="faq-answer">Pale yellow urine commonly suggests adequate hydration. Food, supplements, medicines and health conditions can also change urine colour.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="copyright-bar" style="border-top:none; padding-top:0;">
+      © <span id="year">2026</span> CalcuPortal. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const form = document.getElementById("water-form");
+      const weightInput = document.getElementById("weight");
+      const weightUnitLabel = document.getElementById("weight-unit-label");
+      const weightHint = document.getElementById("weight-hint");
+      const unitButtons = document.querySelectorAll(".unit-option");
+      const resultSection = document.getElementById("result-section");
+      const errorBox = document.getElementById("calculator-error");
+      const waterFill = document.getElementById("water-fill");
+      const primaryResult = document.getElementById("primary-result");
+      const secondaryResult = document.getElementById("secondary-result");
+      const cupsResult = document.getElementById("cups-result");
+      const bottlesResult = document.getElementById("bottles-result");
+      const totalWaterResult = document.getElementById("total-water-result");
+      const hourlyResult = document.getElementById("hourly-result");
+      const breakdownList = document.getElementById("breakdown-list");
+      const scheduleGrid = document.getElementById("schedule-grid");
+      const resultNote = document.getElementById("result-note");
+
+      let unitSystem = "metric";
+      let lastResult = null;
+
+      const ML_PER_FL_OZ = 29.5735295625;
+      const KG_PER_LB = 0.45359237;
+
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      function round(value, decimals = 1) {
+        const factor = Math.pow(10, decimals);
+        return Math.round(value * factor) / factor;
+      }
+
+      function formatLitres(ml) {
+        return `${round(ml / 1000, 1)} L`;
+      }
+
+      function formatOunces(ml) {
+        return `${Math.round(ml / ML_PER_FL_OZ)} fl oz`;
+      }
+
+      function timeToMinutes(value) {
+        const [hours, minutes] = value.split(":").map(Number);
+        return (hours * 60) + minutes;
+      }
+
+      function minutesToTime(totalMinutes) {
+        const normalised = ((Math.round(totalMinutes) % 1440) + 1440) % 1440;
+        const hours = Math.floor(normalised / 60);
+        const minutes = normalised % 60;
+        const suffix = hours >= 12 ? "PM" : "AM";
+        const displayHour = hours % 12 || 12;
+        return `${displayHour}:${String(minutes).padStart(2, "0")} ${suffix}`;
+      }
+
+      function getWakingHours() {
+        const wake = timeToMinutes(document.getElementById("wake-time").value);
+        let bed = timeToMinutes(document.getElementById("bed-time").value);
+        if (bed <= wake) bed += 1440;
+        return Math.max(8, Math.min(20, (bed - wake) / 60));
+      }
+
+      function setError(message) {
+        errorBox.textContent = message;
+        errorBox.classList.toggle("show", Boolean(message));
+      }
+
+      function setUnit(nextUnit) {
+        if (nextUnit === unitSystem) return;
+
+        const currentValue = parseFloat(weightInput.value);
+        if (Number.isFinite(currentValue)) {
+          weightInput.value = nextUnit === "imperial"
+            ? round(currentValue / KG_PER_LB, 1)
+            : round(currentValue * KG_PER_LB, 1);
+        }
+
+        unitSystem = nextUnit;
+
+        unitButtons.forEach(button => {
+          const active = button.dataset.unit === nextUnit;
+          button.classList.toggle("active", active);
+          button.setAttribute("aria-pressed", String(active));
+        });
+
+        if (nextUnit === "metric") {
+          weightUnitLabel.textContent = "(kg)";
+          weightInput.min = "20";
+          weightInput.max = "300";
+          weightHint.textContent = "Enter a value between 20 and 300 kg.";
+        } else {
+          weightUnitLabel.textContent = "(lb)";
+          weightInput.min = "44";
+          weightInput.max = "661";
+          weightHint.textContent = "Enter a value between 44 and 661 lb.";
+        }
+
+        if (!resultSection.classList.contains("hidden")) calculate();
+      }
+
+      unitButtons.forEach(button => {
+        button.addEventListener("click", () => setUnit(button.dataset.unit));
+      });
+
+      function calculate(event) {
+        if (event) event.preventDefault();
+        setError("");
+
+        const rawWeight = parseFloat(weightInput.value);
+        const min = unitSystem === "metric" ? 20 : 44;
+        const max = unitSystem === "metric" ? 300 : 661;
+
+        if (!Number.isFinite(rawWeight) || rawWeight < min || rawWeight > max) {
+          setError(`Please enter a weight between ${min} and ${max} ${unitSystem === "metric" ? "kg" : "lb"}.`);
+          weightInput.focus();
+          return;
+        }
+
+        const weightKg = unitSystem === "metric" ? rawWeight : rawWeight * KG_PER_LB;
+        const activityMinutes = parseInt(document.getElementById("activity").value, 10);
+        const climateAdjustment = parseInt(document.getElementById("climate").value, 10);
+        const foodShare = parseFloat(document.getElementById("diet").value);
+        const stage = document.querySelector('input[name="life-stage"]:checked').value;
+
+        // Practical planning estimate for healthy adults, not a clinical prescription.
+        const baseTotalMl = weightKg * 33;
+        const activityAdjustment = activityMinutes * 12;
+        const lifeStageAdjustment =
+          stage === "pregnant" ? 300 :
+          stage === "breastfeeding" ? 700 : 0;
+
+        const totalWaterMl = baseTotalMl + activityAdjustment + climateAdjustment + lifeStageAdjustment;
+        const foodWaterMl = totalWaterMl * foodShare;
+        const drinksMl = Math.max(1000, totalWaterMl - foodWaterMl);
+
+        const wakingHours = getWakingHours();
+        const perHourMl = drinksMl / wakingHours;
+        const cups = drinksMl / 250;
+        const bottles = drinksMl / 500;
+
+        lastResult = {
+          unitSystem,
+          rawWeight,
+          weightKg,
+          drinksMl,
+          totalWaterMl,
+          baseTotalMl,
+          activityAdjustment,
+          climateAdjustment,
+          lifeStageAdjustment,
+          foodWaterMl,
+          foodShare,
+          wakingHours,
+          perHourMl,
+          cups,
+          bottles,
+          stage
+        };
+
+        renderResult(lastResult);
+      }
+
+      function renderResult(data) {
+        primaryResult.textContent = formatLitres(data.drinksMl);
+        secondaryResult.textContent = `About ${formatOunces(data.drinksMl)} per day`;
+        cupsResult.textContent = `${round(data.cups, 1)} cups`;
+        bottlesResult.textContent = `${round(data.bottles, 1)} bottles`;
+        totalWaterResult.textContent = formatLitres(data.totalWaterMl);
+        hourlyResult.textContent = `${Math.round(data.perHourMl)} ml`;
+
+        const fillPercent = Math.max(42, Math.min(94, (data.drinksMl / 4000) * 100));
+        waterFill.style.height = `${fillPercent}%`;
+
+        resultNote.textContent = data.stage === "general"
+          ? "This is an educational estimate for healthy adults, not an individual medical prescription."
+          : "Life-stage needs vary. Use this estimate alongside advice from your doctor or dietitian.";
+
+        const rows = [
+          ["Weight-based starting estimate", formatLitres(data.baseTotalMl)],
+          ["Exercise adjustment", data.activityAdjustment ? `+ ${Math.round(data.activityAdjustment)} ml` : "No extra added"],
+          ["Climate adjustment", data.climateAdjustment ? `+ ${Math.round(data.climateAdjustment)} ml` : "No extra added"],
+          ["Life-stage adjustment", data.lifeStageAdjustment ? `+ ${Math.round(data.lifeStageAdjustment)} ml` : "No extra added"],
+          ["Estimated water from food", `− ${Math.round(data.foodWaterMl)} ml`],
+          ["Estimated drinks target", formatLitres(data.drinksMl)]
+        ];
+
+        breakdownList.innerHTML = rows.map(([label, value]) => `
+          <div class="breakdown-row">
+            <span>${label}</span>
+            <strong>${value}</strong>
+          </div>
+        `).join("");
+
+        renderSchedule(data.drinksMl);
+        resultSection.classList.remove("hidden");
+
+        requestAnimationFrame(() => {
+          resultSection.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        });
+      }
+
+      function renderSchedule(drinksMl) {
+        const wake = timeToMinutes(document.getElementById("wake-time").value);
+        let bed = timeToMinutes(document.getElementById("bed-time").value);
+        if (bed <= wake) bed += 1440;
+
+        const slots = drinksMl >= 3000 ? 10 : drinksMl >= 2200 ? 8 : 6;
+        const interval = (bed - wake) / slots;
+        const perSlot = drinksMl / slots;
+
+        const moments = [
+          "After waking",
+          "With breakfast",
+          "Mid-morning",
+          "Before lunch",
+          "Mid-afternoon",
+          "Early evening",
+          "With dinner",
+          "Later evening",
+          "Post-activity",
+          "Before final hour"
+        ];
+
+        scheduleGrid.innerHTML = Array.from({ length: slots }, (_, index) => {
+          const time = wake + (interval * index);
+          return `
+            <div class="schedule-card">
+              <time>${minutesToTime(time)}</time>
+              <strong>${Math.round(perSlot)} ml</strong>
+              <span>${moments[index] || "Hydration break"}</span>
+            </div>
+          `;
+        }).join("");
+      }
+
+      form.addEventListener("submit", calculate);
+
+      document.getElementById("reset-button").addEventListener("click", () => {
+        unitSystem = "metric";
+        unitButtons.forEach(button => {
+          const active = button.dataset.unit === "metric";
+          button.classList.toggle("active", active);
+          button.setAttribute("aria-pressed", String(active));
+        });
+
+        weightInput.value = "70";
+        weightUnitLabel.textContent = "(kg)";
+        weightInput.min = "20";
+        weightInput.max = "300";
+        weightHint.textContent = "Enter a value between 20 and 300 kg.";
+        document.getElementById("activity").value = "30";
+        document.getElementById("climate").value = "0";
+        document.getElementById("diet").value = "0.20";
+        document.getElementById("wake-time").value = "07:00";
+        document.getElementById("bed-time").value = "23:00";
+        document.getElementById("stage-general").checked = true;
+        resultSection.classList.add("hidden");
+        waterFill.style.height = "0";
+        setError("");
+        lastResult = null;
+      });
+
+      document.getElementById("copy-result").addEventListener("click", async () => {
+        if (!lastResult) return;
+        const text = `My estimated daily drinks target is ${formatLitres(lastResult.drinksMl)} (${formatOunces(lastResult.drinksMl)}), about ${round(lastResult.cups, 1)} cups or ${round(lastResult.bottles, 1)} 500 ml bottles.`;
+        try {
+          await navigator.clipboard.writeText(text);
+          document.getElementById("copy-result").textContent = "Copied!";
+          setTimeout(() => {
+            document.getElementById("copy-result").textContent = "Copy Result";
+          }, 1600);
+        } catch {
+          setError("Copying is not supported in this browser.");
+        }
+      });
+
+      document.getElementById("share-result").addEventListener("click", async () => {
+        if (!lastResult) return;
+        const text = `My estimated daily water target is ${formatLitres(lastResult.drinksMl)} (${formatOunces(lastResult.drinksMl)}).`;
+        if (navigator.share) {
+          try {
+            await navigator.share({
+              title: "My Daily Water Intake Estimate",
+              text,
+              url: window.location.href
+            });
+          } catch (error) {
+            if (error.name !== "AbortError") setError("Unable to share the result.");
+          }
+        } else {
+          try {
+            await navigator.clipboard.writeText(`${text} ${window.location.href}`);
+            document.getElementById("share-result").textContent = "Link Copied!";
+            setTimeout(() => {
+              document.getElementById("share-result").textContent = "Share";
+            }, 1600);
+          } catch {
+            setError("Sharing is not supported in this browser.");
+          }
+        }
+      });
+
+      document.getElementById("print-result").addEventListener("click", () => {
+        if (lastResult) window.print();
+      });
+
+      [
+        "activity",
+        "climate",
+        "diet",
+        "wake-time",
+        "bed-time",
+        "stage-general",
+        "stage-pregnant",
+        "stage-breastfeeding"
+      ].forEach(id => {
+        document.getElementById(id).addEventListener("change", () => {
+          if (!resultSection.classList.contains("hidden")) calculate();
+        });
+      });
+
+      weightInput.addEventListener("input", () => {
+        setError("");
+      });
+    })();
+  </script>
+</body>
+</html>
