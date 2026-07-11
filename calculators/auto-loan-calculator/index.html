@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <link rel="icon" href="/favicon.png" type="image/png">
@@ -6,223 +6,426 @@
   <link rel="apple-touch-icon" href="/favicon.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Auto Loan Calculator - Compare Car Payments</title>
-  <meta name="description" content="Estimate your monthly car payments using vehicle price, down payment, trade-in value, and interest rate.">
-  <meta name="robots" content="index, follow">
+  <title>Auto Loan Calculator: Car Payment & EMI Calculator</title>
+  <meta name="description" content="Use our auto loan calculator for the US and India. Estimate monthly car payments or EMI, total interest, taxes, fees, down payment and amortization instantly.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://www.calcuportal.com/calculators/auto-loan-calculator/">
   <link rel="stylesheet" href="../../styles.css">
-  <script src="../../script.js"></script>
-    <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How does term length affect my loan?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A longer term length decreases your monthly payment but increases the total interest you pay over the life of the loan."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the Auto Loan Calculator used for?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The Auto Loan Calculator is a free online tool designed to calculate solutions for Auto Loan Calculator queries instantly. It helps users get fast, error-free results."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How accurate are calculations on the Auto Loan Calculator?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "This tool uses industry-standard formulas and mathematical equations for Finance & Business to ensure 100% computational integrity and accuracy."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is my data secure when using the Auto Loan Calculator?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. All computations are executed client-side in your web browser. We do not store, track, or transmit any input values or calculated results."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use the Auto Loan Calculator on mobile devices?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absolutely. The calculator is built with a responsive mobile-first design, making it fully optimized for mobile web (mweb) as well as desktop viewports."
-      }
+  <script src="../../script.js" defer></script>
+
+  <style>
+    .loan-tool { max-width: 920px; margin: 0 auto; }
+    .market-switch { display:flex; gap:10px; margin-bottom:20px; padding:6px; border:1px solid var(--border, #ddd); border-radius:12px; background:var(--card-bg, #fff); }
+    .market-btn { flex:1; border:0; border-radius:9px; padding:12px 16px; font-weight:600; cursor:pointer; background:transparent; color:inherit; }
+    .market-btn.active { background:var(--accent, #fc6b2d); color:#fff; }
+    .tool-note { font-size:13px; margin:0 0 18px; opacity:.78; text-align:center; }
+    .form-grid { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:16px; }
+    .form-group label { display:block; margin-bottom:7px; font-weight:600; }
+    .input-wrap { position:relative; }
+    .currency-prefix { position:absolute; left:14px; top:50%; transform:translateY(-50%); font-weight:600; opacity:.75; }
+    .input-wrap .input-field { padding-left:40px; width:100%; }
+    .checkbox-row { display:flex; align-items:center; gap:9px; margin-top:8px; }
+    .checkbox-row input { width:18px; height:18px; }
+    .error-message { display:none; margin:14px 0 0; padding:11px 13px; border-radius:8px; background:#fff0ed; color:#a52b16; font-size:14px; }
+    .result-grid { display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:12px; margin-top:18px; }
+    .result-card { padding:16px 12px; border:1px solid var(--border, #ddd); border-radius:10px; text-align:center; background:var(--card-bg, #fff); }
+    .result-label { font-size:13px; opacity:.76; margin-bottom:7px; }
+    .result-value { font-size:21px; font-weight:700; word-break:break-word; }
+    .loan-summary { margin-top:16px; text-align:left; padding:15px; border-radius:10px; background:var(--soft-bg, #f7f7f7); }
+    .loan-summary p { margin:6px 0; }
+    .amortization-wrap { margin-top:24px; overflow-x:auto; }
+    .amortization-wrap table, .article-content table { width:100%; border-collapse:collapse; min-width:680px; font-size:13px; }
+    .amortization-wrap th, .amortization-wrap td, .article-content th, .article-content td { border:1px solid #ddd; padding:10px; text-align:center; }
+    .amortization-wrap th, .article-content th { background:#fc6b2d; color:#fff; }
+    .table-toggle { margin-top:16px; background:none; border:1px solid var(--accent, #fc6b2d); color:var(--accent, #fc6b2d); padding:9px 14px; border-radius:8px; cursor:pointer; font-weight:600; }
+    .article-content p, .faq-answer { text-align:justify; }
+    .audience-box { border-left:4px solid #fc6b2d; padding:14px 16px; margin:20px 0; background:var(--soft-bg, #f8f8f8); }
+    .formula-box { padding:16px; border-radius:10px; background:var(--soft-bg, #f7f7f7); overflow-x:auto; }
+    .formula-box code { white-space:nowrap; }
+    .quick-links { display:flex; flex-wrap:wrap; gap:10px; margin:14px 0 22px; }
+    .quick-links a { text-decoration:none; border:1px solid var(--border, #ddd); padding:8px 11px; border-radius:8px; }
+    @media (max-width:760px) {
+      .form-grid, .result-grid { grid-template-columns:1fr; }
+      .market-switch { flex-direction:column; }
+      .result-value { font-size:19px; }
     }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"WebPage",
+        "@id":"https://www.calcuportal.com/calculators/auto-loan-calculator/#webpage",
+        "url":"https://www.calcuportal.com/calculators/auto-loan-calculator/",
+        "name":"Auto Loan Calculator: Car Payment & EMI Calculator",
+        "description":"Estimate auto loan payments in US dollars or Indian rupees, including interest, taxes, fees, down payment and amortization.",
+        "isPartOf":{"@id":"https://www.calcuportal.com/#website"},
+        "breadcrumb":{"@id":"https://www.calcuportal.com/calculators/auto-loan-calculator/#breadcrumb"},
+        "mainEntity":{"@id":"https://www.calcuportal.com/calculators/auto-loan-calculator/#app"}
+      },
+      {
+        "@type":"WebSite",
+        "@id":"https://www.calcuportal.com/#website",
+        "url":"https://www.calcuportal.com/",
+        "name":"CalcuPortal"
+      },
+      {
+        "@type":"BreadcrumbList",
+        "@id":"https://www.calcuportal.com/calculators/auto-loan-calculator/#breadcrumb",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://www.calcuportal.com/"},
+          {"@type":"ListItem","position":2,"name":"Finance & Loan Calculators","item":"https://www.calcuportal.com/categories/finance/"},
+          {"@type":"ListItem","position":3,"name":"Auto Loan Calculator","item":"https://www.calcuportal.com/calculators/auto-loan-calculator/"}
+        ]
+      },
+      {
+        "@type":"WebApplication",
+        "@id":"https://www.calcuportal.com/calculators/auto-loan-calculator/#app",
+        "name":"Auto Loan Calculator",
+        "url":"https://www.calcuportal.com/calculators/auto-loan-calculator/",
+        "applicationCategory":"FinanceApplication",
+        "operatingSystem":"Any",
+        "browserRequirements":"Requires JavaScript",
+        "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+        "featureList":[
+          "US dollar and Indian rupee modes",
+          "Monthly car payment and EMI calculation",
+          "Sales tax, fees, down payment and trade-in support",
+          "Total interest and total repayment",
+          "Loan amortization schedule"
+        ]
+      },
+      {
+        "@type":"Article",
+        "headline":"Auto Loan Calculator Guide for US and Indian Car Buyers",
+        "mainEntityOfPage":{"@id":"https://www.calcuportal.com/calculators/auto-loan-calculator/#webpage"},
+        "author":{"@type":"Organization","name":"CalcuPortal"},
+        "publisher":{"@type":"Organization","name":"CalcuPortal","logo":{"@type":"ImageObject","url":"https://www.calcuportal.com/logo.png"}},
+        "dateModified":"2026-07-11"
+      },
+      {
+        "@type":"FAQPage",
+        "mainEntity":[
+          {"@type":"Question","name":"How is a monthly auto loan payment calculated?","acceptedAnswer":{"@type":"Answer","text":"The payment is calculated using the loan principal, monthly interest rate and number of monthly installments. The calculator applies the standard amortizing loan formula."}},
+          {"@type":"Question","name":"What is the difference between an auto loan payment and a car loan EMI?","acceptedAnswer":{"@type":"Answer","text":"They refer to the same monthly repayment concept. Auto loan payment is common in the United States, while EMI, or Equated Monthly Instalment, is widely used in India."}},
+          {"@type":"Question","name":"Does this calculator support both dollars and Indian rupees?","acceptedAnswer":{"@type":"Answer","text":"Yes. Select United States for dollar-based car payment estimates or India for rupee-based car loan EMI estimates."}},
+          {"@type":"Question","name":"Does the US calculation include sales tax and dealer fees?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can include sales tax, title or registration charges, dealer fees, down payment and trade-in value when estimating the amount financed."}},
+          {"@type":"Question","name":"Can I calculate a zero-interest car loan?","acceptedAnswer":{"@type":"Answer","text":"Yes. Enter an annual interest rate of zero and the calculator divides the financed amount equally across the selected loan term."}},
+          {"@type":"Question","name":"How does a longer loan term affect total interest?","acceptedAnswer":{"@type":"Answer","text":"A longer term usually lowers the monthly payment but increases the total interest paid because the balance remains outstanding for more months."}},
+          {"@type":"Question","name":"What is an amortization schedule?","acceptedAnswer":{"@type":"Answer","text":"An amortization schedule shows each monthly payment, the portion applied to interest, the portion applied to principal and the remaining balance."}},
+          {"@type":"Question","name":"Are the results exact loan offers?","acceptedAnswer":{"@type":"Answer","text":"No. Results are estimates for planning. Actual lender payments may differ because of credit profile, taxes, insurance, processing fees, rounding and lender-specific terms."}}
+        ]
+      }
     ]
   }
   </script>
 </head>
 <body>
+<header>
+  <div class="nav-container">
+    <a href="../../" class="logo"><img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon"><span>CalcuPortal</span></a>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+    <nav class="nav-links" id="nav-links">
+      <a href="../../" class="nav-link">Home</a>
+      <a href="../../about/" class="nav-link">About</a>
+      <a href="../../contact/" class="nav-link">Contact</a>
+      <button class="theme-btn" title="Toggle Theme" aria-label="Toggle dark mode"><span class="theme-btn-icon"></span></button>
+    </nav>
+  </div>
+</header>
 
-  <!-- Header -->
-  <header>
-    <div class="nav-container">
-      <a href="../../" class="logo">
-        <img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon">
-        <span>CalcuPortal</span>
-      </a>
-      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-      <nav class="nav-links" id="nav-links">
-        <a href="../../" class="nav-link">Home</a>
-        <a href="../../about/" class="nav-link">About</a>
-        <a href="../../contact/" class="nav-link">Contact</a>
-        <button class="theme-btn" title="Toggle Theme">
-          <span class="theme-btn-icon"></span>
-        </button>
-      </nav>
+<main>
+  <div class="detail-container">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="../../">Home</a><span class="separator">&rsaquo;</span>
+      <a href="../../categories/finance/">Finance & Loan Calculators</a><span class="separator">&rsaquo;</span>
+      <span class="current" aria-current="page">Auto Loan Calculator</span>
+    </nav>
+
+    <div class="detail-header">
+      <h1>Auto Loan Calculator – Car Payment & EMI Calculator</h1>
+      <p>Estimate your monthly car payment in US dollars or car loan EMI in Indian rupees.</p>
     </div>
-  </header>
 
-  <main>
-    <div class="detail-container">
-      <!-- Breadcrumbs -->
-      <div class="breadcrumbs">
-        <a href="../../">Home</a>
-        <span class="separator">&rsaquo;</span>
-        <a href="../../categories/finance/">Finance & Loan Calculators</a>
-        <span class="separator">&rsaquo;</span>
-        <span class="current">Auto Loan Calculator</span>
+    <section class="calc-widget loan-tool" aria-labelledby="calculator-title">
+      <h2 id="calculator-title" style="text-align:center;">Calculate Your Car Loan Payment</h2>
+      <div class="market-switch" role="group" aria-label="Choose country and currency">
+        <button type="button" class="market-btn active" data-market="us" aria-pressed="true">United States ($)</button>
+        <button type="button" class="market-btn" data-market="in" aria-pressed="false">India (₹)</button>
+      </div>
+      <p class="tool-note" id="market-note">US mode includes vehicle price, sales tax, trade-in, down payment and fees.</p>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="vehicle-price" id="price-label">Vehicle Price</label>
+          <div class="input-wrap"><span class="currency-prefix" id="currency-price">$</span><input type="number" id="vehicle-price" value="30000" min="0" step="100" class="input-field" inputmode="decimal"></div>
+        </div>
+        <div class="form-group">
+          <label for="down-payment">Down Payment</label>
+          <div class="input-wrap"><span class="currency-prefix" id="currency-down">$</span><input type="number" id="down-payment" value="5000" min="0" step="100" class="input-field" inputmode="decimal"></div>
+        </div>
+        <div class="form-group" id="trade-group">
+          <label for="trade-in">Trade-in Value</label>
+          <div class="input-wrap"><span class="currency-prefix" id="currency-trade">$</span><input type="number" id="trade-in" value="2000" min="0" step="100" class="input-field" inputmode="decimal"></div>
+        </div>
+        <div class="form-group">
+          <label for="interest-rate">Annual Interest Rate / APR (%)</label>
+          <input type="number" id="interest-rate" value="6.5" min="0" max="100" step="0.01" class="input-field" inputmode="decimal">
+        </div>
+        <div class="form-group">
+          <label for="loan-term">Loan Term</label>
+          <select id="loan-term" class="input-field">
+            <option value="12">12 months</option><option value="24">24 months</option><option value="36">36 months</option><option value="48">48 months</option><option value="60" selected>60 months</option><option value="72">72 months</option><option value="84">84 months</option>
+          </select>
+        </div>
+        <div class="form-group" id="tax-group">
+          <label for="sales-tax" id="tax-label">Sales Tax (%)</label>
+          <input type="number" id="sales-tax" value="7" min="0" max="100" step="0.01" class="input-field" inputmode="decimal">
+          <label class="checkbox-row"><input type="checkbox" id="tax-financed" checked> Finance tax in the loan</label>
+        </div>
+        <div class="form-group">
+          <label for="fees" id="fees-label">Title, Registration & Dealer Fees</label>
+          <div class="input-wrap"><span class="currency-prefix" id="currency-fees">$</span><input type="number" id="fees" value="800" min="0" step="50" class="input-field" inputmode="decimal"></div>
+        </div>
+        <div class="form-group">
+          <label for="extra-payment">Extra Monthly Payment (Optional)</label>
+          <div class="input-wrap"><span class="currency-prefix" id="currency-extra">$</span><input type="number" id="extra-payment" value="0" min="0" step="10" class="input-field" inputmode="decimal"></div>
+        </div>
       </div>
 
-      <div class="detail-header">
-        <h1>Auto Loan Calculator</h1>
-      </div>
+      <div id="error-message" class="error-message" role="alert"></div>
+      <button id="calculate-btn" class="calc-btn" type="button">Calculate Car Payment</button>
 
-      <!-- Calculator Widget -->
-      <div class="calc-widget">
-                <div class="form-row">
-          <div class="form-group">
-            <label for="auto-price">Vehicle Price ($)</label>
-            <input type="number" id="auto-price" value="25000" class="input-field" />
-          </div>
-          <div class="form-group">
-            <label for="auto-down">Down Payment ($)</label>
-            <input type="number" id="auto-down" value="5000" class="input-field" />
-          </div>
+      <div id="result-section" class="result-section hidden" aria-live="polite">
+        <div class="result-grid">
+          <div class="result-card"><div class="result-label" id="monthly-label">Estimated Monthly Payment</div><div class="result-value" id="monthly-payment">$0</div></div>
+          <div class="result-card"><div class="result-label">Amount Financed</div><div class="result-value" id="amount-financed">$0</div></div>
+          <div class="result-card"><div class="result-label">Total Interest</div><div class="result-value" id="total-interest">$0</div></div>
+          <div class="result-card"><div class="result-label">Total Loan Repayment</div><div class="result-value" id="total-repayment">$0</div></div>
         </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="auto-trade">Trade-in Value ($)</label>
-            <input type="number" id="auto-trade" value="2000" class="input-field" />
-          </div>
-          <div class="form-group">
-            <label for="auto-rate">Interest Rate (%)</label>
-            <input type="number" id="auto-rate" value="5.5" class="input-field" step="any" />
-          </div>
-          <div class="form-group">
-            <label for="auto-months">Loan Term (Months)</label>
-            <input type="number" id="auto-months" value="60" class="input-field" />
-          </div>
-        </div>
-        <button id="calc-btn" class="calc-btn">Calculate Car Payment</button>
-        <div id="result-section" class="result-section hidden" style="text-align:center;">
-          <div class="summary-title">Monthly Payment</div>
-          <div class="total-balance" id="auto-monthly-val" style="color:var(--accent);">.83</div>
+        <div class="loan-summary" id="loan-summary"></div>
+        <button class="table-toggle" type="button" id="table-toggle" aria-expanded="false">Show Amortization Schedule</button>
+        <div class="amortization-wrap hidden" id="amortization-wrap">
+          <table>
+            <thead><tr><th>Payment</th><th id="payment-head">Payment</th><th>Principal</th><th>Interest</th><th>Remaining Balance</th></tr></thead>
+            <tbody id="amortization-body"></tbody>
+          </table>
         </div>
       </div>
+    </section>
 
-      <!-- SEO Article -->
-      <section class="article-section">
-        <div class="article-header">
-          <h2>Auto Loan Calculator Guides</h2>
+    <section class="article-section">
+      <div class="article-header"><h2>Auto Loan Calculator Guide for US and Indian Car Buyers</h2></div>
+      <div class="article-content">
+        <p>An auto loan calculator helps you estimate the monthly cost of financing a new or used car before you apply for a loan. This calculator supports two common search needs: a US auto loan payment estimate in dollars and an Indian car loan EMI estimate in rupees.</p>
+
+        <div class="quick-links">
+          <a href="#us-calculator-guide">US car payment guide</a><a href="#india-emi-guide">India car loan EMI guide</a><a href="#formula">Loan formula</a><a href="#amortization">Amortization</a><a href="#faqs">FAQs</a>
         </div>
-        <div class="article-content">
-          <h2>Calculate Auto Financing Costs</h2><p>Planning to purchase a new or used vehicle? Calculate your monthly payment based on the loan term, trade-in equity, and down payment.</p>
-          <h3>The Foundations of Personal and Business Finance</h3>
-<p>Navigating the complex world of finance requires precision, foresight, and data-driven decision making. Whether you are managing personal debt, projecting investment growth, or calculating tax brackets, using tools like the Auto Loan Calculator gives you immediate clarity on your money. Understanding financial metrics like the time value of money, amortization schedules, and interest rates is essential to building long-term financial security.</p>
-<p>Calculations involving compound interest, loan repayments (EMIs), or investment returns rely on exponential formulas. Compounding interest, for instance, allows your money to grow exponentially by earning returns on your interest. In contrast, loan amortization spreads your monthly payments between principal repayment and interest costs, gradually reducing your overall debt. Visualizing these numbers helps you choose the best loan terms or investment durations.</p>
-<h3>Step-by-Step Instructions & Financial Best Practices</h3>
-<p>Using the Auto Loan Calculator tool is simple and effective. Here is how to perform your calculations correctly:</p>
-<ul>
-  <li>First, gather all relevant terms, including the starting amount (principal), interest rates, and loan tenure or investment duration.</li>
-  <li>Input the figures into their respective fields. For interest rates, make sure to enter the annual rate (APR) as the tool handles periodic interest conversions automatically.</li>
-  <li>Choose the correct compounding or payment frequency (e.g. monthly, quarterly, or annually) as this heavily influences your interest totals.</li>
-</ul>
-<p>We advise comparing multiple scenarios (for example, comparing a 15-year mortgage against a 30-year mortgage) to see how small changes in interest rates or monthly additions affect your lifetime costs.</p>
-<h3>Practical Real-World Financial Scenarios</h3>
-<p>Let us analyze three common scenarios where this calculator provides immediate value:</p>
-<ol>
-  <li><strong>Mortgage and Auto Financing:</strong> Homebuyers and car shoppers calculate monthly EMIs to ensure they do not exceed their monthly budgets, reviewing the full amortization table to understand how much interest they pay over time.</li>
-  <li><strong>Retirement Planning:</strong> Investors project the compounding growth of their retirement funds by adjusting monthly contributions, visualizing how early investments result in larger future balances.</li>
-  <li><strong>Business Profitability:</strong> Store owners and entrepreneurs calculate profit margins, markups, and break-even points to price their products correctly and maintain stable cash flows.</li>
-</ol>
-<p>By using our verified financial tools, you eliminate calculation mistakes, save money on financing fees, and optimize your wealth accumulation strategies with confidence.</p>
-        </div>
-      </section>
 
-            <!-- FAQ Section -->
-      <section class="faq-section">
-        <h2 class="faq-header">Frequently Asked Questions</h2>
-        <div class="faq-grid">          <div class="faq-item">
-            <h3 class="faq-question">How does term length affect my loan?</h3>
-            <p class="faq-answer">A longer term length decreases your monthly payment but increases the total interest you pay over the life of the loan.</p>
-          </div>          <div class="faq-item">
-            <h3 class="faq-question">What is the Auto Loan Calculator used for?</h3>
-            <p class="faq-answer">The Auto Loan Calculator is a free online tool designed to calculate solutions for Auto Loan Calculator queries instantly. It helps users get fast, error-free results.</p>
-          </div>          <div class="faq-item">
-            <h3 class="faq-question">How accurate are calculations on the Auto Loan Calculator?</h3>
-            <p class="faq-answer">This tool uses industry-standard formulas and mathematical equations for Finance & Business to ensure 100% computational integrity and accuracy.</p>
-          </div>          <div class="faq-item">
-            <h3 class="faq-question">Is my data secure when using the Auto Loan Calculator?</h3>
-            <p class="faq-answer">Yes. All computations are executed client-side in your web browser. We do not store, track, or transmit any input values or calculated results.</p>
-          </div>          <div class="faq-item">
-            <h3 class="faq-question">Can I use the Auto Loan Calculator on mobile devices?</h3>
-            <p class="faq-answer">Absolutely. The calculator is built with a responsive mobile-first design, making it fully optimized for mobile web (mweb) as well as desktop viewports.</p>
-          </div>        </div>
-      </section>
-    </div>
-  </main>
+        <h2>What This Auto Loan Calculator Shows</h2>
+        <p>The result includes your estimated monthly payment, amount financed, total interest and total loan repayment. It also creates a payment-by-payment amortization schedule showing how the balance reduces over time.</p>
+        <ul>
+          <li><strong>United States:</strong> Calculate a monthly car payment using price, down payment, trade-in value, APR, sales tax and dealer or registration fees.</li>
+          <li><strong>India:</strong> Calculate car loan EMI using on-road price, down payment, interest rate, tenure and processing or other financed charges.</li>
+          <li><strong>Extra payment:</strong> Check how an additional monthly amount may shorten the payoff period and reduce interest.</li>
+          <li><strong>Zero-interest loan:</strong> Enter 0% to calculate equal monthly installments without interest.</li>
+        </ul>
 
-  <!-- Footer -->
-  <footer>
-    <div class="copyright-bar" style="border-top: none; padding-top: 0;">
-      © <span id="year">2026</span> CalcuPortal. All rights reserved.
-    </div>
-  </footer>
+        <h2 id="us-calculator-guide">Auto Loan Calculator for US Car Buyers</h2>
+        <p>In the United States, the amount financed may include the negotiated vehicle price, sales tax, title and registration charges, dealer fees and optional products. A cash down payment and trade-in credit can reduce the amount borrowed.</p>
+        <div class="audience-box"><strong>US example:</strong> For a $30,000 vehicle with a $5,000 down payment, $2,000 trade-in, financed taxes and fees, the calculator first determines the net amount financed and then applies the selected APR and loan term.</div>
 
-  <script>
-    document.getElementById('year').innerText = new Date().getFullYear();
-    
-    // Injected calculation script
-    // Rename calculate button triggers
-    const calculateBtn = document.getElementById('calc-btn');
-    if (calculateBtn) {
-      calculateBtn.id = 'calculate-btn';
+        <h3>US Auto Loan Inputs Explained</h3>
+        <ul>
+          <li><strong>Vehicle price:</strong> The negotiated purchase price before financing costs.</li>
+          <li><strong>Down payment:</strong> Cash paid upfront to reduce the loan balance.</li>
+          <li><strong>Trade-in value:</strong> The net credit received for your current vehicle.</li>
+          <li><strong>APR:</strong> The annual percentage rate used to estimate interest.</li>
+          <li><strong>Sales tax:</strong> The applicable tax rate. Tax treatment varies by state and transaction.</li>
+          <li><strong>Fees:</strong> Estimated title, registration, documentation or dealer charges.</li>
+        </ul>
+
+        <h2 id="india-emi-guide">Car Loan EMI Calculator for India</h2>
+        <p>For Indian borrowers, EMI means Equated Monthly Instalment. It is the fixed monthly amount used to repay principal and interest over the selected tenure. Use the India mode to enter the car's on-road price, down payment, annual interest rate and loan duration.</p>
+        <div class="audience-box"><strong>India example:</strong> If a car has an on-road price of ₹10,00,000 and you pay ₹2,00,000 upfront, the base loan amount is ₹8,00,000 before any financed processing fees or charges.</div>
+
+        <h3>India Car Loan Inputs Explained</h3>
+        <ul>
+          <li><strong>On-road price:</strong> The total estimated purchase cost, usually including applicable registration, insurance and taxes.</li>
+          <li><strong>Down payment:</strong> The amount paid from your own funds at purchase.</li>
+          <li><strong>Interest rate:</strong> The annual rate quoted by the bank or lender.</li>
+          <li><strong>Loan tenure:</strong> The repayment period, commonly expressed in months or years.</li>
+          <li><strong>Processing and other fees:</strong> Charges included only when they are added to the financed amount.</li>
+        </ul>
+
+        <h2 id="formula">Auto Loan and Car Loan EMI Formula</h2>
+        <p>For a standard reducing-balance loan, the monthly payment is calculated with the following amortization formula:</p>
+        <div class="formula-box"><code>Payment = P × r × (1 + r)<sup>n</sup> ÷ ((1 + r)<sup>n</sup> − 1)</code></div>
+        <p>Here, <strong>P</strong> is the loan principal, <strong>r</strong> is the monthly interest rate, and <strong>n</strong> is the total number of monthly payments. When the annual rate is 0%, the payment equals the principal divided by the number of months.</p>
+
+        <h2>How Down Payment, Interest Rate and Tenure Affect the Loan</h2>
+        <table>
+          <thead><tr><th>Change</th><th>Monthly Payment</th><th>Total Interest</th><th>General Effect</th></tr></thead>
+          <tbody>
+            <tr><td>Higher down payment</td><td>Usually lower</td><td>Lower</td><td>Reduces the amount financed</td></tr>
+            <tr><td>Lower interest rate</td><td>Lower</td><td>Lower</td><td>Reduces borrowing cost</td></tr>
+            <tr><td>Longer loan term</td><td>Usually lower</td><td>Usually higher</td><td>Spreads repayment across more months</td></tr>
+            <tr><td>Extra monthly payment</td><td>Higher cash outflow</td><td>Lower</td><td>May repay the loan earlier</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="amortization">What Is an Auto Loan Amortization Schedule?</h2>
+        <p>An amortization schedule breaks every payment into principal and interest. At the beginning of a typical loan, a larger portion may go toward interest. As the balance falls, more of each payment is applied to principal.</p>
+        <p>Reviewing the schedule helps compare loan offers, estimate the remaining balance and understand the effect of extra payments. Actual lender schedules may vary slightly because of payment dates, daily interest methods and rounding.</p>
+
+        <h2>How to Use the Calculator</h2>
+        <ol>
+          <li>Select <strong>United States ($)</strong> or <strong>India (₹)</strong>.</li>
+          <li>Enter the vehicle price or on-road price.</li>
+          <li>Add the down payment and, in US mode, any trade-in value.</li>
+          <li>Enter the annual interest rate and loan term.</li>
+          <li>Add estimated taxes and fees where relevant.</li>
+          <li>Select <strong>Calculate Car Payment</strong> to view the payment and amortization schedule.</li>
+        </ol>
+
+        <h2>Ways to Reduce Your Monthly Car Payment</h2>
+        <ul>
+          <li>Negotiate a lower vehicle purchase price.</li>
+          <li>Make a larger down payment without exhausting emergency savings.</li>
+          <li>Compare loan offers and APRs from multiple lenders.</li>
+          <li>Choose a less expensive vehicle or a suitable used car.</li>
+          <li>Improve your credit profile before applying where possible.</li>
+          <li>Avoid adding unnecessary products or fees to the financed balance.</li>
+        </ul>
+
+        <h2>Important Calculation Limitations</h2>
+        <p>This tool provides an estimate, not a lending decision or financial recommendation. Actual payments can differ because of credit score, lender rules, state taxes, insurance, registration, GST treatment, processing fees, prepayment conditions and payment timing. Confirm the final repayment schedule with the lender before signing an agreement.</p>
+      </div>
+    </section>
+
+    <section class="faq-section" id="faqs">
+      <h2 class="faq-header">Frequently Asked Questions</h2>
+      <div class="faq-grid">
+        <div class="faq-item"><h3 class="faq-question">How is a monthly auto loan payment calculated?</h3><p class="faq-answer">The payment is calculated using the loan principal, monthly interest rate and number of installments. This calculator applies the standard amortizing loan formula.</p></div>
+        <div class="faq-item"><h3 class="faq-question">What is the difference between an auto loan payment and a car loan EMI?</h3><p class="faq-answer">They describe the same monthly repayment concept. “Auto loan payment” is common in the United States, while “EMI” is widely used in India.</p></div>
+        <div class="faq-item"><h3 class="faq-question">Does this calculator support dollars and Indian rupees?</h3><p class="faq-answer">Yes. Choose United States for dollar-based results or India for rupee-based EMI results.</p></div>
+        <div class="faq-item"><h3 class="faq-question">Does the US calculation include sales tax and dealer fees?</h3><p class="faq-answer">Yes. You can include sales tax, title or registration charges, dealer fees, down payment and trade-in value in the estimate.</p></div>
+        <div class="faq-item"><h3 class="faq-question">Can I calculate a zero-interest car loan?</h3><p class="faq-answer">Yes. Enter 0% as the annual rate. The financed amount will be divided equally across the selected term.</p></div>
+        <div class="faq-item"><h3 class="faq-question">How does a longer car loan term affect interest?</h3><p class="faq-answer">A longer term generally lowers the monthly payment but increases total interest because the balance remains outstanding for longer.</p></div>
+        <div class="faq-item"><h3 class="faq-question">What is an amortization schedule?</h3><p class="faq-answer">It shows each payment, the amount applied to principal, the interest charged and the remaining loan balance.</p></div>
+        <div class="faq-item"><h3 class="faq-question">Are the results exact loan offers?</h3><p class="faq-answer">No. The results are planning estimates. Actual lender payments may differ because of credit profile, taxes, fees, insurance and lender-specific calculations.</p></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer><div class="copyright-bar" style="border-top:none;padding-top:0;">© <span id="year">2026</span> CalcuPortal. All rights reserved.</div></footer>
+
+<script>
+(() => {
+  'use strict';
+  const $ = id => document.getElementById(id);
+  const els = {
+    price:$('vehicle-price'), down:$('down-payment'), trade:$('trade-in'), rate:$('interest-rate'),
+    term:$('loan-term'), tax:$('sales-tax'), taxFinanced:$('tax-financed'), fees:$('fees'), extra:$('extra-payment'),
+    result:$('result-section'), error:$('error-message'), amortBody:$('amortization-body'), amortWrap:$('amortization-wrap')
+  };
+  let market = 'us';
+  let schedule = [];
+
+  const config = {
+    us:{symbol:'$', locale:'en-US', currency:'USD', defaults:{price:30000,down:5000,trade:2000,rate:6.5,tax:7,fees:800}, note:'US mode includes vehicle price, sales tax, trade-in, down payment and fees.'},
+    in:{symbol:'₹', locale:'en-IN', currency:'INR', defaults:{price:1000000,down:200000,trade:0,rate:9, tax:0,fees:10000}, note:'India mode estimates car loan EMI from on-road price, down payment, interest rate, tenure and financed fees.'}
+  };
+
+  function number(id){ return Number.parseFloat($(id).value) || 0; }
+  function money(value, digits=0){
+    return new Intl.NumberFormat(config[market].locale,{style:'currency',currency:config[market].currency,maximumFractionDigits:digits,minimumFractionDigits:digits}).format(value);
+  }
+  function showError(message){ els.error.textContent=message; els.error.style.display='block'; els.result.classList.add('hidden'); }
+  function clearError(){ els.error.textContent=''; els.error.style.display='none'; }
+
+  function setMarket(next){
+    market=next;
+    document.querySelectorAll('.market-btn').forEach(btn=>{
+      const active=btn.dataset.market===market;
+      btn.classList.toggle('active',active); btn.setAttribute('aria-pressed',String(active));
+    });
+    const c=config[market], d=c.defaults;
+    document.querySelectorAll('.currency-prefix').forEach(el=>el.textContent=c.symbol);
+    $('market-note').textContent=c.note;
+    $('price-label').textContent=market==='us'?'Vehicle Price':'Car On-Road Price';
+    $('fees-label').textContent=market==='us'?'Title, Registration & Dealer Fees':'Processing & Other Financed Fees';
+    $('monthly-label').textContent=market==='us'?'Estimated Monthly Payment':'Estimated Monthly EMI';
+    $('calculate-btn').textContent=market==='us'?'Calculate Car Payment':'Calculate Car Loan EMI';
+    $('trade-group').style.display=market==='us'?'block':'none';
+    $('tax-group').style.display=market==='us'?'block':'none';
+    els.price.value=d.price; els.down.value=d.down; els.trade.value=d.trade; els.rate.value=d.rate; els.tax.value=d.tax; els.fees.value=d.fees; els.extra.value=0;
+    els.result.classList.add('hidden'); clearError();
+  }
+
+  function buildSchedule(principal, annualRate, months, basePayment, extra){
+    const monthlyRate=annualRate/100/12;
+    let balance=principal, rows=[], paymentNo=0, totalInterest=0;
+    while(balance>0.005 && paymentNo<months+600){
+      paymentNo++;
+      const interest=monthlyRate===0?0:balance*monthlyRate;
+      let payment=Math.min(basePayment+extra,balance+interest);
+      let principalPaid=payment-interest;
+      if(principalPaid<0) principalPaid=0;
+      balance=Math.max(0,balance-principalPaid);
+      totalInterest+=interest;
+      rows.push({n:paymentNo,payment,principal:principalPaid,interest,balance});
     }
-  </script>
-  <script>
-          document.getElementById('calculate-btn').addEventListener('click', () => {
-        const price = parseFloat(document.getElementById('auto-price').value) || 0;
-        const down = parseFloat(document.getElementById('auto-down').value) || 0;
-        const trade = parseFloat(document.getElementById('auto-trade').value) || 0;
-        const rate = parseFloat(document.getElementById('auto-rate').value) || 0;
-        const months = parseInt(document.getElementById('auto-months').value) || 60;
-        
-        const principal = price - down - trade;
-        if (principal <= 0 || rate <= 0 || months <= 0) {
-          alert('Please enter valid numeric values.');
-          return;
-        }
-        
-        const monthlyRate = (rate / 100) / 12;
-        const payment = principal * (monthlyRate * Math.pow(1 + monthlyRate, months)) / (Math.pow(1 + monthlyRate, months) - 1);
-        
-        document.getElementById('auto-monthly-val').innerText = '$' + payment.toFixed(2);
-        document.getElementById('result-section').classList.remove('hidden');
-      });
-  </script>
+    return {rows,totalInterest,totalPaid:principal+totalInterest,actualMonths:rows.length};
+  }
+
+  function calculate(){
+    clearError();
+    const price=number('vehicle-price'), down=number('down-payment'), trade=market==='us'?number('trade-in'):0;
+    const annualRate=number('interest-rate'), months=Number.parseInt(els.term.value,10), taxRate=market==='us'?number('sales-tax'):0;
+    const fees=number('fees'), extra=number('extra-payment');
+    if(price<=0) return showError('Enter a vehicle price greater than zero.');
+    if([down,trade,annualRate,taxRate,fees,extra].some(v=>v<0)) return showError('Values cannot be negative.');
+    if(annualRate>100 || taxRate>100) return showError('Enter a percentage between 0 and 100.');
+    if(!months || months<=0) return showError('Select a valid loan term.');
+    const taxAmount=market==='us'?price*(taxRate/100):0;
+    const financedTax=market==='us' && els.taxFinanced.checked ? taxAmount : 0;
+    const principal=price + financedTax + fees - down - trade;
+    if(principal<=0) return showError('The down payment and trade-in cannot equal or exceed the financed vehicle cost.');
+    const monthlyRate=annualRate/100/12;
+    const basePayment=monthlyRate===0 ? principal/months : principal*(monthlyRate*Math.pow(1+monthlyRate,months))/(Math.pow(1+monthlyRate,months)-1);
+    const calc=buildSchedule(principal,annualRate,months,basePayment,extra);
+    schedule=calc.rows;
+    $('monthly-payment').textContent=money(basePayment+extra,2);
+    $('amount-financed').textContent=money(principal,0);
+    $('total-interest').textContent=money(calc.totalInterest,0);
+    $('total-repayment').textContent=money(calc.totalPaid,0);
+    const cashDue=down + (market==='us' && !els.taxFinanced.checked ? taxAmount : 0);
+    const savedMonths=Math.max(0,months-calc.actualMonths);
+    $('loan-summary').innerHTML=`<p><strong>Base scheduled payment:</strong> ${money(basePayment,2)}</p><p><strong>Estimated cash due upfront:</strong> ${money(cashDue,0)}</p><p><strong>Estimated payoff period:</strong> ${calc.actualMonths} months${savedMonths?` (${savedMonths} months earlier with extra payments)`:''}</p>${market==='us'?`<p><strong>Estimated sales tax:</strong> ${money(taxAmount,0)} ${els.taxFinanced.checked?'(financed)':'(paid upfront)'}</p>`:''}`;
+    renderSchedule();
+    els.result.classList.remove('hidden');
+  }
+
+  function renderSchedule(){
+    els.amortBody.innerHTML=schedule.map(row=>`<tr><td>${row.n}</td><td>${money(row.payment,2)}</td><td>${money(row.principal,2)}</td><td>${money(row.interest,2)}</td><td>${money(row.balance,2)}</td></tr>`).join('');
+  }
+
+  document.querySelectorAll('.market-btn').forEach(btn=>btn.addEventListener('click',()=>setMarket(btn.dataset.market)));
+  $('calculate-btn').addEventListener('click',calculate);
+  $('table-toggle').addEventListener('click',()=>{
+    const hidden=els.amortWrap.classList.toggle('hidden');
+    $('table-toggle').textContent=hidden?'Show Amortization Schedule':'Hide Amortization Schedule';
+    $('table-toggle').setAttribute('aria-expanded',String(!hidden));
+  });
+  document.querySelectorAll('.loan-tool input, .loan-tool select').forEach(el=>el.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();calculate();}}));
+  $('year').textContent=new Date().getFullYear();
+  calculate();
+})();
+</script>
 </body>
 </html>
