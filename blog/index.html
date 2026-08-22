@@ -1,5014 +1,1254 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <meta name="description" content="Read practical CalcuPortal guides for finance, health, percentages, dates, age and everyday calculations, with formulas and examples that are easy to follow.">
+  <link rel="canonical" href="https://www.calcuportal.com/blog/">
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="shortcut icon" href="/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/favicon.png">
-
-  <meta name="robots" content="index, follow">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Calculator Blog - Guides, Tips and Formula Articles | CalcuPortal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
 
-  <meta
-    name="description"
-    content="Read simple calculator guides, formulas, examples and tips for finance, health, math, conversions, date, age and daily calculation needs on CalcuPortal."
-  >
+  <style>
+    :root {
+      color-scheme: light;
+      --primary: #7c3aed;
+      --primary-strong: #6930d3;
+      --primary-soft: #ede0ff;
+      --primary-pale: #f5efff;
+      --surface: #fefaff;
+      --surface-2: #f8f7fb;
+      --surface-3: #f0eaf6;
+      --card: #ffffff;
+      --text: #1d1a24;
+      --heading: #1a1c2e;
+      --muted: #5f5968;
+      --outline: #d7cedf;
+      --inverse: #17151d;
+      --inverse-2: #24212b;
+      --inverse-text: #f8f2fd;
+      --inverse-muted: #cbc2d2;
+      --shadow-sm: 0 8px 24px rgba(37, 24, 54, 0.06);
+      --shadow-md: 0 18px 48px rgba(37, 24, 54, 0.12);
+      --radius-xl: 32px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --page: 1280px;
+      --gutter: clamp(16px, 3vw, 28px);
+      --header-h: 80px;
+    }
 
-  <link rel="canonical" href="https://www.calcuportal.com/blog/">
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --surface: #121017;
+      --surface-2: #18151e;
+      --surface-3: #211d28;
+      --card: #1b1820;
+      --text: #f3edf7;
+      --heading: #fff9ff;
+      --muted: #c4bbc9;
+      --outline: #3c3544;
+      --primary-soft: #33254c;
+      --primary-pale: #20192c;
+      --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.18);
+      --shadow-md: 0 18px 48px rgba(0, 0, 0, 0.28);
+    }
 
-  <link rel="stylesheet" href="/styles.css">
-  <script src="/script.js" defer></script>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-width: 0;
+      overflow-x: hidden;
+      background: var(--surface);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    button, input { font: inherit; }
+    [hidden] { display: none !important; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; }
+
+    p {
+      text-align: justify;
+      text-align-last: left;
+      text-justify: inter-word;
+      hyphens: auto;
+      overflow-wrap: break-word;
+    }
+
+    .page-shell {
+      width: min(var(--page), calc(100% - (var(--gutter) * 2)));
+      margin-inline: auto;
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--outline);
+      background: color-mix(in srgb, var(--surface) 92%, transparent);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .nav-container {
+      width: min(var(--page), calc(100% - (var(--gutter) * 2)));
+      min-height: var(--header-h);
+      margin-inline: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      position: relative;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      color: var(--primary);
+      font-family: Outfit, Inter, ui-sans-serif, sans-serif;
+      font-weight: 700;
+      font-size: clamp(21px, 2vw, 26px);
+      line-height: 1;
+      text-decoration: none;
+      letter-spacing: -0.03em;
+    }
+
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      flex: 0 0 auto;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(22px, 3vw, 40px);
+    }
+
+    .nav-link {
+      position: relative;
+      padding: 30px 0 27px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 650;
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active { color: var(--primary); }
+
+    .nav-link.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 17px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--primary);
+    }
+
+    .theme-btn,
+    .menu-toggle,
+    .icon-btn {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    .theme-btn {
+      width: 40px;
+      height: 40px;
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid var(--outline);
+      border-radius: 50%;
+      transition: border-color .2s ease, color .2s ease, background .2s ease;
+    }
+
+    .theme-btn:hover {
+      color: var(--primary);
+      border-color: color-mix(in srgb, var(--primary) 45%, var(--outline));
+      background: var(--primary-pale);
+    }
+
+    .theme-btn svg { width: 20px; height: 20px; }
+
+    .theme-icon-sun { display: none; }
+    html[data-theme="dark"] .theme-icon-moon { display: none; }
+    html[data-theme="dark"] .theme-icon-sun { display: block; }
+
+    .menu-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      padding: 10px 8px;
+      border-radius: 10px;
+      flex: 0 0 auto;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .menu-toggle .bar {
+      display: block;
+      width: 27px;
+      height: 3px;
+      border-radius: 999px;
+      background: currentColor;
+      transition: transform .25s ease, opacity .2s ease;
+      transform-origin: center;
+    }
+
+    .menu-toggle[aria-expanded="true"] .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] .bar:nth-child(2) { opacity: 0; }
+    .menu-toggle[aria-expanded="true"] .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+    /* Main */
+    main { padding: clamp(28px, 4vw, 48px) 0 0; }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(380px, .82fr);
+      gap: clamp(42px, 6vw, 78px);
+      align-items: center;
+      margin-bottom: 58px;
+      padding: clamp(42px, 6vw, 70px);
+      border-radius: var(--radius-xl);
+      background:
+        radial-gradient(circle at 92% 8%, rgba(124,58,237,.32), transparent 30%),
+        linear-gradient(135deg, #24212b 0%, var(--inverse) 58%, #1f1828 100%);
+      color: var(--inverse-text);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 430px;
+      height: 430px;
+      right: -230px;
+      bottom: -280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(168,85,247,.25), transparent 68%);
+      pointer-events: none;
+    }
+
+    .hero-copy, .hero-card { position: relative; z-index: 1; min-width: 0; }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      color: #d2bbff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    .hero h1 {
+      max-width: 690px;
+      margin: 0;
+      color: #fff;
+      font-family: Outfit, Inter, ui-sans-serif, sans-serif;
+      font-size: clamp(42px, 5vw, 68px);
+      line-height: .99;
+      letter-spacing: -.045em;
+      font-weight: 700;
+    }
+
+    .hero h1 em {
+      color: #d2bbff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 400;
+    }
+
+    .hero-copy > p {
+      max-width: 620px;
+      margin: 24px 0 30px;
+      color: var(--inverse-muted);
+      font-size: 17px;
+      line-height: 1.72;
+    }
+
+    .primary-button,
+    .secondary-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 48px;
+      padding: 0 22px;
+      border: 0;
+      border-radius: 999px;
+      font-weight: 750;
+      font-size: 14px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease, opacity .2s ease, box-shadow .2s ease;
+    }
+
+    .primary-button {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 10px 28px rgba(124,58,237,.24);
+    }
+
+    .primary-button:hover { transform: translateY(-2px); background: var(--primary-strong); }
+
+    .hero-card {
+      padding: 26px;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 22px;
+      background: #fff;
+      color: #1d1a24;
+      box-shadow: 0 26px 70px rgba(0,0,0,.26);
+    }
+
+    .hero-card-number {
+      position: absolute;
+      top: -18px;
+      right: -18px;
+      display: grid;
+      place-items: center;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      font-family: Outfit, sans-serif;
+      font-size: 25px;
+      font-weight: 750;
+      transform: rotate(9deg);
+      box-shadow: 0 12px 28px rgba(124,58,237,.34);
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-bottom: 13px;
+      color: #6d6677;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 25px;
+      padding: 0 9px;
+      border-radius: 999px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .hero-card h2 {
+      margin: 0 0 13px;
+      color: #1a1c2e;
+      font-family: Outfit, Inter, sans-serif;
+      font-size: clamp(24px, 2.6vw, 32px);
+      line-height: 1.12;
+      letter-spacing: -.025em;
+    }
+
+    .hero-card p {
+      margin: 0 0 20px;
+      color: #5f5968;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    .text-link:hover { text-decoration: underline; }
+    .text-link svg { width: 17px; height: 17px; }
+
+    .trust-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 22px;
+      margin-bottom: clamp(58px, 7vw, 86px);
+      padding: 30px 0;
+      border-top: 1px solid var(--outline);
+      border-bottom: 1px solid var(--outline);
+    }
+
+    .trust-item { min-width: 0; }
+    .trust-icon { width: 25px; height: 25px; margin-bottom: 8px; color: var(--primary); }
+    .trust-item strong { display: block; color: var(--heading); font-size: 14px; }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 150px minmax(0, .95fr) minmax(0, 1fr);
+      gap: clamp(28px, 5vw, 70px);
+      align-items: start;
+      margin-bottom: clamp(58px, 7vw, 86px);
+    }
+
+    .section-label {
+      padding-top: 4px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .intro-grid h2,
+    .section-title h2,
+    .why h2,
+    .final-cta h2 {
+      margin: 0;
+      color: var(--heading);
+      font-family: Outfit, Inter, sans-serif;
+      letter-spacing: -.035em;
+    }
+
+    .intro-grid h2 { font-size: clamp(30px, 3.4vw, 46px); line-height: 1.04; }
+    .intro-grid p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.75; }
+
+    .article-tools {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 30px;
+      padding: 14px;
+      border: 1px solid var(--outline);
+      border-radius: 18px;
+      background: var(--surface-2);
+    }
+
+    .search-box {
+      position: relative;
+      flex: 0 1 390px;
+      min-width: 220px;
+    }
+
+    .search-box svg {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      width: 19px;
+      height: 19px;
+      color: var(--muted);
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .search-box input {
+      width: 100%;
+      min-height: 46px;
+      padding: 0 14px 0 43px;
+      border: 1px solid var(--outline);
+      border-radius: 12px;
+      outline: none;
+      background: var(--card);
+      color: var(--text);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .search-box input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 15%, transparent);
+    }
+
+    .filters {
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filter-btn {
+      min-height: 38px;
+      padding: 0 16px;
+      border: 1px solid var(--outline);
+      border-radius: 999px;
+      background: var(--card);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .2s ease, border-color .2s ease, color .2s ease;
+    }
+
+    .filter-btn:hover { border-color: color-mix(in srgb, var(--primary) 45%, var(--outline)); color: var(--primary); }
+    .filter-btn.active { border-color: var(--primary); background: var(--primary); color: #fff; }
+
+    .section-title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .section-title h2 { font-size: clamp(32px, 4vw, 50px); line-height: 1; }
+    .section-title p { max-width: 510px; margin: 0; color: var(--muted); line-height: 1.7; }
+
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      margin-bottom: clamp(68px, 8vw, 98px);
+    }
+
+    .article-card {
+      min-width: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--outline);
+      border-radius: 20px;
+      background: var(--card);
+      box-shadow: var(--shadow-sm);
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+
+    .article-card:hover {
+      transform: translateY(-4px);
+      border-color: color-mix(in srgb, var(--primary) 40%, var(--outline));
+      box-shadow: var(--shadow-md);
+    }
+
+    .article-card.featured {
+      grid-column: span 2;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    .article-visual {
+      position: relative;
+      min-height: 250px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 25% 20%, rgba(255,255,255,.55), transparent 28%),
+        linear-gradient(145deg, #e5ddff, #a68cff);
+      color: #27165e;
+    }
+
+    .article-visual::after {
+      content: "";
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      right: -90px;
+      bottom: -120px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.22);
+    }
+
+    .article-visual .visual-number {
+      position: relative;
+      z-index: 1;
+      font-family: Outfit, sans-serif;
+      font-size: clamp(58px, 8vw, 100px);
+      font-weight: 750;
+      line-height: .85;
+      letter-spacing: -.07em;
+    }
+
+    .article-visual .visual-number small {
+      display: block;
+      margin-top: 17px;
+      font-family: Inter, sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .visual-badge {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      z-index: 2;
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .visual-badge svg { width: 20px; height: 20px; }
+
+    .article-body {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 28px;
+    }
+
+    .article-category {
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .article-body h3 {
+      margin: 0 0 12px;
+      color: var(--heading);
+      font-family: Outfit, Inter, sans-serif;
+      font-size: 22px;
+      line-height: 1.2;
+      letter-spacing: -.025em;
+    }
+
+    .article-card.featured .article-body h3 { font-size: clamp(25px, 2.6vw, 34px); }
+
+    .article-body p {
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .article-body .text-link { margin-top: auto; }
+
+    .library-card {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 280px;
+      padding: 32px;
+      border-radius: 20px;
+      background: linear-gradient(145deg, #7c3aed, #6b2fd2);
+      color: #fff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .library-card::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      right: -90px;
+      top: -110px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.12);
+    }
+
+    .library-card > * { position: relative; z-index: 1; }
+    .library-icon { width: 42px; height: 42px; margin-bottom: 20px; }
+    .library-card h3 { margin: 0 0 10px; font-family: Outfit, sans-serif; font-size: 25px; }
+    .library-card p { margin: 0 0 22px; color: rgba(255,255,255,.82); line-height: 1.65; }
+    .library-card .secondary-button { background: #fff; color: var(--primary); }
+
+    .no-results {
+      display: none;
+      grid-column: 1 / -1;
+      padding: 42px 20px;
+      border: 1px dashed var(--outline);
+      border-radius: 18px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .why {
+      margin-bottom: clamp(60px, 8vw, 96px);
+      padding: clamp(34px, 5vw, 58px);
+      border: 1px solid var(--outline);
+      border-radius: 24px;
+      background: var(--surface-2);
+    }
+
+    .why h2 {
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: clamp(30px, 3.8vw, 46px);
+      line-height: 1.05;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .why-card {
+      padding: 24px;
+      border: 1px solid color-mix(in srgb, var(--outline) 78%, transparent);
+      border-radius: 16px;
+      background: var(--card);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .why-icon { width: 30px; height: 30px; margin-bottom: 14px; color: var(--primary); }
+    .why-card h3 { margin: 0 0 8px; color: var(--heading); font-size: 16px; }
+    .why-card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
+
+    .final-cta {
+      padding: 10px 0 clamp(72px, 9vw, 110px);
+      text-align: center;
+    }
+
+    .final-cta h2 {
+      max-width: 740px;
+      margin-inline: auto;
+      font-size: clamp(34px, 4.6vw, 54px);
+      line-height: 1.04;
+    }
+
+    .final-cta p {
+      max-width: 600px;
+      margin: 18px auto 26px;
+      color: var(--muted);
+      line-height: 1.7;
+      text-align: center;
+      text-align-last: center;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--outline);
+      background: var(--surface-2);
+    }
+
+    .footer-main {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(180px, .7fr) minmax(180px, .7fr);
+      gap: clamp(34px, 6vw, 76px);
+      padding: 56px 0 44px;
+    }
+
+    .footer-brand .logo { margin-bottom: 16px; }
+    .footer-brand p { max-width: 570px; margin: 0; color: var(--muted); font-size: 14px; line-height: 1.72; }
+    .footer-col h3 { margin: 0 0 15px; color: var(--heading); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
+    .footer-col ul { margin: 0; padding: 0; list-style: none; }
+    .footer-col li + li { margin-top: 9px; }
+    .footer-col a { color: var(--muted); font-size: 14px; text-decoration: underline; text-underline-offset: 3px; }
+    .footer-col a:hover { color: var(--primary); }
+
+    .copyright {
+      padding: 22px 0 28px;
+      border-top: 1px solid color-mix(in srgb, var(--outline) 70%, transparent);
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    /* Tablet */
+    @media (max-width: 980px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-card { max-width: 720px; }
+      .intro-grid { grid-template-columns: 110px minmax(0, 1fr); }
+      .intro-grid > p { grid-column: 2; }
+      .article-tools { align-items: stretch; flex-direction: column; }
+      .search-box { flex-basis: auto; width: 100%; }
+      .filters { justify-content: flex-start; }
+      .articles-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .article-card.featured { grid-column: 1 / -1; }
+      .library-card { min-height: 250px; }
+      .footer-main { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+
+    /* Mobile navigation */
+    @media (max-width: 720px) {
+      :root { --header-h: 72px; }
+
+      .nav-container { min-height: var(--header-h); }
+      .logo { font-size: clamp(20px, 7vw, 25px); gap: 8px; }
+      .logo-icon { width: 38px; height: 38px; }
+      .menu-toggle { display: flex; color: var(--text); }
+
+      .nav-links {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: calc(100% + 1px);
+        z-index: 1001;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        visibility: hidden;
+        opacity: 0;
+        padding: 0;
+        border: 1px solid transparent;
+        border-radius: 0 0 18px 18px;
+        background: var(--card);
+        box-shadow: 0 20px 40px rgba(22, 16, 30, .14);
+        transform: translateY(-8px);
+        transition: max-height .32s ease, opacity .22s ease, transform .22s ease, visibility .22s ease, padding .22s ease;
+      }
+
+      .nav-links.is-open {
+        max-height: 430px;
+        visibility: visible;
+        opacity: 1;
+        padding: 10px;
+        border-color: var(--outline);
+        transform: translateY(0);
+      }
+
+      .nav-link {
+        width: 100%;
+        padding: 14px 14px;
+        border-radius: 11px;
+        color: var(--text);
+        font-size: 15px;
+      }
+
+      .nav-link.active {
+        background: var(--primary-soft);
+        color: var(--primary);
+      }
+
+      .nav-link.active::after { display: none; }
+
+      .theme-btn {
+        width: 100%;
+        height: 44px;
+        margin-top: 5px;
+        border-radius: 11px;
+      }
+
+      main { padding-top: 16px; }
+      .hero {
+        gap: 38px;
+        margin-bottom: 42px;
+        padding: 34px 22px;
+        border-radius: 24px;
+      }
+      .hero h1 { font-size: clamp(36px, 12vw, 50px); line-height: 1.02; }
+      .hero-copy > p { font-size: 15px; line-height: 1.68; }
+      .hero-card { padding: 22px; border-radius: 18px; }
+      .hero-card-number { width: 54px; height: 54px; top: -14px; right: -10px; font-size: 22px; }
+      .hero-card h2 { font-size: 24px; }
+
+      .trust-row { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 16px; padding: 26px 0; }
+      .trust-item { text-align: center; }
+      .trust-icon { margin-inline: auto; }
+
+      .intro-grid { grid-template-columns: 1fr; gap: 18px; }
+      .intro-grid > p { grid-column: auto; }
+      .intro-grid h2 { font-size: clamp(30px, 9vw, 40px); }
+
+      .article-tools { padding: 12px; border-radius: 15px; }
+      .filters { flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; padding-bottom: 2px; scrollbar-width: none; }
+      .filters::-webkit-scrollbar { display: none; }
+      .filter-btn { flex: 0 0 auto; }
+
+      .section-title { display: block; }
+      .section-title h2 { margin-bottom: 14px; font-size: clamp(32px, 10vw, 44px); }
+      .section-title p { max-width: none; }
+
+      .articles-grid { grid-template-columns: 1fr; gap: 16px; }
+      .article-card.featured { grid-column: auto; grid-template-columns: 1fr; }
+      .article-visual { min-height: 220px; }
+      .article-body { padding: 22px; }
+      .article-card.featured .article-body h3 { font-size: 26px; }
+      .library-card { min-height: 260px; padding: 26px; }
+
+      .why { padding: 30px 18px; border-radius: 20px; }
+      .why-grid { grid-template-columns: 1fr; }
+      .why h2 { text-align: left; }
+
+      .footer-main { grid-template-columns: 1fr; gap: 30px; padding-top: 42px; }
+      .footer-brand { grid-column: auto; }
+    }
+
+    @media (max-width: 380px) {
+      :root { --gutter: 14px; }
+      .logo span { font-size: 20px; }
+      .logo-icon { width: 34px; height: 34px; }
+      .menu-toggle { width: 42px; height: 42px; }
+      .hero { padding: 30px 18px; }
+      .hero h1 { font-size: 34px; }
+      .hero-card { padding: 19px; }
+      .hero-card-number { right: -6px; }
+      .trust-item strong { font-size: 13px; }
+      .article-body { padding: 20px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+    }
+  </style>
 </head>
 
 <body>
-
-  <!-- =========================================================
-       HEADER
-  ========================================================== -->
-
-  <header>
+  <header class="site-header">
     <div class="nav-container">
-      <a href="./" class="logo" aria-label="CalcuPortal Home">
+      <a href="/" class="logo" aria-label="CalcuPortal Home">
         <img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon">
         <span>CalcuPortal</span>
       </a>
 
-      <button
-        class="menu-toggle"
-        id="menu-toggle"
-        type="button"
-        aria-label="Toggle Menu"
-        aria-controls="nav-links"
-        aria-expanded="false"
-      >
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle Menu" aria-controls="nav-links" aria-expanded="false">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
       </button>
 
       <nav class="nav-links" id="nav-links" aria-label="Main navigation">
-        <a href="./" class="nav-link">Home</a>
+        <a href="/" class="nav-link">Home</a>
         <a href="/about/" class="nav-link">About</a>
         <a href="/contact/" class="nav-link">Contact</a>
         <a href="/blog/" class="nav-link active" aria-current="page">Blog</a>
         <button class="theme-btn" type="button" title="Toggle Theme" aria-label="Toggle theme">
-          <span class="theme-btn-icon"></span>
+          <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path d="M20 15.4A8.7 8.7 0 0 1 8.6 4a8.7 8.7 0 1 0 11.4 11.4Z"></path>
+          </svg>
+          <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path>
+          </svg>
         </button>
       </nav>
     </div>
   </header>
 
-
-  <!-- =========================================================
-       MAIN
-  ========================================================== -->
-
-  <main class="premium-blog">
-
-
-    <!-- =====================================================
-         HERO
-    ====================================================== -->
-
-    <section class="pb-hero">
-
-      <div class="pb-hero-noise"></div>
-
-      <div class="pb-orb pb-orb-1"></div>
-      <div class="pb-orb pb-orb-2"></div>
-
-      <div class="pb-shell">
-
-        <div class="pb-hero-grid">
-
-          <!-- Left -->
-          <div class="pb-hero-left">
-
-            <div class="pb-kicker">
-              <span></span>
-              CalcuPortal Journal
-            </div>
-
-            <h1>
-              Know how the number
-              <em>was worked out.</em>
-            </h1>
-
-            <p class="pb-hero-text">
-              Calculators are more useful when the numbers make sense. Our guides
-              walk through the formula, explain what each input means, and show how
-              the result is worked out, so you can check the answer instead of
-              simply taking it at face value.
-            </p>
-
-            <div class="pb-hero-actions">
-
-              <a href="#latest" class="pb-primary-btn">
-                Explore latest guides
-                <span aria-hidden="true">↗</span>
-              </a>
-
-              <a href="/calculators/" class="pb-secondary-btn">
-                Browse calculators
-              </a>
-
-            </div>
-
-          </div>
-
-
-          <!-- Featured Article -->
-          <div class="pb-hero-right">
-
-            <a
-              href="/blog/how-to-calculate-age/"
-              class="pb-spotlight-card"
-            >
-
-              <div class="pb-spotlight-top">
-
-                <span class="pb-featured-pill">
-                  Featured guide
-                </span>
-
-                <span class="pb-spotlight-number">
-                  01
-                </span>
-
-              </div>
-
-
-              <div class="pb-spotlight-middle">
-
-                <div class="pb-spotlight-meta">
-
-                  <span class="pb-category-label">
-                    Date & Age
-                  </span>
-
-                  <span class="pb-reading-time">
-                    4 min read
-                  </span>
-
-                </div>
-
-                <h2>
-                  How to Calculate
-                  Your Exact Age
-                </h2>
-
-                <p>
-                  See how a date of birth is turned into years, months, and days,
-                  including what changes when the current date has not yet reached
-                  your birthday for the year.
-                </p>
-
-              </div>
-
-
-              <div class="pb-card-footer">
-
-                <span>
-                  Read article
-                </span>
-
-                <span
-                  class="pb-arrow-circle"
-                  aria-hidden="true"
-                >
-                  →
-                </span>
-
-              </div>
-
-            </a>
-
-          </div>
-
+  <main>
+    <div class="page-shell">
+      <section class="hero" aria-labelledby="blog-title">
+        <div class="hero-copy">
+          <div class="eyebrow">CalcuPortal Journal</div>
+          <h1 id="blog-title">Know how the number <em>was worked out.</em></h1>
+          <p>Calculators are more useful when the numbers make sense. Our guides walk through the formula, explain what each input means, and show how the result is worked out, so you can check the answer instead of simply taking it at face value.</p>
+          <a class="primary-button" href="#latest">
+            Explore latest guides
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </a>
         </div>
 
-
-        <!-- Hero trust row -->
-        <div class="pb-hero-meta">
-
-          <div>
-            <strong>Simple</strong>
-            <span>Explanations</span>
+        <article class="hero-card">
+          <div class="hero-card-number" aria-hidden="true">01</div>
+          <div class="card-meta">
+            <span class="pill">Featured Guide</span>
+            <span>Date &amp; Age</span>
+            <span>4 min read</span>
           </div>
+          <h2>How to Calculate Your Exact Age</h2>
+          <p>See how a date of birth is turned into years, months, and days, including what changes when the current date has not yet reached your birthday for the year.</p>
+          <a class="text-link" href="/blog/how-to-calculate-age/">
+            Read full article
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </a>
+        </article>
+      </section>
 
+      <section class="trust-row" aria-label="What you will find in CalcuPortal guides">
+        <div class="trust-item">
+          <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 2.5 2.5L16.5 8.5"></path></svg>
+          <strong>Simple explanations</strong>
+        </div>
+        <div class="trust-item">
+          <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 18h6M10 22h4M8.4 14.6A7 7 0 1 1 15.6 14.6C14.6 15.4 14 16.6 14 18h-4c0-1.4-.6-2.6-1.6-3.4Z"></path></svg>
+          <strong>Useful examples</strong>
+        </div>
+        <div class="trust-item">
+          <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M7 4v6M17 14v6M4 17h16"></path></svg>
+          <strong>Formula context</strong>
+        </div>
+        <div class="trust-item">
+          <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
+          <strong>Fast answers</strong>
+        </div>
+      </section>
+
+      <section class="intro-grid">
+        <div class="section-label">Our approach</div>
+        <h2>A useful answer should make sense.</h2>
+        <p>CalcuPortal is for people who want to know how an answer was worked out, not just copy the final number. Each guide starts with the calculation itself. We explain the inputs, show the formula in context, and use an example that is easy to follow. Whether you are checking a loan payment, BMI, percentage, date, or an everyday math problem, you can see where the result comes from.</p>
+      </section>
+
+      <section id="latest" aria-labelledby="latest-title">
+        <div class="section-title">
           <div>
-            <strong>Useful</strong>
-            <span>Examples</span>
+            <div class="section-label" style="margin-bottom:12px;">Latest guides</div>
+            <h2 id="latest-title">Guides you can actually follow.</h2>
           </div>
-
-          <div>
-            <strong>Clear</strong>
-            <span>Formulas</span>
-          </div>
-
-          <div>
-            <strong>Practical</strong>
-            <span>Guidance</span>
-          </div>
-
+          <p>Start with the calculation you need today. These guides cover common formulas in plain language, with examples you can work through by hand or compare with an online calculator.</p>
         </div>
 
-      </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         INTRO
-    ====================================================== -->
-
-    <section class="pb-intro">
-
-      <div class="pb-shell">
-
-        <div class="pb-intro-grid">
-
-          <div class="pb-section-index">
-            01 / ABOUT
+        <div class="article-tools">
+          <label class="search-box" aria-label="Search articles">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.4-3.4"></path></svg>
+            <input id="article-search" type="search" placeholder="Search articles..." autocomplete="off">
+          </label>
+          <div class="filters" aria-label="Filter articles by category">
+            <button type="button" class="filter-btn active" data-filter="all">All</button>
+            <button type="button" class="filter-btn" data-filter="date-age">Date &amp; Age</button>
+            <button type="button" class="filter-btn" data-filter="health">Health</button>
+            <button type="button" class="filter-btn" data-filter="finance">Finance</button>
+            <button type="button" class="filter-btn" data-filter="math">Math</button>
           </div>
-
-
-          <div class="pb-intro-heading">
-
-            <h2>
-              A useful answer should make sense.
-            </h2>
-
-          </div>
-
-
-          <div class="pb-intro-copy">
-
-            <p class="pb-large-copy">
-              CalcuPortal is for people who want to know how an answer was worked
-              out, not just copy the final number.
-            </p>
-
-            <p>
-              Each guide starts with the calculation itself. We explain the inputs,
-              show the formula in context, and use an example that is easy to follow.
-              Whether you are checking a loan payment, BMI, percentage, date, or an
-              everyday math problem, you can see where the result comes from before
-              using it.
-            </p>
-
-          </div>
-
         </div>
 
-      </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         LATEST ARTICLES
-    ====================================================== -->
-
-    <section
-      class="pb-latest"
-      id="latest"
-    >
-
-      <div class="pb-shell">
-
-        <div class="pb-section-header">
-
-          <div>
-
-            <div class="pb-section-index">
-              02 / LATEST
-            </div>
-
-            <h2>
-              Guides you can actually follow.
-            </h2>
-
-          </div>
-
-          <p>
-            Start with the calculation you need today. These guides cover common
-            formulas in plain language, with examples you can work through by hand
-            or compare with an online calculator.
-          </p>
-
-        </div>
-
-
-        <div class="pb-editorial-grid">
-
-
-          <!-- =================================================
-               AGE ARTICLE
-          ================================================== -->
-
-          <article class="pb-story pb-story-large">
-
-            <a
-              href="/blog/how-to-calculate-age/"
-              class="pb-story-link"
-              aria-label="Read How to Calculate Age Online"
-            ></a>
-
-
-            <div class="pb-story-visual pb-visual-age">
-
-              <span class="pb-story-number">
-                01
+        <div class="articles-grid" id="articles-grid">
+          <article class="article-card featured searchable-article" data-category="date-age" data-search="how to calculate age online date age date of birth years months days">
+            <div class="article-visual" aria-hidden="true">
+              <span class="visual-badge">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2.7 2.75 5.57 6.15.9-4.45 4.33 1.05 6.12L12 16.72l-5.5 2.9 1.05-6.12L3.1 9.17l6.15-.9L12 2.7Z"></path></svg>
               </span>
-
-              <div class="pb-visual-mark">
-                24
-                <small>years</small>
-              </div>
-
+              <div class="visual-number">24<small>years</small></div>
             </div>
-
-
-            <div class="pb-story-content">
-
-              <div class="pb-story-meta">
-
-                <span>
-                  Date & Age
-                </span>
-
-                <div class="pb-story-meta-right">
-
-                  <span>
-                    4 min read
-                  </span>
-
-                  <span>
-                    Guide
-                  </span>
-
-                </div>
-
-              </div>
-
-
-              <h3>
-                How to Calculate Age Online
-              </h3>
-
-              <p>
-                See how to work out age from a date of birth and why the years,
-                months, and days can change depending on the two dates you compare.
-              </p>
-
-              <div class="pb-read-link">
-                Read guide
-                <span aria-hidden="true">↗</span>
-              </div>
-
+            <div class="article-body">
+              <div class="article-category">Date &amp; Age · 4 min read</div>
+              <h3>How to Calculate Age Online</h3>
+              <p>See how to work out age from a date of birth and why the years, months, and days can change depending on the two dates you compare.</p>
+              <a class="text-link" href="/blog/how-to-calculate-age/">Read story <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
             </div>
-
           </article>
 
-
-
-          <!-- =================================================
-               BMI ARTICLE
-          ================================================== -->
-
-          <article class="pb-story">
-
-            <a
-              href="/blog/how-to-calculate-bmi/"
-              class="pb-story-link"
-              aria-label="Read How to Calculate BMI"
-            ></a>
-
-
-            <div class="pb-story-visual pb-visual-bmi">
-
-              <span class="pb-story-number">
-                02
-              </span>
-
-              <div class="pb-visual-mark">
-                BMI
-                <small>health</small>
-              </div>
-
+          <article class="article-card searchable-article" data-category="health" data-search="how to calculate bmi body mass index health height weight formula ranges">
+            <div class="article-body">
+              <div class="article-category">Health · 5 min read</div>
+              <h3>How to Calculate BMI</h3>
+              <p>Work through the BMI formula using height and weight, then see how the result fits into the standard BMI ranges.</p>
+              <a class="text-link" href="/blog/how-to-calculate-bmi/">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
             </div>
-
-
-            <div class="pb-story-content">
-
-              <div class="pb-story-meta">
-
-                <span>
-                  Health
-                </span>
-
-                <div class="pb-story-meta-right">
-
-                  <span>
-                    5 min read
-                  </span>
-
-                  <span>
-                    Formula
-                  </span>
-
-                </div>
-
-              </div>
-
-
-              <h3>
-                How to Calculate BMI
-              </h3>
-
-              <p>
-                Work through the BMI formula using height and weight, then see how
-                the result fits into the standard BMI ranges.
-              </p>
-
-              <div class="pb-read-link">
-                Read guide
-                <span aria-hidden="true">↗</span>
-              </div>
-
-            </div>
-
           </article>
 
-
-
-          <!-- =================================================
-               EMI ARTICLE
-          ================================================== -->
-
-          <article class="pb-story">
-
-            <a
-              href="/blog/emi-calculation-guide/"
-              class="pb-story-link"
-              aria-label="Read EMI Calculation Guide"
-            ></a>
-
-
-            <div class="pb-story-visual pb-visual-emi">
-
-              <span class="pb-story-number">
-                03
-              </span>
-
-              <div class="pb-visual-mark">
-                EMI
-                <small>finance</small>
-              </div>
-
+          <article class="article-card searchable-article" data-category="finance" data-search="emi calculation guide loan monthly payment principal interest rate repayment term finance">
+            <div class="article-body">
+              <div class="article-category">Finance · 6 min read</div>
+              <h3>EMI Calculation Guide</h3>
+              <p>Learn how the loan amount, interest rate, and repayment term affect a monthly EMI, with each part of the formula explained separately.</p>
+              <a class="text-link" href="/blog/emi-calculation-guide/">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
             </div>
-
-
-            <div class="pb-story-content">
-
-              <div class="pb-story-meta">
-
-                <span>
-                  Finance
-                </span>
-
-                <div class="pb-story-meta-right">
-
-                  <span>
-                    6 min read
-                  </span>
-
-                  <span>
-                    Guide
-                  </span>
-
-                </div>
-
-              </div>
-
-
-              <h3>
-                EMI Calculation Guide
-              </h3>
-
-              <p>
-                Learn how the loan amount, interest rate, and repayment term affect
-                a monthly EMI, with each part of the formula explained separately.
-              </p>
-
-              <div class="pb-read-link">
-                Read guide
-                <span aria-hidden="true">↗</span>
-              </div>
-
-            </div>
-
           </article>
 
-
-
-          <!-- =================================================
-               PERCENTAGE ARTICLE
-          ================================================== -->
-
-          <article class="pb-story">
-
-            <a
-              href="/blog/percentage-calculation-guide/"
-              class="pb-story-link"
-              aria-label="Read Percentage Calculation Guide"
-            ></a>
-
-
-            <div class="pb-story-visual pb-visual-percent">
-
-              <span class="pb-story-number">
-                04
-              </span>
-
-              <div class="pb-visual-mark">
-                %
-                <small>math</small>
-              </div>
-
+          <article class="article-card searchable-article" data-category="math" data-search="percentage calculation guide percentage increase decrease difference math formula examples">
+            <div class="article-body">
+              <div class="article-category">Math · 4 min read</div>
+              <h3>Percentage Calculation Guide</h3>
+              <p>A practical look at finding percentages, increases, decreases, and percentage difference, with examples for the cases that come up most.</p>
+              <a class="text-link" href="/blog/percentage-calculation-guide/">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
             </div>
-
-
-            <div class="pb-story-content">
-
-              <div class="pb-story-meta">
-
-                <span>
-                  Mathematics
-                </span>
-
-                <div class="pb-story-meta-right">
-
-                  <span>
-                    4 min read
-                  </span>
-
-                  <span>
-                    Formula
-                  </span>
-
-                </div>
-
-              </div>
-
-
-              <h3>
-                Percentage Calculation Guide
-              </h3>
-
-              <p>
-                A practical look at finding percentages, increases, decreases, and
-                percentage difference, with examples for the cases that come up most.
-              </p>
-
-              <div class="pb-read-link">
-                Read guide
-                <span aria-hidden="true">↗</span>
-              </div>
-
-            </div>
-
           </article>
 
-
-
-          <!-- =================================================
-               CALCULATOR CTA
-          ================================================== -->
-
-          <article class="pb-tool-card">
-
-            <div class="pb-tool-card-content">
-
-              <div class="pb-tool-icon">
-                +
-              </div>
-
-              <span class="pb-tool-label">
-                Calculator library
-              </span>
-
-              <h3>
-                Need the number right away?
-              </h3>
-
-              <p>
-                If you already know what you need, open a calculator and get the
-                result without working through the formula by hand. The library
-                covers everyday math, finance, health, dates, conversions, and more.
-              </p>
-
-              <a
-                href="/calculators/"
-                class="pb-tool-link"
-              >
-                View all calculators
-                <span aria-hidden="true">→</span>
-              </a>
-
-            </div>
-
+          <article class="library-card" data-library-card="true">
+            <svg class="library-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="3"></rect><path d="M8 7h8M8 11h2M14 11h2M8 15h2M14 15h2"></path></svg>
+            <h3>Need the number right away?</h3>
+            <p>If you already know what you need, open a calculator and get the result without working through the formula by hand.</p>
+            <a class="secondary-button" href="/calculators/">Browse calculators</a>
           </article>
 
+          <div class="no-results" id="no-results">No guides match that search yet. Try another word or choose a different category.</div>
         </div>
+      </section>
 
-      </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         WHY CALCUPORTAL
-    ====================================================== -->
-
-    <section class="pb-why">
-
-      <div class="pb-shell">
-
-        <div class="pb-section-index pb-section-index-light">
-          03 / OUR APPROACH
+      <section class="why" aria-labelledby="why-title">
+        <h2 id="why-title">The result matters. So does the method.</h2>
+        <div class="why-grid">
+          <article class="why-card">
+            <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 5.5A3.5 3.5 0 0 1 7.5 2h9A3.5 3.5 0 0 1 20 5.5v7a3.5 3.5 0 0 1-3.5 3.5H11l-5 4v-4.4A3.5 3.5 0 0 1 4 12.5v-7Z"></path></svg>
+            <h3>Clear language</h3>
+            <p>We keep the wording direct and explain unfamiliar terms when they appear, so the calculation is easier to follow from start to finish.</p>
+          </article>
+          <article class="why-card">
+            <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 7h16M7 4v6M17 14v6M4 17h16"></path></svg>
+            <h3>Formula context</h3>
+            <p>A formula is more useful when each part is clear. We explain what the inputs represent and how changing them can affect the result.</p>
+          </article>
+          <article class="why-card">
+            <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M14.5 6.5 17.5 3.5M6.5 14.5 3.5 17.5M15 9l-6 6M8 3H4a1 1 0 0 0-1 1v4M16 21h4a1 1 0 0 0 1-1v-4"></path></svg>
+            <h3>Practical use</h3>
+            <p>Examples are based on familiar situations, so you can see how the same calculation applies outside a textbook or formula sheet.</p>
+          </article>
         </div>
+      </section>
 
-
-        <div class="pb-why-top">
-
-          <h2>
-            The result matters.
-            <span>So does the method.</span>
-          </h2>
-
-          <p>
-            A result is easier to use when you know where it came from. Our guides
-            explain the calculation in plain language, show which inputs matter, and
-            point out what can change the answer. That gives you useful context when
-            you read the result or compare it with another calculation.
-          </p>
-
-        </div>
-
-
-        <div class="pb-principles">
-
-
-          <div class="pb-principle">
-
-            <span class="pb-principle-no">
-              01
-            </span>
-
-            <h3>
-              Clear language
-            </h3>
-
-            <p>
-              We keep the wording direct and explain unfamiliar terms when they
-              appear, so the calculation is easier to follow from start to finish.
-            </p>
-
-          </div>
-
-
-          <div class="pb-principle">
-
-            <span class="pb-principle-no">
-              02
-            </span>
-
-            <h3>
-              Formula context
-            </h3>
-
-            <p>
-              A formula is more useful when each part is clear. We explain what the
-              inputs represent and how changing them can affect the result.
-            </p>
-
-          </div>
-
-
-          <div class="pb-principle">
-
-            <span class="pb-principle-no">
-              03
-            </span>
-
-            <h3>
-              Practical use
-            </h3>
-
-            <p>
-              Examples are based on familiar situations, so you can see how the same
-              calculation applies outside a textbook or formula sheet.
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         FINAL CTA
-    ====================================================== -->
-
-    <section class="pb-final">
-
-      <div class="pb-shell">
-
-        <div class="pb-final-box">
-
-          <div class="pb-final-copy">
-
-            <span>
-              Explore CalcuPortal
-            </span>
-
-            <h2>
-              Find the calculator you need.
-              <br>
-              Get the result.
-            </h2>
-
-          </div>
-
-
-          <div class="pb-final-action">
-
-            <p>
-              Want to skip straight to the calculation?
-            </p>
-
-            <a
-              href="/calculators/"
-              class="pb-final-button"
-            >
-              Browse calculators
-              <span aria-hidden="true">↗</span>
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
+      <section class="final-cta">
+        <h2>Find the calculator you need. Get the result.</h2>
+        <p>Want to skip straight to the calculation? Open the calculator library and choose the tool that matches what you are trying to work out.</p>
+        <a class="primary-button" href="/calculators/">Go to calculators</a>
+      </section>
+    </div>
   </main>
 
-
-
-  <!-- =========================================================
-       FOOTER
-  ========================================================== -->
-
   <footer>
+    <div class="page-shell">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a href="/" class="logo" aria-label="CalcuPortal Home">
+            <img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon">
+            <span>CalcuPortal</span>
+          </a>
+          <p>CalcuPortal helps you handle everyday calculations with free online tools for finance, health, math, conversions, dates, age, and other common tasks. The calculators are built for quick results, while the guides explain the method when you want to check how the answer was worked out.</p>
+        </div>
 
-    <div
-      class="copyright-bar"
-      style="border-top:none; padding-top:0;"
-    >
-      © <span id="year">2026</span> CalcuPortal. All rights reserved.
+        <div class="footer-col">
+          <h3>Calculators</h3>
+          <ul>
+            <li><a href="/calculators/">All calculators</a></li>
+            <li><a href="/calculators/">Loan EMI calculator</a></li>
+            <li><a href="/calculators/">BMI calculator</a></li>
+            <li><a href="/calculators/">Age calculator</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Pages</h3>
+          <ul>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/contact/">Contact</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/privacy-policy/">Privacy policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="copyright">© <span id="year">2026</span> CalcuPortal. All rights reserved.</div>
     </div>
-
   </footer>
 
-
-
-  <!-- =========================================================
-       YEAR
-  ========================================================== -->
-
   <script>
-    const yearElement = document.getElementById("year");
-
-    if (yearElement) {
-      yearElement.textContent = new Date().getFullYear();
-    }
-  </script>
-
-
-
-  <style>
-
-    /* ============================================================
-       BLOG VARIABLES
-    ============================================================ */
-
-    .premium-blog {
-      --pb-accent: #7567ff;
-      --pb-accent-light: #a79fff;
-      --pb-dark: #111117;
-      --pb-dark-soft: #191920;
-      --pb-line: rgba(128, 128, 140, 0.17);
-      --pb-muted: #6d707b;
-
-      overflow: hidden;
-    }
-
-
-    .pb-shell {
-      width: min(1180px, calc(100% - 40px));
-      margin-inline: auto;
-    }
-
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-
-    ::selection {
-      background: rgba(117, 103, 255, 0.22);
-    }
-
-
-
-    /* ============================================================
-       JUSTIFIED PARAGRAPHS
-    ============================================================ */
-
-    .pb-hero-text,
-    .pb-spotlight-middle p,
-    .pb-intro-copy p,
-    .pb-section-header > p,
-    .pb-story-content p,
-    .pb-tool-card p,
-    .pb-why-top p,
-    .pb-principle p {
-      text-align: justify;
-      text-justify: inter-word;
-      hyphens: auto;
-    }
-
-
-
-    /* ============================================================
-       HERO
-    ============================================================ */
-
-    .pb-hero {
-      position: relative;
-      isolation: isolate;
-
-      width: min(1380px, calc(100% - 28px));
-
-      margin:
-        24px auto
-        0;
-
-      overflow: hidden;
-
-      border-radius: 38px;
-
-      background:
-        linear-gradient(
-          135deg,
-          #15151d 0%,
-          #111117 56%,
-          #16131f 100%
-        );
-
-      color: #ffffff;
-    }
-
-
-    .pb-hero::after {
-      content: "";
-
-      position: absolute;
-      inset: 0;
-
-      z-index: -1;
-
-      border-radius: inherit;
-
-      padding: 1px;
-
-      background:
-        linear-gradient(
-          120deg,
-          rgba(255,255,255,.18),
-          rgba(117,103,255,.22),
-          rgba(255,255,255,.04)
-        );
-
-      -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-
-      pointer-events: none;
-    }
-
-
-    .pb-hero-noise {
-      position: absolute;
-      inset: 0;
-
-      z-index: -1;
-
-      opacity: 0.17;
-
-      background-image:
-        linear-gradient(
-          rgba(255,255,255,0.025) 1px,
-          transparent 1px
-        ),
-        linear-gradient(
-          90deg,
-          rgba(255,255,255,0.025) 1px,
-          transparent 1px
-        );
-
-      background-size: 60px 60px;
-
-      mask-image:
-        linear-gradient(
-          to bottom,
-          #000,
-          transparent 90%
-        );
-    }
-
-
-    .pb-orb {
-      position: absolute;
-
-      z-index: -2;
-
-      border-radius: 50%;
-
-      filter: blur(90px);
-
-      pointer-events: none;
-    }
-
-
-    .pb-orb-1 {
-      width: 420px;
-      height: 420px;
-
-      right: -70px;
-      top: -170px;
-
-      background:
-        rgba(117, 103, 255, 0.32);
-
-      animation:
-        premiumFloatOne
-        10s
-        ease-in-out
-        infinite
-        alternate;
-    }
-
-
-    .pb-orb-2 {
-      width: 300px;
-      height: 300px;
-
-      left: 15%;
-      bottom: -220px;
-
-      background:
-        rgba(120, 76, 220, 0.16);
-
-      animation:
-        premiumFloatTwo
-        13s
-        ease-in-out
-        infinite
-        alternate;
-    }
-
-
-    @keyframes premiumFloatOne {
-
-      from {
-        transform:
-          translate3d(0, 0, 0)
-          scale(1);
-      }
-
-      to {
-        transform:
-          translate3d(-35px, 35px, 0)
-          scale(1.08);
-      }
-
-    }
-
-
-    @keyframes premiumFloatTwo {
-
-      from {
-        transform:
-          translate3d(0, 0, 0)
-          scale(1);
-      }
-
-      to {
-        transform:
-          translate3d(45px, -25px, 0)
-          scale(1.12);
-      }
-
-    }
-
-
-
-    /* HERO GRID */
-
-    .pb-hero-grid {
-      display: grid;
-
-      grid-template-columns:
-        1.15fr
-        0.85fr;
-
-      gap:
-        clamp(40px, 7vw, 100px);
-
-      align-items: center;
-
-      padding:
-        clamp(70px, 9vw, 125px)
-        0
-        clamp(60px, 8vw, 100px);
-    }
-
-
-
-    /* HERO LEFT */
-
-    .pb-kicker {
-      display: inline-flex;
-
-      align-items: center;
-
-      gap: 10px;
-
-      margin-bottom: 24px;
-
-      color:
-        rgba(255,255,255,0.65);
-
-      font-size: 12px;
-
-      font-weight: 700;
-
-      letter-spacing: 0.16em;
-
-      text-transform: uppercase;
-    }
-
-
-    .pb-kicker span {
-      width: 32px;
-
-      height: 1px;
-
-      background:
-        var(--pb-accent-light);
-    }
-
-
-    .pb-hero-left h1 {
-      max-width: 750px;
-
-      margin: 0;
-
-      font-size:
-        clamp(3.6rem, 7vw, 6.6rem);
-
-      line-height: 0.92;
-
-      letter-spacing: -0.065em;
-
-      font-weight: 650;
-    }
-
-
-    .pb-hero-left h1 em {
-      display: block;
-
-      margin-top: 10px;
-
-      color:
-        var(--pb-accent-light);
-
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-      font-weight: 400;
-
-      font-style: italic;
-
-      letter-spacing: -0.055em;
-    }
-
-
-    .pb-hero-text {
-      max-width: 620px;
-
-      margin:
-        30px 0
-        0;
-
-      color:
-        rgba(255,255,255,0.62);
-
-      font-size: 1.08rem;
-
-      line-height: 1.8;
-    }
-
-
-
-    /* HERO BUTTONS */
-
-    .pb-hero-actions {
-      display: flex;
-
-      align-items: center;
-
-      flex-wrap: wrap;
-
-      gap: 12px;
-
-      margin-top: 34px;
-    }
-
-
-    .pb-primary-btn,
-    .pb-secondary-btn {
-      display: inline-flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      gap: 13px;
-
-      min-height: 54px;
-
-      padding:
-        0
-        21px;
-
-      border-radius: 14px;
-
-      font-size: 14px;
-
-      font-weight: 700;
-
-      text-decoration: none;
-
-      transition:
-        transform .25s ease,
-        background .25s ease,
-        border-color .25s ease,
-        box-shadow .25s ease;
-    }
-
-
-    .pb-primary-btn {
-      background:
-        #ffffff;
-
-      color:
-        #111117;
-    }
-
-
-    .pb-primary-btn:hover {
-      transform:
-        translateY(-2px);
-
-      box-shadow:
-        0 15px 35px
-        rgba(0,0,0,0.18);
-    }
-
-
-    .pb-secondary-btn {
-      border:
-        1px solid
-        rgba(255,255,255,.13);
-
-      color:
-        #ffffff;
-
-      background:
-        rgba(255,255,255,.035);
-    }
-
-
-    .pb-secondary-btn:hover {
-      transform:
-        translateY(-2px);
-
-      border-color:
-        rgba(255,255,255,.25);
-
-      background:
-        rgba(255,255,255,.06);
-    }
-
-
-    .pb-primary-btn:active,
-    .pb-secondary-btn:active,
-    .pb-final-button:active {
-      transform:
-        translateY(0)
-        scale(.98);
-    }
-
-
-    .pb-primary-btn span,
-    .pb-final-button span,
-    .pb-tool-link span {
-      transition:
-        transform .25s ease;
-    }
-
-
-    .pb-primary-btn:hover span,
-    .pb-final-button:hover span {
-      transform:
-        translate(3px, -3px);
-    }
-
-
-
-    /* ============================================================
-       HERO FEATURED ARTICLE
-    ============================================================ */
-
-    .pb-spotlight-card {
-      position: relative;
-
-      display: flex;
-
-      flex-direction: column;
-
-      justify-content: space-between;
-
-      min-height: 480px;
-
-      padding: 28px;
-
-      overflow: hidden;
-
-      border:
-        1px solid
-        rgba(255,255,255,.1);
-
-      border-radius: 30px;
-
-      background:
-        radial-gradient(
-          circle at 85% 8%,
-          rgba(117,103,255,.24),
-          transparent 35%
-        ),
-        rgba(255,255,255,.055);
-
-      backdrop-filter:
-        blur(20px);
-
-      -webkit-backdrop-filter:
-        blur(20px);
-
-      color:
-        #ffffff;
-
-      text-decoration: none;
-
-      box-shadow:
-        0 35px 80px
-        rgba(0,0,0,.22);
-
-      transition:
-        transform .35s ease,
-        border-color .35s ease,
-        box-shadow .35s ease;
-    }
-
-
-    .pb-spotlight-card:hover {
-      transform:
-        translateY(-8px);
-
-      border-color:
-        rgba(167,159,255,.35);
-
-      box-shadow:
-        0 42px 90px
-        rgba(0,0,0,.28);
-    }
-
-
-    .pb-spotlight-card::before {
-      content: "";
-
-      position: absolute;
-
-      width: 220px;
-      height: 220px;
-
-      top: -90px;
-      right: -70px;
-
-      border-radius: 50%;
-
-      background:
-        radial-gradient(
-          circle,
-          rgba(167,159,255,.26),
-          transparent 68%
-        );
-
-      pointer-events: none;
-    }
-
-
-    .pb-spotlight-card::after {
-      content: "";
-
-      position: absolute;
-
-      inset: 0;
-
-      background:
-        linear-gradient(
-          110deg,
-          transparent 20%,
-          rgba(255,255,255,.035) 42%,
-          rgba(255,255,255,.075) 50%,
-          rgba(255,255,255,.035) 58%,
-          transparent 80%
-        );
-
-      transform:
-        translateX(-120%);
-
-      transition:
-        transform .9s ease;
-
-      pointer-events: none;
-    }
-
-
-    .pb-spotlight-card:hover::after {
-      transform:
-        translateX(120%);
-    }
-
-
-    .pb-spotlight-top {
-      position: relative;
-
-      z-index: 2;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: space-between;
-    }
-
-
-    .pb-featured-pill {
-      padding:
-        7px
-        11px;
-
-      border:
-        1px solid
-        rgba(255,255,255,.12);
-
-      border-radius:
-        999px;
-
-      background:
-        rgba(255,255,255,.07);
-
-      font-size: 10px;
-
-      font-weight: 700;
-
-      letter-spacing: .12em;
-
-      text-transform:
-        uppercase;
-    }
-
-
-    .pb-spotlight-number {
-      color:
-        rgba(255,255,255,.17);
-
-      font-size: 48px;
-
-      font-weight: 500;
-
-      letter-spacing: -.07em;
-    }
-
-
-    .pb-spotlight-middle {
-      position: relative;
-
-      z-index: 2;
-    }
-
-
-    .pb-spotlight-meta {
-      display: flex;
-
-      align-items: center;
-
-      justify-content: space-between;
-
-      gap: 20px;
-
-      margin-bottom: 14px;
-    }
-
-
-    .pb-category-label {
-      color:
-        var(--pb-accent-light);
-
-      font-size: 11px;
-
-      font-weight: 700;
-
-      letter-spacing: .12em;
-
-      text-transform: uppercase;
-    }
-
-
-    .pb-reading-time {
-      color:
-        rgba(255,255,255,.42);
-
-      font-size: 11px;
-
-      font-weight: 600;
-    }
-
-
-    .pb-spotlight-middle h2 {
-      margin:
-        0
-        0
-        16px;
-
-      font-size:
-        clamp(2rem, 3vw, 3rem);
-
-      line-height: 1.03;
-
-      letter-spacing: -.045em;
-    }
-
-
-    .pb-spotlight-middle p {
-      max-width: 440px;
-
-      margin: 0;
-
-      color:
-        rgba(255,255,255,.55);
-
-      font-size: 14px;
-
-      line-height: 1.75;
-    }
-
-
-    .pb-card-footer {
-      position: relative;
-
-      z-index: 2;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: space-between;
-
-      padding-top: 22px;
-
-      border-top:
-        1px solid
-        rgba(255,255,255,.1);
-
-      font-size: 13px;
-
-      font-weight: 700;
-    }
-
-
-    .pb-arrow-circle {
-      display: inline-flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      width: 42px;
-
-      height: 42px;
-
-      border-radius: 50%;
-
-      background:
-        #ffffff;
-
-      color:
-        #111117;
-
-      transition:
-        transform .3s ease;
-    }
-
-
-    .pb-spotlight-card:hover
-    .pb-arrow-circle {
-      transform:
-        translate(3px, -3px);
-    }
-
-
-
-    /* ============================================================
-       HERO META
-    ============================================================ */
-
-    .pb-hero-meta {
-      display: grid;
-
-      grid-template-columns:
-        repeat(4, 1fr);
-
-      padding-bottom: 36px;
-
-      border-top:
-        1px solid
-        rgba(255,255,255,.08);
-    }
-
-
-    .pb-hero-meta div {
-      display: flex;
-
-      flex-direction: column;
-
-      gap: 4px;
-
-      padding:
-        26px
-        20px
-        0;
-
-      border-right:
-        1px solid
-        rgba(255,255,255,.08);
-    }
-
-
-    .pb-hero-meta div:first-child {
-      padding-left: 0;
-    }
-
-
-    .pb-hero-meta div:last-child {
-      border-right: 0;
-    }
-
-
-    .pb-hero-meta strong {
-      font-size: 14px;
-    }
-
-
-    .pb-hero-meta span {
-      color:
-        rgba(255,255,255,.42);
-
-      font-size: 12px;
-    }
-
-
-
-    /* ============================================================
-       INTRO
-    ============================================================ */
-
-    .pb-intro {
-      padding:
-        clamp(90px, 11vw, 150px)
-        0;
-    }
-
-
-    .pb-intro-grid {
-      display: grid;
-
-      grid-template-columns:
-        130px
-        1fr
-        1fr;
-
-      gap:
-        clamp(30px, 6vw, 90px);
-
-      align-items: start;
-    }
-
-
-    .pb-section-index {
-      color:
-        var(--pb-muted);
-
-      font-size: 10px;
-
-      font-weight: 800;
-
-      letter-spacing: .16em;
-    }
-
-
-    .pb-intro-heading h2 {
-      margin: 0;
-
-      font-size:
-        clamp(2.5rem, 5vw, 4.7rem);
-
-      line-height: .98;
-
-      letter-spacing: -.055em;
-    }
-
-
-    .pb-intro-copy,
-    .pb-story-content,
-    .pb-spotlight-middle,
-    .pb-why-top,
-    .pb-principle {
-      text-rendering:
-        optimizeLegibility;
-    }
-
-
-    .pb-intro-copy p {
-      margin: 0;
-
-      color:
-        var(--text-secondary, #676b75);
-
-      line-height: 1.85;
-    }
-
-
-    .pb-intro-copy .pb-large-copy {
-      margin-bottom: 22px;
-
-      color: inherit;
-
-      font-size: 1.25rem;
-
-      line-height: 1.55;
-    }
-
-
-
-    /* ============================================================
-       LATEST HEADER
-    ============================================================ */
-
-    .pb-latest {
-      padding-bottom:
-        clamp(90px, 12vw, 155px);
-    }
-
-
-    .pb-section-header {
-      display: grid;
-
-      grid-template-columns:
-        1fr
-        360px;
-
-      gap: 50px;
-
-      align-items: end;
-
-      margin-bottom: 42px;
-    }
-
-
-    .pb-section-header
-    .pb-section-index {
-      margin-bottom: 18px;
-    }
-
-
-    .pb-section-header h2 {
-      margin: 0;
-
-      font-size:
-        clamp(2.7rem, 5vw, 4.8rem);
-
-      line-height: .98;
-
-      letter-spacing: -.055em;
-    }
-
-
-    .pb-section-header > p {
-      margin: 0;
-
-      color:
-        var(--text-secondary, #676b75);
-
-      line-height: 1.75;
-    }
-
-
-
-    /* ============================================================
-       ARTICLE GRID
-    ============================================================ */
-
-    .pb-editorial-grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(2, 1fr);
-
-      gap: 18px;
-    }
-
-
-
-    /* ============================================================
-       ARTICLE CARDS
-    ============================================================ */
-
-    .pb-story {
-      position: relative;
-
-      display: grid;
-
-      grid-template-columns:
-        .78fr
-        1.22fr;
-
-      min-height: 330px;
-
-      overflow: hidden;
-
-      border:
-        1px solid
-        var(--pb-line);
-
-      border-radius: 28px;
-
-      background:
-        var(--card-bg, #ffffff);
-
-      transition:
-        transform .3s ease,
-        box-shadow .3s ease,
-        border-color .3s ease;
-    }
-
-
-    .pb-story:hover {
-      transform:
-        translateY(-7px);
-
-      border-color:
-        rgba(117,103,255,.28);
-
-      box-shadow:
-        0 28px 65px
-        rgba(15,23,42,.10);
-    }
-
-
-    .pb-story::after {
-      content: "";
-
-      position: absolute;
-
-      width: 180px;
-
-      height: 180px;
-
-      right: -100px;
-
-      bottom: -100px;
-
-      border-radius: 50%;
-
-      background:
-        radial-gradient(
-          circle,
-          rgba(117,103,255,.07),
-          transparent 70%
-        );
-
-      opacity: 0;
-
-      transition:
-        opacity .35s ease,
-        transform .35s ease;
-
-      pointer-events: none;
-    }
-
-
-    .pb-story:hover::after {
-      opacity: 1;
-
-      transform:
-        scale(1.4);
-    }
-
-
-    .pb-story-large {
-      grid-column:
-        span 2;
-
-      grid-template-columns:
-        1.05fr
-        .95fr;
-
-      min-height: 460px;
-    }
-
-
-    .pb-story-link {
-      position: absolute;
-
-      inset: 0;
-
-      z-index: 5;
-    }
-
-
-
-    /* ============================================================
-       ARTICLE VISUALS
-    ============================================================ */
-
-    .pb-story-visual {
-      position: relative;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      min-height: 100%;
-
-      overflow: hidden;
-    }
-
-
-    .pb-story-visual::after {
-      content: "";
-
-      position: absolute;
-
-      inset: 0;
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,.18),
-          transparent 38%,
-          rgba(0,0,0,.035)
-        );
-
-      pointer-events: none;
-    }
-
-
-    .pb-story-number {
-      position: absolute;
-
-      top: 20px;
-
-      left: 20px;
-
-      z-index: 2;
-
-      padding:
-        7px
-        9px;
-
-      border-radius: 8px;
-
-      background:
-        rgba(255,255,255,.15);
-
-      backdrop-filter:
-        blur(8px);
-
-      -webkit-backdrop-filter:
-        blur(8px);
-
-      font-size: 11px;
-
-      font-weight: 800;
-
-      letter-spacing: .14em;
-    }
-
-
-    .pb-visual-mark {
-      position: relative;
-
-      z-index: 2;
-
-      display: flex;
-
-      flex-direction: column;
-
-      align-items: center;
-
-      font-size:
-        clamp(3rem, 6vw, 5.8rem);
-
-      font-weight: 650;
-
-      line-height: .85;
-
-      letter-spacing: -.07em;
-    }
-
-
-    .pb-visual-mark small {
-      margin-top: 15px;
-
-      font-size: 10px;
-
-      font-weight: 800;
-
-      letter-spacing: .18em;
-
-      text-transform: uppercase;
-    }
-
-
-    .pb-visual-age {
-      background:
-        radial-gradient(
-          circle at 30% 25%,
-          rgba(255,255,255,.35),
-          transparent 30%
-        ),
-        linear-gradient(
-          145deg,
-          #dcd8ff,
-          #8879ff
-        );
-
-      color:
-        #201b53;
-    }
-
-
-    .pb-visual-bmi {
-      background:
-        linear-gradient(
-          145deg,
-          #dff8e8,
-          #a6dfbb
-        );
-
-      color:
-        #174629;
-    }
-
-
-    .pb-visual-emi {
-      background:
-        linear-gradient(
-          145deg,
-          #fff0cb,
-          #edc36a
-        );
-
-      color:
-        #574017;
-    }
-
-
-    .pb-visual-percent {
-      background:
-        linear-gradient(
-          145deg,
-          #d9edff,
-          #97c6ee
-        );
-
-      color:
-        #183b5d;
-    }
-
-
-
-    /* ============================================================
-       ARTICLE CONTENT
-    ============================================================ */
-
-    .pb-story-content {
-      position: relative;
-
-      z-index: 2;
-
-      display: flex;
-
-      flex-direction: column;
-
-      padding: 30px;
-    }
-
-
-    .pb-story-meta {
-      display: flex;
-
-      justify-content: space-between;
-
-      align-items: center;
-
-      gap: 12px;
-
-      margin-bottom: auto;
-
-      color:
-        var(--pb-muted);
-
-      font-size: 10px;
-
-      font-weight: 800;
-
-      letter-spacing: .12em;
-
-      text-transform: uppercase;
-    }
-
-
-    .pb-story-meta > span:first-child {
-      color:
-        var(--pb-accent);
-    }
-
-
-    .pb-story-meta-right {
-      display: flex;
-
-      align-items: center;
-
-      gap: 14px;
-    }
-
-
-    .pb-story-meta-right
-    span:first-child {
-      color:
-        var(--pb-muted);
-
-      font-weight: 600;
-
-      text-transform: none;
-
-      letter-spacing: normal;
-    }
-
-
-    .pb-story-content h3 {
-      margin:
-        45px 0
-        12px;
-
-      font-size:
-        clamp(1.55rem, 3vw, 2.4rem);
-
-      line-height: 1.06;
-
-      letter-spacing: -.04em;
-    }
-
-
-    .pb-story-large
-    .pb-story-content h3 {
-      font-size:
-        clamp(2.2rem, 4vw, 3.6rem);
-    }
-
-
-    .pb-story-content p {
-      margin:
-        0
-        0
-        24px;
-
-      color:
-        var(--text-secondary, #676b75);
-
-      font-size: 14px;
-
-      line-height: 1.7;
-    }
-
-
-    .pb-read-link {
-      position: relative;
-
-      display: inline-flex;
-
-      align-items: center;
-
-      gap: 8px;
-
-      width: fit-content;
-
-      margin-top: auto;
-
-      padding-bottom: 4px;
-
-      font-size: 13px;
-
-      font-weight: 700;
-    }
-
-
-    .pb-read-link::after {
-      content: "";
-
-      position: absolute;
-
-      left: 0;
-
-      bottom: 0;
-
-      width: 100%;
-
-      height: 1px;
-
-      background:
-        var(--pb-accent);
-
-      transform:
-        scaleX(0);
-
-      transform-origin:
-        right;
-
-      transition:
-        transform .3s ease;
-    }
-
-
-    .pb-story:hover
-    .pb-read-link::after {
-      transform:
-        scaleX(1);
-
-      transform-origin:
-        left;
-    }
-
-
-    .pb-read-link span {
-      color:
-        var(--pb-accent);
-
-      transition:
-        transform .25s ease;
-    }
-
-
-    .pb-story:hover
-    .pb-read-link span {
-      transform:
-        translate(3px, -3px);
-    }
-
-
-
-    /* ============================================================
-       CALCULATOR CTA CARD
-    ============================================================ */
-
-    .pb-tool-card {
-      position: relative;
-
-      display: flex;
-
-      align-items: stretch;
-
-      min-height: 330px;
-
-      overflow: hidden;
-
-      border:
-        1px solid
-        rgba(167,159,255,.14);
-
-      border-radius: 28px;
-
-      background:
-        radial-gradient(
-          circle at 100% 0%,
-          rgba(167,159,255,.38),
-          transparent 40%
-        ),
-        var(--pb-dark);
-
-      color:
-        #ffffff;
-    }
-
-
-    .pb-tool-card::before {
-      content: "";
-
-      position: absolute;
-
-      width: 270px;
-
-      height: 270px;
-
-      right: -100px;
-
-      top: -100px;
-
-      border-radius: 50%;
-
-      background:
-        radial-gradient(
-          circle,
-          rgba(117,103,255,.28),
-          transparent 70%
-        );
-
-      pointer-events: none;
-    }
-
-
-    .pb-tool-card-content {
-      position: relative;
-
-      z-index: 2;
-
-      display: flex;
-
-      flex-direction: column;
-
-      padding: 34px;
-    }
-
-
-    .pb-tool-icon {
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      width: 44px;
-
-      height: 44px;
-
-      margin-bottom: auto;
-
-      border:
-        1px solid
-        rgba(255,255,255,.12);
-
-      border-radius: 12px;
-
-      background:
-        rgba(255,255,255,.07);
-
-      font-size: 25px;
-    }
-
-
-    .pb-tool-label {
-      margin-top: 45px;
-
-      color:
-        var(--pb-accent-light);
-
-      font-size: 10px;
-
-      font-weight: 800;
-
-      letter-spacing: .14em;
-
-      text-transform:
-        uppercase;
-    }
-
-
-    .pb-tool-card h3 {
-      max-width: 440px;
-
-      margin:
-        12px
-        0;
-
-      font-size:
-        clamp(1.7rem, 3vw, 2.6rem);
-
-      line-height: 1.06;
-
-      letter-spacing: -.045em;
-    }
-
-
-    .pb-tool-card p {
-      max-width: 440px;
-
-      margin:
-        0
-        0
-        24px;
-
-      color:
-        rgba(255,255,255,.53);
-
-      font-size: 14px;
-
-      line-height: 1.7;
-    }
-
-
-    .pb-tool-link {
-      position: relative;
-
-      display: inline-flex;
-
-      align-items: center;
-
-      gap: 9px;
-
-      width: fit-content;
-
-      padding-bottom: 5px;
-
-      color:
-        #ffffff;
-
-      font-size: 13px;
-
-      font-weight: 700;
-
-      text-decoration: none;
-    }
-
-
-    .pb-tool-link::after {
-      content: "";
-
-      position: absolute;
-
-      left: 0;
-
-      bottom: 0;
-
-      width: 35px;
-
-      height: 1px;
-
-      background:
-        var(--pb-accent-light);
-
-      transition:
-        width .3s ease;
-    }
-
-
-    .pb-tool-link:hover::after {
-      width: 100%;
-    }
-
-
-    .pb-tool-link:hover span {
-      transform:
-        translateX(4px);
-    }
-
-
-
-    /* ============================================================
-       WHY SECTION
-    ============================================================ */
-
-    .pb-why {
-      position: relative;
-
-      overflow: hidden;
-
-      padding:
-        clamp(80px, 10vw, 130px)
-        0;
-
-      background:
-        var(--pb-dark);
-
-      color:
-        #ffffff;
-    }
-
-
-    .pb-why::before {
-      content: "";
-
-      position: absolute;
-
-      width: 500px;
-
-      height: 500px;
-
-      right: -240px;
-
-      top: -180px;
-
-      border-radius: 50%;
-
-      background:
-        radial-gradient(
-          circle,
-          rgba(117,103,255,.13),
-          transparent 68%
-        );
-
-      pointer-events: none;
-    }
-
-
-    .pb-section-index-light {
-      color:
-        rgba(255,255,255,.35);
-    }
-
-
-    .pb-why-top {
-      position: relative;
-
-      z-index: 2;
-
-      display: grid;
-
-      grid-template-columns:
-        1fr
-        400px;
-
-      gap: 70px;
-
-      align-items: end;
-
-      margin-top: 25px;
-
-      padding-bottom: 70px;
-
-      border-bottom:
-        1px solid
-        rgba(255,255,255,.1);
-    }
-
-
-    .pb-why-top h2 {
-      margin: 0;
-
-      font-size:
-        clamp(3rem, 6vw, 5.8rem);
-
-      line-height: .92;
-
-      letter-spacing: -.06em;
-    }
-
-
-    .pb-why-top h2 span {
-      display: block;
-
-      color:
-        var(--pb-accent-light);
-
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-      font-style: italic;
-
-      font-weight: 400;
-    }
-
-
-    .pb-why-top p {
-      margin: 0;
-
-      color:
-        rgba(255,255,255,.5);
-
-      line-height: 1.8;
-    }
-
-
-
-    /* WHY ITEMS */
-
-    .pb-principles {
-      position: relative;
-
-      z-index: 2;
-
-      display: grid;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-    }
-
-
-    .pb-principle {
-      padding:
-        42px
-        35px
-        0
-        0;
-
-      border-right:
-        1px solid
-        rgba(255,255,255,.1);
-    }
-
-
-    .pb-principle + .pb-principle {
-      padding-left: 35px;
-    }
-
-
-    .pb-principle:last-child {
-      border-right: 0;
-    }
-
-
-    .pb-principle-no {
-      display: inline-flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      width: 38px;
-
-      height: 38px;
-
-      margin-bottom: 45px;
-
-      border:
-        1px solid
-        rgba(255,255,255,.1);
-
-      border-radius: 50%;
-
-      background:
-        rgba(255,255,255,.025);
-
-      backdrop-filter:
-        blur(10px);
-
-      -webkit-backdrop-filter:
-        blur(10px);
-
-      color:
-        rgba(255,255,255,.38);
-
-      font-size: 11px;
-
-      font-weight: 700;
-    }
-
-
-    .pb-principle h3 {
-      margin:
-        0
-        0
-        10px;
-
-      font-size: 1.25rem;
-    }
-
-
-    .pb-principle p {
-      max-width: 290px;
-
-      margin: 0;
-
-      color:
-        rgba(255,255,255,.45);
-
-      font-size: 14px;
-
-      line-height: 1.7;
-    }
-
-
-
-    /* ============================================================
-       FINAL CTA
-    ============================================================ */
-
-    .pb-final {
-      padding:
-        clamp(75px, 10vw, 130px)
-        0;
-    }
-
-
-    .pb-final-box {
-      position: relative;
-
-      display: grid;
-
-      grid-template-columns:
-        1fr
-        auto;
-
-      gap: 60px;
-
-      align-items: end;
-
-      padding:
-        clamp(38px, 6vw, 70px);
-
-      overflow: hidden;
-
-      border:
-        1px solid
-        var(--pb-line);
-
-      border-radius: 34px;
-
-      background:
-        radial-gradient(
-          circle at 100% 0%,
-          rgba(117,103,255,.13),
-          transparent 35%
-        ),
-        var(--card-bg, #ffffff);
-    }
-
-
-    .pb-final-box::after {
-      content: "";
-
-      position: absolute;
-
-      width: 300px;
-
-      height: 300px;
-
-      right: -130px;
-
-      bottom: -150px;
-
-      border-radius: 50%;
-
-      background:
-        radial-gradient(
-          circle,
-          rgba(117,103,255,.13),
-          transparent 70%
-        );
-
-      pointer-events: none;
-    }
-
-
-    .pb-final-copy {
-      position: relative;
-
-      z-index: 2;
-    }
-
-
-    .pb-final-copy > span {
-      display: block;
-
-      margin-bottom: 15px;
-
-      color:
-        var(--pb-accent);
-
-      font-size: 10px;
-
-      font-weight: 800;
-
-      letter-spacing: .15em;
-
-      text-transform: uppercase;
-    }
-
-
-    .pb-final-copy h2 {
-      margin: 0;
-
-      font-size:
-        clamp(2.5rem, 5vw, 4.7rem);
-
-      line-height: 1;
-
-      letter-spacing: -.055em;
-    }
-
-
-    .pb-final-action {
-      position: relative;
-
-      z-index: 2;
-
-      min-width: 220px;
-    }
-
-
-    .pb-final-action p {
-      margin:
-        0
-        0
-        13px;
-
-      color:
-        var(--pb-muted);
-
-      font-size: 12px;
-    }
-
-
-    .pb-final-button {
-      display: flex;
-
-      align-items: center;
-
-      justify-content: space-between;
-
-      gap: 35px;
-
-      min-height: 58px;
-
-      padding:
-        0
-        18px
-        0
-        21px;
-
-      border-radius: 14px;
-
-      background:
-        var(--pb-dark);
-
-      color:
-        #ffffff;
-
-      font-size: 13px;
-
-      font-weight: 700;
-
-      text-decoration: none;
-
-      transition:
-        transform .25s ease,
-        box-shadow .25s ease;
-    }
-
-
-    .pb-final-button:hover {
-      transform:
-        translateY(-2px);
-
-      box-shadow:
-        0 15px 30px
-        rgba(17,17,23,.18);
-    }
-
-
-
-    /* ============================================================
-       ACCESSIBILITY
-    ============================================================ */
-
-    .pb-primary-btn:focus-visible,
-    .pb-secondary-btn:focus-visible,
-    .pb-spotlight-card:focus-visible,
-    .pb-story-link:focus-visible,
-    .pb-tool-link:focus-visible,
-    .pb-final-button:focus-visible {
-      outline:
-        3px solid
-        var(--pb-accent);
-
-      outline-offset: 4px;
-    }
-
-
-
-    /* ============================================================
-       TABLET
-    ============================================================ */
-
-    @media (max-width: 1000px) {
-
-      .pb-hero-grid {
-        grid-template-columns:
-          1fr;
-      }
-
-
-      .pb-hero-right {
-        max-width: 680px;
-      }
-
-
-      .pb-spotlight-card {
-        min-height: 400px;
-      }
-
-
-      .pb-intro-grid {
-        grid-template-columns:
-          90px
-          1fr;
-      }
-
-
-      .pb-intro-copy {
-        grid-column: 2;
-      }
-
-
-      .pb-story {
-        grid-template-columns:
-          1fr;
-      }
-
-
-      .pb-story-large {
-        grid-template-columns:
-          1fr
-          1fr;
-      }
-
-
-      .pb-story:not(.pb-story-large)
-      .pb-story-visual {
-        min-height: 210px;
-      }
-
-
-      .pb-why-top {
-        grid-template-columns:
-          1fr;
-      }
-
-
-      .pb-final-box {
-        grid-template-columns:
-          1fr;
-      }
-
-    }
-
-
-
-    /* ============================================================
-       MOBILE
-    ============================================================ */
-
-    @media (max-width: 720px) {
-
-      .pb-shell {
-        width:
-          min(
-            calc(100% - 28px),
-            1180px
-          );
-      }
-
-
-      .pb-hero {
-        width:
-          calc(100% - 16px);
-
-        margin-top: 8px;
-
-        border-radius: 26px;
-      }
-
-
-      .pb-hero-grid {
-        gap: 45px;
-
-        padding:
-          58px
-          0
-          45px;
-      }
-
-
-      .pb-hero-left h1 {
-        font-size:
-          clamp(3.1rem, 15vw, 4.7rem);
-      }
-
-
-      .pb-hero-text {
-        font-size: .97rem;
-
-        text-align: left;
-      }
-
-
-      .pb-hero-actions {
-        flex-direction: column;
-
-        align-items: stretch;
-      }
-
-
-      .pb-primary-btn,
-      .pb-secondary-btn {
-        width: 100%;
-      }
-
-
-      .pb-spotlight-card {
-        min-height: 400px;
-
-        padding: 22px;
-
-        border-radius: 22px;
-      }
-
-
-      .pb-spotlight-middle p {
-        text-align: left;
-      }
-
-
-      .pb-hero-meta {
-        grid-template-columns:
-          1fr
-          1fr;
-
-        padding-bottom: 20px;
-      }
-
-
-      .pb-hero-meta div {
-        padding:
-          20px
-          12px
-          0;
-
-        border-right: none;
-      }
-
-
-      .pb-hero-meta div:first-child {
-        padding-left: 12px;
-      }
-
-
-      .pb-intro {
-        padding:
-          75px
-          0;
-      }
-
-
-      .pb-intro-grid {
-        grid-template-columns:
-          1fr;
-
-        gap: 24px;
-      }
-
-
-      .pb-intro-copy {
-        grid-column: auto;
-      }
-
-
-      .pb-intro-copy p {
-        text-align: left;
-      }
-
-
-      .pb-section-header {
-        grid-template-columns:
-          1fr;
-
-        gap: 18px;
-      }
-
-
-      .pb-section-header > p {
-        text-align: left;
-      }
-
-
-      .pb-editorial-grid {
-        grid-template-columns:
-          1fr;
-      }
-
-
-      .pb-story,
-      .pb-story-large {
-        grid-column: auto;
-
-        grid-template-columns:
-          1fr;
-
-        min-height: auto;
-      }
-
-
-      .pb-story-visual,
-      .pb-story-large
-      .pb-story-visual {
-        min-height: 250px;
-      }
-
-
-      .pb-story-content {
-        min-height: 280px;
-
-        padding: 24px;
-      }
-
-
-      .pb-story-content h3,
-      .pb-story-large
-      .pb-story-content h3 {
-        margin-top: 40px;
-
-        font-size: 2rem;
-      }
-
-
-      .pb-story-content p {
-        text-align: left;
-      }
-
-
-      .pb-story-meta {
-        align-items: flex-start;
-      }
-
-
-      .pb-story-meta-right {
-        flex-direction: column;
-
-        align-items: flex-end;
-
-        gap: 4px;
-      }
-
-
-      .pb-tool-card {
-        min-height: 390px;
-      }
-
-
-      .pb-tool-card p {
-        text-align: left;
-      }
-
-
-      .pb-why-top {
-        gap: 30px;
-
-        padding-bottom: 45px;
-      }
-
-
-      .pb-why-top p {
-        text-align: left;
-      }
-
-
-      .pb-principles {
-        grid-template-columns:
-          1fr;
-      }
-
-
-      .pb-principle,
-      .pb-principle + .pb-principle {
-        padding:
-          32px
-          0;
-
-        border-right: 0;
-
-        border-bottom:
-          1px solid
-          rgba(255,255,255,.1);
-      }
-
-
-      .pb-principle:last-child {
-        border-bottom: 0;
-      }
-
-
-      .pb-principle-no {
-        margin-bottom: 28px;
-      }
-
-
-      .pb-principle p {
-        max-width: 100%;
-
-        text-align: left;
-      }
-
-
-      .pb-final-box {
-        padding:
-          30px
-          24px;
-
-        border-radius: 25px;
-      }
-
-
-      .pb-final-action {
-        width: 100%;
-      }
-
-
-      .pb-final-button {
-        width: 100%;
-      }
-
-    }
-
-
-
-
-
-    /* ============================================================
-       RESPONSIVE / MWEB HARDENING
-       Keeps padding inside declared widths and allows grid/flex
-       children to shrink instead of forcing horizontal overflow.
-    ============================================================ */
-
-    .premium-blog,
-    .premium-blog *,
-    .premium-blog *::before,
-    .premium-blog *::after {
-      box-sizing: border-box;
-    }
-
-    .pb-hero-left,
-    .pb-hero-right,
-    .pb-intro-heading,
-    .pb-intro-copy,
-    .pb-section-header > *,
-    .pb-story-content,
-    .pb-spotlight-middle,
-    .pb-why-top > *,
-    .pb-final-copy,
-    .pb-final-action {
-      min-width: 0;
-    }
-
-    .pb-primary-btn,
-    .pb-secondary-btn,
-    .pb-final-button,
-    .pb-spotlight-card,
-    .pb-story,
-    .pb-tool-card {
-      max-width: 100%;
-    }
-
-    .pb-hero-left h1,
-    .pb-spotlight-middle h2,
-    .pb-intro-heading h2,
-    .pb-section-header h2,
-    .pb-story-content h3,
-    .pb-tool-card h3,
-    .pb-why-top h2,
-    .pb-final-copy h2 {
-      overflow-wrap: break-word;
-    }
-
-    /* Header has no hamburger in this markup, so keep the links usable
-       on narrow screens instead of letting them overflow the viewport. */
-    @media (max-width: 720px) {
-      header .nav-container {
-        box-sizing: border-box;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 10px 12px;
-        width: 100%;
-        max-width: 100%;
-        padding-inline: 14px;
-      }
-
-      header .logo {
-        min-width: 0;
-        max-width: 100%;
-      }
-
-      header .logo img {
-        max-width: 100%;
-        height: auto;
-      }
-
-      header .nav-links {
-        display: flex;
-        flex: 1 1 100%;
-        align-items: center;
-        justify-content: flex-start;
-        min-width: 0;
-        max-width: 100%;
-        gap: 4px;
-        overflow-x: auto;
-        overscroll-behavior-inline: contain;
-        scrollbar-width: none;
-        -webkit-overflow-scrolling: touch;
-      }
-
-      header .nav-links::-webkit-scrollbar {
-        display: none;
-      }
-
-      header .nav-link,
-      header .theme-btn {
-        flex: 0 0 auto;
-      }
-
-      .pb-hero-left h1 {
-        font-size: clamp(2.65rem, 13vw, 4.25rem);
-        line-height: .96;
-        letter-spacing: -.055em;
-      }
-
-      .pb-hero-left h1 em {
-        letter-spacing: -.045em;
-      }
-
-      .pb-spotlight-meta,
-      .pb-story-meta {
-        flex-wrap: wrap;
-      }
-
-      .pb-final-action {
-        min-width: 0;
-      }
-
-      .pb-primary-btn,
-      .pb-secondary-btn,
-      .pb-final-button {
-        box-sizing: border-box;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .pb-shell {
-        width: calc(100% - 24px);
-      }
-
-      .pb-hero {
-        width: calc(100% - 12px);
-        border-radius: 22px;
-      }
-
-      .pb-hero-grid {
-        gap: 32px;
-        padding: 46px 0 34px;
-      }
-
-      .pb-kicker {
-        gap: 8px;
-        margin-bottom: 18px;
-        font-size: 10px;
-        letter-spacing: .13em;
-      }
-
-      .pb-kicker span {
-        width: 24px;
-      }
-
-      .pb-hero-left h1 {
-        font-size: clamp(2.45rem, 12.7vw, 3.45rem);
-      }
-
-      .pb-hero-text {
-        margin-top: 22px;
-        line-height: 1.68;
-      }
-
-      .pb-hero-actions {
-        margin-top: 26px;
-      }
-
-      .pb-primary-btn,
-      .pb-secondary-btn {
-        min-height: 50px;
-        padding-inline: 16px;
-      }
-
-      .pb-spotlight-card {
-        min-height: 365px;
-        padding: 20px;
-      }
-
-      .pb-spotlight-number {
-        font-size: 38px;
-      }
-
-      .pb-spotlight-meta {
-        gap: 8px 14px;
-      }
-
-      .pb-spotlight-middle h2 {
-        font-size: clamp(1.85rem, 9vw, 2.35rem);
-      }
-
-      .pb-hero-meta div {
-        min-width: 0;
-        padding: 17px 8px 0;
-      }
-
-      .pb-hero-meta div:first-child {
-        padding-left: 8px;
-      }
-
-      .pb-hero-meta strong,
-      .pb-hero-meta span {
-        overflow-wrap: anywhere;
-      }
-
-      .pb-intro {
-        padding: 62px 0;
-      }
-
-      .pb-intro-heading h2,
-      .pb-section-header h2,
-      .pb-final-copy h2 {
-        font-size: clamp(2.15rem, 11vw, 3rem);
-        line-height: 1;
-      }
-
-      .pb-latest {
-        padding-bottom: 72px;
-      }
-
-      .pb-section-header {
-        margin-bottom: 30px;
-      }
-
-      .pb-story,
-      .pb-tool-card {
-        border-radius: 22px;
-      }
-
-      .pb-story-visual,
-      .pb-story-large .pb-story-visual {
-        min-height: 205px;
-      }
-
-      .pb-story-content {
-        min-height: 0;
-        padding: 22px;
-      }
-
-      .pb-story-content h3,
-      .pb-story-large .pb-story-content h3 {
-        margin-top: 30px;
-        font-size: clamp(1.7rem, 8.5vw, 2rem);
-      }
-
-      .pb-story-meta {
-        gap: 8px 10px;
-      }
-
-      .pb-story-meta-right {
-        max-width: 55%;
-      }
-
-      .pb-tool-card {
-        min-height: 0;
-      }
-
-      .pb-tool-card-content {
-        width: 100%;
-        padding: 28px 22px;
-      }
-
-      .pb-tool-icon {
-        margin-bottom: 34px;
-      }
-
-      .pb-tool-label {
-        margin-top: 0;
-      }
-
-      .pb-tool-card h3 {
-        font-size: clamp(1.75rem, 8.6vw, 2.15rem);
-      }
-
-      .pb-why {
-        padding: 68px 0;
-      }
-
-      .pb-why-top h2 {
-        font-size: clamp(2.7rem, 13vw, 3.65rem);
-        line-height: .94;
-      }
-
-      .pb-principle,
-      .pb-principle + .pb-principle {
-        padding-block: 28px;
-      }
-
-      .pb-final {
-        padding: 62px 0;
-      }
-
-      .pb-final-box {
-        gap: 32px;
-        padding: 26px 20px;
-        border-radius: 22px;
-      }
-
-      .pb-final-action {
-        width: 100%;
-        min-width: 0;
-      }
-
-      .pb-final-button {
-        width: 100%;
-        min-width: 0;
-        gap: 16px;
-        padding: 0 16px 0 18px;
-      }
-    }
-
-    @media (max-width: 350px) {
-      .pb-shell {
-        width: calc(100% - 20px);
-      }
-
-      .pb-hero-left h1 {
-        font-size: 2.4rem;
-      }
-
-      .pb-spotlight-card {
-        min-height: 350px;
-        padding: 18px;
-      }
-
-      .pb-featured-pill {
-        padding: 6px 8px;
-        letter-spacing: .08em;
-      }
-
-      .pb-spotlight-number {
-        font-size: 34px;
-      }
-
-      .pb-story-content,
-      .pb-tool-card-content {
-        padding-inline: 18px;
-      }
-
-      .pb-story-meta-right {
-        max-width: 58%;
-      }
-    }
-
-    @media (hover: none) and (pointer: coarse) {
-      .pb-primary-btn:hover,
-      .pb-secondary-btn:hover,
-      .pb-spotlight-card:hover,
-      .pb-story:hover,
-      .pb-final-button:hover {
-        transform: none;
-      }
-
-      .pb-spotlight-card:hover::after {
-        transform: translateX(-120%);
-      }
-    }
-
-    /* ============================================================
-       REDUCED MOTION
-    ============================================================ */
-
-    @media (prefers-reduced-motion: reduce) {
-
-      html {
-        scroll-behavior: auto;
-      }
-
-
-      .pb-orb-1,
-      .pb-orb-2 {
-        animation: none;
-      }
-
-
-      .pb-spotlight-card::after {
-        display: none;
-      }
-
-
-      .pb-primary-btn,
-      .pb-secondary-btn,
-      .pb-spotlight-card,
-      .pb-story,
-      .pb-read-link span,
-      .pb-final-button,
-      .pb-arrow-circle {
-        transition: none;
-      }
-
-    }
-
-  </style>
-
-
-
-  <style id="full-page-layout-overrides">
-    /* ============================================================
-       FULL-PAGE EDITORIAL LAYOUT
-       Removes the boxed-page treatment and lets sections breathe
-       across the viewport while retaining readable inner gutters.
-    ============================================================ */
-
-    html,
-    body {
-      width: 100%;
-      max-width: 100%;
-      margin: 0;
-      overflow-x: clip;
-    }
-
-    .premium-blog {
-      width: 100%;
-      max-width: none;
-      overflow: clip;
-    }
-
-    .pb-shell {
-      width: min(1480px, calc(100% - 64px));
-      max-width: none;
-      margin-inline: auto;
-    }
-
-    /* HERO: true full-bleed section, no floating rounded box */
-    .pb-hero {
-      width: 100%;
-      margin: 0;
-      border-radius: 0;
-      min-height: min(820px, calc(100svh - 70px));
-      display: flex;
-      align-items: center;
-    }
-
-    .pb-hero::after {
-      border-radius: 0;
-    }
-
-    .pb-hero .pb-shell {
-      width: min(1480px, calc(100% - 64px));
-    }
-
-    .pb-hero-grid {
-      grid-template-columns: minmax(0, 1.2fr) minmax(360px, .8fr);
-      gap: clamp(48px, 7vw, 120px);
-      padding: clamp(72px, 9vw, 130px) 0 clamp(56px, 7vw, 96px);
-    }
-
-    .pb-hero-left h1 {
-      max-width: 900px;
-    }
-
-    .pb-hero-text {
-      max-width: 720px;
-    }
-
-    /* Featured article becomes an open editorial panel rather than a box */
-    .pb-spotlight-card {
-      min-height: 430px;
-      padding: 34px 0 34px 38px;
-      border: 0;
-      border-left: 1px solid rgba(255,255,255,.16);
-      border-radius: 0;
-      background: transparent;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-      box-shadow: none;
-    }
-
-    .pb-spotlight-card:hover {
-      transform: none;
-      border-color: rgba(167,159,255,.55);
-      box-shadow: none;
-    }
-
-    .pb-spotlight-card::before,
-    .pb-spotlight-card::after {
-      display: none;
-    }
-
-    .pb-featured-pill {
-      background: transparent;
-    }
-
-    /* Intro uses more of the available page width */
-    .pb-intro {
-      padding: clamp(90px, 10vw, 150px) 0;
-    }
-
-    .pb-intro-grid {
-      grid-template-columns: 120px minmax(0, 1.05fr) minmax(0, .95fr);
-      gap: clamp(36px, 6vw, 100px);
-    }
-
-    /* LATEST: remove card boxes, use editorial rows / separators */
-    .pb-latest {
-      padding: clamp(20px, 3vw, 44px) 0 clamp(100px, 10vw, 150px);
-    }
-
-    .pb-editorial-grid {
-      gap: 0;
-      border-top: 1px solid var(--pb-line);
-    }
-
-    .pb-story,
-    .pb-story-large,
-    .pb-tool-card {
-      border: 0;
-      border-bottom: 1px solid var(--pb-line);
-      border-radius: 0;
-      background: transparent;
-      box-shadow: none;
-    }
-
-    .pb-story {
-      min-height: 390px;
-      grid-template-columns: minmax(220px, .78fr) minmax(0, 1.22fr);
-    }
-
-    .pb-story-large {
-      grid-template-columns: minmax(320px, 1fr) minmax(0, 1fr);
-      min-height: 500px;
-    }
-
-    .pb-story:hover {
-      transform: none;
-      border-color: var(--pb-line);
-      box-shadow: none;
-    }
-
-    .pb-story::after {
-      display: none;
-    }
-
-    .pb-story-visual {
-      margin: 26px 30px 26px 0;
-      min-height: calc(100% - 52px);
-      border-radius: 0;
-    }
-
-    .pb-story-content {
-      padding: 44px 34px 44px 12px;
-    }
-
-    .pb-story-large .pb-story-content {
-      padding: 58px 40px;
-    }
-
-    .pb-tool-card {
-      min-height: 390px;
-      align-items: center;
-      background:
-        linear-gradient(135deg, rgba(17,17,23,.98), rgba(24,20,34,.98));
-      color: #fff;
-    }
-
-    .pb-tool-card-content {
-      width: 100%;
-      padding: 48px 44px;
-    }
-
-    /* WHY section already spans the viewport; expand inner rhythm */
-    .pb-why .pb-shell {
-      width: min(1480px, calc(100% - 64px));
-    }
-
-    .pb-why-top {
-      grid-template-columns: minmax(0, 1.25fr) minmax(340px, .75fr);
-      gap: clamp(50px, 7vw, 110px);
-    }
-
-    /* FINAL CTA: full-width band, not a rounded floating card */
-    .pb-final {
-      padding: 0;
-      background:
-        radial-gradient(circle at 90% 0%, rgba(117,103,255,.13), transparent 32%),
-        var(--card-bg, #ffffff);
-      border-top: 1px solid var(--pb-line);
-    }
-
-    .pb-final .pb-shell {
-      width: min(1480px, calc(100% - 64px));
-    }
-
-    .pb-final-box {
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: clamp(40px, 7vw, 100px);
-      padding: clamp(72px, 8vw, 120px) 0;
-      border: 0;
-      border-radius: 0;
-      background: transparent;
-      overflow: visible;
-    }
-
-    .pb-final-box::after {
-      display: none;
-    }
-
-    /* Tablet */
-    @media (max-width: 1000px) {
-      .pb-shell,
-      .pb-hero .pb-shell,
-      .pb-why .pb-shell,
-      .pb-final .pb-shell {
-        width: min(100% - 48px, 1480px);
-      }
-
-      .pb-hero {
-        min-height: auto;
-      }
-
-      .pb-hero-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .pb-hero-right {
-        max-width: none;
-      }
-
-      .pb-spotlight-card {
-        min-height: 340px;
-        padding: 30px 0 30px 30px;
-      }
-
-      .pb-intro-grid {
-        grid-template-columns: 90px 1fr;
-      }
-
-      .pb-story:not(.pb-story-large) {
-        grid-template-columns: 1fr;
-      }
-
-      .pb-story:not(.pb-story-large) .pb-story-visual {
-        margin: 24px 0 0;
-        min-height: 230px;
-      }
-
-      .pb-story-large {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .pb-why-top,
-      .pb-final-box {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* Mobile: edge-to-edge sections with comfortable content gutters */
-    @media (max-width: 720px) {
-      .pb-shell,
-      .pb-hero .pb-shell,
-      .pb-why .pb-shell,
-      .pb-final .pb-shell {
-        width: calc(100% - 32px);
-      }
-
-      .pb-hero {
-        width: 100%;
-        margin: 0;
-        border-radius: 0;
-      }
-
-      .pb-hero-grid {
-        gap: 42px;
-        padding: 52px 0 38px;
-      }
-
-      .pb-spotlight-card {
-        min-height: 340px;
-        padding: 24px 0;
-        border-left: 0;
-        border-top: 1px solid rgba(255,255,255,.16);
-      }
-
-      .pb-hero-meta {
-        margin-top: 8px;
-      }
-
-      .pb-intro {
-        padding: 72px 0;
-      }
-
-      .pb-editorial-grid {
-        display: block;
-      }
-
-      .pb-story,
-      .pb-story-large {
-        display: grid;
-        grid-template-columns: 1fr;
-        min-height: auto;
-      }
-
-      .pb-story-visual,
-      .pb-story-large .pb-story-visual,
-      .pb-story:not(.pb-story-large) .pb-story-visual {
-        margin: 22px 0 0;
-        min-height: 220px;
-      }
-
-      .pb-story-content,
-      .pb-story-large .pb-story-content {
-        min-height: 0;
-        padding: 28px 0 38px;
-      }
-
-      .pb-story-content h3,
-      .pb-story-large .pb-story-content h3 {
-        margin-top: 34px;
-      }
-
-      .pb-tool-card {
-        min-height: auto;
-        margin-inline: -16px;
-        border-bottom: 0;
-      }
-
-      .pb-tool-card-content {
-        padding: 48px 16px;
-      }
-
-      .pb-final-box {
-        padding: 72px 0;
-      }
-    }
-
-    @media (max-width: 420px) {
-      .pb-shell,
-      .pb-hero .pb-shell,
-      .pb-why .pb-shell,
-      .pb-final .pb-shell {
-        width: calc(100% - 24px);
-      }
-
-      .pb-tool-card {
-        margin-inline: -12px;
-      }
-
-      .pb-tool-card-content {
-        padding-inline: 12px;
-      }
-    }
-  </style>
-
-
-
-  <style id="mobile-debug-final-overrides">
-    /* ============================================================
-       FINAL MOBILE DEBUG OVERRIDES
-       Keep these LAST so later full-page desktop/tablet rules cannot
-       accidentally override the mobile layout again.
-    ============================================================ */
-
-    @media (max-width: 720px) {
-      html,
-      body {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-        overflow-x: hidden;
-      }
-
-      /* ---------------- MOBILE HEADER ----------------
-         Compact 2-row header:
-         row 1 = logo + theme button
-         row 2 = four navigation links
-      ------------------------------------------------ */
-      header {
-        width: 100%;
-        max-width: 100%;
-      }
-
-      header .nav-container {
-        position: relative;
-        display: grid !important;
-        grid-template-columns: minmax(0, 1fr) 40px;
-        grid-template-areas:
-          "logo theme"
-          "nav  nav";
-        align-items: center;
-        gap: 10px 12px;
-        width: 100% !important;
-        max-width: 100% !important;
-        min-height: 0 !important;
-        margin: 0 !important;
-        padding: 12px 16px !important;
-        box-sizing: border-box;
-      }
-
-      header .logo {
-        grid-area: logo;
-        display: inline-flex !important;
-        align-items: center;
-        gap: 8px;
-        width: fit-content;
-        max-width: calc(100% - 4px);
-        min-width: 0;
-        margin: 0 !important;
-        padding: 0 !important;
-        text-decoration: none;
-      }
-
-      header .logo-icon,
-      header .logo img {
-        flex: 0 0 40px;
-        width: 40px !important;
-        height: 40px !important;
-        max-width: 40px !important;
-        object-fit: contain;
-      }
-
-      header .logo span {
-        min-width: 0;
-        font-size: clamp(1.15rem, 5.5vw, 1.55rem) !important;
-        line-height: 1 !important;
-        white-space: nowrap;
-      }
-
-      header .nav-links {
-        grid-area: nav;
-        display: grid !important;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        align-items: stretch;
-        gap: 6px;
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0;
-        margin: 0 !important;
-        padding: 0 !important;
-        overflow: visible !important;
-      }
-
-      header .nav-link {
-        display: flex !important;
-        align-items: center;
-        justify-content: center;
-        min-width: 0;
-        min-height: 40px;
-        margin: 0 !important;
-        padding: 8px 4px !important;
-        border-radius: 10px;
-        font-size: 13px !important;
-        line-height: 1.15;
-        text-align: center;
-        white-space: nowrap;
-      }
-
-      header .theme-btn {
-        position: absolute !important;
-        top: 12px;
-        right: 16px;
-        z-index: 2;
-        display: inline-flex !important;
-        align-items: center;
-        justify-content: center;
-        width: 40px !important;
-        min-width: 40px !important;
-        height: 40px !important;
-        min-height: 40px !important;
-        margin: 0 !important;
-        padding: 0 !important;
-      }
-
-      /* ---------------- FULL-PAGE MOBILE CONTENT ---------------- */
-      .pb-shell,
-      .pb-hero .pb-shell,
-      .pb-why .pb-shell,
-      .pb-final .pb-shell {
-        width: calc(100% - 32px) !important;
-        max-width: none !important;
-        margin-inline: auto !important;
-      }
-
-      .pb-hero {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 !important;
-        border-radius: 0 !important;
-      }
-
-      .pb-hero-grid {
-        grid-template-columns: minmax(0, 1fr) !important;
-      }
-
-      /* Critical regression fix:
-         the later full-page tablet rule changed this back to
-         90px + 1fr. On phones that forced the copy into 90px. */
-      .pb-intro-grid {
-        display: grid !important;
-        grid-template-columns: minmax(0, 1fr) !important;
-        gap: 20px !important;
-        width: 100%;
-      }
-
-      .pb-intro-grid > *,
-      .pb-intro-heading,
-      .pb-intro-copy {
-        grid-column: 1 / -1 !important;
-        min-width: 0 !important;
-        width: 100% !important;
-        max-width: none !important;
-      }
-
-      .pb-intro-copy p,
-      .pb-section-header > p,
-      .pb-story-content p,
-      .pb-tool-card p,
-      .pb-why-top p,
-      .pb-principle p,
-      .pb-spotlight-middle p,
-      .pb-hero-text {
-        text-align: left !important;
-        text-justify: auto !important;
-        hyphens: none !important;
-        -webkit-hyphens: none !important;
-        word-break: normal !important;
-        overflow-wrap: break-word !important;
-      }
-
-      .pb-section-header,
-      .pb-why-top,
-      .pb-final-box {
-        grid-template-columns: minmax(0, 1fr) !important;
-      }
-
-      .pb-editorial-grid {
-        display: block !important;
-        width: 100%;
-      }
-
-      .pb-story,
-      .pb-story-large {
-        width: 100%;
-        max-width: 100%;
-        grid-column: auto !important;
-        grid-template-columns: minmax(0, 1fr) !important;
-        min-height: auto !important;
-      }
-
-      .pb-story-visual,
-      .pb-story-large .pb-story-visual,
-      .pb-story:not(.pb-story-large) .pb-story-visual {
-        width: 100%;
-        min-width: 0;
-        min-height: 220px !important;
-        margin: 22px 0 0 !important;
-      }
-
-      .pb-story-content,
-      .pb-story-large .pb-story-content {
-        width: 100%;
-        min-width: 0;
-        min-height: 0 !important;
-        padding: 28px 0 38px !important;
-      }
-
-      .pb-story-meta {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: flex-start !important;
-        gap: 8px 12px;
-      }
-
-      .pb-story-meta-right {
-        flex: 0 1 auto;
-        max-width: 60%;
-        margin-left: auto;
-      }
-
-      .pb-tool-card {
-        width: auto;
-        max-width: none;
-        min-height: auto !important;
-        margin-inline: -16px !important;
-      }
-
-      .pb-tool-card-content {
-        width: 100%;
-        padding: 44px 16px !important;
-      }
-
-      .pb-principles {
-        grid-template-columns: minmax(0, 1fr) !important;
-      }
-
-      .pb-principle,
-      .pb-principle + .pb-principle {
-        padding: 30px 0 !important;
-      }
-
-      .pb-final-action,
-      .pb-final-button {
-        width: 100% !important;
-        min-width: 0 !important;
-        max-width: 100% !important;
-      }
-    }
-
-    @media (max-width: 480px) {
-      header .nav-container {
-        padding-inline: 12px !important;
-      }
-
-      header .theme-btn {
-        right: 12px;
-      }
-
-      header .nav-links {
-        gap: 4px;
-      }
-
-      header .nav-link {
-        min-height: 38px;
-        padding-inline: 2px !important;
-        font-size: 12px !important;
-      }
-
-      .pb-shell,
-      .pb-hero .pb-shell,
-      .pb-why .pb-shell,
-      .pb-final .pb-shell {
-        width: calc(100% - 24px) !important;
-      }
-
-      .pb-hero-grid {
-        gap: 32px !important;
-        padding: 46px 0 34px !important;
-      }
-
-      .pb-hero-left h1 {
-        font-size: clamp(2.35rem, 12.5vw, 3.3rem) !important;
-        line-height: .97 !important;
-      }
-
-      .pb-spotlight-card {
-        min-height: 330px !important;
-        padding: 22px 0 !important;
-      }
-
-      .pb-intro {
-        padding: 58px 0 !important;
-      }
-
-      .pb-intro-grid {
-        gap: 16px !important;
-      }
-
-      .pb-intro-heading h2,
-      .pb-section-header h2,
-      .pb-final-copy h2 {
-        font-size: clamp(2rem, 10.5vw, 2.85rem) !important;
-        line-height: 1 !important;
-      }
-
-      .pb-story-content h3,
-      .pb-story-large .pb-story-content h3 {
-        margin-top: 28px !important;
-        font-size: clamp(1.65rem, 8vw, 1.95rem) !important;
-      }
-
-      .pb-story-meta-right {
-        max-width: 58%;
-      }
-
-      .pb-tool-card {
-        margin-inline: -12px !important;
-      }
-
-      .pb-tool-card-content {
-        padding: 40px 12px !important;
-      }
-
-      .pb-final-box {
-        padding: 58px 0 !important;
-      }
-    }
-
-    @media (max-width: 350px) {
-      header .logo-icon,
-      header .logo img {
-        flex-basis: 36px;
-        width: 36px !important;
-        height: 36px !important;
-        max-width: 36px !important;
-      }
-
-      header .logo span {
-        font-size: 1.08rem !important;
-      }
-
-      header .theme-btn {
-        width: 36px !important;
-        min-width: 36px !important;
-        height: 36px !important;
-        min-height: 36px !important;
-      }
-
-      header .nav-link {
-        font-size: 11px !important;
-      }
-
-      .pb-shell,
-      .pb-hero .pb-shell,
-      .pb-why .pb-shell,
-      .pb-final .pb-shell {
-        width: calc(100% - 20px) !important;
-      }
-
-      .pb-story-meta-right {
-        max-width: 62%;
-      }
-    }
-  </style>
-
-  <style id="mobile-nav-v4">
-    /* ============================================================
-       MOBILE NAVIGATION V4
-       MWEB: logo + hamburger. Hamburger toggles a stacked menu.
-       Desktop navigation remains untouched.
-    ============================================================ */
-
-    .mobile-nav-toggle {
-      display: none;
-    }
-
-    @media (max-width: 720px) {
-      header {
-        position: relative !important;
-        z-index: 3000 !important;
-        width: 100% !important;
-        max-width: 100% !important;
-      }
-
-      header .nav-container {
-        position: relative !important;
-        display: flex !important;
-        flex-wrap: nowrap !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        gap: 14px !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        min-height: 76px !important;
-        margin: 0 !important;
-        padding: 12px 18px !important;
-        box-sizing: border-box !important;
-      }
-
-      header .logo {
-        display: inline-flex !important;
-        flex: 1 1 auto !important;
-        align-items: center !important;
-        gap: 10px !important;
-        width: auto !important;
-        max-width: calc(100% - 62px) !important;
-        min-width: 0 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-      }
-
-      header .logo-icon,
-      header .logo img {
-        display: block !important;
-        flex: 0 0 42px !important;
-        width: 42px !important;
-        height: 42px !important;
-        max-width: 42px !important;
-        object-fit: contain !important;
-      }
-
-      header .logo span {
-        display: block !important;
-        min-width: 0 !important;
-        overflow: hidden !important;
-        font-size: clamp(1.35rem, 6.4vw, 1.8rem) !important;
-        line-height: 1 !important;
-        white-space: nowrap !important;
-        text-overflow: ellipsis !important;
-      }
-
-      .mobile-nav-toggle {
-        position: relative !important;
-        z-index: 3003 !important;
-        display: inline-flex !important;
-        flex: 0 0 48px !important;
-        align-items: center !important;
-        justify-content: center !important;
-        width: 48px !important;
-        min-width: 48px !important;
-        height: 48px !important;
-        min-height: 48px !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        border: 0 !important;
-        border-radius: 10px !important;
-        background: transparent !important;
-        color: var(--text-primary, #111827) !important;
-        cursor: pointer !important;
-        -webkit-tap-highlight-color: transparent;
-        touch-action: manipulation;
-      }
-
-      .mobile-nav-toggle:focus-visible {
-        outline: 3px solid #7567ff !important;
-        outline-offset: 2px !important;
-      }
-
-      .mobile-nav-toggle-lines {
-        position: relative !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 6px !important;
-        width: 30px !important;
-        height: 26px !important;
-      }
-
-      .mobile-nav-toggle-lines > span {
-        display: block !important;
-        width: 30px !important;
-        height: 3px !important;
-        margin: 0 !important;
-        border-radius: 999px !important;
-        background: currentColor !important;
-        transform-origin: center !important;
-        transition: transform .22s ease, opacity .16s ease !important;
-      }
-
-      /* Dropdown is fully removed from interaction when closed. */
-      header .nav-links {
-        position: absolute !important;
-        top: 100% !important;
-        left: 0 !important;
-        right: 0 !important;
-        z-index: 3002 !important;
-        display: grid !important;
-        grid-template-columns: 1fr !important;
-        align-items: stretch !important;
-        gap: 0 !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-        max-height: 0 !important;
-        margin: 0 !important;
-        padding: 0 18px !important;
-        overflow: hidden !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-        box-sizing: border-box !important;
-        border-top: 1px solid transparent !important;
-        border-bottom: 1px solid transparent !important;
-        background: var(--bg-primary, #ffffff) !important;
-        box-shadow: 0 18px 35px rgba(15, 23, 42, .12) !important;
-        transform: translateY(-8px) !important;
-        transform-origin: top !important;
-        transition:
-          max-height .30s ease,
-          padding .30s ease,
-          opacity .20s ease,
-          transform .24s ease,
-          visibility 0s linear .30s !important;
-      }
-
-      header.mobile-nav-open .nav-links {
-        max-height: 430px !important;
-        padding: 10px 18px 16px !important;
-        overflow: hidden !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        pointer-events: auto !important;
-        border-top-color: var(--border-color, rgba(100, 116, 139, .18)) !important;
-        border-bottom-color: var(--border-color, rgba(100, 116, 139, .20)) !important;
-        transform: translateY(0) !important;
-        transition:
-          max-height .30s ease,
-          padding .30s ease,
-          opacity .20s ease,
-          transform .24s ease,
-          visibility 0s linear 0s !important;
-      }
-
-      header .nav-link {
-        position: relative !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: flex-start !important;
-        width: 100% !important;
-        min-width: 0 !important;
-        min-height: 50px !important;
-        margin: 0 !important;
-        padding: 13px 14px !important;
-        box-sizing: border-box !important;
-        border-radius: 10px !important;
-        color: var(--text-primary, #374151) !important;
-        font-size: 15px !important;
-        font-weight: 650 !important;
-        line-height: 1.2 !important;
-        text-align: left !important;
-        text-decoration: none !important;
-        white-space: normal !important;
-      }
-
-      header .nav-link + .nav-link {
-        border-top: 1px solid var(--border-color, rgba(100, 116, 139, .12)) !important;
-        border-radius: 0 !important;
-      }
-
-      header .nav-link.active,
-      header .nav-link[aria-current="page"] {
-        margin-block: 4px !important;
-        border-top-color: transparent !important;
-        border-radius: 10px !important;
-        background: rgba(117, 103, 255, .14) !important;
-        color: #7567ff !important;
-      }
-
-      header .theme-btn {
-        position: static !important;
-        display: inline-flex !important;
-        justify-self: end !important;
-        align-self: center !important;
-        align-items: center !important;
-        justify-content: center !important;
-        width: 44px !important;
-        min-width: 44px !important;
-        height: 44px !important;
-        min-height: 44px !important;
-        margin: 10px 0 0 !important;
-        padding: 0 !important;
-        box-sizing: border-box !important;
-      }
-
-      /* Hamburger morphs to X when open. */
-      header.mobile-nav-open .mobile-nav-toggle-lines > span:nth-child(1) {
-        transform: translateY(9px) rotate(45deg) !important;
-      }
-
-      header.mobile-nav-open .mobile-nav-toggle-lines > span:nth-child(2) {
-        opacity: 0 !important;
-      }
-
-      header.mobile-nav-open .mobile-nav-toggle-lines > span:nth-child(3) {
-        transform: translateY(-9px) rotate(-45deg) !important;
-      }
-
-      /* Dark-theme support matching the reference screenshot. */
-      html[data-theme="dark"] header .nav-links,
-      body[data-theme="dark"] header .nav-links,
-      body.dark header .nav-links,
-      body.dark-mode header .nav-links,
-      .dark-mode header .nav-links {
-        background: #0b0f18 !important;
-        border-color: #252d3c !important;
-        box-shadow: 0 20px 42px rgba(0, 0, 0, .34) !important;
-      }
-
-      html[data-theme="dark"] header .nav-link,
-      body[data-theme="dark"] header .nav-link,
-      body.dark header .nav-link,
-      body.dark-mode header .nav-link,
-      .dark-mode header .nav-link,
-      html[data-theme="dark"] .mobile-nav-toggle,
-      body[data-theme="dark"] .mobile-nav-toggle,
-      body.dark .mobile-nav-toggle,
-      body.dark-mode .mobile-nav-toggle,
-      .dark-mode .mobile-nav-toggle {
-        color: #f4f7fb !important;
-      }
-    }
-
-    @media (max-width: 360px) {
-      header .nav-container {
-        min-height: 70px !important;
-        padding-inline: 14px !important;
-      }
-
-      header .logo-icon,
-      header .logo img {
-        flex-basis: 36px !important;
-        width: 36px !important;
-        height: 36px !important;
-        max-width: 36px !important;
-      }
-
-      header .logo span {
-        font-size: 1.28rem !important;
-      }
-
-      .mobile-nav-toggle {
-        flex-basis: 44px !important;
-        width: 44px !important;
-        min-width: 44px !important;
-        height: 44px !important;
-        min-height: 44px !important;
-      }
-
-      .mobile-nav-toggle-lines,
-      .mobile-nav-toggle-lines > span {
-        width: 27px !important;
-      }
-
-      header .nav-links,
-      header.mobile-nav-open .nav-links {
-        padding-inline: 14px !important;
-      }
-    }
-
-    @media (min-width: 721px) {
-      .mobile-nav-toggle {
-        display: none !important;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .mobile-nav-toggle-lines > span,
-      header .nav-links {
-        transition: none !important;
-      }
-    }
-  </style>
-
-  <!-- =========================================================
-       FINAL MWEB NAV , USER-PROVIDED HEADER STRUCTURE
-       Applies after all earlier rules so it wins the cascade.
-  ========================================================== -->
-  <style id="user-header-mweb-final">
-    /* Keep sizing predictable inside the header. */
-    header,
-    header * {
-      box-sizing: border-box;
-    }
-
-    /* Desktop: the hamburger is not part of the desktop navigation. */
-    .menu-toggle {
-      display: none;
-    }
-
-    @media (max-width: 720px) {
-      header {
-        position: relative !important;
-        z-index: 3000 !important;
-        width: 100% !important;
-        overflow: visible !important;
-      }
-
-      header .nav-container {
-        position: relative !important;
-        display: flex !important;
-        flex-wrap: nowrap !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        gap: 14px !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        min-height: 76px !important;
-        margin: 0 !important;
-        padding: 12px 16px !important;
-      }
-
-      header .logo {
-        display: inline-flex !important;
-        flex: 0 1 auto !important;
-        align-items: center !important;
-        gap: 8px !important;
-        width: auto !important;
-        min-width: 0 !important;
-        max-width: calc(100% - 64px) !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        text-decoration: none !important;
-      }
-
-      header .logo-icon,
-      header .logo img {
-        display: block !important;
-        flex: 0 0 42px !important;
-        width: 42px !important;
-        height: 42px !important;
-        max-width: 42px !important;
-        object-fit: contain !important;
-      }
-
-      header .logo span {
-        display: block !important;
-        min-width: 0 !important;
-        overflow: hidden !important;
-        font-size: clamp(1.2rem, 5.8vw, 1.55rem) !important;
-        line-height: 1 !important;
-        white-space: nowrap !important;
-        text-overflow: ellipsis !important;
-      }
-
-      .menu-toggle {
-        position: relative !important;
-        display: inline-flex !important;
-        flex: 0 0 48px !important;
-        align-items: center !important;
-        justify-content: center !important;
-        width: 48px !important;
-        min-width: 48px !important;
-        height: 48px !important;
-        min-height: 48px !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        border: 0 !important;
-        border-radius: 10px !important;
-        background: transparent !important;
-        color: var(--text-primary, #111827) !important;
-        cursor: pointer !important;
-        -webkit-tap-highlight-color: transparent;
-        touch-action: manipulation;
-      }
-
-      .menu-toggle:focus-visible {
-        outline: 3px solid #7567ff !important;
-        outline-offset: 2px !important;
-      }
-
-      .menu-toggle .bar {
-        position: absolute !important;
-        left: 9px !important;
-        display: block !important;
-        width: 30px !important;
-        height: 3px !important;
-        margin: 0 !important;
-        border-radius: 999px !important;
-        background: currentColor !important;
-        transform-origin: center !important;
-        transition: transform .22s ease, opacity .16s ease, top .22s ease !important;
-      }
-
-      .menu-toggle .bar:nth-child(1) { top: 14px !important; }
-      .menu-toggle .bar:nth-child(2) { top: 22px !important; }
-      .menu-toggle .bar:nth-child(3) { top: 30px !important; }
-
-      /* Closed by default on mweb. */
-      header .nav-links#nav-links {
-        position: absolute !important;
-        top: 100% !important;
-        left: 0 !important;
-        right: 0 !important;
-        z-index: 3002 !important;
-        display: grid !important;
-        grid-template-columns: minmax(0, 1fr) !important;
-        align-items: stretch !important;
-        gap: 0 !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-        max-height: 0 !important;
-        margin: 0 !important;
-        padding: 0 16px !important;
-        overflow: hidden !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-        border-top: 1px solid transparent !important;
-        border-bottom: 1px solid transparent !important;
-        background: var(--bg-primary, #ffffff) !important;
-        box-shadow: 0 18px 35px rgba(15, 23, 42, .12) !important;
-        transform: translateY(-8px) !important;
-        transform-origin: top !important;
-        transition:
-          max-height .30s ease,
-          padding .30s ease,
-          opacity .20s ease,
-          transform .24s ease,
-          visibility 0s linear .30s !important;
-      }
-
-      /* Open state driven by the button. */
-      header.menu-open .nav-links#nav-links {
-        max-height: 430px !important;
-        padding: 10px 16px 16px !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        pointer-events: auto !important;
-        border-top-color: var(--border-color, rgba(100, 116, 139, .18)) !important;
-        border-bottom-color: var(--border-color, rgba(100, 116, 139, .20)) !important;
-        transform: translateY(0) !important;
-        transition:
-          max-height .30s ease,
-          padding .30s ease,
-          opacity .20s ease,
-          transform .24s ease,
-          visibility 0s linear 0s !important;
-      }
-
-      header .nav-links#nav-links .nav-link {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: flex-start !important;
-        width: 100% !important;
-        min-width: 0 !important;
-        min-height: 50px !important;
-        margin: 0 !important;
-        padding: 13px 14px !important;
-        border-radius: 0 !important;
-        color: var(--text-primary, #374151) !important;
-        font-size: 15px !important;
-        font-weight: 650 !important;
-        line-height: 1.2 !important;
-        text-align: left !important;
-        text-decoration: none !important;
-        white-space: normal !important;
-      }
-
-      header .nav-links#nav-links .nav-link + .nav-link {
-        border-top: 1px solid var(--border-color, rgba(100, 116, 139, .12)) !important;
-      }
-
-      header .nav-links#nav-links .nav-link.active,
-      header .nav-links#nav-links .nav-link[aria-current="page"] {
-        margin-block: 4px !important;
-        border-top-color: transparent !important;
-        border-radius: 10px !important;
-        background: rgba(117, 103, 255, .14) !important;
-        color: #7567ff !important;
-      }
-
-      header .nav-links#nav-links .theme-btn {
-        position: static !important;
-        display: inline-flex !important;
-        justify-self: end !important;
-        align-items: center !important;
-        justify-content: center !important;
-        width: 44px !important;
-        min-width: 44px !important;
-        height: 44px !important;
-        min-height: 44px !important;
-        margin: 10px 0 0 !important;
-        padding: 0 !important;
-      }
-
-      /* Hamburger -> X. */
-      header.menu-open .menu-toggle .bar:nth-child(1) {
-        top: 22px !important;
-        transform: rotate(45deg) !important;
-      }
-
-      header.menu-open .menu-toggle .bar:nth-child(2) {
-        opacity: 0 !important;
-      }
-
-      header.menu-open .menu-toggle .bar:nth-child(3) {
-        top: 22px !important;
-        transform: rotate(-45deg) !important;
-      }
-
-      /* Dark theme support. */
-      html[data-theme="dark"] .menu-toggle,
-      body[data-theme="dark"] .menu-toggle,
-      body.dark .menu-toggle,
-      body.dark-mode .menu-toggle,
-      .dark-mode .menu-toggle {
-        color: #f4f7fb !important;
-      }
-
-      html[data-theme="dark"] header .nav-links#nav-links,
-      body[data-theme="dark"] header .nav-links#nav-links,
-      body.dark header .nav-links#nav-links,
-      body.dark-mode header .nav-links#nav-links,
-      .dark-mode header .nav-links#nav-links {
-        background: #0b0f18 !important;
-        border-color: #252d3c !important;
-        box-shadow: 0 20px 42px rgba(0, 0, 0, .34) !important;
-      }
-
-      html[data-theme="dark"] header .nav-links#nav-links .nav-link,
-      body[data-theme="dark"] header .nav-links#nav-links .nav-link,
-      body.dark header .nav-links#nav-links .nav-link,
-      body.dark-mode header .nav-links#nav-links .nav-link,
-      .dark-mode header .nav-links#nav-links .nav-link {
-        color: #f4f7fb !important;
-      }
-    }
-
-    @media (max-width: 360px) {
-      header .nav-container {
-        min-height: 70px !important;
-        padding-inline: 12px !important;
-      }
-
-      header .logo-icon,
-      header .logo img {
-        flex-basis: 36px !important;
-        width: 36px !important;
-        height: 36px !important;
-        max-width: 36px !important;
-      }
-
-      header .logo span {
-        font-size: 1.22rem !important;
-      }
-
-      .menu-toggle {
-        flex-basis: 44px !important;
-        width: 44px !important;
-        min-width: 44px !important;
-        height: 44px !important;
-        min-height: 44px !important;
-      }
-
-      .menu-toggle .bar {
-        left: 8px !important;
-        width: 28px !important;
-      }
-
-      header .nav-links#nav-links,
-      header.menu-open .nav-links#nav-links {
-        padding-inline: 12px !important;
-      }
-    }
-
-    @media (min-width: 721px) {
-      .menu-toggle {
-        display: none !important;
-      }
-
-      header .nav-links#nav-links {
-        visibility: visible !important;
-        opacity: 1 !important;
-        pointer-events: auto !important;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .menu-toggle .bar,
-      header .nav-links#nav-links {
-        transition: none !important;
-      }
-    }
-  </style>
-
-  <style id="human-content-alignment-final">
-    /* Final editorial alignment: applies after all earlier responsive overrides. */
-    .pb-hero-text,
-    .pb-spotlight-middle p,
-    .pb-intro-copy p,
-    .pb-section-header > p,
-    .pb-story-content p,
-    .pb-tool-card p,
-    .pb-why-top p,
-    .pb-principle p {
-      text-align: justify !important;
-      text-align-last: left;
-      text-justify: inter-word !important;
-      hyphens: auto !important;
-      -webkit-hyphens: auto !important;
-      word-break: normal !important;
-      overflow-wrap: break-word !important;
-    }
-  </style>
-
-  <script id="user-header-mweb-script">
     (() => {
-      const header = document.querySelector('header');
-      const toggle = document.getElementById('menu-toggle');
-      const nav = document.getElementById('nav-links');
-      const mobileQuery = window.matchMedia('(max-width: 720px)');
+      const menuToggle = document.getElementById('menu-toggle');
+      const navLinks = document.getElementById('nav-links');
+      const themeButton = document.querySelector('.theme-btn');
+      const searchInput = document.getElementById('article-search');
+      const filterButtons = Array.from(document.querySelectorAll('.filter-btn'));
+      const articles = Array.from(document.querySelectorAll('.searchable-article'));
+      const libraryCard = document.querySelector('[data-library-card]');
+      const noResults = document.getElementById('no-results');
+      const mobileBreakpoint = 720;
+      let activeFilter = 'all';
 
-      if (!header || !toggle || !nav) return;
-
-      const setMenu = (open, returnFocus = false) => {
-        const shouldOpen = Boolean(open && mobileQuery.matches);
-
-        header.classList.toggle('menu-open', shouldOpen);
-        toggle.setAttribute('aria-expanded', String(shouldOpen));
-        toggle.setAttribute('aria-label', shouldOpen ? 'Close Menu' : 'Toggle Menu');
-
-        if (mobileQuery.matches) {
-          nav.setAttribute('aria-hidden', String(!shouldOpen));
-          if ('inert' in nav) nav.inert = !shouldOpen;
-        } else {
-          nav.removeAttribute('aria-hidden');
-          if ('inert' in nav) nav.inert = false;
-        }
-
-        if (returnFocus && !shouldOpen) toggle.focus();
+      const closeMenu = () => {
+        if (!menuToggle || !navLinks) return;
+        menuToggle.setAttribute('aria-expanded', 'false');
+        navLinks.classList.remove('is-open');
       };
 
-      toggle.addEventListener('click', (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        setMenu(!header.classList.contains('menu-open'));
-      });
+      if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', (event) => {
+          event.stopPropagation();
+          const willOpen = menuToggle.getAttribute('aria-expanded') !== 'true';
+          menuToggle.setAttribute('aria-expanded', String(willOpen));
+          navLinks.classList.toggle('is-open', willOpen);
+        });
 
-      nav.addEventListener('click', (event) => {
-        if (event.target.closest('a.nav-link') && mobileQuery.matches) {
-          setMenu(false);
-        }
-      });
+        navLinks.addEventListener('click', (event) => {
+          if (event.target.closest('.nav-link') && window.innerWidth <= mobileBreakpoint) closeMenu();
+        });
 
-      document.addEventListener('pointerdown', (event) => {
-        if (
-          mobileQuery.matches &&
-          header.classList.contains('menu-open') &&
-          !header.contains(event.target)
-        ) {
-          setMenu(false);
-        }
-      });
+        document.addEventListener('click', (event) => {
+          if (window.innerWidth <= mobileBreakpoint && !navLinks.contains(event.target) && !menuToggle.contains(event.target)) closeMenu();
+        });
 
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && header.classList.contains('menu-open')) {
-          setMenu(false, true);
-        }
-      });
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') closeMenu();
+        });
 
-      const onViewportChange = () => setMenu(false);
-      if (typeof mobileQuery.addEventListener === 'function') {
-        mobileQuery.addEventListener('change', onViewportChange);
-      } else if (typeof mobileQuery.addListener === 'function') {
-        mobileQuery.addListener(onViewportChange);
+        window.addEventListener('resize', () => {
+          if (window.innerWidth > mobileBreakpoint) closeMenu();
+        });
       }
 
-      setMenu(false);
+      let savedTheme = null;
+      try {
+        savedTheme = window.localStorage.getItem('calcuportal-theme');
+      } catch (error) {
+        savedTheme = null;
+      }
+
+      const preferredDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.dataset.theme = savedTheme || (preferredDark ? 'dark' : 'light');
+
+      if (themeButton) {
+        themeButton.addEventListener('click', () => {
+          const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+          document.documentElement.dataset.theme = nextTheme;
+          try {
+            window.localStorage.setItem('calcuportal-theme', nextTheme);
+          } catch (error) {
+            // The theme still changes even when storage is unavailable.
+          }
+        });
+      }
+
+      const applyArticleFilters = () => {
+        const query = (searchInput?.value || '').trim().toLowerCase();
+        let visibleCount = 0;
+
+        articles.forEach((article) => {
+          const categoryMatch = activeFilter === 'all' || article.dataset.category === activeFilter;
+          const searchText = `${article.dataset.search || ''} ${article.textContent || ''}`.toLowerCase();
+          const searchMatch = !query || searchText.includes(query);
+          const visible = categoryMatch && searchMatch;
+          article.hidden = !visible;
+          if (visible) visibleCount += 1;
+        });
+
+        if (libraryCard) libraryCard.hidden = Boolean(query) || activeFilter !== 'all';
+        if (noResults) noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+      };
+
+      filterButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          activeFilter = button.dataset.filter || 'all';
+          filterButtons.forEach((item) => item.classList.toggle('active', item === button));
+          applyArticleFilters();
+        });
+      });
+
+      searchInput?.addEventListener('input', applyArticleFilters);
+
+      const yearElement = document.getElementById('year');
+      if (yearElement) yearElement.textContent = new Date().getFullYear();
     })();
   </script>
-
 </body>
 </html>
