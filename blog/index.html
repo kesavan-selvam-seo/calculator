@@ -3948,5 +3948,375 @@
     }
   </style>
 
+
+
+  <style id="mobile-debug-final-overrides">
+    /* ============================================================
+       FINAL MOBILE DEBUG OVERRIDES
+       Keep these LAST so later full-page desktop/tablet rules cannot
+       accidentally override the mobile layout again.
+    ============================================================ */
+
+    @media (max-width: 720px) {
+      html,
+      body {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        overflow-x: hidden;
+      }
+
+      /* ---------------- MOBILE HEADER ----------------
+         Compact 2-row header:
+         row 1 = logo + theme button
+         row 2 = four navigation links
+      ------------------------------------------------ */
+      header {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      header .nav-container {
+        position: relative;
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) 40px;
+        grid-template-areas:
+          "logo theme"
+          "nav  nav";
+        align-items: center;
+        gap: 10px 12px;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        padding: 12px 16px !important;
+        box-sizing: border-box;
+      }
+
+      header .logo {
+        grid-area: logo;
+        display: inline-flex !important;
+        align-items: center;
+        gap: 8px;
+        width: fit-content;
+        max-width: calc(100% - 4px);
+        min-width: 0;
+        margin: 0 !important;
+        padding: 0 !important;
+        text-decoration: none;
+      }
+
+      header .logo-icon,
+      header .logo img {
+        flex: 0 0 40px;
+        width: 40px !important;
+        height: 40px !important;
+        max-width: 40px !important;
+        object-fit: contain;
+      }
+
+      header .logo span {
+        min-width: 0;
+        font-size: clamp(1.15rem, 5.5vw, 1.55rem) !important;
+        line-height: 1 !important;
+        white-space: nowrap;
+      }
+
+      header .nav-links {
+        grid-area: nav;
+        display: grid !important;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        align-items: stretch;
+        gap: 6px;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;
+      }
+
+      header .nav-link {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        min-width: 0;
+        min-height: 40px;
+        margin: 0 !important;
+        padding: 8px 4px !important;
+        border-radius: 10px;
+        font-size: 13px !important;
+        line-height: 1.15;
+        text-align: center;
+        white-space: nowrap;
+      }
+
+      header .theme-btn {
+        position: absolute !important;
+        top: 12px;
+        right: 16px;
+        z-index: 2;
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 40px !important;
+        min-width: 40px !important;
+        height: 40px !important;
+        min-height: 40px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      /* ---------------- FULL-PAGE MOBILE CONTENT ---------------- */
+      .pb-shell,
+      .pb-hero .pb-shell,
+      .pb-why .pb-shell,
+      .pb-final .pb-shell {
+        width: calc(100% - 32px) !important;
+        max-width: none !important;
+        margin-inline: auto !important;
+      }
+
+      .pb-hero {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+      }
+
+      .pb-hero-grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+      }
+
+      /* Critical regression fix:
+         the later full-page tablet rule changed this back to
+         90px + 1fr. On phones that forced the copy into 90px. */
+      .pb-intro-grid {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 20px !important;
+        width: 100%;
+      }
+
+      .pb-intro-grid > *,
+      .pb-intro-heading,
+      .pb-intro-copy {
+        grid-column: 1 / -1 !important;
+        min-width: 0 !important;
+        width: 100% !important;
+        max-width: none !important;
+      }
+
+      .pb-intro-copy p,
+      .pb-section-header > p,
+      .pb-story-content p,
+      .pb-tool-card p,
+      .pb-why-top p,
+      .pb-principle p,
+      .pb-spotlight-middle p,
+      .pb-hero-text {
+        text-align: left !important;
+        text-justify: auto !important;
+        hyphens: none !important;
+        -webkit-hyphens: none !important;
+        word-break: normal !important;
+        overflow-wrap: break-word !important;
+      }
+
+      .pb-section-header,
+      .pb-why-top,
+      .pb-final-box {
+        grid-template-columns: minmax(0, 1fr) !important;
+      }
+
+      .pb-editorial-grid {
+        display: block !important;
+        width: 100%;
+      }
+
+      .pb-story,
+      .pb-story-large {
+        width: 100%;
+        max-width: 100%;
+        grid-column: auto !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        min-height: auto !important;
+      }
+
+      .pb-story-visual,
+      .pb-story-large .pb-story-visual,
+      .pb-story:not(.pb-story-large) .pb-story-visual {
+        width: 100%;
+        min-width: 0;
+        min-height: 220px !important;
+        margin: 22px 0 0 !important;
+      }
+
+      .pb-story-content,
+      .pb-story-large .pb-story-content {
+        width: 100%;
+        min-width: 0;
+        min-height: 0 !important;
+        padding: 28px 0 38px !important;
+      }
+
+      .pb-story-meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start !important;
+        gap: 8px 12px;
+      }
+
+      .pb-story-meta-right {
+        flex: 0 1 auto;
+        max-width: 60%;
+        margin-left: auto;
+      }
+
+      .pb-tool-card {
+        width: auto;
+        max-width: none;
+        min-height: auto !important;
+        margin-inline: -16px !important;
+      }
+
+      .pb-tool-card-content {
+        width: 100%;
+        padding: 44px 16px !important;
+      }
+
+      .pb-principles {
+        grid-template-columns: minmax(0, 1fr) !important;
+      }
+
+      .pb-principle,
+      .pb-principle + .pb-principle {
+        padding: 30px 0 !important;
+      }
+
+      .pb-final-action,
+      .pb-final-button {
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header .nav-container {
+        padding-inline: 12px !important;
+      }
+
+      header .theme-btn {
+        right: 12px;
+      }
+
+      header .nav-links {
+        gap: 4px;
+      }
+
+      header .nav-link {
+        min-height: 38px;
+        padding-inline: 2px !important;
+        font-size: 12px !important;
+      }
+
+      .pb-shell,
+      .pb-hero .pb-shell,
+      .pb-why .pb-shell,
+      .pb-final .pb-shell {
+        width: calc(100% - 24px) !important;
+      }
+
+      .pb-hero-grid {
+        gap: 32px !important;
+        padding: 46px 0 34px !important;
+      }
+
+      .pb-hero-left h1 {
+        font-size: clamp(2.35rem, 12.5vw, 3.3rem) !important;
+        line-height: .97 !important;
+      }
+
+      .pb-spotlight-card {
+        min-height: 330px !important;
+        padding: 22px 0 !important;
+      }
+
+      .pb-intro {
+        padding: 58px 0 !important;
+      }
+
+      .pb-intro-grid {
+        gap: 16px !important;
+      }
+
+      .pb-intro-heading h2,
+      .pb-section-header h2,
+      .pb-final-copy h2 {
+        font-size: clamp(2rem, 10.5vw, 2.85rem) !important;
+        line-height: 1 !important;
+      }
+
+      .pb-story-content h3,
+      .pb-story-large .pb-story-content h3 {
+        margin-top: 28px !important;
+        font-size: clamp(1.65rem, 8vw, 1.95rem) !important;
+      }
+
+      .pb-story-meta-right {
+        max-width: 58%;
+      }
+
+      .pb-tool-card {
+        margin-inline: -12px !important;
+      }
+
+      .pb-tool-card-content {
+        padding: 40px 12px !important;
+      }
+
+      .pb-final-box {
+        padding: 58px 0 !important;
+      }
+    }
+
+    @media (max-width: 350px) {
+      header .logo-icon,
+      header .logo img {
+        flex-basis: 36px;
+        width: 36px !important;
+        height: 36px !important;
+        max-width: 36px !important;
+      }
+
+      header .logo span {
+        font-size: 1.08rem !important;
+      }
+
+      header .theme-btn {
+        width: 36px !important;
+        min-width: 36px !important;
+        height: 36px !important;
+        min-height: 36px !important;
+      }
+
+      header .nav-link {
+        font-size: 11px !important;
+      }
+
+      .pb-shell,
+      .pb-hero .pb-shell,
+      .pb-why .pb-shell,
+      .pb-final .pb-shell {
+        width: calc(100% - 20px) !important;
+      }
+
+      .pb-story-meta-right {
+        max-width: 62%;
+      }
+    }
+  </style>
+
 </body>
 </html>
