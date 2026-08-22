@@ -30,63 +30,33 @@
 
   <header>
     <div class="nav-container">
-
-      <a href="/" class="logo" aria-label="CalcuPortal Home">
-        <img
-          src="/logo.png"
-          alt="CalcuPortal Logo"
-          class="logo-icon"
-        >
+      <a href="./" class="logo" aria-label="CalcuPortal Home">
+        <img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon">
         <span>CalcuPortal</span>
       </a>
 
       <button
-        class="mobile-nav-toggle"
+        class="menu-toggle"
+        id="menu-toggle"
         type="button"
-        aria-label="Open navigation"
-        aria-controls="primary-navigation"
+        aria-label="Toggle Menu"
+        aria-controls="nav-links"
         aria-expanded="false"
       >
-        <span class="mobile-nav-toggle-lines" aria-hidden="true">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
       </button>
 
-      <nav id="primary-navigation" class="nav-links" aria-label="Main navigation">
-
-        <a href="/" class="nav-link">
-          Home
-        </a>
-
-        <a href="/about/" class="nav-link">
-          About
-        </a>
-
-        <a
-          href="/blog/"
-          class="nav-link active"
-          aria-current="page"
-        >
-          Blog
-        </a>
-
-        <a href="/contact/" class="nav-link">
-          Contact
-        </a>
-
-        <button
-          class="theme-btn"
-          type="button"
-          title="Toggle Theme"
-          aria-label="Toggle theme"
-        >
+      <nav class="nav-links" id="nav-links" aria-label="Main navigation">
+        <a href="./" class="nav-link">Home</a>
+        <a href="/about/" class="nav-link">About</a>
+        <a href="/contact/" class="nav-link">Contact</a>
+        <a href="/blog/" class="nav-link active" aria-current="page">Blog</a>
+        <button class="theme-btn" type="button" title="Toggle Theme" aria-label="Toggle theme">
           <span class="theme-btn-icon"></span>
         </button>
-
       </nav>
-
     </div>
   </header>
 
@@ -122,15 +92,15 @@
             </div>
 
             <h1>
-              Better decisions
-              <em>start with understanding.</em>
+              Know how the number
+              <em>was worked out.</em>
             </h1>
 
             <p class="pb-hero-text">
-              Practical guides that turn formulas, calculations, and everyday
-              numbers into clear, useful answers you can actually understand.
-              Learn the method behind the result and use calculators with
-              greater confidence.
+              Calculators are more useful when the numbers make sense. Our guides
+              walk through the formula, explain what each input means, and show how
+              the result is worked out, so you can check the answer instead of
+              simply taking it at face value.
             </p>
 
             <div class="pb-hero-actions">
@@ -190,9 +160,9 @@
                 </h2>
 
                 <p>
-                  Understand how years, months, and days are calculated from
-                  your date of birth with a clear, step-by-step explanation of
-                  the logic behind exact age calculations.
+                  See how a date of birth is turned into years, months, and days,
+                  including what changes when the current date has not yet reached
+                  your birthday for the year.
                 </p>
 
               </div>
@@ -269,7 +239,7 @@
           <div class="pb-intro-heading">
 
             <h2>
-              Numbers don't need to feel complicated.
+              A useful answer should make sense.
             </h2>
 
           </div>
@@ -278,16 +248,16 @@
           <div class="pb-intro-copy">
 
             <p class="pb-large-copy">
-              CalcuPortal helps you understand the thinking behind the result —
-              not just the final number.
+              CalcuPortal is for people who want to know how an answer was worked
+              out, not just copy the final number.
             </p>
 
             <p>
-              Our articles explain formulas, inputs, calculation methods, and
-              practical use cases in a simple format. Whether you're working
-              with finance, health, percentages, dates, or everyday math,
-              you'll find clear explanations designed to make calculations
-              easier to understand.
+              Each guide starts with the calculation itself. We explain the inputs,
+              show the formula in context, and use an example that is easy to follow.
+              Whether you are checking a loan payment, BMI, percentage, date, or an
+              everyday math problem, you can see where the result comes from before
+              using it.
             </p>
 
           </div>
@@ -320,15 +290,15 @@
             </div>
 
             <h2>
-              Latest from the journal.
+              Guides you can actually follow.
             </h2>
 
           </div>
 
           <p>
-            Straightforward guides for the calculations people use every day.
-            Explore practical formulas, examples, and explanations designed to
-            make each topic easier to understand.
+            Start with the calculation you need today. These guides cover common
+            formulas in plain language, with examples you can work through by hand
+            or compare with an online calculator.
           </p>
 
         </div>
@@ -392,8 +362,8 @@
               </h3>
 
               <p>
-                Learn how age is calculated from a date of birth, including
-                years, months, days, and the exact difference between two dates.
+                See how to work out age from a date of birth and why the years,
+                months, and days can change depending on the two dates you compare.
               </p>
 
               <div class="pb-read-link">
@@ -462,8 +432,8 @@
               </h3>
 
               <p>
-                Understand the BMI formula, BMI categories, and how height and
-                weight are used to calculate body mass index.
+                Work through the BMI formula using height and weight, then see how
+                the result fits into the standard BMI ranges.
               </p>
 
               <div class="pb-read-link">
@@ -532,8 +502,8 @@
               </h3>
 
               <p>
-                See how loan amount, interest rate, and repayment period work
-                together to determine an EMI amount.
+                Learn how the loan amount, interest rate, and repayment term affect
+                a monthly EMI, with each part of the formula explained separately.
               </p>
 
               <div class="pb-read-link">
@@ -602,8 +572,8 @@
               </h3>
 
               <p>
-                Learn percentage increase, decrease, percentage difference, and
-                other common percentage calculations with practical examples.
+                A practical look at finding percentages, increases, decreases, and
+                percentage difference, with examples for the cases that come up most.
               </p>
 
               <div class="pb-read-link">
@@ -634,13 +604,13 @@
               </span>
 
               <h3>
-                Skip the formula and calculate instantly.
+                Need the number right away?
               </h3>
 
               <p>
-                Access CalcuPortal's online calculator collection for fast,
-                convenient, and practical everyday calculations across multiple
-                categories.
+                If you already know what you need, open a calculator and get the
+                result without working through the formula by hand. The library
+                covers everyday math, finance, health, dates, conversions, and more.
               </p>
 
               <a
@@ -679,15 +649,15 @@
         <div class="pb-why-top">
 
           <h2>
-            Not just answers.
-            <span>Understanding.</span>
+            The result matters.
+            <span>So does the method.</span>
           </h2>
 
           <p>
-            Calculators are more useful when you understand what the result
-            means. That's why every CalcuPortal guide is designed to explain
-            the method behind the number, giving you more context and confidence
-            before using the result.
+            A result is easier to use when you know where it came from. Our guides
+            explain the calculation in plain language, show which inputs matter, and
+            point out what can change the answer. That gives you useful context when
+            you read the result or compare it with another calculation.
           </p>
 
         </div>
@@ -707,8 +677,8 @@
             </h3>
 
             <p>
-              Technical calculations are explained using clear, everyday
-              language so important information is easier to understand.
+              We keep the wording direct and explain unfamiliar terms when they
+              appear, so the calculation is easier to follow from start to finish.
             </p>
 
           </div>
@@ -725,8 +695,8 @@
             </h3>
 
             <p>
-              Learn what each input means, why it is used, and how each value
-              affects the final calculation result.
+              A formula is more useful when each part is clear. We explain what the
+              inputs represent and how changing them can affect the result.
             </p>
 
           </div>
@@ -743,8 +713,8 @@
             </h3>
 
             <p>
-              Useful examples help connect formulas with realistic situations,
-              making calculations more relevant to everyday needs.
+              Examples are based on familiar situations, so you can see how the same
+              calculation applies outside a textbook or formula sheet.
             </p>
 
           </div>
@@ -774,9 +744,9 @@
             </span>
 
             <h2>
-              Understand the formula.
+              Find the calculator you need.
               <br>
-              Get the answer.
+              Get the result.
             </h2>
 
           </div>
@@ -785,7 +755,7 @@
           <div class="pb-final-action">
 
             <p>
-              Ready to calculate?
+              Want to skip straight to the calculation?
             </p>
 
             <a
@@ -4641,33 +4611,362 @@
     }
   </style>
 
+  <!-- =========================================================
+       FINAL MWEB NAV , USER-PROVIDED HEADER STRUCTURE
+       Applies after all earlier rules so it wins the cascade.
+  ========================================================== -->
+  <style id="user-header-mweb-final">
+    /* Keep sizing predictable inside the header. */
+    header,
+    header * {
+      box-sizing: border-box;
+    }
 
-  <script id="mobile-nav-v4-script">
+    /* Desktop: the hamburger is not part of the desktop navigation. */
+    .menu-toggle {
+      display: none;
+    }
+
+    @media (max-width: 720px) {
+      header {
+        position: relative !important;
+        z-index: 3000 !important;
+        width: 100% !important;
+        overflow: visible !important;
+      }
+
+      header .nav-container {
+        position: relative !important;
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 14px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: 76px !important;
+        margin: 0 !important;
+        padding: 12px 16px !important;
+      }
+
+      header .logo {
+        display: inline-flex !important;
+        flex: 0 1 auto !important;
+        align-items: center !important;
+        gap: 8px !important;
+        width: auto !important;
+        min-width: 0 !important;
+        max-width: calc(100% - 64px) !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        text-decoration: none !important;
+      }
+
+      header .logo-icon,
+      header .logo img {
+        display: block !important;
+        flex: 0 0 42px !important;
+        width: 42px !important;
+        height: 42px !important;
+        max-width: 42px !important;
+        object-fit: contain !important;
+      }
+
+      header .logo span {
+        display: block !important;
+        min-width: 0 !important;
+        overflow: hidden !important;
+        font-size: clamp(1.2rem, 5.8vw, 1.55rem) !important;
+        line-height: 1 !important;
+        white-space: nowrap !important;
+        text-overflow: ellipsis !important;
+      }
+
+      .menu-toggle {
+        position: relative !important;
+        display: inline-flex !important;
+        flex: 0 0 48px !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 48px !important;
+        min-width: 48px !important;
+        height: 48px !important;
+        min-height: 48px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+        border-radius: 10px !important;
+        background: transparent !important;
+        color: var(--text-primary, #111827) !important;
+        cursor: pointer !important;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+      }
+
+      .menu-toggle:focus-visible {
+        outline: 3px solid #7567ff !important;
+        outline-offset: 2px !important;
+      }
+
+      .menu-toggle .bar {
+        position: absolute !important;
+        left: 9px !important;
+        display: block !important;
+        width: 30px !important;
+        height: 3px !important;
+        margin: 0 !important;
+        border-radius: 999px !important;
+        background: currentColor !important;
+        transform-origin: center !important;
+        transition: transform .22s ease, opacity .16s ease, top .22s ease !important;
+      }
+
+      .menu-toggle .bar:nth-child(1) { top: 14px !important; }
+      .menu-toggle .bar:nth-child(2) { top: 22px !important; }
+      .menu-toggle .bar:nth-child(3) { top: 30px !important; }
+
+      /* Closed by default on mweb. */
+      header .nav-links#nav-links {
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 3002 !important;
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        align-items: stretch !important;
+        gap: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        max-height: 0 !important;
+        margin: 0 !important;
+        padding: 0 16px !important;
+        overflow: hidden !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        border-top: 1px solid transparent !important;
+        border-bottom: 1px solid transparent !important;
+        background: var(--bg-primary, #ffffff) !important;
+        box-shadow: 0 18px 35px rgba(15, 23, 42, .12) !important;
+        transform: translateY(-8px) !important;
+        transform-origin: top !important;
+        transition:
+          max-height .30s ease,
+          padding .30s ease,
+          opacity .20s ease,
+          transform .24s ease,
+          visibility 0s linear .30s !important;
+      }
+
+      /* Open state driven by the button. */
+      header.menu-open .nav-links#nav-links {
+        max-height: 430px !important;
+        padding: 10px 16px 16px !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        border-top-color: var(--border-color, rgba(100, 116, 139, .18)) !important;
+        border-bottom-color: var(--border-color, rgba(100, 116, 139, .20)) !important;
+        transform: translateY(0) !important;
+        transition:
+          max-height .30s ease,
+          padding .30s ease,
+          opacity .20s ease,
+          transform .24s ease,
+          visibility 0s linear 0s !important;
+      }
+
+      header .nav-links#nav-links .nav-link {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        min-height: 50px !important;
+        margin: 0 !important;
+        padding: 13px 14px !important;
+        border-radius: 0 !important;
+        color: var(--text-primary, #374151) !important;
+        font-size: 15px !important;
+        font-weight: 650 !important;
+        line-height: 1.2 !important;
+        text-align: left !important;
+        text-decoration: none !important;
+        white-space: normal !important;
+      }
+
+      header .nav-links#nav-links .nav-link + .nav-link {
+        border-top: 1px solid var(--border-color, rgba(100, 116, 139, .12)) !important;
+      }
+
+      header .nav-links#nav-links .nav-link.active,
+      header .nav-links#nav-links .nav-link[aria-current="page"] {
+        margin-block: 4px !important;
+        border-top-color: transparent !important;
+        border-radius: 10px !important;
+        background: rgba(117, 103, 255, .14) !important;
+        color: #7567ff !important;
+      }
+
+      header .nav-links#nav-links .theme-btn {
+        position: static !important;
+        display: inline-flex !important;
+        justify-self: end !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 44px !important;
+        min-width: 44px !important;
+        height: 44px !important;
+        min-height: 44px !important;
+        margin: 10px 0 0 !important;
+        padding: 0 !important;
+      }
+
+      /* Hamburger -> X. */
+      header.menu-open .menu-toggle .bar:nth-child(1) {
+        top: 22px !important;
+        transform: rotate(45deg) !important;
+      }
+
+      header.menu-open .menu-toggle .bar:nth-child(2) {
+        opacity: 0 !important;
+      }
+
+      header.menu-open .menu-toggle .bar:nth-child(3) {
+        top: 22px !important;
+        transform: rotate(-45deg) !important;
+      }
+
+      /* Dark theme support. */
+      html[data-theme="dark"] .menu-toggle,
+      body[data-theme="dark"] .menu-toggle,
+      body.dark .menu-toggle,
+      body.dark-mode .menu-toggle,
+      .dark-mode .menu-toggle {
+        color: #f4f7fb !important;
+      }
+
+      html[data-theme="dark"] header .nav-links#nav-links,
+      body[data-theme="dark"] header .nav-links#nav-links,
+      body.dark header .nav-links#nav-links,
+      body.dark-mode header .nav-links#nav-links,
+      .dark-mode header .nav-links#nav-links {
+        background: #0b0f18 !important;
+        border-color: #252d3c !important;
+        box-shadow: 0 20px 42px rgba(0, 0, 0, .34) !important;
+      }
+
+      html[data-theme="dark"] header .nav-links#nav-links .nav-link,
+      body[data-theme="dark"] header .nav-links#nav-links .nav-link,
+      body.dark header .nav-links#nav-links .nav-link,
+      body.dark-mode header .nav-links#nav-links .nav-link,
+      .dark-mode header .nav-links#nav-links .nav-link {
+        color: #f4f7fb !important;
+      }
+    }
+
+    @media (max-width: 360px) {
+      header .nav-container {
+        min-height: 70px !important;
+        padding-inline: 12px !important;
+      }
+
+      header .logo-icon,
+      header .logo img {
+        flex-basis: 36px !important;
+        width: 36px !important;
+        height: 36px !important;
+        max-width: 36px !important;
+      }
+
+      header .logo span {
+        font-size: 1.22rem !important;
+      }
+
+      .menu-toggle {
+        flex-basis: 44px !important;
+        width: 44px !important;
+        min-width: 44px !important;
+        height: 44px !important;
+        min-height: 44px !important;
+      }
+
+      .menu-toggle .bar {
+        left: 8px !important;
+        width: 28px !important;
+      }
+
+      header .nav-links#nav-links,
+      header.menu-open .nav-links#nav-links {
+        padding-inline: 12px !important;
+      }
+    }
+
+    @media (min-width: 721px) {
+      .menu-toggle {
+        display: none !important;
+      }
+
+      header .nav-links#nav-links {
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .menu-toggle .bar,
+      header .nav-links#nav-links {
+        transition: none !important;
+      }
+    }
+  </style>
+
+  <style id="human-content-alignment-final">
+    /* Final editorial alignment: applies after all earlier responsive overrides. */
+    .pb-hero-text,
+    .pb-spotlight-middle p,
+    .pb-intro-copy p,
+    .pb-section-header > p,
+    .pb-story-content p,
+    .pb-tool-card p,
+    .pb-why-top p,
+    .pb-principle p {
+      text-align: justify !important;
+      text-align-last: left;
+      text-justify: inter-word !important;
+      hyphens: auto !important;
+      -webkit-hyphens: auto !important;
+      word-break: normal !important;
+      overflow-wrap: break-word !important;
+    }
+  </style>
+
+  <script id="user-header-mweb-script">
     (() => {
       const header = document.querySelector('header');
-      const toggle = document.querySelector('.mobile-nav-toggle');
-      const nav = document.getElementById('primary-navigation');
+      const toggle = document.getElementById('menu-toggle');
+      const nav = document.getElementById('nav-links');
       const mobileQuery = window.matchMedia('(max-width: 720px)');
 
       if (!header || !toggle || !nav) return;
 
-      const applyAccessibilityState = (open) => {
+      const setMenu = (open, returnFocus = false) => {
+        const shouldOpen = Boolean(open && mobileQuery.matches);
+
+        header.classList.toggle('menu-open', shouldOpen);
+        toggle.setAttribute('aria-expanded', String(shouldOpen));
+        toggle.setAttribute('aria-label', shouldOpen ? 'Close Menu' : 'Toggle Menu');
+
         if (mobileQuery.matches) {
-          nav.setAttribute('aria-hidden', String(!open));
-          if ('inert' in nav) nav.inert = !open;
+          nav.setAttribute('aria-hidden', String(!shouldOpen));
+          if ('inert' in nav) nav.inert = !shouldOpen;
         } else {
           nav.removeAttribute('aria-hidden');
           if ('inert' in nav) nav.inert = false;
         }
-      };
-
-      const setMenu = (open, returnFocus = false) => {
-        const shouldOpen = Boolean(open && mobileQuery.matches);
-
-        header.classList.toggle('mobile-nav-open', shouldOpen);
-        toggle.setAttribute('aria-expanded', String(shouldOpen));
-        toggle.setAttribute('aria-label', shouldOpen ? 'Close navigation menu' : 'Open navigation menu');
-        applyAccessibilityState(shouldOpen);
 
         if (returnFocus && !shouldOpen) toggle.focus();
       };
@@ -4675,18 +4974,19 @@
       toggle.addEventListener('click', (event) => {
         event.preventDefault();
         event.stopPropagation();
-        setMenu(!header.classList.contains('mobile-nav-open'));
+        setMenu(!header.classList.contains('menu-open'));
       });
 
       nav.addEventListener('click', (event) => {
-        const navLink = event.target.closest('a.nav-link');
-        if (navLink && mobileQuery.matches) setMenu(false);
+        if (event.target.closest('a.nav-link') && mobileQuery.matches) {
+          setMenu(false);
+        }
       });
 
       document.addEventListener('pointerdown', (event) => {
         if (
           mobileQuery.matches &&
-          header.classList.contains('mobile-nav-open') &&
+          header.classList.contains('menu-open') &&
           !header.contains(event.target)
         ) {
           setMenu(false);
@@ -4694,16 +4994,16 @@
       });
 
       document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && header.classList.contains('mobile-nav-open')) {
+        if (event.key === 'Escape' && header.classList.contains('menu-open')) {
           setMenu(false, true);
         }
       });
 
-      const handleViewportChange = () => setMenu(false);
+      const onViewportChange = () => setMenu(false);
       if (typeof mobileQuery.addEventListener === 'function') {
-        mobileQuery.addEventListener('change', handleViewportChange);
+        mobileQuery.addEventListener('change', onViewportChange);
       } else if (typeof mobileQuery.addListener === 'function') {
-        mobileQuery.addListener(handleViewportChange);
+        mobileQuery.addListener(onViewportChange);
       }
 
       setMenu(false);
