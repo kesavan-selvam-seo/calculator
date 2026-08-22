@@ -3599,5 +3599,354 @@
 
   </style>
 
+
+
+  <style id="full-page-layout-overrides">
+    /* ============================================================
+       FULL-PAGE EDITORIAL LAYOUT
+       Removes the boxed-page treatment and lets sections breathe
+       across the viewport while retaining readable inner gutters.
+    ============================================================ */
+
+    html,
+    body {
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+      overflow-x: clip;
+    }
+
+    .premium-blog {
+      width: 100%;
+      max-width: none;
+      overflow: clip;
+    }
+
+    .pb-shell {
+      width: min(1480px, calc(100% - 64px));
+      max-width: none;
+      margin-inline: auto;
+    }
+
+    /* HERO: true full-bleed section, no floating rounded box */
+    .pb-hero {
+      width: 100%;
+      margin: 0;
+      border-radius: 0;
+      min-height: min(820px, calc(100svh - 70px));
+      display: flex;
+      align-items: center;
+    }
+
+    .pb-hero::after {
+      border-radius: 0;
+    }
+
+    .pb-hero .pb-shell {
+      width: min(1480px, calc(100% - 64px));
+    }
+
+    .pb-hero-grid {
+      grid-template-columns: minmax(0, 1.2fr) minmax(360px, .8fr);
+      gap: clamp(48px, 7vw, 120px);
+      padding: clamp(72px, 9vw, 130px) 0 clamp(56px, 7vw, 96px);
+    }
+
+    .pb-hero-left h1 {
+      max-width: 900px;
+    }
+
+    .pb-hero-text {
+      max-width: 720px;
+    }
+
+    /* Featured article becomes an open editorial panel rather than a box */
+    .pb-spotlight-card {
+      min-height: 430px;
+      padding: 34px 0 34px 38px;
+      border: 0;
+      border-left: 1px solid rgba(255,255,255,.16);
+      border-radius: 0;
+      background: transparent;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      box-shadow: none;
+    }
+
+    .pb-spotlight-card:hover {
+      transform: none;
+      border-color: rgba(167,159,255,.55);
+      box-shadow: none;
+    }
+
+    .pb-spotlight-card::before,
+    .pb-spotlight-card::after {
+      display: none;
+    }
+
+    .pb-featured-pill {
+      background: transparent;
+    }
+
+    /* Intro uses more of the available page width */
+    .pb-intro {
+      padding: clamp(90px, 10vw, 150px) 0;
+    }
+
+    .pb-intro-grid {
+      grid-template-columns: 120px minmax(0, 1.05fr) minmax(0, .95fr);
+      gap: clamp(36px, 6vw, 100px);
+    }
+
+    /* LATEST: remove card boxes, use editorial rows / separators */
+    .pb-latest {
+      padding: clamp(20px, 3vw, 44px) 0 clamp(100px, 10vw, 150px);
+    }
+
+    .pb-editorial-grid {
+      gap: 0;
+      border-top: 1px solid var(--pb-line);
+    }
+
+    .pb-story,
+    .pb-story-large,
+    .pb-tool-card {
+      border: 0;
+      border-bottom: 1px solid var(--pb-line);
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .pb-story {
+      min-height: 390px;
+      grid-template-columns: minmax(220px, .78fr) minmax(0, 1.22fr);
+    }
+
+    .pb-story-large {
+      grid-template-columns: minmax(320px, 1fr) minmax(0, 1fr);
+      min-height: 500px;
+    }
+
+    .pb-story:hover {
+      transform: none;
+      border-color: var(--pb-line);
+      box-shadow: none;
+    }
+
+    .pb-story::after {
+      display: none;
+    }
+
+    .pb-story-visual {
+      margin: 26px 30px 26px 0;
+      min-height: calc(100% - 52px);
+      border-radius: 0;
+    }
+
+    .pb-story-content {
+      padding: 44px 34px 44px 12px;
+    }
+
+    .pb-story-large .pb-story-content {
+      padding: 58px 40px;
+    }
+
+    .pb-tool-card {
+      min-height: 390px;
+      align-items: center;
+      background:
+        linear-gradient(135deg, rgba(17,17,23,.98), rgba(24,20,34,.98));
+      color: #fff;
+    }
+
+    .pb-tool-card-content {
+      width: 100%;
+      padding: 48px 44px;
+    }
+
+    /* WHY section already spans the viewport; expand inner rhythm */
+    .pb-why .pb-shell {
+      width: min(1480px, calc(100% - 64px));
+    }
+
+    .pb-why-top {
+      grid-template-columns: minmax(0, 1.25fr) minmax(340px, .75fr);
+      gap: clamp(50px, 7vw, 110px);
+    }
+
+    /* FINAL CTA: full-width band, not a rounded floating card */
+    .pb-final {
+      padding: 0;
+      background:
+        radial-gradient(circle at 90% 0%, rgba(117,103,255,.13), transparent 32%),
+        var(--card-bg, #ffffff);
+      border-top: 1px solid var(--pb-line);
+    }
+
+    .pb-final .pb-shell {
+      width: min(1480px, calc(100% - 64px));
+    }
+
+    .pb-final-box {
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: clamp(40px, 7vw, 100px);
+      padding: clamp(72px, 8vw, 120px) 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      overflow: visible;
+    }
+
+    .pb-final-box::after {
+      display: none;
+    }
+
+    /* Tablet */
+    @media (max-width: 1000px) {
+      .pb-shell,
+      .pb-hero .pb-shell,
+      .pb-why .pb-shell,
+      .pb-final .pb-shell {
+        width: min(100% - 48px, 1480px);
+      }
+
+      .pb-hero {
+        min-height: auto;
+      }
+
+      .pb-hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pb-hero-right {
+        max-width: none;
+      }
+
+      .pb-spotlight-card {
+        min-height: 340px;
+        padding: 30px 0 30px 30px;
+      }
+
+      .pb-intro-grid {
+        grid-template-columns: 90px 1fr;
+      }
+
+      .pb-story:not(.pb-story-large) {
+        grid-template-columns: 1fr;
+      }
+
+      .pb-story:not(.pb-story-large) .pb-story-visual {
+        margin: 24px 0 0;
+        min-height: 230px;
+      }
+
+      .pb-story-large {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .pb-why-top,
+      .pb-final-box {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Mobile: edge-to-edge sections with comfortable content gutters */
+    @media (max-width: 720px) {
+      .pb-shell,
+      .pb-hero .pb-shell,
+      .pb-why .pb-shell,
+      .pb-final .pb-shell {
+        width: calc(100% - 32px);
+      }
+
+      .pb-hero {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+      }
+
+      .pb-hero-grid {
+        gap: 42px;
+        padding: 52px 0 38px;
+      }
+
+      .pb-spotlight-card {
+        min-height: 340px;
+        padding: 24px 0;
+        border-left: 0;
+        border-top: 1px solid rgba(255,255,255,.16);
+      }
+
+      .pb-hero-meta {
+        margin-top: 8px;
+      }
+
+      .pb-intro {
+        padding: 72px 0;
+      }
+
+      .pb-editorial-grid {
+        display: block;
+      }
+
+      .pb-story,
+      .pb-story-large {
+        display: grid;
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .pb-story-visual,
+      .pb-story-large .pb-story-visual,
+      .pb-story:not(.pb-story-large) .pb-story-visual {
+        margin: 22px 0 0;
+        min-height: 220px;
+      }
+
+      .pb-story-content,
+      .pb-story-large .pb-story-content {
+        min-height: 0;
+        padding: 28px 0 38px;
+      }
+
+      .pb-story-content h3,
+      .pb-story-large .pb-story-content h3 {
+        margin-top: 34px;
+      }
+
+      .pb-tool-card {
+        min-height: auto;
+        margin-inline: -16px;
+        border-bottom: 0;
+      }
+
+      .pb-tool-card-content {
+        padding: 48px 16px;
+      }
+
+      .pb-final-box {
+        padding: 72px 0;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .pb-shell,
+      .pb-hero .pb-shell,
+      .pb-why .pb-shell,
+      .pb-final .pb-shell {
+        width: calc(100% - 24px);
+      }
+
+      .pb-tool-card {
+        margin-inline: -12px;
+      }
+
+      .pb-tool-card-content {
+        padding-inline: 12px;
+      }
+    }
+  </style>
+
 </body>
 </html>
