@@ -3213,6 +3213,356 @@
 
 
 
+
+
+    /* ============================================================
+       RESPONSIVE / MWEB HARDENING
+       Keeps padding inside declared widths and allows grid/flex
+       children to shrink instead of forcing horizontal overflow.
+    ============================================================ */
+
+    .premium-blog,
+    .premium-blog *,
+    .premium-blog *::before,
+    .premium-blog *::after {
+      box-sizing: border-box;
+    }
+
+    .pb-hero-left,
+    .pb-hero-right,
+    .pb-intro-heading,
+    .pb-intro-copy,
+    .pb-section-header > *,
+    .pb-story-content,
+    .pb-spotlight-middle,
+    .pb-why-top > *,
+    .pb-final-copy,
+    .pb-final-action {
+      min-width: 0;
+    }
+
+    .pb-primary-btn,
+    .pb-secondary-btn,
+    .pb-final-button,
+    .pb-spotlight-card,
+    .pb-story,
+    .pb-tool-card {
+      max-width: 100%;
+    }
+
+    .pb-hero-left h1,
+    .pb-spotlight-middle h2,
+    .pb-intro-heading h2,
+    .pb-section-header h2,
+    .pb-story-content h3,
+    .pb-tool-card h3,
+    .pb-why-top h2,
+    .pb-final-copy h2 {
+      overflow-wrap: break-word;
+    }
+
+    /* Header has no hamburger in this markup, so keep the links usable
+       on narrow screens instead of letting them overflow the viewport. */
+    @media (max-width: 720px) {
+      header .nav-container {
+        box-sizing: border-box;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px 12px;
+        width: 100%;
+        max-width: 100%;
+        padding-inline: 14px;
+      }
+
+      header .logo {
+        min-width: 0;
+        max-width: 100%;
+      }
+
+      header .logo img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      header .nav-links {
+        display: flex;
+        flex: 1 1 100%;
+        align-items: center;
+        justify-content: flex-start;
+        min-width: 0;
+        max-width: 100%;
+        gap: 4px;
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      header .nav-links::-webkit-scrollbar {
+        display: none;
+      }
+
+      header .nav-link,
+      header .theme-btn {
+        flex: 0 0 auto;
+      }
+
+      .pb-hero-left h1 {
+        font-size: clamp(2.65rem, 13vw, 4.25rem);
+        line-height: .96;
+        letter-spacing: -.055em;
+      }
+
+      .pb-hero-left h1 em {
+        letter-spacing: -.045em;
+      }
+
+      .pb-spotlight-meta,
+      .pb-story-meta {
+        flex-wrap: wrap;
+      }
+
+      .pb-final-action {
+        min-width: 0;
+      }
+
+      .pb-primary-btn,
+      .pb-secondary-btn,
+      .pb-final-button {
+        box-sizing: border-box;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .pb-shell {
+        width: calc(100% - 24px);
+      }
+
+      .pb-hero {
+        width: calc(100% - 12px);
+        border-radius: 22px;
+      }
+
+      .pb-hero-grid {
+        gap: 32px;
+        padding: 46px 0 34px;
+      }
+
+      .pb-kicker {
+        gap: 8px;
+        margin-bottom: 18px;
+        font-size: 10px;
+        letter-spacing: .13em;
+      }
+
+      .pb-kicker span {
+        width: 24px;
+      }
+
+      .pb-hero-left h1 {
+        font-size: clamp(2.45rem, 12.7vw, 3.45rem);
+      }
+
+      .pb-hero-text {
+        margin-top: 22px;
+        line-height: 1.68;
+      }
+
+      .pb-hero-actions {
+        margin-top: 26px;
+      }
+
+      .pb-primary-btn,
+      .pb-secondary-btn {
+        min-height: 50px;
+        padding-inline: 16px;
+      }
+
+      .pb-spotlight-card {
+        min-height: 365px;
+        padding: 20px;
+      }
+
+      .pb-spotlight-number {
+        font-size: 38px;
+      }
+
+      .pb-spotlight-meta {
+        gap: 8px 14px;
+      }
+
+      .pb-spotlight-middle h2 {
+        font-size: clamp(1.85rem, 9vw, 2.35rem);
+      }
+
+      .pb-hero-meta div {
+        min-width: 0;
+        padding: 17px 8px 0;
+      }
+
+      .pb-hero-meta div:first-child {
+        padding-left: 8px;
+      }
+
+      .pb-hero-meta strong,
+      .pb-hero-meta span {
+        overflow-wrap: anywhere;
+      }
+
+      .pb-intro {
+        padding: 62px 0;
+      }
+
+      .pb-intro-heading h2,
+      .pb-section-header h2,
+      .pb-final-copy h2 {
+        font-size: clamp(2.15rem, 11vw, 3rem);
+        line-height: 1;
+      }
+
+      .pb-latest {
+        padding-bottom: 72px;
+      }
+
+      .pb-section-header {
+        margin-bottom: 30px;
+      }
+
+      .pb-story,
+      .pb-tool-card {
+        border-radius: 22px;
+      }
+
+      .pb-story-visual,
+      .pb-story-large .pb-story-visual {
+        min-height: 205px;
+      }
+
+      .pb-story-content {
+        min-height: 0;
+        padding: 22px;
+      }
+
+      .pb-story-content h3,
+      .pb-story-large .pb-story-content h3 {
+        margin-top: 30px;
+        font-size: clamp(1.7rem, 8.5vw, 2rem);
+      }
+
+      .pb-story-meta {
+        gap: 8px 10px;
+      }
+
+      .pb-story-meta-right {
+        max-width: 55%;
+      }
+
+      .pb-tool-card {
+        min-height: 0;
+      }
+
+      .pb-tool-card-content {
+        width: 100%;
+        padding: 28px 22px;
+      }
+
+      .pb-tool-icon {
+        margin-bottom: 34px;
+      }
+
+      .pb-tool-label {
+        margin-top: 0;
+      }
+
+      .pb-tool-card h3 {
+        font-size: clamp(1.75rem, 8.6vw, 2.15rem);
+      }
+
+      .pb-why {
+        padding: 68px 0;
+      }
+
+      .pb-why-top h2 {
+        font-size: clamp(2.7rem, 13vw, 3.65rem);
+        line-height: .94;
+      }
+
+      .pb-principle,
+      .pb-principle + .pb-principle {
+        padding-block: 28px;
+      }
+
+      .pb-final {
+        padding: 62px 0;
+      }
+
+      .pb-final-box {
+        gap: 32px;
+        padding: 26px 20px;
+        border-radius: 22px;
+      }
+
+      .pb-final-action {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .pb-final-button {
+        width: 100%;
+        min-width: 0;
+        gap: 16px;
+        padding: 0 16px 0 18px;
+      }
+    }
+
+    @media (max-width: 350px) {
+      .pb-shell {
+        width: calc(100% - 20px);
+      }
+
+      .pb-hero-left h1 {
+        font-size: 2.4rem;
+      }
+
+      .pb-spotlight-card {
+        min-height: 350px;
+        padding: 18px;
+      }
+
+      .pb-featured-pill {
+        padding: 6px 8px;
+        letter-spacing: .08em;
+      }
+
+      .pb-spotlight-number {
+        font-size: 34px;
+      }
+
+      .pb-story-content,
+      .pb-tool-card-content {
+        padding-inline: 18px;
+      }
+
+      .pb-story-meta-right {
+        max-width: 58%;
+      }
+    }
+
+    @media (hover: none) and (pointer: coarse) {
+      .pb-primary-btn:hover,
+      .pb-secondary-btn:hover,
+      .pb-spotlight-card:hover,
+      .pb-story:hover,
+      .pb-final-button:hover {
+        transform: none;
+      }
+
+      .pb-spotlight-card:hover::after {
+        transform: translateX(-120%);
+      }
+    }
+
     /* ============================================================
        REDUCED MOTION
     ============================================================ */
