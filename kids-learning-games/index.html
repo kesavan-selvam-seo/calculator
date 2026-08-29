@@ -1,12 +1,357 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kids Learning Games</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>Kids Learning Games — Free Educational Games for Kids Ages 4–12 | CalcuPortal</title>
+  
+  <!-- Primary SEO Meta Tags -->
+  <meta name="description" content="Play 100 free interactive educational games for kids aged 4–12. Master math, spelling, reading, science, logic puzzles, geography, and typing with fun games, rewards, and audio feedback on CalcuPortal." />
+  <meta name="keywords" content="kids learning games, math games for kids, educational games, spelling games, free online games for children, science games for kids, preschool games, calcuportal kids games" />
+  <meta name="author" content="CalcuPortal" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.calcuportal.com/kids-games/" />
+
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.calcuportal.com/kids-games/" />
+  <meta property="og:title" content="Kids Learning Games — Learn • Play • Explore | CalcuPortal" />
+  <meta property="og:description" content="100 fun educational games helping kids build math, language, science, and logic skills through active play." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&auto=format&fit=crop&q=80" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Kids Learning Games — Learn Through Play! | CalcuPortal" />
+  <meta name="twitter:description" content="100 interactive educational games for children aged 4–12. Free, ad-free, and safe." />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦊</text></svg>" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Fredoka', 'cursive', 'system-ui', 'sans-serif'],
+            body: ['Nunito', 'system-ui', '-apple-system', 'sans-serif']
+          },
+          colors: {
+            brand: {
+              50: '#EEF2FF',
+              100: '#E0E7FF',
+              500: '#6366F1',
+              600: '#4F46E5',
+              700: '#4338CA',
+              900: '#312E81'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheet (Relative Path for Subdirectory /kids-games/ Hosting) -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Structured Data JSON-LD (Schema.org WebSite) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Kids Learning Games by CalcuPortal",
+    "url": "https://www.calcuportal.com/kids-games/",
+    "description": "Fun interactive educational games for kids aged 4-12 across math, english, science, logic, and geography.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.calcuportal.com/kids-games/#/games?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
 </head>
-<body>
-  <h1>Kids Learning Games</h1>
-  <p>Fun and educational games for kids.</p>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
+
+  <!-- Confetti Canvas Layer -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Top Announcement Bar: Back to CalcuPortal Network Link -->
+  <div class="bg-slate-900 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="https://www.calcuportal.com/" class="flex items-center gap-1.5 hover:text-white font-bold transition-colors">
+        <span>←</span>
+        <span>Back to <strong>CalcuPortal.com</strong> (Free Calculators)</span>
+      </a>
+      <div class="hidden sm:flex items-center gap-3 text-slate-400 font-medium">
+        <span>🌟 100% Free Educational Games</span>
+        <span>•</span>
+        <span>🛡️ Child Safe & Ad-Free</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOP NAVIGATION BAR -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
+      
+      <!-- Brand Logo -->
+      <a href="#/" class="flex items-center gap-3 group focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-2xl p-1">
+        <span class="text-3xl sm:text-4xl p-2 rounded-2xl bg-indigo-50 border border-indigo-100 group-hover:scale-110 transition-transform select-none animate-wiggle">🦊</span>
+        <div>
+          <span class="text-xl sm:text-2xl font-black font-display tracking-tight text-slate-900 leading-none block">
+            Kids <span class="text-indigo-600">Games</span>
+          </span>
+          <span class="text-[11px] font-extrabold uppercase tracking-widest text-slate-400">
+            by CalcuPortal • Learn • Play
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-1 font-extrabold text-sm text-slate-600">
+        <a href="#/" class="px-4 py-2 rounded-full hover:bg-slate-100 hover:text-indigo-600 transition-colors">Home</a>
+        <a href="#/games" class="px-4 py-2 rounded-full hover:bg-slate-100 hover:text-indigo-600 transition-colors">All Games (100)</a>
+        
+        <!-- Subjects Dropdown -->
+        <div class="relative group">
+          <button class="px-4 py-2 rounded-full hover:bg-slate-100 hover:text-indigo-600 transition-colors flex items-center gap-1">
+            <span>Subjects</span>
+            <span class="text-xs">▼</span>
+          </button>
+          <div class="absolute left-0 top-full hidden group-hover:block w-56 p-2 bg-white rounded-3xl shadow-2xl border border-slate-100 animate-pop-in z-50">
+            <a href="#/math-games" class="flex items-center gap-2.5 p-2.5 rounded-2xl hover:bg-blue-50 text-slate-700 font-bold text-xs"><span class="text-lg">➕</span> Math Games</a>
+            <a href="#/english-games" class="flex items-center gap-2.5 p-2.5 rounded-2xl hover:bg-emerald-50 text-slate-700 font-bold text-xs"><span class="text-lg">📚</span> English & Reading</a>
+            <a href="#/science-games" class="flex items-center gap-2.5 p-2.5 rounded-2xl hover:bg-purple-50 text-slate-700 font-bold text-xs"><span class="text-lg">🚀</span> Science & Nature</a>
+            <a href="#/spelling-games" class="flex items-center gap-2.5 p-2.5 rounded-2xl hover:bg-yellow-50 text-slate-700 font-bold text-xs"><span class="text-lg">🐝</span> Spelling Games</a>
+            <a href="#/logic-games" class="flex items-center gap-2.5 p-2.5 rounded-2xl hover:bg-rose-50 text-slate-700 font-bold text-xs"><span class="text-lg">🧩</span> Logic & Puzzles</a>
+            <a href="#/geography-games" class="flex items-center gap-2.5 p-2.5 rounded-2xl hover:bg-cyan-50 text-slate-700 font-bold text-xs"><span class="text-lg">🌍</span> Geography Games</a>
+          </div>
+        </div>
+
+        <!-- Ages Dropdown -->
+        <div class="relative group">
+          <button class="px-4 py-2 rounded-full hover:bg-slate-100 hover:text-indigo-600 transition-colors flex items-center gap-1">
+            <span>Ages</span>
+            <span class="text-xs">▼</span>
+          </button>
+          <div class="absolute left-0 top-full hidden group-hover:block w-48 p-2 bg-white rounded-3xl shadow-2xl border border-slate-100 animate-pop-in z-50">
+            <a href="#/games-for-4-year-olds" class="flex items-center gap-2 p-2.5 rounded-2xl hover:bg-amber-50 text-slate-700 font-bold text-xs"><span>🐣</span> Ages 4–5</a>
+            <a href="#/games-for-6-year-olds" class="flex items-center gap-2 p-2.5 rounded-2xl hover:bg-emerald-50 text-slate-700 font-bold text-xs"><span>🦊</span> Ages 6–7</a>
+            <a href="#/games-for-8-year-olds" class="flex items-center gap-2 p-2.5 rounded-2xl hover:bg-blue-50 text-slate-700 font-bold text-xs"><span>🦁</span> Ages 8–9</a>
+            <a href="#/games-for-10-year-olds" class="flex items-center gap-2 p-2.5 rounded-2xl hover:bg-purple-50 text-slate-700 font-bold text-xs"><span>🚀</span> Ages 10–12</a>
+          </div>
+        </div>
+
+        <a href="#/progress" class="px-4 py-2 rounded-full hover:bg-slate-100 hover:text-indigo-600 transition-colors">Trophies & Badges</a>
+        <a href="#/parents" class="px-4 py-2 rounded-full hover:bg-slate-100 hover:text-indigo-600 transition-colors">Parents</a>
+      </nav>
+
+      <!-- Right Actions: Search, Sound, Stars, Streak -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        
+        <!-- Search Trigger -->
+        <button class="open-search-modal-btn p-2.5 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-base font-bold shadow-sm transition-all flex items-center gap-2" title="Search Games (Cmd+K)">
+          <span>🔍</span>
+          <span class="text-xs text-slate-400 font-extrabold hidden md:inline">Search...</span>
+        </button>
+
+        <!-- Sound FX Toggle -->
+        <button id="nav-sound-toggle" class="p-2.5 rounded-2xl bg-slate-100 hover:bg-slate-200 text-base shadow-sm transition-all select-none" title="Toggle Sound FX">
+          🔊
+        </button>
+
+        <!-- Daily Streak Counter -->
+        <div class="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-2xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-black select-none shadow-sm" title="Daily Learning Streak">
+          <span>🔥</span>
+          <span id="nav-streak-count">1d</span>
+        </div>
+
+        <!-- Total Stars Earned Counter -->
+        <a href="#/progress" class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900 text-xs font-black select-none shadow-sm hover:scale-105 transition-transform" title="My Stars">
+          <span>⭐</span>
+          <span id="nav-stars-count">0</span>
+        </a>
+
+        <!-- Mobile Menu Hamburger Button -->
+        <button id="mobile-menu-btn" class="lg:hidden p-2.5 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xl font-bold shadow-sm">
+          ☰
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Dropdown Navigation Menu -->
+    <div id="mobile-menu-dropdown" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 py-6 shadow-2xl space-y-3 font-bold text-sm">
+      <a href="#/" class="block p-3 rounded-2xl hover:bg-indigo-50 text-slate-800">🏠 Home</a>
+      <a href="#/games" class="block p-3 rounded-2xl hover:bg-indigo-50 text-slate-800">🎮 All 100 Games</a>
+      <div class="p-3 rounded-2xl bg-slate-50 space-y-2">
+        <div class="text-xs font-black text-slate-400 uppercase">Subjects</div>
+        <div class="grid grid-cols-2 gap-2 text-xs">
+          <a href="#/math-games" class="p-2 rounded-xl bg-white shadow-sm">➕ Math</a>
+          <a href="#/english-games" class="p-2 rounded-xl bg-white shadow-sm">📚 English</a>
+          <a href="#/science-games" class="p-2 rounded-xl bg-white shadow-sm">🚀 Science</a>
+          <a href="#/spelling-games" class="p-2 rounded-xl bg-white shadow-sm">🐝 Spelling</a>
+          <a href="#/logic-games" class="p-2 rounded-xl bg-white shadow-sm">🧩 Logic</a>
+          <a href="#/geography-games" class="p-2 rounded-xl bg-white shadow-sm">🌍 Geography</a>
+        </div>
+      </div>
+      <div class="p-3 rounded-2xl bg-slate-50 space-y-2">
+        <div class="text-xs font-black text-slate-400 uppercase">Ages</div>
+        <div class="grid grid-cols-2 gap-2 text-xs">
+          <a href="#/games-for-4-year-olds" class="p-2 rounded-xl bg-white shadow-sm">🐣 Ages 4–5</a>
+          <a href="#/games-for-6-year-olds" class="p-2 rounded-xl bg-white shadow-sm">🦊 Ages 6–7</a>
+          <a href="#/games-for-8-year-olds" class="p-2 rounded-xl bg-white shadow-sm">🦁 Ages 8–9</a>
+          <a href="#/games-for-10-year-olds" class="p-2 rounded-xl bg-white shadow-sm">🚀 Ages 10–12</a>
+        </div>
+      </div>
+      <a href="#/progress" class="block p-3 rounded-2xl hover:bg-indigo-50 text-slate-800">🏆 Trophies & Badges</a>
+      <a href="#/parents" class="block p-3 rounded-2xl hover:bg-indigo-50 text-slate-800">👨‍👩‍👧 Parents & Educators</a>
+      <a href="https://www.calcuportal.com/" class="block p-3 rounded-2xl bg-indigo-50 text-indigo-700 font-black">
+        ← Back to CalcuPortal.com
+      </a>
+    </div>
+  </header>
+
+  <!-- MAIN DYNAMIC CONTENT MOUNT POINT -->
+  <main id="main-content-mount" class="flex-grow"></main>
+
+  <!-- GLOBAL SEARCH MODAL -->
+  <div id="global-search-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-start justify-center p-4 sm:p-6 overflow-y-auto hidden">
+    <div class="bg-white rounded-3xl max-w-2xl w-full p-6 shadow-2xl border border-slate-100 mt-12 animate-pop-in">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl">🔍</span>
+          <h3 class="text-xl font-bold font-display text-slate-800">Search Learning Games</h3>
+        </div>
+        <button id="close-search-modal-btn" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 font-bold flex items-center justify-center">
+          ✕
+        </button>
+      </div>
+
+      <div class="relative mb-6">
+        <input type="text" id="modal-search-input" placeholder="Type a game, math topic, animal, spelling word..."
+          class="w-full pl-12 pr-4 py-3.5 rounded-2xl bg-slate-50 border-2 border-indigo-200 focus:border-indigo-600 focus:ring-4 focus:ring-indigo-100 outline-none text-slate-800 font-semibold text-lg" />
+        <span class="absolute left-4 top-1/2 -translate-y-1/2 text-xl select-none">✨</span>
+      </div>
+
+      <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Matching Games</div>
+      <div id="modal-search-results" class="space-y-1.5 max-h-80 overflow-y-auto pr-1"></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-white pt-16 pb-12 px-4 sm:px-6 border-t border-slate-800 mt-16">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 pb-12 border-b border-slate-800">
+        
+        <!-- Brand Summary -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <span class="text-4xl p-2 rounded-2xl bg-indigo-900 border border-indigo-700 select-none">🦊</span>
+            <span class="text-2xl font-black font-display tracking-tight">
+              Kids <span class="text-indigo-400">Games</span>
+            </span>
+          </div>
+          <p class="text-slate-400 text-xs sm:text-sm font-medium leading-relaxed max-w-sm">
+            Part of the <strong>CalcuPortal</strong> network. An interactive educational gaming platform for children aged 4–12 to master math, language, science, and logic.
+          </p>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/80 text-emerald-400 border border-emerald-800 text-xs font-bold">
+            <span>🛡️</span> 100% Free & Child-Safe Platform
+          </div>
+        </div>
+
+        <!-- Subjects Column -->
+        <div>
+          <h4 class="text-sm font-black text-slate-200 uppercase tracking-wider mb-4 font-display">Subjects</h4>
+          <ul class="space-y-2 text-xs sm:text-sm font-semibold text-slate-400">
+            <li><a href="#/math-games" class="hover:text-white transition-colors">Math Games</a></li>
+            <li><a href="#/english-games" class="hover:text-white transition-colors">English & Phonics</a></li>
+            <li><a href="#/science-games" class="hover:text-white transition-colors">Science & Nature</a></li>
+            <li><a href="#/spelling-games" class="hover:text-white transition-colors">Spelling Games</a></li>
+            <li><a href="#/logic-games" class="hover:text-white transition-colors">Logic & Brain</a></li>
+            <li><a href="#/geography-games" class="hover:text-white transition-colors">Geography Games</a></li>
+          </ul>
+        </div>
+
+        <!-- Age Groups Column -->
+        <div>
+          <h4 class="text-sm font-black text-slate-200 uppercase tracking-wider mb-4 font-display">Ages</h4>
+          <ul class="space-y-2 text-xs sm:text-sm font-semibold text-slate-400">
+            <li><a href="#/games-for-4-year-olds" class="hover:text-white transition-colors">Games for 4 Year Olds</a></li>
+            <li><a href="#/games-for-5-year-olds" class="hover:text-white transition-colors">Games for 5 Year Olds</a></li>
+            <li><a href="#/games-for-6-year-olds" class="hover:text-white transition-colors">Games for 6 Year Olds</a></li>
+            <li><a href="#/games-for-8-year-olds" class="hover:text-white transition-colors">Games for 8 Year Olds</a></li>
+            <li><a href="#/games-for-10-year-olds" class="hover:text-white transition-colors">Games for 10 Year Olds</a></li>
+            <li><a href="#/games-for-12-year-olds" class="hover:text-white transition-colors">Games for 12 Year Olds</a></li>
+          </ul>
+        </div>
+
+        <!-- Parents & CalcuPortal Network Column -->
+        <div>
+          <h4 class="text-sm font-black text-slate-200 uppercase tracking-wider mb-4 font-display">Network & Parents</h4>
+          <ul class="space-y-2 text-xs sm:text-sm font-semibold text-slate-400">
+            <li><a href="https://www.calcuportal.com/" class="hover:text-indigo-400 font-bold text-white transition-colors">🌐 CalcuPortal.com</a></li>
+            <li><a href="#/parents" class="hover:text-indigo-400 font-bold text-white transition-colors">👨‍👩‍👧 Parents & Educators</a></li>
+            <li><a href="#/progress" class="hover:text-white transition-colors">My Trophy Room</a></li>
+            <li><a href="#/games" class="hover:text-white transition-colors">All 100 Games</a></li>
+            <li><a href="#/parents" class="hover:text-white transition-colors">Safety Pledge</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-wrap items-center justify-between gap-4 text-xs font-semibold text-slate-500">
+        <p>© 2026 CalcuPortal. All educational games built for joyful learning.</p>
+        <p>COPPA & GDPR-K Aligned • Zero Tracking • 100% Free</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core Data Scripts (Relative Paths for Subdirectory Hosting) -->
+  <script src="js/data/badges-data.js"></script>
+  <script src="js/data/categories-data.js"></script>
+  <script src="js/data/ages-data.js"></script>
+  <script src="js/data/games-math.js"></script>
+  <script src="js/data/games-english.js"></script>
+  <script src="js/data/games-science.js"></script>
+  <script src="js/data/games-logic.js"></script>
+  <script src="js/data/games-geography.js"></script>
+  <script src="js/data/games-creativity.js"></script>
+  <script src="js/data/games-fast.js"></script>
+  <script src="js/data/games-data.js"></script>
+
+  <!-- Core Engines & Utilities -->
+  <script src="js/core/sound-engine.js"></script>
+  <script src="js/core/confetti-engine.js"></script>
+  <script src="js/core/progress-manager.js"></script>
+  <script src="js/core/router.js"></script>
+
+  <!-- Game Engines -->
+  <script src="js/games/engines/quiz-engine.js"></script>
+  <script src="js/games/engines/drag-drop-engine.js"></script>
+  <script src="js/games/engines/word-spelling-engine.js"></script>
+  <script src="js/games/engines/memory-engine.js"></script>
+  <script src="js/games/engines/arcade-catcher-engine.js"></script>
+  <script src="js/games/engines/pattern-sequence-engine.js"></script>
+  <script src="js/games/engines/speed-typing-engine.js"></script>
+  <script src="js/games/engines/maze-nav-engine.js"></script>
+  <script src="js/games/engines/canvas-art-engine.js"></script>
+  <script src="js/games/engines/tangram-shape-engine.js"></script>
+  <script src="js/games/engines/sudoku-logic-engine.js"></script>
+  <script src="js/games/engines/map-geography-engine.js"></script>
+  <script src="js/games/engines/quest-engine.js"></script>
+  <script src="js/games/game-runner.js"></script>
+
+  <!-- Views -->
+  <script src="js/views/home-view.js"></script>
+  <script src="js/views/games-view.js"></script>
+  <script src="js/views/subject-view.js"></script>
+  <script src="js/views/age-view.js"></script>
+  <script src="js/views/progress-view.js"></script>
+  <script src="js/views/parents-view.js"></script>
+
+  <!-- App Bootstrap -->
+  <script src="js/app.js"></script>
 </body>
 </html>

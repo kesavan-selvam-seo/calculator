@@ -1,0 +1,265 @@
+/* Kids Learning Games - Modern Child-Friendly Design System */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap');
+
+:root {
+  --font-display: 'Fredoka', cursive, system-ui, sans-serif;
+  --font-body: 'Nunito', system-ui, -apple-system, sans-serif;
+  
+  --color-primary: #4F46E5;
+  --color-primary-light: #EEF2FF;
+  --color-secondary: #06B6D4;
+  --color-accent-amber: #F59E0B;
+  --color-accent-rose: #F43F5E;
+  --color-accent-emerald: #10B981;
+  --color-accent-violet: #8B5CF6;
+  --color-accent-sky: #0EA5E9;
+  
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-3xl: 2.5rem;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #F8FAFC;
+  color: #1E293B;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .font-display {
+  font-family: var(--font-display);
+}
+
+/* Custom Kid-Friendly Animations */
+@keyframes bounceSoft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+@keyframes floatReverse {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(10px) rotate(-2deg); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-6deg); }
+  75% { transform: rotate(6deg); }
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  70% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(79, 70, 229, 0); }
+}
+
+@keyframes starSpin {
+  0% { transform: scale(0) rotate(-180deg); opacity: 0; }
+  70% { transform: scale(1.2) rotate(15deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.animate-bounce-soft {
+  animation: bounceSoft 2.5s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 4.5s ease-in-out infinite;
+}
+
+.animate-wiggle:hover {
+  animation: wiggle 0.5s ease-in-out;
+}
+
+.animate-pop-in {
+  animation: popIn 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.animate-star-1 { animation: starSpin 0.5s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) both; }
+.animate-star-2 { animation: starSpin 0.5s 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) both; }
+.animate-star-3 { animation: starSpin 0.5s 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) both; }
+
+/* Chubby Tactile Buttons */
+.btn-chubby {
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(0);
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 9999px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.btn-chubby:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 rgba(0, 0, 0, 0.12);
+}
+
+.btn-chubby:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #4F46E5 0%, #6366F1 100%);
+  color: white;
+  box-shadow: 0 6px 0 #3730A3;
+}
+.btn-primary:hover { box-shadow: 0 8px 0 #3730A3; }
+.btn-primary:active { box-shadow: 0 2px 0 #3730A3; }
+
+.btn-emerald {
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  color: white;
+  box-shadow: 0 6px 0 #047857;
+}
+.btn-emerald:hover { box-shadow: 0 8px 0 #047857; }
+.btn-emerald:active { box-shadow: 0 2px 0 #047857; }
+
+.btn-amber {
+  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+  color: white;
+  box-shadow: 0 6px 0 #B45309;
+}
+.btn-amber:hover { box-shadow: 0 8px 0 #B45309; }
+.btn-amber:active { box-shadow: 0 2px 0 #B45309; }
+
+.btn-rose {
+  background: linear-gradient(135deg, #F43F5E 0%, #E11D48 100%);
+  color: white;
+  box-shadow: 0 6px 0 #BE123C;
+}
+.btn-rose:hover { box-shadow: 0 8px 0 #BE123C; }
+.btn-rose:active { box-shadow: 0 2px 0 #BE123C; }
+
+/* 3D Flip Card for Memory Game */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.memory-card {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.memory-card.flipped {
+  transform: rotateY(180deg);
+}
+
+/* Card Hover Elevation */
+.game-card-hover {
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+}
+
+.game-card-hover:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+  border: 2px solid #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Confetti Canvas Container */
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Responsive Game Board */
+.game-board-container {
+  min-height: 480px;
+  touch-action: manipulation;
+}
+
+/* Interactive D-Pad */
+.d-pad-btn {
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: #3B82F6;
+  color: white;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 0 #1D4ED8;
+  transition: all 0.1s ease;
+  user-select: none;
+}
+.d-pad-btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #1D4ED8;
+}
+
+/* Slot Droppables */
+.drop-slot {
+  min-height: 56px;
+  border: 2px dashed #94A3B8;
+  border-radius: 16px;
+  transition: all 0.2s ease;
+}
+.drop-slot.drag-over {
+  border-color: #4F46E5;
+  background-color: #EEF2FF;
+  transform: scale(1.03);
+}
+
+/* Accessible focus ring */
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 3px solid #6366F1;
+  outline-offset: 2px;
+}
