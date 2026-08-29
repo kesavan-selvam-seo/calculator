@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.calcuportal.com/kids-games/sitemap.xml
