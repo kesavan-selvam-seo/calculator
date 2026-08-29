@@ -32,19 +32,34 @@
   }
 })();
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Add Kids Learning Games to the main navigation
-  const navLinks = document.getElementById('nav-links');
-  const themeButton = navLinks ? navLinks.querySelector('.theme-btn') : null;
+function addKidsLearningGamesNav() {
+  const nav = document.getElementById('nav-links');
+  if (!nav || nav.querySelector('.kids-games-nav-link')) return;
 
-  if (navLinks && themeButton && !navLinks.querySelector('.kids-games-nav-link')) {
-    const kidsGamesLink = document.createElement('a');
-    kidsGamesLink.href = '/kids-learning-games/';
-    kidsGamesLink.className = 'nav-link kids-games-nav-link';
-    kidsGamesLink.textContent = 'Kids Learning Games';
-    kidsGamesLink.setAttribute('aria-label', 'Kids Learning Games');
-    navLinks.insertBefore(kidsGamesLink, themeButton);
+  const link = document.createElement('a');
+  link.href = '/kids-learning-games/';
+  link.className = 'nav-link kids-games-nav-link';
+  link.textContent = 'Kids Learning Games';
+  link.title = 'Kids Learning Games';
+  link.setAttribute('aria-label', 'Kids Learning Games');
+  link.style.whiteSpace = 'nowrap';
+  link.style.fontWeight = '700';
+
+  const themeButton = nav.querySelector('.theme-btn');
+  if (themeButton) {
+    nav.insertBefore(link, themeButton);
+  } else {
+    nav.appendChild(link);
   }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  addKidsLearningGamesNav();
+
+  // Fallback for delayed/cached navigation rendering.
+  const navObserver = new MutationObserver(addKidsLearningGamesNav);
+  const nav = document.getElementById('nav-links');
+  if (nav) navObserver.observe(nav, { childList: true, subtree: true });
 
   // Theme toggler
   const themeToggleBtns = document.querySelectorAll('.theme-btn');
@@ -65,14 +80,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     icons.forEach(icon => {
       if (theme === 'dark') {
-        icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="M17.66 17.66 19.07 19.07"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>`;
+        icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>`;
       } else {
         icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>`;
       }
     });
   }
 
-  // Set initial icons on load
   const initialTheme = document.documentElement.getAttribute('data-theme') || 'light';
   updateThemeIcons(initialTheme);
 
@@ -87,3 +101,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// Also run after initial page parsing in case DOMContentLoaded has already fired.
+if (document.readyState !== 'loading') {
+  addKidsLearningGamesNav();
+}
