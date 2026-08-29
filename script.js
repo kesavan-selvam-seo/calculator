@@ -32,35 +32,7 @@
   }
 })();
 
-function addKidsLearningGamesNav() {
-  const nav = document.getElementById('nav-links');
-  if (!nav || nav.querySelector('.kids-games-nav-link')) return;
-
-  const link = document.createElement('a');
-  link.href = '/kids-learning-games/';
-  link.className = 'nav-link kids-games-nav-link';
-  link.textContent = 'Kids Learning Games';
-  link.title = 'Kids Learning Games';
-  link.setAttribute('aria-label', 'Kids Learning Games');
-  link.style.whiteSpace = 'nowrap';
-  link.style.fontWeight = '700';
-
-  const themeButton = nav.querySelector('.theme-btn');
-  if (themeButton) {
-    nav.insertBefore(link, themeButton);
-  } else {
-    nav.appendChild(link);
-  }
-}
-
 document.addEventListener('DOMContentLoaded', () => {
-  addKidsLearningGamesNav();
-
-  // Fallback for delayed/cached navigation rendering.
-  const navObserver = new MutationObserver(addKidsLearningGamesNav);
-  const nav = document.getElementById('nav-links');
-  if (nav) navObserver.observe(nav, { childList: true, subtree: true });
-
   // Theme toggler
   const themeToggleBtns = document.querySelectorAll('.theme-btn');
 
@@ -101,8 +73,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
-
-// Also run after initial page parsing in case DOMContentLoaded has already fired.
-if (document.readyState !== 'loading') {
-  addKidsLearningGamesNav();
-}
