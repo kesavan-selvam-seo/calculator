@@ -10,7 +10,10 @@ SITEMAP = ROOT / "sitemap.xml"
 EXCLUDED_DIRS = {
     ".git", ".github", "node_modules", "vendor", "assets", "css", "js"
 }
-EXCLUDED_FILES = {"404.html"}
+EXCLUDED_FILES = {
+    "404.html",
+    "category-template.html"
+}
 
 
 def page_url(path: Path) -> str:
