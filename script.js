@@ -33,6 +33,23 @@
 })();
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Add Blog to every page header navigation that uses the shared script.
+  // The homepage already has the link, so do not create a duplicate there.
+  const nav = document.getElementById('nav-links');
+  if (nav && !nav.querySelector('a[href="/blog/"]')) {
+    const blogLink = document.createElement('a');
+    blogLink.href = '/blog/';
+    blogLink.className = 'nav-link';
+    blogLink.textContent = 'Blog';
+
+    const themeButton = nav.querySelector('.theme-btn');
+    if (themeButton) {
+      nav.insertBefore(blogLink, themeButton);
+    } else {
+      nav.appendChild(blogLink);
+    }
+  }
+
   // Theme toggler
   const themeToggleBtns = document.querySelectorAll('.theme-btn');
 
