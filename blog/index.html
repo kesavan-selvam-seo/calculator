@@ -4,53 +4,669 @@
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="shortcut icon" href="/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/favicon.png">
-  <meta name="google-site-verification" content="kJqkVjrZKZa_p8O9yEJwxcXQIHAdREZdjYL86PQUbJA">
+  <meta name="google-site-verification" content="kJqkVjrZKZa_p8O9yEJwxcXQIHAdREZdjYL86PQUbJA" />
   <meta name="robots" content="index, follow">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog Categories - CalcuPortal Guides & Practical Formulas</title>
-  <meta name="description" content="Explore CalcuPortal blog categories covering education, travel, general knowledge, finance, health, technology, business, and lifestyle guides.">
+  <meta name="description" content="Explore CalcuPortal categories: Education, Tours & Travels, Generic Knowledge, Finance, Health, Technology, Business, and Lifestyle. Free guides and practical formulas.">
   <link rel="canonical" href="https://www.calcuportal.com/blog/">
+
+  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Blog Categories - CalcuPortal Guides & Practical Formulas">
-  <meta property="og:description" content="Explore practical guides, tutorials, formulas, and calculation resources from CalcuPortal.">
+  <meta property="og:description" content="Explore categories: Education, Tours & Travels, Generic Knowledge, Finance, Health, Technology, Business, and Lifestyle.">
   <meta property="og:url" content="https://www.calcuportal.com/blog/">
   <meta property="og:site_name" content="CalcuPortal">
   <meta property="og:image" content="https://www.calcuportal.com/logo.png">
+
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Blog Categories - CalcuPortal Guides & Practical Formulas">
-  <meta name="twitter:description" content="Explore practical guides, tutorials, formulas, and calculation resources from CalcuPortal.">
+  <meta name="twitter:description" content="Explore categories: Education, Tours & Travels, Generic Knowledge, Finance, Health, Technology, Business, and Lifestyle.">
   <meta name="twitter:image" content="https://www.calcuportal.com/logo.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css">
-  <script src="/script.js"></script>
+
+  <style>
+    /* -------------------------------------------------------------
+       CALCUPORTAL CORE DESIGN SYSTEM
+       ------------------------------------------------------------- */
+    :root {
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+      --font-heading: 'Outfit', sans-serif;
+
+      /* Light Theme Tokens */
+      --bg-primary: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-nav: rgba(255, 255, 255, 0.9);
+      --border-color: #cbd5e1;
+      --border-light: #f1f5f9;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --primary: #4f46e5;
+      --primary-hover: #4338ca;
+      --primary-light: #e0e7ff;
+      --accent: #10b981;
+      --danger: #ef4444;
+      --warning: #d97706;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+    }
+
+    [data-theme="dark"] {
+      /* Dark Theme Tokens */
+      --bg-primary: #030712;
+      --bg-card: #0b0f19;
+      --bg-nav: rgba(3, 7, 18, 0.9);
+      --border-color: #1e293b;
+      --border-light: #111827;
+      --text-primary: #f9fafb;
+      --text-secondary: #cbd5e1;
+      --text-muted: #9ca3af;
+      --primary: #818cf8;
+      --primary-hover: #6366f1;
+      --primary-light: #1e1b4b;
+      --accent: #34d399;
+      --danger: #f87171;
+      --warning: #fbbf24;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input {
+      font: inherit;
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    /* -------------------------------------------------------------
+       CALCUPORTAL HEADER & NAVIGATION
+       ------------------------------------------------------------- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background-color: var(--bg-nav);
+      border-bottom: 1px solid var(--border-color);
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      height: 4.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--primary);
+      background: linear-gradient(135deg, var(--primary) 0%, #a855f7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-weight: 600;
+      font-size: 0.875rem;
+      padding: 0.5rem 1rem;
+      border-radius: 0.75rem;
+      transition: all 0.2s;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary);
+      background-color: var(--primary-light);
+    }
+
+    /* Mobile Menu Toggle Button */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 24px;
+      height: 18px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 100;
+    }
+
+    .menu-toggle .bar {
+      width: 24px;
+      height: 2px;
+      background-color: var(--text-primary);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    /* Theme Toggle Button */
+    .theme-btn {
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 0.75rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .theme-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* -------------------------------------------------------------
+       MAIN LAYOUT & HERO BANNER
+       ------------------------------------------------------------- */
+    main {
+      flex-grow: 1;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 1.5rem;
+      background-color: #0f172a;
+      color: white;
+      border-radius: 2rem;
+      margin-bottom: 3rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, #a5b4fc 0%, #c084fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.125rem;
+      color: #94a3b8;
+      max-width: 42rem;
+      margin: 0 auto 2rem;
+    }
+
+    .search-container {
+      max-width: 32rem;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 1rem 1.5rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 1rem;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    .search-input::placeholder {
+      color: #94a3b8;
+    }
+
+    .search-input:focus {
+      background-color: rgba(255, 255, 255, 0.15);
+      border-color: #818cf8;
+      box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.3);
+    }
+
+    /* Filter Pills */
+    .filter-tags-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .filter-tag-btn {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-tag-btn:hover {
+      color: var(--primary);
+      border-color: var(--primary);
+      background-color: var(--primary-light);
+    }
+
+    .filter-tag-btn.active {
+      background-color: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    /* -------------------------------------------------------------
+       CATEGORY SECTION & IMAGE CARDS (NO INTERIOR TEXT)
+       ------------------------------------------------------------- */
+    .category-section {
+      margin-bottom: 3.5rem;
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+    }
+
+    .category-title {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .category-count-badge {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .image-category-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 1rem;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .image-category-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .card-media {
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      background-color: var(--border-light);
+    }
+
+    .card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .image-category-card:hover .card-img {
+      transform: scale(1.06);
+    }
+
+    .card-bottom {
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: var(--bg-card);
+      border-top: 1px solid var(--border-light);
+    }
+
+    .category-name {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .category-arrow {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      transition: transform 0.2s, color 0.2s;
+    }
+
+    .image-category-card:hover .category-arrow {
+      transform: translateX(4px);
+      color: var(--primary);
+    }
+
+    /* Empty state */
+    .empty-state {
+      display: none;
+      text-align: center;
+      padding: 3rem 1rem;
+      grid-column: 1 / -1;
+      background-color: var(--bg-card);
+      border: 1px dashed var(--border-color);
+      border-radius: 1rem;
+    }
+
+    .empty-state h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+
+    .empty-state p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .reset-btn {
+      background-color: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--primary);
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      font-size: 0.875rem;
+      cursor: pointer;
+    }
+
+    .reset-btn:hover {
+      border-color: var(--primary);
+      background-color: var(--primary-light);
+    }
+
+    /* -------------------------------------------------------------
+       FOOTER & DISCLAIMER
+       ------------------------------------------------------------- */
+    .disclaimer-banner {
+      background-color: rgba(245, 158, 11, 0.05);
+      border: 1px solid rgba(245, 158, 11, 0.2);
+      color: var(--warning);
+      padding: 1rem;
+      border-radius: 0.75rem;
+      font-size: 0.75rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-color);
+      background-color: var(--bg-card);
+      padding: 3rem 1.5rem 1.5rem;
+      margin-top: auto;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-info p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+      max-width: 24rem;
+    }
+
+    .footer-column h3 {
+      font-family: var(--font-heading);
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-column a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .footer-column a:hover {
+      color: var(--primary);
+    }
+
+    .copyright-bar {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-light);
+      padding-top: 1.5rem;
+    }
+
+    /* -------------------------------------------------------------
+       RESPONSIVE DESIGN
+       ------------------------------------------------------------- */
+    @media (max-width: 1024px) {
+      .category-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--bg-card);
+        border-bottom: 1px solid var(--border-color);
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1rem;
+        box-shadow: var(--shadow-lg);
+        z-index: 100;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-link {
+        width: 100%;
+        text-align: center;
+      }
+
+      .theme-btn {
+        align-self: center;
+        margin-top: 0.5rem;
+      }
+
+      .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+      }
+      .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+
+      .hero {
+        padding: 3rem 1rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .category-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
+
+  <!-- Header -->
   <header>
     <div class="nav-container">
-      <a href="/" class="logo"><img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon"><span>CalcuPortal</span></a>
-      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+      <a href="/" class="logo">
+        <img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon">
+        <span>CalcuPortal</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
       <nav class="nav-links" id="nav-links">
         <a href="/" class="nav-link">Home</a>
         <a href="/about/" class="nav-link">About</a>
         <a href="/contact/" class="nav-link">Contact</a>
         <a href="/blog/" class="nav-link active">Blog</a>
-        <button class="theme-btn" title="Toggle Theme" aria-label="Toggle theme"><span class="theme-btn-icon"></span></button>
+        <button class="theme-btn" title="Toggle Theme" aria-label="Toggle theme">
+          <span class="theme-btn-icon"></span>
+        </button>
       </nav>
     </div>
   </header>
 
+  <!-- Main Content -->
   <main>
+    <!-- Hero Banner -->
     <section class="hero">
       <h1>Knowledge & Blog <span>Categories</span></h1>
-      <p>Explore practical formula guides, tutorials, and calculation resources organized by topic. Clean, useful, and free.</p>
+      <p>Explore practical formula guides, tutorials, and calculation methods categorized by domain. Clean, responsive, and 100% free.</p>
       <div class="search-container">
-        <input type="text" id="search-input" class="search-input" placeholder="Search categories by name or keyword..." aria-label="Search categories">
+        <input type="text" id="search-input" class="search-input" placeholder="Search categories by name or keyword (e.g. education, travel, generic, finance)..." aria-label="Search categories">
       </div>
     </section>
 
+    <!-- Filter Tags Row -->
     <div class="filter-tags-row" role="tablist" aria-label="Filter categories">
       <button class="filter-tag-btn active" data-filter="all">All Categories</button>
       <button class="filter-tag-btn" data-filter="Education">Education</button>
@@ -63,6 +679,7 @@
       <button class="filter-tag-btn" data-filter="Lifestyle">Lifestyle</button>
     </div>
 
+    <!-- Category Directories Section -->
     <section class="category-section" id="categories-directory-section">
       <div class="category-header">
         <span class="category-title">📂 Explore Categories</span>
@@ -70,95 +687,270 @@
       </div>
 
       <div class="category-grid" id="categoryGrid">
-        <a href="/blog/education/" class="image-category-card" data-category="Education" data-keywords="education learning academic gpa grades exams study scholarships admission college school">
-          <div class="card-media"><img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&auto=format&fit=crop&q=80" alt="Education" class="card-img" loading="lazy"></div>
-          <div class="card-bottom"><h2 class="category-name">Education</h2><span class="category-arrow">&rarr;</span></div>
+
+        <!-- 1. Education -->
+        <a href="/categories/education/" class="image-category-card" data-category="Education" data-keywords="education learning academic gpa grades exams study scholarships admission college school stem">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&auto=format&fit=crop&q=80" alt="Education" class="card-img" loading="lazy">
+          </div>
+          <div class="card-bottom">
+            <h2 class="category-name">Education</h2>
+            <span class="category-arrow">&rarr;</span>
+          </div>
         </a>
 
-        <a href="/blog/travel/" class="image-category-card" data-category="Tours" data-keywords="tours travels travel vacation trip itinerary flight budget currency forex time zones packing">
-          <div class="card-media"><img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&auto=format&fit=crop&q=80" alt="Tours & Travels" class="card-img" loading="lazy"></div>
-          <div class="card-bottom"><h2 class="category-name">Tours & Travels</h2><span class="category-arrow">&rarr;</span></div>
+        <!-- 2. Tours & Travels -->
+        <a href="/categories/travel/" class="image-category-card" data-category="Tours" data-keywords="tours travels travel vacation trip itinerary flight budget currency forex time zones packing">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&auto=format&fit=crop&q=80" alt="Tours & Travels" class="card-img" loading="lazy">
+          </div>
+          <div class="card-bottom">
+            <h2 class="category-name">Tours & Travels</h2>
+            <span class="category-arrow">&rarr;</span>
+          </div>
         </a>
 
-        <a href="/blog/general-knowledge/" class="image-category-card" data-category="Generic" data-keywords="generic general knowledge everyday math daily hacks conversions time dates measurements logic">
-          <div class="card-media"><img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=800&auto=format&fit=crop&q=80" alt="General Knowledge" class="card-img" loading="lazy"></div>
-          <div class="card-bottom"><h2 class="category-name">General Knowledge</h2><span class="category-arrow">&rarr;</span></div>
+        <!-- 3. Generic & General Knowledge -->
+        <a href="/categories/general-knowledge/" class="image-category-card" data-category="Generic" data-keywords="generic general knowledge everyday math daily hacks conversions time dates measurements logic">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=800&auto=format&fit=crop&q=80" alt="Generic Knowledge" class="card-img" loading="lazy">
+          </div>
+          <div class="card-bottom">
+            <h2 class="category-name">Generic Knowledge</h2>
+            <span class="category-arrow">&rarr;</span>
+          </div>
         </a>
 
-        <a href="/blog/finance/" class="image-category-card" data-category="Finance" data-keywords="finance loans emi interest compound mortgage tax wealth investment money budget savings">
-          <div class="card-media"><img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&auto=format&fit=crop&q=80" alt="Finance and Loans" class="card-img" loading="lazy"></div>
-          <div class="card-bottom"><h2 class="category-name">Finance & Loans</h2><span class="category-arrow">&rarr;</span></div>
+        <!-- 4. Finance & Loans -->
+        <a href="/categories/finance/" class="image-category-card" data-category="Finance" data-keywords="finance loans emi interest compound mortgage tax wealth investment money budget savings">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&auto=format&fit=crop&q=80" alt="Finance & Loans" class="card-img" loading="lazy">
+          </div>
+          <div class="card-bottom">
+            <h2 class="category-name">Finance & Loans</h2>
+            <span class="category-arrow">&rarr;</span>
+          </div>
         </a>
 
-        <a href="/blog/health-fitness/" class="image-category-card" data-category="Health" data-keywords="health fitness wellness bmi calorie diet tdee nutrition bmr ideal weight workouts">
-          <div class="card-media"><img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=800&auto=format&fit=crop&q=80" alt="Health and Fitness" class="card-img" loading="lazy"></div>
-          <div class="card-bottom"><h2 class="category-name">Health & Fitness</h2><span class="category-arrow">&rarr;</span></div>
+        <!-- 5. Health & Fitness -->
+        <a href="/categories/health-fitness/" class="image-category-card" data-category="Health" data-keywords="health fitness wellness bmi calorie diet tdee nutrition bmr ideal weight workouts">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=800&auto=format&fit=crop&q=80" alt="Health & Fitness" class="card-img" loading="lazy">
+          </div>
+          <div class="card-bottom">
+            <h2 class="category-name">Health & Fitness</h2>
+            <span class="category-arrow">&rarr;</span>
+          </div>
         </a>
 
-        <a href="/blog/technology/" class="image-category-card" data-category="Technology" data-keywords="technology tech digital tools coding web software ai utilities productivity automation computers">
-          <div class="card-media"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop&q=80" alt="Technology" class="card-img" loading="lazy"></div>
-          <div class="card-bottom"><h2 class="category-name">Technology</h2><span class="category-arrow">&rarr;</span></div>
+        <!-- 6. Technology & Digital Tools -->
+        <a href="/categories/technology/" class="image-category-card" data-category="Technology" data-keywords="technology tech digital tools coding web software ai utilities productivity automation computers">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop&q=80" alt="Technology" class="card-img" loading="lazy">
+          </div>
+          <div class="card-bottom">
+            <h2 class="category-name">Technology</h2>
+            <span class="category-arrow">&rarr;</span>
+          </div>
         </a>
 
-        <a href="/blog/business-career/" class="image-category-card" data-category="Business" data-keywords="business career jobs salary freelance resume pricing interview startup profit metrics work">
-          <div class="card-media"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&auto=format&fit=crop&q=80" alt="Business and Career" class="card-img" loading="lazy"></div>
-          <div class="card-bottom"><h2 class="category-name">Business & Career</h2><span class="category-arrow">&rarr;</span></div>
+        <!-- 7. Business & Career -->
+        <a href="/categories/business-career/" class="image-category-card" data-category="Business" data-keywords="business career jobs salary freelance resume pricing interview startup profit metrics work">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&auto=format&fit=crop&q=80" alt="Business & Career" class="card-img" loading="lazy">
+          </div>
+          <div class="card-bottom">
+            <h2 class="category-name">Business & Career</h2>
+            <span class="category-arrow">&rarr;</span>
+          </div>
         </a>
 
-        <a href="/blog/lifestyle/" class="image-category-card" data-category="Lifestyle" data-keywords="lifestyle hobbies leisure home diy gaming relationships cooking recipes">
-          <div class="card-media"><img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=800&auto=format&fit=crop&q=80" alt="Lifestyle and Hobbies" class="card-img" loading="lazy"></div>
-          <div class="card-bottom"><h2 class="category-name">Lifestyle & Hobbies</h2><span class="category-arrow">&rarr;</span></div>
+        <!-- 8. Lifestyle & Hobbies -->
+        <a href="/categories/lifestyle/" class="image-category-card" data-category="Lifestyle" data-keywords="lifestyle hobbies leisure home diy gaming relationships cooking recipes">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=800&auto=format&fit=crop&q=80" alt="Lifestyle & Hobbies" class="card-img" loading="lazy">
+          </div>
+          <div class="card-bottom">
+            <h2 class="category-name">Lifestyle & Hobbies</h2>
+            <span class="category-arrow">&rarr;</span>
+          </div>
         </a>
 
+        <!-- Empty State -->
         <div class="empty-state" id="emptyState">
           <h3>No categories found</h3>
-          <p>We couldn't find a category matching your search.</p>
+          <p>We couldn't find any category matching your search. Try checking for spelling or reset filters.</p>
           <button class="reset-btn" id="resetBtn">Reset Search</button>
         </div>
+
       </div>
     </section>
   </main>
 
-  <div class="disclaimer-banner"><strong>Disclaimer:</strong> All calculations provided are for educational purposes only. Consult a qualified professional for important financial or health decisions.</div>
+  <!-- Footer Disclaimer -->
+  <div class="disclaimer-banner">
+    <strong>Disclaimer:</strong> All calculations provided are for educational purposes only. Always consult a certified financial planner or medical doctor before making significant investment or physical health decisions.
+  </div>
 
+  <!-- Footer -->
   <footer>
     <div class="footer-container">
       <div class="footer-info">
-        <a href="/" class="logo" style="display:inline-flex;"><img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon"><span>CalcuPortal</span></a>
-        <p style="text-align:justify;">CalcuPortal helps you solve everyday calculations quickly with free, easy-to-use online calculators, guides, formulas, and practical resources.</p>
+        <a href="/" class="logo" style="display:inline-flex;">
+          <img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon">
+          <span>CalcuPortal</span>
+        </a>
+        <p style="text-align: justify;">CalcuPortal helps you solve everyday calculations quickly with free, easy-to-use online calculators. From finance and health to math, conversions, dates, and daily tools, our calculators are built for fast answers with clear explanations.</p>
       </div>
       <div class="footer-column">
         <h3><a href="/calculators/">All Calculators</a></h3>
-        <ul><li><a href="/calculators/loan-emi-calculator/">Loan EMI Calculator</a></li><li><a href="/calculators/bmi-calculator/">BMI Calculator</a></li><li><a href="/calculators/compound-interest-calculator/">Compound Interest</a></li><li><a href="/calculators/scientific-calculator/">Scientific Calculator</a></li></ul>
+        <ul>
+          <li><a href="/calculators/loan-emi-calculator/">Loan EMI Calculator</a></li>
+          <li><a href="/calculators/bmi-calculator/">BMI Calculator</a></li>
+          <li><a href="/calculators/compound-interest-calculator/">Compound Interest</a></li>
+          <li><a href="/calculators/scientific-calculator/">Scientific Calculator</a></li>
+        </ul>
       </div>
       <div class="footer-column">
         <h3>Pages</h3>
-        <ul><li><a href="/about/">About Us</a></li><li><a href="/contact/">Contact Us</a></li><li><a href="/privacy-policy/">Privacy Policy</a></li><li><a href="/disclaimer/">Disclaimer</a></li><li><a href="/advertise/">Advertise</a></li><li><a href="/terms-conditions/">Terms Conditions</a></li></ul>
+        <ul>
+          <li><a href="/about/">About Us</a></li>
+          <li><a href="/contact/">Contact Us</a></li>
+          <li><a href="/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="/disclaimer/">Disclaimer</a></li>
+          <li><a href="/advertise/">Advertise</a></li>
+          <li><a href="/terms-conditions/">Terms Conditions</a></li>
+        </ul>
       </div>
     </div>
-    <div class="copyright-bar">© <span id="year">2026</span> CalcuPortal. All rights reserved.</div>
+    <div class="copyright-bar">
+      © <span id="year">2026</span> CalcuPortal. All rights reserved.
+    </div>
   </footer>
 
+  <!-- Scripts -->
   <script>
-    const yearEl=document.getElementById('year'); if(yearEl) yearEl.innerText=new Date().getFullYear();
-    (function(){const savedTheme=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme',savedTheme==='dark'||(!savedTheme&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light');})();
-    document.addEventListener('DOMContentLoaded',()=>{
-      const themeBtns=document.querySelectorAll('.theme-btn');
-      function updateThemeIcons(theme){document.querySelectorAll('.theme-btn-icon').forEach(icon=>{icon.innerHTML=theme==='dark'?'<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>':'<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>';});}
-      updateThemeIcons(document.documentElement.getAttribute('data-theme'));
-      themeBtns.forEach(btn=>btn.addEventListener('click',()=>{const next=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',next);localStorage.setItem('theme',next);updateThemeIcons(next);}));
-      const menu=document.getElementById('menu-toggle'),nav=document.getElementById('nav-links'); if(menu&&nav) menu.addEventListener('click',()=>{menu.classList.toggle('active');nav.classList.toggle('active');});
-      const search=document.getElementById('search-input'), filters=document.querySelectorAll('.filter-tag-btn'), cards=document.querySelectorAll('.image-category-card'), badge=document.getElementById('categoryCountBadge'), empty=document.getElementById('emptyState'), reset=document.getElementById('resetBtn'); let active='all';
-      function filter(){let q=(search?.value||'').trim().toLowerCase(),count=0;cards.forEach(card=>{let cat=card.dataset.category||'',kw=(card.dataset.keywords||'').toLowerCase(),title=(card.querySelector('.category-name')?.textContent||'').toLowerCase(),ok=(active==='all'||cat.toLowerCase()===active.toLowerCase())&&(!q||title.includes(q)||kw.includes(q));card.style.display=ok?'flex':'none';if(ok)count++;});if(badge)badge.textContent=`${count} ${count===1?'Category':'Categories'}`;if(empty)empty.style.display=count?'none':'block';}
-      search?.addEventListener('input',filter); filters.forEach(btn=>btn.addEventListener('click',()=>{filters.forEach(b=>b.classList.remove('active'));btn.classList.add('active');active=btn.dataset.filter||'all';filter();})); reset?.addEventListener('click',()=>{search.value='';active='all';filters.forEach(b=>b.classList.remove('active'));document.querySelector('[data-filter="all"]')?.classList.add('active');filter();});
+    // Copyright Year
+    const yearEl = document.getElementById('year');
+    if (yearEl) {
+      yearEl.innerText = new Date().getFullYear();
+    }
+
+    // Theme Management
+    (function () {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Theme toggler
+      const themeToggleBtns = document.querySelectorAll('.theme-btn');
+
+      function updateThemeIcons(theme) {
+        const icons = document.querySelectorAll('.theme-btn-icon');
+        icons.forEach(icon => {
+          if (theme === 'dark') {
+            icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>`;
+          } else {
+            icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>`;
+          }
+        });
+      }
+
+      const initialTheme = document.documentElement.getAttribute('data-theme') || 'light';
+      updateThemeIcons(initialTheme);
+
+      themeToggleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const currentTheme = document.documentElement.getAttribute('data-theme');
+          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+          updateThemeIcons(newTheme);
+        });
+      });
+
+      // Mobile Menu
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileNavLinks = document.getElementById('nav-links');
+
+      if (menuToggle && mobileNavLinks) {
+        menuToggle.addEventListener('click', () => {
+          menuToggle.classList.toggle('active');
+          mobileNavLinks.classList.toggle('active');
+        });
+      }
+
+      // Live Category Search & Filter Pills
+      const searchInput = document.getElementById('search-input');
+      const filterBtns = document.querySelectorAll('.filter-tag-btn');
+      const categoryCards = document.querySelectorAll('.image-category-card');
+      const countBadge = document.getElementById('categoryCountBadge');
+      const emptyState = document.getElementById('emptyState');
+      const resetBtn = document.getElementById('resetBtn');
+
+      let activeFilter = 'all';
+      let searchQuery = '';
+
+      function filterCategories() {
+        let count = 0;
+        const q = searchQuery.trim().toLowerCase();
+
+        categoryCards.forEach(card => {
+          const cat = card.dataset.category || '';
+          const keywords = (card.dataset.keywords || '').toLowerCase();
+          const title = (card.querySelector('.category-name')?.textContent || '').toLowerCase();
+
+          const matchesTag = (activeFilter === 'all' || cat.toLowerCase() === activeFilter.toLowerCase());
+          const matchesQuery = !q || title.includes(q) || keywords.includes(q);
+
+          if (matchesTag && matchesQuery) {
+            card.style.display = 'flex';
+            count++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        if (countBadge) {
+          countBadge.textContent = `${count} ${count === 1 ? 'Category' : 'Categories'}`;
+        }
+        if (emptyState) {
+          emptyState.style.display = (count === 0) ? 'block' : 'none';
+        }
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          searchQuery = e.target.value;
+          filterCategories();
+        });
+      }
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          activeFilter = btn.dataset.filter || 'all';
+          filterCategories();
+        });
+      });
+
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          if (searchInput) searchInput.value = '';
+          searchQuery = '';
+          activeFilter = 'all';
+          filterBtns.forEach(b => b.classList.remove('active'));
+          document.querySelector('.filter-tag-btn[data-filter="all"]')?.classList.add('active');
+          filterCategories();
+        });
+      }
     });
   </script>
-
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"CollectionPage","name":"CalcuPortal Blog Categories","url":"https://www.calcuportal.com/blog/","description":"Explore practical guides, tutorials, formulas, and calculation resources from CalcuPortal.","hasPart":[{"@type":"CollectionPage","name":"Education Guides & Resources","url":"https://www.calcuportal.com/blog/education/"},{"@type":"CollectionPage","name":"Tours & Travel Guides","url":"https://www.calcuportal.com/blog/travel/"},{"@type":"CollectionPage","name":"General Knowledge Guides","url":"https://www.calcuportal.com/blog/general-knowledge/"},{"@type":"CollectionPage","name":"Finance & Loan Guides","url":"https://www.calcuportal.com/blog/finance/"},{"@type":"CollectionPage","name":"Health & Fitness Guides","url":"https://www.calcuportal.com/blog/health-fitness/"},{"@type":"CollectionPage","name":"Technology & Digital Guides","url":"https://www.calcuportal.com/blog/technology/"},{"@type":"CollectionPage","name":"Business & Career Guides","url":"https://www.calcuportal.com/blog/business-career/"},{"@type":"CollectionPage","name":"Lifestyle & Hobbies Guides","url":"https://www.calcuportal.com/blog/lifestyle/"}]}
-  </script>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.calcuportal.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.calcuportal.com/blog/"}]}
-  </script>
 </body>
-</html>
+</html>\n
