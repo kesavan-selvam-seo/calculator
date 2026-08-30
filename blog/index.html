@@ -1,833 +1,956 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="index, follow">
-  <meta name="description" content="Read practical CalcuPortal guides for finance, health, percentages, dates, age and everyday calculations, with formulas and examples that are easy to follow.">
-  <link rel="canonical" href="https://www.calcuportal.com/blog/">
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="shortcut icon" href="/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/favicon.png">
-  <title>Calculator Blog - Guides, Tips and Formula Articles | CalcuPortal</title>
+  <meta name="google-site-verification" content="kJqkVjrZKZa_p8O9yEJwxcXQIHAdREZdjYL86PQUbJA" />
+  <meta name="robots" content="index, follow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Categories - CalcuPortal Guides & Practical Formulas</title>
+  <meta name="description" content="Explore CalcuPortal categories: Education, Tours & Travels, Generic Knowledge, Finance, Health, Technology, Business, and Lifestyle. Free guides and practical formulas.">
+  <link rel="canonical" href="https://www.calcuportal.com/blog/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Blog Categories - CalcuPortal Guides & Practical Formulas">
+  <meta property="og:description" content="Explore categories: Education, Tours & Travels, Generic Knowledge, Finance, Health, Technology, Business, and Lifestyle.">
+  <meta property="og:url" content="https://www.calcuportal.com/blog/">
+  <meta property="og:site_name" content="CalcuPortal">
+  <meta property="og:image" content="https://www.calcuportal.com/logo.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blog Categories - CalcuPortal Guides & Practical Formulas">
+  <meta name="twitter:description" content="Explore categories: Education, Tours & Travels, Generic Knowledge, Finance, Health, Technology, Business, and Lifestyle.">
+  <meta name="twitter:image" content="https://www.calcuportal.com/logo.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
+    /* -------------------------------------------------------------
+       CALCUPORTAL CORE DESIGN SYSTEM
+       ------------------------------------------------------------- */
     :root {
-      color-scheme: light;
-      --primary: #7c3aed;
-      --primary-strong: #6930d3;
-      --primary-soft: #ede0ff;
-      --primary-pale: #f5efff;
-      --surface: #fefaff;
-      --surface-2: #f8f7fb;
-      --surface-3: #f0eaf6;
-      --card: #ffffff;
-      --text: #1d1a24;
-      --heading: #1a1c2e;
-      --muted: #5f5968;
-      --outline: #d7cedf;
-      --inverse: #17151d;
-      --inverse-2: #24212b;
-      --inverse-text: #f8f2fd;
-      --inverse-muted: #cbc2d2;
-      --shadow-sm: 0 8px 24px rgba(37, 24, 54, 0.06);
-      --shadow-md: 0 18px 48px rgba(37, 24, 54, 0.12);
-      --radius-xl: 32px;
-      --radius-lg: 20px;
-      --radius-md: 14px;
-      --page: 1280px;
-      --gutter: clamp(16px, 3vw, 28px);
-      --header-h: 80px;
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+      --font-heading: 'Outfit', sans-serif;
+
+      /* Light Theme Tokens */
+      --bg-primary: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-nav: rgba(255, 255, 255, 0.9);
+      --border-color: #cbd5e1;
+      --border-light: #f1f5f9;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --primary: #4f46e5;
+      --primary-hover: #4338ca;
+      --primary-light: #e0e7ff;
+      --accent: #10b981;
+      --danger: #ef4444;
+      --warning: #d97706;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
     }
 
-    html[data-theme="dark"] {
-      color-scheme: dark;
-      --surface: #121017;
-      --surface-2: #18151e;
-      --surface-3: #211d28;
-      --card: #1b1820;
-      --text: #f3edf7;
-      --heading: #fff9ff;
-      --muted: #c4bbc9;
-      --outline: #3c3544;
-      --primary-soft: #33254c;
-      --primary-pale: #20192c;
-      --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.18);
-      --shadow-md: 0 18px 48px rgba(0, 0, 0, 0.28);
+    [data-theme="dark"] {
+      /* Dark Theme Tokens */
+      --bg-primary: #030712;
+      --bg-card: #0b0f19;
+      --bg-nav: rgba(3, 7, 18, 0.9);
+      --border-color: #1e293b;
+      --border-light: #111827;
+      --text-primary: #f9fafb;
+      --text-secondary: #cbd5e1;
+      --text-muted: #9ca3af;
+      --primary: #818cf8;
+      --primary-hover: #6366f1;
+      --primary-light: #1e1b4b;
+      --accent: #34d399;
+      --danger: #f87171;
+      --warning: #fbbf24;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
     }
 
-    *, *::before, *::after { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
 
     body {
-      margin: 0;
-      min-width: 0;
-      overflow-x: hidden;
-      background: var(--surface);
-      color: var(--text);
-      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
+      font-family: var(--font-sans);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.3s, color 0.3s;
     }
 
-    button, input { font: inherit; }
-    [hidden] { display: none !important; }
-    button, a { -webkit-tap-highlight-color: transparent; }
-    img, svg { display: block; max-width: 100%; }
-    a { color: inherit; }
-
-    p {
-      text-align: justify;
-      text-align-last: left;
-      text-justify: inter-word;
-      hyphens: auto;
-      overflow-wrap: break-word;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .page-shell {
-      width: min(var(--page), calc(100% - (var(--gutter) * 2)));
-      margin-inline: auto;
+    button, input {
+      font: inherit;
+      color: inherit;
     }
 
-    /* Header */
-    .site-header {
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    /* -------------------------------------------------------------
+       CALCUPORTAL HEADER & NAVIGATION
+       ------------------------------------------------------------- */
+    header {
       position: sticky;
       top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid var(--outline);
-      background: color-mix(in srgb, var(--surface) 92%, transparent);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background-color: var(--bg-nav);
+      border-bottom: 1px solid var(--border-color);
+      transition: background-color 0.3s, border-color 0.3s;
     }
 
     .nav-container {
-      width: min(var(--page), calc(100% - (var(--gutter) * 2)));
-      min-height: var(--header-h);
-      margin-inline: auto;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      height: 4.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
-      position: relative;
     }
 
     .logo {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 10px;
-      min-width: 0;
-      color: var(--primary);
-      font-family: Outfit, Inter, ui-sans-serif, sans-serif;
-      font-weight: 700;
-      font-size: clamp(21px, 2vw, 26px);
-      line-height: 1;
+      gap: 0.5rem;
       text-decoration: none;
-      letter-spacing: -0.03em;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--primary);
+      background: linear-gradient(135deg, var(--primary) 0%, #a855f7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .logo-icon {
-      width: 42px;
-      height: 42px;
-      flex: 0 0 auto;
+      width: 36px;
+      height: 36px;
       object-fit: contain;
+      display: inline-block;
+      vertical-align: middle;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: clamp(22px, 3vw, 40px);
+      gap: 1rem;
     }
 
     .nav-link {
-      position: relative;
-      padding: 30px 0 27px;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 650;
       text-decoration: none;
-      transition: color .2s ease;
+      color: var(--text-secondary);
+      font-weight: 600;
+      font-size: 0.875rem;
+      padding: 0.5rem 1rem;
+      border-radius: 0.75rem;
+      transition: all 0.2s;
     }
 
     .nav-link:hover,
-    .nav-link.active { color: var(--primary); }
-
-    .nav-link.active::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 17px;
-      height: 2px;
-      border-radius: 999px;
-      background: var(--primary);
-    }
-
-    .theme-btn,
-    .menu-toggle,
-    .icon-btn {
-      border: 0;
-      background: transparent;
-      color: var(--muted);
-      cursor: pointer;
-    }
-
-    .theme-btn {
-      width: 40px;
-      height: 40px;
-      display: inline-grid;
-      place-items: center;
-      border: 1px solid var(--outline);
-      border-radius: 50%;
-      transition: border-color .2s ease, color .2s ease, background .2s ease;
-    }
-
-    .theme-btn:hover {
+    .nav-link.active {
       color: var(--primary);
-      border-color: color-mix(in srgb, var(--primary) 45%, var(--outline));
-      background: var(--primary-pale);
+      background-color: var(--primary-light);
     }
 
-    .theme-btn svg { width: 20px; height: 20px; }
-
-    .theme-icon-sun { display: none; }
-    html[data-theme="dark"] .theme-icon-moon { display: none; }
-    html[data-theme="dark"] .theme-icon-sun { display: block; }
-
+    /* Mobile Menu Toggle Button */
     .menu-toggle {
       display: none;
-      width: 46px;
-      height: 46px;
-      padding: 10px 8px;
-      border-radius: 10px;
-      flex: 0 0 auto;
-      align-items: center;
-      justify-content: center;
       flex-direction: column;
-      gap: 6px;
+      justify-content: space-between;
+      width: 24px;
+      height: 18px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 100;
     }
 
     .menu-toggle .bar {
-      display: block;
-      width: 27px;
-      height: 3px;
-      border-radius: 999px;
-      background: currentColor;
-      transition: transform .25s ease, opacity .2s ease;
-      transform-origin: center;
+      width: 24px;
+      height: 2px;
+      background-color: var(--text-primary);
+      border-radius: 2px;
+      transition: all 0.3s ease;
     }
 
-    .menu-toggle[aria-expanded="true"] .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
-    .menu-toggle[aria-expanded="true"] .bar:nth-child(2) { opacity: 0; }
-    .menu-toggle[aria-expanded="true"] .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
-
-    /* Main */
-    main { padding: clamp(28px, 4vw, 48px) 0 0; }
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(380px, .82fr);
-      gap: clamp(42px, 6vw, 78px);
-      align-items: center;
-      margin-bottom: 58px;
-      padding: clamp(42px, 6vw, 70px);
-      border-radius: var(--radius-xl);
-      background:
-        radial-gradient(circle at 92% 8%, rgba(124,58,237,.32), transparent 30%),
-        linear-gradient(135deg, #24212b 0%, var(--inverse) 58%, #1f1828 100%);
-      color: var(--inverse-text);
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 430px;
-      height: 430px;
-      right: -230px;
-      bottom: -280px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(168,85,247,.25), transparent 68%);
-      pointer-events: none;
-    }
-
-    .hero-copy, .hero-card { position: relative; z-index: 1; min-width: 0; }
-
-    .eyebrow {
+    /* Theme Toggle Button */
+    .theme-btn {
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 0.75rem;
+      cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 18px;
-      color: #d2bbff;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .15em;
-      text-transform: uppercase;
+      justify-content: center;
+      transition: all 0.2s;
     }
 
-    .eyebrow::before {
-      content: "";
-      width: 34px;
-      height: 1px;
-      background: currentColor;
+    .theme-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* -------------------------------------------------------------
+       MAIN LAYOUT & HERO BANNER
+       ------------------------------------------------------------- */
+    main {
+      flex-grow: 1;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 1.5rem;
+      background-color: #0f172a;
+      color: white;
+      border-radius: 2rem;
+      margin-bottom: 3rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
     }
 
     .hero h1 {
-      max-width: 690px;
-      margin: 0;
-      color: #fff;
-      font-family: Outfit, Inter, ui-sans-serif, sans-serif;
-      font-size: clamp(42px, 5vw, 68px);
-      line-height: .99;
-      letter-spacing: -.045em;
-      font-weight: 700;
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 1rem;
     }
 
-    .hero h1 em {
-      color: #d2bbff;
-      font-family: Georgia, "Times New Roman", serif;
-      font-weight: 400;
+    .hero h1 span {
+      background: linear-gradient(135deg, #a5b4fc 0%, #c084fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .hero-copy > p {
-      max-width: 620px;
-      margin: 24px 0 30px;
-      color: var(--inverse-muted);
-      font-size: 17px;
-      line-height: 1.72;
+    .hero p {
+      font-size: 1.125rem;
+      color: #94a3b8;
+      max-width: 42rem;
+      margin: 0 auto 2rem;
     }
 
-    .primary-button,
-    .secondary-button {
-      display: inline-flex;
+    .search-container {
+      max-width: 32rem;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 1rem 1.5rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 1rem;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    .search-input::placeholder {
+      color: #94a3b8;
+    }
+
+    .search-input:focus {
+      background-color: rgba(255, 255, 255, 0.15);
+      border-color: #818cf8;
+      box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.3);
+    }
+
+    /* Filter Pills */
+    .filter-tags-row {
+      display: flex;
       align-items: center;
       justify-content: center;
-      gap: 9px;
-      min-height: 48px;
-      padding: 0 22px;
-      border: 0;
-      border-radius: 999px;
-      font-weight: 750;
-      font-size: 14px;
-      text-decoration: none;
-      cursor: pointer;
-      transition: transform .2s ease, background .2s ease, opacity .2s ease, box-shadow .2s ease;
-    }
-
-    .primary-button {
-      background: var(--primary);
-      color: #fff;
-      box-shadow: 0 10px 28px rgba(124,58,237,.24);
-    }
-
-    .primary-button:hover { transform: translateY(-2px); background: var(--primary-strong); }
-
-    .hero-card {
-      padding: 26px;
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 22px;
-      background: #fff;
-      color: #1d1a24;
-      box-shadow: 0 26px 70px rgba(0,0,0,.26);
-    }
-
-    .hero-card-number {
-      position: absolute;
-      top: -18px;
-      right: -18px;
-      display: grid;
-      place-items: center;
-      width: 62px;
-      height: 62px;
-      border-radius: 50%;
-      background: var(--primary);
-      color: #fff;
-      font-family: Outfit, sans-serif;
-      font-size: 25px;
-      font-weight: 750;
-      transform: rotate(9deg);
-      box-shadow: 0 12px 28px rgba(124,58,237,.34);
-    }
-
-    .card-meta {
-      display: flex;
-      align-items: center;
+      gap: 0.5rem;
       flex-wrap: wrap;
-      gap: 9px;
-      margin-bottom: 13px;
-      color: #6d6677;
-      font-size: 12px;
+      margin-bottom: 2.5rem;
+    }
+
+    .filter-tag-btn {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
       font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
     }
 
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      min-height: 25px;
-      padding: 0 9px;
-      border-radius: 999px;
-      background: var(--primary);
-      color: #fff;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-
-    .hero-card h2 {
-      margin: 0 0 13px;
-      color: #1a1c2e;
-      font-family: Outfit, Inter, sans-serif;
-      font-size: clamp(24px, 2.6vw, 32px);
-      line-height: 1.12;
-      letter-spacing: -.025em;
-    }
-
-    .hero-card p {
-      margin: 0 0 20px;
-      color: #5f5968;
-      font-size: 14px;
-      line-height: 1.65;
-    }
-
-    .text-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
+    .filter-tag-btn:hover {
       color: var(--primary);
-      font-size: 14px;
-      font-weight: 750;
-      text-decoration: none;
+      border-color: var(--primary);
+      background-color: var(--primary-light);
     }
 
-    .text-link:hover { text-decoration: underline; }
-    .text-link svg { width: 17px; height: 17px; }
-
-    .trust-row {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 22px;
-      margin-bottom: clamp(58px, 7vw, 86px);
-      padding: 30px 0;
-      border-top: 1px solid var(--outline);
-      border-bottom: 1px solid var(--outline);
+    .filter-tag-btn.active {
+      background-color: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
     }
 
-    .trust-item { min-width: 0; }
-    .trust-icon { width: 25px; height: 25px; margin-bottom: 8px; color: var(--primary); }
-    .trust-item strong { display: block; color: var(--heading); font-size: 14px; }
-
-    .intro-grid {
-      display: grid;
-      grid-template-columns: 150px minmax(0, .95fr) minmax(0, 1fr);
-      gap: clamp(28px, 5vw, 70px);
-      align-items: start;
-      margin-bottom: clamp(58px, 7vw, 86px);
+    /* -------------------------------------------------------------
+       CATEGORY SECTION & IMAGE CARDS (NO INTERIOR TEXT)
+       ------------------------------------------------------------- */
+    .category-section {
+      margin-bottom: 3.5rem;
     }
 
-    .section-label {
-      padding-top: 4px;
-      color: var(--muted);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-    }
-
-    .section-heading {
-      margin: 0;
-      color: var(--heading);
-      font-family: Outfit, Inter, sans-serif;
-      font-size: clamp(30px, 4vw, 46px);
-      line-height: 1.05;
-      letter-spacing: -.04em;
-    }
-
-    .intro-copy p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.75;
-    }
-
-    .content-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 320px;
-      gap: 34px;
-      align-items: start;
-      margin-bottom: 80px;
-    }
-
-    .section-header {
+    .category-header {
       display: flex;
-      align-items: end;
+      align-items: center;
       justify-content: space-between;
-      gap: 20px;
-      margin-bottom: 24px;
+      margin-bottom: 1.5rem;
     }
 
-    .section-header h2 {
-      margin: 0;
-      color: var(--heading);
-      font-family: Outfit, Inter, sans-serif;
-      font-size: clamp(25px, 3vw, 34px);
-      line-height: 1.1;
-      letter-spacing: -.03em;
+    .category-title {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
-    .section-header p {
-      margin: 5px 0 0;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.55;
+    .category-count-badge {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      font-weight: 500;
     }
 
-    .post-grid {
+    .category-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
     }
 
-    .post-card {
+    .image-category-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 1rem;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
-      min-width: 0;
-      min-height: 100%;
-      padding: 22px;
-      border: 1px solid var(--outline);
-      border-radius: var(--radius-lg);
-      background: var(--card);
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       box-shadow: var(--shadow-sm);
-      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
     }
 
-    .post-card:hover {
-      transform: translateY(-3px);
-      border-color: color-mix(in srgb, var(--primary) 35%, var(--outline));
+    .image-category-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-4px);
       box-shadow: var(--shadow-md);
     }
 
-    .post-card .card-meta { margin-bottom: 15px; }
-
-    .post-card h3 {
-      margin: 0 0 10px;
-      color: var(--heading);
-      font-family: Outfit, Inter, sans-serif;
-      font-size: 22px;
-      line-height: 1.18;
-      letter-spacing: -.025em;
+    .card-media {
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      background-color: var(--border-light);
     }
 
-    .post-card p {
-      margin: 0 0 20px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.7;
+    .card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
     }
 
-    .post-card .text-link { margin-top: auto; }
-
-    .sidebar-card {
-      padding: 24px;
-      border-radius: var(--radius-lg);
-      background: var(--surface-2);
-      border: 1px solid var(--outline);
+    .image-category-card:hover .card-img {
+      transform: scale(1.06);
     }
 
-    .sidebar-card + .sidebar-card { margin-top: 18px; }
-
-    .sidebar-card h2,
-    .sidebar-card h3 {
-      margin: 0 0 12px;
-      color: var(--heading);
-      font-family: Outfit, Inter, sans-serif;
-      line-height: 1.2;
-    }
-
-    .sidebar-card h2 { font-size: 22px; }
-    .sidebar-card h3 { font-size: 17px; }
-
-    .sidebar-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.7;
-    }
-
-    .sidebar-links {
-      display: grid;
-      gap: 10px;
-      margin-top: 16px;
-    }
-
-    .sidebar-links a {
+    .card-bottom {
+      padding: 1rem 1.25rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 10px;
-      padding: 12px 13px;
-      border: 1px solid var(--outline);
-      border-radius: 12px;
-      background: var(--card);
-      color: var(--heading);
-      font-size: 13px;
+      background-color: var(--bg-card);
+      border-top: 1px solid var(--border-light);
+    }
+
+    .category-name {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
       font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .category-arrow {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      transition: transform 0.2s, color 0.2s;
+    }
+
+    .image-category-card:hover .category-arrow {
+      transform: translateX(4px);
+      color: var(--primary);
+    }
+
+    /* Empty state */
+    .empty-state {
+      display: none;
+      text-align: center;
+      padding: 3rem 1rem;
+      grid-column: 1 / -1;
+      background-color: var(--bg-card);
+      border: 1px dashed var(--border-color);
+      border-radius: 1rem;
+    }
+
+    .empty-state h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+
+    .empty-state p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .reset-btn {
+      background-color: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--primary);
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      font-size: 0.875rem;
+      cursor: pointer;
+    }
+
+    .reset-btn:hover {
+      border-color: var(--primary);
+      background-color: var(--primary-light);
+    }
+
+    /* -------------------------------------------------------------
+       FOOTER & DISCLAIMER
+       ------------------------------------------------------------- */
+    .disclaimer-banner {
+      background-color: rgba(245, 158, 11, 0.05);
+      border: 1px solid rgba(245, 158, 11, 0.2);
+      color: var(--warning);
+      padding: 1rem;
+      border-radius: 0.75rem;
+      font-size: 0.75rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-color);
+      background-color: var(--bg-card);
+      padding: 3rem 1.5rem 1.5rem;
+      margin-top: auto;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-info p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+      max-width: 24rem;
+    }
+
+    .footer-column h3 {
+      font-family: var(--font-heading);
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-column a {
       text-decoration: none;
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
     }
 
-    .sidebar-links a:hover { color: var(--primary); }
-
-    .newsletter {
-      margin-bottom: 80px;
-      padding: clamp(28px, 5vw, 50px);
-      border-radius: var(--radius-xl);
-      background: var(--primary-pale);
-      border: 1px solid var(--primary-soft);
+    .footer-column a:hover {
+      color: var(--primary);
     }
 
-    .newsletter h2 {
-      margin: 0 0 10px;
-      color: var(--heading);
-      font-family: Outfit, Inter, sans-serif;
-      font-size: clamp(26px, 3vw, 38px);
-      line-height: 1.08;
-      letter-spacing: -.03em;
+    .copyright-bar {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-light);
+      padding-top: 1.5rem;
     }
 
-    .newsletter p {
-      max-width: 680px;
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.7;
+    /* -------------------------------------------------------------
+       RESPONSIVE DESIGN
+       ------------------------------------------------------------- */
+    @media (max-width: 1024px) {
+      .category-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
 
-    .footer {
-      padding: 34px 0 40px;
-      border-top: 1px solid var(--outline);
-      color: var(--muted);
-      font-size: 12px;
-    }
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
 
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .footer a { text-decoration: none; }
-    .footer a:hover { color: var(--primary); }
-
-    @media (max-width: 980px) {
-      .hero { grid-template-columns: 1fr; }
-      .hero-card { max-width: 650px; }
-      .intro-grid { grid-template-columns: 1fr 1fr; }
-      .section-label { grid-column: 1 / -1; }
-      .content-grid { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 760px) {
-      :root { --header-h: 68px; }
-      .nav-container { min-height: var(--header-h); }
       .nav-links {
+        display: none;
         position: absolute;
-        top: calc(100% + 1px);
+        top: 100%;
         left: 0;
         right: 0;
-        display: none;
+        background-color: var(--bg-card);
+        border-bottom: 1px solid var(--border-color);
         flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-        padding: 8px 16px 16px;
-        background: var(--surface);
-        border-bottom: 1px solid var(--outline);
-        box-shadow: var(--shadow-md);
+        padding: 1.5rem;
+        gap: 1rem;
+        box-shadow: var(--shadow-lg);
+        z-index: 100;
       }
-      .nav-links.open { display: flex; }
-      .nav-link { padding: 14px 4px; }
-      .nav-link.active::after { display: none; }
-      .menu-toggle { display: inline-flex; }
-      .theme-btn { width: 38px; height: 38px; }
-      .hero { padding: 32px 24px; border-radius: 24px; }
-      .hero h1 { font-size: clamp(38px, 12vw, 52px); }
-      .trust-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .intro-grid { grid-template-columns: 1fr; }
-      .section-label { grid-column: auto; }
-      .post-grid { grid-template-columns: 1fr; }
-      .footer-inner { flex-direction: column; align-items: flex-start; }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-link {
+        width: 100%;
+        text-align: center;
+      }
+
+      .theme-btn {
+        align-self: center;
+        margin-top: 0.5rem;
+      }
+
+      .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+      }
+      .menu-toggle.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+
+      .hero {
+        padding: 3rem 1rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
     }
 
     @media (max-width: 480px) {
-      .logo { font-size: 21px; }
-      .logo-icon { width: 36px; height: 36px; }
-      .hero-card { padding: 21px; }
-      .trust-row { gap: 18px 14px; }
-      .trust-item strong { font-size: 13px; }
+      .category-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
-  <header class="site-header">
+
+  <!-- Header -->
+  <header>
     <div class="nav-container">
-      <a class="logo" href="/" aria-label="CalcuPortal Home">
-        <img class="logo-icon" src="/favicon.png" alt="CalcuPortal" width="42" height="42">
+      <a href="/" class="logo">
+        <img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon">
         <span>CalcuPortal</span>
       </a>
-      <nav class="nav-links" id="navLinks" aria-label="Primary navigation">
-        <a class="nav-link" href="/">Calculators</a>
-        <a class="nav-link active" href="/blog/" aria-current="page">Blog</a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav class="nav-links" id="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/about/" class="nav-link">About</a>
+        <a href="/contact/" class="nav-link">Contact</a>
+        <a href="/blog/" class="nav-link active">Blog</a>
+        <button class="theme-btn" title="Toggle Theme" aria-label="Toggle theme">
+          <span class="theme-btn-icon"></span>
+        </button>
       </nav>
-      <div style="display:flex;align-items:center;gap:8px;">
-        <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch to dark mode">
-          <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
-          <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-        </button>
-        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
-          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-        </button>
-      </div>
     </div>
   </header>
 
-  <main class="page-shell">
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Banner -->
     <section class="hero">
-      <div class="hero-copy">
-        <div class="eyebrow">CalcuPortal Blog</div>
-        <h1>CalcuPortal <em>Blog</em></h1>
-        <p>Practical guides, formulas, examples, and calculation tips to help you understand everyday maths, finance, health, and other useful calculations.</p>
-        <a class="primary-button" href="#latest">Explore Articles</a>
-      </div>
-
-      <article class="hero-card">
-        <span class="hero-card-number">01</span>
-        <div class="card-meta"><span class="pill">Featured</span><span>Calculation Guide</span></div>
-        <h2>How to Calculate Your Age Accurately</h2>
-        <p>Learn the simple method to calculate age from a date of birth, including completed years, months, and days with clear examples.</p>
-        <a class="text-link" href="/blog/how-to-calculate-age/">Read guide <span aria-hidden="true">→</span></a>
-      </article>
-    </section>
-
-    <section class="trust-row" aria-label="Blog benefits">
-      <div class="trust-item"><div class="trust-icon">✓</div><strong>Clear explanations</strong></div>
-      <div class="trust-item"><div class="trust-icon">▣</div><strong>Useful formulas</strong></div>
-      <div class="trust-item"><div class="trust-icon">↗</div><strong>Practical examples</strong></div>
-      <div class="trust-item"><div class="trust-icon">⌁</div><strong>Easy to follow</strong></div>
-    </section>
-
-    <section class="intro-grid">
-      <div class="section-label">About the blog</div>
-      <h2 class="section-heading">Understand the calculation, not just the answer.</h2>
-      <div class="intro-copy">
-        <p>The CalcuPortal Blog brings together straightforward guides for common calculations. Explore formulas, step-by-step methods, examples, and useful tips that make calculations easier to understand and apply.</p>
+      <h1>Knowledge & Blog <span>Categories</span></h1>
+      <p>Explore practical formula guides, tutorials, and calculation methods categorized by domain. Clean, responsive, and 100% free.</p>
+      <div class="search-container">
+        <input type="text" id="search-input" class="search-input" placeholder="Search categories by name or keyword (e.g. education, travel, generic, finance)..." aria-label="Search categories">
       </div>
     </section>
 
-    <section class="content-grid" id="latest">
-      <div>
-        <div class="section-header">
-          <div>
-            <h2>Latest calculation guides</h2>
-            <p>Helpful articles for everyday calculations.</p>
+    <!-- Filter Tags Row -->
+    <div class="filter-tags-row" role="tablist" aria-label="Filter categories">
+      <button class="filter-tag-btn active" data-filter="all">All Categories</button>
+      <button class="filter-tag-btn" data-filter="Education">Education</button>
+      <button class="filter-tag-btn" data-filter="Tours">Tours & Travels</button>
+      <button class="filter-tag-btn" data-filter="Generic">Generic Knowledge</button>
+      <button class="filter-tag-btn" data-filter="Finance">Finance & Loans</button>
+      <button class="filter-tag-btn" data-filter="Health">Health & Fitness</button>
+      <button class="filter-tag-btn" data-filter="Technology">Technology</button>
+      <button class="filter-tag-btn" data-filter="Business">Business</button>
+      <button class="filter-tag-btn" data-filter="Lifestyle">Lifestyle</button>
+    </div>
+
+    <!-- Category Directories Section -->
+    <section class="category-section" id="categories-directory-section">
+      <div class="category-header">
+        <span class="category-title">📂 Explore Categories</span>
+        <span class="category-count-badge" id="categoryCountBadge">8 Categories</span>
+      </div>
+
+      <div class="category-grid" id="categoryGrid">
+
+        <!-- 1. Education -->
+        <a href="/categories/education/" class="image-category-card" data-category="Education" data-keywords="education learning academic gpa grades exams study scholarships admission college school stem">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&auto=format&fit=crop&q=80" alt="Education" class="card-img" loading="lazy">
           </div>
-        </div>
-        <div class="post-grid">
-          <article class="post-card">
-            <div class="card-meta"><span class="pill">Finance</span><span>Guide</span></div>
-            <h3>EMI Calculation Guide</h3>
-            <p>Understand how EMI is calculated using the principal amount, interest rate, and loan tenure, with a simple formula and example.</p>
-            <a class="text-link" href="/blog/emi-calculation-guide/">Read guide <span aria-hidden="true">→</span></a>
-          </article>
-          <article class="post-card">
-            <div class="card-meta"><span class="pill">Math</span><span>Guide</span></div>
-            <h3>Percentage Calculation Guide</h3>
-            <p>Learn how to calculate percentages, percentage change, increases, decreases, and other common percentage problems.</p>
-            <a class="text-link" href="/blog/percentage-calculation-guide/">Read guide <span aria-hidden="true">→</span></a>
-          </article>
-          <article class="post-card">
-            <div class="card-meta"><span class="pill">Health</span><span>Guide</span></div>
-            <h3>How to Calculate BMI</h3>
-            <p>Find out how BMI is calculated from height and weight, understand the formula, and see how the result is interpreted.</p>
-            <a class="text-link" href="/blog/how-to-calculate-bmi/">Read guide <span aria-hidden="true">→</span></a>
-          </article>
-          <article class="post-card">
-            <div class="card-meta"><span class="pill">Dates</span><span>Guide</span></div>
-            <h3>How to Calculate Age</h3>
-            <p>Learn a simple way to calculate age from a date of birth and understand the difference between completed years and exact age.</p>
-            <a class="text-link" href="/blog/how-to-calculate-age/">Read guide <span aria-hidden="true">→</span></a>
-          </article>
-        </div>
-      </div>
-
-      <aside>
-        <div class="sidebar-card">
-          <h2>Explore CalcuPortal</h2>
-          <p>Use our calculators for quick results, then explore the blog for the formulas and methods behind them.</p>
-          <div class="sidebar-links">
-            <a href="/">All Calculators <span aria-hidden="true">→</span></a>
-            <a href="/blog/">All Blog Guides <span aria-hidden="true">→</span></a>
+          <div class="card-bottom">
+            <h2 class="category-name">Education</h2>
+            <span class="category-arrow">&rarr;</span>
           </div>
-        </div>
-        <div class="sidebar-card">
-          <h3>Why read our guides?</h3>
-          <p>Each guide focuses on practical explanations so you can understand how a calculation works and apply the method yourself.</p>
-        </div>
-      </aside>
-    </section>
+        </a>
 
-    <section class="newsletter">
-      <h2>Learn the method behind the number.</h2>
-      <p>From percentages and EMI to age and BMI, explore simple explanations that make everyday calculations easier.</p>
+        <!-- 2. Tours & Travels -->
+        <a href="/categories/travel/" class="image-category-card" data-category="Tours" data-keywords="tours travels travel vacation trip itinerary flight budget currency forex time zones packing">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&auto=format&fit=crop&q=80" alt="Tours & Travels" class="card-img" loading="lazy">
+          </div>
+          <div class="card-bottom">
+            <h2 class="category-name">Tours & Travels</h2>
+            <span class="category-arrow">&rarr;</span>
+          </div>
+        </a>
+
+        <!-- 3. Generic & General Knowledge -->
+        <a href="/categories/general-knowledge/" class="image-category-card" data-category="Generic" data-keywords="generic general knowledge everyday math daily hacks conversions time dates measurements logic">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=800&auto=format&fit=crop&q=80" alt="Generic Knowledge" class="card-img" loading="lazy">
+          </div>
+          <div class="card-bottom">
+            <h2 class="category-name">Generic Knowledge</h2>
+            <span class="category-arrow">&rarr;</span>
+          </div>
+        </a>
+
+        <!-- 4. Finance & Loans -->
+        <a href="/categories/finance/" class="image-category-card" data-category="Finance" data-keywords="finance loans emi interest compound mortgage tax wealth investment money budget savings">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&auto=format&fit=crop&q=80" alt="Finance & Loans" class="card-img" loading="lazy">
+          </div>
+          <div class="card-bottom">
+            <h2 class="category-name">Finance & Loans</h2>
+            <span class="category-arrow">&rarr;</span>
+          </div>
+        </a>
+
+        <!-- 5. Health & Fitness -->
+        <a href="/categories/health-fitness/" class="image-category-card" data-category="Health" data-keywords="health fitness wellness bmi calorie diet tdee nutrition bmr ideal weight workouts">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=800&auto=format&fit=crop&q=80" alt="Health & Fitness" class="card-img" loading="lazy">
+          </div>
+          <div class="card-bottom">
+            <h2 class="category-name">Health & Fitness</h2>
+            <span class="category-arrow">&rarr;</span>
+          </div>
+        </a>
+
+        <!-- 6. Technology & Digital Tools -->
+        <a href="/categories/technology/" class="image-category-card" data-category="Technology" data-keywords="technology tech digital tools coding web software ai utilities productivity automation computers">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop&q=80" alt="Technology" class="card-img" loading="lazy">
+          </div>
+          <div class="card-bottom">
+            <h2 class="category-name">Technology</h2>
+            <span class="category-arrow">&rarr;</span>
+          </div>
+        </a>
+
+        <!-- 7. Business & Career -->
+        <a href="/categories/business-career/" class="image-category-card" data-category="Business" data-keywords="business career jobs salary freelance resume pricing interview startup profit metrics work">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&auto=format&fit=crop&q=80" alt="Business & Career" class="card-img" loading="lazy">
+          </div>
+          <div class="card-bottom">
+            <h2 class="category-name">Business & Career</h2>
+            <span class="category-arrow">&rarr;</span>
+          </div>
+        </a>
+
+        <!-- 8. Lifestyle & Hobbies -->
+        <a href="/categories/lifestyle/" class="image-category-card" data-category="Lifestyle" data-keywords="lifestyle hobbies leisure home diy gaming relationships cooking recipes">
+          <div class="card-media">
+            <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=800&auto=format&fit=crop&q=80" alt="Lifestyle & Hobbies" class="card-img" loading="lazy">
+          </div>
+          <div class="card-bottom">
+            <h2 class="category-name">Lifestyle & Hobbies</h2>
+            <span class="category-arrow">&rarr;</span>
+          </div>
+        </a>
+
+        <!-- Empty State -->
+        <div class="empty-state" id="emptyState">
+          <h3>No categories found</h3>
+          <p>We couldn't find any category matching your search. Try checking for spelling or reset filters.</p>
+          <button class="reset-btn" id="resetBtn">Reset Search</button>
+        </div>
+
+      </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="page-shell footer-inner">
-      <span>© 2026 CalcuPortal. All rights reserved.</span>
-      <a href="/">Back to calculators</a>
+  <!-- Footer Disclaimer -->
+  <div class="disclaimer-banner">
+    <strong>Disclaimer:</strong> All calculations provided are for educational purposes only. Always consult a certified financial planner or medical doctor before making significant investment or physical health decisions.
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-info">
+        <a href="/" class="logo" style="display:inline-flex;">
+          <img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon">
+          <span>CalcuPortal</span>
+        </a>
+        <p style="text-align: justify;">CalcuPortal helps you solve everyday calculations quickly with free, easy-to-use online calculators. From finance and health to math, conversions, dates, and daily tools, our calculators are built for fast answers with clear explanations.</p>
+      </div>
+      <div class="footer-column">
+        <h3><a href="/calculators/">All Calculators</a></h3>
+        <ul>
+          <li><a href="/calculators/loan-emi-calculator/">Loan EMI Calculator</a></li>
+          <li><a href="/calculators/bmi-calculator/">BMI Calculator</a></li>
+          <li><a href="/calculators/compound-interest-calculator/">Compound Interest</a></li>
+          <li><a href="/calculators/scientific-calculator/">Scientific Calculator</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Pages</h3>
+        <ul>
+          <li><a href="/about/">About Us</a></li>
+          <li><a href="/contact/">Contact Us</a></li>
+          <li><a href="/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="/disclaimer/">Disclaimer</a></li>
+          <li><a href="/advertise/">Advertise</a></li>
+          <li><a href="/terms-conditions/">Terms Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright-bar">
+      © <span id="year">2026</span> CalcuPortal. All rights reserved.
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script>
-    const html = document.documentElement;
-    const themeBtn = document.getElementById('themeBtn');
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
-
-    const savedTheme = localStorage.getItem('calcuportal-theme');
-    if (savedTheme === 'dark') html.setAttribute('data-theme', 'dark');
-
-    function updateThemeLabel() {
-      const dark = html.getAttribute('data-theme') === 'dark';
-      themeBtn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+    // Copyright Year
+    const yearEl = document.getElementById('year');
+    if (yearEl) {
+      yearEl.innerText = new Date().getFullYear();
     }
-    updateThemeLabel();
 
-    themeBtn.addEventListener('click', () => {
-      const dark = html.getAttribute('data-theme') === 'dark';
-      html.setAttribute('data-theme', dark ? 'light' : 'dark');
-      localStorage.setItem('calcuportal-theme', dark ? 'light' : 'dark');
-      updateThemeLabel();
-    });
+    // Theme Management
+    (function () {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
 
-    menuToggle.addEventListener('click', () => {
-      const open = menuToggle.getAttribute('aria-expanded') === 'true';
-      menuToggle.setAttribute('aria-expanded', String(!open));
-      menuToggle.setAttribute('aria-label', open ? 'Open menu' : 'Close menu');
-      navLinks.classList.toggle('open', !open);
-    });
+    document.addEventListener('DOMContentLoaded', () => {
+      // Theme toggler
+      const themeToggleBtns = document.querySelectorAll('.theme-btn');
 
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        menuToggle.setAttribute('aria-expanded', 'false');
-        menuToggle.setAttribute('aria-label', 'Open menu');
-        navLinks.classList.remove('open');
+      function updateThemeIcons(theme) {
+        const icons = document.querySelectorAll('.theme-btn-icon');
+        icons.forEach(icon => {
+          if (theme === 'dark') {
+            icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>`;
+          } else {
+            icon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>`;
+          }
+        });
+      }
+
+      const initialTheme = document.documentElement.getAttribute('data-theme') || 'light';
+      updateThemeIcons(initialTheme);
+
+      themeToggleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const currentTheme = document.documentElement.getAttribute('data-theme');
+          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+          updateThemeIcons(newTheme);
+        });
       });
+
+      // Mobile Menu
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileNavLinks = document.getElementById('nav-links');
+
+      if (menuToggle && mobileNavLinks) {
+        menuToggle.addEventListener('click', () => {
+          menuToggle.classList.toggle('active');
+          mobileNavLinks.classList.toggle('active');
+        });
+      }
+
+      // Live Category Search & Filter Pills
+      const searchInput = document.getElementById('search-input');
+      const filterBtns = document.querySelectorAll('.filter-tag-btn');
+      const categoryCards = document.querySelectorAll('.image-category-card');
+      const countBadge = document.getElementById('categoryCountBadge');
+      const emptyState = document.getElementById('emptyState');
+      const resetBtn = document.getElementById('resetBtn');
+
+      let activeFilter = 'all';
+      let searchQuery = '';
+
+      function filterCategories() {
+        let count = 0;
+        const q = searchQuery.trim().toLowerCase();
+
+        categoryCards.forEach(card => {
+          const cat = card.dataset.category || '';
+          const keywords = (card.dataset.keywords || '').toLowerCase();
+          const title = (card.querySelector('.category-name')?.textContent || '').toLowerCase();
+
+          const matchesTag = (activeFilter === 'all' || cat.toLowerCase() === activeFilter.toLowerCase());
+          const matchesQuery = !q || title.includes(q) || keywords.includes(q);
+
+          if (matchesTag && matchesQuery) {
+            card.style.display = 'flex';
+            count++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        if (countBadge) {
+          countBadge.textContent = `${count} ${count === 1 ? 'Category' : 'Categories'}`;
+        }
+        if (emptyState) {
+          emptyState.style.display = (count === 0) ? 'block' : 'none';
+        }
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          searchQuery = e.target.value;
+          filterCategories();
+        });
+      }
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          activeFilter = btn.dataset.filter || 'all';
+          filterCategories();
+        });
+      });
+
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          if (searchInput) searchInput.value = '';
+          searchQuery = '';
+          activeFilter = 'all';
+          filterBtns.forEach(b => b.classList.remove('active'));
+          document.querySelector('.filter-tag-btn[data-filter="all"]')?.classList.add('active');
+          filterCategories();
+        });
+      }
     });
   </script>
 </body>
-</html>
+</html>\n
