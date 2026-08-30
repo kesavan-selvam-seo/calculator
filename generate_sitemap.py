@@ -1,6 +1,7 @@
 from pathlib import Path
 from datetime import datetime, timezone
 from xml.sax.saxutils import escape
+import subprocess
 
 BASE_URL = "https://www.calcuportal.com"
 ROOT = Path(__file__).resolve().parent
@@ -9,9 +10,7 @@ SITEMAP = ROOT / "sitemap.xml"
 EXCLUDED_DIRS = {
     ".git", ".github", "node_modules", "vendor", "assets", "css", "js"
 }
-EXCLUDED_FILES = {
-    "404.html"
-}
+EXCLUDED_FILES = {"404.html"}
 
 
 def page_url(path: Path) -> str:
@@ -31,17 +30,29 @@ def is_public_html(path: Path) -> bool:
     return not any(part in EXCLUDED_DIRS for part in path.parts)
 
 
+def git_lastmod(path: Path) -> str:
+    """Return the date of the latest Git commit that changed this page."""
+    rel = path.relative_to(ROOT).as_posix()
+    try:
+        value = subprocess.check_output(
+            ["git", "log", "-1", "--format=%cI", "--", rel],
+            cwd=ROOT,
+            text=True,
+            stderr=subprocess.DEVNULL,
+        ).strip()
+        if value:
+            return datetime.fromisoformat(value.replace("Z", "+00:00")).date().isoformat()
+    except (subprocess.CalledProcessError, ValueError):
+        pass
+    return datetime.fromtimestamp(path.stat().st_mtime, tz=timezone.utc).date().isoformat()
+
+
 pages = sorted(
     (p for p in ROOT.rglob("*.html") if is_public_html(p)),
     key=lambda p: page_url(p),
 )
 
-# Use each file's actual modification time. This keeps lastmod tied to
-# the content file instead of using one date for every URL.
-urls = []
-for path in pages:
-    modified = datetime.fromtimestamp(path.stat().st_mtime, tz=timezone.utc).date().isoformat()
-    urls.append((page_url(path), modified))
+urls = [(page_url(path), git_lastmod(path)) for path in pages]
 
 lines = [
     '<?xml version="1.0" encoding="UTF-8"?>',
