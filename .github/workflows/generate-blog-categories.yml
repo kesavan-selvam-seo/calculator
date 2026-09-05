@@ -6,7 +6,9 @@ on:
       - main
     paths:
       - 'blog/**/*.html'
+      - 'content/posts/**/*.md'
       - 'generate_blog_categories.py'
+      - 'style_blog_categories.py'
       - '.github/workflows/generate-blog-categories.yml'
   workflow_dispatch:
 
@@ -22,6 +24,9 @@ jobs:
 
       - name: Generate category pages
         run: python3 generate_blog_categories.py
+
+      - name: Apply competitor-style three-column cards
+        run: python3 style_blog_categories.py
 
       - name: Commit generated pages
         run: |
