@@ -7,6 +7,7 @@ on:
     paths:
       - 'content/posts/**/*.md'
       - 'publish_cms_posts.py'
+      - 'add_blog_favicon.py'
       - '.github/workflows/publish-cms-posts.yml'
   workflow_dispatch:
 
@@ -22,6 +23,9 @@ jobs:
 
       - name: Generate blog HTML pages from CMS posts
         run: python3 publish_cms_posts.py
+
+      - name: Add CalcuPortal favicon to blog pages
+        run: python3 add_blog_favicon.py
 
       - name: Commit generated blog pages
         run: |
