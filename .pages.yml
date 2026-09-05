@@ -1,0 +1,100 @@
+media:
+  - name: blog_images
+    label: Blog Images
+    input: blog/images
+    output: /blog/images
+    rename: safe
+    categories: [image]
+    extensions: [jpg, jpeg, png, webp]
+
+content:
+  - name: blog_posts
+    label: Blog Posts
+    type: collection
+    path: content/posts
+    filename: "{slug}.md"
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: slug
+        label: Slug
+        type: string
+        required: true
+        pattern: "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+      - name: category
+        label: Category
+        type: select
+        required: true
+        options:
+          values:
+            - education
+            - travel
+            - general-knowledge
+            - finance
+            - health-fitness
+            - technology
+            - business-career
+            - lifestyle
+      - name: featured_image
+        label: Featured Image
+        type: image
+        options:
+          media: blog_images
+          path: blog/images
+          extensions: [jpg, jpeg, png, webp]
+      - name: excerpt
+        label: Excerpt
+        type: text
+        required: true
+        options:
+          maxlength: 300
+      - name: author
+        label: Author
+        type: string
+        required: true
+      - name: published_date
+        label: Published Date
+        type: date
+        required: true
+      - name: updated_date
+        label: Updated Date
+        type: date
+      - name: meta_title
+        label: Meta Title
+        type: string
+        required: true
+        options:
+          maxlength: 70
+      - name: meta_description
+        label: Meta Description
+        type: text
+        required: true
+        options:
+          maxlength: 160
+      - name: body
+        label: Article Content
+        type: rich-text
+        options:
+          format: markdown
+          media: blog_images
+          path: blog/images
+          extensions: [jpg, jpeg, png, webp]
+          rename: safe
+          switcher: true
+    view:
+      fields: [title, category, published_date, updated_date]
+      primary: title
+      sort: [published_date, title]
+      default:
+        sort: published_date
+        order: desc
+
+settings:
+  commit:
+    templates:
+      create: "content: add {filename}"
+      update: "content: update {filename}"
+      delete: "content: delete {filename}"
