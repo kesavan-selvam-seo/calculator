@@ -9,42 +9,43 @@ STYLE = '''<style id="calcuportal-blog-content-style">
   font-family: Georgia, 'Times New Roman', serif;
   color: #222;
   line-height: 1.65;
+  text-align: justify;
 }
 
+.article-content h1,
 .article-content h2,
 .article-content h3,
 .article-content h4,
 .article-content h5,
 .article-content h6 {
   font-family: Arial, Helvetica, sans-serif;
+  text-align: left;
+  color: #111;
 }
 
 .article-content h2 {
   font-size: clamp(1.1rem, 3.6vw, 1.35rem);
   margin-top: 2.2em;
-  border-bottom: 3px solid #b5501a;
+  border-bottom: 3px solid #8B5CF6;
   padding-bottom: 6px;
-  color: #111;
 }
 
 .article-content h3 {
   font-size: clamp(0.98rem, 3vw, 1.08rem);
   margin-top: 1.6em;
-  color: #b5501a;
+  color: #8B5CF6;
 }
 
-.article-content p {
-  text-align: justify;
-}
-
-.article-content .lead {
-  font-size: 1.05rem;
-  color: #333;
-  text-align: justify;
-}
-
+.article-content p,
+.article-content .lead,
 .article-content details p {
   text-align: justify;
+}
+
+.article-content ul,
+.article-content ol,
+.article-content li {
+  text-align: left;
 }
 
 .article-content figure {
@@ -99,14 +100,14 @@ STYLE = '''<style id="calcuportal-blog-content-style">
 }
 
 .article-content th {
-  background: #b5501a;
+  background: #8B5CF6;
   color: #fff;
   position: sticky;
   top: 0;
 }
 
 .article-content tr:nth-child(even) {
-  background: #fbf3ee;
+  background: #f8f6fe;
 }
 
 .article-content .callout {
@@ -116,6 +117,7 @@ STYLE = '''<style id="calcuportal-blog-content-style">
   margin: 1.4em 0;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.96rem;
+  text-align: left;
 }
 
 .article-content .correction {
@@ -125,18 +127,20 @@ STYLE = '''<style id="calcuportal-blog-content-style">
   margin: 1.4em 0;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.96rem;
+  text-align: left;
 }
 
 .article-content .toc {
-  background: #fdf2ea;
+  background: #f1ecfd;
   padding: 16px 22px;
   border-radius: 6px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.94rem;
+  text-align: left;
 }
 
 .article-content .toc a {
-  color: #b5501a;
+  color: #8B5CF6;
   text-decoration: none;
 }
 
@@ -156,12 +160,13 @@ STYLE = '''<style id="calcuportal-blog-content-style">
   font-weight: bold;
   cursor: pointer;
   color: #111;
+  text-align: left;
 }
 
 .article-content .tag {
   display: inline-block;
-  background: #fbe6d8;
-  color: #b5501a;
+  background: #f1ecfd;
+  color: #8B5CF6;
   border-radius: 12px;
   padding: 2px 10px;
   font-size: 0.78rem;
@@ -169,6 +174,26 @@ STYLE = '''<style id="calcuportal-blog-content-style">
 }
 
 @media (max-width: 768px) {
+  .article-content,
+  .article-content p,
+  .article-content .lead,
+  .article-content details p {
+    text-align: justify;
+  }
+
+  .article-content h1,
+  .article-content h2,
+  .article-content h3,
+  .article-content h4,
+  .article-content h5,
+  .article-content h6,
+  .article-content ul,
+  .article-content ol,
+  .article-content li,
+  .article-content summary {
+    text-align: left;
+  }
+
   .article-content .toc,
   .article-content .callout,
   .article-content .correction {
@@ -181,10 +206,23 @@ STYLE = '''<style id="calcuportal-blog-content-style">
     line-height: 1.6;
   }
 
-  .article-content .lead,
   .article-content p,
+  .article-content .lead,
   .article-content details p {
-    text-align: left;
+    text-align: justify !important;
+  }
+
+  .article-content h1,
+  .article-content h2,
+  .article-content h3,
+  .article-content h4,
+  .article-content h5,
+  .article-content h6,
+  .article-content ul,
+  .article-content ol,
+  .article-content li,
+  .article-content summary {
+    text-align: left !important;
   }
 
   .article-content table {
@@ -212,19 +250,10 @@ STYLE = '''<style id="calcuportal-blog-content-style">
 
 for path in (ROOT / "blog").glob("*/index.html"):
     text = path.read_text(encoding="utf-8")
-
-    text = re.sub(
-        r'<style id="calcuportal-blog-content-style">.*?</style>',
-        '',
-        text,
-        flags=re.I | re.S,
-    )
-
+    text = re.sub(r'<style id="calcuportal-blog-content-style">.*?</style>', '', text, flags=re.I | re.S)
     if 'class="article-content"' not in text:
         continue
-
     updated = text.replace('</head>', STYLE + '\n</head>', 1)
-
     if updated != text:
         path.write_text(updated, encoding="utf-8")
         print(f"Styled blog content: {path}")
