@@ -19,7 +19,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set existing CalcuPortal PNG favicon
+      - name: Fix blog favicon and card image cropping
         run: |
           python3 - <<'PY'
           from pathlib import Path
@@ -31,20 +31,23 @@ jobs:
           for path in Path('.').glob('blog/**/index.html'):
               text = path.read_text(encoding='utf-8')
               updated = pattern.sub('', text)
-              if updated != text:
+              updated = updated.replace('object-fit:cover', 'object-fit:contain')
+              if 'article-card-image' in updated:
+                  updated = updated.replace('background:var(--border-light)', 'background:#fff')
+              if updated != text or 'rel="icon"' not in text.lower():
                   updated = updated.replace('</head>', favicon + '\n</head>', 1)
                   path.write_text(updated, encoding='utf-8')
                   print(f'Updated {path}')
           PY
 
-      - name: Commit favicon updates
+      - name: Commit blog page fixes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add blog/**/index.html
           if git diff --cached --quiet; then
-            echo "No favicon changes."
+            echo "No blog page changes."
             exit 0
           fi
-          git commit -m "chore: use CalcuPortal PNG favicon"
+          git commit -m "chore: fix blog favicon and card images"
           git push
