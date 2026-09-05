@@ -10,9 +10,38 @@ STYLE = '''<style id="calcuportal-category-card-style">
   margin: 0 auto;
 }
 
+/* Match the normal CalcuPortal breadcrumb */
 .blog-category-wrap .blog-breadcrumb {
-  margin: 0 0 18px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 1.5rem;
   padding: 0;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.blog-category-wrap .blog-breadcrumb a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.blog-category-wrap .blog-breadcrumb a:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+.blog-category-wrap .blog-breadcrumb span {
+  color: var(--text-muted);
+}
+
+.blog-category-wrap .blog-breadcrumb span[aria-current="page"] {
+  color: var(--text-secondary);
+  font-weight: 500;
 }
 
 .blog-category-wrap .detail-header {
@@ -178,19 +207,10 @@ STYLE = '''<style id="calcuportal-category-card-style">
 
 for path in (ROOT / "blog").glob("*/index.html"):
     text = path.read_text(encoding="utf-8")
-
-    text = re.sub(
-        r'<style id="calcuportal-category-card-style">.*?</style>',
-        '',
-        text,
-        flags=re.I | re.S
-    )
-
+    text = re.sub(r'<style id="calcuportal-category-card-style">.*?</style>', '', text, flags=re.I | re.S)
     if 'class="article-list"' not in text:
         continue
-
     updated = text.replace('</head>', STYLE + '\n</head>', 1)
-
     if updated != text:
         path.write_text(updated, encoding="utf-8")
         print(f"Styled category page: {path}")
