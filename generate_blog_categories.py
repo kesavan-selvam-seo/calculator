@@ -13,8 +13,8 @@ CATEGORIES = {
         "intro": "Explore practical education guides, academic calculations, study resources, and easy-to-follow explanations for students and learners.",
         "content": "CalcuPortal's Education category brings together useful guides for students, parents, and lifelong learners. Find simple explanations for academic calculations, grades, percentages, exam-related planning, and everyday study questions. Our guides are designed to make numerical and academic concepts easier to understand, with formulas, examples, and practical steps. As new education articles are published, they can be organized here so readers can move from a topic guide to a relevant calculator or supporting resource.",
         "articles": [
-            ("How to Calculate Percentage", "/blog/percentage-calculation-guide/", "Learn percentage formulas, marks calculations, percentage increase, decrease, discounts, and practical examples."),
-            ("How to Calculate Age Online", "/blog/how-to-calculate-age/", "Understand exact age calculation from date of birth with simple steps and examples.")
+            ("How to Calculate Percentage", "/blog/percentage-calculation-guide/", "Learn percentage formulas, marks calculations, percentage increase, decrease, discounts, and practical examples.", ""),
+            ("How to Calculate Age Online", "/blog/how-to-calculate-age/", "Understand exact age calculation from date of birth with simple steps and examples.", "")
         ]
     },
     "travel": {
@@ -37,8 +37,8 @@ CATEGORIES = {
         "intro": "Explore practical finance guides covering EMI, loans, interest, investments, discounts, mortgages, and everyday money calculations.",
         "content": "The Finance & Loan category explains common financial calculations in a simple, practical format. Readers can learn how EMI works, how interest affects repayments, how percentages are used in discounts and finance, and how to compare different repayment scenarios. Detailed examples and formulas help make financial numbers easier to understand, while linked calculators provide a quick way to test your own values.",
         "articles": [
-            ("EMI Calculation Guide", "/blog/emi-calculation-guide/", "Learn the EMI formula, step-by-step calculation method, examples, and ways to understand loan repayments."),
-            ("Percentage Calculation Guide", "/blog/percentage-calculation-guide/", "Understand percentage formulas used in discounts, price changes, marks, finance, and everyday calculations.")
+            ("EMI Calculation Guide", "/blog/emi-calculation-guide/", "Learn the EMI formula, step-by-step calculation method, examples, and ways to understand loan repayments.", ""),
+            ("Percentage Calculation Guide", "/blog/percentage-calculation-guide/", "Understand percentage formulas used in discounts, price changes, marks, finance, and everyday calculations.", "")
         ]
     },
     "health-fitness": {
@@ -47,7 +47,7 @@ CATEGORIES = {
         "intro": "Explore practical health and fitness calculation guides covering BMI, calories, body measurements, weight, and wellness.",
         "content": "The Health & Fitness category provides easy-to-follow explanations for common wellness calculations. Topics can include BMI, calorie requirements, BMR, TDEE, body measurements, weight-related calculations, and other fitness metrics. Each guide is intended for general information and can help readers understand how a calculation works before using a calculator. Health calculations should not replace advice from a qualified medical professional.",
         "articles": [
-            ("How to Calculate BMI", "/blog/how-to-calculate-bmi/", "Learn the BMI formula, adult BMI categories, examples, and common calculation mistakes.")
+            ("How to Calculate BMI", "/blog/how-to-calculate-bmi/", "Learn the BMI formula, adult BMI categories, examples, and common calculation mistakes.", "")
         ]
     },
     "technology": {
@@ -63,7 +63,7 @@ CATEGORIES = {
         "intro": "Explore practical business and career resources covering salary, profit, pricing, jobs, interviews, and workplace calculations.",
         "content": "The Business & Career category brings together practical resources for professionals, job seekers, freelancers, and business owners. Topics can include salary calculations, profit and margin, pricing, business metrics, interviews, career planning, productivity, and workplace decisions. Clear examples and relevant calculators can help readers turn business numbers into useful decisions.",
         "articles": [
-            ("Percentage Calculation Guide", "/blog/percentage-calculation-guide/", "Use percentage calculations for business growth, price changes, discounts, margins, and comparisons.")
+            ("Percentage Calculation Guide", "/blog/percentage-calculation-guide/", "Use percentage calculations for business growth, price changes, discounts, margins, and comparisons.", "")
         ]
     },
     "lifestyle": {
@@ -75,9 +75,9 @@ CATEGORIES = {
     }
 }
 
-CARD = '''<article class="calc-card"><h2>{title}</h2><p>{desc}</p><a href="{url}">Read Guide →</a></article>'''
+CARD = '''<article class="calc-card">{image}<h2>{title}</h2><p>{desc}</p><a href="{url}">Read Guide →</a></article>'''
 
-STYLE = '''<style>.blog-category-wrap{max-width:900px;margin:auto}.blog-breadcrumb{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0;color:var(--text-muted);font-size:14px}.blog-breadcrumb a{color:var(--primary);text-decoration:none;font-weight:600}.blog-breadcrumb a:hover{text-decoration:underline}.category-copy{max-width:850px;margin:0 auto 32px}.category-copy p{color:var(--text-secondary);line-height:1.8;text-align:justify}.article-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.article-list .calc-card{height:100%}.empty-category{padding:28px;border:1px dashed var(--border-color);border-radius:16px;color:var(--text-secondary);text-align:center}@media(max-width:700px){.article-list{grid-template-columns:1fr}}</style>'''
+STYLE = '''<style>.blog-category-wrap{max-width:900px;margin:auto}.blog-breadcrumb{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0;color:var(--text-muted);font-size:14px}.blog-breadcrumb a{color:var(--primary);text-decoration:none;font-weight:600}.blog-breadcrumb a:hover{text-decoration:underline}.category-copy{max-width:850px;margin:0 auto 32px}.category-copy p{color:var(--text-secondary);line-height:1.8;text-align:justify}.article-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.article-list .calc-card{height:100%;overflow:hidden;padding:0 0 1.5rem}.article-list .calc-card h2,.article-list .calc-card p,.article-list .calc-card>a{margin-left:1.5rem;margin-right:1.5rem}.article-list .calc-card h2{margin-top:1.25rem}.article-card-image{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--border-light)}.empty-category{padding:28px;border:1px dashed var(--border-color);border-radius:16px;color:var(--text-secondary);text-align:center}@media(max-width:700px){.article-list{grid-template-columns:1fr}.article-card-image{aspect-ratio:16/9}}</style>'''
 
 HEADER = '''<header><div class="nav-container"><a href="/" class="logo"><img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon"><span>CalcuPortal</span></a><button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button><nav class="nav-links" id="nav-links"><a href="/" class="nav-link">Home</a><a href="/about/" class="nav-link">About</a><a href="/contact/" class="nav-link">Contact</a><a href="/blog/" class="nav-link active">Blog</a><button class="theme-btn" title="Toggle Theme"><span class="theme-btn-icon"></span></button></nav></div></header>'''
 
@@ -91,11 +91,26 @@ def parse_frontmatter(text):
     if len(parts) != 3:
         return {}, text
     data = {}
+    current = None
     for line in parts[1].splitlines():
         match = re.match(r"^([A-Za-z0-9_-]+):\s*(.*)$", line)
         if match:
-            data[match.group(1)] = match.group(2).strip().strip('"').strip("'")
+            current = match.group(1)
+            data[current] = match.group(2).strip().strip('"').strip("'")
+        elif current and line.startswith("  "):
+            data[current] = (str(data.get(current, "")) + " " + line.strip()).strip()
     return data, parts[2]
+
+
+def normalise_image(image):
+    image = (image or "").strip()
+    if not image:
+        return ""
+    if image.startswith("http://") or image.startswith("https://"):
+        return image
+    if not image.startswith("/"):
+        image = "/blog/images/" + image
+    return image
 
 
 def cms_articles():
@@ -111,8 +126,9 @@ def cms_articles():
             continue
         title = meta.get("title") or slug.replace("-", " ").title()
         description = meta.get("meta_description") or meta.get("excerpt") or "Read this practical guide from CalcuPortal."
+        image = normalise_image(meta.get("featured_image"))
         url = f"/blog/{slug}/"
-        articles[category].append((title, url, description))
+        articles[category].append((title, url, description, image))
     # Remove duplicate URLs while preserving the existing order.
     for category in articles:
         seen = set()
@@ -120,10 +136,18 @@ def cms_articles():
     return articles
 
 
+def render_card(item):
+    title, url, desc, image = item
+    image_html = ""
+    if image:
+        image_html = f'<a href="{escape(url)}" aria-label="Read {escape(title)}"><img class="article-card-image" src="{escape(image)}" alt="{escape(title)}" loading="lazy"></a>'
+    return CARD.format(title=escape(title), url=escape(url), desc=escape(desc), image=image_html)
+
+
 articles_by_category = cms_articles()
 
 for slug, data in CATEGORIES.items():
-    cards = ''.join(CARD.format(title=escape(t), url=u, desc=escape(d)) for t, u, d in articles_by_category[slug])
+    cards = ''.join(render_card(item) for item in articles_by_category[slug])
     if not cards:
         cards = '<div class="empty-category">More ' + escape(data['title']) + ' articles are coming soon. Check back for new practical guides and resources.</div>'
     url = f"{BASE}/blog/{slug}/"
