@@ -17,24 +17,40 @@
   <meta property="article:modified_time" content="2026-09-05">
   <link rel="stylesheet" href="/styles.css">
   <style>
+    .article-section,
+    .article-content {
+      min-width: 0;
+      max-width: 100%;
+      overflow-x: clip;
+    }
     .article-content img,
     .article-content video,
-    .article-content iframe {
+    .article-content iframe,
+    .article-content svg,
+    .article-content canvas {
       display: block;
-      max-width: 100%;
+      width: auto;
+      max-width: 100% !important;
       height: auto;
+      box-sizing: border-box;
     }
     .article-content figure {
+      display: block;
       width: 100%;
       max-width: 100%;
+      min-width: 0;
       margin: 1.5rem 0;
+      overflow: hidden;
+      box-sizing: border-box;
     }
     .article-content figure img {
-      width: 100%;
-      max-width: 100%;
-      height: auto;
+      display: block;
+      width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important;
       object-fit: contain;
       border-radius: 0.5rem;
+      box-sizing: border-box;
     }
     .article-content figcaption {
       margin-top: 0.5rem;
@@ -45,16 +61,50 @@
     .article-content .table-wrap {
       width: 100%;
       max-width: 100%;
+      min-width: 0;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
     }
     @media (max-width: 768px) {
+      html,
+      body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+      }
       main {
+        width: 100%;
+        max-width: 100%;
         padding: 1.5rem 1rem;
       }
+      .detail-container {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+      }
       .article-section {
-        padding: 1.25rem 1rem;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        padding: 1.25rem 0.9rem;
         border-radius: 1rem;
+        overflow: hidden;
+      }
+      .article-content {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        overflow-x: hidden;
+      }
+      .article-content figure {
+        width: 100%;
+        max-width: 100%;
+        margin: 1.25rem 0;
+      }
+      .article-content figure img {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
       }
       .detail-header h1 {
         font-size: 1.8rem;
@@ -62,9 +112,6 @@
       .article-content p,
       .article-content li {
         font-size: 1rem;
-      }
-      .article-content figure {
-        margin: 1.25rem 0;
       }
     }
   </style>
