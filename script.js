@@ -50,6 +50,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // Blog category/article headings must never inherit the sticky navigation behavior.
+  document.querySelectorAll('.detail-header').forEach((detailHeader) => {
+    detailHeader.style.position = 'static';
+    detailHeader.style.top = 'auto';
+    detailHeader.style.zIndex = 'auto';
+  });
+
   // Theme toggler
   const themeToggleBtns = document.querySelectorAll('.theme-btn');
 
