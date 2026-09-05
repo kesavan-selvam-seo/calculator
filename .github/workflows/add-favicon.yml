@@ -1,0 +1,51 @@
+name: Add CalcuPortal Favicon
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'blog/**/*.html'
+      - 'favicon.svg'
+      - '.github/workflows/add-favicon.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  favicon:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Add favicon to HTML pages
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          favicon = '<link rel="icon" type="image/svg+xml" href="/favicon.svg">'
+
+          for path in Path('.').glob('blog/**/index.html'):
+              text = path.read_text(encoding='utf-8')
+              if re.search(r'<link[^>]+rel=["\']icon["\']', text, re.I):
+                  continue
+              updated = re.sub(r'(</head>)', f'  {favicon}\\n\\1', text, count=1, flags=re.I)
+              if updated != text:
+                  path.write_text(updated, encoding='utf-8')
+                  print(f'Updated {path}')
+          PY
+
+      - name: Commit favicon updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add blog/**/index.html
+          if git diff --cached --quiet; then
+            echo "No favicon changes."
+            exit 0
+          fi
+          git commit -m "chore: add favicon to blog pages"
+          git push
