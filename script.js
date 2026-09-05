@@ -50,12 +50,56 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Blog category/article headings must never inherit the sticky navigation behavior.
-  document.querySelectorAll('.detail-header').forEach((detailHeader) => {
-    detailHeader.style.position = 'static';
-    detailHeader.style.top = 'auto';
-    detailHeader.style.zIndex = 'auto';
-  });
+  // Blog category/article pages contain a second <header> for the page title.
+  // Scope sticky behavior to the real primary navigation header so the detail
+  // header never becomes sticky and the mobile nav remains attached to it.
+  const detailHeaders = document.querySelectorAll('.detail-header');
+  if (detailHeaders.length) {
+    const primaryHeader = document.querySelector('body > header');
+
+    if (primaryHeader) {
+      const detailPageStyle = document.createElement('style');
+      detailPageStyle.id = 'calcuportal-detail-header-fix';
+      detailPageStyle.textContent = `
+        body > header {
+          position: -webkit-sticky !important;
+          position: sticky !important;
+          top: 0 !important;
+          z-index: 50 !important;
+          align-self: stretch !important;
+          flex-shrink: 0 !important;
+        }
+        body > main header.detail-header {
+          position: static !important;
+          top: auto !important;
+          right: auto !important;
+          bottom: auto !important;
+          left: auto !important;
+          z-index: auto !important;
+          backdrop-filter: none !important;
+          -webkit-backdrop-filter: none !important;
+        }
+        @media (max-width: 768px) {
+          html,
+          body {
+            overflow-x: clip !important;
+          }
+          body > header {
+            position: -webkit-sticky !important;
+            position: sticky !important;
+            top: 0 !important;
+          }
+        }
+      `;
+      document.head.appendChild(detailPageStyle);
+
+      detailHeaders.forEach((detailHeader) => {
+        detailHeader.style.position = 'static';
+        detailHeader.style.top = 'auto';
+        detailHeader.style.zIndex = 'auto';
+      });
+    }
+  }
 
   // Theme toggler
   const themeToggleBtns = document.querySelectorAll('.theme-btn');
