@@ -1,8 +1,10 @@
 from pathlib import Path
 from html import escape
+import re
 
 ROOT = Path(__file__).resolve().parent
 BASE = "https://www.calcuportal.com"
+POSTS_DIR = ROOT / "content" / "posts"
 
 CATEGORIES = {
     "education": {
@@ -75,16 +77,55 @@ CATEGORIES = {
 
 CARD = '''<article class="calc-card"><h2>{title}</h2><p>{desc}</p><a href="{url}">Read Guide →</a></article>'''
 
-STYLE = '''<style>.blog-category-wrap{max-width:900px;margin:auto}.blog-breadcrumb{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0;color:var(--text-muted);font-size:14px}.blog-breadcrumb a{color:var(--primary)}.category-copy{max-width:850px;margin:0 auto 32px}.category-copy p{color:var(--text-secondary);line-height:1.8;text-align:justify}.article-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.article-list .calc-card{height:100%}.empty-category{padding:28px;border:1px dashed var(--border-color);border-radius:16px;color:var(--text-secondary);text-align:center}@media(max-width:700px){.article-list{grid-template-columns:1fr}}</style>'''
+STYLE = '''<style>.blog-category-wrap{max-width:900px;margin:auto}.blog-breadcrumb{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0;color:var(--text-muted);font-size:14px}.blog-breadcrumb a{color:var(--primary);text-decoration:none;font-weight:600}.blog-breadcrumb a:hover{text-decoration:underline}.category-copy{max-width:850px;margin:0 auto 32px}.category-copy p{color:var(--text-secondary);line-height:1.8;text-align:justify}.article-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.article-list .calc-card{height:100%}.empty-category{padding:28px;border:1px dashed var(--border-color);border-radius:16px;color:var(--text-secondary);text-align:center}@media(max-width:700px){.article-list{grid-template-columns:1fr}}</style>'''
 
 HEADER = '''<header><div class="nav-container"><a href="/" class="logo"><img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon"><span>CalcuPortal</span></a><button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button><nav class="nav-links" id="nav-links"><a href="/" class="nav-link">Home</a><a href="/about/" class="nav-link">About</a><a href="/contact/" class="nav-link">Contact</a><a href="/blog/" class="nav-link active">Blog</a><button class="theme-btn" title="Toggle Theme"><span class="theme-btn-icon"></span></button></nav></div></header>'''
 
-FOOTER = '''<footer><div class="footer-container"><div class="footer-info"><a href="/" class="logo" style="display:inline-flex"><img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon"><span>CalcuPortal</span></a><p style="text-align:justify">CalcuPortal provides practical calculators, guides, formulas, and useful resources for everyday calculations.</p></div><div class="footer-column"><h3>Pages</h3><ul><li><a href="/about/">About Us</a></li><li><a href="/contact/">Contact Us</a></li><li><a href="/privacy-policy/">Privacy Policy</a></li><li><a href="/disclaimer/">Disclaimer</a></li></ul></div><div class="footer-column"><h3>Blog</h3><ul><li><a href="/blog/">All Blog Categories</a></li></ul></div></div><div class="copyright-bar">© <span id="year">2026</span> CalcuPortal. All rights reserved.</div></footer>'''
+FOOTER = '''<footer><div class="footer-container"><div class="footer-info"><a href="/" class="logo" style="display:inline-flex"><img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon"><span>CalcuPortal</span></a><p style="text-align:justify">CalcuPortal provides practical calculators, guides, formulas, and useful resources for everyday calculations.</p></div><div class="footer-column"><h3>Pages</h3><ul><li><a href="/about/">About Us</a></li><li><a href="/contact/">Contact Us</a></li><li><a href="/privacy-policy/">Privacy Policy</a></li><li><a href="/disclaimer/">Disclaimer</a></li><li><a href="/advertise/">Advertise</a></li><li><a href="/terms-conditions/">Terms Conditions</a></li></ul></div><div class="footer-column"><h3>Blog</h3><ul><li><a href="/blog/">All Blog Categories</a></li></ul></div></div><div class="copyright-bar">© <span id="year">2026</span> CalcuPortal. All rights reserved.</div></footer>'''
+
+
+def parse_frontmatter(text):
+    if not text.startswith("---"):
+        return {}, text
+    parts = text.split("---", 2)
+    if len(parts) != 3:
+        return {}, text
+    data = {}
+    for line in parts[1].splitlines():
+        match = re.match(r"^([A-Za-z0-9_-]+):\s*(.*)$", line)
+        if match:
+            data[match.group(1)] = match.group(2).strip().strip('"').strip("'")
+    return data, parts[2]
+
+
+def cms_articles():
+    articles = {slug: list(data["articles"]) for slug, data in CATEGORIES.items()}
+    if not POSTS_DIR.exists():
+        return articles
+    for source in sorted(POSTS_DIR.glob("*.md")):
+        meta, _ = parse_frontmatter(source.read_text(encoding="utf-8"))
+        slug = (meta.get("slug") or source.stem).strip().strip("/")
+        category = (meta.get("category") or "general-knowledge").strip().lower()
+        category = re.sub(r"[^a-z0-9]+", "-", category).strip("-")
+        if category not in CATEGORIES:
+            continue
+        title = meta.get("title") or slug.replace("-", " ").title()
+        description = meta.get("meta_description") or meta.get("excerpt") or "Read this practical guide from CalcuPortal."
+        url = f"/blog/{slug}/"
+        articles[category].append((title, url, description))
+    # Remove duplicate URLs while preserving the existing order.
+    for category in articles:
+        seen = set()
+        articles[category] = [item for item in articles[category] if not (item[1] in seen or seen.add(item[1]))]
+    return articles
+
+
+articles_by_category = cms_articles()
 
 for slug, data in CATEGORIES.items():
-    cards = ''.join(CARD.format(title=escape(t), url=u, desc=escape(d)) for t,u,d in data['articles'])
+    cards = ''.join(CARD.format(title=escape(t), url=u, desc=escape(d)) for t, u, d in articles_by_category[slug])
     if not cards:
-        cards = '<div class="empty-category">More '+escape(data['title'])+' articles are coming soon. Check back for new practical guides and resources.</div>'
+        cards = '<div class="empty-category">More ' + escape(data['title']) + ' articles are coming soon. Check back for new practical guides and resources.</div>'
     url = f"{BASE}/blog/{slug}/"
     html = f'''<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="index, follow"><title>{escape(data['title'])} | CalcuPortal</title><meta name="description" content="{escape(data['description'])}"><link rel="canonical" href="{url}"><link rel="stylesheet" href="/styles.css"><script src="/script.js"></script>{STYLE}<script type="application/ld+json">{{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{{"@type":"ListItem","position":1,"name":"Home","item":"{BASE}/"}},{{"@type":"ListItem","position":2,"name":"Blog","item":"{BASE}/blog/"}},{{"@type":"ListItem","position":3,"name":"{escape(data['title'])}","item":"{url}"}}]}}</script><script type="application/ld+json">{{"@context":"https://schema.org","@type":"CollectionPage","name":"{escape(data['title'])}","url":"{url}","description":"{escape(data['description'])}","isPartOf":{{"@type":"WebSite","name":"CalcuPortal","url":"{BASE}/"}}}}</script></head><body>{HEADER}<main><div class="blog-category-wrap"><nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/blog/">Blog</a><span>›</span><span aria-current="page">{escape(data['title'])}</span></nav><header class="detail-header"><h1>{escape(data['title'])}</h1><p>{escape(data['intro'])}</p></header><section class="category-copy"><h2>About {escape(data['title'])}</h2><p>{escape(data['content'])}</p></section><section><div class="category-header"><h2 class="category-title">Latest {escape(data['title'])}</h2></div><div class="article-list">{cards}</div></section></div></main>{FOOTER}<script>document.getElementById('year').innerText=new Date().getFullYear();</script></body></html>'''
     out = ROOT / 'blog' / slug / 'index.html'
