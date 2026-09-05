@@ -43,7 +43,6 @@ def parse_frontmatter(text):
 
 
 def clean_content(text):
-    # CMS can save blank lines as literal HTML entities. Never publish them as visible text.
     text = re.sub(r"(?:&amp;)?nbsp;", " ", text, flags=re.I)
     return re.sub(r"[ \t]+\n", "\n", text)
 
@@ -161,10 +160,7 @@ def breadcrumb_schema(title, canonical, category_slug, category_label):
 
 
 def extract_full_html_content(source):
-    """Extract only article content from pasted full HTML so the site shell stays controlled by this generator."""
     source = clean_content(source)
-
-    # Prefer the article element when the CMS content contains a complete HTML document.
     article_match = re.search(r"<article\b[^>]*>(.*?)</article>", source, flags=re.I | re.S)
     if article_match:
         content = article_match.group(1)
@@ -172,7 +168,6 @@ def extract_full_html_content(source):
         body_match = re.search(r"<body\b[^>]*>(.*?)</body>", source, flags=re.I | re.S)
         content = body_match.group(1) if body_match else source
 
-    # Never allow pasted site navigation/footer/breadcrumbs to replace or duplicate the common shell.
     content = re.sub(r"<header\b[^>]*>.*?</header>", "", content, flags=re.I | re.S)
     content = re.sub(r"<footer\b[^>]*>.*?</footer>", "", content, flags=re.I | re.S)
     content = re.sub(r"<nav\b[^>]*class=[\"'][^\"']*(?:breadcrumb|breadcrumbs)[^\"']*[\"'][^>]*>.*?</nav>", "", content, flags=re.I | re.S)
@@ -200,7 +195,6 @@ def render_post(meta, body):
     if not image:
         image = "/logo.png"
 
-    # Whether CMS provides Markdown or a complete HTML document, always use the same CalcuPortal shell.
     if re.search(r"<html[\s>]|<!DOCTYPE\s+html", body, re.I):
         content = extract_full_html_content(body)
     else:
@@ -230,54 +224,54 @@ def render_post(meta, body):
   <style>
     .article-content img,
     .article-content video,
-    .article-content iframe {
+    .article-content iframe {{
       display: block;
       max-width: 100%;
       height: auto;
-    }
-    .article-content figure {
+    }}
+    .article-content figure {{
       width: 100%;
       max-width: 100%;
       margin: 1.5rem 0;
-    }
-    .article-content figure img {
+    }}
+    .article-content figure img {{
       width: 100%;
       max-width: 100%;
       height: auto;
       object-fit: contain;
       border-radius: 0.5rem;
-    }
-    .article-content figcaption {
+    }}
+    .article-content figcaption {{
       margin-top: 0.5rem;
       text-align: center;
       color: var(--text-muted);
       font-size: 0.85rem;
-    }
-    .article-content .table-wrap {
+    }}
+    .article-content .table-wrap {{
       width: 100%;
       max-width: 100%;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
-    }
-    @media (max-width: 768px) {
-      main {
+    }}
+    @media (max-width: 768px) {{
+      main {{
         padding: 1.5rem 1rem;
-      }
-      .article-section {
+      }}
+      .article-section {{
         padding: 1.25rem 1rem;
         border-radius: 1rem;
-      }
-      .detail-header h1 {
+      }}
+      .detail-header h1 {{
         font-size: 1.8rem;
-      }
+      }}
       .article-content p,
-      .article-content li {
+      .article-content li {{
         font-size: 1rem;
-      }
-      .article-content figure {
+      }}
+      .article-content figure {{
         margin: 1.25rem 0;
-      }
-    }
+      }}
+    }}
   </style>
   <script src="/script.js"></script>
   <script type="application/ld+json">
