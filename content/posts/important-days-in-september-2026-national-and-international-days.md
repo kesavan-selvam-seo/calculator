@@ -23,6 +23,8 @@ meta_description: Explore the important days in September 2026, including
 <link rel="canonical" href="CANONICAL_URL_HERE">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Important Days in September 2026: Full List, Dates & Significance">
+<meta property="og:image" content="https://www.calcuportal.com/blog/images/chatgpt-image-sep-5-2026-060736-pm-500kb.jpeg">
+<meta name="twitter:card" content="summary_large_image">
 <meta property="og:description" content="A verified, up-to-date list of every national and international day in September 2026, with corrected dates for the ones most sites get wrong.">
 <meta property="article:published_time" content="2026-09-05">
 
@@ -124,18 +126,24 @@ meta_description: Explore the important days in September 2026, including
 </script>
 
 <style>
-  body{font-family:Georgia,'Times New Roman',serif;max-width:880px;margin:0 auto;padding:24px 20px 60px;color:#222;line-height:1.65;background:#fff;}
-  h1{font-family:Arial,Helvetica,sans-serif;font-size:2rem;line-height:1.25;margin-bottom:6px;color:#111;}
-  h2{font-family:Arial,Helvetica,sans-serif;font-size:1.35rem;margin-top:2.2em;border-bottom:3px solid #1a5d1a;padding-bottom:6px;color:#111;}
-  h3{font-family:Arial,Helvetica,sans-serif;font-size:1.08rem;margin-top:1.6em;color:#1a5d1a;}
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+  body{font-family:Georgia,'Times New Roman',serif;max-width:880px;margin:0 auto;padding:24px 20px 60px;color:#222;line-height:1.65;background:#fff;overflow-x:hidden;}
+  h1{font-family:Arial,Helvetica,sans-serif;font-size:clamp(1.4rem,4.5vw,2rem);line-height:1.28;margin-bottom:6px;color:#111;}
+  h2{font-family:Arial,Helvetica,sans-serif;font-size:clamp(1.1rem,3.6vw,1.35rem);margin-top:2.2em;border-bottom:3px solid #1a5d1a;padding-bottom:6px;color:#111;}
+  h3{font-family:Arial,Helvetica,sans-serif;font-size:clamp(0.98rem,3vw,1.08rem);margin-top:1.6em;color:#1a5d1a;}
   .byline{color:#666;font-size:0.9rem;margin-bottom:1.6em;font-family:Arial,Helvetica,sans-serif;}
-  .lead{font-size:1.08rem;color:#333;text-align:justify;}
+  .lead{font-size:1.05rem;color:#333;text-align:justify;}
   article p{text-align:justify;}
   details p{text-align:justify;}
-  table{border-collapse:collapse;width:100%;margin:1.2em 0;font-size:0.93rem;font-family:Arial,Helvetica,sans-serif;}
-  caption{text-align:left;font-weight:bold;margin-bottom:6px;}
+  figure{margin:1.4em 0;}
+  figure img{display:block;width:100%;height:auto;border-radius:8px;}
+  figcaption{font-family:Arial,Helvetica,sans-serif;font-size:0.82rem;color:#777;text-align:center;margin-top:8px;}
+  .table-wrap{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;margin:1.2em 0;}
+  table{border-collapse:collapse;width:100%;min-width:560px;margin:0;font-size:0.93rem;font-family:Arial,Helvetica,sans-serif;}
+  caption{text-align:left;font-weight:bold;margin-bottom:6px;white-space:normal;}
   th,td{border:1px solid #ddd;padding:9px 10px;text-align:left;vertical-align:top;}
-  th{background:#1a5d1a;color:#fff;}
+  th{background:#1a5d1a;color:#fff;position:sticky;top:0;}
   tr:nth-child(even){background:#f6f8f6;}
   .callout{background:#fff8e1;border-left:4px solid #e6a817;padding:14px 18px;margin:1.4em 0;font-family:Arial,Helvetica,sans-serif;font-size:0.96rem;}
   .correction{background:#ffecec;border-left:4px solid #d33;padding:14px 18px;margin:1.4em 0;font-family:Arial,Helvetica,sans-serif;font-size:0.96rem;}
@@ -146,6 +154,22 @@ meta_description: Explore the important days in September 2026, including
   summary{font-weight:bold;cursor:pointer;color:#111;}
   footer{margin-top:3em;padding-top:1.2em;border-top:1px solid #ddd;font-size:0.85rem;color:#777;font-family:Arial,Helvetica,sans-serif;}
   .tag{display:inline-block;background:#e8f0e8;color:#1a5d1a;border-radius:12px;padding:2px 10px;font-size:0.78rem;font-family:Arial,Helvetica,sans-serif;}
+
+  /* Tablet and below */
+  @media (max-width:768px){
+    body{padding:20px 16px 48px;}
+    .toc,.callout,.correction{padding:14px 16px;}
+  }
+
+  /* Mobile web (mweb) */
+  @media (max-width:480px){
+    body{padding:16px 12px 40px;line-height:1.6;}
+    .lead,article p,details p{text-align:left;} /* justify looks ragged on narrow columns; left-align on phones */
+    table{font-size:0.82rem;min-width:520px;}
+    th,td{padding:6px 7px;}
+    .callout,.correction,.toc{font-size:0.9rem;padding:12px 14px;}
+    details{padding:9px 12px;}
+  }
 </style>
 </head>
 <body>
@@ -155,6 +179,11 @@ meta_description: Explore the important days in September 2026, including
 <p class="byline">By SITE_NAME_HERE Editorial Team &middot; Updated September 5, 2026 &middot; 12 min read</p>
 
 <p class="lead">September 2026 is packed with observances that matter for general awareness, competitive exams, and daily conversation, from Teachers' Day and Hindi Diwas to World Ozone Day, the International Day of Peace, and the ten-day Ganeshotsav. This guide lists every major national and international day in the month with its correct 2026 date, why it exists, and what's new this year. Every floating date (the ones tied to "second Saturday" or "fourth Sunday" style rules, and lunar-calendar festivals) has been checked against the actual September 2026 calendar rather than copied forward from a previous year's list, which is where a surprising number of other roundups go wrong. See the <a href="#corrections">Date Corrections</a> section below.</p>
+
+<figure>
+<img src="https://www.calcuportal.com/blog/images/chatgpt-image-sep-5-2026-060736-pm-500kb.jpeg" alt="Important Days in September 2026 calendar graphic" loading="lazy">
+<figcaption>Important Days in September 2026 at a glance.</figcaption>
+</figure>
 
 <div class="toc">
 <strong>On this page:</strong>
@@ -172,6 +201,7 @@ meta_description: Explore the important days in September 2026, including
 <h2 id="full-list">Complete List of Important Days in September 2026</h2>
 <p>The table below covers the month at a glance, including the day of the week, useful for planning school assemblies, office observances, or revision schedules.</p>
 
+<div class="table-wrap">
 <table>
 <caption>Important Days in September 2026: Date, Day &amp; Category</caption>
 <thead>
@@ -248,6 +278,7 @@ meta_description: Explore the important days in September 2026, including
 <tr><td>Sept 30</td><td>Wed</td><td>International Translation Day</td><td>International</td></tr>
 </tbody>
 </table>
+</div>
 
 <h2 id="national">National Important Days in September 2026 (India)</h2>
 <ul>
@@ -274,6 +305,7 @@ meta_description: Explore the important days in September 2026, including
 </ul>
 
 <h2 id="festivals">Festivals in September 2026</h2>
+<div class="table-wrap">
 <table>
 <caption>Major Hindu Festivals in September 2026 (verified dates)</caption>
 <thead><tr><th>Festival</th><th>2026 Date</th><th>Notes</th></tr></thead>
@@ -284,6 +316,7 @@ meta_description: Explore the important days in September 2026, including
 <tr><td>Anant Chaturdashi (Ganesh Visarjan)</td><td>Friday, Sept 25</td><td>Closing day of Ganeshotsav, marked by the immersion of Ganesha idols.</td></tr>
 </tbody>
 </table>
+</div>
 
 <h2 id="deep-dive">Key Days of September 2026, Explained</h2>
 
