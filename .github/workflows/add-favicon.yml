@@ -6,7 +6,6 @@ on:
       - main
     paths:
       - 'blog/**/*.html'
-      - 'favicon.svg'
       - '.github/workflows/add-favicon.yml'
   workflow_dispatch:
 
@@ -20,20 +19,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Add favicon to HTML pages
+      - name: Set existing CalcuPortal PNG favicon
         run: |
           python3 - <<'PY'
           from pathlib import Path
           import re
 
-          favicon = '<link rel="icon" type="image/svg+xml" href="/favicon.svg">'
+          favicon = '  <link rel="icon" type="image/png" href="/favicon.png">'
+          pattern = re.compile(r'\s*<link[^>]+rel=["\']icon["\'][^>]*>', re.I)
 
           for path in Path('.').glob('blog/**/index.html'):
               text = path.read_text(encoding='utf-8')
-              if re.search(r'<link[^>]+rel=["\']icon["\']', text, re.I):
-                  continue
-              updated = re.sub(r'(</head>)', f'  {favicon}\\n\\1', text, count=1, flags=re.I)
+              updated = pattern.sub('', text)
               if updated != text:
+                  updated = updated.replace('</head>', favicon + '\n</head>', 1)
                   path.write_text(updated, encoding='utf-8')
                   print(f'Updated {path}')
           PY
@@ -47,5 +46,5 @@ jobs:
             echo "No favicon changes."
             exit 0
           fi
-          git commit -m "chore: add favicon to blog pages"
+          git commit -m "chore: use CalcuPortal PNG favicon"
           git push
