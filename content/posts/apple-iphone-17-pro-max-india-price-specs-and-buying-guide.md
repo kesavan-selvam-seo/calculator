@@ -14,6 +14,7 @@ meta_description: Explore Apple iPhone 17 Pro Max prices in India, camera
   features, battery life and storage options. Find out which model fits your
   needs before buying.
 ---
+<!doctype html>
 <html lang="en-IN">
 <head>
 <meta charset="utf-8">
