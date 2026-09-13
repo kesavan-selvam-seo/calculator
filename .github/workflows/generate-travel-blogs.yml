@@ -1,0 +1,32 @@
+name: Generate Travel Blogs
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'generate_travel_blogs.py'
+      - '.github/workflows/generate-travel-blogs.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Generate 20 travel articles
+        run: python3 generate_travel_blogs.py
+      - name: Commit generated articles
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add blog/travel
+          if git diff --cached --quiet; then
+            echo "No travel blog changes."
+            exit 0
+          fi
+          git commit -m "feat: publish 20 travel guides"
+          git push
