@@ -27,8 +27,22 @@ def page_url(path: Path) -> str:
     return BASE_URL + "/" + rel
 
 
+def is_legacy_calculator_html(path: Path) -> bool:
+    """Exclude legacy /calculators/foo.html when /calculators/foo/index.html exists."""
+    try:
+        rel = path.relative_to(ROOT)
+    except ValueError:
+        return False
+    if rel.parts[0] != "calculators" or path.name == "index.html" or path.suffix.lower() != ".html":
+        return False
+    directory_index = path.with_suffix("") / "index.html"
+    return directory_index.exists()
+
+
 def is_public_html(path: Path) -> bool:
     if path.name in EXCLUDED_FILES or path.suffix.lower() != ".html":
+        return False
+    if is_legacy_calculator_html(path):
         return False
     return not any(part in EXCLUDED_DIRS for part in path.parts)
 
@@ -55,7 +69,15 @@ pages = sorted(
     key=lambda p: page_url(p),
 )
 
-urls = [(page_url(path), git_lastmod(path)) for path in pages]
+# De-duplicate defensively so one canonical URL can never occur twice in the sitemap.
+seen = set()
+urls = []
+for path in pages:
+    url = page_url(path)
+    if url in seen:
+        continue
+    seen.add(url)
+    urls.append((url, git_lastmod(path)))
 
 lines = [
     '<?xml version="1.0" encoding="UTF-8"?>',
@@ -71,4 +93,4 @@ for url, lastmod in urls:
 lines.append("</urlset>")
 
 SITEMAP.write_text("\n".join(lines) + "\n", encoding="utf-8")
-print(f"Generated {SITEMAP} with {len(urls)} URLs")
+print(f"Generated {SITEMAP} with {len(urls)} canonical URLs")
