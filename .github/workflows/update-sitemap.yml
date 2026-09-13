@@ -9,6 +9,7 @@ on:
       - '**/*.xml'
       - '**/*.md'
       - 'generate_sitemap.py'
+      - 'normalize_calculator_canonicals.py'
       - '.github/workflows/update-sitemap.yml'
   workflow_dispatch:
 
@@ -24,17 +25,20 @@ jobs:
         with:
           fetch-depth: 2
 
-      - name: Generate sitemap
+      - name: Normalize calculator canonical URLs
+        run: python3 normalize_calculator_canonicals.py
+
+      - name: Generate canonical-only sitemap
         run: python3 generate_sitemap.py
 
-      - name: Commit sitemap changes
+      - name: Commit canonical and sitemap changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet -- sitemap.xml; then
-            echo "No sitemap changes."
+          git add calculators sitemap.xml
+          if git diff --cached --quiet; then
+            echo "No canonical or sitemap changes."
             exit 0
           fi
-          git add sitemap.xml
-          git commit -m "chore: update sitemap"
+          git commit -m "fix: normalize calculator URLs and sitemap"
           git push
