@@ -1,0 +1,57 @@
+/* Shared dark-mode fixes for blog article content. */
+[data-theme="dark"] .article-content {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .article-content h1,
+[data-theme="dark"] .article-content h2,
+[data-theme="dark"] .article-content h3,
+[data-theme="dark"] .article-content h4,
+[data-theme="dark"] .article-content h5,
+[data-theme="dark"] .article-content h6 {
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .article-content h2 {
+  border-bottom-color: var(--primary) !important;
+}
+
+[data-theme="dark"] .article-content h3,
+[data-theme="dark"] .article-content a,
+[data-theme="dark"] .article-content .toc a {
+  color: var(--primary) !important;
+}
+
+[data-theme="dark"] .article-content figcaption {
+  color: var(--text-muted) !important;
+}
+
+[data-theme="dark"] .article-content th,
+[data-theme="dark"] .article-content td {
+  border-color: var(--border-color) !important;
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .article-content th {
+  background: var(--primary) !important;
+  color: #fff !important;
+}
+
+[data-theme="dark"] .article-content tr:nth-child(even) {
+  background: var(--border-light) !important;
+}
+
+[data-theme="dark"] .article-content .toc {
+  background: var(--primary-light) !important;
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .article-content details {
+  border-color: var(--border-color) !important;
+  background: var(--bg-card) !important;
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .article-content summary {
+  color: var(--text-primary) !important;
+}
