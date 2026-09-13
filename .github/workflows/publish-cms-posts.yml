@@ -9,6 +9,7 @@ on:
       - 'publish_cms_posts.py'
       - 'style_blog_content.py'
       - 'add_blog_favicon.py'
+      - 'blog-darkmode.css'
       - '.github/workflows/publish-cms-posts.yml'
   workflow_dispatch:
 
