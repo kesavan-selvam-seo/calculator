@@ -1,0 +1,34 @@
+name: Optimize Number to Words SEO
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'optimize_numbers_to_words_seo.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Apply SEO optimization
+        run: python3 optimize_numbers_to_words_seo.py
+
+      - name: Commit optimized page
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add calculators/conversions-numbers-to-words/index.html
+          if git diff --cached --quiet; then
+            echo "No page changes."
+            exit 0
+          fi
+          git commit -m "seo: optimize number to words calculator"
+          git push
