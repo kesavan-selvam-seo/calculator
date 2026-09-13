@@ -17,8 +17,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Generate 20 travel articles
         run: python3 generate_travel_blogs.py
+
       - name: Commit generated articles
         run: |
           git config user.name "github-actions[bot]"
@@ -29,4 +33,22 @@ jobs:
             exit 0
           fi
           git commit -m "feat: publish 20 travel guides"
-          git push
+
+          # GitHub occasionally returns a transient 500/502 while accepting a push.
+          # Retry several times and refresh the remote ref before giving up.
+          for attempt in 1 2 3 4 5; do
+            echo "Push attempt ${attempt}/5"
+            if git push origin HEAD:main; then
+              echo "Travel blog commit pushed successfully."
+              exit 0
+            fi
+            echo "Push failed; refreshing remote branch before retry..."
+            git fetch origin main
+            git rebase origin/main || {
+              echo "Rebase failed; aborting retry loop."
+              exit 1
+            }
+            sleep 10
+          done
+          echo "Unable to push after 5 attempts."
+          exit 1
