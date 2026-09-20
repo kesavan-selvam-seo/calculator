@@ -41,7 +41,7 @@ def body(kind,d):
     }
     common_tip=f"""<div class="callout"><strong>Planning note:</strong> Travel conditions, attraction timings, entry rules and prices can change. Verify current details with the relevant official tourism or attraction website before departure.</div>"""
     if kind=='places':
-        intro=destination_notes.get(d.get("key",""),"")
+        intro=destination_notes.get(n.lower(),"")
         if n=="Kerala":
             return f"""<h2>Best Places to Visit in Kerala</h2><p>Kerala is a diverse travel destination rather than a single sightseeing circuit. The state combines hill stations, backwaters, beaches, wildlife, heritage areas and food experiences. Kerala Tourism lists destinations across these different landscapes, so the best itinerary depends on how many days you have and how much time you want to spend travelling between regions.</p>{common_tip}<h2>Top Places to Include in a Kerala Trip</h2>
 <h3>Munnar</h3><p>Munnar is a strong choice for tea plantations, mountain scenery, viewpoints and cooler hill-country weather. Kerala Tourism identifies attractions such as Eravikulam National Park, Mattupetty, Top Station and Anamudi around the Munnar region.</p>
@@ -127,7 +127,12 @@ def page(slug,title,kw,d,desc,kind):
 
 
 for slug,title,kw,key,desc,kind in BLOGS:
- out=ROOT/'blog/travel'/slug/'index.html'; out.parent.mkdir(parents=True,exist_ok=True); out.write_text(page(slug,title,kw,D[key],desc,kind),encoding='utf-8')
+ if kind=='bangalore-goa':
+  continue
+ out=ROOT/'blog/travel'/slug/'index.html'; out.parent.mkdir(parents=True,exist_ok=True)
+ generated=page(slug,title,kw,D[key],desc,kind)
+ if generated:
+  out.write_text(generated,encoding='utf-8')
 if CATEGORY.exists():
  text=CATEGORY.read_text(encoding='utf-8'); cards=''.join(f'<a class="blog-card" href="/blog/travel/{s}/"><div class="blog-card-body"><h3 class="blog-card-title">{escape(t)}</h3><p class="blog-card-excerpt">{escape(d)}</p><span class="blog-card-link">Read guide →</span></div></a>' for s,t,k,key,d,kind in BLOGS)
  start=text.find('<div class="article-list">'); end=text.find('</div>',start)+6
