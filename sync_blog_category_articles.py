@@ -23,7 +23,7 @@ def get_meta(html, name):
     return match.group(1).strip() if match else ""
 
 
-def article_data(path):
+def article_data(path, category):
     html = path.read_text(encoding="utf-8")
     title_match = re.search(r'<h1[^>]*>(.*?)</h1>', html, re.I | re.S)
     title = re.sub(r'<[^>]+>', '', title_match.group(1)).strip() if title_match else ""
@@ -43,7 +43,7 @@ def article_data(path):
             image = image.replace("https://www.calcuportal.com", "")
 
     slug = path.parent.name
-    url = f"/blog/{slug}/"
+    url = f"/blog/{category}/{slug}/"
     return title, url, desc, image
 
 
@@ -69,13 +69,13 @@ def sync_category(category):
         return
 
     html = category_index.read_text(encoding="utf-8")
-    existing_urls = set(re.findall(r'href=["\'](/blog/[^"\']+/)["\']', html, re.I))
+    existing_urls = set(re.findall(r'href=["\'](/blog/[^"\']+/[^"\']+/)["\']', html, re.I))
 
     cards = []
     for article_index in sorted(category_dir.glob("*/index.html")):
         # The category index is category_dir/index.html, so this only finds
         # article folders such as blog/technology/example/index.html.
-        item = article_data(article_index)
+        item = article_data(article_index, category)
         if item[1] not in existing_urls:
             cards.append(item)
 
