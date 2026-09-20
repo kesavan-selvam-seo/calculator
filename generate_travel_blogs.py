@@ -7,7 +7,8 @@ D={
 'ooty':('Ooty','Tamil Nadu','October to June',['Ooty Lake','Government Botanical Garden','Doddabetta Peak','Ooty Rose Garden','Nilgiri Mountain Railway','tea estates']),
 'kodaikanal':('Kodaikanal','Tamil Nadu','April to June and September to October',['Kodaikanal Lake',"Coaker's Walk",'Bryant Park','Pillar Rocks','Moir Point','Pine Forest']),
 'goa':('Goa','Goa','November to February',['Baga Beach','Calangute Beach','Fort Aguada','Basilica of Bom Jesus','Anjuna','Palolem']),
-'munnar':('Munnar','Kerala','September to May',['Mattupetty Dam','Echo Point','Tea Museum','Top Station','Kundala Lake','tea plantations'])}
+'munnar':('Munnar','Kerala','September to May',['Mattupetty Dam','Echo Point','Tea Museum','Top Station','Kundala Lake','tea plantations']),
+'kerala':('Kerala','Kerala','October to March',['Munnar','Alappuzha','Kumarakom','Fort Kochi','Varkala','Thekkady'])}
 BLOGS=[
 ('best-places-to-visit-in-ooty','Best Places to Visit in Ooty','places to visit in Ooty','ooty','Explore the best places to visit in Ooty, including lakes, gardens, viewpoints, tea estates and family-friendly attractions.','places'),
 ('best-time-to-visit-ooty','Best Time to Visit Ooty','best time to visit Ooty','ooty','Find the best time to visit Ooty by season, with practical tips for weather, sightseeing and trip planning.','season'),
@@ -24,8 +25,8 @@ BLOGS=[
 ('places-to-visit-in-munnar','Best Places to Visit in Munnar','places to visit in Munnar','munnar','Explore the best places to visit in Munnar, including tea plantations, lakes, dams, viewpoints and nature spots.','places'),
 ('best-time-to-visit-munnar','Best Time to Visit Munnar','best time to visit Munnar','munnar','Choose the best time to visit Munnar based on weather, sightseeing, greenery and road conditions.','season'),
 ('munnar-trip-cost','Munnar Trip Cost: Complete Budget Guide','Munnar trip cost','munnar','Estimate a Munnar trip budget for accommodation, transport, food, sightseeing and local travel.','cost'),
-('kerala-trip-cost','Kerala Trip Cost: Complete Budget Guide','Kerala trip cost','munnar','Plan a Kerala trip budget with practical guidance on transport, stays, food, sightseeing and trip duration.','kerala-cost'),
-('best-places-to-visit-in-kerala','Best Places to Visit in Kerala','places to visit in Kerala','munnar','Explore popular Kerala destinations and learn how to combine hill stations, beaches, backwaters and heritage stops.','kerala-places'),
+('kerala-trip-cost','Kerala Trip Cost: Complete Budget Guide','Kerala trip cost','kerala','Plan a Kerala trip budget with practical guidance on transport, stays, food, sightseeing and trip duration.','kerala-cost'),
+('best-places-to-visit-in-kerala','Best Places to Visit in Kerala','places to visit in Kerala','kerala','Explore popular Kerala destinations and learn how to combine hill stations, beaches, backwaters and heritage stops.','kerala-places'),
 ('chennai-to-pondicherry-distance','Chennai to Pondicherry Distance, Route & Travel Time','Chennai to Pondicherry distance','ooty','Check the practical Chennai to Pondicherry travel distance, route options, approximate journey time and planning tips.','chennai-pondicherry'),
 ('bangalore-to-ooty-distance','Bangalore to Ooty Distance, Route & Travel Time','Bangalore to Ooty distance','ooty','Plan a Bangalore to Ooty road trip with route guidance, approximate travel time, stops and fuel-budget considerations.','bangalore-ooty'),
 ('bangalore-to-goa-distance','Bangalore to Goa Distance, Route & Travel Time','Bangalore to Goa distance','goa','Plan a Bangalore to Goa journey with route options, approximate travel time, breaks and travel-budget considerations.','bangalore-goa')]
