@@ -1,5 +1,5 @@
 from pathlib import Path
-from html import escape
+from html import escape, unescape
 import re
 import json
 ROOT=Path(__file__).resolve().parent; BASE='https://www.calcuportal.com'; CATEGORY=ROOT/'blog/travel/index.html'
@@ -103,6 +103,14 @@ def body(kind,d):
         return ''  # preserve the manually expanded version
     return "<h2>Plan Your Trip</h2><p>Build your itinerary around your travel dates, budget, route and preferred experiences. Check current official information before departure.</p>"
 
+CARD_IMAGES={
+    'bangalore-to-goa-distance':'/blog/images/bangalore-to-goa-distance-route-and-travel-time.jpeg',
+    'bangalore-to-ooty-distance':'/blog/images/bangalore-to-ooty-distance-route-and-travel-time.jpeg',
+}
+
+def display_text(value):
+    return escape(unescape(value))
+
 def page(slug,title,kw,d,desc,kind):
     url=f'{BASE}/blog/travel/{slug}/'
     if kind=='bangalore-goa':
@@ -136,8 +144,14 @@ for slug,title,kw,key,desc,kind in BLOGS:
  if generated:
   out.write_text(generated,encoding='utf-8')
 if CATEGORY.exists():
- text=CATEGORY.read_text(encoding='utf-8'); cards=''.join(f'<a class="blog-card" href="/blog/travel/{s}/"><div class="blog-card-body"><h3 class="blog-card-title">{escape(t)}</h3><p class="blog-card-excerpt">{escape(d)}</p><span class="blog-card-link">Read guide →</span></div></a>' for s,t,k,key,d,kind in BLOGS)
+ text=CATEGORY.read_text(encoding='utf-8'); cards=''.join(
+  f'<a class="calc-card blog-card" href="/blog/travel/{s}/" aria-label="Read {display_text(t)}">'
+  + (f'<img class="article-card-image" src="{CARD_IMAGES[s]}" alt="{display_text(t)}" width="1200" height="675" loading="lazy">' if s in CARD_IMAGES else '')
+  + f'<div class="blog-card-body"><h3 class="blog-card-title">{display_text(t)}</h3><p class="blog-card-excerpt">{display_text(d)}</p><span class="blog-card-link">Read Guide →</span></div></a>'
+  for s,t,k,key,d,kind in BLOGS
+)
  start=text.find('<div class="article-list">'); end=text.find('</div>',start)+6
- if start>=0 and end>5: text=text[:start]+'<div class="article-list">'+cards+'</div>'+text[end:]
+ if start>=0 and end>start:
+  text=text[:start]+'<div class="article-list">'+cards+text[end:]
  CATEGORY.write_text(text,encoding='utf-8')
 print(f'Generated {len(BLOGS)} travel articles.')
