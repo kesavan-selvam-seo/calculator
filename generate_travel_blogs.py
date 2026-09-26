@@ -157,8 +157,9 @@ if CATEGORY.exists():
   + f'<div class="blog-card-body"><h3 class="blog-card-title">{display_text(t)}</h3><p class="blog-card-excerpt">{display_text(d)}</p><span class="blog-card-link">Read Guide →</span></div></a>'
   for s,t,k,key,d,kind in BLOGS
 )
- start=text.find('<div class="article-list">'); end=text.find('</div>',start)+6
+ start=text.find('<div class="article-list">')
+ end=text.find('</div></section>',start)
  if start>=0 and end>start:
-  text=text[:start]+'<div class="article-list">'+cards+text[end:]
+  text=text[:start]+'<div class="article-list">'+cards+'</div>'+text[end+6:]
  CATEGORY.write_text(text,encoding='utf-8')
 print(f'Generated {len(BLOGS)} travel articles.')
