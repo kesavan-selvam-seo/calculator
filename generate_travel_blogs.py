@@ -139,6 +139,8 @@ def page(slug,title,kw,d,desc,kind):
 for slug,title,kw,key,desc,kind in BLOGS:
  if kind=='bangalore-goa':
   continue
+ if slug=='best-time-to-visit-kodaikanal':
+  continue  # preserve the manually curated, image-led seasonal guide
  out=ROOT/'blog/travel'/slug/'index.html'; out.parent.mkdir(parents=True,exist_ok=True)
  generated=page(slug,title,kw,D[key],desc,kind)
  if generated:
