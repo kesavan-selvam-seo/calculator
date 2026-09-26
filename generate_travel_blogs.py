@@ -106,6 +106,20 @@ def body(kind,d):
 CARD_IMAGES={
     'bangalore-to-goa-distance':'/blog/images/bangalore-to-goa-distance-route-and-travel-time.jpeg',
     'bangalore-to-ooty-distance':'/blog/images/bangalore-to-ooty-distance-route-and-travel-time.jpeg',
+    'best-places-to-visit-in-goa':'/blog/images/best-places-to-visit-in-goa.jpeg',
+    'best-time-to-visit-goa':'/blog/images/best-places-to-visit-in-goa.jpeg',
+    'goa-trip-cost':'/blog/images/best-places-to-visit-in-goa.jpeg',
+    'goa-3-day-itinerary':'/blog/images/best-places-to-visit-in-goa.jpeg',
+    'best-places-to-visit-in-kerala':'/blog/images/best-places-to-visit-in-kerala.jpeg',
+    'kerala-trip-cost':'/blog/images/best-places-to-visit-in-kerala.jpeg',
+    'best-places-to-visit-in-ooty':'/blog/images/best-places-to-visit-in-ooty.jpeg',
+    'best-time-to-visit-ooty':'/blog/images/best-places-to-visit-in-ooty.jpeg',
+    'ooty-trip-cost':'/blog/images/best-places-to-visit-in-ooty.jpeg',
+    'ooty-2-day-itinerary':'/blog/images/best-places-to-visit-in-ooty.jpeg',
+    'best-time-to-visit-kodaikanal':'/blog/images/best-time-to-visit-kodaikanal.jpeg',
+    'places-to-visit-in-kodaikanal':'/blog/images/best-time-to-visit-kodaikanal.jpeg',
+    'kodaikanal-trip-cost':'/blog/images/best-time-to-visit-kodaikanal.jpeg',
+    'kodaikanal-2-day-itinerary':'/blog/images/best-time-to-visit-kodaikanal.jpeg',
 }
 
 def display_text(value):
@@ -139,6 +153,8 @@ def page(slug,title,kw,d,desc,kind):
 for slug,title,kw,key,desc,kind in BLOGS:
  if kind=='bangalore-goa':
   continue
+ if slug=='best-time-to-visit-kodaikanal':
+  continue  # preserve the manually curated, image-led seasonal guide
  out=ROOT/'blog/travel'/slug/'index.html'; out.parent.mkdir(parents=True,exist_ok=True)
  generated=page(slug,title,kw,D[key],desc,kind)
  if generated:
@@ -150,8 +166,9 @@ if CATEGORY.exists():
   + f'<div class="blog-card-body"><h3 class="blog-card-title">{display_text(t)}</h3><p class="blog-card-excerpt">{display_text(d)}</p><span class="blog-card-link">Read Guide →</span></div></a>'
   for s,t,k,key,d,kind in BLOGS
 )
- start=text.find('<div class="article-list">'); end=text.find('</div>',start)+6
+ start=text.find('<div class="article-list">')
+ end=text.find('</div></section>',start)
  if start>=0 and end>start:
-  text=text[:start]+'<div class="article-list">'+cards+text[end:]
+  text=text[:start]+'<div class="article-list">'+cards+'</div>'+text[end+6:]
  CATEGORY.write_text(text,encoding='utf-8')
 print(f'Generated {len(BLOGS)} travel articles.')
