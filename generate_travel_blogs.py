@@ -107,10 +107,19 @@ CARD_IMAGES={
     'bangalore-to-goa-distance':'/blog/images/bangalore-to-goa-distance-route-and-travel-time.jpeg',
     'bangalore-to-ooty-distance':'/blog/images/bangalore-to-ooty-distance-route-and-travel-time.jpeg',
     'best-places-to-visit-in-goa':'/blog/images/best-places-to-visit-in-goa.jpeg',
+    'best-time-to-visit-goa':'/blog/images/best-places-to-visit-in-goa.jpeg',
+    'goa-trip-cost':'/blog/images/best-places-to-visit-in-goa.jpeg',
+    'goa-3-day-itinerary':'/blog/images/best-places-to-visit-in-goa.jpeg',
     'best-places-to-visit-in-kerala':'/blog/images/best-places-to-visit-in-kerala.jpeg',
+    'kerala-trip-cost':'/blog/images/best-places-to-visit-in-kerala.jpeg',
     'best-places-to-visit-in-ooty':'/blog/images/best-places-to-visit-in-ooty.jpeg',
-    'best-time-to-visit-goa':'/blog/images/best-time-to-visit-goa.jpeg',
+    'best-time-to-visit-ooty':'/blog/images/best-places-to-visit-in-ooty.jpeg',
+    'ooty-trip-cost':'/blog/images/best-places-to-visit-in-ooty.jpeg',
+    'ooty-2-day-itinerary':'/blog/images/best-places-to-visit-in-ooty.jpeg',
     'best-time-to-visit-kodaikanal':'/blog/images/best-time-to-visit-kodaikanal.jpeg',
+    'places-to-visit-in-kodaikanal':'/blog/images/best-time-to-visit-kodaikanal.jpeg',
+    'kodaikanal-trip-cost':'/blog/images/best-time-to-visit-kodaikanal.jpeg',
+    'kodaikanal-2-day-itinerary':'/blog/images/best-time-to-visit-kodaikanal.jpeg',
 }
 
 def display_text(value):
