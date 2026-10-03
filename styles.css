@@ -873,3 +873,9 @@ footer {
     height: 26px;
   }
 }
+
+
+/* Uniform article FAQ styling */
+.article-content details{font-family:Arial,Helvetica,sans-serif!important;font-size:1rem;line-height:1.5}
+.article-content details summary{font-family:Arial,Helvetica,sans-serif!important;font-size:1rem;line-height:1.5;font-weight:600;cursor:pointer;text-align:left}
+.article-content details p{font-family:Georgia,'Times New Roman',serif;font-size:1rem;line-height:1.65;margin:.75rem 0 0;text-align:justify}
