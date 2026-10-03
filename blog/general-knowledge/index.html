@@ -1,203 +1,26 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="index, follow"><title>General Knowledge Guides | CalcuPortal</title><meta name="description" content="Everyday knowledge guides, useful facts, simple calculations, conversions, measurements, dates, and practical explanations."><link rel="canonical" href="https://www.calcuportal.com/blog/general-knowledge/"><link rel="stylesheet" href="/styles.css"><script src="/script.js"></script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.calcuportal.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.calcuportal.com/blog/"},{"@type":"ListItem","position":3,"name":"General Knowledge Guides","item":"https://www.calcuportal.com/blog/general-knowledge/"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"General Knowledge Guides","url":"https://www.calcuportal.com/blog/general-knowledge/","description":"Everyday knowledge guides, useful facts, simple calculations, conversions, measurements, dates, and practical explanations.","isPartOf":{"@type":"WebSite","name":"CalcuPortal","url":"https://www.calcuportal.com/"}}</script><style id="calcuportal-category-card-style">
-/* Category pages only — keep the existing CalcuPortal theme */
-.blog-category-wrap {
-  max-width: 1120px;
-  margin: 0 auto;
-}
-
-/* Match the normal CalcuPortal breadcrumb */
-.blog-category-wrap .blog-breadcrumb {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin: 0 0 1.5rem;
-  padding: 0;
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
-  line-height: 1.5;
-  color: var(--text-muted);
-}
-
-.blog-category-wrap .blog-breadcrumb a {
-  color: var(--primary);
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.blog-category-wrap .blog-breadcrumb a:hover {
-  color: var(--primary-hover);
-  text-decoration: underline;
-}
-
-.blog-category-wrap .blog-breadcrumb span {
-  color: var(--text-muted);
-}
-
-.blog-category-wrap .blog-breadcrumb span[aria-current="page"] {
-  color: var(--text-secondary);
-  font-weight: 500;
-}
-
-.blog-category-wrap .detail-header {
-  padding: 8px 0 10px;
-}
-
-.blog-category-wrap .detail-header h1 {
-  margin: 0 0 10px;
-}
-
-.blog-category-wrap .category-copy {
-  margin: 28px 0 40px;
-  padding: 20px 24px;
-  background: var(--primary-light);
-  border: 1px solid var(--border-color);
-  border-radius: 14px;
-}
-
-.blog-category-wrap .category-copy h2 {
-  margin: 0 0 8px;
-  color: var(--primary);
-}
-
-.blog-category-wrap .category-copy p {
-  margin: 0;
-  color: var(--text-secondary);
-  line-height: 1.7;
-  text-align: justify;
-}
-
-.blog-category-wrap .category-header {
-  margin-bottom: 24px;
-}
-
-.blog-category-wrap .category-title {
-  margin: 0;
-  font-size: 22px;
-  font-weight: 700;
-}
-
-.article-list {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-  align-items: stretch;
-}
-
-.article-list .blog-card {
-  width: 100%;
-  max-width: 340px;
-  min-width: 0;
-  margin: 0 auto;
-  padding: 0;
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
-  text-decoration: none;
-  color: inherit;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
-}
-
-.article-list .blog-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--primary);
-  box-shadow: var(--shadow-lg);
-}
-
-.article-list .blog-card .article-card-image {
-  display: block;
-  width: 100%;
-  height: 178px;
-  aspect-ratio: 274 / 144;
-  max-width: 100%;
-  object-fit: cover;
-  object-position: center;
-  margin: 0;
-  flex-shrink: 0;
-}
-
-.article-list .blog-card .blog-card-body {
-  padding: 18px 20px 20px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.article-list .blog-card .blog-card-title {
-  margin: 0 0 10px;
-  font-size: 17px;
-  font-weight: 700;
-  line-height: 1.4;
-  color: var(--text-primary);
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-}
-
-.article-list .blog-card .blog-card-excerpt {
-  margin: 0 0 16px;
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--text-muted);
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  flex: 1;
-}
-
-.article-list .blog-card .blog-card-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: auto;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--primary);
-  text-decoration: underline;
-}
-
-@media (max-width: 900px) {
-  .article-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
-  }
-
-  .article-list .blog-card {
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 650px) {
-  .blog-category-wrap {
-    width: 100%;
-  }
-
-  .blog-category-wrap .category-copy {
-    padding: 18px;
-    margin: 24px 0 32px;
-  }
-
-  .article-list {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
-  .article-list .blog-card {
-    max-width: 340px;
-  }
-
-  .article-list .blog-card .article-card-image {
-    height: auto;
-    aspect-ratio: 274 / 144;
-  }
-}
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="index, follow"><title>General Knowledge Guides | CalcuPortal</title><meta name="description" content="Everyday knowledge guides, useful facts, simple calculations, conversions, measurements, dates, and practical explanations."><link rel="canonical" href="https://www.calcuportal.com/blog/general-knowledge/"><link rel="stylesheet" href="/styles.css"><script src="/script.js"></script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.calcuportal.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.calcuportal.com/blog/"},{"@type":"ListItem","position":3,"name":"General Knowledge Guides","item":"https://www.calcuportal.com/blog/general-knowledge/"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"General Knowledge Guides","url":"https://www.calcuportal.com/blog/general-knowledge/","description":"Everyday knowledge guides, useful facts, simple calculations, conversions, measurements, dates, and practical explanations.","isPartOf":{"@type":"WebSite","name":"CalcuPortal","url":"https://www.calcuportal.com/"}}</script><style>
+.gk-category{max-width:1120px;margin:0 auto}
+.gk-breadcrumb{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin:0 0 1.5rem;font-size:.875rem;color:var(--text-muted)}
+.gk-breadcrumb a{color:var(--primary);font-weight:600;text-decoration:none}
+.gk-header{padding:8px 0 10px}
+.gk-header h1{margin:0 0 10px}
+.gk-header p{max-width:800px;color:var(--text-secondary);line-height:1.7;text-align:justify}
+.gk-intro{margin:28px 0 40px;padding:22px 24px;background:var(--primary-light);border:1px solid var(--border-color);border-radius:14px}
+.gk-intro h2{margin:0 0 8px;color:var(--primary)}
+.gk-intro p{margin:0;color:var(--text-secondary);line-height:1.7;text-align:justify}
+.gk-topics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:24px}
+.gk-topic{background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:22px;box-shadow:var(--shadow-sm)}
+.gk-topic h3{margin:0 0 8px;font-size:1.05rem}
+.gk-topic h3 a{color:var(--text-primary);text-decoration:none}
+.gk-topic h3 a:hover{color:var(--primary)}
+.gk-topic p{margin:0;color:var(--text-secondary);font-size:.92rem;line-height:1.65}
+@media(max-width:800px){.gk-topics{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.gk-topics{grid-template-columns:1fr}.gk-intro{padding:18px}}
 </style>
   <link rel="icon" type="image/png" href="/favicon.png">
-</head><body><header><div class="nav-container"><a href="/" class="logo"><img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon"><span>CalcuPortal</span></a><button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button><nav class="nav-links" id="nav-links"><a href="/" class="nav-link">Home</a><a href="/about/" class="nav-link">About</a><a href="/contact/" class="nav-link">Contact</a><a href="/blog/" class="nav-link active">Blog</a><button class="theme-btn" title="Toggle Theme"><span class="theme-btn-icon"></span></button></nav></div></header><main><div class="blog-category-wrap"><nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/blog/">Blog</a><span>›</span><span aria-current="page">General Knowledge Guides</span></nav><header class="detail-header"><h1>General Knowledge Guides</h1><p>Find easy-to-understand general knowledge articles, everyday calculations, conversions, measurements, and useful facts.</p></header><section class="category-copy"><h2>About General Knowledge Guides</h2><p>CalcuPortal&#x27;s General Knowledge category focuses on useful information people can apply in everyday situations. Topics may include common calculations, measurements, conversions, dates, numbers, time, and practical explanations. The goal is to answer simple questions clearly without unnecessary complexity, while connecting readers to calculators and tools when a calculation is needed.</p></section><section><div class="category-header"><h2 class="category-title">Latest General Knowledge Guides</h2></div><div class="article-list"><a class="calc-card blog-card" href="/blog/general-knowledge/general-knowledge-about-india/" aria-label="Read General Knowledge About India"><div class="blog-card-body"><h3 class="blog-card-title">General Knowledge About India</h3><p class="blog-card-excerpt">General knowledge about India with 100+ useful GK facts on states, capitals, geography, history, culture, national symbols, rivers, mountains and important places.</p><span class="blog-card-link">Read Guide →</span></div></a><a class="calc-card blog-card" href="/blog/general-knowledge/highest-mountains-in-india/" aria-label="Read Highest Mountains and Peaks in India"><div class="blog-card-body"><h3 class="blog-card-title">Highest Mountains and Peaks in India</h3><p class="blog-card-excerpt">Explore the highest mountains in India with peak heights, states, ranges, rankings and key facts about Kangchenjunga, Nanda Devi, Kamet and other major peaks.</p><span class="blog-card-link">Read Guide →</span></div></a><a class="calc-card blog-card" href="/blog/general-knowledge/important-lakes-in-india/" aria-label="Read Important Lakes in India"><div class="blog-card-body"><h3 class="blog-card-title">Important Lakes in India</h3><p class="blog-card-excerpt">Explore important lakes in India with states, types, locations and key GK facts about Wular, Chilika, Sambhar, Loktak, Vembanad, Dal and other major lakes.</p><span class="blog-card-link">Read Guide →</span></div></a><a class="calc-card blog-card" href="/blog/general-knowledge/important-rivers-of-india/" aria-label="Read Important Rivers in India"><div class="blog-card-body"><h3 class="blog-card-title">Important Rivers in India</h3><p class="blog-card-excerpt">Learn about important rivers in India with sources, tributaries, states, drainage systems, lengths and key GK facts about the Ganga, Godavari, Brahmaputra, Narmada and more.</p><span class="blog-card-link">Read Guide →</span></div></a><a class="calc-card blog-card" href="/blog/general-knowledge/indian-states-and-capitals/" aria-label="Read Indian States and Capitals"><div class="blog-card-body"><h3 class="blog-card-title">Indian States and Capitals</h3><p class="blog-card-excerpt">Check the 28 states of India and their capitals in an updated list, with state-wise details, regional grouping, important GK facts and FAQs for quick revision.</p><span class="blog-card-link">Read Guide →</span></div></a><a class="calc-card blog-card" href="/blog/general-knowledge/indian-states-and-languages/" aria-label="Read Indian States and Languages"><div class="blog-card-body"><h3 class="blog-card-title">Indian States and Languages</h3><p class="blog-card-excerpt">Check the major languages spoken or associated with all 28 Indian states, language families, scripts, 22 scheduled languages and key GK facts.</p><span class="blog-card-link">Read Guide →</span></div></a><a class="calc-card blog-card" href="/blog/general-knowledge/major-dams-in-india/" aria-label="Read Major Dams in India"><div class="blog-card-body"><h3 class="blog-card-title">Major Dams in India</h3><p class="blog-card-excerpt">Explore major dams in India with their rivers, states, uses and key GK facts about Bhakra, Tehri, Hirakud, Sardar Sarovar, Nagarjuna Sagar and more.</p><span class="blog-card-link">Read Guide →</span></div></a><a class="calc-card blog-card" href="/blog/general-knowledge/national-parks-in-india/" aria-label="Read National Parks in India"><div class="blog-card-body"><h3 class="blog-card-title">National Parks in India</h3><p class="blog-card-excerpt">Explore national parks in India with the current count, state-wise examples, famous wildlife, first national park, major parks and important GK facts.</p><span class="blog-card-link">Read Guide →</span></div></a><a class="calc-card blog-card" href="/blog/general-knowledge/national-symbols-of-india/" aria-label="Read National Symbols of India"><div class="blog-card-body"><h3 class="blog-card-title">National Symbols of India</h3><p class="blog-card-excerpt">Learn the national symbols of India with the flag, emblem, anthem, song, animal, bird, flower, tree, fruit, aquatic animal and important GK facts.</p><span class="blog-card-link">Read Guide →</span></div></a><a class="calc-card blog-card" href="/blog/general-knowledge/union-territories-of-india/" aria-label="Read Union Territories of India"><div class="blog-card-body"><h3 class="blog-card-title">Union Territories of India</h3><p class="blog-card-excerpt">Learn about the 8 Union Territories of India with capitals, locations, formation, administrative structure, important GK facts, questions and quick revision notes.</p><span class="blog-card-link">Read Guide →</span></div></a><a class="calc-card blog-card" href="/blog/important-days-in-october/" aria-label="Read Important Days in October 2026 – National &amp; International Days"><img class="article-card-image" src="/blog/images/important-days-in-october-2026-1.jpeg" alt="Important Days in October 2026 – National &amp; International Days" width="274" height="144" loading="lazy"><div class="blog-card-body"><h3 class="blog-card-title">Important Days in October 2026 – National &amp; International Days</h3><p class="blog-card-excerpt">Explore the important days in October 2026, including national and international days, Gandhi Jayanti, World Teachers’ Day, World Food Day, Dussehra and more.</p><span class="blog-card-link">Read Guide →</span></div></a><a class="calc-card blog-card" href="/blog/important-days-in-september/" aria-label="Read Important Days in September 2026: National &amp; International Days"><img class="article-card-image" src="/blog/images/chatgpt-image-sep-5-2026-060736-pm-500kb.jpeg" alt="Important Days in September 2026: National &amp; International Days" width="274" height="144" loading="lazy"><div class="blog-card-body"><h3 class="blog-card-title">Important Days in September 2026: National &amp; International Days</h3><p class="blog-card-excerpt">Explore the important days in September 2026, including national and international days, awareness days, festivals, and special events.</p><span class="blog-card-link">Read Guide →</span></div></a></div></section></div></main><footer><div class="footer-container"><div class="footer-info"><a href="/" class="logo" style="display:inline-flex"><img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon"><span>CalcuPortal</span></a><p style="text-align:justify">CalcuPortal provides practical calculators, guides, formulas, and useful resources for everyday calculations.</p></div><div class="footer-column"><h3>Pages</h3><ul><li><a href="/about/">About Us</a></li><li><a href="/contact/">Contact Us</a></li><li><a href="/privacy-policy/">Privacy Policy</a></li><li><a href="/disclaimer/">Disclaimer</a></li><li><a href="/advertise/">Advertise</a></li><li><a href="/terms-conditions/">Terms Conditions</a></li></ul></div><div class="footer-column"><h3>Blog</h3><ul><li><a href="/blog/">All Blog Categories</a></li></ul></div></div><div class="copyright-bar">© <span id="year">2026</span> CalcuPortal. All rights reserved.</div></footer><script>document.getElementById('year').innerText=new Date().getFullYear();</script></body></html>
+</head><body><header><div class="nav-container"><a href="/" class="logo"><img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon"><span>CalcuPortal</span></a><button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button><nav class="nav-links" id="nav-links"><a href="/" class="nav-link">Home</a><a href="/about/" class="nav-link">About</a><a href="/contact/" class="nav-link">Contact</a><a href="/blog/" class="nav-link active">Blog</a><button class="theme-btn" title="Toggle Theme"><span class="theme-btn-icon"></span></button></nav></div></header><main><div class="gk-category">
+<nav class="gk-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/blog/">Blog</a><span>›</span><span aria-current="page">General Knowledge Guides</span></nav>
+<header class="gk-header"><h1>General Knowledge Guides</h1><p>Explore easy-to-understand general knowledge guides covering India, geography, history, culture, national symbols, rivers, mountains, lakes, states, wildlife and important GK facts.</p></header>
+<section class="gk-intro"><h2>About General Knowledge on CalcuPortal</h2><p>CalcuPortal's General Knowledge category brings together clear, structured guides for students, quiz preparation and everyday readers. Browse useful India GK topics, important lists, facts and quick-reference guides designed to make revision simple.</p></section>
+<section aria-labelledby="gk-guides-heading"><h2 id="gk-guides-heading">General Knowledge Guides</h2><div class="gk-topics"><article class="gk-topic"><h3><a href="/blog/general-knowledge/general-knowledge-about-india/">General Knowledge About India</a></h3><p>100+ useful GK facts covering Indian states, capitals, geography, history, culture, symbols and important places.</p></article><article class="gk-topic"><h3><a href="/blog/general-knowledge/highest-mountains-in-india/">Highest Mountains and Peaks in India</a></h3><p>Peak heights, states, ranges, rankings and key facts about major mountains in India.</p></article><article class="gk-topic"><h3><a href="/blog/general-knowledge/important-lakes-in-india/">Important Lakes in India</a></h3><p>Major lakes, states, types, locations and quick GK facts about important lakes across India.</p></article><article class="gk-topic"><h3><a href="/blog/general-knowledge/important-rivers-of-india/">Important Rivers in India</a></h3><p>Major rivers, sources, tributaries, states, drainage systems and useful river GK facts.</p></article><article class="gk-topic"><h3><a href="/blog/general-knowledge/indian-states-and-capitals/">Indian States and Capitals</a></h3><p>The 28 states of India and their capitals, regional grouping, facts and quick revision.</p></article><article class="gk-topic"><h3><a href="/blog/general-knowledge/indian-states-and-languages/">Indian States and Languages</a></h3><p>Major languages associated with all 28 states, language families, scripts and language GK.</p></article><article class="gk-topic"><h3><a href="/blog/general-knowledge/major-dams-in-india/">Major Dams in India</a></h3><p>Important dams with their rivers, states, uses and key facts for quick revision.</p></article><article class="gk-topic"><h3><a href="/blog/general-knowledge/national-parks-in-india/">National Parks in India</a></h3><p>National parks, states, wildlife, important facts and protected-area basics.</p></article><article class="gk-topic"><h3><a href="/blog/general-knowledge/national-symbols-of-india/">National Symbols of India</a></h3><p>India's flag, emblem, anthem, song, animal, bird, flower, tree, fruit and other symbols.</p></article><article class="gk-topic"><h3><a href="/blog/general-knowledge/union-territories-of-india/">Union Territories of India</a></h3><p>The 8 Union Territories with capitals, locations, administration and important GK facts.</p></article></div></section>
+</div></div></main><footer><div class="footer-container"><div class="footer-info"><a href="/" class="logo" style="display:inline-flex"><img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon"><span>CalcuPortal</span></a><p style="text-align:justify">CalcuPortal provides practical calculators, guides, formulas, and useful resources for everyday calculations.</p></div><div class="footer-column"><h3>Pages</h3><ul><li><a href="/about/">About Us</a></li><li><a href="/contact/">Contact Us</a></li><li><a href="/privacy-policy/">Privacy Policy</a></li><li><a href="/disclaimer/">Disclaimer</a></li><li><a href="/advertise/">Advertise</a></li><li><a href="/terms-conditions/">Terms Conditions</a></li></ul></div><div class="footer-column"><h3>Blog</h3><ul><li><a href="/blog/">All Blog Categories</a></li></ul></div></div><div class="copyright-bar">© <span id="year">2026</span> CalcuPortal. All rights reserved.</div></footer><script>document.getElementById('year').innerText=new Date().getFullYear();</script></body></html>
