@@ -884,12 +884,12 @@ footer {
 .article-content > h2#faq,
 .article-content > h2#faqs {
   font-family: var(--font-heading), Arial, Helvetica, sans-serif !important;
-  font-size: clamp(1.8rem, 4vw, 2.5rem) !important;
+  font-size: 2rem !important;
   font-weight: 800 !important;
-  line-height: 1.2 !important;
+  line-height: 1.25 !important;
   text-align: left !important;
-  margin-top: 3rem !important;
-  margin-bottom: 2rem !important;
+  margin-top: 2.75rem !important;
+  margin-bottom: 1.5rem !important;
   padding-bottom: 0 !important;
   border-bottom: 0 !important;
 }
@@ -898,10 +898,10 @@ footer {
   position: relative;
   display: block;
   background: var(--bg-card) !important;
-  border: 2px solid var(--border-color) !important;
-  border-radius: 1.25rem !important;
+  border: 1.5px solid var(--border-color) !important;
+  border-radius: .85rem !important;
   padding: 0 !important;
-  margin: 0 0 1.15rem !important;
+  margin: 0 0 .8rem !important;
   box-shadow: var(--shadow-sm);
   overflow: hidden;
   transition: border-color .2s ease, box-shadow .2s ease;
@@ -918,17 +918,17 @@ footer {
   display: flex !important;
   align-items: center;
   justify-content: space-between;
-  gap: 1.25rem;
-  min-height: 6.25rem;
+  gap: 1rem;
+  min-height: 4.5rem;
   box-sizing: border-box;
-  padding: 1.35rem 4.5rem 1.35rem 2rem !important;
+  padding: 1rem 3.75rem 1rem 1.5rem !important;
   margin: 0 !important;
   color: var(--text-primary) !important;
   background: transparent !important;
   font-family: var(--font-heading), Arial, Helvetica, sans-serif !important;
-  font-size: clamp(1rem, 2vw, 1.2rem) !important;
+  font-size: 1rem !important;
   font-weight: 700 !important;
-  line-height: 1.45 !important;
+  line-height: 1.4 !important;
   text-align: left !important;
   cursor: pointer;
   list-style: none !important;
@@ -946,11 +946,11 @@ footer {
 .article-content details summary::after {
   content: "+";
   position: absolute;
-  right: 1.5rem;
+  right: 1.25rem;
   top: 50%;
   transform: translateY(-50%);
-  width: 2.65rem;
-  height: 2.65rem;
+  width: 2.25rem;
+  height: 2.25rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -958,7 +958,7 @@ footer {
   background: var(--primary-light);
   color: var(--primary);
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.8rem;
+  font-size: 1.45rem;
   font-weight: 500;
   line-height: 1;
 }
@@ -973,41 +973,42 @@ footer {
 
 .article-content details p {
   margin: 0 !important;
-  padding: 0 2rem 1.5rem !important;
+  padding: 0 1.5rem 1.15rem !important;
   color: var(--text-secondary);
   font-family: Georgia, "Times New Roman", serif !important;
-  font-size: 1rem !important;
-  line-height: 1.7 !important;
+  font-size: .95rem !important;
+  line-height: 1.65 !important;
   text-align: justify !important;
 }
 
 @media (max-width: 768px) {
   .article-content > h2#faq,
   .article-content > h2#faqs {
-    font-size: 1.75rem !important;
-    margin-top: 2.5rem !important;
-    margin-bottom: 1.5rem !important;
+    font-size: 1.6rem !important;
+    margin-top: 2.25rem !important;
+    margin-bottom: 1.25rem !important;
   }
 
   .article-content details {
-    border-radius: 1rem !important;
-    margin-bottom: .9rem !important;
+    border-radius: .75rem !important;
+    margin-bottom: .65rem !important;
   }
 
   .article-content details summary {
-    min-height: 5.25rem;
-    padding: 1.15rem 4rem 1.15rem 1.25rem !important;
-    font-size: 1rem !important;
+    min-height: 4rem;
+    padding: .9rem 3.35rem .9rem 1.1rem !important;
+    font-size: .95rem !important;
   }
 
   .article-content details summary::after {
-    right: 1rem;
-    width: 2.35rem;
-    height: 2.35rem;
-    font-size: 1.55rem;
+    right: .9rem;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.3rem;
   }
 
   .article-content details p {
-    padding: 0 1.25rem 1.25rem !important;
+    padding: 0 1.1rem 1rem !important;
+    font-size: .92rem !important;
   }
 }
