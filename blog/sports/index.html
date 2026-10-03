@@ -11,36 +11,214 @@
 <script src="/script.js"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.calcuportal.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.calcuportal.com/blog/"},{"@type":"ListItem","position":3,"name":"Sports","item":"https://www.calcuportal.com/blog/sports/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Sports Guides & Sports GK","url":"https://www.calcuportal.com/blog/sports/","description":"Sports guides, sports GK, cricket, football, basketball, tennis, athletics, tournaments, records, stadiums and practical sports facts.","isPartOf":{"@type":"WebSite","name":"CalcuPortal","url":"https://www.calcuportal.com/"}}</script>
-<style>
-.sports-category{max-width:1120px;margin:0 auto}
-.sports-breadcrumb{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin:0 0 1.5rem;font-size:.875rem;color:var(--text-muted)}
-.sports-breadcrumb a{color:var(--primary);font-weight:600;text-decoration:none}
-.sports-header{padding:8px 0 10px}
-.sports-header h1{margin:0 0 10px}
-.sports-header p{max-width:800px;color:var(--text-secondary);line-height:1.7;text-align:justify}
-.sports-intro{margin:28px 0 40px;padding:22px 24px;background:var(--primary-light);border:1px solid var(--border-color);border-radius:14px}
-.sports-intro h2{margin:0 0 8px;color:var(--primary)}
-.sports-intro p{margin:0;color:var(--text-secondary);line-height:1.7;text-align:justify}
-.sports-topics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:24px}
-.sports-topic{background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:22px;box-shadow:var(--shadow-sm)}
-.sports-topic h3{margin:0 0 8px;font-size:1.05rem}
-.sports-topic p{margin:0;color:var(--text-secondary);font-size:.92rem;line-height:1.65}
-@media(max-width:800px){.sports-topics{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:600px){.sports-topics{grid-template-columns:1fr}.sports-intro{padding:18px}}
+<style id="calcuportal-category-card-style">
+/* Category pages only — keep the existing CalcuPortal theme */
+.blog-category-wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+/* Match the normal CalcuPortal breadcrumb */
+.blog-category-wrap .blog-breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.blog-category-wrap .blog-breadcrumb a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.blog-category-wrap .blog-breadcrumb a:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+.blog-category-wrap .blog-breadcrumb span {
+  color: var(--text-muted);
+}
+
+.blog-category-wrap .blog-breadcrumb span[aria-current="page"] {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.blog-category-wrap .detail-header {
+  padding: 8px 0 10px;
+}
+
+.blog-category-wrap .detail-header h1 {
+  margin: 0 0 10px;
+}
+
+.blog-category-wrap .category-copy {
+  margin: 28px 0 40px;
+  padding: 20px 24px;
+  background: var(--primary-light);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+}
+
+.blog-category-wrap .category-copy h2 {
+  margin: 0 0 8px;
+  color: var(--primary);
+}
+
+.blog-category-wrap .category-copy p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  text-align: justify;
+}
+
+.blog-category-wrap .category-header {
+  margin-bottom: 24px;
+}
+
+.blog-category-wrap .category-title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.article-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+.article-list .blog-card {
+  width: 100%;
+  max-width: 340px;
+  min-width: 0;
+  margin: 0 auto;
+  padding: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.article-list .blog-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary);
+  box-shadow: var(--shadow-lg);
+}
+
+.article-list .blog-card .article-card-image {
+  display: block;
+  width: 100%;
+  height: 178px;
+  aspect-ratio: 274 / 144;
+  max-width: 100%;
+  object-fit: cover;
+  object-position: center;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.article-list .blog-card .blog-card-body {
+  padding: 18px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.article-list .blog-card .blog-card-title {
+  margin: 0 0 10px;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--text-primary);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.article-list .blog-card .blog-card-excerpt {
+  margin: 0 0 16px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  flex: 1;
+}
+
+.article-list .blog-card .blog-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .article-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .article-list .blog-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 650px) {
+  .blog-category-wrap {
+    width: 100%;
+  }
+
+  .blog-category-wrap .category-copy {
+    padding: 18px;
+    margin: 24px 0 32px;
+  }
+
+  .article-list {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .article-list .blog-card {
+    max-width: 340px;
+  }
+
+  .article-list .blog-card .article-card-image {
+    height: auto;
+    aspect-ratio: 274 / 144;
+  }
+}
 </style>
   <link rel="icon" type="image/png" href="/favicon.png">
-</head>
-<body>
-<header><div class="nav-container"><a href="/" class="logo"><img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon"><span>CalcuPortal</span></a><button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button><nav class="nav-links" id="nav-links"><a href="/" class="nav-link">Home</a><a href="/about/" class="nav-link">About</a><a href="/contact/" class="nav-link">Contact</a><a href="/blog/" class="nav-link active">Blog</a><button class="theme-btn" title="Toggle Theme"><span class="theme-btn-icon"></span></button></nav></div></header>
-<main>
-<div class="sports-category">
-<nav class="sports-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/blog/">Blog</a><span>›</span><span aria-current="page">Sports</span></nav>
-<header class="sports-header"><h1>Sports Guides &amp; Sports GK</h1><p>Explore practical sports guides and easy-to-read sports general knowledge covering cricket, football, basketball, tennis, athletics, tournaments, records, stadiums and important sports facts.</p></header>
-<section class="sports-intro"><h2>About Sports on CalcuPortal</h2><p>The Sports category brings together useful sports information for students, quiz preparation and everyday readers. The focus is on clear, structured guides covering major sports, competitions, players, records, venues, rules and sports-related facts, with current information used where dates or records can change.</p></section>
-<section aria-labelledby="cricket-guides-heading" style="margin-top:2.5rem"><h2 id="cricket-guides-heading">Cricket Guides</h2><div class="sports-topics"><article class="sports-topic"><h3><a href="/blog/sports/cricket-world-cup-winners/">Cricket World Cup Winners List</a></h3><p>Cricket World Cup champions and runners-up from 1975 to 2023.</p></article><article class="sports-topic"><h3><a href="/blog/sports/t20-world-cup-winners/">T20 World Cup Winners List</a></h3><p>ICC Men's T20 World Cup champions and runners-up from 2007 to 2026.</p></article><article class="sports-topic"><h3><a href="/blog/sports/asia-cup-winners/">Asia Cup Winners List</a></h3><p>Asia Cup champions, runners-up and tournament history.</p></article><article class="sports-topic"><h3><a href="/blog/sports/ipl-winners-list/">IPL Winners List</a></h3><p>IPL champions and runners-up from 2008 to 2026.</p></article><article class="sports-topic"><h3><a href="/blog/sports/ipl-teams-list/">IPL Teams List</a></h3><p>IPL team names, cities and title-winning years.</p></article><article class="sports-topic"><h3><a href="/blog/sports/most-runs-international-cricket/">Most Runs in International Cricket</a></h3><p>Leading international cricket run scorers and format-wise context.</p></article><article class="sports-topic"><h3><a href="/blog/sports/most-wickets-international-cricket/">Most Wickets in International Cricket</a></h3><p>Leading international cricket wicket takers and format-wise records.</p></article><article class="sports-topic"><h3><a href="/blog/sports/most-centuries-international-cricket/">Most Centuries in International Cricket</a></h3><p>Top century-makers in international cricket.</p></article><article class="sports-topic"><h3><a href="/blog/sports/highest-individual-score-odi/">Highest Individual Score in ODI Cricket</a></h3><p>Top individual ODI scores and major batting records.</p></article><article class="sports-topic"><h3><a href="/blog/sports/cricket-stadiums-in-india/">Cricket Stadiums in India</a></h3><p>Major cricket stadiums, cities and key venue information.</p></article></div></section>
-</div>
-</main>
-<footer><div class="footer-container"><div class="footer-info"><a href="/" class="logo" style="display:inline-flex"><img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon"><span>CalcuPortal</span></a><p style="text-align:justify">CalcuPortal provides practical calculators, guides, formulas, and useful resources for everyday calculations.</p></div><div class="footer-column"><h3>Pages</h3><ul><li><a href="/about/">About Us</a></li><li><a href="/contact/">Contact Us</a></li><li><a href="/privacy-policy/">Privacy Policy</a></li><li><a href="/disclaimer/">Disclaimer</a></li><li><a href="/advertise/">Advertise</a></li><li><a href="/terms-conditions/">Terms Conditions</a></li></ul></div><div class="footer-column"><h3>Blog</h3><ul><li><a href="/blog/">All Blog Categories</a></li></ul></div></div><div class="copyright-bar">© <span id="year">2026</span> CalcuPortal. All rights reserved.</div></footer>
+</head<main><div class="blog-category-wrap">
+<nav class="blog-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/blog/">Blog</a><span>›</span><span aria-current="page">Sports Guides</span></nav>
+<header class="detail-header"><h1>Sports Guides &amp; Sports GK</h1><p>Explore practical sports guides and easy-to-read sports general knowledge covering cricket, tournaments, records, stadiums and important sports facts.</p></header>
+<section class="category-copy"><h2>About Sports Guides</h2><p>CalcuPortal's Sports category brings together clear, structured sports information for students, quiz preparation and everyday readers. The focus is on useful guides covering cricket, competitions, records, venues, rules and sports-related facts, with current information used where dates or records can change.</p></section>
+<section><div class="category-header"><h2 class="category-title">Cricket Guides</h2></div><div class="article-list"><a class="calc-card blog-card" href="/blog/sports/cricket-world-cup-winners/" aria-label="Read Cricket World Cup Winners List"><div class="blog-card-body"><h3 class="blog-card-title">Cricket World Cup Winners List</h3><p class="blog-card-excerpt">Cricket World Cup champions and runners-up from 1975 to 2023.</p><span class="blog-card-link">Read Guide →</span></div></a><a class="calc-card blog-card" href="/blog/sports/t20-world-cup-winners/" aria-label="Read T20 World Cup Winners List"><div class="blog-card-body"><h3 class="blog-card-title">T20 World Cup Winners List</h3><p class="blog-card-excerpt">ICC Men's T20 World Cup champions and runners-up from 2007 to 2026.</p><span class="blog-card-link">Read Guide →</span></div></a><a class="calc-card blog-card" href="/blog/sports/asia-cup-winners/" aria-label="Read Asia Cup Winners List"><div class="blog-card-body"><h3 class="blog-card-title">Asia Cup Winners List</h3><p class="blog-card-excerpt">Asia Cup champions, runners-up and tournament history.</p><span class="blog-card-link">Read Guide →</span></div></a><a class="calc-card blog-card" href="/blog/sports/ipl-winners-list/" aria-label="Read IPL Winners List"><div class="blog-card-body"><h3 class="blog-card-title">IPL Winners List</h3><p class="blog-card-excerpt">IPL champions and runners-up from 2008 to 2026.</p><span class="blog-card-link">Read Guide →</span></div></a><a class="calc-card blog-card" href="/blog/sports/ipl-teams-list/" aria-label="Read IPL Teams List"><div class="blog-card-body"><h3 class="blog-card-title">IPL Teams List</h3><p class="blog-card-excerpt">IPL team names, cities and title-winning years.</p><span class="blog-card-link">Read Guide →</span></div></a><a class="calc-card blog-card" href="/blog/sports/most-runs-international-cricket/" aria-label="Read Most Runs in International Cricket"><div class="blog-card-body"><h3 class="blog-card-title">Most Runs in International Cricket</h3><p class="blog-card-excerpt">Leading international cricket run scorers and format-wise context.</p><span class="blog-card-link">Read Guide →</span></div></a><a class="calc-card blog-card" href="/blog/sports/most-wickets-international-cricket/" aria-label="Read Most Wickets in International Cricket"><div class="blog-card-body"><h3 class="blog-card-title">Most Wickets in International Cricket</h3><p class="blog-card-excerpt">Leading international cricket wicket takers and format-wise records.</p><span class="blog-card-link">Read Guide →</span></div></a><a class="calc-card blog-card" href="/blog/sports/most-centuries-international-cricket/" aria-label="Read Most Centuries in International Cricket"><div class="blog-card-body"><h3 class="blog-card-title">Most Centuries in International Cricket</h3><p class="blog-card-excerpt">Top century-makers in international cricket.</p><span class="blog-card-link">Read Guide →</span></div></a><a class="calc-card blog-card" href="/blog/sports/highest-individual-score-odi/" aria-label="Read Highest Individual Score in ODI Cricket"><div class="blog-card-body"><h3 class="blog-card-title">Highest Individual Score in ODI Cricket</h3><p class="blog-card-excerpt">Top individual ODI scores and major batting records.</p><span class="blog-card-link">Read Guide →</span></div></a><a class="calc-card blog-card" href="/blog/sports/cricket-stadiums-in-india/" aria-label="Read Cricket Stadiums in India"><div class="blog-card-body"><h3 class="blog-card-title">Cricket Stadiums in India</h3><p class="blog-card-excerpt">Major cricket stadiums, cities and key venue information.</p><span class="blog-card-link">Read Guide →</span></div></a></div></section>
+</div></main><footer><div class="footer-container"><div class="footer-info"><a href="/" class="logo" style="display:inline-flex"><img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon"><span>CalcuPortal</span></a><p style="text-align:justify">CalcuPortal provides practical calculators, guides, formulas, and useful resources for everyday calculations.</p></div><div class="footer-column"><h3>Pages</h3><ul><li><a href="/about/">About Us</a></li><li><a href="/contact/">Contact Us</a></li><li><a href="/privacy-policy/">Privacy Policy</a></li><li><a href="/disclaimer/">Disclaimer</a></li><li><a href="/advertise/">Advertise</a></li><li><a href="/terms-conditions/">Terms Conditions</a></li></ul></div><div class="footer-column"><h3>Blog</h3><ul><li><a href="/blog/">All Blog Categories</a></li></ul></div></div><div class="copyright-bar">© <span id="year">2026</span> CalcuPortal. All rights reserved.</div></footer>
 <script>document.getElementById('year').innerText=new Date().getFullYear();</script>
 </body>
 </html>
