@@ -4,794 +4,228 @@
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="shortcut icon" href="/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/favicon.png">
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Numbers to Words Converter | Rupees & Amount in Words</title>
-  <meta name="description" content="Convert numbers and amounts to words online. Supports Indian rupees, paise, lakh, crore, English, Hindi, Telugu, Tamil and Malayalam.">
+  <title>Number to Words Converter – Numbers in Words Online</title>
+  <meta name="description" content="Convert numbers to words online for free. Write numbers in English words, from small numbers to large numbers and decimals, with instant results.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.calcuportal.com/calculators/conversions-numbers-to-words/">
-
   <link rel="stylesheet" href="/styles.css">
   <script src="/script.js"></script>
-
   <style>
-    .numbers-to-words-widget {
-      max-width: 540px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-    }
-
-    .numbers-to-words-widget .tool-title {
-      font-size: 1.35rem;
-      line-height: 1.35;
-      margin-bottom: 1.25rem;
-      text-align: center;
-    }
-
-    .numbers-to-words-widget .tool-title span {
-      display: block;
-      margin-top: 0.35rem;
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--text-muted);
-    }
-
-    .number-word-form {
-      display: grid;
-      gap: 1rem;
-      justify-items: center;
-    }
-
-    .number-word-form .input-field,
-    .number-word-form .select-field {
-      width: 100%;
-      max-width: 420px;
-      padding: 13px 15px;
-      border: 1px solid #d1d5db;
-      border-radius: 10px;
-      background: #ffffff;
-      color: #111827;
-      font-size: 1rem;
-      font-family: inherit;
-      outline: none;
-      box-sizing: border-box;
-    }
-
-    .number-size-input {
-      height: 54px;
-      min-height: 54px;
-      line-height: 1.3;
-      font-size: 1.05rem;
-      text-align: left;
-    }
-
-    .number-word-form .input-field:focus,
-    .number-word-form .select-field:focus {
-      border-color: #ff6b35;
-      box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.15);
-    }
-
-    .number-word-form .calc-btn {
-      margin-top: 0.25rem;
-      padding: 13px 28px;
-      border-radius: 9px;
-      font-size: 1rem;
-      font-weight: 700;
-    }
-
-    .helper-text {
-      width: 100%;
-      max-width: 420px;
-      margin-top: -0.5rem;
-      font-size: 0.86rem;
-      line-height: 1.45;
-      color: #6b7280;
-      text-align: left;
-    }
-
-    .word-output-box {
-      margin-top: 1rem;
-      font-size: 1.05rem;
-      font-weight: 700;
-      line-height: 1.6;
-      text-align: center;
-      word-break: break-word;
-      white-space: pre-wrap;
-    }
-
-    .copy-output-btn {
-      margin-top: 12px;
-      padding: 10px 18px;
-      border: 0;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 700;
-      background: #111827;
-      color: #ffffff;
-    }
-
-    .seo-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 18px 0;
-      font-size: 0.95rem;
-    }
-
-    .seo-table th,
-    .seo-table td {
-      border: 1px solid #e5e7eb;
-      padding: 10px 12px;
-      text-align: left;
-      vertical-align: top;
-    }
-
-    .seo-table th {
-      background: #a855f7;
-      color: #ffffff;
-      font-weight: 700;
-    }
-
-    .article-content p {
-      text-align: justify;
-    }
-
-    @media (max-width: 480px) {
-      .numbers-to-words-widget {
-        max-width: 100%;
-      }
-
-      .number-word-form .input-field,
-      .number-word-form .select-field,
-      .helper-text {
-        max-width: 100%;
-      }
-
-      .numbers-to-words-widget .tool-title {
-        text-align: center;
-      }
-    }
+    .numbers-to-words-widget{max-width:540px;margin-left:auto;margin-right:auto;text-align:center}
+    .numbers-to-words-widget .tool-title{font-size:1.35rem;line-height:1.35;margin-bottom:1.25rem;text-align:center}
+    .numbers-to-words-widget .tool-title span{display:block;margin-top:.35rem;font-size:1rem;font-weight:500;color:var(--text-muted)}
+    .number-word-form{display:grid;gap:1rem;justify-items:center}
+    .number-word-form .input-field,.number-word-form .select-field{width:100%;max-width:420px;padding:13px 15px;border:1px solid #d1d5db;border-radius:10px;background:#fff;color:#111827;font-size:1rem;font-family:inherit;outline:none;box-sizing:border-box}
+    .number-size-input{height:54px;min-height:54px;line-height:1.3;font-size:1.05rem;text-align:left}
+    .number-word-form .input-field:focus,.number-word-form .select-field:focus{border-color:#ff6b35;box-shadow:0 0 0 3px rgba(255,107,53,.15)}
+    .number-word-form .calc-btn{margin-top:.25rem;padding:13px 28px;border-radius:9px;font-size:1rem;font-weight:700}
+    .helper-text{width:100%;max-width:420px;margin-top:-.5rem;font-size:.86rem;line-height:1.45;color:#6b7280;text-align:left}
+    .word-output-box{margin-top:1rem;font-size:1.05rem;font-weight:700;line-height:1.6;text-align:center;overflow-wrap:anywhere;white-space:pre-wrap}
+    .copy-output-btn{margin-top:12px;padding:10px 18px;border:0;border-radius:8px;cursor:pointer;font-weight:700;background:#111827;color:#fff}
+    .seo-table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.95rem}
+    .seo-table th,.seo-table td{border:1px solid #e5e7eb;padding:10px 12px;text-align:left;vertical-align:top}
+    .seo-table th{background:#a855f7;color:#fff;font-weight:700}
+    .article-content p{text-align:justify}
+    @media(max-width:480px){.numbers-to-words-widget{max-width:100%}.number-word-form .input-field,.number-word-form .select-field,.helper-text{max-width:100%}}
   </style>
-
-  <!-- FAQ Schema -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is a numbers to words converter?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "A numbers to words converter is an online tool that changes numbers into written words. It is useful for cheques, invoices, receipts, banking forms, school work, accounting and business documents."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I convert numbers to words in Indian rupees?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Enter the amount, choose English, select Indian System and Indian Rupees Format, then click convert. The tool will show the amount in rupees and paise words."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I use this tool for cheque amount in words?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. You can use this tool to convert cheque amounts into words in Indian rupees format, such as One Lakh Twenty Five Thousand Rupees Only."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I convert decimal numbers into words?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. The converter supports decimal numbers. In rupees format, the decimal part is converted into paise. For example, 1250.75 becomes One Thousand Two Hundred Fifty Rupees and Seventy Five Paise Only."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is the difference between Indian and international number systems?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The Indian number system uses lakh and crore, while the international number system uses million and billion. For example, 1000000 is Ten Lakh in Indian format and One Million in international format."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I translate numbers to words in Hindi, Telugu, Tamil and Malayalam?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. This converter supports number to words output in English, Hindi, Telugu, Tamil and Malayalam for common number conversion needs."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is this numbers to words converter free?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. This numbers to words converter is free to use and works directly in your browser without sign-up."
-        }
-      }
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"What is a number to words converter?","acceptedAnswer":{"@type":"Answer","text":"A number to words converter changes numerical digits into written words. It can help with learning number names and preparing documents that require numbers in words."}},
+      {"@type":"Question","name":"How do I convert numbers to words in Indian rupees?","acceptedAnswer":{"@type":"Answer","text":"Enter the amount, choose English, select the Indian number system and choose Indian Rupees Format, then convert. Check the result carefully before using it in a financial document."}},
+      {"@type":"Question","name":"Can I use this tool to write cheque amounts in words?","acceptedAnswer":{"@type":"Answer","text":"You can use the Indian Rupees Format to generate a written amount for reference. Always verify the final wording before writing or submitting a cheque."}},
+      {"@type":"Question","name":"Can I convert decimal numbers into words?","acceptedAnswer":{"@type":"Answer","text":"Yes. In plain words mode, decimal digits can be read after the decimal point. In currency mode, the decimal part is interpreted as the subunit, such as paise or cents."}},
+      {"@type":"Question","name":"What is the difference between Indian and international number systems?","acceptedAnswer":{"@type":"Answer","text":"The Indian number system uses lakh and crore, while the international system uses million and billion. For example, 1,000,000 is ten lakh in the Indian system and one million in the international system."}},
+      {"@type":"Question","name":"Which languages does the converter support?","acceptedAnswer":{"@type":"Answer","text":"The language selector offers English, Hindi, Telugu, Tamil and Malayalam. Output wording can vary by language and context."}},
+      {"@type":"Question","name":"Is this number to words converter free?","acceptedAnswer":{"@type":"Answer","text":"Yes, the converter is available to use online without signing up."}}
     ]
   }
   </script>
-
-  <!-- Breadcrumb Schema -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://www.calcuportal.com/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Conversions & Unit Tools",
-        "item": "https://www.calcuportal.com/categories/conversions/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "Numbers to Words Converter",
-        "item": "https://www.calcuportal.com/calculators/conversions-numbers-to-words/"
-      }
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://www.calcuportal.com/"},
+      {"@type":"ListItem","position":2,"name":"Conversions & Unit Tools","item":"https://www.calcuportal.com/categories/conversions/"},
+      {"@type":"ListItem","position":3,"name":"Number to Words Converter","item":"https://www.calcuportal.com/calculators/conversions-numbers-to-words/"}
     ]
   }
   </script>
-
-  <!-- WebApplication Schema -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Numbers to Words Converter",
-    "url": "https://www.calcuportal.com/calculators/conversions-numbers-to-words/",
-    "applicationCategory": "UtilityApplication",
-    "operatingSystem": "All",
-    "browserRequirements": "Requires JavaScript enabled",
-    "description": "A free online numbers to words converter that converts numbers, amounts, rupees, paise, dollars and decimals into words. Supports Indian number system, international number system and multiple Indian languages.",
-    "featureList": [
-      "Numbers to words converter",
-      "Amount to words converter",
-      "Indian rupees and paise format",
-      "Cheque amount in words",
-      "Indian lakh and crore number system",
-      "International million and billion number system",
-      "English, Hindi, Telugu, Tamil and Malayalam output"
-    ],
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "CalcuPortal",
-      "url": "https://www.calcuportal.com/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.calcuportal.com/logo.png"
-      }
-    }
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Number to Words Converter",
+    "url":"https://www.calcuportal.com/calculators/conversions-numbers-to-words/",
+    "applicationCategory":"UtilityApplication",
+    "operatingSystem":"All",
+    "browserRequirements":"Requires JavaScript enabled",
+    "description":"Free online number to words converter for number names, amounts, Indian rupees and paise, and supported language outputs.",
+    "featureList":["Number to words conversion","Amount in words","Indian rupees and paise format","Indian lakh and crore grouping","International million and billion grouping","English, Hindi, Telugu, Tamil and Malayalam output"],
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+    "publisher":{"@type":"Organization","name":"CalcuPortal","url":"https://www.calcuportal.com/","logo":{"@type":"ImageObject","url":"https://www.calcuportal.com/logo.png"}}
   }
   </script>
 </head>
-
 <body>
   <header>
     <div class="nav-container">
-      <a href="/" class="logo">
-        <img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon">
-        <span>CalcuPortal</span>
-      </a>
-
-      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-
+      <a href="/" class="logo"><img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon"><span>CalcuPortal</span></a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
       <nav class="nav-links" id="nav-links">
-        <a href="/" class="nav-link">Home</a>
-        <a href="/about/" class="nav-link">About</a>
-        <a href="/contact/" class="nav-link">Contact</a>
-        <button class="theme-btn" title="Toggle Theme">
-          <span class="theme-btn-icon"></span>
-        </button>
+        <a href="/" class="nav-link">Home</a><a href="/about/" class="nav-link">About</a><a href="/contact/" class="nav-link">Contact</a>
+        <button class="theme-btn" title="Toggle Theme"><span class="theme-btn-icon"></span></button>
       </nav>
     </div>
   </header>
-
   <main>
     <div class="detail-container">
-      <div class="breadcrumbs">
-        <a href="/">Home</a>
-        <span class="separator">&rsaquo;</span>
-        <a href="/categories/conversions/">Conversions & Unit Tools</a>
-        <span class="separator">&rsaquo;</span>
-        <span class="current">Numbers to Words Converter</span>
-      </div>
-
+      <div class="breadcrumbs"><a href="/">Home</a><span class="separator">&rsaquo;</span><a href="/categories/conversions/">Conversions &amp; Unit Tools</a><span class="separator">&rsaquo;</span><span class="current">Number to Words Converter</span></div>
       <div class="detail-header">
-        <h1>Numbers to Words Converter Online</h1>
-        <p>Convert numbers, amounts, rupees and paise into words in English and Indian languages.</p>
+        <h1>Number to Words Converter</h1>
+        <p>Convert numbers into English words, or format supported amounts in rupees, paise and dollars.</p>
       </div>
-
       <div class="calc-widget numbers-to-words-widget">
-        <h2 class="tool-title">Numbers to Words Converter<span>Indian Rupees, Cheque Amount, English, Hindi, Telugu, Tamil & Malayalam</span></h2>
-
+        <h2 class="tool-title">Number to Words Converter<span>Plain words, Indian rupees, US dollars and supported Indian languages</span></h2>
         <div class="number-word-form">
-          <input
-            type="text"
-            id="num-input"
-            class="input-field number-size-input"
-            placeholder="Enter number, e.g. 125000 or 1250.75"
-            inputmode="decimal"
-            autocomplete="off"
-          >
-
-          <select id="output-language" class="input-field select-field">
-            <option value="en">English</option>
-            <option value="hi">Hindi</option>
-            <option value="te">Telugu</option>
-            <option value="ta">Tamil</option>
-            <option value="ml">Malayalam</option>
+          <input type="text" id="num-input" class="input-field number-size-input" placeholder="Enter a number, e.g. 125000 or 1250.75" inputmode="decimal" autocomplete="off" aria-label="Enter number to convert">
+          <select id="output-language" class="input-field select-field" aria-label="Output language">
+            <option value="en">English</option><option value="hi">Hindi</option><option value="te">Telugu</option><option value="ta">Tamil</option><option value="ml">Malayalam</option>
           </select>
-
-          <select id="number-system" class="input-field select-field">
-            <option value="indian">Indian System (Lakh/Crore)</option>
-            <option value="international">International System (Million/Billion)</option>
+          <select id="number-system" class="input-field select-field" aria-label="Number system">
+            <option value="indian">Indian System (Lakh/Crore)</option><option value="international">International System (Million/Billion)</option>
           </select>
-
-          <select id="output-format" class="input-field select-field">
-            <option value="plain">Plain Words</option>
-            <option value="inr">Indian Rupees Format</option>
-            <option value="usd">US Dollar Format</option>
+          <select id="output-format" class="input-field select-field" aria-label="Output format">
+            <option value="plain">Plain Words</option><option value="inr">Indian Rupees Format</option><option value="usd">US Dollar Format</option>
           </select>
-
-          <p class="helper-text">Tip: For cheque writing, choose English + Indian System + Indian Rupees Format.</p>
-
-          <button id="calculate-btn" class="calc-btn">Convert</button>
+          <p class="helper-text">For cheque amount wording, choose English, Indian System and Indian Rupees Format. Verify the result before using it in official documents.</p>
+          <button id="calculate-btn" class="calc-btn">Convert Number to Words</button>
         </div>
-
-        <div id="result-section" class="result-section hidden">
-          <div class="summary-title">Converted Output</div>
-          <div id="word-output" class="breakdown-info word-output-box">...</div>
-          <button type="button" id="copy-output" class="copy-output-btn">Copy Result</button>
+        <div id="result-section" class="result-section hidden" aria-live="polite">
+          <div class="summary-title">Converted Output</div><div id="word-output" class="breakdown-info word-output-box">...</div><button type="button" id="copy-output" class="copy-output-btn">Copy Result</button>
         </div>
       </div>
-
       <section class="article-section">
-        <div class="article-header">
-          <h2>Numbers to Words Converter Guide</h2>
-        </div>
-
+        <div class="article-header"><h2>Number to Words Converter Guide</h2></div>
         <div class="article-content">
-          <h2>What is a Numbers to Words Converter?</h2>
-          <p>A numbers to words converter is an online tool that changes numeric values into written words. Instead of manually writing number names, you can enter a number and get the word format instantly. This is useful for cheque writing, invoices, receipts, banking forms, school assignments, accounting records and business documents.</p>
+          <h2>What Is a Number to Words Converter?</h2>
+          <p>A number to words converter changes numerical digits into written words in a selected language and format. Enter a number to see its word form without spelling each part manually. A number to word converter is useful for schoolwork, reading large values, checking number names and preparing documents that require an amount written in words.</p>
+          <p>For example, 125,000 is “one hundred twenty-five thousand” in the international system and “one lakh twenty-five thousand” in the Indian system. The exact wording may vary by English convention and the format selected in the calculator.</p>
 
-          <p>For example, the number 125000 can be written as One Lakh Twenty Five Thousand in the Indian number system. If you choose Indian rupees format, the same amount becomes One Lakh Twenty Five Thousand Rupees Only. This makes the value easier to read and reduces mistakes in official or financial documents.</p>
+          <h2>Numbers in Words Examples</h2>
+          <p>Use these examples to understand how common numbers are written in English. The examples below use a concise American-English style without “and” after “hundred.”</p>
+          <table class="seo-table"><thead><tr><th>Number</th><th>Number in Words</th></tr></thead><tbody>
+            <tr><td>0</td><td>Zero</td></tr><tr><td>7</td><td>Seven</td></tr><tr><td>15</td><td>Fifteen</td></tr><tr><td>25</td><td>Twenty-five</td></tr><tr><td>50</td><td>Fifty</td></tr><tr><td>100</td><td>One hundred</td></tr><tr><td>125</td><td>One hundred twenty-five</td></tr><tr><td>999</td><td>Nine hundred ninety-nine</td></tr><tr><td>1,000</td><td>One thousand</td></tr><tr><td>1,500</td><td>One thousand five hundred</td></tr><tr><td>10,000</td><td>Ten thousand</td></tr><tr><td>100,000</td><td>One hundred thousand</td></tr><tr><td>1,000,000</td><td>One million</td></tr><tr><td>1,000,000,000</td><td>One billion</td></tr>
+          </tbody></table>
 
-          <h2>Numbers to Words Converter Indian Rupees</h2>
-          <p>The numbers to words converter Indian rupees option helps you convert amounts into proper rupees and paise format. This is commonly needed while writing cheques, demand drafts, invoices, payment receipts, salary slips, rent agreements, bills and accounting records.</p>
+          <h2>How to Convert Numbers to Words</h2>
+          <p>Numbers are converted into words by identifying the value of each digit and grouping digits according to the selected number system. In the international system, digits are grouped in threes from the right. The Indian system groups the last three digits and then groups the remaining digits in pairs.</p>
+          <p>For example, 345,678 is read as “three hundred forty-five thousand six hundred seventy-eight” in the international system. In the Indian system, 3,45,678 is “three lakh forty-five thousand six hundred seventy-eight.” The value is identical; only the grouping and scale names change.</p>
 
-          <p>In India, amounts are often written using lakh and crore. So, a normal international number converter may not always give the format Indian users expect. This tool supports the Indian place value system and can convert amounts like 125000, 1050500 and 12550000 into clear rupees words.</p>
+          <h2>Indian and International Number Systems</h2>
+          <p>The Indian number system commonly uses thousand, lakh and crore. The international number system uses thousand, million and billion. Select the convention that matches your audience or document.</p>
+          <table class="seo-table"><thead><tr><th>Number</th><th>Indian System</th><th>International System</th></tr></thead><tbody>
+            <tr><td>1,000</td><td>One thousand</td><td>One thousand</td></tr><tr><td>10,000</td><td>Ten thousand</td><td>Ten thousand</td></tr><tr><td>1,00,000</td><td>One lakh</td><td>One hundred thousand</td></tr><tr><td>10,00,000</td><td>Ten lakh</td><td>One million</td></tr><tr><td>1,00,00,000</td><td>One crore</td><td>Ten million</td></tr><tr><td>100,00,00,000</td><td>One hundred crore</td><td>One billion</td></tr>
+          </tbody></table>
 
-          <table class="seo-table">
-            <thead>
-              <tr>
-                <th>S.No</th>
-                <th>Amount</th>
-                <th>Numbers in Words in English Rupees</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>1</td><td>₹500</td><td>Five Hundred Rupees Only</td></tr>
-              <tr><td>2</td><td>₹1,250</td><td>One Thousand Two Hundred Fifty Rupees Only</td></tr>
-              <tr><td>3</td><td>₹25,000</td><td>Twenty Five Thousand Rupees Only</td></tr>
-              <tr><td>4</td><td>₹1,25,000</td><td>One Lakh Twenty Five Thousand Rupees Only</td></tr>
-              <tr><td>5</td><td>₹10,50,500</td><td>Ten Lakh Fifty Thousand Five Hundred Rupees Only</td></tr>
-              <tr><td>6</td><td>₹1,25,50,000</td><td>One Crore Twenty Five Lakh Fifty Thousand Rupees Only</td></tr>
-            </tbody>
-          </table>
+          <h2>Amount in Words: Indian Rupees and Paise</h2>
+          <p>An amount in words converter can help you read and check values used in invoices, receipts, payment records and forms. Choose Indian Rupees Format to express supported values in rupees and paise. The calculator's output should be treated as a reference and checked before it is copied into a financial or official document.</p>
+          <table class="seo-table"><thead><tr><th>Amount</th><th>Amount in Words</th></tr></thead><tbody>
+            <tr><td>₹500</td><td>Five Hundred Rupees Only</td></tr><tr><td>₹1,250</td><td>One Thousand Two Hundred Fifty Rupees Only</td></tr><tr><td>₹25,000</td><td>Twenty Five Thousand Rupees Only</td></tr><tr><td>₹1,25,000</td><td>One Lakh Twenty Five Thousand Rupees Only</td></tr><tr><td>₹10,50,500</td><td>Ten Lakh Fifty Thousand Five Hundred Rupees Only</td></tr><tr><td>₹1,25,50,000</td><td>One Crore Twenty Five Lakh Fifty Thousand Rupees Only</td></tr>
+          </tbody></table>
 
           <h2>Amount to Words Converter for Cheque Writing</h2>
-          <p>An amount to words converter is especially useful for cheque writing. In cheques, the amount is usually written in both numbers and words. If the amount in words is unclear or wrong, it can create confusion during payment processing. This tool helps you quickly convert the numeric amount into proper words.</p>
+          <p>When writing a cheque, the amount is commonly recorded in both figures and words. Enter the numerical amount, select English, choose Indian System, and select Indian Rupees Format. Compare the generated wording with the numeric amount before using it. Banking instructions and required wording can differ, so follow the requirements of your bank or document.</p>
+          <p>For example, ₹1,250.75 is commonly expressed as “One Thousand Two Hundred Fifty Rupees and Seventy-Five Paise Only.” Always verify decimal amounts and the final wording yourself before submission.</p>
 
-          <p>For cheque writing, enter the amount, select English as the language, choose Indian System and select Indian Rupees Format. The result will include rupees and paise where applicable. For example, 1250.75 becomes One Thousand Two Hundred Fifty Rupees and Seventy Five Paise Only.</p>
+          <h2>Converting Decimal Numbers into Words</h2>
+          <p>Decimal numbers have a whole-number part and a fractional part separated by a decimal point. In plain words mode, digits after the decimal point are usually read individually. For example, 3.14 can be read as “three point one four.” In currency mode, the fractional part may instead represent paise or cents, depending on the selected currency.</p>
+          <p>Use the output format that matches your purpose. Do not assume that a decimal represents currency unless you have selected a currency format.</p>
 
-          <h2>Numbers in Words in English Rupees</h2>
-          <p>Many users search for numbers in words in English rupees because they need a clean format for banking and business use. This calculator gives a simple output using words like rupees, paise and only. It is helpful when you want to write amounts correctly in forms, bills, receipts and payment documents.</p>
+          <h2>Convert Numbers into Words in Different Languages</h2>
+          <p>The language selector provides English, Hindi, Telugu, Tamil and Malayalam output. This can help users check number names in a familiar language for learning and everyday reference. Number phrasing and grammar may vary between languages, so review the output when accuracy is important.</p>
+          <p>Choose the language first, enter the number, select the number system and output format, and click the convert button. The result will appear below the calculator if the input is accepted.</p>
 
-          <p>The tool supports whole numbers and decimal values. If you enter a decimal amount, the value after the decimal point is treated as paise in Indian rupees format. For example, 99.50 becomes Ninety Nine Rupees and Fifty Paise Only.</p>
-
-          <h2>Translate Numbers to Words in English, Hindi, Telugu, Tamil and Malayalam</h2>
-          <p>This converter can translate numbers to words in multiple languages. You can choose English, Hindi, Telugu, Tamil or Malayalam based on your need. This is useful for students, teachers, regional language users, parents, content writers and people preparing bilingual or local language documents.</p>
-
-          <table class="seo-table">
-            <thead>
-              <tr>
-                <th>S.No</th>
-                <th>Language</th>
-                <th>Example for 125000</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>1</td><td>English</td><td>One Lakh Twenty Five Thousand</td></tr>
-              <tr><td>2</td><td>Hindi</td><td>एक लाख पच्चीस हजार</td></tr>
-              <tr><td>3</td><td>Telugu</td><td>ఒక లక్ష ఇరవై ఐదు వేల</td></tr>
-              <tr><td>4</td><td>Tamil</td><td>ஒரு லட்சத்து இருபத்து ஐந்து ஆயிரம்</td></tr>
-              <tr><td>5</td><td>Malayalam</td><td>ഒരു ലക്ഷം ഇരുപത്തയ്യായിരം</td></tr>
-            </tbody>
-          </table>
-
-          <h2>Indian Number System vs International Number System</h2>
-          <p>The Indian number system and international number system use different names for large values. In India, people commonly use lakh and crore. In the international system, people use million and billion. This difference is important for banking, business, finance, education and global communication.</p>
-
-          <table class="seo-table">
-            <thead>
-              <tr>
-                <th>S.No</th>
-                <th>Number</th>
-                <th>Indian System</th>
-                <th>International System</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>1</td><td>1,000</td><td>One Thousand</td><td>One Thousand</td></tr>
-              <tr><td>2</td><td>1,00,000</td><td>One Lakh</td><td>One Hundred Thousand</td></tr>
-              <tr><td>3</td><td>10,00,000</td><td>Ten Lakh</td><td>One Million</td></tr>
-              <tr><td>4</td><td>1,00,00,000</td><td>One Crore</td><td>Ten Million</td></tr>
-              <tr><td>5</td><td>100,00,00,000</td><td>One Hundred Crore</td><td>One Billion</td></tr>
-            </tbody>
-          </table>
-
-          <h2>How to Use the Numbers to Words Converter</h2>
-          <p>Using this number to words converter is simple. Enter the number or amount, select your language, choose the number system and choose the output format. Then click the convert button. The tool will show the converted words instantly.</p>
-
+          <h2>How to Use This Number to Words Calculator</h2>
           <ul>
-            <li>Enter a number such as 125000 or 1250.75.</li>
-            <li>Select English, Hindi, Telugu, Tamil or Malayalam.</li>
-            <li>Choose Indian System for lakh and crore format.</li>
-            <li>Choose International System for million and billion format.</li>
-            <li>Select Indian Rupees Format for rupees and paise output.</li>
-            <li>Click Convert and copy the final result.</li>
+            <li>Enter a number, such as 125000 or 1250.75.</li>
+            <li>Choose English, Hindi, Telugu, Tamil or Malayalam.</li>
+            <li>Select the Indian system for lakh and crore, or the international system for million and billion.</li>
+            <li>Select Plain Words, Indian Rupees Format or US Dollar Format.</li>
+            <li>Click “Convert Number to Words” and review the result.</li>
+            <li>Use “Copy Result” to copy the converted wording.</li>
           </ul>
 
-          <h2>Where Can You Use Number to Words Conversion?</h2>
-          <p>Number to words conversion is useful whenever a number must be written clearly in text format. It helps avoid spelling mistakes, place value confusion and mismatch between numeric amount and written amount.</p>
+          <h2>Where Is Number-to-Words Conversion Useful?</h2>
+          <table class="seo-table"><thead><tr><th>Use case</th><th>How it helps</th></tr></thead><tbody>
+            <tr><td>Education</td><td>Practise number names and understand place value.</td></tr><tr><td>Invoices and receipts</td><td>Check written amounts alongside numerical values.</td></tr><tr><td>Financial forms</td><td>Prepare a reference for amounts that must be written in words.</td></tr><tr><td>Business documents</td><td>Make large numerical values easier to read.</td></tr><tr><td>Everyday use</td><td>Check the spelling and wording of numbers.</td></tr>
+          </tbody></table>
 
-          <table class="seo-table">
-            <thead>
-              <tr>
-                <th>S.No</th>
-                <th>Use Case</th>
-                <th>How It Helps</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>1</td><td>Cheque Writing</td><td>Converts cheque amounts into rupees and paise words.</td></tr>
-              <tr><td>2</td><td>Banking Forms</td><td>Helps write amount in words correctly.</td></tr>
-              <tr><td>3</td><td>Invoices</td><td>Adds readable amount in words for payment records.</td></tr>
-              <tr><td>4</td><td>Receipts</td><td>Makes collected or paid amount clear.</td></tr>
-              <tr><td>5</td><td>School Learning</td><td>Helps students learn number names and place values.</td></tr>
-              <tr><td>6</td><td>Business Documents</td><td>Reduces confusion in bills, agreements and ledgers.</td></tr>
-            </tbody>
-          </table>
+          <h2>Why Use the CalcuPortal Number to Words Converter?</h2>
+          <p>This online number to words converter brings common number and amount formats together in one place. Depending on your selection, you can view plain number words, use Indian lakh and crore grouping, format supported values as rupees and paise, or choose the international system. The language selector also offers several Indian languages.</p>
+          <ul><li>Convert numbers into words online.</li><li>View number names for common and large values within the supported range.</li><li>Choose Indian or international number grouping.</li><li>Format supported amounts as Indian rupees or US dollars.</li><li>Copy the result for convenient reference.</li></ul>
 
-          <h2>How Decimal Numbers Are Converted</h2>
-          <p>Decimal numbers are converted based on the selected output format. In plain words format, the digits after the decimal are read after the word point. For example, 1250.75 may be shown as One Thousand Two Hundred Fifty Point Seven Five.</p>
-
-          <p>In Indian rupees format, the decimal part is treated as paise. For example, 1250.75 becomes One Thousand Two Hundred Fifty Rupees and Seventy Five Paise Only. This makes the tool useful for payments and currency-related documents.</p>
-
-          <h2>Why Use CalcuPortal Numbers to Words Converter?</h2>
-          <p>CalcuPortal’s numbers to words converter is designed for quick, easy and practical conversion. It supports plain number words, Indian rupees format, US dollar format, Indian number system, international number system and multiple Indian languages.</p>
-
-          <ul>
-            <li>Free numbers to words converter online.</li>
-            <li>Useful as an amount to words converter.</li>
-            <li>Supports Indian rupees and paise format.</li>
-            <li>Useful for cheques, invoices, receipts and school work.</li>
-            <li>Supports English, Hindi, Telugu, Tamil and Malayalam.</li>
-            <li>Works directly in your browser without sign-up.</li>
-          </ul>
-
-          <h2>Important Note</h2>
-          <p>This converter is created for general informational and educational use. For banking, legal, tax, financial or official documents, always verify the final written amount before submission.</p>
-
-          <div class="related-tools">
-            <h2>Related Conversion Tools</h2>
-            <p>For large-number conversions, use the <a href="../billion-to-rupees/">Billion to Rupees Converter</a> or browse the <a href="../../categories/conversions/">Conversions & Unit Tools</a> category.</p>
-          </div>
+          <h2>Frequently Asked Questions</h2>
+          <h3>How do I convert a number into words online?</h3><p>Enter the number in the input field, select the language and number system, choose an output format, and click “Convert Number to Words.” Review the result before copying it.</p>
+          <h3>What is the difference between “number to word” and “number to words”?</h3><p>Both phrases refer to converting numerical digits into written words. “Number to words converter” is a common name for an online tool that performs this conversion.</p>
+          <h3>How do you write 100 in words?</h3><p>100 is written as “one hundred” in English.</p>
+          <h3>How do you write 1,000 in words?</h3><p>1,000 is written as “one thousand” in English.</p>
+          <h3>How do you write 100,000 in words?</h3><p>In the Indian system, 100,000 is “one lakh.” In the international system, it is “one hundred thousand.”</p>
+          <h3>How do you write 1,000,000 in words?</h3><p>In the Indian system, 1,000,000 is “ten lakh.” In the international system, it is “one million.”</p>
+          <h3>Can I convert a cheque amount into words?</h3><p>Select Indian Rupees Format to generate an amount in rupees and paise. Check the final output against the numeric amount and follow your bank's instructions.</p>
+          <h3>Can I convert decimal numbers into words?</h3><p>Yes. In plain words mode, the digits after the decimal point are read individually. In currency mode, the decimal portion is interpreted as paise or cents.</p>
+          <h3>Can I convert very large numbers?</h3><p>The tool supports values within its programmed range. If a value exceeds that range, the calculator may display a message indicating that it is too large to convert.</p>
+          <h3>Is the number to words converter free?</h3><p>Yes, you can use this online converter without signing up.</p>
+          <h3>Why can number spellings differ?</h3><p>Word forms may vary with British or American English, the use of “and,” hyphenation, number grouping and the format selected. Use the convention required by your document.</p>
+          <p><strong>Note:</strong> This tool is for general reference and educational use. Verify any converted amount before using it in a cheque, legal record, tax form or other official document.</p>
+          <div class="related-tools"><h2>Related Conversion Tools</h2><p>Explore the <a href="../../categories/conversions/">Conversions &amp; Unit Tools</a> category for more calculators. You can also try the <a href="../billion-to-rupees/">Billion to Rupees Converter</a> if that page is available on the site.</p></div>
         </div>
       </section>
-
       <section class="faq-section">
         <h2 class="faq-header">Frequently Asked Questions</h2>
         <div class="faq-grid">
-          <div class="faq-item">
-            <h3 class="faq-question">What is a numbers to words converter?</h3>
-            <p class="faq-answer">A numbers to words converter changes numeric values into written words. It is useful for cheques, invoices, receipts, school work, banking forms and business documents.</p>
-          </div>
-
-          <div class="faq-item">
-            <h3 class="faq-question">How do I convert numbers to words in Indian rupees?</h3>
-            <p class="faq-answer">Enter the amount, select English, choose Indian System and select Indian Rupees Format. The tool will show the amount in rupees and paise words.</p>
-          </div>
-
-          <div class="faq-item">
-            <h3 class="faq-question">Can I use this for cheque amount in words?</h3>
-            <p class="faq-answer">Yes. You can use this converter to write cheque amounts in words, such as One Lakh Twenty Five Thousand Rupees Only.</p>
-          </div>
-
-          <div class="faq-item">
-            <h3 class="faq-question">How do I write numbers in words in English rupees?</h3>
-            <p class="faq-answer">Choose English as the language and Indian Rupees Format as the output. For example, ₹1,25,000 becomes One Lakh Twenty Five Thousand Rupees Only.</p>
-          </div>
-
-          <div class="faq-item">
-            <h3 class="faq-question">Can I convert decimal amounts into paise?</h3>
-            <p class="faq-answer">Yes. In Indian Rupees Format, decimal values are converted into paise. For example, 1250.75 becomes One Thousand Two Hundred Fifty Rupees and Seventy Five Paise Only.</p>
-          </div>
-
-          <div class="faq-item">
-            <h3 class="faq-question">Can I translate numbers to words in Hindi, Telugu, Tamil and Malayalam?</h3>
-            <p class="faq-answer">Yes. The converter supports number to words output in English, Hindi, Telugu, Tamil and Malayalam.</p>
-          </div>
-
-          <div class="faq-item">
-            <h3 class="faq-question">What is the difference between Indian and international number systems?</h3>
-            <p class="faq-answer">The Indian system uses lakh and crore, while the international system uses million and billion. For example, 1000000 is Ten Lakh in Indian format and One Million in international format.</p>
-          </div>
-
-          <div class="faq-item">
-            <h3 class="faq-question">Is this numbers to words converter free?</h3>
-            <p class="faq-answer">Yes. This numbers to words converter is free to use and works directly in your browser without sign-up.</p>
-          </div>
+          <div class="faq-item"><h3 class="faq-question">What is a number to words converter?</h3><p class="faq-answer">It converts numerical digits into written words for learning, reading numbers and preparing documents.</p></div>
+          <div class="faq-item"><h3 class="faq-question">How do I convert numbers to words in Indian rupees?</h3><p class="faq-answer">Enter the amount, choose English, select Indian System and choose Indian Rupees Format. Check the wording before using it in a financial document.</p></div>
+          <div class="faq-item"><h3 class="faq-question">Can I use this for cheque amounts?</h3><p class="faq-answer">Yes, use Indian Rupees Format as a reference and verify the result against the numeric amount before writing a cheque.</p></div>
+          <div class="faq-item"><h3 class="faq-question">Can I convert decimal amounts?</h3><p class="faq-answer">Yes. Plain mode reads digits after the decimal point; currency mode treats the decimal part as paise or cents.</p></div>
+          <div class="faq-item"><h3 class="faq-question">What is the difference between Indian and international systems?</h3><p class="faq-answer">The Indian system uses lakh and crore, while the international system uses million and billion.</p></div>
+          <div class="faq-item"><h3 class="faq-question">Which languages are available?</h3><p class="faq-answer">The selector offers English, Hindi, Telugu, Tamil and Malayalam.</p></div>
+          <div class="faq-item"><h3 class="faq-question">Is this converter free?</h3><p class="faq-answer">Yes, it is available online without signing up.</p></div>
         </div>
       </section>
     </div>
   </main>
-
-  <footer>
-    <div class="copyright-bar" style="border-top: none; padding-top: 0;">
-      © <span id="year">2026</span> CalcuPortal. All rights reserved.
-    </div>
-  </footer>
-
+  <footer><div class="copyright-bar" style="border-top:none;padding-top:0;">© <span id="year">2026</span> CalcuPortal. All rights reserved.</div></footer>
   <script>
     document.getElementById('year').innerText = new Date().getFullYear();
-
     const calculateBtn = document.getElementById('calculate-btn');
     const copyBtn = document.getElementById('copy-output');
     const outputBox = document.getElementById('word-output');
-
     const languageData = {
-      en: {
-        zero: 'zero', hundred: 'hundred', point: 'point', minus: 'minus', and: 'and', only: 'only',
-        ones: ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'],
-        tens: ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'],
-        indianScales: ['', 'thousand', 'lakh', 'crore', 'arab', 'kharab'],
-        internationalScales: ['', 'thousand', 'million', 'billion', 'trillion', 'quadrillion'],
-        currency: { inrMain: 'rupees', inrSub: 'paise', usdMain: 'dollars', usdSub: 'cents' }
-      },
-      hi: {
-        zero: 'शून्य', hundred: 'सौ', point: 'दशमलव', minus: 'ऋण', and: 'और', only: 'मात्र',
-        ones: ['', 'एक', 'दो', 'तीन', 'चार', 'पांच', 'छह', 'सात', 'आठ', 'नौ', 'दस', 'ग्यारह', 'बारह', 'तेरह', 'चौदह', 'पंद्रह', 'सोलह', 'सत्रह', 'अठारह', 'उन्नीस'],
-        tens: ['', '', 'बीस', 'तीस', 'चालीस', 'पचास', 'साठ', 'सत्तर', 'अस्सी', 'नब्बे'],
-        indianScales: ['', 'हजार', 'लाख', 'करोड़', 'अरब', 'खरब'],
-        internationalScales: ['', 'हजार', 'मिलियन', 'बिलियन', 'ट्रिलियन', 'क्वाड्रिलियन'],
-        currency: { inrMain: 'रुपये', inrSub: 'पैसे', usdMain: 'डॉलर', usdSub: 'सेंट' }
-      },
-      te: {
-        zero: 'సున్నా', hundred: 'వందలు', point: 'పాయింట్', minus: 'మైనస్', and: 'మరియు', only: 'మాత్రమే',
-        ones: ['', 'ఒక', 'రెండు', 'మూడు', 'నాలుగు', 'ఐదు', 'ఆరు', 'ఏడు', 'ఎనిమిది', 'తొమ్మిది', 'పది', 'పదకొండు', 'పన్నెండు', 'పదమూడు', 'పద్నాలుగు', 'పదిహేను', 'పదహారు', 'పదిహేడు', 'పద్దెనిమిది', 'పంతొమ్మిది'],
-        tens: ['', '', 'ఇరవై', 'ముప్పై', 'నలభై', 'యాభై', 'అరవై', 'డెబ్బై', 'ఎనభై', 'తొంభై'],
-        indianScales: ['', 'వేల', 'లక్ష', 'కోటి', 'అరబ్', 'ఖరబ్'],
-        internationalScales: ['', 'వేల', 'మిలియన్', 'బిలియన్', 'ట్రిలియన్', 'క్వాడ్రిలియన్'],
-        currency: { inrMain: 'రూపాయలు', inrSub: 'పైసలు', usdMain: 'డాలర్లు', usdSub: 'సెంట్లు' }
-      },
-      ta: {
-        zero: 'பூஜ்ஜியம்', hundred: 'நூறு', point: 'புள்ளி', minus: 'மைனஸ்', and: 'மற்றும்', only: 'மட்டும்',
-        ones: ['', 'ஒன்று', 'இரண்டு', 'மூன்று', 'நான்கு', 'ஐந்து', 'ஆறு', 'ஏழு', 'எட்டு', 'ஒன்பது', 'பத்து', 'பதினொன்று', 'பன்னிரண்டு', 'பதின்மூன்று', 'பதினான்கு', 'பதினைந்து', 'பதினாறு', 'பதினேழு', 'பதினெட்டு', 'பத்தொன்பது'],
-        tens: ['', '', 'இருபது', 'முப்பது', 'நாற்பது', 'ஐம்பது', 'அறுபது', 'எழுபது', 'எண்பது', 'தொண்ணூறு'],
-        indianScales: ['', 'ஆயிரம்', 'லட்சம்', 'கோடி', 'அரப்', 'கரப்'],
-        internationalScales: ['', 'ஆயிரம்', 'மில்லியன்', 'பில்லியன்', 'டிரில்லியன்', 'குவாட்ரில்லியன்'],
-        currency: { inrMain: 'ரூபாய்', inrSub: 'பைசா', usdMain: 'டாலர்', usdSub: 'சென்ட்' }
-      },
-      ml: {
-        zero: 'പൂജ്യം', hundred: 'നൂറ്', point: 'പോയിന്റ്', minus: 'മൈനസ്', and: 'കൂടാതെ', only: 'മാത്രം',
-        ones: ['', 'ഒന്ന്', 'രണ്ട്', 'മൂന്ന്', 'നാല്', 'അഞ്ച്', 'ആറ്', 'ഏഴ്', 'എട്ട്', 'ഒൻപത്', 'പത്ത്', 'പതിനൊന്ന്', 'പന്ത്രണ്ട്', 'പതിമൂന്ന്', 'പതിനാല്', 'പതിനഞ്ച്', 'പതിനാറ്', 'പതിനേഴ്', 'പതിനെട്ട്', 'പത്തൊൻപത്'],
-        tens: ['', '', 'ഇരുപത്', 'മുപ്പത്', 'നാൽപ്പത്', 'അമ്പത്', 'അറുപത്', 'എഴുപത്', 'എൺപത്', 'തൊണ്ണൂറ്'],
-        indianScales: ['', 'ആയിരം', 'ലക്ഷം', 'കോടി', 'അറബ്', 'ഖറബ്'],
-        internationalScales: ['', 'ആയിരം', 'മില്യൺ', 'ബില്യൺ', 'ട്രില്യൺ', 'ക്വാഡ്രില്യൺ'],
-        currency: { inrMain: 'രൂപ', inrSub: 'പൈസ', usdMain: 'ഡോളർ', usdSub: 'സെന്റ്' }
-      }
+      en:{zero:'zero',hundred:'hundred',point:'point',minus:'minus',and:'and',only:'only',ones:['','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen'],tens:['','','twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety'],indianScales:['','thousand','lakh','crore','arab','kharab'],internationalScales:['','thousand','million','billion','trillion','quadrillion'],currency:{inrMain:'rupees',inrSub:'paise',usdMain:'dollars',usdSub:'cents'}},
+      hi:{zero:'शून्य',hundred:'सौ',point:'दशमलव',minus:'ऋण',and:'और',only:'मात्र',ones:['','एक','दो','तीन','चार','पांच','छह','सात','आठ','नौ','दस','ग्यारह','बारह','तेरह','चौदह','पंद्रह','सोलह','सत्रह','अठारह','उन्नीस'],tens:['','','बीस','तीस','चालीस','पचास','साठ','सत्तर','अस्सी','नब्बे'],indianScales:['','हजार','लाख','करोड़','अरब','खरब'],internationalScales:['','हजार','मिलियन','बिलियन','ट्रिलियन','क्वाड्रिलियन'],currency:{inrMain:'रुपये',inrSub:'पैसे',usdMain:'डॉलर',usdSub:'सेंट'}},
+      te:{zero:'సున్నా',hundred:'వందలు',point:'పాయింట్',minus:'మైనస్',and:'మరియు',only:'మాత్రమే',ones:['','ఒక','రెండు','మూడు','నాలుగు','ఐదు','ఆరు','ఏడు','ఎనిమిది','తొమ్మిది','పది','పదకొండు','పన్నెండు','పదమూడు','పద్నాలుగు','పదిహేను','పదహారు','పదిహేడు','పద్దెనిమిది','పంతొమ్మిది'],tens:['','','ఇరవై','ముప్పై','నలభై','యాభై','అరవై','డెబ్బై','ఎనభై','తొంభై'],indianScales:['','వేల','లక్ష','కోటి','అరబ్','ఖరబ్'],internationalScales:['','వేల','మిలియన్','బిలియన్','ట్రిలియన్','క్వాడ్రిలియన్'],currency:{inrMain:'రూపాయలు',inrSub:'పైసలు',usdMain:'డాలర్లు',usdSub:'సెంట్లు'}},
+      ta:{zero:'பூஜ்ஜியம்',hundred:'நூறு',point:'புள்ளி',minus:'மைனஸ்',and:'மற்றும்',only:'மட்டும்',ones:['','ஒன்று','இரண்டு','மூன்று','நான்கு','ஐந்து','ஆறு','ஏழு','எட்டு','ஒன்பது','பத்து','பதினொன்று','பன்னிரண்டு','பதின்மூன்று','பதினான்கு','பதினைந்து','பதினாறு','பதினேழு','பதினெட்டு','பத்தொன்பது'],tens:['','','இருபது','முப்பது','நாற்பது','ஐம்பது','அறுபது','எழுபது','எண்பது','தொண்ணூறு'],indianScales:['','ஆயிரம்','லட்சம்','கோடி','அரப்','கரப்'],internationalScales:['','ஆயிரம்','மில்லியன்','பில்லியன்','டிரில்லியன்','குவாட்ரில்லியன்'],currency:{inrMain:'ரூபாய்',inrSub:'பைசா',usdMain:'டாலர்',usdSub:'சென்ட்'}},
+      ml:{zero:'പൂജ്യം',hundred:'നൂറ്',point:'പോയിന്റ്',minus:'മൈനസ്',and:'കൂടാതെ',only:'മാത്രം',ones:['','ഒന്ന്','രണ്ട്','മൂന്ന്','നാല്','അഞ്ച്','ആറ്','ഏഴ്','എട്ട്','ഒൻപത്','പത്ത്','പതിനൊന്ന്','പന്ത്രണ്ട്','പതിമൂന്ന്','പതിനാല്','പതിനഞ്ച്','പതിനാറ്','പതിനേഴ്','പതിനെട്ട്','പത്തൊൻപത്'],tens:['','','ഇരുപത്','മുപ്പത്','നാൽപ്പത്','അമ്പത്','അറുപത്','എഴുപത്','എൺപത്','തൊണ്ണൂറ്'],indianScales:['','ആയിരം','ലക്ഷം','കോടി','അറബ്','ഖറബ്'],internationalScales:['','ആയിരം','മില്യൺ','ബില്യൺ','ട്രില്യൺ','ക്വാഡ്രില്യൺ'],currency:{inrMain:'രൂപ',inrSub:'പൈസ',usdMain:'ഡോളർ',usdSub:'സെന്റ്'}}
     };
-
-    function toTitleCase(text, lang) {
-      if (lang !== 'en') return text;
-      return text.replace(/\w\S*/g, function(word) {
-        return word.charAt(0).toUpperCase() + word.substr(1).toLowerCase();
-      });
-    }
-
-    function cleanNumberInput(value) {
-      return value.replace(/,/g, '').trim();
-    }
-
-    function twoDigitWords(num, lang) {
-      const data = languageData[lang];
-      num = Number(num);
-      if (num < 20) return data.ones[num];
-      const ten = Math.floor(num / 10);
-      const one = num % 10;
-      return data.tens[ten] + (one ? ' ' + data.ones[one] : '');
-    }
-
-    function threeDigitWords(num, lang) {
-      const data = languageData[lang];
-      num = Number(num);
-      let words = '';
-      if (num >= 100) {
-        words += data.ones[Math.floor(num / 100)] + ' ' + data.hundred;
-        num = num % 100;
-        if (num > 0) words += ' ';
-      }
-      if (num > 0) words += twoDigitWords(num, lang);
-      return words.trim();
-    }
-
-    function internationalWords(integerPart, lang) {
-      const data = languageData[lang];
-      integerPart = String(BigInt(integerPart || '0'));
-      if (integerPart === '0') return data.zero;
-      const scales = data.internationalScales;
-      let groups = [];
-      let num = integerPart;
-      while (num.length > 0) {
-        groups.unshift(num.slice(-3));
-        num = num.slice(0, -3);
-      }
-      if (groups.length > scales.length) return 'Number is too large to convert.';
-      let words = [];
-      const totalGroups = groups.length;
-      groups.forEach(function(group, index) {
-        const groupNum = Number(group);
-        if (groupNum > 0) {
-          const scaleIndex = totalGroups - index - 1;
-          words.push(threeDigitWords(groupNum, lang) + (scales[scaleIndex] ? ' ' + scales[scaleIndex] : ''));
-        }
-      });
-      return words.join(' ').trim();
-    }
-
-    function indianWords(integerPart, lang) {
-      const data = languageData[lang];
-      integerPart = String(BigInt(integerPart || '0'));
-      if (integerPart === '0') return data.zero;
-      const scales = data.indianScales;
-      let groups = [];
-
-      if (integerPart.length > 3) {
-        groups.unshift(integerPart.slice(-3));
-        integerPart = integerPart.slice(0, -3);
-        while (integerPart.length > 0) {
-          groups.unshift(integerPart.slice(-2));
-          integerPart = integerPart.slice(0, -2);
-        }
-      } else {
-        groups.unshift(integerPart);
-      }
-
-      if (groups.length > scales.length) return 'Number is too large to convert.';
-
-      let words = [];
-      const totalGroups = groups.length;
-
-      groups.forEach(function(group, index) {
-        const groupNum = Number(group);
-        if (groupNum > 0) {
-          const scaleIndex = totalGroups - index - 1;
-          const groupWords = scaleIndex === 0 ? threeDigitWords(groupNum, lang) : twoDigitWords(groupNum, lang);
-          words.push(groupWords + (scales[scaleIndex] ? ' ' + scales[scaleIndex] : ''));
-        }
-      });
-
-      return words.join(' ').trim();
-    }
-
-    function decimalPlainWords(decimalPart, lang) {
-      if (!decimalPart) return '';
-      const data = languageData[lang];
-      return ' ' + data.point + ' ' + decimalPart.split('').map(function(digit) {
-        return data.ones[Number(digit)] || data.zero;
-      }).join(' ');
-    }
-
-    function convertNumberToWords(value, system, lang) {
-      const parts = value.split('.');
-      const integerPart = parts[0] || '0';
-      const decimalPart = parts[1] || '';
-      const mainWords = system === 'indian' ? indianWords(integerPart, lang) : internationalWords(integerPart, lang);
-      return mainWords + decimalPlainWords(decimalPart, lang);
-    }
-
-    function convertCurrency(value, currencyType, lang) {
-      const data = languageData[lang];
-      const parts = value.split('.');
-      const whole = parts[0] || '0';
-      const decimal = parts[1] ? Math.round(Number('0.' + parts[1]) * 100) : 0;
-      const wholeWords = currencyType === 'inr' ? indianWords(whole, lang) : internationalWords(whole, lang);
-
-      let result = wholeWords + ' ' + (currencyType === 'inr' ? data.currency.inrMain : data.currency.usdMain);
-
-      if (decimal > 0) {
-        const subWords = currencyType === 'inr' ? indianWords(String(decimal), lang) : internationalWords(String(decimal), lang);
-        result += ' ' + data.and + ' ' + subWords + ' ' + (currencyType === 'inr' ? data.currency.inrSub : data.currency.usdSub);
-      }
-
-      return result + ' ' + data.only;
-    }
-
-    function showError(message) {
-      outputBox.innerText = message;
-      document.getElementById('result-section').classList.remove('hidden');
-    }
-
-    if (calculateBtn) {
-      calculateBtn.addEventListener('click', function() {
-        const rawInput = document.getElementById('num-input').value;
-        const lang = document.getElementById('output-language').value;
-        const system = document.getElementById('number-system').value;
-        const format = document.getElementById('output-format').value;
-        const value = cleanNumberInput(rawInput);
-
-        if (!value) {
-          showError('Please enter a number.');
-          return;
-        }
-
-        if (!/^\d+(\.\d+)?$/.test(value)) {
-          showError('Please enter a valid positive number.');
-          return;
-        }
-
-        let output = '';
-
-        if (format === 'plain') {
-          output = convertNumberToWords(value, system, lang);
-        } else if (format === 'inr') {
-          output = convertCurrency(value, 'inr', lang);
-        } else if (format === 'usd') {
-          output = convertCurrency(value, 'usd', lang);
-        }
-
-        outputBox.innerText = toTitleCase(output, lang);
-        document.getElementById('result-section').classList.remove('hidden');
-      });
-    }
-
-    if (copyBtn) {
-      copyBtn.addEventListener('click', function() {
-        navigator.clipboard.writeText(outputBox.innerText).then(function() {
-          copyBtn.innerText = 'Copied!';
-          setTimeout(function() {
-            copyBtn.innerText = 'Copy Result';
-          }, 1200);
-        });
-      });
-    }
+    function toTitleCase(text,lang){if(lang!=='en')return text;return text.replace(/\w\S*/g,w=>w.charAt(0).toUpperCase()+w.substr(1).toLowerCase());}
+    function cleanNumberInput(value){return value.replace(/,/g,'').trim();}
+    function twoDigitWords(num,lang){const d=languageData[lang];num=Number(num);if(num<20)return d.ones[num];const ten=Math.floor(num/10),one=num%10;return d.tens[ten]+(one?' '+d.ones[one]:'');}
+    function threeDigitWords(num,lang){const d=languageData[lang];num=Number(num);let words='';if(num>=100){words+=d.ones[Math.floor(num/100)]+' '+d.hundred;num%=100;if(num>0)words+=' ';}if(num>0)words+=twoDigitWords(num,lang);return words.trim();}
+    function internationalWords(integerPart,lang){const d=languageData[lang];integerPart=String(BigInt(integerPart||'0'));if(integerPart==='0')return d.zero;const scales=d.internationalScales;let groups=[],n=integerPart;while(n.length){groups.unshift(n.slice(-3));n=n.slice(0,-3);}if(groups.length>scales.length)return 'Number is too large to convert.';const words=[];groups.forEach((g,i)=>{const v=Number(g);if(v){const s=groups.length-i-1;words.push(threeDigitWords(v,lang)+(scales[s]?' '+scales[s]:''));}});return words.join(' ').trim();}
+    function indianWords(integerPart,lang){const d=languageData[lang];integerPart=String(BigInt(integerPart||'0'));if(integerPart==='0')return d.zero;const scales=d.indianScales;let groups=[],n=integerPart;if(n.length>3){groups.unshift(n.slice(-3));n=n.slice(0,-3);while(n.length){groups.unshift(n.slice(-2));n=n.slice(0,-2);}}else groups.unshift(n);if(groups.length>scales.length)return 'Number is too large to convert.';const words=[];groups.forEach((g,i)=>{const v=Number(g);if(v){const s=groups.length-i-1,part=s===0?threeDigitWords(v,lang):twoDigitWords(v,lang);words.push(part+(scales[s]?' '+scales[s]:''));}});return words.join(' ').trim();}
+    function decimalPlainWords(decimalPart,lang){if(!decimalPart)return '';const d=languageData[lang];return ' '+d.point+' '+decimalPart.split('').map(x=>d.ones[Number(x)]||d.zero).join(' ');}
+    function convertNumberToWords(value,system,lang){const p=value.split('.'),integerPart=p[0]||'0',decimalPart=p[1]||'',main=system==='indian'?indianWords(integerPart,lang):internationalWords(integerPart,lang);return main+decimalPlainWords(decimalPart,lang);}
+    function convertCurrency(value,type,lang,system){const d=languageData[lang],p=value.split('.'),whole=p[0]||'0';let cents=0;if(p[1]){const digits=(p[1]+'00').slice(0,2);cents=Number(digits);}const main=type==='inr'?(system==='indian'?indianWords(whole,lang):internationalWords(whole,lang)):internationalWords(whole,lang);let result=main+' '+(type==='inr'?d.currency.inrMain:d.currency.usdMain);if(cents>0){const sub=type==='inr'?(system==='indian'?indianWords(String(cents),lang):internationalWords(String(cents),lang)):internationalWords(String(cents),lang);result+=' '+d.and+' '+sub+' '+(type==='inr'?d.currency.inrSub:d.currency.usdSub);}return result+' '+d.only;}
+    function showError(message){outputBox.innerText=message;document.getElementById('result-section').classList.remove('hidden');}
+    calculateBtn.addEventListener('click',function(){const raw=document.getElementById('num-input').value,lang=document.getElementById('output-language').value,system=document.getElementById('number-system').value,format=document.getElementById('output-format').value,value=cleanNumberInput(raw);if(!value){showError('Please enter a number.');return;}if(!/^\d+(\.\d{1,})?$/.test(value)){showError('Please enter a valid non-negative number, using digits and an optional decimal point.');return;}let output;if(format==='plain')output=convertNumberToWords(value,system,lang);else output=convertCurrency(value,format,lang,system);outputBox.innerText=toTitleCase(output,lang);document.getElementById('result-section').classList.remove('hidden');});
+    document.getElementById('num-input').addEventListener('keydown',e=>{if(e.key==='Enter')calculateBtn.click();});
+    copyBtn.addEventListener('click',function(){const text=outputBox.innerText;if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(()=>{copyBtn.innerText='Copied!';setTimeout(()=>copyBtn.innerText='Copy Result',1200);}).catch(()=>showError('Copy failed. Please select and copy the result manually.'));}else{showError('Automatic copying is unavailable in this browser. Please select and copy the result manually.');}});
   </script>
 </body>
 </html>
