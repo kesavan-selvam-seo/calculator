@@ -1,0 +1,78 @@
+/* Page-scoped styles; use the existing CalcuPortal light/dark theme tokens. */
+.contact-page .contact-main{max-width:1200px;padding:1.75rem 1.5rem 4rem}
+.contact-page .contact-breadcrumb{display:flex;gap:.7rem;font-size:.8rem;color:var(--text-muted);margin-bottom:2.75rem}
+.contact-page .contact-breadcrumb a{color:var(--text-secondary);text-decoration:none}
+.contact-page .contact-eyebrow{font-size:.7rem;font-weight:700;letter-spacing:.16em;line-height:1.6;color:var(--primary);margin:0 0 1rem}
+.contact-page .contact-intro{max-width:720px;margin-bottom:3.5rem}
+.contact-page h1,.contact-page h2,.contact-page .contact-main h3{font-family:var(--font-heading);letter-spacing:-.035em;color:var(--text-primary)}
+.contact-page h1{font-size:clamp(2.65rem,4.6vw,4.1rem);font-weight:700;line-height:1.08;margin-bottom:1.5rem}
+.contact-page h1 span{color:var(--primary)}
+.contact-page .contact-intro>p:last-child{font-size:1.1rem;line-height:1.8;color:var(--text-secondary);max-width:650px}
+.contact-page .contact-layout{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:4rem;align-items:start}
+.contact-page h2{font-size:1.7rem;line-height:1.2;font-weight:600}
+.contact-page .contact-reasons{margin:1.75rem 0 2rem}
+.contact-page .contact-reasons>div{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.4rem}
+.contact-page .contact-reasons>div>span{display:flex;align-items:center;justify-content:center;flex:0 0 33px;height:33px;border-radius:9px;background:var(--primary-light);color:var(--primary);font-size:.7rem;font-weight:700}
+.contact-page .contact-reasons h3{font-size:1rem;letter-spacing:-.015em;font-weight:600;margin:.15rem 0 .35rem}
+.contact-page .contact-reasons p{font-size:.86rem;line-height:1.75;color:var(--text-secondary)}
+.contact-page .contact-email{border:1px solid var(--border-color);border-radius:14px;background:var(--bg-card);padding:1.5rem}
+.contact-page .contact-email svg{color:var(--primary);margin-bottom:.75rem}
+.contact-page .contact-email h3{font-size:1.15rem;letter-spacing:-.02em;margin-bottom:.4rem}
+.contact-page .contact-email p{font-size:.85rem;color:var(--text-secondary)}
+.contact-page .contact-email a{display:inline-flex;align-items:center;gap:.5rem;margin-top:.7rem;min-height:32px;max-width:100%;font-size:clamp(.85rem,1.3vw,1rem);font-weight:600;color:var(--primary);text-decoration:none;overflow-wrap:anywhere}
+.contact-page .contact-email a:hover{text-decoration:underline;text-underline-offset:4px}
+.contact-page .contact-response{font-size:.8rem;color:var(--text-muted);line-height:1.8;margin-top:1.2rem;max-width:370px}
+.contact-page .contact-response strong{display:block;color:var(--text-secondary);font-weight:600;margin-bottom:.25rem}
+.contact-page .contact-panel{background:var(--bg-card);padding:2.25rem;border:1px solid var(--border-color);border-radius:18px;box-shadow:0 8px 28px #0f172a05}
+.contact-page .contact-panel .contact-eyebrow{margin-bottom:.6rem}
+.contact-page .contact-panel-intro{color:var(--text-secondary);font-size:.85rem;line-height:1.7;margin-top:.8rem}
+.contact-page .contact-form{display:grid;gap:1.35rem;margin-top:1.8rem}
+.contact-page .contact-field-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.contact-page .contact-field{min-width:0}
+.contact-page .contact-field label{display:block;font-size:.83rem;font-weight:600;color:var(--text-primary);margin-bottom:.55rem}
+.contact-page .contact-field :is(input,select,textarea){width:100%;max-width:100%;min-height:48px;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-primary);color:var(--text-primary);padding:.85rem .9rem;font:inherit;font-size:1rem;line-height:1.5;transition:border-color .2s,box-shadow .2s}
+.contact-page .contact-field :is(input,textarea)::placeholder{color:var(--text-muted);opacity:1;font-size:.85rem}
+.contact-page .contact-field select{padding-right:1.5rem}
+.contact-page .contact-field textarea{min-height:180px;resize:vertical}
+.contact-page .contact-field :is(input,select,textarea):focus{outline:2px solid var(--primary);outline-offset:2px;border-color:var(--primary)}
+.contact-page .contact-field small{display:block;font-size:.75rem;line-height:1.65;color:var(--text-muted);margin-top:.45rem}
+.contact-page .contact-privacy{font-size:.75rem;line-height:1.75;color:var(--text-muted)}
+.contact-page .contact-privacy a{color:var(--primary);text-underline-offset:3px}
+.contact-page .contact-submit{display:flex;align-items:center;justify-content:center;gap:1rem;min-height:50px;border:1px solid #4f46e5;border-radius:9px;background:#4f46e5;color:#fff;font:inherit;font-size:.9rem;font-weight:600;cursor:pointer;padding:.9rem 1.2rem}
+.contact-page .contact-submit:hover{background:#4338ca;border-color:#4338ca}
+.contact-page .contact-guidance{display:grid;grid-template-columns:1fr 1.35fr;gap:4rem;margin-top:4rem;padding:3.5rem 0;border-top:1px solid var(--border-color)}
+.contact-page .contact-guidance h2{font-size:2rem}
+.contact-page .contact-guidance>div>p:last-child{font-size:.9rem;line-height:1.8;color:var(--text-secondary);margin-top:1rem;max-width:340px}
+.contact-page .contact-faqs details{border-bottom:1px solid var(--border-color)}
+.contact-page .contact-faqs details:first-child{border-top:1px solid var(--border-color)}
+.contact-page .contact-faqs summary{position:relative;list-style:none;cursor:pointer;font-weight:600;font-size:.9rem;padding:1.2rem 2rem 1.2rem 0;line-height:1.6;color:var(--text-primary)}
+.contact-page .contact-faqs summary::-webkit-details-marker{display:none}
+.contact-page .contact-faqs summary::after{content:'+';position:absolute;right:.25rem;top:1.1rem;font-size:1.3rem;font-weight:400;color:var(--primary)}
+.contact-page .contact-faqs details[open] summary::after{content:'−'}
+.contact-page .contact-faqs details p{color:var(--text-secondary);font-size:.85rem;line-height:1.85;padding:0 1rem 1.25rem 0}
+.contact-page .contact-explore{border-radius:14px;padding:1.8rem 2rem;background:var(--primary-light);display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
+.contact-page .contact-explore p{font-weight:600;font-size:.95rem;color:var(--text-primary)}
+.contact-page .contact-explore>div{display:flex;flex-wrap:wrap;gap:.75rem 1.5rem}
+.contact-page .contact-explore a{display:inline-flex;align-items:center;gap:.5rem;min-height:44px;font-weight:600;font-size:.8rem;color:var(--primary);text-decoration:none}
+.contact-page .contact-explore a:hover{text-decoration:underline;text-underline-offset:4px}
+.contact-page :is(a,button,summary):focus-visible{outline:3px solid var(--primary);outline-offset:4px}
+.contact-page .contact-skip{position:absolute;left:1rem;top:-100px;z-index:200;background:var(--bg-card);color:var(--text-primary);padding:.8rem 1rem;border:2px solid var(--primary)}
+.contact-page .contact-skip:focus{top:1rem}
+.contact-page [id]{scroll-margin-top:6rem}
+.contact-page .menu-toggle{min-width:44px;min-height:44px;justify-content:center;gap:6px;align-items:center}
+@media(max-width:1000px){.contact-page .contact-layout,.contact-page .contact-guidance{gap:2rem}.contact-page .contact-panel{padding:1.75rem}.contact-page .contact-field-row{grid-template-columns:1fr}.contact-page .contact-explore{align-items:flex-start;flex-direction:column;gap:.75rem}}
+@media(max-width:768px){
+ .contact-page .contact-main{padding:1.5rem 1.25rem 3rem}
+ .contact-page .contact-breadcrumb{margin-bottom:2rem}
+ .contact-page .contact-intro{margin-bottom:2.5rem}
+ .contact-page h1{font-size:clamp(2.55rem,7.5vw,3.6rem)}
+ .contact-page .contact-intro>p:last-child{font-size:1rem}
+ .contact-page .contact-layout{grid-template-columns:1fr;gap:2.5rem}
+ .contact-page .contact-panel{grid-row:1;padding:1.5rem}
+ .contact-page .contact-sidebar{grid-row:2}
+ .contact-page .contact-response{max-width:none}
+ .contact-page .contact-guidance{grid-template-columns:1fr;gap:1.5rem;margin-top:2.5rem;padding:2.5rem 0}
+ .contact-page .contact-guidance>div>p:last-child{max-width:none}
+ .contact-page .contact-explore{padding:1.5rem}
+}
+@media(prefers-reduced-motion:reduce){.contact-page *{transition:none!important}}
