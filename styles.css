@@ -227,6 +227,8 @@ footer {
   margin-right: auto;
 }
 
+.footer-legal-links{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:.5rem 1rem;padding:1rem 0;font-size:.875rem}.footer-legal-links a{color:var(--text-secondary);text-decoration:none}.footer-legal-links a:hover{color:var(--primary);text-decoration:underline}
+
 .copyright-bar {
   text-align: center;
   font-size: 0.75rem;
