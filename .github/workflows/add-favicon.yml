@@ -19,7 +19,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Fix blog favicon and card image cropping
+      - name: Fix blog favicon
         run: |
           python3 - <<'PY'
           from pathlib import Path
@@ -31,7 +31,6 @@ jobs:
           for path in Path('.').glob('blog/**/index.html'):
               text = path.read_text(encoding='utf-8')
               updated = pattern.sub('', text)
-              updated = updated.replace('object-fit:cover', 'object-fit:contain')
               if 'article-card-image' in updated:
                   updated = updated.replace('background:var(--border-light)', 'background:#fff')
               if updated != text or 'rel="icon"' not in text.lower():
