@@ -1,5 +1,6 @@
 from pathlib import Path
 import re
+import json
 
 ROOT = Path(__file__).resolve().parent
 BASE_URL = "https://www.calcuportal.com"
@@ -33,6 +34,23 @@ for path in ROOT.glob("calculators/**/*.html"):
             tag = f'  <link rel="canonical" href="{canonical}">\n'
             updated = updated[:head_end] + tag + updated[head_end:]
             count = 1
+    # GitHub Pages cannot emit per-file HTTP redirects. Preserve the existing
+    # fallback body and redirect legacy aliases immediately to their canonical.
+    if path.parent == ROOT / 'calculators' and path.name != 'index.html':
+        updated = updated.replace('../pages/about.html', '/about/').replace('../pages/contact.html', '/contact/')
+        updated = updated.replace('href="../index.html"', 'href="/"')
+        updated = updated.replace("href='../index.html'", "href='/'")
+        start = '<!-- legacy-calculator-redirect:start -->'
+        end = '<!-- legacy-calculator-redirect:end -->'
+        updated = re.sub(re.escape(start) + r'.*?' + re.escape(end) + r'\n?', '', updated, flags=re.S)
+        destination = json.dumps(canonical)
+        redirect = (f'{start}\n'
+                    f'  <meta http-equiv="refresh" content="0; url={canonical}">\n'
+                    f'  <script>window.location.replace({destination} + window.location.search + window.location.hash);</script>\n'
+                    f'{end}\n')
+        head_end = updated.lower().find('</head>')
+        if head_end >= 0:
+            updated = updated[:head_end] + redirect + updated[head_end:]
     if count and updated != text:
         path.write_text(updated, encoding="utf-8")
         changed += 1
