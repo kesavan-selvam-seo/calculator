@@ -5,6 +5,7 @@ import re
 ROOT = Path(__file__).resolve().parent
 BASE = "https://www.calcuportal.com"
 POSTS_DIR = ROOT / "content" / "posts"
+CUSTOM_HUBS = {"education", "general-knowledge"}
 
 CATEGORIES = {
     "education": {"title": "Education Guides & Resources", "description": "Practical education guides covering marks, grades, calculations, study planning, exams, admissions, and useful academic resources.", "intro": "Explore practical education guides, academic calculations, study resources, and easy-to-follow explanations for students and learners.", "content": "CalcuPortal's Education category brings together useful guides for students, parents, and lifelong learners. Find simple explanations for academic calculations, grades, percentages, exam-related planning, and everyday study questions. Our guides are designed to make numerical and academic concepts easier to understand, with formulas, examples, and practical steps. As new education articles are published, they can be organized here so readers can move from a topic guide to a relevant calculator or supporting resource.", "articles": [("How to Calculate Percentage", "/blog/percentage-calculation-guide/", "Learn percentage formulas, marks calculations, percentage increase, decrease, discounts, and practical examples.", ""), ("How to Calculate Age Online", "/blog/how-to-calculate-age/", "Understand exact age calculation from date of birth with simple steps and examples.", "")]},
@@ -78,6 +79,9 @@ def render_card(item):
 
 articles_by_category=cms_articles()
 for slug,data in CATEGORIES.items():
+    if slug in CUSTOM_HUBS:
+        print(f"Skipping custom hub: {slug}")
+        continue
     cards=''.join(render_card(item) for item in articles_by_category[slug])
     if not cards:cards='<div class="empty-category">More '+escape(data['title'])+' articles are coming soon. Check back for new practical guides and resources.</div>'
     url=f"{BASE}/blog/{slug}/"
