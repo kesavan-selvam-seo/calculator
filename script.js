@@ -407,25 +407,73 @@ document.addEventListener('DOMContentLoaded', function () {
     return indexPromise;
   }
 
+  // Generic words such as "calculator" occur in nearly every title, so they
+  // should not make a single typed letter return the entire directory.
+  const genericTitleWords = new Set([
+    'calculator', 'calculators', 'converter', 'converters',
+    'tool', 'tools', 'online', 'free', 'generator', 'generators',
+    'finder', 'counter', 'calculator'
+  ]);
+
+  function hasWordPrefix(text, token, excludeGeneric) {
+    return String(text || '').split(' ').some(function (word) {
+      if (!word) return false;
+      if (excludeGeneric && genericTitleWords.has(word)) return false;
+      return word.indexOf(token) === 0;
+    });
+  }
+
   function matchesToken(item, token) {
+    if (!token) return true;
+
+    // Exact word matches preserve normal multi-word searches and full terms.
     if (hasWholePhrase(item.searchText, token)) return true;
 
     const aliases = tokenAliases[token] || [];
-    return aliases.some(function (alias) {
+    if (aliases.some(function (alias) {
       return hasWholePhrase(item.searchText, normalizeSearchText(alias));
-    });
+    })) return true;
+
+    // Treat what the user has typed so far as a prefix, including the first letter.
+    // For a one-character query, use meaningful words in the calculator title
+    // only; descriptions are too broad at that stage.
+    if (token.length === 1) {
+      return hasWordPrefix(item.titleSearch, token, true);
+    }
+
+    if (hasWordPrefix(item.titleSearch, token, true)) return true;
+    if (hasWordPrefix(item.descriptionSearch, token, false)) return true;
+
+    // For longer partial terms, also allow a match inside useful title/description
+    // words, but never use generic "calculator" suffixes as the match by themselves.
+    if (token.length >= 3) {
+      const titleWords = item.titleSearch.split(' ').filter(function (word) {
+        return word && !genericTitleWords.has(word);
+      });
+      if (titleWords.some(function (word) { return word.indexOf(token) !== -1; })) return true;
+
+      const descriptionWords = item.descriptionSearch.split(' ');
+      if (descriptionWords.some(function (word) { return word.indexOf(token) !== -1; })) return true;
+    }
+
+    return false;
   }
 
   function rankCalculator(item, query, tokens) {
     let score = 0;
+    const titleWords = item.titleSearch.split(' ').filter(function (word) {
+      return word && !genericTitleWords.has(word);
+    });
 
-    if (item.titleSearch === query) score += 100;
-    else if (item.titleSearch.indexOf(query) === 0) score += 60;
-    else if (item.titleSearch.indexOf(query) !== -1) score += 35;
+    if (item.titleSearch === query) score += 120;
+    else if (item.titleSearch.indexOf(query) === 0) score += 80;
+    else if (titleWords.some(function (word) { return word.indexOf(query) === 0; })) score += 65;
+    else if (titleWords.some(function (word) { return word.indexOf(query) !== -1; })) score += 35;
 
     tokens.forEach(function (token) {
-      if (hasWholePhrase(item.titleSearch, token)) score += 12;
-      else if (hasWholePhrase(item.descriptionSearch, token)) score += 5;
+      if (hasWholePhrase(item.titleSearch, token)) score += 14;
+      else if (hasWordPrefix(item.titleSearch, token, true)) score += 10;
+      else if (hasWordPrefix(item.descriptionSearch, token, false)) score += 4;
       else score += 1;
     });
 
