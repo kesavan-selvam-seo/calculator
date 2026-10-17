@@ -322,7 +322,7 @@ document.addEventListener('DOMContentLoaded', function () {
     mpg: ['fuel', 'mileage', 'gas'],
     gas: ['fuel', 'mileage', 'mpg'],
     kwh: ['electricity', 'electricity cost', 'power usage'],
-    'electric bill': ['electricity cost', 'utility rate'],
+    electric: ['electricity cost', 'utility rate'],
     calorie: ['calorie intake', 'calorie burn', 'bmr', 'tdee'],
     calories: ['calorie intake', 'calorie burn', 'bmr', 'tdee'],
     salary: ['income tax', 'take home pay'],
@@ -332,6 +332,7 @@ document.addEventListener('DOMContentLoaded', function () {
     weight: ['ideal weight', 'pounds', 'kilograms', 'kg'],
     height: ['feet to cm', 'centimeters', 'meters'],
     mortgage: ['home loan', 'loan emi', 'amortization'],
+    home: ['home loan', 'mortgage'],
     investment: ['compound interest', 'irr', 'future value'],
     bill: ['electricity cost', 'utility rate']
   };
