@@ -4,32 +4,33 @@
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="shortcut icon" href="/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/favicon.png">
-  <meta name="robots" content="index, follow">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>About CalcuPortal - Free Online Calculator Tools</title>
-  <meta name="description" content="Learn about CalcuPortal, a free online calculator website built to provide simple, fast and useful calculation tools for finance, health, math, conversions and daily needs.">
+  <meta name="robots" content="index, follow">
+  <title>About CalcuPortal | Free Online Calculators &amp; Tools</title>
+  <meta name="description" content="Explore CalcuPortal's free online calculators for finance, health, math, conversions, dates and everyday tasks. Learn how to use our tools and report corrections.">
   <link rel="canonical" href="https://www.calcuportal.com/about/">
   <link rel="stylesheet" href="/styles.css">
   <script src="/script.js"></script>
 </head>
 <body>
-
-  <!-- Header -->
   <header>
     <div class="nav-container">
       <a href="/" class="logo">
         <img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon">
         <span>CalcuPortal</span>
       </a>
-
-      <nav class="nav-links">
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-controls="nav-links" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav class="nav-links" id="nav-links">
         <a href="/" class="nav-link">Home</a>
-        <a href="/about/" class="nav-link active">About</a>
+        <a href="/about/" class="nav-link active" aria-current="page">About</a>
         <a href="/contact/" class="nav-link">Contact</a>
         <a href="/blog/" class="nav-link">Blog</a>
-        <button class="theme-btn" title="Toggle Theme">
+        <button class="theme-btn" title="Toggle Theme" aria-label="Toggle Theme">
           <span class="theme-btn-icon"></span>
         </button>
       </nav>
@@ -44,49 +45,133 @@
         </div>
 
         <div class="article-content">
-          <h2>Helping Users Calculate Smarter</h2>
-          <p style="text-align: justify;">CalcuPortal is a free online calculator website created to help users solve everyday calculations quickly and easily. Our goal is to bring useful calculator tools into one simple platform, so users can save time while working with finance, health, math, conversions, dates, student tools, and daily life calculations.</p>
+          <p style="text-align: justify;">CalcuPortal brings everyday online calculators together in one place. It is designed for people who need a quick way to work through a calculation, understand an estimate, or convert a value without opening a spreadsheet. You can use the tools for common tasks involving money, health and fitness, mathematics, dates, measurements, and more.</p>
 
-          <p style="text-align: justify;">Whether you want to estimate a loan EMI, calculate BMI, convert units, check age difference, calculate percentages, or use scientific and math tools, CalcuPortal is designed to provide a clean and easy calculation experience directly from your browser.</p>
+          <p style="text-align: justify;">Our aim is straightforward: make each tool easy to find, give its inputs clear labels, and present the result in a way that is easier to understand. The exact fields and method depend on the calculator, so check the instructions and assumptions on the individual tool page before relying on its output.</p>
 
-          <h2>Our Mission</h2>
-          <p style="text-align: justify;">Our mission is to make online calculations simple, accessible, and useful for everyone. We focus on building calculators that are easy to understand, fast to use, and suitable for students, working professionals, business users, and anyone who needs quick answers for common calculations.</p>
+          <h2>Explore Calculator Categories</h2>
+          <p style="text-align: justify;">Start with a category that matches what you need, or browse the <a href="/calculators/">full calculator directory</a> to find a specific tool.</p>
 
-          <p style="text-align: justify;">We believe calculator tools should not feel complicated. That is why CalcuPortal keeps the interface simple, avoids unnecessary distractions, and provides clear input fields, instant results, and helpful explanations wherever required.</p>
+          <div class="category-grid">
+            <a href="/categories/finance/" class="calc-card">
+              <div class="calc-card-header">
+                <h3 class="calc-card-title">Finance &amp; Loan Calculators</h3>
+                <span class="calc-card-icon" aria-hidden="true">📈</span>
+              </div>
+              <p class="calc-card-desc">Explore loan payments, compound interest, investment estimates, discounts, and other money-related calculations.</p>
+              <div class="calc-card-footer"><span>Browse finance tools</span><span aria-hidden="true">→</span></div>
+            </a>
+            <a href="/categories/health-fitness/" class="calc-card">
+              <div class="calc-card-header">
+                <h3 class="calc-card-title">Health &amp; Fitness</h3>
+                <span class="calc-card-icon" aria-hidden="true">⚖️</span>
+              </div>
+              <p class="calc-card-desc">Find tools for general health and fitness estimates, such as body mass index and calorie-related calculations.</p>
+              <div class="calc-card-footer"><span>Browse health tools</span><span aria-hidden="true">→</span></div>
+            </a>
+            <a href="/categories/math/" class="calc-card">
+              <div class="calc-card-header">
+                <h3 class="calc-card-title">Math &amp; Scientific Tools</h3>
+                <span class="calc-card-icon" aria-hidden="true">📐</span>
+              </div>
+              <p class="calc-card-desc">Work through common arithmetic, fractions, grade calculations, and other maths problems.</p>
+              <div class="calc-card-footer"><span>Browse math tools</span><span aria-hidden="true">→</span></div>
+            </a>
+            <a href="/categories/date-age/" class="calc-card">
+              <div class="calc-card-header">
+                <h3 class="calc-card-title">Date &amp; Age Calculators</h3>
+                <span class="calc-card-icon" aria-hidden="true">📅</span>
+              </div>
+              <p class="calc-card-desc">Calculate age differences, date intervals, durations, and other calendar-related values.</p>
+              <div class="calc-card-footer"><span>Browse date tools</span><span aria-hidden="true">→</span></div>
+            </a>
+            <a href="/categories/conversions/" class="calc-card">
+              <div class="calc-card-header">
+                <h3 class="calc-card-title">Conversions &amp; Units</h3>
+                <span class="calc-card-icon" aria-hidden="true">🔢</span>
+              </div>
+              <p class="calc-card-desc">Convert measurements and values between supported units and number formats.</p>
+              <div class="calc-card-footer"><span>Browse conversion tools</span><span aria-hidden="true">→</span></div>
+            </a>
+            <a href="/categories/games/" class="calc-card">
+              <div class="calc-card-header">
+                <h3 class="calc-card-title">Games &amp; Generators</h3>
+                <span class="calc-card-icon" aria-hidden="true">🎲</span>
+              </div>
+              <p class="calc-card-desc">Try simple randomisers and light-hearted tools for casual use.</p>
+              <div class="calc-card-footer"><span>Browse fun tools</span><span aria-hidden="true">→</span></div>
+            </a>
+            <a href="/categories/love-relationship/" class="calc-card">
+              <div class="calc-card-header">
+                <h3 class="calc-card-title">Love &amp; Relationship Tools</h3>
+                <span class="calc-card-icon" aria-hidden="true">💜</span>
+              </div>
+              <p class="calc-card-desc">Explore entertainment-focused compatibility tools intended for fun, not serious relationship decisions.</p>
+              <div class="calc-card-footer"><span>Browse relationship tools</span><span aria-hidden="true">→</span></div>
+            </a>
+          </div>
 
-          <h2>What You Can Find on CalcuPortal</h2>
-          <p style="text-align: justify;">CalcuPortal includes a growing collection of free online calculators across multiple categories. Users can explore finance calculators, health and fitness calculators, math calculators, conversion tools, date and age calculators, random generators, and other practical utilities for daily use.</p>
+          <h2>How to Use a Calculator</h2>
+          <p style="text-align: justify;">Choose the calculator that fits your task, read the labels and instructions, and enter values using the units requested on the page. Check the output and any notes about assumptions or rounding. If the result seems unexpected, recheck the inputs and the method explained for that tool before using it elsewhere.</p>
 
-          <p style="text-align: justify;">Each calculator page is created with a clear purpose: to help users complete a specific calculation without confusion. Along with the tool, we also add supporting content and frequently asked questions to help users understand how the calculation works.</p>
+          <p style="text-align: justify;">You can begin with a few frequently used tools, including the <a href="/calculators/loan-emi-calculator/">Loan EMI Calculator</a>, <a href="/calculators/bmi-calculator/">BMI Calculator</a>, <a href="/calculators/compound-interest-calculator/">Compound Interest Calculator</a>, <a href="/calculators/age-difference-calculator/">Age Difference Calculator</a>, and <a href="/calculators/percentage-calculator/">Percentage Calculator</a>.</p>
 
-          <h2>Accuracy and Responsible Use</h2>
-          <p style="text-align: justify;">Our calculators are developed using commonly accepted formulas and standard calculation methods wherever applicable. However, calculator results should be treated as estimates or informational outputs. For financial, medical, tax, legal, or professional decisions, users should always verify results with a qualified expert or official source.</p>
+          <h2>Calculation Methods, Accuracy and Limitations</h2>
+          <p style="text-align: justify;">Calculators are only as useful as the inputs, formula, and assumptions behind a result. Different tools can use different methods, conventions, units, or rounding rules. Where a page provides a formula or explanation, use it to understand how the result is produced and whether it fits your situation.</p>
 
-          <p style="text-align: justify;">CalcuPortal is built for general informational and educational purposes. We continuously review our tools and content to improve clarity, usability, and reliability, but we do not claim that every calculator result is suitable for every personal or professional situation.</p>
+          <p style="text-align: justify;">CalcuPortal is intended for general information, learning, and estimation. Results are not a substitute for personalised financial, medical, tax, legal, or other professional advice. For decisions with important consequences, confirm the figures with an appropriate qualified professional or an official source. Do not treat an estimate as a guaranteed outcome.</p>
 
-          <h2>Why We Built CalcuPortal</h2>
-          <p style="text-align: justify;">Many users search online for quick calculators but often find pages that are overloaded, confusing, or difficult to use on mobile devices. CalcuPortal was created to offer a simpler alternative with fast-loading pages, mobile-friendly layouts, clean navigation, and helpful calculator categories.</p>
+          <h2>Content Updates and Corrections</h2>
+          <p style="text-align: justify;">We aim to make the tools and supporting explanations clear and useful, but a page may contain an error, omit an assumption, or need an update. If you spot a calculation issue, unclear instruction, outdated detail, or broken link, please report it through our <a href="/contact/">Contact page</a>.</p>
 
-          <p style="text-align: justify;">Our long-term goal is to build a trusted calculator directory where users can find accurate, easy-to-use, and well-explained tools for common calculation needs.</p>
+          <p style="text-align: justify;">For a calculator correction, include the page URL, the inputs you used, the result shown, and what you expected instead. Please do not include passwords, bank account details, health records, or other sensitive personal information. Clear examples help us understand the issue and decide what needs checking.</p>
 
-          <h2>Our Commitment</h2>
-          <p style="text-align: justify;">We are committed to improving CalcuPortal by adding more useful calculators, updating existing tools, improving content quality, and keeping the website easy to use. User experience, accessibility, speed, and clarity are important parts of how we build and maintain this website.</p>
+          <h2>Privacy and Responsible Use</h2>
+          <p style="text-align: justify;">Before entering information into any online tool, consider whether it is sensitive. Our calculators are intended for ordinary calculation tasks, not for storing confidential records. Read the <a href="/privacy-policy/">Privacy Policy</a> for information about website data, analytics, cookies, and third-party services. You can also review our <a href="/disclaimer/">Disclaimer</a> and <a href="/terms-conditions/">Terms and Conditions</a>.</p>
 
-          <p style="text-align: justify;">If you find an issue, have a suggestion, or want to request a new calculator, you can reach us through our contact page. Your feedback helps us make CalcuPortal more useful for everyone.</p>
+          <h2>Get in Touch</h2>
+          <p style="text-align: justify;">Have an idea for a new calculator or a suggestion to improve an existing page? Visit our <a href="/contact/">Contact page</a> to share feedback, report a problem, or send a calculator request. Your input helps us understand what visitors need from the site.</p>
         </div>
       </section>
     </div>
   </main>
 
-  <!-- Footer -->
   <footer>
-    <div class="copyright-bar" style="border-top: none; padding-top: 0;">
-      © <span id="year">2026</span> CalcuPortal. All rights reserved.
+    <div class="footer-container">
+      <div class="footer-info">
+        <a href="/" class="logo" style="display:inline-flex;">
+          <img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon">
+          <span>CalcuPortal</span>
+        </a>
+        <p style="text-align: justify;">Free online calculators and practical tools for common calculations, conversions, dates, and everyday tasks.</p>
+      </div>
+      <div class="footer-column">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="/calculators/">All Calculators</a></li>
+          <li><a href="/categories/finance/">Finance Calculators</a></li>
+          <li><a href="/categories/health-fitness/">Health &amp; Fitness</a></li>
+          <li><a href="/categories/math/">Math Calculators</a></li>
+          <li><a href="/categories/date-age/">Date &amp; Age</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Website</h3>
+        <ul>
+          <li><a href="/about/" aria-current="page">About Us</a></li>
+          <li><a href="/contact/">Contact Us</a></li>
+          <li><a href="/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="/terms-conditions/">Terms and Conditions</a></li>
+          <li><a href="/disclaimer/">Disclaimer</a></li>
+        </ul>
+      </div>
     </div>
+    <div class="copyright-bar">© <span id="year">2026</span> CalcuPortal. All rights reserved.</div>
   </footer>
 
   <script>
-    document.getElementById('year').innerText = new Date().getFullYear();
+    const yearElement = document.getElementById('year');
+    if (yearElement) yearElement.textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
