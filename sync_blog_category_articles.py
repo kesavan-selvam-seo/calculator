@@ -5,6 +5,7 @@ import runpy
 
 ROOT = Path(__file__).resolve().parent
 BLOG_DIR = ROOT / "blog"
+CUSTOM_HUBS = {"education", "general-knowledge"}
 
 # First run the existing CMS/category generator so content/posts entries continue
 # to work exactly as before.
@@ -63,6 +64,9 @@ def render_card(item):
 
 
 def sync_category(category):
+    if category in CUSTOM_HUBS:
+        print(f"Skipping custom hub sync: {category}")
+        return
     category_dir = BLOG_DIR / category
     category_index = category_dir / "index.html"
     if not category_index.exists():
