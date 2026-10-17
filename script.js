@@ -412,7 +412,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const genericTitleWords = new Set([
     'calculator', 'calculators', 'converter', 'converters',
     'tool', 'tools', 'online', 'free', 'generator', 'generators',
-    'finder', 'counter', 'calculator'
+    'finder', 'counter', 'calculate', 'calculates', 'calculation',
+    'calculations', 'calculating', 'instantly', 'instant', 'quickly',
+    'results', 'result', 'calculator'
   ]);
 
   function hasWordPrefix(text, token, excludeGeneric) {
@@ -426,6 +428,13 @@ document.addEventListener('DOMContentLoaded', function () {
   function matchesToken(item, token) {
     if (!token) return true;
 
+    // On the first keypress, match the beginnings of meaningful title words only.
+    // Do this before exact-phrase checks so an article like "a" in descriptions
+    // cannot make unrelated calculators appear.
+    if (token.length === 1) {
+      return hasWordPrefix(item.titleSearch, token, true);
+    }
+
     // Exact word matches preserve normal multi-word searches and full terms.
     if (hasWholePhrase(item.searchText, token)) return true;
 
@@ -434,15 +443,9 @@ document.addEventListener('DOMContentLoaded', function () {
       return hasWholePhrase(item.searchText, normalizeSearchText(alias));
     })) return true;
 
-    // Treat what the user has typed so far as a prefix, including the first letter.
-    // For a one-character query, use meaningful words in the calculator title
-    // only; descriptions are too broad at that stage.
-    if (token.length === 1) {
-      return hasWordPrefix(item.titleSearch, token, true);
-    }
-
+    // Match partial words in the title or meaningful description terms.
     if (hasWordPrefix(item.titleSearch, token, true)) return true;
-    if (hasWordPrefix(item.descriptionSearch, token, false)) return true;
+    if (hasWordPrefix(item.descriptionSearch, token, true)) return true;
 
     // For longer partial terms, also allow a match inside useful title/description
     // words, but never use generic "calculator" suffixes as the match by themselves.
@@ -452,7 +455,9 @@ document.addEventListener('DOMContentLoaded', function () {
       });
       if (titleWords.some(function (word) { return word.indexOf(token) !== -1; })) return true;
 
-      const descriptionWords = item.descriptionSearch.split(' ');
+      const descriptionWords = item.descriptionSearch.split(' ').filter(function (word) {
+        return word && !genericTitleWords.has(word);
+      });
       if (descriptionWords.some(function (word) { return word.indexOf(token) !== -1; })) return true;
     }
 
@@ -473,7 +478,7 @@ document.addEventListener('DOMContentLoaded', function () {
     tokens.forEach(function (token) {
       if (hasWholePhrase(item.titleSearch, token)) score += 14;
       else if (hasWordPrefix(item.titleSearch, token, true)) score += 10;
-      else if (hasWordPrefix(item.descriptionSearch, token, false)) score += 4;
+      else if (hasWordPrefix(item.descriptionSearch, token, true)) score += 4;
       else score += 1;
     });
 
