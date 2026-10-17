@@ -2,6 +2,7 @@ from pathlib import Path
 import re
 
 ROOT = Path(__file__).resolve().parent
+CUSTOM_HUBS = {"education", "general-knowledge"}
 
 STYLE = '''<style id="calcuportal-category-card-style">
 /* Category pages only — keep the existing CalcuPortal theme */
@@ -206,6 +207,9 @@ STYLE = '''<style id="calcuportal-category-card-style">
 </style>'''
 
 for path in (ROOT / "blog").glob("*/index.html"):
+    if path.parent.name in CUSTOM_HUBS:
+        print(f"Skipping custom hub style: {path}")
+        continue
     text = path.read_text(encoding="utf-8")
     text = re.sub(r'<style id="calcuportal-category-card-style">.*?</style>', '', text, flags=re.I | re.S)
     if 'class="article-list"' not in text:
