@@ -280,3 +280,298 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+
+/* Homepage calculator search: load the published directory and filter it as the user types. */
+document.addEventListener('DOMContentLoaded', function () {
+  const searchInput = document.getElementById('search-input');
+  const resultsSection = document.getElementById('search-results-section');
+  const resultsGrid = document.getElementById('search-results-grid');
+  const categoriesSection = document.getElementById('categories-directory-section');
+
+  // This shared script is also used by inner pages; search only exists on the homepage.
+  if (!searchInput || !resultsSection || !resultsGrid) return;
+
+  const directoryUrl = new URL('/calculators/', window.location.origin);
+  let calculatorIndex = null;
+  let indexPromise = null;
+  let debounceTimer = null;
+
+  const normalizeSearchText = function (value) {
+    return String(value || '')
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, ' ')
+      .trim()
+      .replace(/\s+/g, ' ');
+  };
+
+  const tokenAliases = {
+    bmi: ['body mass index'],
+    dob: ['date of birth', 'birthday', 'age'],
+    birthday: ['date of birth', 'age'],
+    emi: ['equated monthly instalment', 'equated monthly installment', 'monthly loan payment', 'loan repayment'],
+    instalment: ['installment', 'emi', 'monthly payment'],
+    installment: ['instalment', 'emi', 'monthly payment'],
+    cgpa: ['cumulative grade point average', 'gpa', 'grade point average'],
+    gpa: ['grade point average', 'cgpa'],
+    percent: ['percentage', 'discount', 'proportion'],
+    pct: ['percentage', 'percent'],
+    petrol: ['fuel', 'mileage'],
+    diesel: ['fuel', 'mileage'],
+    mpg: ['fuel', 'mileage', 'gas'],
+    gas: ['fuel', 'mileage', 'mpg'],
+    kwh: ['electricity', 'electricity cost', 'power usage'],
+    'electric bill': ['electricity cost', 'utility rate'],
+    calorie: ['calorie intake', 'calorie burn', 'bmr', 'tdee'],
+    calories: ['calorie intake', 'calorie burn', 'bmr', 'tdee'],
+    salary: ['income tax', 'take home pay'],
+    takehome: ['take home pay', 'income tax'],
+    'take home': ['take home pay', 'income tax'],
+    tax: ['income tax', 'sales tax'],
+    weight: ['ideal weight', 'pounds', 'kilograms', 'kg'],
+    height: ['feet to cm', 'centimeters', 'meters'],
+    mortgage: ['home loan', 'loan emi', 'amortization'],
+    investment: ['compound interest', 'irr', 'future value'],
+    bill: ['electricity cost', 'utility rate']
+  };
+
+  function hasWholePhrase(text, phrase) {
+    const paddedText = ' ' + text + ' ';
+    const paddedPhrase = ' ' + phrase + ' ';
+    return paddedText.indexOf(paddedPhrase) !== -1;
+  }
+
+  function loadCalculatorIndex() {
+    if (calculatorIndex) return Promise.resolve(calculatorIndex);
+    if (indexPromise) return indexPromise;
+
+    indexPromise = fetch(directoryUrl.href, { credentials: 'same-origin' })
+      .then(function (response) {
+        if (!response.ok) throw new Error('Calculator directory request failed.');
+        return response.text();
+      })
+      .then(function (html) {
+        const parsedDocument = new DOMParser().parseFromString(html, 'text/html');
+        const cards = Array.from(parsedDocument.querySelectorAll('.category-grid a.calc-card'));
+        const seenUrls = new Set();
+
+        calculatorIndex = cards.map(function (sourceCard) {
+          const titleElement = sourceCard.querySelector('.calc-card-title');
+          const descriptionElement = sourceCard.querySelector('.calc-card-desc');
+          const title = titleElement ? titleElement.textContent.trim() : '';
+          const description = descriptionElement ? descriptionElement.textContent.trim() : '';
+          const rawHref = sourceCard.getAttribute('href');
+
+          if (!title || !rawHref) return null;
+
+          let url;
+          try {
+            url = new URL(rawHref, directoryUrl);
+          } catch (error) {
+            return null;
+          }
+
+          if (url.origin !== window.location.origin || seenUrls.has(url.href)) return null;
+          seenUrls.add(url.href);
+
+          return {
+            title: title,
+            description: description,
+            icon: (sourceCard.querySelector('.calc-card-icon') || {}).textContent || '🧮',
+            url: url.href,
+            titleSearch: normalizeSearchText(title),
+            descriptionSearch: normalizeSearchText(description),
+            searchText: normalizeSearchText([
+              title,
+              description,
+              rawHref,
+              sourceCard.textContent
+            ].join(' '))
+          };
+        }).filter(Boolean);
+
+        if (!calculatorIndex.length) {
+          calculatorIndex = null;
+          throw new Error('No calculator cards were found in the directory.');
+        }
+
+        return calculatorIndex;
+      })
+      .catch(function (error) {
+        indexPromise = null;
+        throw error;
+      });
+
+    return indexPromise;
+  }
+
+  function matchesToken(item, token) {
+    if (hasWholePhrase(item.searchText, token)) return true;
+
+    const aliases = tokenAliases[token] || [];
+    return aliases.some(function (alias) {
+      return hasWholePhrase(item.searchText, normalizeSearchText(alias));
+    });
+  }
+
+  function rankCalculator(item, query, tokens) {
+    let score = 0;
+
+    if (item.titleSearch === query) score += 100;
+    else if (item.titleSearch.indexOf(query) === 0) score += 60;
+    else if (item.titleSearch.indexOf(query) !== -1) score += 35;
+
+    tokens.forEach(function (token) {
+      if (hasWholePhrase(item.titleSearch, token)) score += 12;
+      else if (hasWholePhrase(item.descriptionSearch, token)) score += 5;
+      else score += 1;
+    });
+
+    return score;
+  }
+
+  function addMessage(message, isError) {
+    const paragraph = document.createElement('p');
+    paragraph.className = 'search-empty-state';
+    paragraph.setAttribute('role', 'status');
+    paragraph.style.gridColumn = '1 / -1';
+    paragraph.style.textAlign = 'center';
+    paragraph.style.padding = '1rem';
+    paragraph.textContent = message;
+    if (isError) paragraph.style.color = 'var(--text-secondary)';
+    resultsGrid.replaceChildren(paragraph);
+  }
+
+  function makeResultCard(item) {
+    const card = document.createElement('a');
+    card.className = 'calc-card';
+    card.href = item.url;
+
+    const header = document.createElement('div');
+    header.className = 'calc-card-header';
+
+    const title = document.createElement('h3');
+    title.className = 'calc-card-title';
+    title.textContent = item.title;
+
+    const icon = document.createElement('span');
+    icon.className = 'calc-card-icon';
+    icon.setAttribute('aria-hidden', 'true');
+    icon.textContent = item.icon;
+
+    const description = document.createElement('p');
+    description.className = 'calc-card-desc';
+    description.textContent = item.description;
+
+    const footer = document.createElement('div');
+    footer.className = 'calc-card-footer';
+
+    const footerLabel = document.createElement('span');
+    footerLabel.textContent = 'Open Calculator';
+
+    const arrow = document.createElement('span');
+    arrow.setAttribute('aria-hidden', 'true');
+    arrow.textContent = '→';
+
+    header.append(title, icon);
+    footer.append(footerLabel, arrow);
+    card.append(header, description, footer);
+    return card;
+  }
+
+  function setResultCount(count) {
+    const header = resultsSection.querySelector('.category-header');
+    if (!header) return;
+
+    let countElement = header.querySelector('.search-result-count');
+    if (!countElement) {
+      countElement = document.createElement('span');
+      countElement.className = 'search-result-count';
+      countElement.setAttribute('aria-live', 'polite');
+      countElement.style.color = 'var(--text-secondary)';
+      countElement.style.fontSize = '0.9rem';
+      header.appendChild(countElement);
+    }
+
+    countElement.textContent = count === null ? '' : count + (count === 1 ? ' calculator found' : ' calculators found');
+  }
+
+  function resetSearchView() {
+    resultsGrid.replaceChildren();
+    resultsSection.classList.add('hidden');
+    if (categoriesSection) categoriesSection.classList.remove('hidden');
+    searchInput.setAttribute('aria-expanded', 'false');
+    setResultCount(null);
+  }
+
+  async function updateSearchResults() {
+    const rawQuery = searchInput.value.trim();
+    const query = normalizeSearchText(rawQuery);
+
+    if (!query) {
+      resetSearchView();
+      return;
+    }
+
+    resultsSection.classList.remove('hidden');
+    if (categoriesSection) categoriesSection.classList.add('hidden');
+    searchInput.setAttribute('aria-expanded', 'true');
+    addMessage('Searching calculators…', false);
+
+    try {
+      const items = await loadCalculatorIndex();
+
+      // Ignore an older request if the user has already changed or cleared the query.
+      if (normalizeSearchText(searchInput.value.trim()) !== query) return;
+
+      const tokens = query.split(' ').filter(Boolean);
+      const matches = items.filter(function (item) {
+        return tokens.every(function (token) {
+          return matchesToken(item, token);
+        });
+      });
+
+      matches.sort(function (a, b) {
+        return rankCalculator(b, query, tokens) - rankCalculator(a, query, tokens)
+          || a.title.localeCompare(b.title);
+      });
+
+      resultsGrid.replaceChildren();
+
+      if (!matches.length) {
+        addMessage('No calculators found for “' + rawQuery + '”. Try a shorter term such as age, BMI, EMI, loan, percentage, or fuel.', false);
+        setResultCount(0);
+        return;
+      }
+
+      const fragment = document.createDocumentFragment();
+      matches.forEach(function (item) {
+        fragment.appendChild(makeResultCard(item));
+      });
+      resultsGrid.appendChild(fragment);
+      setResultCount(matches.length);
+    } catch (error) {
+      if (normalizeSearchText(searchInput.value.trim()) !== query) return;
+      addMessage('Calculator search could not load the directory. Please try again in a moment.', true);
+      setResultCount(0);
+      console.error('CalcuPortal search error:', error);
+    }
+  }
+
+  searchInput.setAttribute('aria-label', 'Search calculators by name or topic');
+  searchInput.setAttribute('aria-controls', 'search-results-grid');
+  searchInput.setAttribute('aria-expanded', 'false');
+
+  searchInput.addEventListener('input', function () {
+    window.clearTimeout(debounceTimer);
+    debounceTimer = window.setTimeout(updateSearchResults, 120);
+  });
+
+  searchInput.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && searchInput.value) {
+      searchInput.value = '';
+      resetSearchView();
+    }
+  });
+});
