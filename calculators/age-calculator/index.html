@@ -4,477 +4,428 @@
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="shortcut icon" href="/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="/favicon.png">
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Age Calculator Online | Calculate Age from Date of Birth</title>
-  <meta name="description" content="Calculate your exact age from date of birth in years, months and days. Check age as of any date, next birthday and total days lived.">
+  <title>Age Calculator – Calculate Exact Age from Date of Birth | CalcuPortal</title>
+  <meta name="description" content="Calculate exact age from date of birth in years, months and days. Check age as of any date, next birthday, total days and weeks lived, and day of birth.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.calcuportal.com/calculators/age-calculator/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Age Calculator – Exact Age from Date of Birth">
+  <meta property="og:description" content="Find your exact age in years, months and days, calculate age on any date, and see your next birthday and age breakdown.">
+  <meta property="og:url" content="https://www.calcuportal.com/calculators/age-calculator/">
+  <meta property="og:site_name" content="CalcuPortal">
+  <meta property="og:image" content="https://www.calcuportal.com/logo.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Age Calculator – Exact Age from Date of Birth">
+  <meta name="twitter:description" content="Calculate age from DOB with exact years, months, days and birthday details.">
 
   <link rel="stylesheet" href="/styles.css">
   <script src="/script.js"></script>
 
-  <!-- FAQ Schema -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is an age calculator?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "An age calculator is an online tool that calculates exact age from date of birth. It can show age in years, months, and days based on today's date or any selected date."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I calculate age from date of birth?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Enter your date of birth, select today's date or a custom age-as-of date, and click calculate. The tool compares both dates and shows your completed age in years, months, and days."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I calculate my age on a future date?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. You can select a future date in the age as of field to check how old you will be on that date."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I use this age calculator for exam or job forms?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. You can use this calculator to check your age before filling school, exam, job, or application forms. For official eligibility, always verify the final age rule with the concerned authority."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does this age calculator handle leap years?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. The calculator uses calendar-based date calculation, so it considers different month lengths and leap years while calculating age."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What does exact age mean?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Exact age means your completed age calculated in calendar years, months, and days from your date of birth to the selected date."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is this online age calculator free?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. This online age calculator is free to use and works directly in your browser without sign-up or app installation."
-        }
-      }
+    "@context":"https://schema.org",
+    "@type":"WebApplication",
+    "name":"Age Calculator",
+    "url":"https://www.calcuportal.com/calculators/age-calculator/",
+    "description":"Free online age calculator to calculate exact age from date of birth in years, months and days, including age as of a selected date and next birthday.",
+    "applicationCategory":"UtilitiesApplication",
+    "operatingSystem":"Any",
+    "browserRequirements":"Requires JavaScript",
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+    "publisher":{"@type":"Organization","name":"CalcuPortal","url":"https://www.calcuportal.com/"}
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://www.calcuportal.com/"},
+      {"@type":"ListItem","position":2,"name":"Calculators","item":"https://www.calcuportal.com/calculators/"},
+      {"@type":"ListItem","position":3,"name":"Age Calculator","item":"https://www.calcuportal.com/calculators/age-calculator/"}
     ]
   }
   </script>
 
-  <!-- Breadcrumb Schema -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://www.calcuportal.com/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Date & Age Calculators",
-        "item": "https://www.calcuportal.com/categories/date-age/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "Age Calculator",
-        "item": "https://www.calcuportal.com/calculators/age-calculator/"
-      }
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"How do I calculate my exact age from date of birth?","acceptedAnswer":{"@type":"Answer","text":"Enter your date of birth and the date on which you want to know your age. The calculator compares the two calendar dates and returns completed years, months and remaining days."}},
+      {"@type":"Question","name":"Can I calculate my age on a past or future date?","acceptedAnswer":{"@type":"Answer","text":"Yes. Select any date after your date of birth in the Age as of field to calculate your age on that date."}},
+      {"@type":"Question","name":"How is age calculated for exam or job eligibility?","acceptedAnswer":{"@type":"Answer","text":"Enter the date of birth shown on your official record and use the cutoff date stated in the exam or job notification. Always verify the authority's age rules before relying on the result."}},
+      {"@type":"Question","name":"Does the age calculator account for leap years?","acceptedAnswer":{"@type":"Answer","text":"Yes. The calculation uses real calendar dates and month lengths. For February 29 birthdays, official birthday or eligibility treatment in non-leap years can vary by jurisdiction or institution."}},
+      {"@type":"Question","name":"What does exact age mean?","acceptedAnswer":{"@type":"Answer","text":"Exact age on this page means completed calendar years and months plus the remaining days between the date of birth and the selected target date."}},
+      {"@type":"Question","name":"Is the Age Calculator free?","acceptedAnswer":{"@type":"Answer","text":"Yes. The calculator is free to use and runs directly in your browser without sign-up."}}
     ]
   }
   </script>
 
-  <!-- WebApplication Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Age Calculator Online",
-    "url": "https://www.calcuportal.com/calculators/age-calculator/",
-    "applicationCategory": "UtilityApplication",
-    "operatingSystem": "All",
-    "browserRequirements": "Requires JavaScript enabled",
-    "description": "A free online age calculator that calculates exact age from date of birth in years, months, and days. Users can calculate age as of today or any custom date.",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "CalcuPortal",
-      "url": "https://www.calcuportal.com/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.calcuportal.com/logo.png"
-      }
-    }
-  }
-  </script>
-
+  <style>
+    .age-page{max-width:1120px;margin:0 auto}
+    .age-hero{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:stretch;margin:1rem 0 1.5rem}
+    .age-hero-copy{padding:1.6rem 0}
+    .age-kicker{display:inline-flex;align-items:center;gap:.45rem;margin-bottom:.75rem;color:var(--primary);font-weight:800;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
+    .age-kicker:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--primary)}
+    .age-hero h1{margin:.1rem 0 .7rem;font-size:clamp(2rem,5vw,3.25rem);line-height:1.08;letter-spacing:-.04em}
+    .age-hero p{max-width:720px;margin:0;color:var(--text-secondary);font-size:1rem;line-height:1.7}
+    .age-trust{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1rem}
+    .age-trust span{padding:.42rem .7rem;border:1px solid var(--border-color);border-radius:999px;background:var(--bg-card);font-size:.78rem;font-weight:700;color:var(--text-secondary)}
+    .age-info-card{padding:1.4rem;border:1px solid var(--border-color);border-radius:18px;background:linear-gradient(145deg,var(--primary-light),var(--bg-card));box-shadow:var(--shadow-md)}
+    .age-info-card h2{margin:0 0 .65rem;font-size:1.1rem}
+    .age-info-card p{font-size:.86rem;line-height:1.6}
+    .age-info-card strong{color:var(--primary)}
+    .age-tool{margin:1.2rem 0 2rem;padding:1.35rem;border:1px solid var(--border-color);border-radius:20px;background:var(--bg-card);box-shadow:var(--shadow-lg)}
+    .age-tool-head{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:1rem}
+    .age-tool-head h2{margin:0;font-size:1.35rem}.age-tool-head p{margin:.25rem 0 0;color:var(--text-muted);font-size:.9rem}
+    .age-input-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+    .age-field label{display:block;margin-bottom:.45rem;font-weight:800;font-size:.86rem}
+    .age-field input{width:100%;box-sizing:border-box;padding:.85rem .9rem;border:1px solid var(--border-color);border-radius:11px;background:var(--background);color:var(--text-primary);font:inherit}
+    .age-field input:focus{outline:3px solid color-mix(in srgb,var(--primary) 22%,transparent);border-color:var(--primary)}
+    .age-helper{margin:.75rem 0 0;color:var(--text-muted);font-size:.82rem}
+    .age-actions{display:flex;gap:.65rem;flex-wrap:wrap;margin-top:1rem}
+    .age-primary,.age-secondary,.age-copy{border-radius:10px;padding:.72rem 1rem;font-weight:800;cursor:pointer}
+    .age-primary{border:1px solid var(--primary);background:var(--primary);color:#fff;min-width:145px}
+    .age-secondary,.age-copy{border:1px solid var(--border-color);background:var(--background);color:var(--text-primary)}
+    .age-primary:hover{filter:brightness(.96)}.age-secondary:hover,.age-copy:hover{border-color:var(--primary)}
+    .age-error{display:none;margin:.85rem 0 0;padding:.75rem .9rem;border-radius:10px;background:#fff1f2;color:#9f1239;font-size:.88rem;font-weight:700}
+    .age-results{display:none;margin-top:1.2rem;padding:1.15rem;border:1px solid var(--border-color);border-radius:16px;background:var(--primary-light)}
+    .age-results.show{display:block}
+    .age-result-head{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+    .age-result-title{display:block;font-size:.76rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);font-weight:800}
+    .age-result-sentence{margin:.25rem 0 0;color:var(--text-primary);font-size:1.15rem;font-weight:800}
+    .age-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;margin:1rem 0}
+    .age-metric{padding:1rem;border:1px solid var(--border-color);border-radius:13px;background:var(--bg-card);text-align:center}
+    .age-metric strong{display:block;color:var(--primary);font-size:clamp(1.55rem,4vw,2.25rem);line-height:1.1}.age-metric span{display:block;margin-top:.3rem;color:var(--text-muted);font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+    .age-breakdown{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem}
+    .age-detail{padding:.85rem;border:1px solid var(--border-color);border-radius:11px;background:var(--bg-card)}
+    .age-detail span{display:block;color:var(--text-muted);font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em}.age-detail strong{display:block;margin-top:.2rem;color:var(--text-primary);font-size:.95rem}
+    .age-section{margin:2.2rem 0}.age-section h2{margin:0 0 .8rem;font-size:clamp(1.35rem,3vw,1.75rem)}.age-section h3{margin:1.35rem 0 .45rem;font-size:1.05rem}.age-section p,.age-section li{color:var(--text-secondary);line-height:1.75}
+    .age-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem;margin:1rem 0}
+    .age-step{padding:1rem;border:1px solid var(--border-color);border-radius:14px;background:var(--bg-card)}
+    .age-step b{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--primary);color:#fff;margin-bottom:.65rem}.age-step h3{margin:0 0 .4rem}.age-step p{margin:0;font-size:.88rem}
+    .age-example{overflow-x:auto;border:1px solid var(--border-color);border-radius:14px;margin:1rem 0}.age-example table{width:100%;min-width:680px;border-collapse:collapse;font-size:.9rem}.age-example th,.age-example td{padding:.75rem .85rem;border-bottom:1px solid var(--border-color);text-align:left}.age-example th{background:var(--primary);color:#fff}.age-example tr:last-child td{border-bottom:0}
+    .age-note{padding:1rem;border-left:4px solid var(--primary);border-radius:10px;background:var(--primary-light);color:var(--text-secondary)}
+    .age-related{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.75rem}.age-related a{display:flex;flex-direction:column;gap:.3rem;padding:1rem;border:1px solid var(--border-color);border-radius:13px;background:var(--bg-card);text-decoration:none;color:inherit}.age-related a:hover{border-color:var(--primary);transform:translateY(-1px)}.age-related strong{font-size:.95rem}.age-related span{font-size:.78rem;color:var(--text-muted)}
+    .age-faq{display:grid;gap:.7rem}.age-faq details{border:1px solid var(--border-color);border-radius:12px;background:var(--bg-card);overflow:hidden}.age-faq summary{cursor:pointer;padding:1rem;font-weight:800}.age-faq details p{padding:0 1rem 1rem;margin:0}
+    @media(max-width:820px){.age-hero{grid-template-columns:1fr}.age-related{grid-template-columns:repeat(2,minmax(0,1fr))}.age-steps{grid-template-columns:1fr}}
+    @media(max-width:600px){.age-input-grid,.age-breakdown,.age-related{grid-template-columns:1fr}.age-metrics{grid-template-columns:repeat(3,minmax(0,1fr));gap:.45rem}.age-metric{padding:.75rem .35rem}.age-tool{padding:1rem}.age-result-head{flex-direction:column}.age-primary,.age-secondary{flex:1 1 auto}.age-hero h1{font-size:2.35rem}}
+  </style>
 </head>
-
 <body>
-
-  <!-- Header -->
   <header>
     <div class="nav-container">
-      <a href="/" class="logo">
-        <img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon">
-        <span>CalcuPortal</span>
-      </a>
-
-      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-
+      <a href="/" class="logo"><img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon"><span>CalcuPortal</span></a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
       <nav class="nav-links" id="nav-links">
         <a href="/" class="nav-link">Home</a>
+        <a href="/calculators/" class="nav-link active">Calculators</a>
+        <a href="/blog/" class="nav-link">Articles</a>
         <a href="/about/" class="nav-link">About</a>
         <a href="/contact/" class="nav-link">Contact</a>
-        <button class="theme-btn" title="Toggle Theme">
-          <span class="theme-btn-icon"></span>
-        </button>
+        <button class="theme-btn" title="Toggle Theme" aria-label="Toggle theme"><span class="theme-btn-icon"></span></button>
       </nav>
     </div>
   </header>
 
   <main>
-    <div class="detail-container">
+    <div class="detail-container age-page">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a><span class="separator">›</span>
+        <a href="/calculators/">Calculators</a><span class="separator">›</span>
+        <span class="current" aria-current="page">Age Calculator</span>
+      </nav>
 
-      <!-- Breadcrumbs -->
-      <div class="breadcrumbs">
-        <a href="/">Home</a>
-        <span class="separator">&rsaquo;</span>
-        <a href="/categories/date-age/">Date & Age Calculators</a>
-        <span class="separator">&rsaquo;</span>
-        <span class="current">Age Calculator</span>
-      </div>
+      <section class="age-hero">
+        <div class="age-hero-copy">
+          <div class="age-kicker">Date & age tool</div>
+          <h1>Age Calculator</h1>
+          <p>Enter a date of birth to calculate <strong>exact age in years, months and days</strong>. You can also check age on a past or future date, see total days and weeks lived, and find the next birthday.</p>
+          <div class="age-trust"><span>Exact calendar age</span><span>Custom “age as of” date</span><span>Next birthday</span><span>Runs in your browser</span></div>
+        </div>
+        <aside class="age-info-card">
+          <h2>How age is calculated</h2>
+          <p>Age is not just <strong>target year − birth year</strong>. The calculator checks whether the birthday has occurred, then adjusts for calendar months and day lengths.</p>
+          <p><strong>Example:</strong> DOB 10 Mar 2000 → 6 Jul 2026 = 26 years, 3 months, 26 days.</p>
+        </aside>
+      </section>
 
-      <div class="detail-header">
-        <h1>Age Calculator Online</h1>
-      </div>
-
-      <!-- Calculator Widget -->
-      <div class="calc-widget">
-        <div class="form-group">
-          <label for="dob">Date of Birth</label>
-          <input type="date" id="dob" class="input-field">
+      <section class="age-tool" aria-labelledby="age-calculator-heading">
+        <div class="age-tool-head">
+          <div><h2 id="age-calculator-heading">Calculate age from date of birth</h2><p>Use today or choose any cutoff date.</p></div>
         </div>
 
-        <div class="form-group">
-          <label for="today-date">Calculate Age As Of</label>
-          <input type="date" id="today-date" class="input-field">
-        </div>
-
-        <button id="calculate-btn" class="calc-btn">Calculate Age</button>
-
-        <!-- Result -->
-        <div id="result-section" class="result-section hidden">
-          <div class="summary-title" style="font-size: 0.875rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; text-align: center; margin-bottom: 0.5rem;">Your Age is</div>
-
-          <div class="metric-grid">
-            <div class="metric-card">
-              <span class="metric-title">Years</span>
-              <span class="metric-value" id="res-years">0</span>
-            </div>
-
-            <div class="metric-card">
-              <span class="metric-title">Months</span>
-              <span class="metric-value" id="res-months">0</span>
-            </div>
-
-            <div class="metric-card">
-              <span class="metric-title">Days</span>
-              <span class="metric-value" id="res-days">0</span>
-            </div>
+        <div class="age-input-grid">
+          <div class="age-field">
+            <label for="dob">Date of birth</label>
+            <input type="date" id="dob" autocomplete="bday">
           </div>
-
-          <div class="breakdown-info">
-            <p>Your exact age is: <strong id="full-sentence">...</strong></p>
-            <p style="margin-top: 0.5rem;">Next birthday in: <strong id="next-birthday">...</strong></p>
-            <p style="margin-top: 0.5rem;">Total days lived: <strong id="total-days-lived">...</strong></p>
-            <p style="margin-top: 0.5rem;">Total weeks lived: <strong id="total-weeks-lived">...</strong></p>
-            <p style="margin-top: 0.5rem;">Total months lived: <strong id="total-months-lived">...</strong></p>
+          <div class="age-field">
+            <label for="target-date">Age as of</label>
+            <input type="date" id="target-date">
           </div>
         </div>
-      </div>
 
-      <!-- SEO Article -->
-      <section class="article-section">
-        <div class="article-header">
-          <h2>Age Calculator Online Guide</h2>
+        <p class="age-helper">For exam, job or school eligibility, enter the exact cutoff date from the official notification.</p>
+
+        <div class="age-actions">
+          <button id="calculate-btn" class="age-primary" type="button">Calculate age</button>
+          <button id="today-btn" class="age-secondary" type="button">Use today</button>
+          <button id="reset-btn" class="age-secondary" type="button">Reset</button>
         </div>
 
-        <div class="article-content" style="text-align: justify;">
-          <h2>What is an Age Calculator?</h2>
-          <p>An age calculator is an online tool that helps you calculate your exact age from your date of birth. Instead of manually counting years, months, and days, you can enter your birth date and get the result instantly. The tool compares your date of birth with today’s date or any selected date and shows your completed age in a simple format.</p>
+        <div id="age-error" class="age-error" role="alert"></div>
 
-          <p>CalcuPortal’s Age Calculator Online is useful for students, parents, job applicants, exam candidates, employees, teachers, HR teams, and anyone who needs quick age calculation. You can use it to calculate age by date of birth, check age for forms, know your next birthday countdown, or find your age on a past or future date.</p>
+        <div id="result-section" class="age-results" aria-live="polite">
+          <div class="age-result-head">
+            <div>
+              <span class="age-result-title">Exact age</span>
+              <p class="age-result-sentence" id="full-sentence">—</p>
+            </div>
+            <button id="copy-result" class="age-copy" type="button">Copy result</button>
+          </div>
 
-          <h2>How to Use the Age Calculator by Date of Birth</h2>
-          <p>Using the age calculator by date of birth is simple. You only need to enter your DOB and select the date on which you want to calculate your age. By default, the tool uses today’s date, but you can also choose a custom date if you want to calculate your age on a specific day.</p>
+          <div class="age-metrics">
+            <div class="age-metric"><strong id="res-years">0</strong><span>Years</span></div>
+            <div class="age-metric"><strong id="res-months">0</strong><span>Months</span></div>
+            <div class="age-metric"><strong id="res-days">0</strong><span>Days</span></div>
+          </div>
 
-          <ul>
-            <li>Enter your date of birth in the DOB field.</li>
-            <li>Select today’s date or any custom date in the “Calculate Age As Of” field.</li>
-            <li>Click the “Calculate Age” button.</li>
-            <li>View your exact age in years, months, and days.</li>
-            <li>Check the next birthday countdown and total days lived.</li>
-          </ul>
-
-          <p>This process is helpful when you need accurate age details for school admission, competitive exams, job forms, government forms, insurance records, travel forms, or personal use.</p>
-
-          <h2>Age Calculator by DOB</h2>
-          <p>An age calculator by DOB helps you find your age using only your birth date. DOB means date of birth. Many forms ask for age as of a particular date, and manual calculation can become confusing when months and leap years are involved. This calculator makes the process faster and more accurate.</p>
-
-          <p>For example, if your date of birth is 15 August 2000 and you want to calculate your age as of 1 January 2026, you can select both dates and get the exact result. This is better than simply subtracting birth year from current year because exact age depends on whether your birthday has already passed in the selected year.</p>
-
-          <h2>Age Calculator As of Date</h2>
-          <p>The “Calculate Age As Of” option is one of the most important features of this page. It allows you to calculate your age on any selected date. This can be today, a future date, or a past date. Many users need this feature because official applications often mention age limits based on a cutoff date.</p>
-
-          <p>For example, an exam notification may say that a candidate must be 18 years old as of 1 July 2026. In that case, you can enter your date of birth and select 1 July 2026 as the age-as-of date. The calculator will show whether you have completed the required age by that date.</p>
-
-          <h2>Exact Age in Years, Months, and Days</h2>
-          <p>Exact age means your completed age calculated using calendar years, calendar months, and remaining days. This is more accurate than a rough age estimate. For example, two people may both say they are 25 years old, but one person may be 25 years, 1 month, and 5 days, while another may be 25 years, 11 months, and 20 days.</p>
-
-          <p>This tool shows your age in years, months, and days so you can understand your exact age clearly. It is helpful for birthday calculations, form filling, eligibility checks, child age tracking, school records, and personal milestones.</p>
-
-          <h2>How Does the Age Calculator Work?</h2>
-          <p>The age calculator works by comparing the date of birth with the selected target date. First, it calculates the difference in years. Then it checks the month and day difference. If the current day is earlier than the birth day, it borrows days from the previous month. If the current month is earlier than the birth month, it adjusts the year count.</p>
-
-          <p>This method gives a calendar-based result instead of a simple year difference. It also helps avoid common mistakes that happen when users manually subtract dates. Since different months have different numbers of days, proper date-based calculation is important for accurate age results.</p>
-
-          <h2>Age Calculation Formula</h2>
-          <p>There is no single simple formula that works perfectly for every age calculation because months have different lengths and leap years add an extra day in February. However, the basic idea is:</p>
-
-          <p><strong>Age = Selected Date - Date of Birth</strong></p>
-
-          <p>The final result is adjusted into completed years, completed months, and remaining days. For a rough estimate, some people subtract birth year from current year. But that can be wrong if the birthday has not yet occurred in the selected year. This is why using a date-based age calculator is better.</p>
-
-          <h2>Example of Age Calculation</h2>
-          <p>Let us understand with a simple example. Suppose your date of birth is 10 March 2000 and you want to calculate your age as of 6 July 2026.</p>
-
-          <p>From 10 March 2000 to 10 March 2026, you complete 26 years. From 10 March 2026 to 6 July 2026, you complete 3 months and 26 days. So your exact age is 26 years, 3 months, and 26 days.</p>
-
-          <p>This type of result is useful because it gives the complete age, not just the year number.</p>
-
-          <h2>Total Days, Weeks, and Months Lived</h2>
-          <p>Many users also want to know how many total days, weeks, or months they have lived. This is useful for birthday milestones, personal curiosity, social posts, baby age tracking, and special age calculations. The calculator result includes total days lived, total weeks lived, and total months lived for a better breakdown.</p>
-
-          <p>Total days are calculated based on the complete difference between your date of birth and the selected date. Total weeks are calculated by dividing the total days by 7. Total months are estimated using the completed years and months from your exact age result.</p>
-
-          <h2>Next Birthday Calculator</h2>
-          <p>This age calculator also shows how many days are left for your next birthday. Once you enter your date of birth and selected date, the tool checks your next birthday date and calculates the remaining days. If the selected date is your birthday, the result will show a birthday message.</p>
-
-          <p>This feature is useful for birthday planning, reminders, countdowns, and milestone tracking. You can also select a future date to check how close you will be to your next birthday at that time.</p>
-
-          <h2>Age Calculator for School Admission</h2>
-          <p>Parents often need to calculate a child’s exact age for school admission. Many schools set age eligibility based on a specific cutoff date. For example, a school may require the child to complete a certain age by 31 March or 1 June. In such cases, entering the child’s date of birth and the school cutoff date gives a clear result.</p>
-
-          <p>This helps parents avoid confusion while checking admission eligibility. However, every school may follow different age rules, so the calculator should be used as a supporting tool. Always confirm the final rule from the school notice or official admission guideline.</p>
-
-          <h2>Age Calculator for Exams and Jobs</h2>
-          <p>Many competitive exams, government jobs, private jobs, internships, and application forms have minimum and maximum age limits. The cutoff date is very important in these cases. A person may be eligible on one date and not eligible on another date.</p>
-
-          <p>With this age calculator, you can enter your DOB and the official cutoff date mentioned in the notification. The result will show your exact age on that date. This can help you check whether you meet the age criteria before filling the form.</p>
-
-          <h2>Age Calculator for Legal and Official Use</h2>
-          <p>Age is important for many official purposes, including ID documents, contracts, driving license applications, insurance forms, travel forms, sports registration, and legal eligibility. This online age calculator can help you quickly check your age, but it should not replace official verification.</p>
-
-          <p>For legal, government, or official purposes, always use the date of birth mentioned in valid documents and confirm the rules with the concerned authority. The calculator is designed for general informational use and quick calculation support.</p>
-
-          <h2>Does the Calculator Handle Leap Years?</h2>
-          <p>Leap years can make age calculation confusing, especially for people born on 29 February. A leap year has 366 days instead of 365 days. Because of this, manual age calculation may lead to mistakes when February dates are involved.</p>
-
-          <p>This calculator uses date-based logic, so it considers month lengths and leap year differences while calculating the age. For 29 February birthdays, official age interpretation may vary depending on rules followed by an institution or country. For official eligibility, always follow the relevant guideline.</p>
-
-          <h2>Manual Age Calculation vs Online Age Calculator</h2>
-          <p>Manual age calculation is possible, but it can be time-consuming. You need to check whether the birthday has passed, count the months correctly, and adjust days based on month length. This becomes harder when the selected date is in the past or future.</p>
-
-          <p>An online age calculator reduces this effort. It gives quick results, avoids basic counting mistakes, and provides a clear breakdown. This is especially useful when you need to calculate age for many people or check multiple cutoff dates.</p>
-
-          <h2>Common Mistakes While Calculating Age</h2>
-          <p>One common mistake is subtracting only the birth year from the current year. For example, 2026 minus 2000 gives 26, but the person may still be 25 if their birthday has not yet passed in 2026. This is why exact age calculation should include month and day.</p>
-
-          <p>Another mistake is ignoring the cutoff date. In exam and job forms, age is usually calculated as of a specific date, not always today. Always use the correct date mentioned in the official notice.</p>
-
-          <h2>Why Use CalcuPortal Age Calculator?</h2>
-          <p>CalcuPortal’s Age Calculator Online is simple, fast, and mobile-friendly. It works directly in your browser and does not require sign-up. You can calculate your age from DOB, check your age as of a specific date, see your next birthday countdown, and view total days lived.</p>
-
-          <p>The tool is designed for everyday users who need quick and clear age calculation. Whether you are filling a form, checking eligibility, tracking a child’s age, or calculating your birthday milestone, this page gives the result in an easy format.</p>
-
-          <h2>Important Note</h2>
-          <p>This age calculator is provided for general calculation and informational purposes. It helps you estimate your age based on the dates entered. For official documents, exam eligibility, legal use, government forms, or school admission, always verify the rules with the official authority or document guidelines.</p>
-
-          <div class="related-tools">
-            <h2>Related Age Calculators</h2>
-            <p>Need a different date calculation? Try the <a href="../age-difference-calculator/">Age Difference Calculator</a> to compare two dates, or read our <a href="../../blog/how-to-calculate-age/">guide to calculating age from date of birth</a>.</p>
+          <div class="age-breakdown">
+            <div class="age-detail"><span>Next birthday</span><strong id="next-birthday">—</strong></div>
+            <div class="age-detail"><span>Total days lived</span><strong id="total-days-lived">—</strong></div>
+            <div class="age-detail"><span>Total weeks lived</span><strong id="total-weeks-lived">—</strong></div>
+            <div class="age-detail"><span>Completed months</span><strong id="total-months-lived">—</strong></div>
+            <div class="age-detail"><span>Born on</span><strong id="birth-weekday">—</strong></div>
+            <div class="age-detail"><span>Age as of</span><strong id="age-as-of-label">—</strong></div>
           </div>
         </div>
       </section>
 
-      <!-- FAQ Section -->
-      <section class="faq-section">
-        <h2 class="faq-header">Frequently Asked Questions</h2>
-        <div class="faq-grid">
-
-          <div class="faq-item">
-            <h3 class="faq-question">What is an age calculator?</h3>
-            <p class="faq-answer">An age calculator is an online tool that calculates exact age from date of birth. It can show age in years, months, and days based on today’s date or any selected date.</p>
-          </div>
-
-          <div class="faq-item">
-            <h3 class="faq-question">How do I calculate age from date of birth?</h3>
-            <p class="faq-answer">Enter your date of birth, select today’s date or a custom age-as-of date, and click calculate. The tool compares both dates and shows your completed age in years, months, and days.</p>
-          </div>
-
-          <div class="faq-item">
-            <h3 class="faq-question">Can I calculate my age on a future date?</h3>
-            <p class="faq-answer">Yes. You can select a future date in the age as of field to check how old you will be on that date.</p>
-          </div>
-
-          <div class="faq-item">
-            <h3 class="faq-question">Can I use this age calculator for exam or job forms?</h3>
-            <p class="faq-answer">Yes. You can use this calculator to check your age before filling school, exam, job, or application forms. For official eligibility, always verify the final age rule with the concerned authority.</p>
-          </div>
-
-          <div class="faq-item">
-            <h3 class="faq-question">Does this age calculator handle leap years?</h3>
-            <p class="faq-answer">Yes. The calculator uses calendar-based date calculation, so it considers different month lengths and leap years while calculating age.</p>
-          </div>
-
-          <div class="faq-item">
-            <h3 class="faq-question">What does exact age mean?</h3>
-            <p class="faq-answer">Exact age means your completed age calculated in calendar years, months, and days from your date of birth to the selected date.</p>
-          </div>
-
-          <div class="faq-item">
-            <h3 class="faq-question">Is this online age calculator free?</h3>
-            <p class="faq-answer">Yes. This online age calculator is free to use and works directly in your browser without sign-up or app installation.</p>
-          </div>
-
+      <section class="age-section">
+        <h2>How to use the Age Calculator</h2>
+        <div class="age-steps">
+          <div class="age-step"><b>1</b><h3>Enter your date of birth</h3><p>Select the DOB exactly as it appears on the record you want to use.</p></div>
+          <div class="age-step"><b>2</b><h3>Choose an “age as of” date</h3><p>Use today, or enter a cutoff date for an exam, job, admission or other purpose.</p></div>
+          <div class="age-step"><b>3</b><h3>View the age breakdown</h3><p>See completed years, months and days plus birthday and elapsed-time details.</p></div>
         </div>
       </section>
 
+      <section class="age-section">
+        <h2>How age is calculated</h2>
+        <p>The calculator compares your date of birth with the selected target date using calendar years, months and days. If the target day is earlier than the birth day, the calculation borrows days from the previous calendar month. If the resulting month difference is negative, it borrows one year.</p>
+        <p>This is more accurate than simply subtracting the birth year from the target year because exact age depends on whether the birthday has already occurred.</p>
+        <div class="age-example">
+          <table>
+            <thead><tr><th>Date of birth</th><th>Age as of</th><th>Exact age</th><th>Use case</th></tr></thead>
+            <tbody>
+              <tr><td>10 Mar 2000</td><td>6 Jul 2026</td><td>26 years, 3 months, 26 days</td><td>General age check</td></tr>
+              <tr><td>15 Aug 2000</td><td>1 Jan 2026</td><td>25 years, 4 months, 17 days</td><td>Age on a past/future cutoff</td></tr>
+              <tr><td>1 Jul 2008</td><td>1 Jul 2026</td><td>18 years, 0 months, 0 days</td><td>Completed-age cutoff</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="age-section">
+        <h2>Age calculator for exams, jobs and admissions</h2>
+        <p>Many applications do not ask for your age “today”. They specify a cutoff date such as 1 January, 1 July or the last date of application. To check eligibility, enter the date of birth from your official record and use the exact cutoff date stated in the notification.</p>
+        <div class="age-note"><strong>Important:</strong> This calculator gives a calendar-based age result. Minimum/maximum age limits, relaxations, inclusive dates and February 29 rules can be defined differently by an authority. Always use the official notification for the final eligibility decision.</div>
+      </section>
+
+      <section class="age-section">
+        <h2>Age in years, months, days, weeks and total days</h2>
+        <p>The main result shows completed calendar years, months and remaining days. The additional breakdown shows total elapsed days, completed weeks and completed calendar months. These figures answer slightly different questions, so they should not be mixed.</p>
+        <ul>
+          <li><strong>Years, months and days:</strong> best for age statements and cutoff-date checks.</li>
+          <li><strong>Total days:</strong> the number of calendar days elapsed between the two dates.</li>
+          <li><strong>Total weeks:</strong> completed seven-day periods based on total days.</li>
+          <li><strong>Completed months:</strong> completed calendar months in the exact age result.</li>
+        </ul>
+      </section>
+
+      <section class="age-section">
+        <h2>Leap years and February 29 birthdays</h2>
+        <p>The calculator uses actual calendar month lengths, so leap years are included in the date calculation. People born on February 29 should be especially careful when using the result for legal, exam or institutional eligibility because rules for the effective birthday in a non-leap year can vary.</p>
+        <p>For general date arithmetic, the calculator follows the calendar dates you enter. For an official age rule, follow the definition used by the relevant authority.</p>
+      </section>
+
+      <section class="age-section">
+        <h2>Common age-calculation mistakes</h2>
+        <ul>
+          <li><strong>Subtracting only the years:</strong> 2026 − 2000 is not always age 26; the 2026 birthday may not have happened yet.</li>
+          <li><strong>Using today instead of the cutoff date:</strong> applications often specify a separate “age as of” date.</li>
+          <li><strong>Ignoring month lengths:</strong> months have 28, 29, 30 or 31 days, so manual borrowing can cause errors.</li>
+          <li><strong>Treating an online result as an official ruling:</strong> eligibility may include special age-relaxation or date-counting rules.</li>
+        </ul>
+      </section>
+
+      <section class="age-section">
+        <h2>Related calculators and guide</h2>
+        <div class="age-related">
+          <a href="/calculators/age-difference-calculator/"><strong>Age Difference Calculator</strong><span>Compare the ages or dates of two people.</span></a>
+          <a href="/calculators/date-calculator/"><strong>Date Calculator</strong><span>Add or subtract days, months or years.</span></a>
+          <a href="/calculators/day-counter/"><strong>Day Counter</strong><span>Count the days between two dates.</span></a>
+          <a href="/blog/how-to-calculate-age/"><strong>How to Calculate Age</strong><span>Learn the method with examples.</span></a>
+        </div>
+      </section>
+
+      <section class="age-section" aria-labelledby="faq-heading">
+        <h2 id="faq-heading">Frequently Asked Questions</h2>
+        <div class="age-faq">
+          <details><summary>How do I calculate my exact age from date of birth?</summary><p>Enter your DOB and the date on which you want to know your age. The calculator returns completed years, completed months and remaining days.</p></details>
+          <details><summary>Can I calculate my age on a future date?</summary><p>Yes. Choose any target date after your date of birth to see how old you will be on that date.</p></details>
+          <details><summary>Can I use this for exam or job age eligibility?</summary><p>You can use it to calculate your calendar age on the stated cutoff date. Always check the official notification for age limits, relaxations and special rules.</p></details>
+          <details><summary>Does the calculator handle leap years?</summary><p>Yes. It uses real calendar month lengths. February 29 birthdays may have special official treatment in non-leap years, so verify the applicable rule when eligibility matters.</p></details>
+          <details><summary>What is the difference between age and total days lived?</summary><p>Age in years, months and days is a calendar breakdown. Total days is the elapsed number of calendar days between the two dates.</p></details>
+          <details><summary>Is my date of birth stored?</summary><p>The age calculation on this page runs in your browser. The entered dates do not need to be sent to a server to produce the result.</p></details>
+        </div>
+      </section>
+
+      <p style="color:var(--text-muted);font-size:.82rem;margin:2rem 0">Last updated: October 18, 2026. For official age eligibility, verify the governing notification or authority.</p>
     </div>
   </main>
 
-  <!-- Footer -->
   <footer>
     <nav class="footer-legal-links" aria-label="Legal and support links"><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/privacy-policy/">Privacy Policy</a><a href="/terms-conditions/">Terms &amp; Conditions</a><a href="/disclaimer/">Disclaimer</a></nav>
-  <div class="copyright-bar" style="border-top: none; padding-top: 0;">
-      © <span id="year">2026</span> CalcuPortal. All rights reserved.
-    </div>
+    <div class="copyright-bar" style="border-top:none;padding-top:0">© <span id="year">2026</span> CalcuPortal. All rights reserved.</div>
   </footer>
 
   <script>
-    document.getElementById('year').innerText = new Date().getFullYear();
+    document.getElementById('year').textContent=new Date().getFullYear();
 
-    const today = new Date();
-    const yyyy = today.getFullYear();
-    const mm = String(today.getMonth() + 1).padStart(2, '0');
-    const dd = String(today.getDate()).padStart(2, '0');
-    const todayStr = `${yyyy}-${mm}-${dd}`;
+    const dobInput=document.getElementById('dob');
+    const targetInput=document.getElementById('target-date');
+    const resultSection=document.getElementById('result-section');
+    const errorBox=document.getElementById('age-error');
+    const copyBtn=document.getElementById('copy-result');
 
-    document.getElementById('today-date').value = todayStr;
-    document.getElementById('dob').setAttribute('max', todayStr);
+    function pad(n){return String(n).padStart(2,'0')}
+    function toInputDate(date){return date.getFullYear()+'-'+pad(date.getMonth()+1)+'-'+pad(date.getDate())}
+    function parseLocalDate(value){
+      const parts=value.split('-').map(Number);
+      if(parts.length!==3||parts.some(Number.isNaN)) return null;
+      const d=new Date(parts[0],parts[1]-1,parts[2]);
+      if(d.getFullYear()!==parts[0]||d.getMonth()!==parts[1]-1||d.getDate()!==parts[2]) return null;
+      return d;
+    }
+    function utcDayNumber(date){return Date.UTC(date.getFullYear(),date.getMonth(),date.getDate())/86400000}
+    function daysBetween(a,b){return Math.round(utcDayNumber(b)-utcDayNumber(a))}
+    function daysInMonth(year,monthIndex){return new Date(year,monthIndex+1,0).getDate()}
+    function fmtDate(date){return new Intl.DateTimeFormat('en-GB',{day:'numeric',month:'short',year:'numeric'}).format(date)}
+    function weekday(date){return new Intl.DateTimeFormat('en-US',{weekday:'long'}).format(date)}
 
-    document.getElementById('calculate-btn').addEventListener('click', function() {
-      const dobVal = document.getElementById('dob').value;
-      const targetVal = document.getElementById('today-date').value;
+    function exactAge(dob,target){
+      let years=target.getFullYear()-dob.getFullYear();
+      let months=target.getMonth()-dob.getMonth();
+      let days=target.getDate()-dob.getDate();
 
-      if (!dobVal || !targetVal) {
-        alert('Please fill in both date inputs!');
-        return;
-      }
-
-      const dob = new Date(dobVal);
-      const target = new Date(targetVal);
-
-      if (dob > target) {
-        alert('Birth date cannot be after the target date!');
-        return;
-      }
-
-      let years = target.getFullYear() - dob.getFullYear();
-      let months = target.getMonth() - dob.getMonth();
-      let days = target.getDate() - dob.getDate();
-
-      if (days < 0) {
+      if(days<0){
         months--;
-        const prevMonth = new Date(target.getFullYear(), target.getMonth(), 0);
-        days += prevMonth.getDate();
+        const previousMonthIndex=(target.getMonth()+11)%12;
+        const previousMonthYear=target.getMonth()===0?target.getFullYear()-1:target.getFullYear();
+        days+=daysInMonth(previousMonthYear,previousMonthIndex);
       }
-
-      if (months < 0) {
+      if(months<0){
         years--;
-        months += 12;
+        months+=12;
       }
+      return {years,months,days};
+    }
 
-      let nextBdayYear = target.getFullYear();
-      let nextBday = new Date(nextBdayYear, dob.getMonth(), dob.getDate());
-
-      if (nextBday < target) {
-        nextBdayYear++;
-        nextBday = new Date(nextBdayYear, dob.getMonth(), dob.getDate());
+    function birthdayInYear(dob,year){
+      const month=dob.getMonth();
+      const day=dob.getDate();
+      if(month===1&&day===29&&!((year%4===0&&year%100!==0)||year%400===0)){
+        return new Date(year,2,1);
       }
+      return new Date(year,month,day);
+    }
 
-      const diffTime = Math.abs(nextBday - target);
-      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    function hideResult(){
+      resultSection.classList.remove('show');
+      errorBox.style.display='none';
+      errorBox.textContent='';
+    }
 
-      const totalDiffTime = Math.abs(target - dob);
-      const totalDays = Math.floor(totalDiffTime / (1000 * 60 * 60 * 24));
-      const totalWeeks = Math.floor(totalDays / 7);
-      const totalMonths = (years * 12) + months;
+    function setToday(){
+      targetInput.value=toInputDate(new Date());
+      hideResult();
+    }
 
-      document.getElementById('res-years').innerText = years;
-      document.getElementById('res-months').innerText = months;
-      document.getElementById('res-days').innerText = days;
+    function calculate(){
+      try{
+        if(!dobInput.value||!targetInput.value) throw new Error('Please enter both the date of birth and the age-as-of date.');
+        const dob=parseLocalDate(dobInput.value);
+        const target=parseLocalDate(targetInput.value);
+        if(!dob||!target) throw new Error('Please enter valid calendar dates.');
+        if(dob>target) throw new Error('Date of birth cannot be after the age-as-of date.');
 
-      document.getElementById('full-sentence').innerText = `${years} years, ${months} months, and ${days} days`;
+        const age=exactAge(dob,target);
+        const totalDays=daysBetween(dob,target);
+        const totalWeeks=Math.floor(totalDays/7);
+        const totalMonths=age.years*12+age.months;
 
-      if (diffDays === 0 || (dob.getMonth() === target.getMonth() && dob.getDate() === target.getDate())) {
-        document.getElementById('next-birthday').innerText = "Happy Birthday! Today is your birthday! 🎉";
-      } else {
-        document.getElementById('next-birthday').innerText = `${diffDays} days left`;
+        let next=birthdayInYear(dob,target.getFullYear());
+        let birthdayToday=daysBetween(target,next)===0;
+        if(next<target&&!birthdayToday) next=birthdayInYear(dob,target.getFullYear()+1);
+        const nextDays=Math.max(0,daysBetween(target,next));
+
+        document.getElementById('res-years').textContent=age.years.toLocaleString();
+        document.getElementById('res-months').textContent=age.months.toLocaleString();
+        document.getElementById('res-days').textContent=age.days.toLocaleString();
+        document.getElementById('full-sentence').textContent=`${age.years} years, ${age.months} months and ${age.days} days`;
+        document.getElementById('next-birthday').textContent=birthdayToday?'Today — Happy Birthday! 🎉':`${nextDays.toLocaleString()} days (${fmtDate(next)})`;
+        document.getElementById('total-days-lived').textContent=totalDays.toLocaleString()+' days';
+        document.getElementById('total-weeks-lived').textContent=totalWeeks.toLocaleString()+' completed weeks';
+        document.getElementById('total-months-lived').textContent=totalMonths.toLocaleString()+' completed months';
+        document.getElementById('birth-weekday').textContent=weekday(dob);
+        document.getElementById('age-as-of-label').textContent=fmtDate(target);
+
+        errorBox.style.display='none';
+        resultSection.classList.add('show');
+      }catch(err){
+        resultSection.classList.remove('show');
+        errorBox.textContent=err.message;
+        errorBox.style.display='block';
       }
+    }
 
-      document.getElementById('total-days-lived').innerText = `${totalDays.toLocaleString()} days`;
-      document.getElementById('total-weeks-lived').innerText = `${totalWeeks.toLocaleString()} weeks`;
-      document.getElementById('total-months-lived').innerText = `${totalMonths.toLocaleString()} months`;
+    setToday();
+    dobInput.max=targetInput.value;
 
-      document.getElementById('result-section').classList.remove('hidden');
+    targetInput.addEventListener('change',()=>{
+      if(targetInput.value) dobInput.max=targetInput.value;
+      hideResult();
+    });
+    dobInput.addEventListener('change',hideResult);
+    document.getElementById('calculate-btn').addEventListener('click',calculate);
+    document.getElementById('today-btn').addEventListener('click',()=>{setToday();dobInput.max=targetInput.value;});
+    document.getElementById('reset-btn').addEventListener('click',()=>{dobInput.value='';setToday();dobInput.max=targetInput.value;dobInput.focus();});
+    [dobInput,targetInput].forEach(el=>el.addEventListener('keydown',e=>{if(e.key==='Enter') calculate();}));
+
+    copyBtn.addEventListener('click',async()=>{
+      const text=document.getElementById('full-sentence').textContent;
+      const original=copyBtn.textContent;
+      try{
+        if(navigator.clipboard&&window.isSecureContext){
+          await navigator.clipboard.writeText(text);
+        }else{
+          const ta=document.createElement('textarea');
+          ta.value=text;ta.style.position='fixed';ta.style.opacity='0';
+          document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();
+        }
+        copyBtn.textContent='Copied';
+      }catch(e){copyBtn.textContent='Copy failed'}
+      setTimeout(()=>copyBtn.textContent=original,1400);
     });
   </script>
-
 </body>
 </html>
