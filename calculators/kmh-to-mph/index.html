@@ -1,2 +1,543 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kilometres per Hour to MPH Converter | CalcuPortal</title><meta name="description" content="Convert speed from kilometres per hour to miles per hour."><meta name="robots" content="index, follow"><link rel="canonical" href="https://www.calcuportal.com/calculators/kmh-to-mph/"><link rel="stylesheet" href="../../styles.css"><script src="../../script.js"></script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does the Kilometres per Hour to MPH Converter do?","acceptedAnswer":{"@type":"Answer","text":"Convert speed from kilometres per hour to miles per hour."}},{"@type":"Question","name":"Which formula is used?","acceptedAnswer":{"@type":"Answer","text":"MPH = km/h × 0.6213711922."}},{"@type":"Question","name":"Are my inputs sent to a server?","acceptedAnswer":{"@type":"Answer","text":"The calculation runs in your browser; the values entered are not needed by a server."}},{"@type":"Question","name":"Can I use this calculator on mobile?","acceptedAnswer":{"@type":"Answer","text":"Yes, this responsive page is designed for mobile and desktop screens."}}]}</script></head><body><header><div class="nav-container"><a href="../../" class="logo"><img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon"><span>CalcuPortal</span></a><nav class="nav-links"><a href="../../">Home</a><a href="../../calculators/">All Calculators</a><a href="../../about/">About</a><a href="../../contact/">Contact</a></nav></div></header><main><div class="detail-container"><div class="breadcrumbs"><a href="../../">Home</a><span class="separator">›</span><a href="../../categories/conversions/">Unit Conversion Calculators</a><span class="separator">›</span><span>Kilometres per Hour to MPH Converter</span></div><div class="detail-header"><h1>Kilometres per Hour to MPH Converter</h1></div><p>Convert speed from kilometres per hour to miles per hour.</p><div class="calc-widget"><div class="form-row"><div class="form-group"><label for="value">Value</label><input id="value" class="input-field" type="number" step="any" value="100" required></div></div><button id="calculate-btn" class="calc-btn">Calculate</button><div id="result-section" class="result-section hidden" aria-live="polite"><div class="metric-grid"><div class="metric-card"><span class="metric-title">Result</span><span class="metric-value" id="result"></span></div></div><p id="detail"></p></div><p id="error" role="alert" style="color:#b91c1c"></p></div><section class="article-section"><div class="article-header"><h2>How the Kilometres per Hour to MPH Converter Works</h2></div><div class="article-content"><h2>Formula</h2><p>MPH = km/h × 0.6213711922.</p><h2>How to use this calculator</h2><ol><li>Enter the value or measurements in the fields above.</li><li>Check that your values use the intended units.</li><li>Select Calculate to see the result.</li><li>Change the inputs to compare another calculation.</li></ol><h2>Understanding the result</h2><p>Convert speed from kilometres per hour to miles per hour. The result is calculated from your inputs and the formula shown above. Use consistent units and keep suitable precision when rounding.</p><h2>Limitations</h2><p>This tool performs the stated calculation and does not independently verify input data or account for conditions not represented by the formula. For electrical estimates, real AC loads may require power factor and circuit details.</p></div></section><section class="faq-section"><h2 class="faq-header">Frequently Asked Questions</h2><div class="faq-grid"><div class="faq-item"><h3 class="faq-question">What does the Kilometres per Hour to MPH Converter do?</h3><p class="faq-answer">Convert speed from kilometres per hour to miles per hour.</p></div><div class="faq-item"><h3 class="faq-question">Which formula is used?</h3><p class="faq-answer">MPH = km/h × 0.6213711922.</p></div><div class="faq-item"><h3 class="faq-question">Are my inputs sent to a server?</h3><p class="faq-answer">The calculation runs in your browser; the values entered are not needed by a server.</p></div><div class="faq-item"><h3 class="faq-question">Can I use this calculator on mobile?</h3><p class="faq-answer">Yes, this responsive page is designed for mobile and desktop screens.</p></div></div></section><p><a href="../../calculators/">Browse all calculators</a></p></div></main><footer><nav class="footer-legal-links" aria-label="Legal and support links"><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/privacy-policy/">Privacy Policy</a><a href="/terms-conditions/">Terms &amp; Conditions</a><a href="/disclaimer/">Disclaimer</a></nav>
-  <div class="copyright-bar">© 2026 CalcuPortal. All rights reserved.</div></footer><script>function fmt(n){return Number(n.toPrecision(10)).toLocaleString('en-US',{maximumFractionDigits:8})}document.getElementById('calculate-btn').addEventListener('click',()=>{try{const x=Number(document.getElementById('value')?.value||0),watts=Number(document.getElementById('watts')?.value||0),voltage=Number(document.getElementById('voltage')?.value||0);let out='',detail='';out=fmt(x*0.6213711922)+' mph';document.getElementById('result').textContent=out;document.getElementById('detail').textContent=detail;document.getElementById('error').textContent='';document.getElementById('result-section').classList.remove('hidden')}catch(e){document.getElementById('error').textContent=e.message}});</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="shortcut icon" href="/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KM/H to MPH Converter – Speed Calculator &amp; Chart | CalcuPortal</title>
+  <meta name="description" content="Convert km/h to mph instantly with the exact conversion factor. Try mph to km/h, adjust decimal places, and check 30, 50, 60, 80, 100 and 120 km/h on a speed chart.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://www.calcuportal.com/calculators/kmh-to-mph/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="KM/H to MPH Converter – Speed Calculator &amp; Chart">
+  <meta property="og:description" content="Instant kilometres per hour to miles per hour conversion, reverse MPH to KM/H calculator, formulas and common speeds chart.">
+  <meta property="og:url" content="https://www.calcuportal.com/calculators/kmh-to-mph/">
+  <meta property="og:site_name" content="CalcuPortal">
+  <meta property="og:image" content="https://www.calcuportal.com/logo.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="KM/H to MPH Converter – Speed Calculator &amp; Chart">
+  <meta name="twitter:description" content="Convert kilometres per hour to miles per hour with reverse conversion, decimal precision and common speeds.">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/script.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org","@type":"WebApplication",
+    "name":"KM/H to MPH Converter","url":"https://www.calcuportal.com/calculators/kmh-to-mph/",
+    "description":"An instant speed converter from kilometres per hour to miles per hour with reverse conversion, decimal precision, worked steps and common speed tables.",
+    "applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript",
+    "featureList":["KM/H to MPH conversion","MPH to KM/H reverse conversion","0 to 6 decimal places","Common driving speed examples","Metres per second and knots equivalents","Copy result and reset","Conversion formula and worked steps"],
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+    "publisher":{"@type":"Organization","name":"CalcuPortal","url":"https://www.calcuportal.com/"}
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://www.calcuportal.com/"},
+      {"@type":"ListItem","position":2,"name":"Calculators","item":"https://www.calcuportal.com/calculators/"},
+      {"@type":"ListItem","position":3,"name":"KM/H to MPH Converter","item":"https://www.calcuportal.com/calculators/kmh-to-mph/"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"How do I convert km/h to mph?","acceptedAnswer":{"@type":"Answer","text":"Divide the speed in kilometres per hour by 1.609344. For example, 100 km/h is approximately 62.14 mph."}},
+      {"@type":"Question","name":"What is 100 km/h in mph?","acceptedAnswer":{"@type":"Answer","text":"100 km/h is approximately 62.1371 mph, or 62.14 mph rounded to two decimal places."}},
+      {"@type":"Question","name":"What is 60 km/h in mph?","acceptedAnswer":{"@type":"Answer","text":"60 km/h is approximately 37.28 miles per hour."}},
+      {"@type":"Question","name":"How do I convert mph to km/h?","acceptedAnswer":{"@type":"Answer","text":"Multiply the speed in miles per hour by exactly 1.609344. For example, 60 mph equals 96.56064 km/h."}},
+      {"@type":"Question","name":"Is km/h the same as kph or kmph?","acceptedAnswer":{"@type":"Answer","text":"Yes. km/h means kilometres per hour and is commonly written informally as kph or kmph. All refer to the same speed unit."}},
+      {"@type":"Question","name":"Is 1 km/h exactly 0.621371 mph?","acceptedAnswer":{"@type":"Answer","text":"No. 0.621371 is a rounded value. The exact international mile equals 1.609344 km, so kilometres per hour are converted into mph by dividing by 1.609344."}},
+      {"@type":"Question","name":"Does converting a road speed change the legal speed limit?","acceptedAnswer":{"@type":"Answer","text":"No. Unit conversion only expresses the same speed in different units. Drivers must follow the speed limits and road signs applicable in the location."}}
+    ]
+  }
+  </script>
+
+  <style>
+    .kmx-page{max-width:1140px;margin:0 auto}
+    .kmx-hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(320px,.9fr);gap:26px;align-items:center;margin:1rem 0 1.8rem}
+    .kmx-hero-copy{padding:1.45rem 0}
+    .kmx-kicker{display:inline-flex;align-items:center;gap:.45rem;color:var(--primary);font-weight:800;font-size:.76rem;letter-spacing:.07em;text-transform:uppercase}
+    .kmx-kicker:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--primary)}
+    .kmx-hero h1{margin:.6rem 0 .85rem;font-size:clamp(2.15rem,4.8vw,3.4rem);letter-spacing:-.045em;line-height:1.07}
+    .kmx-hero p{color:var(--text-secondary);font-size:1rem;line-height:1.75;text-align:justify;text-justify:inter-word;margin:0}
+    .kmx-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.05rem}
+    .kmx-tags span{font-size:.76rem;font-weight:700;padding:.45rem .72rem;border-radius:100px;background:var(--bg-card);border:1px solid var(--border-color);color:var(--text-secondary)}
+    .kmx-hero-card{align-self:center;background:linear-gradient(140deg,var(--primary-light),var(--bg-card));border:1px solid var(--border-color);border-radius:20px;box-shadow:var(--shadow-lg);padding:1.3rem 1.4rem}
+    .kmx-hero-card .kmx-eyebrow{display:block;font-size:.74rem;color:var(--primary);letter-spacing:.07em;font-weight:800;text-transform:uppercase}
+    .kmx-hero-card>strong{display:block;margin:.5rem 0 .65rem;color:var(--text-primary);font-size:clamp(1.6rem,2.75vw,2.1rem);line-height:1.18;letter-spacing:-.035em;overflow-wrap:anywhere}
+    .kmx-hero-card p{margin:0;font-size:.87rem;line-height:1.65;text-align:left}
+    .kmx-hero-card p strong{display:inline;font:inherit;font-weight:800;color:var(--text-primary)}
+    .kmx-mini-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.5rem;margin-top:1rem}
+    .kmx-mini-grid div{background:var(--bg-card);border-radius:11px;border:1px solid var(--border-color);padding:.7rem .5rem;text-align:center}
+    .kmx-mini-grid b{display:block;color:var(--primary);font-size:1rem;line-height:1.2}
+    .kmx-mini-grid small{display:block;color:var(--text-muted);font-size:.69rem;margin-top:.3rem}
+    .kmx-tool{padding:1.4rem;background:var(--bg-card);border:1px solid var(--border-color);border-radius:22px;box-shadow:var(--shadow-lg);margin:1rem 0 2.2rem}
+    .kmx-tool-head{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:1.15rem}
+    .kmx-tool-head h2{margin:0;font-size:1.38rem}
+    .kmx-tool-head p{margin:.35rem 0 0;font-size:.89rem;color:var(--text-secondary);line-height:1.6;text-align:left}
+    .kmx-tool-badge{flex-shrink:0;background:var(--primary-light);color:var(--primary);font-size:.72rem;font-weight:800;border-radius:100px;padding:.44rem .7rem}
+    .kmx-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.55rem;background:var(--bg-primary);border:1px solid var(--border-color);border-radius:14px;padding:.35rem;margin-bottom:1.3rem}
+    .kmx-tab{font:inherit;font-weight:800;border:0;border-radius:10px;background:transparent;color:var(--text-secondary);cursor:pointer;padding:.83rem .75rem}
+    .kmx-tab.active{background:var(--primary);color:#fff;box-shadow:var(--shadow-sm)}
+    .kmx-entry-grid{display:grid;grid-template-columns:minmax(0,1fr) 54px minmax(0,1fr);gap:1rem;align-items:end}
+    .kmx-field label{display:block;margin:0 0 .48rem;font-size:.85rem;font-weight:800;color:var(--text-primary)}
+    .kmx-field input,.kmx-field select{display:block;width:100%;min-width:0;padding:.9rem 1rem;border-radius:11px;border:1px solid var(--border-color);background:var(--bg-primary);color:var(--text-primary);font:inherit;font-size:1rem}
+    .kmx-field input:focus,.kmx-field select:focus{outline:3px solid color-mix(in srgb,var(--primary) 20%,transparent);border-color:var(--primary)}
+    .kmx-field input[readonly]{background:var(--primary-light);font-weight:800;color:var(--text-primary);border-color:var(--border-color)}
+    .kmx-arrow{display:grid;place-items:center;height:50px;border:1px solid var(--border-color);border-radius:13px;background:var(--primary-light);color:var(--primary);font-size:1.6rem;font-weight:800}
+    .kmx-helper{font-size:.78rem;color:var(--text-muted);line-height:1.55;margin:.7rem 0 .95rem;text-align:left}
+    .kmx-option-row{display:flex;justify-content:space-between;gap:1rem;align-items:center;flex-wrap:wrap}
+    .kmx-option-row .kmx-field{min-width:190px;max-width:300px;flex:1}
+    .kmx-presets{display:flex;flex-wrap:wrap;gap:.55rem;margin:1rem 0 0}
+    .kmx-chip{font:inherit;font-size:.78rem;font-weight:800;color:var(--text-secondary);background:var(--bg-primary);border:1px solid var(--border-color);border-radius:100px;padding:.5rem .77rem;cursor:pointer}
+    .kmx-chip:hover{color:var(--primary);border-color:var(--primary);background:var(--primary-light)}
+    .kmx-actions{display:flex;flex-wrap:wrap;gap:.6rem;margin:1.1rem 0 0}
+    .kmx-primary,.kmx-secondary,.kmx-copy{font:inherit;border-radius:10px;padding:.77rem 1.1rem;font-weight:800;cursor:pointer}
+    .kmx-primary{background:var(--primary);color:#fff;border:1px solid var(--primary);min-width:162px}
+    .kmx-secondary,.kmx-copy{color:var(--text-primary);background:var(--bg-primary);border:1px solid var(--border-color)}
+    .kmx-secondary:hover,.kmx-copy:hover{color:var(--primary);border-color:var(--primary)}
+    .kmx-error{display:none;margin-top:.9rem;padding:.8rem .9rem;background:#fff1f2;color:#9f1239;font-size:.88rem;font-weight:700;border-radius:11px}
+    [data-theme="dark"] .kmx-error{background:#3f121a;color:#fecdd3}
+    .kmx-result{display:none;margin-top:1.3rem;padding:1.25rem;border:1px solid var(--border-color);border-radius:18px;background:var(--primary-light)}
+    .kmx-result.show{display:block}
+    .kmx-result-top{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+    .kmx-result-label{display:block;color:var(--text-muted);text-transform:uppercase;letter-spacing:.07em;font-size:.72rem;font-weight:800}
+    .kmx-result-value{display:block;font-size:clamp(2rem,5vw,2.95rem);line-height:1.13;letter-spacing:-.035em;margin:.28rem 0;color:var(--primary);overflow-wrap:anywhere}
+    .kmx-result-summary{color:var(--text-secondary);line-height:1.65;font-size:.89rem;text-align:left;margin:.45rem 0 0}
+    .kmx-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem;margin-top:1rem}
+    .kmx-metric{border:1px solid var(--border-color);background:var(--bg-card);border-radius:12px;padding:.85rem}
+    .kmx-metric span{display:block;color:var(--text-muted);font-size:.71rem;text-transform:uppercase;letter-spacing:.04em;font-weight:800}
+    .kmx-metric strong{display:block;margin-top:.24rem;font-size:1.02rem;color:var(--text-primary);overflow-wrap:anywhere}
+    .kmx-formula-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;margin-top:.9rem}
+    .kmx-formula-step{border:1px solid var(--border-color);border-radius:11px;background:var(--bg-card);padding:.9rem}
+    .kmx-formula-step span{color:var(--text-muted);font-size:.74rem;font-weight:800;text-transform:uppercase}
+    .kmx-formula-step p{color:var(--text-secondary);font-size:.87rem;line-height:1.65;margin:.25rem 0 0;text-align:left;overflow-wrap:anywhere}
+    .kmx-section{margin:2.3rem 0}
+    .kmx-section h2{margin:0 0 .82rem;font-size:clamp(1.35rem,3vw,1.85rem)}
+    .kmx-section h3{margin:1.28rem 0 .5rem;font-size:1.08rem}
+    .kmx-section p,.kmx-section li{color:var(--text-secondary);line-height:1.78}
+    .kmx-section p{text-align:justify;text-justify:inter-word;margin:.78rem 0 1.2rem}
+    .kmx-section ul,.kmx-section ol{padding-left:1.4rem;text-align:left;margin:.8rem 0 1.2rem}
+    .kmx-section li{text-align:left;margin:.48rem 0;padding-left:.18rem;line-height:1.7}
+    .kmx-section li::marker{color:var(--primary);font-weight:800}
+    .kmx-answer{padding:1rem 1.12rem;background:var(--primary-light);border-left:4px solid var(--primary);border-radius:10px}
+    .kmx-answer p{margin:0}
+    .kmx-formula-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;margin:1rem 0}
+    .kmx-formula{padding:1rem;background:var(--bg-card);border:1px solid var(--border-color);border-radius:13px}
+    .kmx-formula h3{color:var(--primary);margin:0 0 .4rem}
+    .kmx-formula p{margin:0;font-size:.89rem;overflow-wrap:anywhere}
+    .kmx-table-wrap{overflow-x:auto;border:1px solid var(--border-color);border-radius:14px;background:var(--bg-card);margin:1rem 0}
+    .kmx-table{width:100%;min-width:500px;border-collapse:collapse;font-size:.89rem}
+    .kmx-table th,.kmx-table td{padding:.73rem .82rem;border-bottom:1px solid var(--border-color);text-align:left}
+    .kmx-table th{background:var(--primary);color:#fff;font-weight:800}
+    .kmx-table tr:last-child td{border-bottom:0}
+    .kmx-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.78rem;margin:1rem 0}
+    .kmx-card{background:var(--bg-card);border:1px solid var(--border-color);border-radius:13px;padding:1rem}
+    .kmx-card h3{margin:0 0 .4rem}.kmx-card p{margin:0;font-size:.87rem}
+    .kmx-related{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.75rem}
+    .kmx-related a{display:flex;flex-direction:column;gap:.3rem;background:var(--bg-card);border:1px solid var(--border-color);padding:1rem;border-radius:13px;color:inherit;text-decoration:none}
+    .kmx-related a:hover{border-color:var(--primary);transform:translateY(-1px)}
+    .kmx-related strong{font-size:.94rem}
+    .kmx-related span{color:var(--text-muted);font-size:.78rem;line-height:1.5}
+    .kmx-faq{display:grid;gap:.7rem}
+    .kmx-faq details{border:1px solid var(--border-color);border-radius:12px;background:var(--bg-card);overflow:hidden}
+    .kmx-faq summary{cursor:pointer;padding:1rem;font-weight:800}
+    .kmx-faq details p{margin:0;padding:0 1rem 1rem;color:var(--text-secondary);line-height:1.7;text-align:justify;text-justify:inter-word}
+    .kmx-updated{font-size:.81rem;color:var(--text-muted);margin:2rem 0;text-align:justify;text-justify:inter-word}
+    @media(max-width:900px){.kmx-hero{grid-template-columns:1fr}.kmx-related{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:670px){.kmx-hero h1{font-size:2.4rem}.kmx-tool{padding:1rem}
+      .kmx-entry-grid{grid-template-columns:1fr;gap:.68rem}.kmx-arrow{height:35px;width:100%}
+      .kmx-arrow span{transform:rotate(90deg)}.kmx-result-top{flex-direction:column}
+      .kmx-metrics,.kmx-formula-steps,.kmx-formula-grid,.kmx-cards,.kmx-related{grid-template-columns:1fr}
+      .kmx-tool-head{flex-direction:column}.kmx-primary,.kmx-secondary{flex:1 1 auto}
+      .kmx-section p{margin:.75rem 0 1rem}.kmx-section ul,.kmx-section ol{padding-left:1.25rem;margin:.75rem 0 1rem}.kmx-section li{margin:.42rem 0;line-height:1.65}}
+    @media(max-width:400px){.kmx-mini-grid{grid-template-columns:1fr}.kmx-tab{padding:.73rem .38rem;font-size:.78rem}}
+    @media(prefers-reduced-motion:reduce){.kmx-page *{transition:none!important}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <a href="/" class="logo"><img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon"><span>CalcuPortal</span></a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+      <nav class="nav-links" id="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/calculators/" class="nav-link active">Calculators</a>
+        <a href="/blog/" class="nav-link">Articles</a>
+        <a href="/about/" class="nav-link">About</a>
+        <a href="/contact/" class="nav-link">Contact</a>
+        <button class="theme-btn" title="Toggle Theme" aria-label="Toggle theme"><span class="theme-btn-icon"></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main><div class="detail-container kmx-page">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a><span class="separator">›</span><a href="/calculators/">Calculators</a><span class="separator">›</span><span class="current" aria-current="page">KM/H to MPH Converter</span>
+    </nav>
+
+    <section class="kmx-hero">
+      <div class="kmx-hero-copy">
+        <div class="kmx-kicker">Speed &amp; unit conversion tool</div>
+        <h1>KM/H to MPH Converter</h1>
+        <p>Convert <strong>kilometres per hour (km/h) to miles per hour (mph)</strong> in seconds. Switch to mph-to-km/h conversion, adjust decimal precision, and compare everyday driving speeds in both units using the exact international mile definition.</p>
+        <div class="kmx-tags"><span>Instant conversion</span><span>Reverse MPH → KM/H</span><span>Speed chart</span><span>Up to 6 decimals</span><span>Metres/sec &amp; knots</span></div>
+      </div>
+      <aside class="kmx-hero-card">
+        <span class="kmx-eyebrow">Quick answer</span>
+        <strong>100 km/h = 62.14 mph</strong>
+        <p>To convert speed from km/h to mph, <strong>divide by 1.609344</strong>. One international mile is exactly 1.609344 kilometres.</p>
+        <div class="kmx-mini-grid">
+          <div><b>31.07</b><small>50 km/h in mph</small></div>
+          <div><b>49.71</b><small>80 km/h in mph</small></div>
+          <div><b>74.56</b><small>120 km/h in mph</small></div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="kmx-tool" aria-label="Speed converter">
+      <div class="kmx-tool-head"><div><h2>Convert km/h to mph online</h2><p>Enter your speed and the answer updates instantly. Use the reverse tab for miles per hour to kilometres per hour.</p></div><span class="kmx-tool-badge">Exact mile definition</span></div>
+      <div class="kmx-tabs" role="tablist" aria-label="Conversion direction">
+        <button id="kmx-tab-kmh" class="kmx-tab active" data-mode="kmh" type="button" role="tab" aria-selected="true">KM/H → MPH</button>
+        <button id="kmx-tab-mph" class="kmx-tab" data-mode="mph" type="button" role="tab" aria-selected="false">MPH → KM/H</button>
+      </div>
+      <div class="kmx-entry-grid">
+        <div class="kmx-field">
+          <label for="kmx-input" id="kmx-input-label">Speed in kilometres per hour (km/h)</label>
+          <input id="kmx-input" type="number" value="100" min="0" max="1000000000" step="any" inputmode="decimal" aria-describedby="kmx-input-note">
+        </div>
+        <div class="kmx-arrow" aria-hidden="true"><span>→</span></div>
+        <div class="kmx-field">
+          <label for="kmx-output" id="kmx-output-label">Miles per hour (mph)</label>
+          <input id="kmx-output" type="text" value="62.14" readonly aria-label="Converted speed in mph">
+        </div>
+      </div>
+      <p class="kmx-helper" id="kmx-input-note">Enter a non-negative speed. The unit conversion uses 1 mile = exactly 1.609344 km. Displayed answers are rounded to your selected precision.</p>
+      <div class="kmx-option-row">
+        <div class="kmx-field"><label for="kmx-precision">Decimal places</label>
+          <select id="kmx-precision"><option value="0">0 — whole number</option><option value="1">1 decimal</option><option value="2" selected>2 decimals</option><option value="3">3 decimals</option><option value="4">4 decimals</option><option value="5">5 decimals</option><option value="6">6 decimals</option></select>
+        </div>
+      </div>
+      <div class="kmx-presets" id="kmx-presets" aria-label="Common speed examples">
+        <button type="button" class="kmx-chip" data-speed="30">30 km/h</button>
+        <button type="button" class="kmx-chip" data-speed="50">50 km/h</button>
+        <button type="button" class="kmx-chip" data-speed="60">60 km/h</button>
+        <button type="button" class="kmx-chip" data-speed="80">80 km/h</button>
+        <button type="button" class="kmx-chip" data-speed="100">100 km/h</button>
+        <button type="button" class="kmx-chip" data-speed="120">120 km/h</button>
+        <button type="button" class="kmx-chip" data-speed="160">160 km/h</button>
+      </div>
+      <div class="kmx-actions">
+        <button type="button" class="kmx-primary" id="kmx-calculate">Convert speed</button>
+        <button type="button" class="kmx-secondary" id="kmx-swap">Swap units</button>
+        <button type="button" class="kmx-secondary" id="kmx-reset">Reset</button>
+      </div>
+      <div id="kmx-error" class="kmx-error" role="alert"></div>
+
+      <section id="kmx-result" class="kmx-result" aria-label="Speed conversion result" aria-live="polite">
+        <div class="kmx-result-top">
+          <div><span class="kmx-result-label" id="kmx-result-label">Speed in miles per hour</span><strong class="kmx-result-value" id="kmx-result-value">62.14 mph</strong><p class="kmx-result-summary" id="kmx-result-summary">100 km/h equals approximately 62.14 mph.</p></div>
+          <button type="button" class="kmx-copy" id="kmx-copy">Copy result</button>
+        </div>
+        <div class="kmx-metrics">
+          <div class="kmx-metric"><span>KM/H</span><strong id="kmx-metric-kmh">100 km/h</strong></div>
+          <div class="kmx-metric"><span>Metres per second</span><strong id="kmx-metric-ms">27.78 m/s</strong></div>
+          <div class="kmx-metric"><span>Knots</span><strong id="kmx-metric-knots">54.00 kn</strong></div>
+        </div>
+        <div class="kmx-formula-steps">
+          <div class="kmx-formula-step"><span>Conversion formula</span><p id="kmx-step-formula">mph = km/h ÷ 1.609344</p></div>
+          <div class="kmx-formula-step"><span>Worked calculation</span><p id="kmx-step-working">100 ÷ 1.609344 ≈ 62.14 mph</p></div>
+        </div>
+      </section>
+    </section>
+
+    <section class="kmx-section"><div class="kmx-answer"><p><strong>Quick conversion:</strong> 1 km/h = approximately 0.621371 mph, and 100 km/h = 62.14 mph. The precise conversion is <strong>mph = km/h ÷ 1.609344</strong>. Reverse it with <strong>km/h = mph × 1.609344</strong>.</p></div></section>
+
+    <section class="kmx-section">
+      <h2>What is a KM/H to MPH converter?</h2>
+      <p>A <strong>km/h to mph converter</strong> changes a speed measured in kilometres per hour to the equivalent speed in miles per hour. Both units measure distance travelled in one hour, so converting speed uses the same distance ratio as converting kilometres to miles.</p>
+      <p>Km/h is widely used for road signs and speedometers in countries that use the metric system, including India. Mph is commonly used in the United States and the United Kingdom. A speed expressed in mph has a smaller number than the same speed expressed in km/h because one mile is longer than one kilometre.</p>
+    </section>
+
+    <section class="kmx-section">
+      <h2>KM/H to MPH conversion formula</h2>
+      <div class="kmx-formula-grid">
+        <div class="kmx-formula"><h3>Kilometres/hour to miles/hour</h3><p><strong>mph = km/h ÷ 1.609344</strong></p><p>Equivalent approximation: mph ≈ km/h × 0.621371192237.</p></div>
+        <div class="kmx-formula"><h3>Miles/hour to kilometres/hour</h3><p><strong>km/h = mph × 1.609344</strong></p><p>The mile-to-kilometre multiplier is exact by definition.</p></div>
+      </div>
+      <p>According to the <a href="https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8" target="_blank" rel="noopener noreferrer">National Institute of Standards and Technology (NIST) unit conversion guide</a>, 1 international mile equals 1.609344 kilometres. The reciprocal is a repeating decimal, so the displayed mph value is rounded for readability.</p>
+    </section>
+
+    <section class="kmx-section">
+      <h2>How to convert kilometres per hour to miles per hour</h2>
+      <ol>
+        <li>Enter a speed in <strong>km/h</strong>, such as 100.</li>
+        <li>Divide the km/h value by <strong>1.609344</strong> to obtain the equivalent mph.</li>
+        <li>Select how many decimal places you want to display.</li>
+        <li>Use the quick speed buttons or the <strong>MPH → KM/H</strong> tab for reverse conversions.</li>
+        <li>Copy the result if you need to use it in a calculation, report or travel note.</li>
+      </ol>
+      <h3>Example: Convert 100 km/h to mph</h3>
+      <p>Divide 100 by 1.609344 to get 62.137119… mph. Rounded to two decimal places, <strong>100 km/h = 62.14 mph</strong>. This is a change in speed units only; the physical speed does not change.</p>
+      <h3>Example: Convert 60 mph to km/h</h3>
+      <p>Multiply 60 mph by 1.609344. The result is <strong>96.56064 km/h</strong>, or 96.56 km/h when displayed to two decimal places. Reverse conversion uses multiplication rather than division.</p>
+    </section>
+
+    <section class="kmx-section">
+      <h2>KM/H to MPH conversion chart</h2>
+      <p>Use this chart to find common driving speeds in miles per hour. Each figure is rounded to two decimal places; it is not an official speed-limit sign or legal driving recommendation.</p>
+      <div class="kmx-table-wrap"><table class="kmx-table"><thead><tr><th>Speed (km/h)</th><th>Speed (mph)</th><th>Rounded whole mph</th></tr></thead><tbody>
+        <tr><td>10 km/h</td><td>6.21 mph</td><td>6 mph</td></tr>
+        <tr><td>20 km/h</td><td>12.43 mph</td><td>12 mph</td></tr>
+        <tr><td>30 km/h</td><td>18.64 mph</td><td>19 mph</td></tr>
+        <tr><td>40 km/h</td><td>24.85 mph</td><td>25 mph</td></tr>
+        <tr><td>50 km/h</td><td>31.07 mph</td><td>31 mph</td></tr>
+        <tr><td>60 km/h</td><td>37.28 mph</td><td>37 mph</td></tr>
+        <tr><td>70 km/h</td><td>43.50 mph</td><td>43 mph</td></tr>
+        <tr><td>80 km/h</td><td>49.71 mph</td><td>50 mph</td></tr>
+        <tr><td>90 km/h</td><td>55.92 mph</td><td>56 mph</td></tr>
+        <tr><td>100 km/h</td><td>62.14 mph</td><td>62 mph</td></tr>
+        <tr><td>110 km/h</td><td>68.35 mph</td><td>68 mph</td></tr>
+        <tr><td>120 km/h</td><td>74.56 mph</td><td>75 mph</td></tr>
+        <tr><td>130 km/h</td><td>80.78 mph</td><td>81 mph</td></tr>
+        <tr><td>160 km/h</td><td>99.42 mph</td><td>99 mph</td></tr>
+        <tr><td>200 km/h</td><td>124.27 mph</td><td>124 mph</td></tr>
+        <tr><td>300 km/h</td><td>186.41 mph</td><td>186 mph</td></tr>
+      </tbody></table></div>
+    </section>
+
+    <section class="kmx-section">
+      <h2>MPH to KM/H conversion chart</h2>
+      <p>When a speedometer or road sign uses miles per hour, multiply mph by 1.609344 to express the same speed in kilometres per hour. Here are some commonly searched conversions.</p>
+      <div class="kmx-table-wrap"><table class="kmx-table"><thead><tr><th>Speed (mph)</th><th>Speed (km/h)</th></tr></thead><tbody>
+        <tr><td>20 mph</td><td>32.19 km/h</td></tr>
+        <tr><td>30 mph</td><td>48.28 km/h</td></tr>
+        <tr><td>40 mph</td><td>64.37 km/h</td></tr>
+        <tr><td>50 mph</td><td>80.47 km/h</td></tr>
+        <tr><td>55 mph</td><td>88.51 km/h</td></tr>
+        <tr><td>60 mph</td><td>96.56 km/h</td></tr>
+        <tr><td>65 mph</td><td>104.61 km/h</td></tr>
+        <tr><td>70 mph</td><td>112.65 km/h</td></tr>
+        <tr><td>75 mph</td><td>120.70 km/h</td></tr>
+        <tr><td>80 mph</td><td>128.75 km/h</td></tr>
+      </tbody></table></div>
+    </section>
+
+    <section class="kmx-section">
+      <h2>Popular KM/H to MPH conversions</h2>
+      <div class="kmx-cards">
+        <div class="kmx-card"><h3>50 km/h in mph</h3><p>50 km/h is approximately <strong>31.07 mph</strong>. This is a frequently converted urban driving-speed figure.</p></div>
+        <div class="kmx-card"><h3>80 km/h in mph</h3><p>80 km/h is approximately <strong>49.71 mph</strong>. The same physical speed can be expressed using either unit.</p></div>
+        <div class="kmx-card"><h3>120 km/h in mph</h3><p>120 km/h equals approximately <strong>74.56 mph</strong>. Road and vehicle rules still depend on local regulations.</p></div>
+      </div>
+    </section>
+
+    <section class="kmx-section">
+      <h2>Is KPH, KM/H or KMPH the same thing?</h2>
+      <p>Yes. <strong>Km/h</strong> stands for kilometres per hour and is the conventional symbol. People also search for <strong>kph</strong>, <strong>kmph</strong> or <strong>kmh</strong>, which normally describe the same unit. None should be confused with km (kilometres), which measures distance instead of speed.</p>
+    </section>
+
+    <section class="kmx-section">
+      <h2>KM/H, MPH, metres per second and knots</h2>
+      <p>Speed can also be measured in metres per second (m/s) and knots. Metres per second are useful in physics, while knots are commonly used in marine and aviation contexts. One knot is exactly 1.852 km/h.</p>
+      <ul>
+        <li><strong>1 km/h</strong> = approximately 0.621371 mph.</li>
+        <li><strong>1 km/h</strong> = approximately 0.277778 m/s.</li>
+        <li><strong>1 km/h</strong> = approximately 0.539957 knots.</li>
+        <li><strong>1 mph</strong> = exactly 1.609344 km/h.</li>
+      </ul>
+    </section>
+
+    <section class="kmx-section">
+      <h2>KM/H vs MPH on road signs and speedometers</h2>
+      <p>When travelling or using a vehicle imported from another country, you may see a speedometer or driving guidance expressed in an unfamiliar unit. The conversion calculator helps explain what that speed means in familiar units.</p>
+      <p>However, a converted figure is not automatically a legal speed limit. Follow the actual posted speed signs and local driving rules. Rounding a converted speed up to a convenient figure is not a substitute for observing the legal limit.</p>
+    </section>
+
+    <section class="kmx-section">
+      <h2>Common KM/H to MPH conversion mistakes</h2>
+      <ul>
+        <li><strong>Multiplying instead of dividing:</strong> to go from km/h to mph, divide by 1.609344. Multiply for the reverse direction.</li>
+        <li><strong>Confusing miles with kilometres:</strong> miles and kilometres are distances; mph and km/h are speeds.</li>
+        <li><strong>Rounding too early:</strong> use the full conversion factor and round only the displayed answer.</li>
+        <li><strong>Confusing mph with knots:</strong> a knot is one nautical mile per hour, not a statute mile per hour.</li>
+        <li><strong>Treating conversions as speed limits:</strong> legal posted limits can differ from rounded unit equivalents.</li>
+      </ul>
+    </section>
+
+    <section class="kmx-section">
+      <h2>Related speed and travel calculators</h2>
+      <div class="kmx-related">
+        <a href="/calculators/mps-to-kmh/"><strong>M/S to KM/H</strong><span>Convert metres per second to kilometres per hour.</span></a>
+        <a href="/calculators/fuel-cost-calculator/"><strong>Fuel Cost Calculator</strong><span>Estimate road-trip petrol and diesel expenses.</span></a>
+        <a href="/calculators/mileage-calculator/"><strong>Mileage Calculator</strong><span>Measure vehicle fuel efficiency.</span></a>
+        <a href="/categories/conversions/"><strong>Conversion Tools</strong><span>Browse more unit and number converters.</span></a>
+      </div>
+    </section>
+
+    <section class="kmx-section" aria-labelledby="kmx-faq-title">
+      <h2 id="kmx-faq-title">Frequently Asked Questions</h2>
+      <div class="kmx-faq">
+        <details><summary>How do I convert km/h to mph?</summary><p>Divide the kilometres-per-hour value by 1.609344. For example, 100 ÷ 1.609344 = approximately 62.14 mph.</p></details>
+        <details><summary>What is 100 km/h in mph?</summary><p>100 km/h equals approximately 62.137119 mph, or 62.14 mph rounded to two decimal places.</p></details>
+        <details><summary>How fast is 60 km/h in mph?</summary><p>60 km/h equals approximately 37.28 miles per hour.</p></details>
+        <details><summary>How do I convert mph to km/h?</summary><p>Multiply the value in mph by 1.609344. For example, 60 mph equals 96.56064 km/h.</p></details>
+        <details><summary>Are km/h, kmph and kph the same?</summary><p>Yes. They all refer to kilometres per hour, though km/h is the standard unit symbol.</p></details>
+        <details><summary>Is 1 km/h exactly 0.621371 mph?</summary><p>No. 0.621371 is a rounded approximation. For the international mile, 1 mile is exactly 1.609344 km, so divide by that exact value for a more precise conversion.</p></details>
+        <details><summary>Does a converted speed automatically become a legal speed limit?</summary><p>No. A unit conversion does not determine legal driving limits. Always follow the posted speed signs and local rules.</p></details>
+      </div>
+    </section>
+
+    <p class="kmx-updated">Last updated: October 18, 2026. This page converts speed units mathematically. The calculations use the defined international mile, but displayed values are rounded to the selected decimal precision. It does not provide official local speed limits or road-safety advice.</p>
+  </div></main>
+
+  <footer>
+    <nav class="footer-legal-links" aria-label="Legal and support links"><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/privacy-policy/">Privacy Policy</a><a href="/terms-conditions/">Terms &amp; Conditions</a><a href="/disclaimer/">Disclaimer</a></nav>
+    <div class="copyright-bar" style="border-top:none;padding-top:0">© <span id="year">2026</span> CalcuPortal. All rights reserved.</div>
+  </footer>
+
+  <script>
+  (() => {
+    "use strict";
+    const $=id=>document.getElementById(id);
+    $("year").textContent=new Date().getFullYear();
+
+    const KM_PER_MILE=1.609344,KM_PER_KNOT=1.852;
+    const controls={
+      input:$("kmx-input"),output:$("kmx-output"),precision:$("kmx-precision"),
+      error:$("kmx-error"),result:$("kmx-result"),presets:$("kmx-presets")
+    };
+    let mode="kmh",copyText="";
+
+    function formatted(number,digits){
+      return new Intl.NumberFormat("en-US",{minimumFractionDigits:digits,maximumFractionDigits:digits}).format(number);
+    }
+    function convertedValue(value){
+      return mode==="kmh" ? value/KM_PER_MILE : value*KM_PER_MILE;
+    }
+    function displayValue(value,digits){
+      if(!Number.isFinite(value))return "";
+      return Number(value.toFixed(digits)).toString();
+    }
+    function hide(){
+      controls.result.classList.remove("show");
+      controls.error.style.display="none";
+      controls.error.textContent="";
+      controls.output.value="";
+    }
+    function fail(message){
+      hide();
+      controls.error.textContent=message;
+      controls.error.style.display="block";
+    }
+    function validInput(quiet){
+      const raw=controls.input.value.trim();
+      if(raw===""){if(!quiet)fail("Enter a speed to convert.");else hide();return null;}
+      const value=Number(raw);
+      if(!Number.isFinite(value)||value<0||value>1e9){
+        if(!quiet)fail("Enter a speed between 0 and 1,000,000,000.");
+        else hide();
+        return null;
+      }
+      return value;
+    }
+    function update(quiet=false){
+      const input=validInput(quiet);
+      if(input===null)return;
+      const precision=Number(controls.precision.value);
+      if(!Number.isInteger(precision)||precision<0||precision>6)return fail("Select decimal precision between 0 and 6.");
+
+      const kmh=mode==="kmh"?input:input*KM_PER_MILE;
+      const mph=kmh/KM_PER_MILE;
+      const target=convertedValue(input);
+      const fromUnit=mode==="kmh"?"km/h":"mph";
+      const toUnit=mode==="kmh"?"mph":"km/h";
+      const targetDisplay=formatted(target,precision);
+      const sourceDisplay=formatted(input,Math.min(precision,6));
+
+      controls.output.value=displayValue(target,precision);
+      $("kmx-result-label").textContent=mode==="kmh"?"Speed in miles per hour":"Speed in kilometres per hour";
+      $("kmx-result-value").textContent=targetDisplay+" "+toUnit;
+      $("kmx-result-summary").textContent=sourceDisplay+" "+fromUnit+" equals approximately "+targetDisplay+" "+toUnit+".";
+      $("kmx-metric-kmh").textContent=formatted(kmh,precision)+" km/h";
+      $("kmx-metric-ms").textContent=formatted(kmh/3.6,precision)+" m/s";
+      $("kmx-metric-knots").textContent=formatted(kmh/KM_PER_KNOT,precision)+" kn";
+      $("kmx-step-formula").textContent=mode==="kmh"?"mph = km/h ÷ 1.609344":"km/h = mph × 1.609344";
+      $("kmx-step-working").textContent=sourceDisplay+" "+(mode==="kmh"?"÷":"×")+" 1.609344 ≈ "+targetDisplay+" "+toUnit;
+      copyText=sourceDisplay+" "+fromUnit+" = "+targetDisplay+" "+toUnit+"; "+formatted(kmh/3.6,precision)+" m/s; "+formatted(kmh/KM_PER_KNOT,precision)+" knots.";
+      controls.error.style.display="none";
+      controls.result.classList.add("show");
+    }
+
+    function updatePresets(){
+      const choices=mode==="kmh"?[30,50,60,80,100,120,160]:[20,30,40,50,55,60,65,70];
+      const unit=mode==="kmh"?"km/h":"mph";
+      controls.presets.replaceChildren();
+      choices.forEach(speed=>{
+        const btn=document.createElement("button");
+        btn.type="button";btn.className="kmx-chip";
+        btn.textContent=speed+" "+unit;
+        btn.addEventListener("click",()=>{
+          controls.input.value=String(speed);
+          update();
+        });
+        controls.presets.appendChild(btn);
+      });
+    }
+
+    function setMode(next,preserveSpeed){
+      if(next===mode)return;
+      const last=validInput(true);
+      const equivalent=last!==null?convertedValue(last):null;
+      mode=next;
+      document.querySelectorAll(".kmx-tab").forEach(tab=>{
+        const active=tab.dataset.mode===mode;
+        tab.classList.toggle("active",active);
+        tab.setAttribute("aria-selected",String(active));
+      });
+      $("kmx-input-label").textContent=mode==="kmh"?"Speed in kilometres per hour (km/h)":"Speed in miles per hour (mph)";
+      $("kmx-output-label").textContent=mode==="kmh"?"Miles per hour (mph)":"Kilometres per hour (km/h)";
+      controls.output.setAttribute("aria-label",mode==="kmh"?"Converted speed in mph":"Converted speed in km/h");
+      if(preserveSpeed&&equivalent!==null)controls.input.value=Number(equivalent.toPrecision(12)).toString();
+      updatePresets();
+      update();
+    }
+
+    document.querySelectorAll(".kmx-tab").forEach(btn=>btn.addEventListener("click",()=>setMode(btn.dataset.mode,true)));
+    $("kmx-swap").addEventListener("click",()=>setMode(mode==="kmh"?"mph":"kmh",true));
+    controls.input.addEventListener("input",()=>update(true));
+    controls.input.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();update();}});
+    controls.precision.addEventListener("change",()=>update());
+    $("kmx-calculate").addEventListener("click",()=>update());
+    $("kmx-reset").addEventListener("click",()=>{
+      mode="mph";setMode("kmh",false);
+      controls.input.value="100";
+      controls.precision.value="2";
+      update();
+    });
+    $("kmx-copy").addEventListener("click",async e=>{
+      const button=e.currentTarget,original=button.textContent;
+      try{
+        if(navigator.clipboard&&window.isSecureContext)await navigator.clipboard.writeText(copyText);
+        else{
+          const textArea=document.createElement("textarea");textArea.value=copyText;
+          textArea.style.position="fixed";textArea.style.opacity="0";
+          document.body.appendChild(textArea);textArea.select();
+          if(!document.execCommand("copy"))throw new Error("Copy failed");
+          textArea.remove();
+        }
+        button.textContent="Copied";
+      }catch(_){button.textContent="Copy failed";}
+      setTimeout(()=>button.textContent=original,1400);
+    });
+
+    updatePresets();
+    update();
+  })();
+  </script>
+</body>
+</html>
