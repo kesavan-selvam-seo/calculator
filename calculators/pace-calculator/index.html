@@ -72,7 +72,7 @@
     .pcp-time{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.62rem}
     .pcp-time.pace{grid-template-columns:repeat(2,minmax(0,1fr))}
     .pcp-time .pcp-field label{font-size:.78rem}
-    .pcp-presets{display:flex;flex-wrap:wrap;gap:.56rem;margin-top:1.1rem}
+    .pcp-presets{display:flex;flex-wrap:wrap;gap:.56rem;margin-top:1.1rem}.pcp-presets[hidden]{display:none!important}
     .pcp-chip{border:1px solid var(--border-color);background:var(--bg-primary);color:var(--text-secondary);border-radius:100px;padding:.48rem .73rem;font:inherit;font-size:.78rem;font-weight:800;cursor:pointer}
     .pcp-chip:hover{border-color:var(--primary);color:var(--primary)}
     .pcp-actions{display:flex;flex-wrap:wrap;gap:.62rem;margin-top:1.15rem}
@@ -251,6 +251,7 @@
           <div class="pcp-metric"><span>Pace per mile</span><strong id="pcp-metric-mi">—</strong></div>
           <div class="pcp-metric"><span>Speed (km/h)</span><strong id="pcp-metric-speed">—</strong></div>
           <div class="pcp-metric"><span>Speed (mph)</span><strong id="pcp-metric-mph">—</strong></div>
+          <div class="pcp-metric"><span>400 m split</span><strong id="pcp-metric-400">—</strong></div>
           <div class="pcp-metric"><span>Total time</span><strong id="pcp-metric-time">—</strong></div>
           <div class="pcp-metric"><span>Distance</span><strong id="pcp-metric-distance">—</strong></div>
         </div>
@@ -527,6 +528,7 @@
       $("pcp-metric-mi").textContent=fmtPace(secPerMi)+" min/mile";
       $("pcp-metric-speed").textContent=fmtNumber(3600/data.secPerKm)+" km/h";
       $("pcp-metric-mph").textContent=fmtNumber(3600/secPerMi)+" mph";
+      $("pcp-metric-400").textContent=fmtTime(data.secPerKm*0.4)+" / 400 m";
       $("pcp-metric-time").textContent=fmtTime(data.seconds);
       $("pcp-metric-distance").textContent=fmtNumber(data.km,4)+" km / "+fmtNumber(data.km/KM_IN_MILE,4)+" mi";
 
