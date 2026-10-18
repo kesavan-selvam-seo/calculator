@@ -1,2 +1,489 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Joules to Calories Converter | CalcuPortal</title><meta name="description" content="Convert energy in joules to small calories and food Calories."><meta name="robots" content="index, follow"><link rel="canonical" href="https://www.calcuportal.com/calculators/joules-to-calories/"><link rel="stylesheet" href="../../styles.css"><script src="../../script.js"></script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does the Joules to Calories Converter do?","acceptedAnswer":{"@type":"Answer","text":"Convert energy in joules to small calories and food Calories."}},{"@type":"Question","name":"Which formula is used?","acceptedAnswer":{"@type":"Answer","text":"Small calories = joules ÷ 4.184; food Calories (kcal) = joules ÷ 4,184."}},{"@type":"Question","name":"Are my inputs sent to a server?","acceptedAnswer":{"@type":"Answer","text":"The calculation runs in your browser; the values entered are not needed by a server."}},{"@type":"Question","name":"Can I use this calculator on mobile?","acceptedAnswer":{"@type":"Answer","text":"Yes, this responsive page is designed for mobile and desktop screens."}}]}</script></head><body><header><div class="nav-container"><a href="../../" class="logo"><img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon"><span>CalcuPortal</span></a><nav class="nav-links"><a href="../../">Home</a><a href="../../calculators/">All Calculators</a><a href="../../about/">About</a><a href="../../contact/">Contact</a></nav></div></header><main><div class="detail-container"><div class="breadcrumbs"><a href="../../">Home</a><span class="separator">›</span><a href="../../categories/conversions/">Unit Conversion Calculators</a><span class="separator">›</span><span>Joules to Calories Converter</span></div><div class="detail-header"><h1>Joules to Calories Converter</h1></div><p>Convert energy in joules to small calories and food Calories.</p><div class="calc-widget"><div class="form-row"><div class="form-group"><label for="value">Value</label><input id="value" class="input-field" type="number" step="any" value="100" required></div></div><button id="calculate-btn" class="calc-btn">Calculate</button><div id="result-section" class="result-section hidden" aria-live="polite"><div class="metric-grid"><div class="metric-card"><span class="metric-title">Result</span><span class="metric-value" id="result"></span></div></div><p id="detail"></p></div><p id="error" role="alert" style="color:#b91c1c"></p></div><section class="article-section"><div class="article-header"><h2>How the Joules to Calories Converter Works</h2></div><div class="article-content"><h2>Formula</h2><p>Small calories = joules ÷ 4.184; food Calories (kcal) = joules ÷ 4,184.</p><h2>How to use this calculator</h2><ol><li>Enter the value or measurements in the fields above.</li><li>Check that your values use the intended units.</li><li>Select Calculate to see the result.</li><li>Change the inputs to compare another calculation.</li></ol><h2>Understanding the result</h2><p>Convert energy in joules to small calories and food Calories. The result is calculated from your inputs and the formula shown above. Use consistent units and keep suitable precision when rounding.</p><h2>Limitations</h2><p>This tool performs the stated calculation and does not independently verify input data or account for conditions not represented by the formula. For electrical estimates, real AC loads may require power factor and circuit details.</p></div></section><section class="faq-section"><h2 class="faq-header">Frequently Asked Questions</h2><div class="faq-grid"><div class="faq-item"><h3 class="faq-question">What does the Joules to Calories Converter do?</h3><p class="faq-answer">Convert energy in joules to small calories and food Calories.</p></div><div class="faq-item"><h3 class="faq-question">Which formula is used?</h3><p class="faq-answer">Small calories = joules ÷ 4.184; food Calories (kcal) = joules ÷ 4,184.</p></div><div class="faq-item"><h3 class="faq-question">Are my inputs sent to a server?</h3><p class="faq-answer">The calculation runs in your browser; the values entered are not needed by a server.</p></div><div class="faq-item"><h3 class="faq-question">Can I use this calculator on mobile?</h3><p class="faq-answer">Yes, this responsive page is designed for mobile and desktop screens.</p></div></div></section><p><a href="../../calculators/">Browse all calculators</a></p></div></main><footer><nav class="footer-legal-links" aria-label="Legal and support links"><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/privacy-policy/">Privacy Policy</a><a href="/terms-conditions/">Terms &amp; Conditions</a><a href="/disclaimer/">Disclaimer</a></nav>
-  <div class="copyright-bar">© 2026 CalcuPortal. All rights reserved.</div></footer><script>function fmt(n){return Number(n.toPrecision(10)).toLocaleString('en-US',{maximumFractionDigits:8})}document.getElementById('calculate-btn').addEventListener('click',()=>{try{const x=Number(document.getElementById('value')?.value||0),watts=Number(document.getElementById('watts')?.value||0),voltage=Number(document.getElementById('voltage')?.value||0);let out='',detail='';out=fmt(x/4.184)+' cal';detail=fmt(x/4184)+' food Calories (kcal).';document.getElementById('result').textContent=out;document.getElementById('detail').textContent=detail;document.getElementById('error').textContent='';document.getElementById('result-section').classList.remove('hidden')}catch(e){document.getElementById('error').textContent=e.message}});</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="shortcut icon" href="/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <title>Joules to Calories Converter – J, cal, kcal &amp; kJ | CalcuPortal</title>
+  <meta name="description" content="Convert joules to small calories, food Calories (kcal), kJ and kWh instantly. Reverse calories to joules, compare units, check exact formulas and view conversion tables.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://www.calcuportal.com/calculators/joules-to-calories/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Joules to Calories Converter – J, cal, kcal &amp; kJ">
+  <meta property="og:description" content="Instantly convert joules, kilojoules, small calories, food Calories and kilowatt-hours using published energy conversion constants.">
+  <meta property="og:url" content="https://www.calcuportal.com/calculators/joules-to-calories/">
+  <meta property="og:site_name" content="CalcuPortal">
+  <meta property="og:image" content="https://www.calcuportal.com/logo.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Joules to Calories Converter | CalcuPortal">
+  <meta name="twitter:description" content="Convert energy between J, kJ, small cal, food kcal and kWh with steps and a comparison table.">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/script.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org","@type":"WebApplication",
+    "name":"Joules to Calories Converter","url":"https://www.calcuportal.com/calculators/joules-to-calories/",
+    "description":"Convert energy between joules, kilojoules, thermochemical small calories, food kilocalories and kilowatt-hours, with step-by-step working and energy equivalences.",
+    "applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript",
+    "featureList":["Joules to small calories","Joules to food Calories (kcal)","Calories and kilocalories to joules","Kilojoules to kilocalories","Kilowatt-hours to joules and calories","Two-way unit conversion","Adjustable decimal precision","Conversion comparison and formulas","Copy result"],
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+    "publisher":{"@type":"Organization","name":"CalcuPortal","url":"https://www.calcuportal.com/"}
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://www.calcuportal.com/"},
+      {"@type":"ListItem","position":2,"name":"Calculators","item":"https://www.calcuportal.com/calculators/"},
+      {"@type":"ListItem","position":3,"name":"Joules to Calories Converter","item":"https://www.calcuportal.com/calculators/joules-to-calories/"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"How do you convert joules to calories?","acceptedAnswer":{"@type":"Answer","text":"For thermochemical small calories, divide joules by 4.184. For food Calories or kilocalories, divide joules by 4,184."}},
+      {"@type":"Question","name":"How many joules are in one calorie?","acceptedAnswer":{"@type":"Answer","text":"One thermochemical small calorie (cal) equals exactly 4.184 joules. One food Calorie (kcal) equals 4,184 joules under the same definition."}},
+      {"@type":"Question","name":"Is a food Calorie the same as a small calorie?","acceptedAnswer":{"@type":"Answer","text":"No. One food Calorie with an uppercase C represents one kilocalorie, equal to 1,000 small thermochemical calories."}},
+      {"@type":"Question","name":"How many joules are in 100 food Calories?","acceptedAnswer":{"@type":"Answer","text":"100 food Calories equal 418,400 joules, or 418.4 kilojoules, using the thermochemical calorie definition."}},
+      {"@type":"Question","name":"How do I convert kJ to kcal?","acceptedAnswer":{"@type":"Answer","text":"Divide the value in kilojoules by 4.184. For example, 100 kJ is approximately 23.9006 kcal."}},
+      {"@type":"Question","name":"Why do some sources use 4.1868 J per calorie instead of 4.184?","acceptedAnswer":{"@type":"Answer","text":"The thermochemical calorie is defined as 4.184 J, while the International Table calorie is 4.1868 J. This calculator uses the thermochemical definition and labels it clearly."}},
+      {"@type":"Question","name":"Can I convert calories back into joules?","acceptedAnswer":{"@type":"Answer","text":"Yes. Select small calories or food kilocalories as the input unit and joules or kilojoules as the output unit."}}
+    ]
+  }
+  </script>
+
+  <style>
+    .jcal-page{max-width:1160px;margin:0 auto}
+    .jcal-hero{display:grid;grid-template-columns:minmax(0,1.13fr) minmax(315px,.87fr);gap:28px;align-items:center;margin:1rem 0 1.75rem}
+    .jcal-hero-copy{padding:1.35rem 0}
+    .jcal-kicker{display:inline-flex;align-items:center;gap:.48rem;color:var(--primary);font-size:.76rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+    .jcal-kicker:before{content:"";width:8px;height:8px;background:var(--primary);border-radius:50%}
+    .jcal-hero h1{margin:.58rem 0 .82rem;font-size:clamp(2.06rem,4.65vw,3.4rem);line-height:1.08;letter-spacing:-.046em}
+    .jcal-hero p{margin:0;font-size:1rem;line-height:1.75;color:var(--text-secondary);text-align:justify;text-justify:inter-word}
+    .jcal-tags{display:flex;flex-wrap:wrap;gap:.52rem;margin-top:1rem}
+    .jcal-tags span{border:1px solid var(--border-color);border-radius:999px;background:var(--bg-card);color:var(--text-secondary);padding:.44rem .72rem;font-size:.76rem;font-weight:750}
+    .jcal-quick{border:1px solid var(--border-color);border-radius:19px;background:linear-gradient(145deg,var(--primary-light),var(--bg-card));box-shadow:var(--shadow-lg);padding:1.27rem 1.36rem}
+    .jcal-quick-label{display:block;color:var(--primary);font-size:.75rem;letter-spacing:.06em;font-weight:800;text-transform:uppercase}
+    .jcal-quick>strong{display:block;margin:.47rem 0 .55rem;color:var(--text-primary);font-size:clamp(1.57rem,2.75vw,2.05rem);line-height:1.15;letter-spacing:-.03em;overflow-wrap:anywhere}
+    .jcal-quick p{font-size:.86rem;line-height:1.58;margin:0;text-align:left}
+    .jcal-quick p strong{display:inline;font:inherit;color:var(--text-primary);font-weight:800}
+    .jcal-quick-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.52rem;margin-top:.94rem}
+    .jcal-quick-grid div{border:1px solid var(--border-color);border-radius:11px;padding:.72rem .5rem;background:var(--bg-card);text-align:center}
+    .jcal-quick-grid b{display:block;font-size:1rem;color:var(--primary);line-height:1.25}
+    .jcal-quick-grid small{display:block;margin-top:.24rem;font-size:.7rem;color:var(--text-muted)}
+    .jcal-tool{padding:1.4rem;margin:1rem 0 2.2rem;border:1px solid var(--border-color);border-radius:22px;background:var(--bg-card);box-shadow:var(--shadow-lg)}
+    .jcal-tool-header{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:1.15rem}
+    .jcal-tool-header h2{margin:0;font-size:1.38rem}
+    .jcal-tool-header p{font-size:.89rem;line-height:1.6;color:var(--text-secondary);margin:.32rem 0 0;text-align:left}
+    .jcal-tool-badge{flex-shrink:0;padding:.45rem .72rem;border-radius:999px;background:var(--primary-light);color:var(--primary);font-size:.73rem;font-weight:800}
+    .jcal-entry{display:grid;grid-template-columns:minmax(0,1fr) 50px minmax(0,1fr);gap:.75rem;align-items:end}
+    .jcal-field label{display:block;color:var(--text-primary);font-size:.85rem;font-weight:800;margin:0 0 .44rem}
+    .jcal-field input,.jcal-field select{display:block;width:100%;min-width:0;box-sizing:border-box;border:1px solid var(--border-color);border-radius:11px;background:var(--bg-primary);color:var(--text-primary);padding:.85rem .9rem;font:inherit}
+    .jcal-field input:focus,.jcal-field select:focus{outline:3px solid color-mix(in srgb,var(--primary) 22%,transparent);border-color:var(--primary)}
+    .jcal-arrow{display:grid;place-items:center;height:49px;border:1px solid var(--border-color);border-radius:12px;background:var(--primary-light);color:var(--primary);font-size:1.35rem;font-weight:900}
+    .jcal-unit-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.95rem;margin-top:1rem}
+    .jcal-field small{display:block;font-size:.75rem;color:var(--text-muted);line-height:1.5;margin-top:.34rem}
+    .jcal-helper{color:var(--text-muted);font-size:.77rem;margin:.8rem 0 0;line-height:1.6;text-align:left}
+    .jcal-presets{display:flex;flex-wrap:wrap;gap:.53rem;margin:1rem 0 0}
+    .jcal-chip{background:var(--bg-primary);border:1px solid var(--border-color);border-radius:999px;padding:.48rem .72rem;font:inherit;font-size:.77rem;font-weight:800;color:var(--text-secondary);cursor:pointer}
+    .jcal-chip:hover{color:var(--primary);border-color:var(--primary)}
+    .jcal-buttons{display:flex;flex-wrap:wrap;gap:.64rem;margin:1.18rem 0 0}
+    .jcal-primary,.jcal-secondary,.jcal-copy{padding:.77rem 1.04rem;font:inherit;font-weight:800;cursor:pointer;border-radius:10px}
+    .jcal-primary{background:var(--primary);color:#fff;border:1px solid var(--primary);min-width:155px}
+    .jcal-secondary,.jcal-copy{color:var(--text-primary);background:var(--bg-primary);border:1px solid var(--border-color)}
+    .jcal-secondary:hover,.jcal-copy:hover{border-color:var(--primary);color:var(--primary)}
+    .jcal-error{display:none;margin-top:.94rem;padding:.82rem .9rem;background:#fff1f2;color:#9f1239;font-size:.88rem;font-weight:700;border-radius:10px}
+    [data-theme="dark"] .jcal-error{color:#fecdd3;background:#3f121a}
+    .jcal-result{display:none;margin-top:1.25rem;padding:1.15rem;border:1px solid var(--border-color);border-radius:18px;background:var(--primary-light)}
+    .jcal-result.show{display:block}
+    .jcal-result-top{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+    .jcal-result-label{display:block;color:var(--text-muted);font-size:.73rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+    .jcal-main{display:block;margin:.3rem 0;color:var(--primary);font-size:clamp(1.9rem,5vw,2.85rem);line-height:1.13;letter-spacing:-.036em;overflow-wrap:anywhere}
+    .jcal-summary{color:var(--text-secondary);font-size:.89rem;line-height:1.65;margin:.34rem 0 0;text-align:left}
+    .jcal-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem;margin-top:1rem}
+    .jcal-metric{padding:.87rem;background:var(--bg-card);border:1px solid var(--border-color);border-radius:11px}
+    .jcal-metric span{display:block;font-size:.7rem;letter-spacing:.04em;text-transform:uppercase;font-weight:800;color:var(--text-muted)}
+    .jcal-metric strong{display:block;margin-top:.25rem;font-size:.99rem;color:var(--text-primary);overflow-wrap:anywhere}
+    .jcal-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.72rem;margin-top:1.05rem}
+    .jcal-step{border:1px solid var(--border-color);border-radius:11px;background:var(--bg-card);padding:.91rem}
+    .jcal-step span{display:block;font-size:.71rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--text-muted)}
+    .jcal-step p{color:var(--text-secondary);font-size:.85rem;line-height:1.65;text-align:left;margin:.32rem 0 0;overflow-wrap:anywhere}
+    .jcal-note{color:var(--text-muted);font-size:.76rem;line-height:1.6;margin:.85rem 0 0;text-align:left}
+    .jcal-section{margin:2.3rem 0}.jcal-section h2{font-size:clamp(1.35rem,3vw,1.82rem);margin:0 0 .8rem}.jcal-section h3{font-size:1.06rem;margin:1.23rem 0 .45rem}
+    .jcal-section p,.jcal-section li{color:var(--text-secondary);line-height:1.78}
+    .jcal-section p{text-align:justify;text-justify:inter-word;margin:.77rem 0 1.16rem}
+    .jcal-section ul,.jcal-section ol{padding-left:1.42rem;text-align:left;margin:.8rem 0 1.18rem}
+    .jcal-section li{text-align:left;margin:.46rem 0;padding-left:.18rem;line-height:1.7}
+    .jcal-section li::marker{color:var(--primary);font-weight:800}
+    .jcal-answer{background:var(--primary-light);border-left:4px solid var(--primary);border-radius:10px;padding:1rem 1.1rem}.jcal-answer p{margin:0}
+    .jcal-formulas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.77rem;margin:1rem 0}
+    .jcal-formula{border:1px solid var(--border-color);border-radius:13px;background:var(--bg-card);padding:1rem}
+    .jcal-formula h3{color:var(--primary);margin:0 0 .42rem;font-size:.95rem}
+    .jcal-formula p{margin:0;font-size:.86rem;text-align:left;overflow-wrap:anywhere}
+    .jcal-table-wrap{border:1px solid var(--border-color);border-radius:14px;background:var(--bg-card);overflow-x:auto;margin:1rem 0}
+    .jcal-table{min-width:680px;width:100%;border-collapse:collapse;font-size:.86rem}
+    .jcal-table th,.jcal-table td{padding:.76rem .83rem;text-align:left;border-bottom:1px solid var(--border-color)}
+    .jcal-table th{background:var(--primary);color:#fff}.jcal-table tr:last-child td{border-bottom:0}
+    .jcal-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.77rem;margin:1rem 0}
+    .jcal-card{border:1px solid var(--border-color);background:var(--bg-card);border-radius:13px;padding:1rem}
+    .jcal-card h3{margin:0 0 .4rem}.jcal-card p{margin:0;font-size:.87rem}
+    .jcal-related{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.73rem}
+    .jcal-related a{display:flex;flex-direction:column;gap:.34rem;background:var(--bg-card);border:1px solid var(--border-color);border-radius:13px;padding:1rem;text-decoration:none;color:inherit}
+    .jcal-related a:hover{border-color:var(--primary)}
+    .jcal-related span{color:var(--text-muted);font-size:.78rem;line-height:1.55}
+    .jcal-faq{display:grid;gap:.7rem}.jcal-faq details{border:1px solid var(--border-color);background:var(--bg-card);border-radius:12px;overflow:hidden}
+    .jcal-faq summary{padding:1rem;font-weight:800;cursor:pointer}.jcal-faq details p{margin:0;padding:0 1rem 1rem;line-height:1.7;color:var(--text-secondary);text-align:justify;text-justify:inter-word}
+    .jcal-updated{font-size:.82rem;color:var(--text-muted);margin:2rem 0;text-align:justify;text-justify:inter-word}
+    @media(max-width:900px){.jcal-hero{grid-template-columns:1fr}.jcal-formulas,.jcal-cards{grid-template-columns:1fr}}
+    @media(max-width:650px){.jcal-tool{padding:1rem}.jcal-entry{grid-template-columns:1fr}.jcal-arrow{height:33px}.jcal-arrow span{transform:rotate(90deg)}
+      .jcal-hero h1{font-size:2.37rem}.jcal-tool-header,.jcal-result-top{flex-direction:column}
+      .jcal-unit-grid,.jcal-steps,.jcal-metrics,.jcal-related{grid-template-columns:1fr}
+      .jcal-primary,.jcal-secondary{flex:1 1 auto}
+      .jcal-section p{margin:.72rem 0 1rem}.jcal-section ul,.jcal-section ol{padding-left:1.25rem;margin:.72rem 0 1rem}.jcal-section li{line-height:1.65;margin:.43rem 0}}
+    @media(max-width:385px){.jcal-quick-grid{grid-template-columns:1fr}}
+    @media(prefers-reduced-motion:reduce){.jcal-page *{transition:none!important}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-container">
+      <a href="/" class="logo"><img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon"><span>CalcuPortal</span></a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu" aria-expanded="false"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+      <nav class="nav-links" id="nav-links">
+        <a href="/" class="nav-link">Home</a><a href="/calculators/" class="nav-link active">Calculators</a>
+        <a href="/blog/" class="nav-link">Articles</a><a href="/about/" class="nav-link">About</a>
+        <a href="/contact/" class="nav-link">Contact</a>
+        <button class="theme-btn" type="button" title="Toggle Theme" aria-label="Toggle theme"><span class="theme-btn-icon"></span></button>
+      </nav>
+    </div>
+  </header>
+  <main><div class="detail-container jcal-page">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span class="separator">›</span><a href="/calculators/">Calculators</a><span class="separator">›</span><span class="current" aria-current="page">Joules to Calories</span></nav>
+
+    <section class="jcal-hero">
+      <div class="jcal-hero-copy">
+        <div class="jcal-kicker">Energy &amp; measurement converter</div>
+        <h1>Joules to Calories Converter</h1>
+        <p>Convert <strong>joules (J) to small calories (cal) or food Calories (kcal)</strong> instantly. Switch between joules, kilojoules, calories and kilowatt-hours with clear formulas, step-by-step answers and quick reference tables.</p>
+        <div class="jcal-tags"><span>J ↔ cal ↔ kcal</span><span>kJ &amp; kWh</span><span>Food Calories explained</span><span>Instant result</span><span>Reference tables</span></div>
+      </div>
+      <aside class="jcal-quick">
+        <span class="jcal-quick-label">Quick answer · energy conversion</span>
+        <strong>4,184 J = 1 food Calorie</strong>
+        <p>One <strong>food Calorie (kcal)</strong> equals <strong>1,000 small calories (cal)</strong> under the thermochemical calorie definition.</p>
+        <div class="jcal-quick-grid"><div><b>1 kcal</b><small>Food Calories</small></div><div><b>1,000 cal</b><small>Small calories</small></div><div><b>4.184 kJ</b><small>Kilojoules</small></div></div>
+      </aside>
+    </section>
+
+    <section class="jcal-tool" aria-label="Energy unit converter">
+      <div class="jcal-tool-header">
+        <div><h2>Convert joules, calories and kilojoules</h2><p>Enter any value and choose its units. The answer updates instantly as you change the input or conversion units.</p></div>
+        <span class="jcal-tool-badge">4.184 J / small cal</span>
+      </div>
+      <div class="jcal-entry">
+        <div class="jcal-field"><label for="jcal-value">Energy value</label><input type="number" id="jcal-value" step="any" value="4184" inputmode="decimal" aria-describedby="jcal-input-note"></div>
+        <div class="jcal-arrow" aria-hidden="true"><span>→</span></div>
+        <div class="jcal-field"><label for="jcal-output">Converted value</label><input type="text" id="jcal-output" value="1" readonly aria-label="Converted energy value"></div>
+      </div>
+      <div class="jcal-unit-grid">
+        <div class="jcal-field"><label for="jcal-from">Convert from</label><select id="jcal-from">
+          <option value="J" selected>Joules (J)</option><option value="kJ">Kilojoules (kJ)</option>
+          <option value="cal">Small calories (cal)</option><option value="kcal">Food Calories (kcal / Cal)</option>
+          <option value="kWh">Kilowatt-hours (kWh)</option>
+        </select></div>
+        <div class="jcal-field"><label for="jcal-to">Convert to</label><select id="jcal-to">
+          <option value="J">Joules (J)</option><option value="kJ">Kilojoules (kJ)</option>
+          <option value="cal">Small calories (cal)</option><option value="kcal" selected>Food Calories (kcal / Cal)</option>
+          <option value="kWh">Kilowatt-hours (kWh)</option>
+        </select></div>
+      </div>
+      <div class="jcal-unit-grid">
+        <div class="jcal-field"><label for="jcal-precision">Maximum decimal places</label><select id="jcal-precision">
+          <option value="2">2 decimals</option><option value="4">4 decimals</option>
+          <option value="6">6 decimals</option><option value="8" selected>8 decimals</option>
+          <option value="10">10 decimals</option><option value="12">12 decimals</option>
+        </select><small>Tiny values use scientific notation if decimal rounding would show zero.</small></div>
+      </div>
+      <p class="jcal-helper" id="jcal-input-note">The thermochemical calorie is used: 1 cal = 4.184 J; 1 kcal = 4,184 J. Negative values can describe signed energy changes, not food energy intake.</p>
+      <div class="jcal-presets" aria-label="Common energy examples">
+        <button type="button" class="jcal-chip" data-value="1" data-unit="J">1 J</button>
+        <button type="button" class="jcal-chip" data-value="100" data-unit="J">100 J</button>
+        <button type="button" class="jcal-chip" data-value="1000" data-unit="J">1,000 J</button>
+        <button type="button" class="jcal-chip" data-value="4184" data-unit="J">4,184 J</button>
+        <button type="button" class="jcal-chip" data-value="1" data-unit="kcal">1 food Calorie</button>
+        <button type="button" class="jcal-chip" data-value="100" data-unit="kJ">100 kJ</button>
+        <button type="button" class="jcal-chip" data-value="1" data-unit="kWh">1 kWh</button>
+      </div>
+      <div class="jcal-buttons">
+        <button type="button" class="jcal-primary" id="jcal-calculate">Convert energy</button>
+        <button type="button" class="jcal-secondary" id="jcal-swap">Swap units</button>
+        <button type="button" class="jcal-secondary" id="jcal-reset">Reset</button>
+      </div>
+      <div class="jcal-error" id="jcal-error" role="alert"></div>
+
+      <section id="jcal-result" class="jcal-result" aria-live="polite" aria-label="Energy conversion result">
+        <div class="jcal-result-top">
+          <div><span class="jcal-result-label" id="jcal-result-label">Converted energy</span><strong class="jcal-main" id="jcal-result-value">1 kcal</strong><p class="jcal-summary" id="jcal-summary">—</p></div>
+          <button type="button" class="jcal-copy" id="jcal-copy">Copy result</button>
+        </div>
+        <div class="jcal-metrics">
+          <div class="jcal-metric"><span>Energy in joules</span><strong id="jcal-metric-j">—</strong></div>
+          <div class="jcal-metric"><span>Kilojoules</span><strong id="jcal-metric-kj">—</strong></div>
+          <div class="jcal-metric"><span>Small calories (cal)</span><strong id="jcal-metric-cal">—</strong></div>
+          <div class="jcal-metric"><span>Food Calories (kcal)</span><strong id="jcal-metric-kcal">—</strong></div>
+          <div class="jcal-metric"><span>Kilowatt-hours</span><strong id="jcal-metric-kwh">—</strong></div>
+          <div class="jcal-metric"><span>Calorie convention</span><strong>Thermochemical</strong></div>
+        </div>
+        <div class="jcal-steps">
+          <div class="jcal-step"><span>Formula</span><p id="jcal-formula">Energy in J ÷ 4,184 = kcal</p></div>
+          <div class="jcal-step"><span>Worked calculation</span><p id="jcal-working">4,184 ÷ 4,184 = 1 kcal</p></div>
+        </div>
+        <p class="jcal-note">Values are computed using the stated constants. Display precision does not change the underlying conversion; arithmetic uses standard JavaScript floating-point numbers.</p>
+      </section>
+    </section>
+
+    <section class="jcal-section"><div class="jcal-answer"><p><strong>Joules to calories formula:</strong> small calories (cal) = joules ÷ 4.184; food Calories (kcal) = joules ÷ 4,184. For example, 4,184 joules equals 1,000 small thermochemical calories or <strong>1 food Calorie (1 kcal)</strong>.</p></div></section>
+
+    <section class="jcal-section">
+      <h2>What is a joules to calories converter?</h2>
+      <p>A joules to calories converter expresses an energy value in different units. A <strong>joule (J)</strong> is the SI unit of energy. A <strong>small calorie (cal)</strong> is a traditional unit frequently discussed in physics and chemistry. A <strong>kilocalorie (kcal)</strong> is one thousand small calories and is also commonly called a food Calorie with an uppercase C.</p>
+      <p>This tool supports conversions in either direction. Use it to move between scientific and nutrition energy units, convert kilojoules to food Calories, or compare electricity energy in kilowatt-hours with joules and kilocalories.</p>
+    </section>
+
+    <section class="jcal-section">
+      <h2>How to convert joules to calories</h2>
+      <ol>
+        <li>Enter the energy number into the calculator.</li>
+        <li>Select <strong>Joules (J)</strong> as your input unit.</li>
+        <li>Choose <strong>Small calories (cal)</strong> or <strong>Food Calories (kcal / Cal)</strong> as your output unit.</li>
+        <li>Review the result, all five unit equivalents and the calculation steps.</li>
+        <li>Use Swap units to reverse the conversion, or select kJ or kWh to compare additional units.</li>
+      </ol>
+      <p>It is important to choose the intended type of calorie. If a question asks for scientific calories, the divisor is 4.184. If it asks for food Calories or kilocalories, the divisor is 4,184.</p>
+    </section>
+
+    <section class="jcal-section">
+      <h2>Joules to calories and kcal conversion formulas</h2>
+      <div class="jcal-formulas">
+        <div class="jcal-formula"><h3>J → cal (small)</h3><p><strong>cal = J ÷ 4.184</strong></p><p>One small thermochemical calorie equals 4.184 joules.</p></div>
+        <div class="jcal-formula"><h3>J → kcal (food Calories)</h3><p><strong>kcal = J ÷ 4,184</strong></p><p>One food Calorie equals 1,000 small calories.</p></div>
+        <div class="jcal-formula"><h3>Reverse conversion</h3><p><strong>J = cal × 4.184</strong></p><p>Or J = kcal × 4,184 when using food Calories.</p></div>
+      </div>
+      <p>For kilojoules, divide joules by 1,000. To convert kilojoules directly to food Calories, divide by 4.184. Kilowatt-hours are a separate energy unit commonly used for electricity, with <strong>1 kWh = 3,600,000 J</strong>.</p>
+    </section>
+
+    <section class="jcal-section">
+      <h2>Small calories vs food Calories: what is the difference?</h2>
+      <p>The words calorie and Calorie look similar, but capitalization often signals a difference of 1,000 times. In scientific unit conversion, <strong>cal</strong> refers to a small calorie. In common food-energy terminology, <strong>Cal</strong> with a capital C generally means a kilocalorie, abbreviated <strong>kcal</strong>.</p>
+      <div class="jcal-cards">
+        <div class="jcal-card"><h3>1 small calorie</h3><p>1 cal = 4.184 J = 0.001 kcal, under the thermochemical definition.</p></div>
+        <div class="jcal-card"><h3>1 food Calorie</h3><p>1 Cal = 1 kcal = 1,000 cal = 4,184 J.</p></div>
+        <div class="jcal-card"><h3>1 kilojoule</h3><p>1 kJ = 1,000 J ≈ 0.23900574 food Calories.</p></div>
+      </div>
+      <p>If a nutrition label gives a food-energy value in kilocalories, multiplying by 4.184 gives kilojoules. This is a unit conversion only; the converter does not estimate how many calories a person burns or needs each day.</p>
+    </section>
+
+    <section class="jcal-section">
+      <h2>Joules to calories conversion table</h2>
+      <p>This reference table uses <strong>1 thermochemical calorie = 4.184 J</strong>. The small-calorie and food-Calorie columns are rounded to six or eight decimal places where useful.</p>
+      <div class="jcal-table-wrap"><table class="jcal-table"><thead><tr><th>Energy (J)</th><th>Small calories (cal)</th><th>Food Calories (kcal)</th><th>Kilojoules (kJ)</th></tr></thead><tbody>
+        <tr><td>1 J</td><td>0.23900574</td><td>0.00023901</td><td>0.001 kJ</td></tr>
+        <tr><td>10 J</td><td>2.39005736</td><td>0.00239006</td><td>0.01 kJ</td></tr>
+        <tr><td>100 J</td><td>23.90057361</td><td>0.02390057</td><td>0.1 kJ</td></tr>
+        <tr><td>1,000 J</td><td>239.00573614</td><td>0.23900574</td><td>1 kJ</td></tr>
+        <tr><td>4,184 J</td><td>1,000</td><td>1</td><td>4.184 kJ</td></tr>
+        <tr><td>10,000 J</td><td>2,390.05736138</td><td>2.39005736</td><td>10 kJ</td></tr>
+        <tr><td>100,000 J</td><td>23,900.57361377</td><td>23.90057361</td><td>100 kJ</td></tr>
+        <tr><td>1,000,000 J</td><td>239,005.73613767</td><td>239.00573614</td><td>1,000 kJ</td></tr>
+      </tbody></table></div>
+    </section>
+
+    <section class="jcal-section">
+      <h2>Worked example: convert 100 joules to calories</h2>
+      <p>Suppose an energy value is 100 joules. To convert it to small calories, divide by 4.184. The result is approximately <strong>23.9006 cal</strong>. To express the same energy as food Calories, divide 100 by 4,184, giving approximately <strong>0.0239006 kcal</strong>.</p>
+      <p>This example shows why small calories and food Calories must not be confused: the physical energy is identical, but the numeric result differs by a factor of 1,000.</p>
+    </section>
+
+    <section class="jcal-section">
+      <h2>How to convert kilojoules to kilocalories</h2>
+      <p>Kilojoules (kJ) and kilocalories (kcal) are commonly shown together in nutrition information. Divide kilojoules by 4.184 to get food kilocalories. For example, <strong>100 kJ ÷ 4.184 ≈ 23.90 kcal</strong>, while <strong>500 kcal × 4.184 = 2,092 kJ</strong>.</p>
+      <p>Choose kJ as the input and kcal as the output in the converter. All values represent energy, and the direction can be reversed without changing the underlying physical quantity.</p>
+    </section>
+
+    <section class="jcal-section">
+      <h2>Why are there different definitions of a calorie?</h2>
+      <p>Historically, several calorie definitions have been used. This page explicitly uses the <strong>thermochemical calorie (calₜₕ)</strong>, defined as exactly 4.184 J. The International Table calorie (cal<sub>IT</sub>) instead equals 4.1868 J. Mixing these constants without explanation can produce slightly different results.</p>
+      <p>The <a href="https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8" target="_blank" rel="noopener noreferrer">NIST Guide to the SI conversion factors</a> lists both definitions, including their kilocalorie equivalents. For a specialised textbook or laboratory calculation, follow the particular calorie convention specified by that source.</p>
+    </section>
+
+    <section class="jcal-section">
+      <h2>Where are joule and calorie conversions useful?</h2>
+      <ul>
+        <li><strong>Physics:</strong> converting energy values from joules to a traditional calorie unit.</li>
+        <li><strong>Chemistry:</strong> comparing historical calorie-based thermal data with SI energy units.</li>
+        <li><strong>Nutrition labels:</strong> interpreting energy reported in kilojoules and kilocalories.</li>
+        <li><strong>Exercise education:</strong> understanding energy-unit terminology without making assumptions about personal energy expenditure.</li>
+        <li><strong>Electricity studies:</strong> comparing joules with kilowatt-hours as two different energy units.</li>
+      </ul>
+    </section>
+
+    <section class="jcal-section">
+      <h2>Common joules-to-calories conversion mistakes</h2>
+      <ul>
+        <li><strong>Confusing cal with kcal:</strong> 1 food Calorie equals 1,000 small calories.</li>
+        <li><strong>Using the wrong divisor:</strong> divide joules by 4.184 for small calories, but by 4,184 for food kilocalories.</li>
+        <li><strong>Confusing energy with power:</strong> a watt is a rate of energy transfer, while a joule is an energy quantity.</li>
+        <li><strong>Mixing calorie definitions:</strong> thermochemical and International Table calories use different conversion factors.</li>
+        <li><strong>Rounding too soon:</strong> use the original value and conversion factor, then round only the displayed result.</li>
+        <li><strong>Assuming food intake from a physics conversion:</strong> unit conversion alone cannot determine what a person eats, absorbs or burns.</li>
+      </ul>
+    </section>
+
+    <section class="jcal-section">
+      <h2>Related energy and health calculators</h2>
+      <div class="jcal-related">
+        <a href="/calculators/calorie-burn-met-calculator/"><strong>Calorie Burn by MET</strong><span>Estimate activity-related energy expenditure using MET assumptions.</span></a>
+        <a href="/calculators/calorie-calculator/"><strong>Calorie Calculator</strong><span>Explore daily calorie requirement estimates.</span></a>
+        <a href="/categories/conversions/"><strong>Unit Conversions</strong><span>Browse more measurement and number conversion calculators.</span></a>
+      </div>
+    </section>
+
+    <section class="jcal-section" aria-labelledby="jcal-faq-heading">
+      <h2 id="jcal-faq-heading">Frequently Asked Questions</h2>
+      <div class="jcal-faq">
+        <details><summary>How do I convert joules to calories?</summary><p>Divide by 4.184 to get thermochemical small calories (cal), or by 4,184 to get food Calories (kcal).</p></details>
+        <details><summary>How many joules are in 1 calorie?</summary><p>One thermochemical small calorie is exactly 4.184 J. One food Calorie, or kilocalorie, is 4,184 J under that same definition.</p></details>
+        <details><summary>Are small calories and food Calories the same?</summary><p>No. One food Calorie is equal to 1,000 small calories, so mixing the units causes a 1,000-fold difference.</p></details>
+        <details><summary>How many joules are in 100 food Calories?</summary><p>100 × 4,184 = 418,400 joules, which equals 418.4 kilojoules.</p></details>
+        <details><summary>How do I convert kJ to kcal?</summary><p>Divide kilojoules by 4.184. For example, 100 kJ is approximately 23.90 kcal.</p></details>
+        <details><summary>Why might another converter show a slightly different calorie value?</summary><p>Different historical definitions of the calorie exist. This tool uses the thermochemical calorie, while some sources use the International Table calorie (4.1868 J).</p></details>
+        <details><summary>Can I convert food Calories back to joules?</summary><p>Yes. Set kcal as the input and J as the output. Multiply the number of kilocalories by 4,184.</p></details>
+      </div>
+    </section>
+    <p class="jcal-updated">Last updated: October 18, 2026. This is a mathematical energy-unit converter using the thermochemical calorie definition. It does not calculate food intake, nutrition needs or exercise energy expenditure; numerical results may be rounded for display.</p>
+  </div></main>
+  <footer>
+    <nav class="footer-legal-links" aria-label="Legal and support links"><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/privacy-policy/">Privacy Policy</a><a href="/terms-conditions/">Terms &amp; Conditions</a><a href="/disclaimer/">Disclaimer</a></nav>
+    <div class="copyright-bar" style="border-top:none;padding-top:0">© <span id="year">2026</span> CalcuPortal. All rights reserved.</div>
+  </footer>
+
+  <script>
+  (() => {
+    "use strict";
+    const $=id=>document.getElementById(id);
+    $("year").textContent=new Date().getFullYear();
+    const units={
+      J:{factor:1,symbol:"J",name:"joules"},
+      kJ:{factor:1000,symbol:"kJ",name:"kilojoules"},
+      cal:{factor:4.184,symbol:"cal",name:"small thermochemical calories"},
+      kcal:{factor:4184,symbol:"kcal",name:"food Calories"},
+      kWh:{factor:3600000,symbol:"kWh",name:"kilowatt-hours"}
+    };
+    const valueEl=$("jcal-value"),fromEl=$("jcal-from"),toEl=$("jcal-to"),precisionEl=$("jcal-precision");
+    const resultEl=$("jcal-result"),errorEl=$("jcal-error");
+    let copyText="";
+
+    function format(value){
+      if(value===0)return "0";
+      const decimals=Number(precisionEl.value);
+      if(Math.abs(value)<Math.pow(10,-decimals)){
+        return value.toExponential(Math.min(6,Math.max(2,decimals)));
+      }
+      const normal=new Intl.NumberFormat("en-US",{maximumFractionDigits:decimals}).format(value);
+      return normal==="-0"?"0":normal;
+    }
+    function plain(value){
+      if(!Number.isFinite(value))return "";
+      return Number(value.toPrecision(14)).toString();
+    }
+    function hideOutput(){
+      resultEl.classList.remove("show");
+      errorEl.style.display="none";
+      errorEl.textContent="";
+      $("jcal-output").value="";
+    }
+    function showError(message){
+      hideOutput();
+      errorEl.textContent=message;
+      errorEl.style.display="block";
+    }
+    function calculate(quiet=false){
+      const raw=valueEl.value.trim();
+      if(raw===""){
+        if(quiet)hideOutput();else showError("Enter an energy value to convert.");
+        return;
+      }
+      const value=Number(raw);
+      if(!Number.isFinite(value)||Math.abs(value)>1e12){
+        showError("Enter a finite energy value from −1 trillion to +1 trillion.");
+        return;
+      }
+      const source=units[fromEl.value],target=units[toEl.value];
+      if(!source||!target)return showError("Choose a valid input and output unit.");
+      const dp=Number(precisionEl.value);
+      if(!Number.isInteger(dp)||dp<2||dp>12)return showError("Choose a valid decimal precision.");
+      const joules=value*source.factor;
+      const answer=joules/target.factor;
+      if(!Number.isFinite(joules)||!Number.isFinite(answer))return showError("The result is outside the supported number range.");
+      const sourceString=format(value),answerString=format(answer);
+      $("jcal-output").value=plain(answer);
+      $("jcal-result-label").textContent="Energy in "+target.name;
+      $("jcal-result-value").textContent=answerString+" "+target.symbol;
+      $("jcal-summary").textContent=sourceString+" "+source.symbol+" equals "+answerString+" "+target.symbol+" using the thermochemical calorie definition.";
+      ["J","kJ","cal","kcal","kWh"].forEach(k=>{
+        const targetId=k==="J"?"j":k==="kJ"?"kj":k;
+        $( "jcal-metric-"+targetId ).textContent=format(joules/units[k].factor)+" "+units[k].symbol;
+      });
+      $("jcal-formula").textContent="Value in "+source.symbol+" × "+format(source.factor)+" J/"+source.symbol+" ÷ "+format(target.factor)+" J/"+target.symbol+" = "+target.symbol;
+      $("jcal-working").textContent=sourceString+" × "+format(source.factor)+" ÷ "+format(target.factor)+" = "+answerString+" "+target.symbol;
+      copyText=sourceString+" "+source.symbol+" = "+answerString+" "+target.symbol+". Equivalent: "+format(joules)+" J; "+format(joules/1000)+" kJ; "+format(joules/4.184)+" cal; "+format(joules/4184)+" kcal; "+format(joules/3600000)+" kWh. Thermochemical calorie definition.";
+      errorEl.style.display="none";
+      resultEl.classList.add("show");
+    }
+    valueEl.addEventListener("input",()=>calculate(true));
+    [fromEl,toEl,precisionEl].forEach(el=>el.addEventListener("change",()=>calculate(true)));
+    $("jcal-calculate").addEventListener("click",()=>calculate());
+    $("jcal-swap").addEventListener("click",()=>{
+      const previousFrom=fromEl.value,previousTo=toEl.value;
+      const value=Number(valueEl.value);
+      const valid=valueEl.value.trim()!==""&&Number.isFinite(value)&&Math.abs(value)<=1e12;
+      const equivalent=valid?value*units[previousFrom].factor/units[previousTo].factor:null;
+      fromEl.value=previousTo;toEl.value=previousFrom;
+      if(equivalent!==null&&Number.isFinite(equivalent)&&Math.abs(equivalent)<=1e12)valueEl.value=plain(equivalent);
+      calculate(true);
+    });
+    $("jcal-reset").addEventListener("click",()=>{
+      valueEl.value="4184";fromEl.value="J";toEl.value="kcal";precisionEl.value="8";calculate();
+    });
+    document.querySelectorAll("[data-value][data-unit]").forEach(btn=>btn.addEventListener("click",()=>{
+      const from=btn.dataset.unit;
+      valueEl.value=btn.dataset.value;
+      fromEl.value=from;
+      toEl.value=from==="kcal"?"J":"kcal";
+      calculate();
+    }));
+    valueEl.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();calculate();}});
+    $("jcal-copy").addEventListener("click",async e=>{
+      const btn=e.currentTarget,original=btn.textContent;
+      try{
+        if(navigator.clipboard&&window.isSecureContext)await navigator.clipboard.writeText(copyText);
+        else{
+          const textarea=document.createElement("textarea");
+          textarea.value=copyText;textarea.style.position="fixed";textarea.style.opacity="0";
+          document.body.appendChild(textarea);textarea.select();
+          const success=document.execCommand("copy");textarea.remove();
+          if(!success)throw new Error("Copy unavailable");
+        }
+        btn.textContent="Copied";
+      }catch(_){btn.textContent="Copy failed";}
+      setTimeout(()=>btn.textContent=original,1500);
+    });
+    calculate();
+  })();
+  </script>
+</body>
+</html>
