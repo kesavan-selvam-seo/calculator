@@ -45,4 +45,11 @@ jobs:
             exit 0
           fi
           git commit -m "fix: normalize calculator URLs and sitemap"
-          git push
+          for attempt in 1 2 3; do
+            git pull --rebase origin main
+            if git push; then
+              exit 0
+            fi
+            sleep 2
+          done
+          exit 1
