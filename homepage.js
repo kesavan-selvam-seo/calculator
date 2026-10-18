@@ -470,11 +470,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const isActive = item.classList.contains('active');
         faqItems.forEach(other => {
           other.classList.remove('active');
+          other.querySelector('.faq-answer-panel').hidden = true;
           const btn = other.querySelector('.faq-question-btn');
           if (btn) btn.setAttribute('aria-expanded', 'false');
         });
         if (!isActive) {
           item.classList.add('active');
+          item.querySelector('.faq-answer-panel').hidden = false;
           questionBtn.setAttribute('aria-expanded', 'true');
         }
       });

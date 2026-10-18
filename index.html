@@ -30,7 +30,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="/homepage.css?v=20261018">
+  <link rel="stylesheet" href="/homepage.css?v=20261018b">
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -65,7 +65,7 @@
   </script>
 
   <!-- Script -->
-  <script src="/homepage.js?v=20261018" defer></script>
+  <script src="/homepage.js?v=20261018b" defer></script>
 </head>
 <body><a href="#main-content" class="skip-link">Skip to content</a>
 
@@ -237,7 +237,7 @@
                 <span class="control-title">Loan Amount</span>
                 <span class="control-value" id="emi-amount-val">₹5,00,000</span>
               </div>
-              <input type="range" class="calc-range" id="emi-amount" min="100000" max="2500000" step="50000" value="500000">
+              <input type="range" class="calc-range" id="emi-amount" aria-label="Loan amount" min="100000" max="2500000" step="50000" value="500000">
               <div class="range-presets">
                 <button type="button" class="preset-chip" data-loan="300000">₹3 Lakh</button>
                 <button type="button" class="preset-chip" data-loan="500000">₹5 Lakh</button>
@@ -251,7 +251,7 @@
                 <span class="control-title">Interest Rate (p.a.)</span>
                 <span class="control-value" id="emi-rate-val">10.0%</span>
               </div>
-              <input type="range" class="calc-range" id="emi-rate" min="6" max="18" step="0.25" value="10">
+              <input type="range" class="calc-range" id="emi-rate" aria-label="Annual interest rate" min="6" max="18" step="0.25" value="10">
             </div>
 
             <div class="control-group">
@@ -259,7 +259,7 @@
                 <span class="control-title">Tenure (Duration)</span>
                 <span class="control-value" id="emi-tenure-val">5 Years</span>
               </div>
-              <input type="range" class="calc-range" id="emi-tenure" min="1" max="30" step="1" value="5">
+              <input type="range" class="calc-range" id="emi-tenure" aria-label="Loan tenure in years" min="1" max="30" step="1" value="5">
             </div>
 
             <!-- EMI Result Breakdown -->
@@ -347,7 +347,7 @@
                 <span class="control-title">Height</span>
                 <span class="control-value" id="bmi-height-val">175 cm</span>
               </div>
-              <input type="range" class="calc-range" id="bmi-height" min="120" max="210" step="1" value="175">
+              <input type="range" class="calc-range" id="bmi-height" aria-label="Height in centimetres" min="120" max="210" step="1" value="175">
             </div>
 
             <div class="control-group">
@@ -355,7 +355,7 @@
                 <span class="control-title">Weight</span>
                 <span class="control-value" id="bmi-weight-val">68 kg</span>
               </div>
-              <input type="range" class="calc-range" id="bmi-weight" min="35" max="150" step="1" value="68">
+              <input type="range" class="calc-range" id="bmi-weight" aria-label="Weight in kilograms" min="35" max="150" step="1" value="68">
             </div>
 
             <div class="sandbox-result-box">
@@ -406,7 +406,7 @@
                 <span class="control-title">Monthly SIP Investment</span>
                 <span class="control-value" id="sip-monthly-val">₹5,000</span>
               </div>
-              <input type="range" class="calc-range" id="sip-monthly" min="500" max="50000" step="500" value="5000">
+              <input type="range" class="calc-range" id="sip-monthly" aria-label="Monthly investment" min="500" max="50000" step="500" value="5000">
             </div>
 
             <div class="control-group">
@@ -414,7 +414,7 @@
                 <span class="control-title">Expected Annual Return</span>
                 <span class="control-value" id="sip-rate-val">12.0%</span>
               </div>
-              <input type="range" class="calc-range" id="sip-rate" min="6" max="25" step="0.5" value="12">
+              <input type="range" class="calc-range" id="sip-rate" aria-label="Assumed annual return" min="6" max="25" step="0.5" value="12">
             </div>
 
             <div class="control-group">
@@ -422,7 +422,7 @@
                 <span class="control-title">Time Horizon</span>
                 <span class="control-value" id="sip-tenure-val">10 Years</span>
               </div>
-              <input type="range" class="calc-range" id="sip-tenure" min="1" max="30" step="1" value="10">
+              <input type="range" class="calc-range" id="sip-tenure" aria-label="Investment duration in years" min="1" max="30" step="1" value="10">
             </div>
 
             <div class="sandbox-result-box">
@@ -479,7 +479,7 @@
               Essential Utility Suite
             </span>
             <h2 class="section-title">Small Tools. Useful Answers.</h2>
-            <p class="section-desc">Choose a topic below or filter by category to find instant, accurate calculations for everyday questions.</p>
+            <p class="section-desc">Choose a topic below or filter by category to find practical estimates for everyday questions.</p>
           </div>
           <a href="/calculators/" class="section-header-link">
             <span>Explore all calculators</span>
@@ -534,10 +534,10 @@
             </div>
             <div class="tool-card-body">
               <h3 class="tool-title">BMI &amp; Health Calculator</h3>
-              <p class="tool-desc">Track body mass index, optimal healthy weight ranges, and personalized calorie thresholds.</p>
+              <p class="tool-desc">Estimate adult body mass index and explore its reference ranges.</p>
             </div>
             <div class="tool-card-footer">
-              <span>WHO metrics</span>
+              <span>Adult BMI reference</span>
               <span class="tool-cta-text">Open tool &rarr;</span>
             </div>
           </a>
@@ -641,7 +641,7 @@
             </div>
             <div class="tool-card-body">
               <h3 class="tool-title">Date Difference &amp; Duration</h3>
-              <p class="tool-desc">Calculate total days, weeks, business days, and working hours between any two historical dates.</p>
+              <p class="tool-desc">Explore elapsed days and calendar intervals between two dates.</p>
             </div>
             <div class="tool-card-footer">
               <span>Calendar intervals</span>
@@ -721,7 +721,7 @@
               </a>
             </div>
             <a href="/categories/finance/" class="category-view-all">
-              <span>View all 16 finance tools</span> <span>&rarr;</span>
+              <span>View all finance tools</span> <span>&rarr;</span>
             </a>
           </div>
 
@@ -751,7 +751,7 @@
               </a>
             </div>
             <a href="/categories/health-fitness/" class="category-view-all">
-              <span>View all 10 health tools</span> <span>&rarr;</span>
+              <span>View all health tools</span> <span>&rarr;</span>
             </a>
           </div>
 
@@ -781,7 +781,7 @@
               </a>
             </div>
             <a href="/categories/date-age/" class="category-view-all">
-              <span>View all 10 date tools</span> <span>&rarr;</span>
+              <span>View all date tools</span> <span>&rarr;</span>
             </a>
           </div>
 
@@ -811,7 +811,7 @@
               </a>
             </div>
             <a href="/categories/math/" class="category-view-all">
-              <span>View all 15 math tools</span> <span>&rarr;</span>
+              <span>View all math tools</span> <span>&rarr;</span>
             </a>
           </div>
 
@@ -841,7 +841,7 @@
               </a>
             </div>
             <a href="/categories/conversions/" class="category-view-all">
-              <span>View all 13 conversion tools</span> <span>&rarr;</span>
+              <span>View all conversion tools</span> <span>&rarr;</span>
             </a>
           </div>
 
@@ -857,21 +857,21 @@
               <span class="cat-tool-count">Explore tools</span>
             </div>
             <p style="font-size: 0.88rem; color: var(--text-muted);">
-              Dice roller, random number generators, bingo picker, and secure passwords.
+              Dice roller, random number generators, bingo picker, and password generators.
             </p>
             <div class="category-quicklinks">
               <a href="/categories/games/" class="cat-sublink">
                 <span>Random Password Generator</span> <span>&rarr;</span>
               </a>
               <a href="/categories/games/" class="cat-sublink">
-                <span>Dice Roller 3D</span> <span>&rarr;</span>
+                <span>Dice Roller</span> <span>&rarr;</span>
               </a>
               <a href="/categories/games/" class="cat-sublink">
                 <span>Lottery Number Generator</span> <span>&rarr;</span>
               </a>
             </div>
             <a href="/categories/games/" class="category-view-all">
-              <span>View all 5 fun tools</span> <span>&rarr;</span>
+              <span>View all fun tools</span> <span>&rarr;</span>
             </a>
           </div>
 
@@ -916,7 +916,7 @@
                 <a href="/blog/emi-calculation-guide/">Understand the Real Math Behind Your Loan EMI &amp; Amortization</a>
               </h3>
               <p class="article-excerpt">
-                Go beyond the simple monthly figure. Discover how principal amortization, compounding interest rates, and loan tenures fit together—and how early prepayments can save you lakhs.
+                Go beyond the simple monthly figure. Discover how principal amortization, compounding interest rates, and loan tenures fit together—and how repayment choices affect total interest.
               </p>
               <a href="/blog/emi-calculation-guide/" class="article-footer-cta">
                 <span>Read the complete EMI calculation guide</span>
@@ -1067,13 +1067,13 @@
         <div class="faq-container">
 
           <div class="faq-item">
-            <button type="button" class="faq-question-btn" aria-expanded="false">
+            <button type="button" class="faq-question-btn" aria-expanded="false" aria-controls="faq-answer-1">
               <span>Are all calculators on CalcuPortal completely free to use?</span>
               <svg class="faq-icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </button>
-            <div class="faq-answer-panel">
+            <div class="faq-answer-panel" id="faq-answer-1" hidden>
               <div class="faq-answer-content">
                 Yes, 100%. All calculators and guides across all categories (Finance, Health, Math, Dates, Conversions) are freely accessible with zero paywalls, subscriptions, or credit card requirements.
               </div>
@@ -1081,13 +1081,13 @@
           </div>
 
           <div class="faq-item">
-            <button type="button" class="faq-question-btn" aria-expanded="false">
+            <button type="button" class="faq-question-btn" aria-expanded="false" aria-controls="faq-answer-2">
               <span>Do I need to create an account or provide my email?</span>
               <svg class="faq-icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </button>
-            <div class="faq-answer-panel">
+            <div class="faq-answer-panel" id="faq-answer-2" hidden>
               <div class="faq-answer-content">
                 No sign-up is required. You can use every tool instantly upon opening the page without creating an account or sharing any personal contact details.
               </div>
@@ -1095,13 +1095,13 @@
           </div>
 
           <div class="faq-item">
-            <button type="button" class="faq-question-btn" aria-expanded="false">
+            <button type="button" class="faq-question-btn" aria-expanded="false" aria-controls="faq-answer-3">
               <span>Is my financial or personal data secure when I calculate?</span>
               <svg class="faq-icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </button>
-            <div class="faq-answer-panel">
+            <div class="faq-answer-panel" id="faq-answer-3" hidden>
               <div class="faq-answer-content">
                 The homepage calculators calculate locally in your browser. This does not make browsing anonymous: hosting and analytics services process visit information. See our Privacy Policy for details, including contact messages.
               </div>
@@ -1109,13 +1109,13 @@
           </div>
 
           <div class="faq-item">
-            <button type="button" class="faq-question-btn" aria-expanded="false">
+            <button type="button" class="faq-question-btn" aria-expanded="false" aria-controls="faq-answer-4">
               <span>How accurate are the financial loan EMI and tax formulas?</span>
               <svg class="faq-icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </button>
-            <div class="faq-answer-panel">
+            <div class="faq-answer-panel" id="faq-answer-4" hidden>
               <div class="faq-answer-content">
                 Our tools use industry-standard mathematical formulas (such as the standard bank reducing-balance compound formula for EMIs). However, bank fees, processing charges, insurance, and lender terms vary. We recommend verifying specific contract figures with your lending institution.
               </div>
@@ -1123,15 +1123,15 @@
           </div>
 
           <div class="faq-item">
-            <button type="button" class="faq-question-btn" aria-expanded="false">
+            <button type="button" class="faq-question-btn" aria-expanded="false" aria-controls="faq-answer-5">
               <span>Can I request a new calculator or report an issue?</span>
               <svg class="faq-icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </button>
-            <div class="faq-answer-panel">
+            <div class="faq-answer-panel" id="faq-answer-5" hidden>
               <div class="faq-answer-content">
-                We welcome feedback and new calculator ideas! You can reach our engineering and editorial team directly via our <a href="/contact/" style="color: var(--primary); text-decoration: underline;">Contact Page</a>.
+                We welcome feedback and new calculator ideas! You can reach us directly via our <a href="/contact/" style="color: var(--primary); text-decoration: underline;">Contact Page</a>.
               </div>
             </div>
           </div>
