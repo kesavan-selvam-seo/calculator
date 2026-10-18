@@ -58,12 +58,11 @@
         "@type":"ItemList",
         "name":"Featured CalcuPortal guides",
         "itemListElement":[
-          {"@type":"ListItem","position":1,"url":"https://www.calcuportal.com/blog/sports/ipl-2026-season-review/"},
+          {"@type":"ListItem","position":1,"url":"https://www.calcuportal.com/blog/general-knowledge/diwali-2026/"},
           {"@type":"ListItem","position":2,"url":"https://www.calcuportal.com/blog/education/cbse-class-10-board-exam-date-2027/"},
           {"@type":"ListItem","position":3,"url":"https://www.calcuportal.com/blog/apple-iphone-17-pro-max-buying-guide/"},
           {"@type":"ListItem","position":4,"url":"https://www.calcuportal.com/blog/important-days-in-october/"},
-          {"@type":"ListItem","position":5,"url":"https://www.calcuportal.com/blog/general-knowledge/navratri-colours-2026/"},
-          {"@type":"ListItem","position":6,"url":"https://www.calcuportal.com/blog/travel/best-time-to-visit-goa/"}
+          {"@type":"ListItem","position":5,"url":"https://www.calcuportal.com/blog/travel/best-time-to-visit-goa/"}
         ]
       }
     ]
@@ -245,6 +244,30 @@
       .footer-bottom{flex-direction:column}
     }
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+
+    /* Blog archive: brand consistency, readable type and accessible discovery. */
+    :root{--bg:#faf9fd;--brand:#6355e8;--brand-dark:#4f46e5;--sub:#595368;--brand-gradient:linear-gradient(135deg,#6366f1 0%,#8b5cf6 50%,#d946ef 100%)}
+    html[data-theme="dark"]{--brand:#b99aff;--sub:#b8b1c6;--dark:#251b3d;--on-dark:#f7f3ff;--brand-gradient:linear-gradient(135deg,#818cf8,#a78bfa,#f472b6)}
+    .brand span,h1 em{background:var(--brand-gradient);background-clip:text;-webkit-background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+    .hero{padding:52px 0 34px;gap:40px}h1{font-weight:800;font-size:clamp(36px,4.8vw,60px);letter-spacing:-2.5px}
+    .hero-copy{font-size:16px}.hero-trust{font-size:12px}.hero-panel p{font-size:14px}.hero-panel .search-hint{font-size:12px!important;color:#d3c9e4!important}
+    .search-box{padding:6px;gap:5px}.search-box input{min-width:0;font-size:14px}.search-box input::placeholder{color:#d0c6e0}.search-box svg{margin-left:5px}
+    .search-submit,.load-more{border:0;border-radius:8px;padding:12px 16px;background:#4f46e5;color:#fff;font-weight:700;min-height:44px}
+    .search-submit{background:#f2ecff;color:#3d2372}
+    .nav-links a,.topic-strip a,.text-link{font-size:14px}.topic-strip{flex-wrap:wrap;overflow:visible}.topic-strip a{min-height:44px}
+    .section-head p,.category-card p,.story-card p,.latest-card p,.utility p,.about-strip p{font-size:14px}
+    .story-tag{font-size:11px;letter-spacing:.5px;max-width:100%;white-space:normal}.story-meta{font-size:13px}.story-card h3,.category-card h3{font-size:17px}
+    .lead-story{min-height:330px}.lead-story p{font-size:15px}.story-list{grid-template-columns:1fr 1fr}.story-card{min-height:170px}
+    #articles{scroll-margin-top:105px}.archive-controls{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+    .archive-controls label{font-size:14px;font-weight:700;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    select,#reset-articles{font:inherit;min-height:44px;border:1px solid var(--line);border-radius:9px;padding:10px 14px;background:var(--paper);color:var(--ink);max-width:100%}
+    select:focus-visible{outline:3px solid var(--brand);outline-offset:3px}#reset-articles{cursor:pointer;color:var(--brand)}
+    #search-status{color:var(--sub);font-size:14px;margin-bottom:20px}.empty-state{display:block;font-size:15px;margin-bottom:20px}
+    .latest-grid{gap:20px;grid-template-columns:repeat(3,minmax(0,1fr))}.latest-card{display:flex;flex-direction:column;padding:24px;min-width:0}.latest-card h3{font-size:20px;line-height:1.4;letter-spacing:-.5px}.latest-card .text-link{margin-top:auto;padding-top:12px}
+    .load-more{display:block;margin:28px auto 0}.footer-col a,.footer-brand p,.footer-bottom,.tool-links a{font-size:14px}.footer-col a{padding:4px 0}.footer-col h3{font-size:12px}
+    @media(max-width:900px){.latest-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.nav{gap:12px}.nav-links a{padding:0 8px}}
+    @media(max-width:760px){.hero{grid-template-columns:1fr;gap:24px;padding-top:34px}.hero-panel{padding:24px}.brand{font-size:20px}.nav-actions{gap:8px}}
+    @media(max-width:520px){.latest-grid,.story-list{grid-template-columns:1fr}.hero-panel{padding:18px}.hero h1{font-size:38px;letter-spacing:-1.8px}.topic-strip{gap:6px}.topic-strip a{font-size:12px;padding:9px 10px}.archive-controls{align-items:stretch}.archive-controls label{display:block}.archive-controls select{display:block;margin-top:8px;width:100%}.brand{gap:7px;font-size:19px}.nav{gap:8px}.search-submit{padding:10px}.search-box input{font-size:13px}.latest-card{padding:20px}}
   </style>
 </head>
 <body>
@@ -252,7 +275,7 @@
 
   <header class="site-header">
     <div class="shell nav">
-      <a class="brand" href="/" aria-label="CalcuPortal home"><img src="/logo.png" alt="">CalcuPortal</a>
+      <a class="brand" href="/" aria-label="CalcuPortal home"><img src="/logo.png" alt="" width="40" height="40"><span>CalcuPortal</span></a>
       <div class="nav-actions">
         <nav class="nav-links" id="primary-nav" aria-label="Main navigation">
           <a href="/calculators/">Calculators</a>
@@ -278,11 +301,11 @@
         <div class="hero-panel">
           <p class="eyebrow">FIND SOMETHING USEFUL</p>
           <h2>What do you want to learn today?</h2>
-          <p>Search featured stories, recent guides and topic categories from this page.</p>
-          <div class="search-box">
+          <p>Search the full article library, then narrow your results by topic.</p>
+          <form class="search-box" role="search" id="article-search-form">
             <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
-            <input id="blog-search" type="search" placeholder="Try: IPL, CBSE, Goa, finance, Navratri..." aria-label="Search CalcuPortal blog topics">
-          </div>
+            <input id="blog-search" type="search" placeholder="Try Diwali, CBSE, Goa or loan EMI" aria-label="Search all articles">
+          <button type="submit" class="search-submit">Search</button></form>
           <p class="search-hint">Tip: press Esc to clear your search.</p>
         </div>
       </section>
@@ -299,23 +322,20 @@
         <a href="/blog/lifestyle/">Lifestyle</a>
       </nav>
 
-      <p class="search-status" id="search-status" aria-live="polite"></p>
-      <div class="empty-state" id="empty-state">No matching topics found. Try a broader search such as <strong>travel</strong>, <strong>sports</strong>, <strong>education</strong> or <strong>finance</strong>.</div>
-
       <section class="section searchable-section" id="featured">
         <div class="section-head">
           <div><p class="eyebrow">FEATURED NOW</p><h2>Worth reading today</h2><p>Timely updates, useful explainers and practical guides from across CalcuPortal.</p></div>
-          <a class="text-link" href="#latest">More recent guides ↘</a>
+          <a class="text-link" href="#articles">Browse all articles ↘</a>
         </div>
 
         <div class="featured-grid">
-          <a class="lead-story searchable" data-search="sports cricket ipl 2026 season review winner orange cap purple cap records rcb" href="/blog/sports/ipl-2026-season-review/">
+          <a class="lead-story searchable" data-search="sports cricket ipl 2026 season review winner orange cap purple cap records rcb" href="/blog/general-knowledge/diwali-2026/">
             <div>
-              <span class="story-tag">Sports · Updated Oct 17</span>
-              <h3>IPL 2026 season review: champions, awards and records.</h3>
-              <p>A concise season wrap covering the final, major awards, batting records and the key numbers from IPL 2026.</p>
+              <span class="story-tag">Festival guide</span>
+              <h3>Diwali 2026: dates, celebrations &amp; festive inspiration.</h3>
+              <p>Explore the Diwali guide for festival dates, puja information, rangoli ideas, wishes and captions.</p>
             </div>
-            <div class="story-meta"><span>Season review</span><strong>Read the guide →</strong></div>
+            <div class="story-meta"><span>Culture &amp; celebrations</span><strong>Read the guide →</strong></div>
           </a>
 
           <div class="story-list">
@@ -325,6 +345,87 @@
             <a class="story-card searchable" data-search="travel goa best time visit weather beach monsoon trip" href="/blog/travel/best-time-to-visit-goa/"><div><span class="story-tag">Travel</span><h3>Best time to visit Goa</h3></div><p>Compare seasons, weather, crowds and trip priorities.</p></a>
           </div>
         </div>
+      </section>
+
+      <section class="section" id="articles" aria-labelledby="articles-heading">
+        <div class="section-head"><div><p class="eyebrow">THE ARTICLE LIBRARY</p><h2 id="articles-heading">Find your next useful read</h2><p>Browse every guide, or use search and topic filters to find a specific answer.</p></div><a class="text-link" href="#topics">Explore topic hubs ↗</a></div>
+        <div class="archive-controls"><label for="article-topic">Filter by topic <select id="article-topic"><option value="">All topics</option><!-- TOPIC_OPTIONS_START --><option value="education">Education</option><option value="general-knowledge">General knowledge</option><option value="finance">Finance &amp; money</option><option value="health-fitness">Health &amp; fitness</option><option value="travel">Travel</option><option value="sports">Sports</option><option value="technology">Technology</option><option value="everyday">Everyday &amp; math</option><!-- TOPIC_OPTIONS_END --></select></label><button type="button" id="reset-articles">Clear filters</button></div>
+        <p id="search-status" role="status" aria-live="polite"></p>
+        <div class="empty-state" id="empty-state" hidden>No articles match your search. Try fewer words or choose another topic.</div>
+        <div class="latest-grid" id="article-grid"><!-- ARTICLE_CARDS_START -->
+<a class="latest-card" data-topic="technology" href="/blog/apple-iphone-17-pro-max-buying-guide/"><span class="story-tag">Technology</span><h3>Apple iPhone 17 Pro Max Buying Guide: Price, Specs &amp; Is It Worth It?</h3><p>Apple iPhone 17 Pro Max buying guide for India in 2026: price, specs, camera, battery, storage, features and iPhone 18 Pro Max comparison before you buy.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="sports" href="/blog/sports/asia-cup-winners/"><span class="story-tag">Sports</span><h3>Asia Cup Winners List</h3><p>Asia Cup winners list from 1984 to 2025 with champions, runners-up, hosts, formats, final results and the most successful teams in men&#x27;s Asia Cup history.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="travel" href="/blog/travel/bangalore-to-goa-distance/"><span class="story-tag">Travel</span><h3>Bangalore to Goa Distance, Route &amp; Travel Time</h3><p>Plan a Bangalore to Goa journey with route options, approximate travel time, breaks and travel-budget considerations.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="travel" href="/blog/travel/bangalore-to-ooty-distance/"><span class="story-tag">Travel</span><h3>Bangalore to Ooty Distance, Route &amp; Travel Time</h3><p>Find the Bangalore to Ooty distance, best road routes, travel time, Bandipur timings, fuel cost tips and practical stops for planning your trip.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="travel" href="/blog/travel/best-places-to-visit-in-goa/"><span class="story-tag">Travel</span><h3>Best Places to Visit in Goa</h3><p>Explore the best places to visit in Goa, from Baga and Palolem to Fort Aguada, Old Goa and Dudhsagar Falls, with practical trip-planning tips.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="travel" href="/blog/travel/best-places-to-visit-in-kerala/"><span class="story-tag">Travel</span><h3>Best Places to Visit in Kerala</h3><p>Explore the best places to visit in Kerala, from Munnar and Wayanad to Alleppey, Kochi, Varkala and Thekkady, with practical trip-planning tips.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="travel" href="/blog/travel/places-to-visit-in-kodaikanal/"><span class="story-tag">Travel</span><h3>Best Places to Visit in Kodaikanal</h3><p>Explore the best places to visit in Kodaikanal, including the lake, Coaker’s Walk, Bryant Park, viewpoints, Pine Forest, Guna Caves and scenic nature spots.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="travel" href="/blog/travel/places-to-visit-in-munnar/"><span class="story-tag">Travel</span><h3>Best Places to Visit in Munnar</h3><p>Explore the best places to visit in Munnar, including Eravikulam National Park, Mattupetty Dam, Top Station, Kundala Lake, tea estates, waterfalls and viewpoints.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="travel" href="/blog/travel/best-places-to-visit-in-ooty/"><span class="story-tag">Travel</span><h3>Best Places to Visit in Ooty</h3><p>Explore the best places to visit in Ooty, including Ooty Lake, Botanical Garden, Doddabetta, Rose Garden, Pykara, Avalanche and Nilgiri Mountain Railway, with practical trip-planning tips.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="travel" href="/blog/travel/best-time-to-visit-goa/"><span class="story-tag">Travel</span><h3>Best Time to Visit Goa</h3><p>Find the best time to visit Goa month by month, with weather, monsoon, beach conditions, crowds and practical travel tips for planning your trip.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="travel" href="/blog/travel/best-time-to-visit-kodaikanal/"><span class="story-tag">Travel</span><h3>Best Time to Visit Kodaikanal | Month-by-Month Weather Guide</h3><p>Find the best time to visit Kodaikanal month by month, with weather, crowds, rainfall, sightseeing conditions and practical travel tips.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="travel" href="/blog/travel/best-time-to-visit-munnar/"><span class="story-tag">Travel</span><h3>Best Time to Visit Munnar: Month-by-Month Weather &amp; Travel Guide</h3><p>Find the best time to visit Munnar month by month, with weather, monsoon, sightseeing conditions, crowds and practical trip-planning tips.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="travel" href="/blog/travel/best-time-to-visit-ooty/"><span class="story-tag">Travel</span><h3>Best Time to Visit Ooty: Month-by-Month Weather &amp; Travel Guide</h3><p>Find the best time to visit Ooty month by month, with weather, seasons, crowds, sightseeing conditions and practical trip-planning tips.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="education" href="/blog/education/cbse-class-10-board-exam-date-2027/"><span class="story-tag">Education</span><h3>CBSE Class 10 Date Sheet 2027</h3><p>CBSE Class 10 date sheet 2027: check official release status, expected first and second board exam periods, PDF download steps, 2026–27 syllabus and sample papers.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="travel" href="/blog/travel/chennai-to-pondicherry-distance/"><span class="story-tag">Travel</span><h3>Chennai to Pondicherry Distance, Route &amp; Travel Time</h3><p>Check the Chennai to Pondicherry distance by road, ECR route, travel time, transport options, fuel cost formula, stops and practical road-trip tips.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="sports" href="/blog/sports/cricket-stadiums-in-india/"><span class="story-tag">Sports</span><h3>Cricket Stadiums in India</h3><p>Explore major cricket stadiums in India with cities, states, capacities, home teams, international venues and key cricket facts.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="sports" href="/blog/sports/cricket-world-cup-winners/"><span class="story-tag">Sports</span><h3>Cricket World Cup Winners List</h3><p>Cricket World Cup winners list from 1975 to 2023 with champions, runners-up, hosts, final venues, winning margins and key World Cup records.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="general-knowledge" href="/blog/general-knowledge/diwali-2026/"><span class="story-tag">General knowledge</span><h3>Diwali 2026 Dates, Puja, Rangoli Designs &amp; Happy Diwali Wishes</h3><p>Diwali 2026 is on 8 November in India. Check Choti Diwali and Dev Diwali dates, Lakshmi Puja timings, easy rangoli designs, Happy Diwali wishes, quotes and captions.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="sports" href="/blog/sports/ipl-fastest-century/"><span class="story-tag">Sports</span><h3>Fastest Centuries in IPL History</h3><p>Find the fastest hundreds in IPL history, including Chris Gayle&#x27;s 30-ball century and Vaibhav Sooryavanshi&#x27;s Indian-player milestone.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="sports" href="/blog/sports/ipl-fastest-fifty/"><span class="story-tag">Sports</span><h3>Fastest Fifties in IPL History</h3><p>Check the fastest half-centuries in IPL history, including 13-ball fifties by Yashasvi Jaiswal and Urvil Patel through IPL 2026.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="general-knowledge" href="/blog/general-knowledge/general-knowledge-about-india/"><span class="story-tag">General knowledge</span><h3>General Knowledge About India</h3><p>General knowledge about India with 100+ useful GK facts on states, capitals, geography, history, culture, national symbols, rivers, mountains and important places.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="travel" href="/blog/travel/goa-3-day-itinerary/"><span class="story-tag">Travel</span><h3>Goa 3-Day Itinerary: Beaches, Forts &amp; Things to Do</h3><p>Plan a balanced 3-day Goa itinerary with beaches, heritage attractions, food breaks and practical travel tips.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="travel" href="/blog/travel/goa-trip-cost/"><span class="story-tag">Travel</span><h3>Goa Trip Cost: Budget for 3, 5 &amp; 7 Days</h3><p>Plan a practical Goa trip budget for 3, 5 or 7 days with travel, hotels, food, local transport, sightseeing and extra expenses.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="sports" href="/blog/sports/ipl-highest-individual-score/"><span class="story-tag">Sports</span><h3>Highest Individual Score in IPL History</h3><p>Find the highest individual score in IPL history, from Chris Gayle&#x27;s 175* to recent record innings, with notable scores through IPL 2026.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="sports" href="/blog/sports/highest-individual-score-odi/"><span class="story-tag">Sports</span><h3>Highest Individual Score in ODI Cricket</h3><p>Find the highest individual score in ODI cricket, led by Rohit Sharma’s 264, with the top 10 scores, players, teams, venues and key ODI records.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="general-knowledge" href="/blog/general-knowledge/highest-mountains-in-india/"><span class="story-tag">General knowledge</span><h3>Highest Mountains and Peaks in India</h3><p>Explore the highest mountains in India with peak heights, states, ranges, rankings and key facts about Kangchenjunga, Nanda Devi, Kamet and other major peaks.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="sports" href="/blog/sports/ipl-highest-team-total/"><span class="story-tag">Sports</span><h3>Highest Team Totals in IPL History</h3><p>See the highest team innings totals in IPL history, including Sunrisers Hyderabad&#x27;s 287/3 record and big totals from the 2026 season.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="everyday" href="/blog/how-to-calculate-age/"><span class="story-tag">Everyday &amp; math</span><h3>How to Calculate Age Online</h3><p>Learn how to calculate age online from date of birth with simple steps, formula, examples, and exact age in years, months, and days.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="health-fitness" href="/blog/how-to-calculate-bmi/"><span class="story-tag">Health &amp; fitness</span><h3>How to Calculate BMI: Formula, Chart and Examples</h3><p>Learn how to calculate BMI using the BMI formula with examples, BMI chart, categories, healthy weight range, and easy online BMI calculation steps.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="finance" href="/blog/emi-calculation-guide/"><span class="story-tag">Finance &amp; money</span><h3>How to Calculate EMI Formula, Examples &amp; Repayment Guide</h3><p>Learn how to calculate loan EMI using the reducing-balance formula. See a ₹5 lakh worked example, amortization table, interest comparisons and practical repayment tips.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="everyday" href="/blog/percentage-calculation-guide/"><span class="story-tag">Everyday &amp; math</span><h3>How to Calculate Percentages: Complete Percentage Calculation Guide</h3><p>Learn how to calculate percentages with simple formulas, step-by-step examples, percentage increase, decrease, marks, discounts, and real-life calculations.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="general-knowledge" href="/blog/important-days-in-november/"><span class="story-tag">General knowledge</span><h3>Important Days in November 2026 – National &amp; International Days</h3><p>Explore important days in November 2026, including Indian national observances, UN international days, Diwali, Children’s Day, Guru Nanak Jayanti, Constitution Day and more.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="general-knowledge" href="/blog/important-days-in-october/"><span class="story-tag">General knowledge</span><h3>Important Days in October 2026 – National &amp; International Days</h3><p>Explore the important days in October 2026, including national and international days, Gandhi Jayanti, World Teachers’ Day, World Food Day, Dussehra and more.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="general-knowledge" href="/blog/important-days-in-september/"><span class="story-tag">General knowledge</span><h3>Important Days in September 2026: National &amp; International Days</h3><p>Explore the important days in September 2026, including national and international days, awareness days, festivals, and special events.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="general-knowledge" href="/blog/general-knowledge/important-lakes-in-india/"><span class="story-tag">General knowledge</span><h3>Important Lakes in India</h3><p>Explore important lakes in India with states, types, locations and key GK facts about Wular, Chilika, Sambhar, Loktak, Vembanad, Dal and other major lakes.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="general-knowledge" href="/blog/general-knowledge/important-rivers-of-india/"><span class="story-tag">General knowledge</span><h3>Important Rivers in India</h3><p>Learn about important rivers in India with sources, tributaries, states, drainage systems, lengths and key GK facts about the Ganga, Godavari, Brahmaputra, Narmada and more.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="general-knowledge" href="/blog/general-knowledge/indian-states-and-capitals/"><span class="story-tag">General knowledge</span><h3>Indian States and Capitals</h3><p>Check the 28 states of India and their capitals in an updated list, with state-wise details, regional grouping, important GK facts and FAQs for quick revision.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="general-knowledge" href="/blog/general-knowledge/indian-states-and-languages/"><span class="story-tag">General knowledge</span><h3>Indian States and Languages</h3><p>Check the major languages spoken or associated with all 28 Indian states, language families, scripts, 22 scheduled languages and key GK facts.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="sports" href="/blog/sports/ipl-2026-season-review/"><span class="story-tag">Sports</span><h3>IPL 2026 Season Review: Champions, Awards and Records</h3><p>Review IPL 2026 after the final: RCB&#x27;s title defence, final score, Orange and Purple Cap winners and major season records.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="sports" href="/blog/sports/ipl-auction-rules/"><span class="story-tag">Sports</span><h3>IPL Auction and Player-Retention Rules Explained</h3><p>Understand IPL player auctions, retained and released players, franchise purse, bidding, overseas limits and why rules vary by season.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="sports" href="/blog/sports/ipl-guide/"><span class="story-tag">Sports</span><h3>IPL Guide: Teams, Winners, Records, Rules and History</h3><p>Explore the IPL guide for team lists, champions, Orange and Purple Cap winners, records, rules, points system, auction basics and IPL 2026 results.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="sports" href="/blog/sports/ipl-history/"><span class="story-tag">Sports</span><h3>IPL History: From the First Season to 2026</h3><p>Explore IPL history from 2008 to 2026, including the first match, early champions, team expansion, major milestones and recent winners.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="sports" href="/blog/sports/ipl-impact-player-rule/"><span class="story-tag">Sports</span><h3>IPL Impact Player Rule Explained</h3><p>Learn how the IPL Impact Player rule works, how substitutes are nominated, overseas-player restrictions and key conditions.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="sports" href="/blog/sports/ipl-orange-cap-winners/"><span class="story-tag">Sports</span><h3>IPL Orange Cap Winners List from 2008 to 2026</h3><p>See every IPL Orange Cap winner from 2008 to 2026 with team and runs, plus the highest single-season run tally and award records.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="sports" href="/blog/sports/ipl-points-system-playoffs/"><span class="story-tag">Sports</span><h3>IPL Points System and Playoff Qualification Explained</h3><p>Learn how IPL points, wins, no-results, net run rate and the four-team playoff system determine the road to the final.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="sports" href="/blog/sports/ipl-purple-cap-winners/"><span class="story-tag">Sports</span><h3>IPL Purple Cap Winners List from 2008 to 2026</h3><p>Check the full IPL Purple Cap winners list from 2008–2026 with each bowler&#x27;s team and wicket tally, including the latest winner.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="sports" href="/blog/sports/ipl-rules-format/"><span class="story-tag">Sports</span><h3>IPL Rules and Format Explained</h3><p>Understand IPL match rules, T20 overs, overseas-player limits, league-stage matches and playoff format.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="sports" href="/blog/sports/ipl-home-grounds/"><span class="story-tag">Sports</span><h3>IPL Teams and Their Home Grounds</h3><p>Browse all ten IPL teams, their principal home cities and stadiums, with a note on alternate venues and season changes.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="sports" href="/blog/sports/ipl-teams-list/"><span class="story-tag">Sports</span><h3>IPL Teams List 2026</h3><p>IPL teams list 2026 with all 10 current teams, abbreviations, home cities, captains, titles, former team names and key IPL facts.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="sports" href="/blog/sports/ipl-winners-list/"><span class="story-tag">Sports</span><h3>IPL Winners List</h3><p>IPL winners list from 2008 to 2026 with champions, runners-up, final venues, winning margins and most successful IPL teams by titles.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="travel" href="/blog/travel/kerala-trip-cost/"><span class="story-tag">Travel</span><h3>Kerala Trip Cost: Complete Budget Guide for 3, 5 &amp; 7 Days</h3><p>Plan a Kerala trip budget for 3, 5 or 7 days with travel, hotels, food, local transport, sightseeing, houseboats and extra expenses.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="travel" href="/blog/travel/kodaikanal-2-day-itinerary/"><span class="story-tag">Travel</span><h3>Kodaikanal 2-Day Itinerary: Complete Travel Plan</h3><p>Follow a practical 2-day Kodaikanal itinerary covering the lake, Coaker&#x27;s Walk, viewpoints, Pillar Rocks, Pine Forest and nearby attractions.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="travel" href="/blog/travel/kodaikanal-trip-cost/"><span class="story-tag">Travel</span><h3>Kodaikanal Trip Cost: Complete Budget Guide</h3><p>Plan your Kodaikanal trip cost for 2, 3 or 4 days with a practical budget breakdown for travel, hotels, food, local transport and sightseeing.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="general-knowledge" href="/blog/general-knowledge/major-dams-in-india/"><span class="story-tag">General knowledge</span><h3>Major Dams in India</h3><p>Explore major dams in India with their rivers, states, uses and key GK facts about Bhakra, Tehri, Hirakud, Sardar Sarovar, Nagarjuna Sagar and more.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="sports" href="/blog/sports/most-centuries-international-cricket/"><span class="story-tag">Sports</span><h3>Most Centuries in International Cricket</h3><p>Check the most centuries in international cricket, led by Sachin Tendulkar, with top century-makers across Tests, ODIs and T20Is and key records.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="sports" href="/blog/sports/ipl-most-centuries/"><span class="story-tag">Sports</span><h3>Most Centuries in IPL History</h3><p>See the leading IPL century-makers through 2026, including Virat Kohli, Jos Buttler, KL Rahul and the record for most hundreds in one season.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="sports" href="/blog/sports/most-runs-international-cricket/"><span class="story-tag">Sports</span><h3>Most Runs in International Cricket: Top Run Scorers</h3><p>Check the most runs in international cricket, with Sachin Tendulkar at the top, Virat Kohli in second and format-wise records across Tests, ODIs and T20Is.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="sports" href="/blog/sports/ipl-most-runs-in-ipl/"><span class="story-tag">Sports</span><h3>Most Runs in IPL History: Top Run-Scorers Through 2026</h3><p>See the IPL all-time leading run-scorers through the 2026 final, including Virat Kohli, Rohit Sharma, career milestones and season-run records.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="sports" href="/blog/sports/ipl-most-sixes/"><span class="story-tag">Sports</span><h3>Most Sixes in IPL History</h3><p>Explore IPL six-hitting records through 2026, including career leaders, Vaibhav Sooryavanshi&#x27;s record 72 sixes in a season and Chris Gayle&#x27;s milestones.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="sports" href="/blog/sports/most-wickets-international-cricket/"><span class="story-tag">Sports</span><h3>Most Wickets in International Cricket</h3><p>Check the most wickets in international cricket, led by Muttiah Muralitharan, with top wicket takers across Tests, ODIs and T20Is and format-wise records.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="sports" href="/blog/sports/ipl-most-wickets-in-ipl/"><span class="story-tag">Sports</span><h3>Most Wickets in IPL History: Leading Bowlers Through 2026</h3><p>Explore the IPL all-time wicket-takers through the 2026 final, led by Yuzvendra Chahal, with career figures and seasonal wicket records.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="travel" href="/blog/travel/munnar-trip-cost/"><span class="story-tag">Travel</span><h3>Munnar Trip Cost: Complete Budget Guide for 3, 5 &amp; 7 Days</h3><p>Plan a Munnar trip budget for 3, 5 or 7 days with travel, hotels, food, local transport, sightseeing and activities.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="general-knowledge" href="/blog/general-knowledge/national-parks-in-india/"><span class="story-tag">General knowledge</span><h3>National Parks in India</h3><p>Explore national parks in India with the current count, state-wise examples, famous wildlife, first national park, major parks and important GK facts.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="general-knowledge" href="/blog/general-knowledge/national-symbols-of-india/"><span class="story-tag">General knowledge</span><h3>National Symbols of India</h3><p>Learn the national symbols of India with the flag, emblem, anthem, song, animal, bird, flower, tree, fruit, aquatic animal and important GK facts.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="general-knowledge" href="/blog/general-knowledge/navratri-colours-2026/"><span class="story-tag">General knowledge</span><h3>Navratri 9 Colours 2026: Day-Wise List with Dates &amp; Goddess</h3><p>See Navratri colours 2026 from 11–19 October with the colour for each day, Goddess Durga’s nine forms, meanings, outfit ideas and FAQs.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="general-knowledge" href="/blog/general-knowledge/navratri-mantras-2026/"><span class="story-tag">General knowledge</span><h3>Navratri Mantras 2026: 9 Devi Mantras with Meaning</h3><p>Read the 9 Navratri Devi mantras for 2026 in Sanskrit with transliteration, simple meanings, day-wise dates from Oct 11–19 and respectful chanting guidance.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="general-knowledge" href="/blog/general-knowledge/navratri-wishes-2026/"><span class="story-tag">General knowledge</span><h3>Navratri Wishes 2026: 50+ Messages, Quotes &amp; WhatsApp Status</h3><p>Share Happy Navratri 2026 wishes, heartfelt messages, Maa Durga quotes, short WhatsApp status, greetings for family and friends, and social captions.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="travel" href="/blog/travel/ooty-2-day-itinerary/"><span class="story-tag">Travel</span><h3>Ooty 2-Day Itinerary: Places, Timings &amp; Travel Tips</h3><p>Plan a practical 2-day Ooty itinerary covering Ooty Lake, Rose Garden, Doddabetta, Coonoor, Sim’s Park and scenic viewpoints without rushing.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="travel" href="/blog/travel/ooty-trip-cost/"><span class="story-tag">Travel</span><h3>Ooty Trip Cost: Complete Budget Guide</h3><p>Plan your Ooty trip cost for 2, 3 or 4 days with a practical budget breakdown for travel, hotels, food, local transport, sightseeing and extra expenses.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="sports" href="/blog/sports/t20-world-cup-winners/"><span class="story-tag">Sports</span><h3>T20 World Cup Winners List</h3><p>Men&#x27;s T20 World Cup winners list from 2007 to 2026 with champions, runners-up, hosts, final venues, winning margins and key T20 World Cup records.</p><span class="text-link">Read article →</span></a>
+<a class="latest-card" data-topic="general-knowledge" href="/blog/general-knowledge/union-territories-of-india/"><span class="story-tag">General knowledge</span><h3>Union Territories of India</h3><p>Learn about the 8 Union Territories of India with capitals, locations, formation, administrative structure, important GK facts, questions and quick revision notes.</p><span class="text-link">Read article →</span></a>
+<!-- ARTICLE_CARDS_END --></div>
+        <button type="button" id="load-articles" class="load-more" hidden>Show more articles</button>
       </section>
 
       <section class="section searchable-section" id="topics">
@@ -342,20 +443,6 @@
           <a class="category-card searchable" data-search="technology tech iphone digital ai software tools" href="/blog/technology/"><span class="cat-icon">TC</span><div><h3>Technology</h3><p>Buying guides, digital topics and practical technology explainers.</p></div><span class="arrow">↗</span></a>
           <a class="category-card searchable" data-search="business career jobs salary interview startup work freelance" href="/blog/business-career/"><span class="cat-icon">BC</span><div><h3>Business &amp; career</h3><p>Work, career and business topics for practical decision-making.</p></div><span class="arrow">↗</span></a>
           <a class="category-card searchable" data-search="lifestyle daily life hobbies relationships home useful guides" href="/blog/lifestyle/"><span class="cat-icon">LS</span><div><h3>Lifestyle</h3><p>Everyday ideas, hobbies and useful guides for daily life.</p></div><span class="arrow">↗</span></a>
-        </div>
-      </section>
-
-      <section class="section searchable-section" id="latest">
-        <div class="section-head">
-          <div><p class="eyebrow">MORE TO EXPLORE</p><h2>Useful guides from the library</h2><p>A mix of current and evergreen reading across our most active topics.</p></div>
-        </div>
-        <div class="latest-grid">
-          <a class="latest-card searchable" data-search="navratri colours 2026 dates goddess general knowledge festival" href="/blog/general-knowledge/navratri-colours-2026/"><span class="story-tag">General knowledge</span><h3>Navratri Colours 2026: 9 colours, dates &amp; Goddess</h3><p>See the day-wise colour sequence, dates and the nine forms associated with Navratri.</p><time datetime="2026-10-11">Updated Oct 11, 2026</time></a>
-          <a class="latest-card searchable" data-search="age calculate age birthday date years months days calculator guide" href="/blog/how-to-calculate-age/"><span class="story-tag">Everyday guide</span><h3>How to calculate age accurately</h3><p>Understand how years, months and days are counted from a date of birth.</p><span class="text-link">Read guide →</span></a>
-          <a class="latest-card searchable" data-search="emi calculation loan finance interest tenure monthly payment guide" href="/blog/emi-calculation-guide/"><span class="story-tag">Finance</span><h3>EMI calculation guide</h3><p>Learn how principal, interest rate and tenure combine to determine EMI.</p><span class="text-link">Read guide →</span></a>
-          <a class="latest-card searchable" data-search="percentage calculation math increase decrease difference guide" href="/blog/percentage-calculation-guide/"><span class="story-tag">Math</span><h3>Percentage calculation guide</h3><p>Understand percentages, increases, decreases and percentage difference.</p><span class="text-link">Read guide →</span></a>
-          <a class="latest-card searchable" data-search="india states capitals general knowledge indian states capitals" href="/blog/general-knowledge/indian-states-and-capitals/"><span class="story-tag">General knowledge</span><h3>Indian states and capitals</h3><p>A clear reference for India’s states, capitals and related general knowledge.</p><span class="text-link">Read guide →</span></a>
-          <a class="latest-card searchable" data-search="ipl winners list sports cricket teams champions years" href="/blog/sports/ipl-winners-list/"><span class="story-tag">Sports</span><h3>IPL winners list</h3><p>Explore IPL champions year by year and navigate to related league records.</p><span class="text-link">Read guide →</span></a>
         </div>
       </section>
 
@@ -388,7 +475,7 @@
   <footer>
     <div class="shell footer-grid">
       <div class="footer-brand">
-        <a class="brand" href="/"><img src="/logo.png" alt="">CalcuPortal</a>
+        <a class="brand" href="/"><img src="/logo.png" alt="" width="40" height="40"><span>CalcuPortal</span></a>
         <p>Free calculators and practical articles for everyday questions, built to be clear, useful and easy to explore.</p>
       </div>
       <div class="footer-col"><h3>Explore</h3><a href="/calculators/">All calculators</a><a href="/blog/">Articles &amp; guides</a><a href="/blog/general-knowledge/">General knowledge</a><a href="/blog/travel/">Travel guides</a><a href="/blog/sports/">Sports</a></div>
@@ -399,8 +486,32 @@
   </footer>
 
   <script>
+// Google Analytics 4 Tracking
+(function () {
+  var gaId = "G-449EVK65FB";
+
+  if (!window.gtag) {
+    var gaScript = document.createElement("script");
+    gaScript.async = true;
+    gaScript.src = "https://www.googletagmanager.com/gtag/js?id=" + gaId;
+    document.head.appendChild(gaScript);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+
+    gtag("js", new Date());
+    gtag("config", gaId, {
+      page_path: window.location.pathname,
+      page_location: window.location.href,
+      page_title: document.title
+    });
+  }
+})();
+
+
     (function(){
-      const saved=localStorage.getItem('theme');
+      let saved;try{saved=localStorage.getItem('theme')}catch{}
       const theme=saved || (window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
       document.documentElement.setAttribute('data-theme',theme);
     })();
@@ -412,6 +523,7 @@
       const themeIcon=document.querySelector('.theme-icon');
       const setIcon=()=>{
         const dark=document.documentElement.getAttribute('data-theme')==='dark';
+        themeBtn.setAttribute('aria-label',dark?'Switch to light theme':'Switch to dark theme');
         themeIcon.innerHTML=dark
           ? '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>'
           : '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3a7 7 0 1 0 9 9 8.5 8.5 0 0 1-9-9Z"></path></svg>';
@@ -420,7 +532,7 @@
       themeBtn.addEventListener('click',()=>{
         const next=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
         document.documentElement.setAttribute('data-theme',next);
-        localStorage.setItem('theme',next);
+        try{localStorage.setItem('theme',next)}catch{}
         setIcon();
       });
 
@@ -438,34 +550,30 @@
       window.addEventListener('resize',()=>{if(window.innerWidth>760)closeMenu()});
 
       const search=document.getElementById('blog-search');
-      const items=[...document.querySelectorAll('.searchable')];
-      const sections=[...document.querySelectorAll('.searchable-section')];
+      const topic=document.getElementById('article-topic');
+      const cards=[...document.querySelectorAll('#article-grid .latest-card')];
       const status=document.getElementById('search-status');
       const empty=document.getElementById('empty-state');
+      const more=document.getElementById('load-articles');
       const normalize=s=>String(s||'').toLowerCase().normalize('NFKD').replace(/[^\p{L}\p{N}\s]/gu,' ').replace(/\s+/g,' ').trim();
-
-      function runSearch(){
-        const q=normalize(search.value);
-        if(!q){
-          items.forEach(el=>el.hidden=false);
-          sections.forEach(s=>s.hidden=false);
-          status.style.display='none';empty.style.display='none';
-          return;
-        }
-        const tokens=q.split(' ');
-        let total=0;
-        items.forEach(el=>{
-          const hay=normalize((el.dataset.search||'')+' '+el.textContent);
-          const match=tokens.every(t=>hay.includes(t));
-          el.hidden=!match;if(match)total++;
-        });
-        sections.forEach(s=>{s.hidden=!s.querySelector('.searchable:not([hidden])')});
-        status.textContent=total ? total+' matching '+(total===1?'result':'results')+' for “'+search.value.trim()+'”.' : '';
-        status.style.display=total?'block':'none';
-        empty.style.display=total?'none':'block';
+      let limit=12;
+      function render(){
+        const words=normalize(search.value).split(' ').filter(Boolean);
+        const matched=cards.filter(card=>(!topic.value||card.dataset.topic===topic.value)&&words.every(w=>normalize(card.textContent).includes(w)));
+        cards.forEach(card=>card.hidden=true);
+        matched.slice(0,limit).forEach(card=>card.hidden=false);
+        status.textContent=matched.length ? `Showing ${Math.min(limit,matched.length)} of ${matched.length} articles` : '0 matching articles';
+        empty.hidden=matched.length>0;
+        more.hidden=matched.length<=limit;
       }
-      search.addEventListener('input',runSearch);
-      search.addEventListener('keydown',e=>{if(e.key==='Escape'&&search.value){search.value='';runSearch();search.focus()}});
+      function update(){limit=12;render()}
+      search.addEventListener('input',update);
+      topic.addEventListener('change',update);
+      document.getElementById('article-search-form').addEventListener('submit',e=>{e.preventDefault();update();document.getElementById('articles').scrollIntoView({behavior:'smooth'});});
+      document.getElementById('reset-articles').addEventListener('click',()=>{search.value='';topic.value='';update()});
+      search.addEventListener('keydown',e=>{if(e.key==='Escape'){search.value='';update()}});
+      more.addEventListener('click',()=>{const previous=limit;limit+=12;render();cards.filter(c=>!c.hidden)[previous]?.focus()});
+      render();
     });
   </script>
 </body>
