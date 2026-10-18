@@ -2,6 +2,7 @@ from pathlib import Path
 from datetime import datetime, timezone
 from xml.sax.saxutils import escape
 import subprocess
+from html.parser import HTMLParser
 
 BASE_URL = "https://www.calcuportal.com"
 ROOT = Path(__file__).resolve().parent
@@ -39,12 +40,28 @@ def is_legacy_calculator_html(path: Path) -> bool:
     return directory_index.exists()
 
 
+class RobotsMetadata(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.noindex = False
+
+    def handle_starttag(self, tag, attrs):
+        values = dict(attrs)
+        if tag == "meta" and values.get("name", "").lower() in {"robots", "googlebot"}:
+            directives = values.get("content", "").lower().replace(",", " ").split()
+            self.noindex |= "noindex" in directives or "none" in directives
+
+
 def is_public_html(path: Path) -> bool:
     if path.name in EXCLUDED_FILES or path.suffix.lower() != ".html":
         return False
     if is_legacy_calculator_html(path):
         return False
-    return not any(part in EXCLUDED_DIRS for part in path.parts)
+    if any(part in EXCLUDED_DIRS for part in path.parts):
+        return False
+    metadata = RobotsMetadata()
+    metadata.feed(path.read_text(encoding="utf-8-sig"))
+    return not metadata.noindex
 
 
 def git_lastmod(path: Path) -> str:
