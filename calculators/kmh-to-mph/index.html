@@ -200,7 +200,7 @@
     </section>
 
     <section class="kmx-tool" aria-label="Speed converter">
-      <div class="kmx-tool-head"><div><h2>Convert km/h to mph online</h2><p>Enter your speed and the answer updates instantly. Use the reverse tab for miles per hour to kilometres per hour.</p></div><span class="kmx-tool-badge">Exact mile definition</span></div>
+      <div class="kmx-tool-head"><div><h2 id="kmx-direction-heading">Convert km/h to mph online</h2><p>Enter your speed and the answer updates instantly. Use the reverse tab for miles per hour to kilometres per hour.</p></div><span class="kmx-tool-badge">Exact mile definition</span></div>
       <div class="kmx-tabs" role="tablist" aria-label="Conversion direction">
         <button id="kmx-tab-kmh" class="kmx-tab active" data-mode="kmh" type="button" role="tab" aria-selected="true">KM/H → MPH</button>
         <button id="kmx-tab-mph" class="kmx-tab" data-mode="mph" type="button" role="tab" aria-selected="false">MPH → KM/H</button>
@@ -421,7 +421,7 @@
     }
     function displayValue(value,digits){
       if(!Number.isFinite(value))return "";
-      return Number(value.toFixed(digits)).toString();
+      return value.toFixed(digits);
     }
     function hide(){
       controls.result.classList.remove("show");
@@ -457,7 +457,7 @@
       const fromUnit=mode==="kmh"?"km/h":"mph";
       const toUnit=mode==="kmh"?"mph":"km/h";
       const targetDisplay=formatted(target,precision);
-      const sourceDisplay=formatted(input,Math.min(precision,6));
+      const sourceDisplay=controls.input.value.trim();
 
       controls.output.value=displayValue(target,precision);
       $("kmx-result-label").textContent=mode==="kmh"?"Speed in miles per hour":"Speed in kilometres per hour";
@@ -499,6 +499,7 @@
         tab.classList.toggle("active",active);
         tab.setAttribute("aria-selected",String(active));
       });
+      $("kmx-direction-heading").textContent=mode==="kmh"?"Convert km/h to mph online":"Convert mph to km/h online";
       $("kmx-input-label").textContent=mode==="kmh"?"Speed in kilometres per hour (km/h)":"Speed in miles per hour (mph)";
       $("kmx-output-label").textContent=mode==="kmh"?"Miles per hour (mph)":"Kilometres per hour (km/h)";
       controls.output.setAttribute("aria-label",mode==="kmh"?"Converted speed in mph":"Converted speed in km/h");
