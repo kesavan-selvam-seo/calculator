@@ -486,6 +486,7 @@
           target=readTarget("prf-target-percent",basis);
           if(discountFactor<=0)throw new Error("A 100% discount leaves no revenue. Choose a discount below 100% for target pricing.");
           const allUnitCosts=cost+extra+allocation;
+          if(allUnitCosts===0)throw new Error("A percentage pricing target needs a positive entered cost. Add the item cost or another expense, or use Profit & margin mode.");
           const desiredEffective=basis==="margin"?allUnitCosts/(1-target/100):allUnitCosts*(1+target/100);
           price=desiredEffective/discountFactor;
         }else{
@@ -494,6 +495,7 @@
           if(!["margin","markup"].includes(basis))throw new Error("Choose a target return type.");
           target=readTarget("prf-cost-percent",basis);
           const netSale=price*discountFactor;
+          if(netSale<=0)throw new Error("Set a selling price and discount that leave a positive amount per sale to calculate a target margin or markup.");
           const permittedAllCost=basis==="margin"?netSale*(1-target/100):netSale/(1+target/100);
           cost=permittedAllCost-extra-allocation;
           if(cost< -1e-8*Math.max(1,permittedAllCost))throw new Error("The target cannot be met with a nonnegative product cost at this price, discount and expense level. Increase selling price or reduce expenses.");
@@ -504,7 +506,8 @@
         const cogs=cost*quantity;
         const other=extra*quantity+fixed;
         const grossProfit=revenue-cogs;
-        const estimatedProfit=grossProfit-other;
+        let estimatedProfit=grossProfit-other;
+        if(Math.abs(estimatedProfit)<1e-11*Math.max(1,revenue,cogs,other))estimatedProfit=0;
         const grossMargin=revenue>0?grossProfit/revenue*100:null;
         const markup=cost>0?(effectivePrice-cost)/cost*100:null;
         const afterMargin=revenue>0?estimatedProfit/revenue*100:null;
@@ -591,7 +594,7 @@
       if(preset==="target"){
         $("prf-target-cost").value="500";$("prf-target-percent").value="30";$("prf-target-basis").value="margin";setMode("target");
       }else{
-        $("prf-cost").value=preset==="loss"?"500":preset==="business"?"500":"500";
+        $("prf-cost").value="500";
         $("prf-price").value=preset==="loss"?"400":"800";
         if(preset==="business"){
           $("prf-qty").value="10";$("prf-discount").value="10";$("prf-extra").value="30";$("prf-fixed").value="200";
