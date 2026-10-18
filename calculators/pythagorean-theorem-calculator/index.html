@@ -201,7 +201,7 @@
         <div class="py-metrics">
           <div class="py-metric"><span>Leg a</span><strong id="py-metric-a">—</strong></div>
           <div class="py-metric"><span>Leg b</span><strong id="py-metric-b">—</strong></div>
-          <div class="py-metric"><span>Hypotenuse c</span><strong id="py-metric-c">—</strong></div>
+          <div class="py-metric"><span id="py-c-metric-label">Hypotenuse c</span><strong id="py-metric-c">—</strong></div>
           <div class="py-metric"><span>Area</span><strong id="py-metric-area">—</strong></div>
           <div class="py-metric"><span>Perimeter</span><strong id="py-metric-perimeter">—</strong></div>
           <div class="py-metric"><span>Acute angles (A / B)</span><strong id="py-metric-angles">—</strong></div>
@@ -449,6 +449,7 @@
           summary="Solved a right triangle with two known side lengths using a² + b² = c².";
         }
         write("py-result-label",label);write("py-result-big",headline);write("py-result-sub",summary);
+        write("py-c-metric-label",validRight?"Hypotenuse c":"Longest side c");
         write("py-metric-a",length(a));write("py-metric-b",length(b));write("py-metric-c",length(c));
         write("py-metric-area",validRight?areaText(area):"Not shown");
         write("py-metric-perimeter",length(perimeter));
@@ -478,7 +479,7 @@
           appendStep(4,validRight?"The values match within numerical tolerance: this is a right triangle.":"The values do not match: the triangle is not right-angled.");
         }
         if(validRight)diagram(a,b,c);
-        copyText=label+": "+headline+"; side a "+length(a)+"; side b "+length(b)+"; hypotenuse c "+length(c)+"; "+(validRight?"area "+areaText(area)+", perimeter "+length(perimeter)+", angles "+num(A)+"° and "+num(B)+"°.":"not a right triangle.");
+        copyText=label+": "+headline+"; side a "+length(a)+"; side b "+length(b)+"; "+(validRight?"hypotenuse c ":"longest side c ")+length(c)+"; "+(validRight?"area "+areaText(area)+", perimeter "+length(perimeter)+", angles "+num(A)+"° and "+num(B)+"°.":"not a right triangle.");
         hideMessage();$("py-results").classList.add("show");
       }catch(err){showMessage(err.message);}
     }
