@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Age Calculator – Calculate Exact Age from Date of Birth | CalcuPortal</title>
-  <meta name="description" content="Calculate exact age from date of birth in years, months and days. Check age as of any date, next birthday, total days and weeks lived, and day of birth.">
+  <meta name="description" content="Calculate exact age from date of birth in years, months and days. Check age as of any date, next birthday, total days lived, birth weekday and common generation label such as Gen Z or Millennial.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.calcuportal.com/calculators/age-calculator/">
 
@@ -63,6 +63,7 @@
       {"@type":"Question","name":"How is age calculated for exam or job eligibility?","acceptedAnswer":{"@type":"Answer","text":"Enter the date of birth shown on your official record and use the cutoff date stated in the exam or job notification. Always verify the authority's age rules before relying on the result."}},
       {"@type":"Question","name":"Does the age calculator account for leap years?","acceptedAnswer":{"@type":"Answer","text":"Yes. The calculation uses real calendar dates and month lengths. For February 29 birthdays, official birthday or eligibility treatment in non-leap years can vary by jurisdiction or institution."}},
       {"@type":"Question","name":"What does exact age mean?","acceptedAnswer":{"@type":"Answer","text":"Exact age on this page means completed calendar years and months plus the remaining days between the date of birth and the selected target date."}},
+      {"@type":"Question","name":"Which generation am I based on my birth year?","acceptedAnswer":{"@type":"Answer","text":"Generation labels are approximate and vary by source. This calculator uses common ranges: Silent Generation 1928–1945, Baby Boomers 1946–1964, Gen X 1965–1980, Millennials 1981–1996, Gen Z 1997–2012, and Gen Alpha for 2013 onward."}},
       {"@type":"Question","name":"Is the Age Calculator free?","acceptedAnswer":{"@type":"Answer","text":"Yes. The calculator is free to use and runs directly in your browser without sign-up."}}
     ]
   }
@@ -107,6 +108,14 @@
     .age-breakdown{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem}
     .age-detail{padding:.85rem;border:1px solid var(--border-color);border-radius:11px;background:var(--bg-card)}
     .age-detail span{display:block;color:var(--text-muted);font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em}.age-detail strong{display:block;margin-top:.2rem;color:var(--text-primary);font-size:.95rem}
+    .age-generation-detail{grid-column:1/-1;display:grid;grid-template-columns:auto 1fr;gap:.9rem;align-items:center;padding:1rem 1.05rem;border:1px solid color-mix(in srgb,var(--primary) 35%,var(--border-color));border-radius:13px;background:linear-gradient(135deg,var(--primary-light),var(--bg-card))}
+    .age-generation-badge{display:grid;place-items:center;min-width:86px;padding:.65rem .75rem;border-radius:12px;background:var(--primary);color:#fff;font-weight:900;font-size:1rem;text-align:center}
+    .age-generation-copy span{display:block;color:var(--text-muted);font-size:.74rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em}
+    .age-generation-copy strong{display:block;margin:.15rem 0 .1rem;font-size:1.02rem;color:var(--text-primary)}
+    .age-generation-copy small{display:block;color:var(--text-muted);font-size:.78rem;line-height:1.45}
+    .generation-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;margin:1rem 0}
+    .generation-card{padding:1rem;border:1px solid var(--border-color);border-radius:14px;background:var(--bg-card)}
+    .generation-card b{display:block;color:var(--primary);font-size:1rem}.generation-card span{display:block;margin-top:.2rem;color:var(--text-muted);font-size:.82rem}.generation-card p{margin:.55rem 0 0;font-size:.84rem;line-height:1.55}
     .age-section{margin:2.2rem 0}.age-section h2{margin:0 0 .8rem;font-size:clamp(1.35rem,3vw,1.75rem)}.age-section h3{margin:1.35rem 0 .45rem;font-size:1.05rem}.age-section p,.age-section li{color:var(--text-secondary);line-height:1.75}
     .age-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem;margin:1rem 0}
     .age-step{padding:1rem;border:1px solid var(--border-color);border-radius:14px;background:var(--bg-card)}
@@ -115,8 +124,8 @@
     .age-note{padding:1rem;border-left:4px solid var(--primary);border-radius:10px;background:var(--primary-light);color:var(--text-secondary)}
     .age-related{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.75rem}.age-related a{display:flex;flex-direction:column;gap:.3rem;padding:1rem;border:1px solid var(--border-color);border-radius:13px;background:var(--bg-card);text-decoration:none;color:inherit}.age-related a:hover{border-color:var(--primary);transform:translateY(-1px)}.age-related strong{font-size:.95rem}.age-related span{font-size:.78rem;color:var(--text-muted)}
     .age-faq{display:grid;gap:.7rem}.age-faq details{border:1px solid var(--border-color);border-radius:12px;background:var(--bg-card);overflow:hidden}.age-faq summary{cursor:pointer;padding:1rem;font-weight:800}.age-faq details p{padding:0 1rem 1rem;margin:0}
-    @media(max-width:820px){.age-hero{grid-template-columns:1fr}.age-related{grid-template-columns:repeat(2,minmax(0,1fr))}.age-steps{grid-template-columns:1fr}}
-    @media(max-width:600px){.age-input-grid,.age-breakdown,.age-related{grid-template-columns:1fr}.age-metrics{grid-template-columns:repeat(3,minmax(0,1fr));gap:.45rem}.age-metric{padding:.75rem .35rem}.age-tool{padding:1rem}.age-result-head{flex-direction:column}.age-primary,.age-secondary{flex:1 1 auto}.age-hero h1{font-size:2.35rem}}
+    @media(max-width:820px){.age-hero{grid-template-columns:1fr}.age-related{grid-template-columns:repeat(2,minmax(0,1fr))}.age-steps{grid-template-columns:1fr}.generation-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:600px){.age-input-grid,.age-breakdown,.age-related,.generation-grid{grid-template-columns:1fr}.age-metrics{grid-template-columns:repeat(3,minmax(0,1fr));gap:.45rem}.age-metric{padding:.75rem .35rem}.age-tool{padding:1rem}.age-result-head{flex-direction:column}.age-primary,.age-secondary{flex:1 1 auto}.age-hero h1{font-size:2.35rem}.age-generation-detail{grid-template-columns:1fr;gap:.6rem}.age-generation-badge{width:max-content;min-width:0}.age-generation-copy strong{font-size:.98rem}}
   </style>
 </head>
 <body>
@@ -205,6 +214,14 @@
             <div class="age-detail"><span>Completed months</span><strong id="total-months-lived">—</strong></div>
             <div class="age-detail"><span>Born on</span><strong id="birth-weekday">—</strong></div>
             <div class="age-detail"><span>Age as of</span><strong id="age-as-of-label">—</strong></div>
+            <div class="age-generation-detail">
+              <div class="age-generation-badge" id="generation-short">—</div>
+              <div class="age-generation-copy">
+                <span>Common generation label</span>
+                <strong id="generation-name">—</strong>
+                <small id="generation-note">Generation boundaries are approximate and can vary by source.</small>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -251,6 +268,21 @@
         </ul>
       </section>
 
+
+      <section class="age-section">
+        <h2>Which generation am I? Gen Z, Millennial, Gen X and more</h2>
+        <p>Your birth year is often used to place you in a broad generational cohort. These labels are useful for general discussion, but they are <strong>not official age categories</strong> and the cutoff years can vary between researchers and publishers.</p>
+        <div class="generation-grid">
+          <div class="generation-card"><b>Silent Generation</b><span>1928–1945</span><p>A commonly used research range for people born before the post-war baby boom.</p></div>
+          <div class="generation-card"><b>Baby Boomers</b><span>1946–1964</span><p>The U.S. Census-linked baby-boom years are widely treated as a distinct cohort.</p></div>
+          <div class="generation-card"><b>Generation X</b><span>1965–1980</span><p>A commonly used range between the Baby Boomers and Millennials.</p></div>
+          <div class="generation-card"><b>Millennials</b><span>1981–1996</span><p>Pew Research Center uses 1981 through 1996 for the Millennial generation.</p></div>
+          <div class="generation-card"><b>Generation Z</b><span>1997–2012*</span><p>This calculator starts Gen Z at 1997. The 2012 endpoint is a practical convention; exact endpoints vary.</p></div>
+          <div class="generation-card"><b>Generation Alpha</b><span>2013 onward*</span><p>Used here as an informal label for the cohort after Gen Z; naming and boundaries are still less standardized.</p></div>
+        </div>
+        <div class="age-note"><strong>Generation note:</strong> Pew Research Center defines Millennials as 1981–1996 and starts the next cohort in 1997, while also noting that generational boundaries are not an exact science. CalcuPortal uses the ranges above only as a simple reference label, not as a scientific or legal classification. <a href="https://www.pewresearch.org/short-reads/2019/01/17/where-millennials-end-and-generation-z-begins/" target="_blank" rel="noopener noreferrer">Read Pew’s generation methodology</a>.</div>
+      </section>
+
       <section class="age-section">
         <h2>Leap years and February 29 birthdays</h2>
         <p>The calculator uses actual calendar month lengths, so leap years are included in the date calculation. People born on February 29 should be especially careful when using the result for legal, exam or institutional eligibility because rules for the effective birthday in a non-leap year can vary.</p>
@@ -285,6 +317,7 @@
           <details><summary>Can I use this for exam or job age eligibility?</summary><p>You can use it to calculate your calendar age on the stated cutoff date. Always check the official notification for age limits, relaxations and special rules.</p></details>
           <details><summary>Does the calculator handle leap years?</summary><p>Yes. It uses real calendar month lengths. February 29 birthdays may have special official treatment in non-leap years, so verify the applicable rule when eligibility matters.</p></details>
           <details><summary>What is the difference between age and total days lived?</summary><p>Age in years, months and days is a calendar breakdown. Total days is the elapsed number of calendar days between the two dates.</p></details>
+          <details><summary>Which generation am I based on my birth year?</summary><p>The calculator shows a common generation label using your birth year. The ranges are approximate, and different sources may use slightly different cutoff years.</p></details>
           <details><summary>Is my date of birth stored?</summary><p>The age calculation on this page runs in your browser. The entered dates do not need to be sent to a server to produce the result.</p></details>
         </div>
       </section>
@@ -360,6 +393,16 @@
       hideResult();
     }
 
+    function generationForYear(year){
+      if(year<1928) return {short:'Pre-1928',name:'Earlier generation',note:'Born before the commonly used Silent Generation range.'};
+      if(year<=1945) return {short:'Silent',name:'Silent Generation',note:'Common reference range: 1928–1945.'};
+      if(year<=1964) return {short:'Boomer',name:'Baby Boomer',note:'Common reference range: 1946–1964.'};
+      if(year<=1980) return {short:'Gen X',name:'Generation X',note:'Common reference range: 1965–1980.'};
+      if(year<=1996) return {short:'Millennial',name:'Millennial',note:'Pew Research Center range: 1981–1996.'};
+      if(year<=2012) return {short:'Gen Z',name:'Generation Z (Gen Z)',note:'CalcuPortal reference range: 1997–2012; exact endpoints vary by source.'};
+      return {short:'Gen Alpha',name:'Generation Alpha / newer cohort',note:'Informal post-Gen Z label used here for 2013 onward; boundaries vary by source.'};
+    }
+
     function calculate(){
       try{
         if(!dobInput.value||!targetInput.value) throw new Error('Please enter both the date of birth and the age-as-of date.');
@@ -388,6 +431,10 @@
         document.getElementById('total-months-lived').textContent=totalMonths.toLocaleString()+' completed months';
         document.getElementById('birth-weekday').textContent=weekday(dob);
         document.getElementById('age-as-of-label').textContent=fmtDate(target);
+        const generation=generationForYear(dob.getFullYear());
+        document.getElementById('generation-short').textContent=generation.short;
+        document.getElementById('generation-name').textContent=generation.name;
+        document.getElementById('generation-note').textContent=generation.note;
 
         errorBox.style.display='none';
         resultSection.classList.add('show');
@@ -412,7 +459,7 @@
     [dobInput,targetInput].forEach(el=>el.addEventListener('keydown',e=>{if(e.key==='Enter') calculate();}));
 
     copyBtn.addEventListener('click',async()=>{
-      const text=document.getElementById('full-sentence').textContent;
+      const text=document.getElementById('full-sentence').textContent+' — '+document.getElementById('generation-name').textContent;
       const original=copyBtn.textContent;
       try{
         if(navigator.clipboard&&window.isSecureContext){
