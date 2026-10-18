@@ -27,7 +27,7 @@
   <script src="../../script.js" defer></script>
 
   <style>
-    .hydration-calculator {
+    .detail-container {
       --water-primary: #087fce;
       --water-secondary: #38bdf8;
       --water-soft: #e9f7ff;
@@ -35,6 +35,19 @@
       --water-border: #bae6fd;
       --water-success: #15803d;
       --water-warning: #a16207;
+    }
+
+    [data-theme="dark"] .detail-container {
+      --water-primary: #38bdf8;
+      --water-secondary: #7dd3fc;
+      --water-soft: #0c2638;
+      --water-deep: #7dd3fc;
+      --water-border: #164e63;
+      --water-success: #4ade80;
+      --water-warning: #facc15;
+    }
+
+    .hydration-calculator {
       position: relative;
       overflow: hidden;
     }
@@ -1073,12 +1086,6 @@
     }
 
     [data-theme="dark"] .hydration-calculator {
-      --water-primary: #38bdf8;
-      --water-secondary: #7dd3fc;
-      --water-soft: #0c2638;
-      --water-deep: #7dd3fc;
-      --water-border: #164e63;
-      --water-warning: #facc15;
       background:
         radial-gradient(circle at 92% 8%, rgba(56,189,248,.12), transparent 24%),
         radial-gradient(circle at 8% 92%, rgba(14,116,144,.16), transparent 23%),
