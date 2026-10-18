@@ -965,6 +965,235 @@
       line-height: 1.65;
     }
 
+
+    .field-hint { color: var(--text-muted); opacity: 1; }
+    .hydration-form-grid label,
+    .hydration-form-grid legend,
+    .breakdown-section h3,
+    .schedule-section h3 { color: var(--text-primary); }
+
+    /* Water page contrast and theme hardening */
+    .water-hero-card,
+    .primary-result,
+    .metric-card,
+    .result-note,
+    .schedule-card,
+    .breakdown-section,
+    .schedule-section,
+    .formula-box,
+    .seo-answer-box,
+    .water-related-section,
+    .water-related-grid a {
+      color: var(--text-primary);
+    }
+
+    .water-hero-card p,
+    .water-subtitle,
+    .result-note,
+    .schedule-card span,
+    .breakdown-row span,
+    .water-related-section p,
+    .water-related-grid span {
+      color: var(--text-secondary);
+      opacity: 1;
+    }
+
+    .metric-card {
+      background: var(--bg-card);
+      border-color: var(--water-border);
+    }
+
+    .metric-card span {
+      color: var(--text-muted);
+      opacity: 1;
+    }
+
+    .metric-card strong,
+    .schedule-card strong,
+    .breakdown-row strong {
+      color: var(--text-primary);
+    }
+
+    .primary-result {
+      background: linear-gradient(145deg, color-mix(in srgb, var(--water-soft) 72%, var(--bg-card)), var(--bg-card));
+    }
+
+    .result-note {
+      background: var(--bg-card);
+    }
+
+    .schedule-card {
+      background: color-mix(in srgb, var(--water-soft) 72%, var(--bg-card));
+    }
+
+    .breakdown-section,
+    .schedule-section {
+      background: var(--bg-card);
+    }
+
+    .seo-answer-box,
+    .formula-box {
+      color: var(--text-primary);
+      background: color-mix(in srgb, var(--water-soft) 78%, var(--bg-card));
+    }
+
+    .medical-disclaimer {
+      color: #713f12;
+    }
+
+    .content-table {
+      background: var(--bg-card);
+      color: var(--text-primary);
+    }
+
+    .content-table td {
+      border-color: var(--border-color);
+      background: var(--bg-card);
+      color: var(--text-secondary);
+    }
+
+    .content-table tbody tr:nth-child(even) td {
+      background: color-mix(in srgb, var(--bg-primary) 82%, var(--bg-card));
+    }
+
+    .content-table th {
+      border-color: color-mix(in srgb, var(--water-primary) 75%, #fff);
+      color: #fff;
+    }
+
+    .select-field,
+    .hydration-form-grid .input-field {
+      background: var(--bg-card);
+      color: var(--text-primary);
+    }
+
+    .select-field option {
+      background: var(--bg-card);
+      color: var(--text-primary);
+    }
+
+    [data-theme="dark"] .hydration-calculator {
+      --water-primary: #38bdf8;
+      --water-secondary: #7dd3fc;
+      --water-soft: #0c2638;
+      --water-deep: #7dd3fc;
+      --water-border: #164e63;
+      --water-warning: #facc15;
+      background:
+        radial-gradient(circle at 92% 8%, rgba(56,189,248,.12), transparent 24%),
+        radial-gradient(circle at 8% 92%, rgba(14,116,144,.16), transparent 23%),
+        var(--bg-card);
+    }
+
+    [data-theme="dark"] .water-hero-card,
+    [data-theme="dark"] .water-related-section {
+      background: linear-gradient(145deg, #0c2638, var(--bg-card));
+      border-color: #164e63;
+    }
+
+    [data-theme="dark"] .water-hero-card-label,
+    [data-theme="dark"] .result-eyebrow,
+    [data-theme="dark"] .schedule-card time {
+      color: #7dd3fc;
+    }
+
+    [data-theme="dark"] .primary-result,
+    [data-theme="dark"] .schedule-card,
+    [data-theme="dark"] .seo-answer-box,
+    [data-theme="dark"] .formula-box {
+      background: #0c2638;
+      border-color: #164e63;
+    }
+
+    [data-theme="dark"] .metric-card,
+    [data-theme="dark"] .result-note,
+    [data-theme="dark"] .breakdown-section,
+    [data-theme="dark"] .schedule-section,
+    [data-theme="dark"] .water-related-grid a {
+      background: #0b1622;
+      border-color: #164e63;
+    }
+
+    [data-theme="dark"] .bottle-shell {
+      background: linear-gradient(110deg,rgba(15,23,42,.82),rgba(12,74,110,.28));
+      border-color: #7dd3fc;
+      box-shadow:
+        inset 10px 0 18px rgba(255,255,255,.05),
+        inset -10px 0 20px rgba(56,189,248,.08),
+        0 22px 42px rgba(0,0,0,.32);
+    }
+
+    [data-theme="dark"] .bottle-cap {
+      border-color: #7dd3fc;
+      background: linear-gradient(180deg,#164e63,#075985);
+    }
+
+    [data-theme="dark"] .bottle-label {
+      color: #e0f2fe;
+      text-shadow: 0 1px 10px rgba(0,0,0,.55);
+    }
+
+    [data-theme="dark"] .bottle-glass-shine {
+      background: linear-gradient(180deg,rgba(255,255,255,.28),rgba(255,255,255,.03));
+    }
+
+    [data-theme="dark"] .content-table td {
+      background: #0b0f19;
+      color: #cbd5e1;
+    }
+
+    [data-theme="dark"] .content-table tbody tr:nth-child(even) td {
+      background: #111827;
+    }
+
+    [data-theme="dark"] .medical-disclaimer {
+      background: #2b2110;
+      border-color: #854d0e;
+      color: #fde68a;
+    }
+
+    [data-theme="dark"] .medical-disclaimer strong {
+      color: #facc15;
+    }
+
+    [data-theme="dark"] .unit-toggle {
+      background: #0c2638;
+      border-color: #164e63;
+    }
+
+    [data-theme="dark"] .unit-option {
+      color: #cbd5e1;
+    }
+
+    [data-theme="dark"] .unit-option.active {
+      color: #082f49;
+      background: #7dd3fc;
+    }
+
+    [data-theme="dark"] .choice-card label {
+      color: #cbd5e1;
+      background: #0b1622;
+      border-color: #164e63;
+    }
+
+    [data-theme="dark"] .choice-card input:checked + label {
+      color: #082f49;
+      background: #7dd3fc;
+      border-color: #7dd3fc;
+    }
+
+    [data-theme="dark"] .secondary-action,
+    [data-theme="dark"] .tool-button {
+      color: #e5e7eb;
+      border-color: #164e63;
+      background: #0b1622;
+    }
+
+    [data-theme="dark"] .secondary-action:hover,
+    [data-theme="dark"] .tool-button:hover {
+      background: #0c2638;
+    }
+
     @media (max-width: 760px) {
       .water-page-hero,
       .water-related-section {
