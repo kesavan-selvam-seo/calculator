@@ -165,10 +165,168 @@
     @media(max-width:720px){.emi-summary,.emi-widget-inputs,.emi-widget-result,.emi-related{grid-template-columns:1fr}.emi-summary{gap:.5rem}.emi-grid-cards{grid-template-columns:1fr}.emi-hero h1{font-size:2.35rem}}
     @media(max-width:430px){.emi-hero-numbers,.emi-variable-list{grid-template-columns:1fr}.emi-article p{margin:.7rem 0 1.05rem}.emi-article li{line-height:1.65;margin:.42rem 0}.emi-article ul,.emi-article ol{padding-left:1.23rem}.emi-hero-card{padding:1.08rem}.emi-widget{padding:1rem}}
     @media(prefers-reduced-motion:reduce){.emi-page *{transition:none!important}}
-  </style>
+  
+    /* Editorial blog identity: intentionally different from the calculator UI. */
+    .detail-container.emi-page{max-width:1160px;min-width:0;padding:0}
+    .emi-page{--emi-ink:#151c2d;--emi-cream:#f8f5ef;--emi-violet:#aa9eff;--emi-rule:var(--border-color)}
+    .emi-page article>header.emi-cover{position:relative!important;top:auto!important;z-index:auto!important;overflow:hidden;display:block;background:var(--emi-ink)!important;color:#f7f6f3!important;border:0!important;border-radius:0;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;box-shadow:none!important;margin:0;padding:0}
+    .emi-cover:before{content:"";position:absolute;width:410px;height:410px;left:39%;top:-260px;background:radial-gradient(ellipse,#55468b40 0%,transparent 68%);pointer-events:none}
+    .emi-cover-top,.emi-cover-bottom{display:flex;justify-content:space-between;gap:1rem;align-items:center;position:relative;z-index:2;color:#c3c3d1;font-family:var(--font-sans);font-size:.68rem;letter-spacing:.105em;font-weight:750}
+    .emi-cover-top{padding:1.42rem 2.35rem;border-bottom:1px solid #ffffff26}
+    .emi-journal-name{color:#f4f0eb;letter-spacing:.12em}
+    .emi-journal-name i{display:inline-block;width:5px;height:5px;background:#bea7fa;border-radius:50%;vertical-align:middle;margin:0 .38rem}
+    .emi-cover-bottom{padding:1.2rem 2.35rem;border-top:1px solid #ffffff24;font-size:.6rem;letter-spacing:.12em}
+    .emi-cover-inner{display:grid;grid-template-columns:minmax(0,1.07fr) minmax(0,.93fr);gap:1.2rem;align-items:center;padding:4.25rem 2.65rem 4.1rem;min-height:470px;position:relative;z-index:2}
+    .emi-cover-copy{min-width:0}.emi-cover-category{font-family:var(--font-sans);font-size:.7rem;letter-spacing:.17em;font-weight:800;color:#c0b5ed!important;margin:0 0 1.5rem!important;text-align:left!important}
+    .emi-cover-category span{color:#7f8191;margin:0 .38rem}
+    .emi-cover h1{font-family:Georgia,'Times New Roman',serif!important;font-weight:500!important;letter-spacing:-.056em!important;font-size:clamp(3.3rem,5.5vw,5.1rem)!important;line-height:1.02!important;margin:0!important;color:#fff!important;max-width:700px}
+    .emi-cover h1 em{font-style:italic;color:#bdadff}
+    .emi-cover h1>span{font-family:Georgia,'Times New Roman',serif;font-size:.55em;line-height:1.18;letter-spacing:-.022em;font-style:normal;font-weight:400;display:block;color:#ebebf4;margin-top:1rem}
+    .emi-cover-deck{font-size:1.01rem!important;line-height:1.75!important;max-width:490px;color:#d2d4df!important;margin:1.38rem 0 1.75rem!important;text-align:left!important}
+    .emi-cover-jump{font-family:var(--font-sans);font-size:.78rem;color:#fff!important;font-weight:800;letter-spacing:.05em;text-decoration:none!important;border-bottom:1px solid #a99de5;padding:0 0 .47rem}
+    .emi-cover-jump span{display:inline-block;margin-left:.54rem;color:#bdadff;font-size:1.1rem}
+    .emi-cover-art{position:relative;min-height:324px;padding:5rem 1.6rem 1rem 2.1rem;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;isolation:isolate}
+    .emi-art-circle{position:absolute;z-index:-1;width:min(97%,370px);aspect-ratio:1;border-radius:50%;top:0;left:12%;background:radial-gradient(circle at 35% 35%,#8275c0 0%,#473c74 28%,#29283e 68%,transparent 75%);border:1px solid #aaa0ee30;box-shadow:0 0 0 22px #857bb90b,0 0 0 44px #857bb907}
+    .emi-art-label{font-size:.67rem;letter-spacing:.18em;color:#d8cfef;font-weight:800;margin-bottom:1rem}
+    .emi-art-figure{font-family:Georgia,'Times New Roman',serif;font-size:clamp(2.55rem,4.4vw,4.25rem);color:#fff;letter-spacing:-.068em;line-height:1.05;white-space:nowrap}
+    .emi-art-figure span{color:#bdadff;font-size:.6em}
+    .emi-art-caption{font-size:.76rem;color:#c4c5d2;letter-spacing:.035em;margin-top:.4rem}
+    .emi-art-line{width:100%;height:1px;background:#ffffff5e;margin:1.45rem 0 .8rem}
+    .emi-art-columns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%;gap:.55rem}
+    .emi-art-columns>span{font-size:.65rem;color:#c5c3d5;letter-spacing:.08em}
+    .emi-art-columns b{display:block;color:#f0edf9;font-size:.97rem;letter-spacing:0;margin-top:.32rem}
+    .emi-art-stamp{position:absolute;top:1rem;right:0;width:77px;height:77px;border:1px solid #ffffff73;border-radius:50%;display:flex;align-items:center;justify-content:center;gap:.35rem;transform:rotate(9deg);font-size:1.25rem;font-weight:800;color:#eae4fd}
+    .emi-art-stamp span{font-size:.51rem;line-height:1.35;letter-spacing:.045em;color:#beb8d2}
+    .emi-story-meta{display:flex;align-items:center;gap:1.15rem;justify-content:space-between;padding:1.37rem .2rem;border-bottom:1px solid var(--emi-rule);margin:0 auto;max-width:1100px}
+    .emi-author-row{display:flex;gap:.72rem;align-items:center;min-width:0}
+    .emi-author-mark{display:grid;place-items:center;flex:none;width:41px;height:41px;border-radius:50%;background:var(--primary-light);border:1px solid var(--border-color);font-family:Georgia,serif;font-weight:700;font-size:1.23rem;color:var(--primary)}
+    .emi-author-row strong,.emi-author-row small{display:block}.emi-author-row strong{font-size:.84rem;color:var(--text-primary)}.emi-author-row small{font-size:.7rem;color:var(--text-muted);margin-top:.13rem}
+    .emi-story-dates{display:flex;align-items:center;flex-wrap:wrap;gap:.7rem;font-size:.75rem;color:var(--text-secondary)}
+    .emi-meta-dot{color:var(--primary)}
+    .emi-share-button{flex-shrink:0;font:inherit;font-size:.76rem;font-weight:800;color:var(--text-primary);background:transparent;border:0;border-bottom:1px solid var(--primary);padding:.5rem .07rem;cursor:pointer}
+    .emi-share-button span{color:var(--primary);margin-left:.2rem}
+    .emi-share-button:hover{color:var(--primary)}
+    .emi-opening-note{margin:3.4rem auto 2.7rem;max-width:940px;display:grid;grid-template-columns:175px minmax(0,1fr);gap:1.6rem;padding:0 0 2.2rem;border-bottom:1px solid var(--emi-rule)}
+    .emi-opening-label{font-size:.67rem;letter-spacing:.11em;line-height:1.8;color:var(--primary);font-weight:900;margin:.22rem 0 0}
+    .emi-opening-label span{display:block;font-size:.62rem;color:var(--text-muted);letter-spacing:.06em}
+    .emi-opening-note p{font-family:Georgia,'Times New Roman',serif;font-size:clamp(1.13rem,2.4vw,1.42rem);line-height:1.62;color:var(--text-primary);margin:0;text-align:justify;text-justify:inter-word}
+    .emi-opening-note em{color:var(--primary)}
+    .emi-layout{max-width:1030px;margin:0 auto;display:grid;grid-template-columns:minmax(0,700px) minmax(0,230px);gap:5.4rem;align-items:start}
+    .emi-article{min-width:0;counter-reset:emi-chapter}
+    .emi-article>section[id]{counter-increment:emi-chapter;scroll-margin-top:7rem}
+    .emi-article h2{font-family:Georgia,'Times New Roman',serif!important;color:var(--text-primary)!important;letter-spacing:-.032em;font-weight:600;font-size:clamp(1.52rem,2.9vw,2rem);line-height:1.23;margin:3.3rem 0 1.1rem;scroll-margin-top:7rem}
+    .emi-article>section:first-child h2{margin-top:0}
+    .emi-article>section[id] > h2::before{content:counter(emi-chapter,decimal-leading-zero) "  /  THE GUIDE";display:block;font:800 .67rem/1.4 var(--font-sans);letter-spacing:.15em;color:var(--primary);margin:0 0 .65rem}
+    .emi-article h3{font-family:var(--font-heading);font-size:1.1rem;color:var(--text-primary);font-weight:750;margin:1.85rem 0 .75rem;line-height:1.42}
+    .emi-article p{font-family:Georgia,'Times New Roman',serif;font-size:1.04rem;color:var(--text-secondary);line-height:1.87;letter-spacing:.005em;text-align:justify;text-justify:inter-word;margin:.85rem 0 1.4rem}
+    .emi-article>section:first-child>p:first-of-type::first-letter{float:left;font:500 4.5rem/.84 Georgia,serif;color:var(--primary);margin:.06em .1em 0 0}
+    .emi-article ul,.emi-article ol{padding-left:1.5rem;margin:1rem 0 1.4rem;text-align:left}
+    .emi-article li{font-family:Georgia,'Times New Roman',serif;color:var(--text-secondary);font-size:1.01rem;line-height:1.78;padding-left:.12rem;margin:.54rem 0;text-align:left}
+    .emi-article strong{color:var(--text-primary)}
+    .emi-article li::marker{color:var(--primary);font-weight:750}
+    .emi-article a:not(.emi-btn){color:var(--primary);text-underline-offset:3px;text-decoration-thickness:1px}
+    .emi-article a:hover{text-decoration-thickness:2px}
+    .emi-quick-answer{background:transparent;border:0;border-left:3px solid var(--primary);border-radius:0;padding:.14rem 0 .14rem 1.1rem;margin:2rem 0}
+    .emi-quick-answer p{font-size:1.04rem;line-height:1.78}
+    .emi-formula{background:var(--bg-card);border:1px solid var(--border-color);border-left:3px solid var(--primary);border-radius:0 11px 11px 0;padding:1.4rem;margin:1.4rem 0 1.8rem}
+    .emi-formula-head{font-size:.68rem;letter-spacing:.14em}
+    .emi-formula-expr{font:600 clamp(1.02rem,2.7vw,1.5rem)/1.9 Georgia,'Times New Roman',serif;letter-spacing:-.012em;color:var(--text-primary)}
+    .emi-formula small{margin-top:.65rem;font-size:.76rem}
+    .emi-variable-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border-top:1px solid var(--border-color);border-left:1px solid var(--border-color)}
+    .emi-variable{border-radius:0;background:transparent;border:0;border-right:1px solid var(--border-color);border-bottom:1px solid var(--border-color);padding:1rem}
+    .emi-variable b{font-family:Georgia,serif;font-size:1.3rem}
+    .emi-table-wrap{border:0;border-top:2px solid var(--text-primary);border-bottom:1px solid var(--border-color);border-radius:0;margin:1.3rem 0 1.55rem;overflow-x:auto;max-width:100%;background:transparent}
+    .emi-table{min-width:570px;width:100%;border-collapse:collapse;font:400 .84rem/1.5 var(--font-sans)}
+    .emi-table th,.emi-table td{padding:.83rem .65rem;text-align:left;vertical-align:top;border:0;border-bottom:1px solid var(--border-color);color:var(--text-secondary)}
+    .emi-table th{background:transparent!important;color:var(--text-primary)!important;position:static;font-weight:800;font-size:.74rem;letter-spacing:.02em}
+    .emi-table td strong{font-weight:800}
+    .emi-table tr:nth-child(even){background:transparent!important}
+    .emi-table tbody tr:last-child td{border-bottom:0}
+    .emi-grid-cards,.emi-related{gap:0;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--border-color);border-left:1px solid var(--border-color)}
+    .emi-info-card{border:0;border-right:1px solid var(--border-color);border-bottom:1px solid var(--border-color);border-radius:0;background:transparent;padding:1.2rem}
+    .emi-info-card h3{color:var(--primary);margin:0 0 .65rem}
+    .emi-info-card p{font-size:.96rem;line-height:1.76;margin:0}
+    .emi-note{background:transparent;border:0;border-left:3px solid var(--primary);border-radius:0;padding:.3rem 0 .3rem 1.15rem;color:var(--text-secondary);margin:1.85rem 0;font-size:.98rem;line-height:1.72}
+    .emi-widget{background:var(--bg-card);box-shadow:none;border:1px solid var(--border-color);border-top:3px solid var(--primary);border-radius:0;padding:1.3rem 1.36rem;margin:1.6rem 0 1.8rem}
+    .emi-widget h3{font-family:Georgia,serif;font-size:1.3rem;margin:0 0 .25rem}
+    .emi-widget .emi-widget-sub{font-family:var(--font-sans);font-size:.77rem;margin:0 0 1.15rem}
+    .emi-widget-inputs{grid-template-columns:repeat(3,minmax(0,1fr));gap:.58rem}
+    .emi-widget-result{gap:0;border-top:1px solid var(--border-color);border-bottom:1px solid var(--border-color);margin-top:1.2rem}
+    .emi-widget-metric{background:transparent;border:0;border-right:1px solid var(--border-color);border-radius:0;padding:.94rem .8rem}
+    .emi-widget-metric:last-child{border-right:0}
+    .emi-widget-metric strong{font-size:clamp(.92rem,2vw,1.13rem)}
+    .emi-widget-tip{font-size:.75rem}
+    .emi-faq{gap:0;border-top:1px solid var(--border-color)}
+    .emi-faq details{border:0;border-bottom:1px solid var(--border-color);background:transparent;border-radius:0}
+    .emi-faq summary{padding:1.12rem .3rem;font-size:.93rem;line-height:1.5}
+    .emi-faq details p{font-family:Georgia,serif;font-size:1rem;line-height:1.8;padding:0 .3rem 1.1rem}
+    .emi-related{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .emi-related a{background:transparent;border:0;border-right:1px solid var(--border-color);border-bottom:1px solid var(--border-color);border-radius:0;padding:1.07rem;text-decoration:none!important;gap:.65rem}
+    .emi-related a:hover{background:var(--primary-light)}
+    .emi-related span{font-size:.77rem}
+    .emi-source-list li{font:400 .83rem/1.65 var(--font-sans)}
+    .emi-updated{font-family:var(--font-sans)!important}
+    .emi-sidebar{display:grid;position:sticky;top:6rem;gap:1.85rem;border-left:1px solid var(--border-color);padding:0 0 0 1.25rem}
+    .emi-side-card{padding:0;background:transparent;border:0;border-radius:0}
+    .emi-side-overline{display:block;color:var(--primary);font-size:.61rem;letter-spacing:.14em;font-weight:850;margin-bottom:.65rem}
+    .emi-side-card>strong{font:600 1.29rem/1.3 Georgia,serif;margin:0 0 .8rem;color:var(--text-primary)}
+    .emi-side-nav{display:grid;gap:0}
+    .emi-side-nav a{border-radius:0;color:var(--text-secondary);padding:.51rem .18rem;font-size:.75rem;font-weight:600;line-height:1.42;text-decoration:none;border-bottom:1px solid var(--border-color)}
+    .emi-side-nav a:hover{background:transparent;color:var(--primary)}
+    .emi-side-nav a.is-active{color:var(--primary);font-weight:800;border-left:2px solid var(--primary);padding-left:.55rem}
+    .emi-rail-reading{display:flex;align-items:center;justify-content:space-between;font-size:.64rem;font-weight:850;color:var(--primary);margin-top:1rem;letter-spacing:.07em}
+    .emi-rail-reading span:last-child{font-size:.56rem;color:var(--text-muted)}
+    .emi-rail-cta{padding:1.05rem 0 0;border-top:2px solid var(--text-primary)}
+    .emi-rail-cta>span{font-size:.62rem;letter-spacing:.13em;color:var(--primary);font-weight:850}
+    .emi-rail-cta p{font-family:Georgia,serif;font-size:1.15rem;color:var(--text-primary);margin:.68rem 0 .95rem;line-height:1.42}
+    .emi-rail-cta>a{display:flex;justify-content:space-between;gap:.5rem;border-bottom:1px solid var(--primary);padding:0 0 .4rem;font-size:.78rem;font-weight:800;text-decoration:none!important}
+    .emi-mobile-index{display:none}
+    .emi-reading-progress{position:fixed;top:0;left:0;right:0;height:3px;background:transparent;z-index:1000;pointer-events:none}
+    .emi-reading-progress>span{display:block;width:0;height:100%;background:#a99bf2;box-shadow:0 0 8px #a99bf255;transition:width .12s linear}
+    @media(max-width:1030px){.emi-layout{grid-template-columns:minmax(0,1fr) 215px;gap:2.7rem}.emi-cover-inner{padding:3.5rem 2.1rem}.emi-opening-note{gap:1rem}}
+    @media(max-width:880px){
+      .emi-layout{grid-template-columns:minmax(0,710px);justify-content:center}.emi-sidebar{display:none}
+      .emi-cover-inner{grid-template-columns:1fr;padding:3rem 2.2rem;min-height:0}.emi-cover-copy{max-width:700px}.emi-cover-art{display:none}
+      .emi-cover h1{font-size:clamp(3.05rem,8vw,4.5rem)!important}
+      .emi-mobile-index{display:block;max-width:710px;margin:0 auto 2rem;border-top:1px solid var(--border-color);border-bottom:1px solid var(--border-color)}
+      .emi-mobile-index summary{cursor:pointer;list-style:none;padding:.95rem 0;font-size:.81rem;font-weight:800;color:var(--text-primary);display:flex;align-items:center;justify-content:space-between;gap:.6rem}
+      .emi-mobile-index summary::-webkit-details-marker{display:none}
+      .emi-mobile-index summary span{color:var(--primary);font-size:1.1rem}
+      .emi-mobile-index[open] summary span{transform:rotate(180deg)}
+      .emi-mobile-index nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.15rem .8rem;padding:.2rem 0 1rem}
+      .emi-mobile-index nav a{color:var(--text-secondary);padding:.38rem 0;font-size:.77rem;text-decoration:none}
+      .emi-mobile-index nav a.is-active{color:var(--primary);font-weight:800}
+      .emi-opening-note{grid-template-columns:145px 1fr;margin:2.3rem auto 1.6rem}
+    }
+    @media(max-width:620px){
+      .emi-page{padding:0}.emi-cover-top,.emi-cover-bottom{padding:1.05rem 1.2rem;font-size:.56rem}
+      .emi-journal-issue{display:none}.emi-cover-bottom span:last-child{display:none}
+      .emi-cover-inner{padding:3rem 1.3rem 3.3rem}
+      .emi-cover h1{font-size:clamp(3.05rem,11.9vw,4.4rem)!important}
+      .emi-cover-deck{font-size:.97rem!important}
+      .emi-story-meta{flex-wrap:wrap;align-items:center;gap:.6rem 1rem;padding:1.14rem .1rem}
+      .emi-story-dates{order:3;width:100%;padding-left:3.3rem;font-size:.71rem}
+      .emi-share-button{margin-left:auto;font-size:.72rem}
+      .emi-opening-note{grid-template-columns:1fr;gap:.55rem;margin:2.2rem 0 1.3rem;padding-bottom:1.5rem}
+      .emi-opening-label span{display:inline;margin-left:.55rem}
+      .emi-opening-note p{font-size:1.17rem;line-height:1.61}
+      .emi-article h2{font-size:1.65rem;line-height:1.29;margin-top:2.65rem}
+      .emi-article p{font-size:.995rem;line-height:1.8}
+      .emi-article li{font-size:.98rem;line-height:1.68}
+      .emi-widget-inputs{grid-template-columns:1fr;gap:.8rem}
+      .emi-widget-result{grid-template-columns:1fr}
+      .emi-widget-metric{border-right:0;border-bottom:1px solid var(--border-color);padding:.75rem .3rem}
+      .emi-widget-metric:last-child{border-bottom:0}
+      .emi-related,.emi-grid-cards{grid-template-columns:1fr}
+      .emi-mobile-index nav{grid-template-columns:1fr}
+      .emi-variable-list{grid-template-columns:1fr}
+    }
+    @media(prefers-reduced-motion:reduce){.emi-reading-progress>span{transition:none}}
+</style>
   <link rel="icon" type="image/png" href="/favicon.png">
 </head>
 <body>
+  <div class="emi-reading-progress" aria-hidden="true"><span id="emi-progress-fill"></span></div>
   <header>
     <div class="nav-container">
       <a href="/" class="logo"><img src="/logo.png" class="logo-icon" alt="CalcuPortal logo"><span>CalcuPortal</span></a>
@@ -184,33 +342,41 @@
   <main><div class="detail-container emi-page">
     <nav class="emi-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/blog/">Blog</a><span>›</span><span aria-current="page">EMI Calculation Guide</span></nav>
     <article itemscope itemtype="https://schema.org/BlogPosting">
-      <header class="emi-hero">
-        <div class="emi-intro">
-          <div class="emi-kicker">Personal finance · Borrowing essentials</div>
-          <h1 itemprop="headline">How to Calculate EMI: Formula, Examples &amp; Repayment Guide</h1>
-          <p class="emi-lead" itemprop="description">Understand <strong>how loan EMIs are calculated</strong> using a simple formula, an accurate ₹5 lakh example, and a monthly repayment breakdown. Learn how interest rates, tenure, prepayments and lender fees affect your actual borrowing cost.</p>
-          <div class="emi-meta"><span class="emi-pill">Loan Planning Guide</span><span>By <strong>CalcuPortal</strong></span><span>Updated <time datetime="2026-10-18" itemprop="dateModified">18 Oct 2026</time></span><span>Approx. 12-minute read</span></div>
-          <div class="emi-hero-actions">
-            <a class="emi-btn emi-btn-primary" href="/calculators/loan-emi-calculator/">Open Loan EMI Calculator ↗</a>
-            <a class="emi-btn" href="#emi-formula">Learn the formula ↓</a>
+      <header class="emi-cover">
+        <div class="emi-cover-top"><span class="emi-journal-name">CALCUPORTAL <i></i> THE FINANCE JOURNAL</span><span class="emi-journal-issue">FIELD GUIDE / 01</span></div>
+        <div class="emi-cover-inner">
+          <div class="emi-cover-copy">
+            <p class="emi-cover-category">PERSONAL FINANCE <span>—</span> EXPLAINED SIMPLY</p>
+            <h1 itemprop="headline">How to Calculate <em>EMI</em><span>Formula, Examples &amp; Repayment Guide</span></h1>
+            <p class="emi-cover-deck" itemprop="description">A clear, practical guide to the maths behind your monthly loan payment — and how to avoid paying more interest than you need to.</p>
+            <a class="emi-cover-jump" href="#emi-meaning">Start reading <span aria-hidden="true">↘</span></a>
+          </div>
+          <div class="emi-cover-art" aria-hidden="true">
+            <div class="emi-art-circle"></div>
+            <div class="emi-art-label">THE ANATOMY OF A LOAN</div>
+            <div class="emi-art-figure">₹11,122<span>.22</span></div>
+            <div class="emi-art-caption">A monthly EMI, explained</div>
+            <div class="emi-art-line"></div>
+            <div class="emi-art-columns"><span>PRINCIPAL <b>₹5L</b></span><span>RATE <b>12%</b></span><span>TERM <b>5 YRS</b></span></div>
+            <div class="emi-art-stamp">01 <span>THE<br>GUIDE</span></div>
           </div>
         </div>
-        <aside class="emi-hero-card" aria-label="EMI calculation quick example">
-          <span class="emi-eyebrow">Quick answer · worked example</span>
-          <strong>₹11,122.22 / month</strong>
-          <p>For a <strong>₹5,00,000 loan</strong> at <strong>12% annual interest</strong> over <strong>5 years</strong>, using a constant monthly reducing-balance rate.</p>
-          <div class="emi-hero-numbers">
-            <div><span>Total interest</span><b>₹1,67,333.43</b></div>
-            <div><span>Total repayment</span><b>₹6,67,333.43</b></div>
-          </div>
-        </aside>
+        <div class="emi-cover-bottom"><span>01 / UNDERSTAND YOUR MONEY</span><span>FINANCE MADE CLEAR — ONE CALCULATION AT A TIME</span></div>
       </header>
-      <div class="emi-summary" aria-label="Key takeaways">
-        <div class="emi-summary-tile"><strong><span aria-hidden="true">✓</span> EMI is a monthly payment</strong><span>It combines principal repayment and interest under the agreed amortization method.</span></div>
-        <div class="emi-summary-tile"><strong><span aria-hidden="true">✓</span> Rate and tenure matter</strong><span>Even a smaller monthly EMI can produce a much larger total interest bill.</span></div>
-        <div class="emi-summary-tile"><strong><span aria-hidden="true">✓</span> Compare total loan cost</strong><span>Review fees, APR, rate resets and prepayment terms—not just the advertised EMI.</span></div>
+      <div class="emi-story-meta">
+        <div class="emi-author-row"><span class="emi-author-mark" aria-hidden="true">C</span><div><strong>CalcuPortal</strong><small>Finance &amp; learning guides</small></div></div>
+        <div class="emi-story-dates"><span>Updated <time datetime="2026-10-18" itemprop="dateModified">18 October 2026</time></span><span class="emi-meta-dot">·</span><span>12 min read</span></div>
+        <button type="button" id="emi-share-article" class="emi-share-button" aria-live="polite" aria-label="Copy article link">Copy article link <span aria-hidden="true">↗</span></button>
       </div>
-
+      <div class="emi-opening-note">
+        <div class="emi-opening-label">THE SHORT VERSION <span>— 30 SEC READ</span></div>
+        <p>An EMI is your regular monthly loan repayment. The amount depends on <strong>how much you borrow, the interest rate, and how long you take to repay.</strong> A ₹5 lakh loan at 12% for five years works out to <strong>₹11,122.22 per month</strong> under a standard reducing-balance formula. The real decision is about both the monthly payment <em>and</em> the total cost.</p>
+      </div>
+      <details class="emi-mobile-index"><summary>Explore the article <span aria-hidden="true">⌄</span></summary>
+        <nav aria-label="Mobile article table of contents">
+          <a href="#emi-meaning">What is EMI?</a><a href="#emi-formula">The EMI formula</a><a href="#emi-example">Worked example</a><a href="#emi-widget">Try your own numbers</a><a href="#emi-amortization">Amortization</a><a href="#emi-tenure">Interest &amp; tenure</a><a href="#emi-flat-reducing">Flat vs reducing interest</a><a href="#emi-fixed-floating">Fixed vs floating rate</a><a href="#emi-fees">Fees &amp; APR</a><a href="#emi-prepayment">Reduce loan costs</a><a href="#emi-faq">Frequently asked questions</a>
+        </nav>
+      </details>
       <div class="emi-layout">
         <div class="emi-article" itemprop="articleBody">
           <section id="emi-meaning">
@@ -420,26 +586,24 @@
 
         <aside class="emi-sidebar" aria-label="Article navigation">
           <div class="emi-side-card">
-            <strong>On this page</strong>
-            <nav class="emi-side-nav" aria-label="Jump to section">
+            <span class="emi-side-overline">YOUR READING MAP</span>
+            <strong>In this story</strong>
+            <nav class="emi-side-nav" aria-label="Jump to article section">
               <a href="#emi-meaning">What is EMI?</a>
-              <a href="#emi-formula">EMI formula</a>
-              <a href="#emi-example">₹5 lakh worked example</a>
-              <a href="#emi-widget">Interactive EMI example</a>
+              <a href="#emi-formula">The EMI formula</a>
+              <a href="#emi-example">₹5 lakh example</a>
+              <a href="#emi-widget">Try your own numbers</a>
               <a href="#emi-amortization">Amortization table</a>
-              <a href="#emi-tenure">Rate &amp; tenure comparison</a>
-              <a href="#emi-flat-reducing">Flat vs reducing balance</a>
-              <a href="#emi-fixed-floating">Fixed vs floating rates</a>
-              <a href="#emi-fees">Fees, GST &amp; insurance</a>
-              <a href="#emi-prepayment">Reduce EMI and interest</a>
+              <a href="#emi-tenure">Rate &amp; tenure</a>
+              <a href="#emi-flat-reducing">Flat vs reducing</a>
+              <a href="#emi-fixed-floating">Fixed vs floating</a>
+              <a href="#emi-fees">Fees and APR</a>
+              <a href="#emi-prepayment">Reduce interest</a>
               <a href="#emi-faq">FAQs</a>
             </nav>
+            <div class="emi-rail-reading"><span id="emi-reading-label">01 / 14</span><span>SECTION</span></div>
           </div>
-          <div class="emi-side-card">
-            <strong>Need an EMI estimate?</strong>
-            <p>Try more loan scenarios and explore repayment figures with our dedicated tool.</p>
-            <a class="emi-btn emi-btn-primary" href="/calculators/loan-emi-calculator/">Open EMI Calculator ↗</a>
-          </div>
+          <div class="emi-rail-cta"><span>THE TOOLKIT</span><p>Ready to run your own numbers?</p><a href="/calculators/loan-emi-calculator/">Go to EMI Calculator <span aria-hidden="true">↗</span></a></div>
         </aside>
       </div>
     </article>
@@ -495,6 +659,59 @@
     });
     update();
   })();
-  </script>
+  
+    // Article-first interactions: reading progress, current chapter and link sharing.
+    const articleContent=document.querySelector(".emi-article");
+    const progressFill=document.getElementById("emi-progress-fill");
+    const chapters=[...document.querySelectorAll(".emi-article section[id]")];
+    const chapterLinks=[...document.querySelectorAll(".emi-side-nav a, .emi-mobile-index nav a")];
+    const chapterLabel=document.getElementById("emi-reading-label");
+    function updateReading(){
+      if(!articleContent||!progressFill)return;
+      const first=articleContent.getBoundingClientRect().top+window.scrollY;
+      const last=first+articleContent.offsetHeight;
+      const progress=Math.max(0,Math.min(1,(window.scrollY+window.innerHeight*.4-first)/Math.max(1,last-first)));
+      progressFill.style.width=(progress*100).toFixed(2)+"%";
+      let index=0;
+      for(let i=0;i<chapters.length;i++){
+        if(chapters[i].getBoundingClientRect().top<=window.innerHeight*.36)index=i;
+      }
+      if(chapterLabel)chapterLabel.textContent=String(index+1).padStart(2,"0")+" / "+String(chapters.length).padStart(2,"0");
+      const current="#"+chapters[index]?.id;
+      chapterLinks.forEach(link=>{
+        const active=link.getAttribute("href")===current;
+        link.classList.toggle("is-active",active);
+        if(active)link.setAttribute("aria-current","location");else link.removeAttribute("aria-current");
+      });
+    }
+    if(articleContent){
+      window.addEventListener("scroll",updateReading,{passive:true});
+      window.addEventListener("resize",updateReading,{passive:true});
+      updateReading();
+    }
+    const copyButton=document.getElementById("emi-share-article");
+    if(copyButton)copyButton.addEventListener("click",async()=>{
+      const previous=copyButton.innerHTML;
+      try{
+        const permalink=window.location.href.split("#")[0];
+        if(navigator.clipboard&&window.isSecureContext)await navigator.clipboard.writeText(permalink);
+        else{
+          const area=document.createElement("textarea");
+          area.value=permalink;area.style.position="fixed";area.style.opacity="0";
+          document.body.appendChild(area);area.select();
+          const worked=document.execCommand("copy");area.remove();
+          if(!worked)throw new Error("Clipboard not available");
+        }
+        copyButton.textContent="Link copied ✓";
+      }catch(_){copyButton.textContent="Could not copy link";}
+      window.setTimeout(()=>{copyButton.innerHTML=previous;},1700);
+    });
+    document.querySelectorAll(".emi-mobile-index nav a").forEach(link=>{
+      link.addEventListener("click",()=>{
+        const toc=document.querySelector(".emi-mobile-index");
+        if(toc)toc.open=false;
+      });
+    });
+</script>
 </body>
 </html>
