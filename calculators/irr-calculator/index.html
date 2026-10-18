@@ -86,7 +86,7 @@
     .irr-primary,.irr-secondary,.irr-copy,.irr-chip{font:inherit;font-weight:800;cursor:pointer;border-radius:10px}
     .irr-primary{padding:.75rem 1.1rem;background:var(--primary);border:1px solid var(--primary);color:#fff;min-width:140px}
     .irr-secondary,.irr-copy{padding:.72rem 1rem;background:var(--bg-primary);color:var(--text-primary);border:1px solid var(--border-color)}
-    .irr-secondary:hover,.irr-copy:hover{border-color:var(--primary);color:var(--primary)}
+    .irr-secondary:hover:not(:disabled),.irr-copy:hover{border-color:var(--primary);color:var(--primary)}.irr-secondary:disabled{opacity:.45;cursor:not-allowed}
     .irr-chips{display:flex;gap:.55rem;flex-wrap:wrap;margin:.85rem 0 0}
     .irr-chip{background:var(--bg-primary);color:var(--text-secondary);font-size:.78rem;padding:.48rem .75rem;border:1px solid var(--border-color);border-radius:100px}
     .irr-chip:hover{color:var(--primary);border-color:var(--primary)}
@@ -105,6 +105,7 @@
     .irr-warning.show{display:block}[data-theme="dark"] .irr-warning{background:#312511;color:#fde68a;border-color:#fbbf24}
     .irr-chart{display:none;gap:.55rem;margin-top:1rem;padding:1rem;border:1px solid var(--border-color);border-radius:14px;background:var(--bg-card)}
     .irr-chart.show{display:grid}
+    #irr-chart-rows{display:grid;gap:.55rem}
     .irr-chart h3{font-size:1rem;margin:0 0 .25rem}
     .irr-bar-row{display:grid;grid-template-columns:70px minmax(0,1fr) minmax(88px,.45fr);gap:.55rem;align-items:center}
     .irr-bar-period{font-size:.77rem;color:var(--text-muted);font-weight:800}
