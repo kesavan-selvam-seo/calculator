@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <link rel="icon" href="/favicon.png" type="image/png">
@@ -6,198 +6,465 @@
   <link rel="apple-touch-icon" href="/favicon.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fuel Cost Calculator: km/L, L/100 km &amp; US MPG | CalcuPortal</title>
-  <meta name="description" content="Estimate trip fuel costs using km/L, L/100 km or US MPG with explicit distance and fuel-price units.">
-  <meta name="robots" content="index, follow">
+  <title>Fuel Cost Calculator – Petrol, Diesel & Trip Cost | CalcuPortal</title>
+  <meta name="description" content="Calculate petrol or diesel cost for a road trip using distance, mileage and fuel price. Estimate litres needed, cost per km, round-trip expenses, tolls and per-person share.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://www.calcuportal.com/calculators/fuel-cost-calculator/">
-  <link rel="stylesheet" href="../../styles.css">
-  <script src="../../script.js"></script>
-    <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How can I increase gas mileage?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Maintain tires, reduce high highway speeds, and avoid carrying excess load."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the Fuel Cost Calculator used for?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Enter the requested values to estimate fuel cost. Results depend on the units and assumptions selected."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How accurate are calculations on the Fuel Cost Calculator?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Results are estimates based on the values entered and the assumptions described on this page. Review the formula and verify important decisions with an authoritative source."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is my data secure when using the Fuel Cost Calculator?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. All computations are executed client-side in your web browser. We do not store, track, or transmit any input values or calculated results."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use the Fuel Cost Calculator on mobile devices?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absolutely. The calculator is built with a responsive mobile-first design, making it fully optimized for mobile web (mweb) as well as desktop viewports."
-      }
-    }
-    ]
-  }
-  </script>
-</head>
-<body>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Fuel Cost Calculator – Petrol, Diesel & Trip Cost">
+  <meta property="og:description" content="Estimate road-trip fuel cost, litres needed, cost per km and passenger share with km/L, L/100 km and US MPG options.">
+  <meta property="og:url" content="https://www.calcuportal.com/calculators/fuel-cost-calculator/">
+  <meta property="og:site_name" content="CalcuPortal">
+  <meta property="og:image" content="https://www.calcuportal.com/logo.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Fuel Cost Calculator – Petrol, Diesel & Trip Cost">
+  <meta name="twitter:description" content="Calculate fuel required, total petrol or diesel cost and cost per person for your journey.">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/script.js" defer></script>
 
-  <!-- Header -->
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"Fuel Cost Calculator","url":"https://www.calcuportal.com/calculators/fuel-cost-calculator/","description":"Free petrol and diesel fuel cost calculator with distance, mileage, fuel price, round-trip and optional trip-expense estimates.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","featureList":["Road trip petrol and diesel cost","Kilometres and miles","km/L, L/100 km and US MPG efficiency units","Price per litre or US gallon","Round trip and one-way journey","Fuel cost per kilometre","Passenger cost sharing","Optional toll and parking expenses","Monthly travel budget"],"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@type":"Organization","name":"CalcuPortal","url":"https://www.calcuportal.com/"}}
+  </script>
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.calcuportal.com/"},{"@type":"ListItem","position":2,"name":"Calculators","item":"https://www.calcuportal.com/calculators/"},{"@type":"ListItem","position":3,"name":"Fuel Cost Calculator","item":"https://www.calcuportal.com/calculators/fuel-cost-calculator/"}]}
+  </script>
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"How do I calculate fuel cost for a trip?","acceptedAnswer":{"@type":"Answer","text":"For distance in kilometres and mileage in kilometres per litre, divide distance by mileage to get fuel in litres, then multiply by the price per litre."}},
+      {"@type":"Question","name":"How do I calculate petrol cost per kilometre?","acceptedAnswer":{"@type":"Answer","text":"When mileage is expressed in km/L, fuel cost per km equals fuel price per litre divided by mileage. At ₹105 per litre and 15 km/L, fuel costs ₹7 per km."}},
+      {"@type":"Question","name":"How do I estimate fuel for a round trip?","acceptedAnswer":{"@type":"Answer","text":"Enter the one-way distance and select Round trip to double the travel distance. The calculator then estimates fuel needed for the full return journey."}},
+      {"@type":"Question","name":"What fuel-efficiency units are supported?","acceptedAnswer":{"@type":"Answer","text":"The calculator supports kilometres per litre (km/L), litres per 100 kilometres (L/100 km), and US miles per US gallon (US MPG). You can enter distance in kilometres or miles."}},
+      {"@type":"Question","name":"Are petrol and diesel prices live?","acceptedAnswer":{"@type":"Answer","text":"No. Enter the current price charged by your local fuel station. The calculator does not fetch live petrol or diesel prices."}},
+      {"@type":"Question","name":"Does the fuel cost calculation include tolls and parking?","acceptedAnswer":{"@type":"Answer","text":"Fuel cost is displayed separately. You may optionally enter toll and parking expenses, which are included in the total trip budget and cost per person."}},
+      {"@type":"Question","name":"How accurate is the fuel cost estimate?","acceptedAnswer":{"@type":"Answer","text":"Accuracy depends on real-world vehicle efficiency, total driving distance, pump price, traffic, load, terrain and driving conditions. The calculator provides an estimate based on the numbers you enter."}}
+    ]}
+  </script>
+
+  <style>
+    .fuel-page{max-width:1160px;margin:0 auto}
+    .fuel-hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(290px,.85fr);gap:28px;align-items:center;margin:1rem 0 1.7rem}
+    .fuel-hero-copy{padding:1.5rem 0}
+    .fuel-kicker{display:inline-flex;align-items:center;gap:.45rem;color:var(--primary);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+    .fuel-kicker::before{content:"";width:8px;height:8px;background:var(--primary);border-radius:50%}
+    .fuel-hero h1{margin:.55rem 0 .75rem;font-size:clamp(2.15rem,5vw,3.45rem);line-height:1.07;letter-spacing:-.04em}
+    .fuel-hero p{font-size:1rem;line-height:1.75;color:var(--text-secondary);text-align:justify;text-justify:inter-word;margin:0}
+    .fuel-tags{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+    .fuel-tags span{padding:.43rem .68rem;border:1px solid var(--border-color);border-radius:100px;background:var(--bg-card);color:var(--text-secondary);font-size:.77rem;font-weight:700}
+    .fuel-example-card{padding:1.4rem;border:1px solid var(--border-color);border-radius:18px;background:linear-gradient(145deg,var(--primary-light),var(--bg-card));box-shadow:var(--shadow-lg)}
+    .fuel-example-card .eyebrow{color:var(--primary);font-size:.75rem;letter-spacing:.05em;text-transform:uppercase;font-weight:800}
+    .fuel-example-card strong{display:block;font-size:clamp(1.7rem,3.6vw,2.25rem);line-height:1.1;letter-spacing:-.025em;color:var(--text-primary);margin:.55rem 0}
+    .fuel-example-card p{font-size:.86rem;line-height:1.6;text-align:left}
+    .fuel-example-meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.55rem;margin-top:.95rem}
+    .fuel-example-meta div{padding:.7rem .5rem;border:1px solid var(--border-color);border-radius:11px;background:var(--bg-card);text-align:center}
+    .fuel-example-meta b{display:block;color:var(--primary);font-size:.96rem}
+    .fuel-example-meta small{display:block;color:var(--text-muted);font-size:.69rem;margin-top:.2rem}
+    .fuel-tool{padding:1.4rem;margin:1rem 0 2rem;border:1px solid var(--border-color);border-radius:22px;background:var(--bg-card);box-shadow:var(--shadow-lg)}
+    .fuel-tool-head{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:1.15rem}
+    .fuel-tool-head h2{font-size:1.35rem;margin:0}
+    .fuel-tool-head p{margin:.35rem 0 0;color:var(--text-secondary);font-size:.87rem;line-height:1.6;text-align:left}
+    .fuel-tool-badge{white-space:nowrap;padding:.4rem .65rem;border-radius:100px;background:var(--primary-light);color:var(--primary);font-size:.72rem;font-weight:800}
+    .fuel-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+    .fuel-field label{display:block;margin-bottom:.4rem;font-size:.85rem;font-weight:800;color:var(--text-primary)}
+    .fuel-field input,.fuel-field select{width:100%;min-width:0;padding:.85rem .9rem;border:1px solid var(--border-color);border-radius:11px;background:var(--bg-primary);color:var(--text-primary);font:inherit}
+    .fuel-field input:focus,.fuel-field select:focus{outline:3px solid color-mix(in srgb,var(--primary) 22%,transparent);border-color:var(--primary)}
+    .fuel-field small{display:block;margin-top:.3rem;color:var(--text-muted);font-size:.76rem;line-height:1.5}
+    .fuel-divider{height:1px;background:var(--border-color);margin:1.2rem 0}
+    .fuel-subtitle{font-size:1rem;margin:0 0 .85rem;color:var(--text-primary)}
+    .fuel-options{display:flex;flex-wrap:wrap;gap:.55rem;margin:.9rem 0 0}
+    .fuel-presets{display:flex;flex-wrap:wrap;gap:.5rem;margin:.85rem 0 0}
+    .fuel-chip{padding:.46rem .72rem;background:var(--bg-primary);border:1px solid var(--border-color);border-radius:100px;color:var(--text-secondary);font-weight:700;font-size:.77rem;cursor:pointer}
+    .fuel-chip:hover{border-color:var(--primary);color:var(--primary)}
+    .fuel-actions{display:flex;flex-wrap:wrap;gap:.65rem;margin:1.2rem 0 0}
+    .fuel-primary,.fuel-secondary,.fuel-copy{padding:.76rem 1.08rem;border-radius:10px;font:inherit;font-weight:800;cursor:pointer}
+    .fuel-primary{min-width:180px;background:var(--primary);border:1px solid var(--primary);color:#fff}
+    .fuel-secondary,.fuel-copy{background:var(--bg-primary);border:1px solid var(--border-color);color:var(--text-primary)}
+    .fuel-secondary:hover,.fuel-copy:hover{border-color:var(--primary);color:var(--primary)}
+    .fuel-error{display:none;background:#fff1f2;color:#9f1239;border-radius:10px;padding:.85rem;margin:.85rem 0 0;font-weight:700;font-size:.86rem}
+    [data-theme="dark"] .fuel-error{background:#3f121a;color:#fecdd3}
+    .fuel-results{display:none;margin-top:1.25rem;border:1px solid var(--border-color);border-radius:17px;padding:1.1rem;background:var(--primary-light)}
+    .fuel-results.show{display:block}
+    .fuel-result-head{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+    .fuel-result-label{display:block;color:var(--text-muted);font-size:.73rem;text-transform:uppercase;letter-spacing:.06em;font-weight:800}
+    .fuel-result-main{display:block;color:var(--primary);font-size:clamp(1.85rem,5vw,2.65rem);font-weight:900;line-height:1.12;margin:.23rem 0;overflow-wrap:anywhere}
+    .fuel-result-summary{margin:.45rem 0 0;font-size:.87rem;line-height:1.65;color:var(--text-secondary);text-align:left}
+    .fuel-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem;margin-top:1rem}
+    .fuel-metric{padding:.85rem;border:1px solid var(--border-color);border-radius:11px;background:var(--bg-card)}
+    .fuel-metric span{display:block;color:var(--text-muted);font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+    .fuel-metric strong{display:block;color:var(--text-primary);font-size:.98rem;margin-top:.23rem;overflow-wrap:anywhere}
+    .fuel-split{display:flex;height:13px;overflow:hidden;border-radius:100px;background:var(--bg-card);margin-top:1rem;border:1px solid var(--border-color)}
+    .fuel-split-main{background:var(--primary);width:100%}.fuel-split-other{background:#0d9488;width:0}
+    .fuel-legend{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:.48rem}
+    .fuel-legend span{color:var(--text-secondary);font-size:.77rem}
+    .fuel-key{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--primary);margin-right:.3rem}.fuel-key.other{background:#0d9488}
+    .fuel-tip{color:var(--text-muted);font-size:.77rem;line-height:1.55;margin:.85rem 0 0;text-align:left}
+    .fuel-section{margin:2.25rem 0}.fuel-section h2{margin:0 0 .8rem;font-size:clamp(1.35rem,3vw,1.8rem)}.fuel-section h3{margin:1.2rem 0 .45rem;font-size:1.06rem}
+    .fuel-section p,.fuel-section li{color:var(--text-secondary);line-height:1.78}
+    .fuel-section p{text-align:justify;text-justify:inter-word;margin:.75rem 0 1.15rem}
+    .fuel-section ul,.fuel-section ol{padding-left:1.4rem;text-align:left;margin:.75rem 0 1.2rem}
+    .fuel-section li{text-align:left;margin:.45rem 0;padding-left:.18rem;line-height:1.7}
+    .fuel-section li::marker{color:var(--primary);font-weight:800}
+    .fuel-answer{padding:1rem 1.1rem;border-left:4px solid var(--primary);border-radius:10px;background:var(--primary-light)}
+    .fuel-answer p{margin:0}.fuel-formula{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;margin:1rem 0}
+    .fuel-formula div{border:1px solid var(--border-color);border-radius:13px;padding:1rem;background:var(--bg-card)}
+    .fuel-formula strong{display:block;color:var(--primary);font-size:.87rem;margin-bottom:.5rem}
+    .fuel-formula code{white-space:normal;overflow-wrap:anywhere;color:var(--text-primary);line-height:1.65;font-size:.85rem}
+    .fuel-example{overflow-x:auto;background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;margin:1rem 0}
+    .fuel-example table{border-collapse:collapse;width:100%;min-width:710px;font-size:.88rem}
+    .fuel-example th,.fuel-example td{padding:.74rem .85rem;border-bottom:1px solid var(--border-color);text-align:left;vertical-align:top}
+    .fuel-example th{background:var(--primary);color:#fff}.fuel-example tr:last-child td{border-bottom:0}
+    .fuel-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.8rem;margin:.95rem 0}
+    .fuel-card{padding:1rem;border:1px solid var(--border-color);border-radius:13px;background:var(--bg-card)}
+    .fuel-card h3{margin:0 0 .45rem}.fuel-card p{font-size:.88rem;margin:0}
+    .fuel-note{padding:1rem;border-left:4px solid var(--primary);background:var(--primary-light);border-radius:10px;color:var(--text-secondary)}
+    .fuel-related{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem}
+    .fuel-related a{display:flex;flex-direction:column;gap:.32rem;padding:1rem;border-radius:13px;border:1px solid var(--border-color);background:var(--bg-card);color:inherit;text-decoration:none}
+    .fuel-related a:hover{border-color:var(--primary)}.fuel-related span{font-size:.78rem;color:var(--text-muted);line-height:1.5}
+    .fuel-faq{display:grid;gap:.7rem}.fuel-faq details{border:1px solid var(--border-color);border-radius:12px;background:var(--bg-card);overflow:hidden}
+    .fuel-faq summary{font-weight:800;padding:1rem;cursor:pointer}.fuel-faq details p{padding:0 1rem 1rem;margin:0;color:var(--text-secondary);text-align:justify;text-justify:inter-word;line-height:1.7}
+    .fuel-updated{font-size:.82rem;color:var(--text-muted);margin:2rem 0;text-align:justify;text-justify:inter-word}
+    @media(max-width:900px){.fuel-hero{grid-template-columns:1fr}.fuel-cards,.fuel-formula{grid-template-columns:1fr}.fuel-related{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:620px){.fuel-hero h1{font-size:2.4rem}.fuel-tool{padding:1rem}.fuel-tool-head,.fuel-result-head{flex-direction:column}
+      .fuel-grid,.fuel-metrics,.fuel-related{grid-template-columns:1fr}.fuel-example-meta{grid-template-columns:repeat(3,minmax(0,1fr))}
+      .fuel-primary,.fuel-secondary{flex:1 1 auto}.fuel-section p{margin:.7rem 0 1rem}.fuel-section ul,.fuel-section ol{padding-left:1.25rem;margin:.7rem 0 1.05rem}.fuel-section li{margin:.4rem 0;line-height:1.65}}
+    @media(prefers-reduced-motion:reduce){.fuel-page *{transition:none!important}}
+  </style>
+</head>
+
+<body>
   <header>
     <div class="nav-container">
-      <a href="../../" class="logo">
-        <img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon">
-        <span>CalcuPortal</span>
-      </a>
-      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
+      <a href="/" class="logo"><img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon"><span>CalcuPortal</span></a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
       <nav class="nav-links" id="nav-links">
-        <a href="../../" class="nav-link">Home</a>
-        <a href="../../about/" class="nav-link">About</a>
-        <a href="../../contact/" class="nav-link">Contact</a>
-        <button class="theme-btn" title="Toggle Theme">
-          <span class="theme-btn-icon"></span>
-        </button>
+        <a href="/" class="nav-link">Home</a>
+        <a href="/calculators/" class="nav-link active">Calculators</a>
+        <a href="/blog/" class="nav-link">Articles</a>
+        <a href="/about/" class="nav-link">About</a>
+        <a href="/contact/" class="nav-link">Contact</a>
+        <button class="theme-btn" title="Toggle Theme" aria-label="Toggle theme"><span class="theme-btn-icon"></span></button>
       </nav>
     </div>
   </header>
 
-  <main>
-    <div class="detail-container">
-      <!-- Breadcrumbs -->
-      <div class="breadcrumbs">
-        <a href="../../">Home</a>
-        <span class="separator">&rsaquo;</span>
-        <a href="../../categories/finance/">Finance & Loan Calculators</a>
-        <span class="separator">&rsaquo;</span>
-        <span class="current">Fuel Cost Calculator</span>
-      </div>
+  <main><div class="detail-container fuel-page">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a><span class="separator">›</span><a href="/calculators/">Calculators</a><span class="separator">›</span><span class="current" aria-current="page">Fuel Cost Calculator</span>
+    </nav>
 
-      <div class="detail-header">
+    <section class="fuel-hero">
+      <div class="fuel-hero-copy">
+        <div class="fuel-kicker">Road trip & vehicle budget tool</div>
         <h1>Fuel Cost Calculator</h1>
+        <p>Calculate your <strong>petrol or diesel cost for a trip</strong> using travel distance, vehicle mileage and price per litre. Estimate fuel needed, cost per kilometre, round-trip expenses and each traveller's share — whether you're driving a car, SUV or bike.</p>
+        <div class="fuel-tags"><span>Petrol & diesel</span><span>₹ / km & km/L</span><span>Round-trip budget</span><span>Passenger split</span><span>US MPG support</span></div>
+      </div>
+      <aside class="fuel-example-card">
+        <span class="eyebrow">Quick calculation example</span>
+        <strong>₹2,100 fuel cost</strong>
+        <p>A 300 km trip at 15 km/L mileage with fuel priced at ₹105 per litre needs 20 litres of fuel.</p>
+        <div class="fuel-example-meta"><div><b>300 km</b><small>distance</small></div><div><b>20 L</b><small>fuel needed</small></div><div><b>₹7/km</b><small>fuel cost</small></div></div>
+      </aside>
+    </section>
+
+    <section class="fuel-tool" aria-labelledby="fuel-tool-heading">
+      <div class="fuel-tool-head"><div><h2 id="fuel-tool-heading">Calculate your trip fuel cost</h2><p>Enter your planned one-way distance, actual mileage and local pump price. Change units as needed.</p></div><span class="fuel-tool-badge">No live fuel price feed</span></div>
+
+      <div class="fuel-grid">
+        <div class="fuel-field"><label for="fuel-distance">Trip distance (one way)</label><input id="fuel-distance" type="number" value="300" min="0" step="any" inputmode="decimal"></div>
+        <div class="fuel-field"><label for="fuel-distance-unit">Distance unit</label><select id="fuel-distance-unit"><option value="km" selected>Kilometres (km)</option><option value="mi">Miles (mi)</option></select></div>
+        <div class="fuel-field"><label for="fuel-mileage">Vehicle mileage / fuel efficiency</label><input id="fuel-mileage" type="number" value="15" min="0" step="any" inputmode="decimal"></div>
+        <div class="fuel-field"><label for="fuel-mileage-unit">Mileage unit</label><select id="fuel-mileage-unit"><option value="kmpl" selected>km per litre (km/L)</option><option value="l100">Litres per 100 km (L/100 km)</option><option value="mpg-us">US miles per gallon (US MPG)</option></select></div>
+        <div class="fuel-field"><label for="fuel-price">Fuel price</label><input id="fuel-price" type="number" value="105" min="0" step="any" inputmode="decimal"><small>Enter the price charged at your pump; this is not a live rate.</small></div>
+        <div class="fuel-field"><label for="fuel-price-unit">Fuel price unit</label><select id="fuel-price-unit"><option value="liter" selected>Per litre</option><option value="gallon">Per US gallon</option></select></div>
+        <div class="fuel-field"><label for="fuel-currency">Currency</label><select id="fuel-currency"><option value="INR" selected>INR (₹)</option><option value="USD">USD ($)</option><option value="EUR">EUR (€)</option><option value="GBP">GBP (£)</option></select></div>
+        <div class="fuel-field"><label for="fuel-journey">Journey type</label><select id="fuel-journey"><option value="1" selected>One-way</option><option value="2">Round trip (return journey)</option></select></div>
       </div>
 
-      <!-- Calculator Widget -->
-      <div class="calc-widget">
-        <div class="form-row">
-          <div class="form-group"><label for="distance">Trip distance</label><input type="number" id="distance" value="100" min="0" step="any" class="input-field"></div>
-          <div class="form-group"><label for="distance-unit">Distance unit</label><select id="distance-unit" class="select-field"><option value="km">Kilometres (km)</option><option value="mi">Miles (mi)</option></select></div>
-        </div>
-        <div class="form-row">
-          <div class="form-group"><label for="efficiency">Fuel efficiency value</label><input type="number" id="efficiency" value="8" min="0" step="any" class="input-field"></div>
-          <div class="form-group"><label for="efficiency-unit">Fuel efficiency unit</label><select id="efficiency-unit" class="select-field"><option value="l100" selected>Litres per 100 km (L/100 km)</option><option value="kmpl">Kilometres per litre (km/L)</option><option value="mpg-us">US miles per gallon (MPG)</option></select></div>
-        </div>
-        <div class="form-row">
-          <div class="form-group"><label for="fuel-price">Fuel price</label><input type="number" id="fuel-price" value="1.50" min="0" step="any" class="input-field"></div>
-          <div class="form-group"><label for="fuel-price-unit">Fuel-price unit</label><select id="fuel-price-unit" class="select-field"><option value="liter" selected>Price per litre</option><option value="gallon">Price per US gallon</option></select></div>
-        </div>
-        <button id="calc-btn" class="calc-btn">Calculate Cost</button>
-        <div id="result-section" class="result-section hidden" style="text-align:center;">
-          <div class="summary-title">Estimated total fuel cost</div><div class="total-balance" id="fuel-cost-val">—</div>
-          <p style="text-align:center;">The result uses the same currency as the fuel-price value you entered.</p>
-        </div>
+      <div class="fuel-presets"><button type="button" class="fuel-chip" data-preset="car">Car example</button><button type="button" class="fuel-chip" data-preset="suv">SUV example</button><button type="button" class="fuel-chip" data-preset="bike">Bike example</button><button type="button" class="fuel-chip" data-preset="return">Round-trip example</button></div>
+      <div class="fuel-divider"></div>
+      <h3 class="fuel-subtitle">Optional trip budget & cost sharing</h3>
+      <div class="fuel-grid">
+        <div class="fuel-field"><label for="fuel-travellers">People sharing the expense</label><input id="fuel-travellers" type="number" value="2" min="1" max="100" step="1" inputmode="numeric"></div>
+        <div class="fuel-field"><label for="fuel-trips">Trips per month</label><input id="fuel-trips" type="number" value="1" min="1" max="1000" step="1" inputmode="numeric"><small>For monthly/annual travel-cost projections.</small></div>
+        <div class="fuel-field"><label for="fuel-tolls">Toll charges for selected journey</label><input id="fuel-tolls" type="number" value="0" min="0" step="any" inputmode="decimal"><small>Enter total tolls for the one-way or round trip selected above.</small></div>
+        <div class="fuel-field"><label for="fuel-parking">Parking / other trip charges</label><input id="fuel-parking" type="number" value="0" min="0" step="any" inputmode="decimal"></div>
       </div>
+      <div class="fuel-actions"><button type="button" class="fuel-primary" id="fuel-calculate">Calculate fuel cost</button><button type="button" class="fuel-secondary" id="fuel-reset">Reset</button></div>
+      <div class="fuel-error" id="fuel-error" role="alert"></div>
 
-      <!-- SEO Article -->
-      <section class="article-section">
-        <div class="article-header">
-          <h2>Fuel Cost Calculator Guides</h2>
+      <div class="fuel-results" id="fuel-results" aria-live="polite">
+        <div class="fuel-result-head"><div><span class="fuel-result-label">Estimated fuel-only cost</span><strong id="fuel-total" class="fuel-result-main">—</strong><p id="fuel-summary" class="fuel-result-summary">—</p></div><button type="button" class="fuel-copy" id="fuel-copy">Copy result</button></div>
+        <div class="fuel-metrics">
+          <div class="fuel-metric"><span>Fuel required</span><strong id="fuel-litres">—</strong></div>
+          <div class="fuel-metric"><span>Cost per km</span><strong id="fuel-cost-km">—</strong></div>
+          <div class="fuel-metric"><span>Total distance</span><strong id="fuel-distance-result">—</strong></div>
+          <div class="fuel-metric"><span>Other trip charges</span><strong id="fuel-extras">—</strong></div>
+          <div class="fuel-metric"><span>Total trip budget</span><strong id="fuel-budget">—</strong></div>
+          <div class="fuel-metric"><span>Share per person</span><strong id="fuel-person">—</strong></div>
+          <div class="fuel-metric"><span>Monthly trip budget</span><strong id="fuel-monthly">—</strong></div>
+          <div class="fuel-metric"><span>Annual trip budget</span><strong id="fuel-yearly">—</strong></div>
+          <div class="fuel-metric"><span>Fuel in US gallons</span><strong id="fuel-gallons">—</strong></div>
         </div>
-        <div class="article-content">
-          <h2>Calculate Trip Fuel Budgets</h2><p>Planning a road trip? Estimate gasoline or diesel costs based on vehicle mileage ratings and local pump rates.</p>
-          <h3>Fuel cost formulas and unit assumptions</h3><p>For km/L, estimated litres = distance in kilometres ÷ km/L. For L/100 km, estimated litres = distance in kilometres × L/100 km ÷ 100. For US MPG, estimated US gallons = distance in miles ÷ MPG; one US gallon is approximately 3.78541 litres.</p><p>Choose distance, efficiency, and fuel-price units that match your trip and pump price. The estimate does not account for traffic, driving style, route changes, fuel-price variation, or differences between advertised and real-world economy.</p>
-        </div>
-      </section>
+        <div class="fuel-split" aria-hidden="true"><div id="fuel-split-main" class="fuel-split-main"></div><div id="fuel-split-other" class="fuel-split-other"></div></div>
+        <div class="fuel-legend"><span><i class="fuel-key"></i>Fuel cost</span><span><i class="fuel-key other"></i>Tolls + parking</span></div>
+        <p class="fuel-tip">Estimates depend on actual vehicle mileage, route and pump price. Currency selection changes display only; it does not convert exchange rates.</p>
+      </div>
+    </section>
 
-            <!-- FAQ Section -->
-      <section class="faq-section">
-        <h2 class="faq-header">Frequently Asked Questions</h2>
-        <div class="faq-grid">          <div class="faq-item">
-            <h3 class="faq-question">How can I increase gas mileage?</h3>
-            <p class="faq-answer">Maintain tires, reduce high highway speeds, and avoid carrying excess load.</p>
-          </div>          <div class="faq-item">
-            <h3 class="faq-question">What is the Fuel Cost Calculator used for?</h3>
-            <p class="faq-answer">Enter the requested values to estimate fuel cost. Results depend on the units and assumptions selected.</p>
-          </div>          <div class="faq-item">
-            <h3 class="faq-question">How accurate are calculations on the Fuel Cost Calculator?</h3>
-            <p class="faq-answer">Results are estimates based on the values entered and the assumptions described on this page. Review the formula and verify important decisions with an authoritative source.</p>
-          </div>          <div class="faq-item">
-            <h3 class="faq-question">Is my data secure when using the Fuel Cost Calculator?</h3>
-            <p class="faq-answer">Yes. All computations are executed client-side in your web browser. We do not store, track, or transmit any input values or calculated results.</p>
-          </div>          <div class="faq-item">
-            <h3 class="faq-question">Can I use the Fuel Cost Calculator on mobile devices?</h3>
-            <p class="faq-answer">Absolutely. The calculator is built with a responsive mobile-first design, making it fully optimized for mobile web (mweb) as well as desktop viewports.</p>
-          </div>        </div>
-      </section>
-    </div>
-  </main>
+    <section class="fuel-section"><div class="fuel-answer"><p><strong>Fuel cost formula:</strong> for kilometres and km/L, fuel needed (litres) = trip distance ÷ mileage. Total fuel cost = litres needed × price per litre. For example, 300 km ÷ 15 km/L = 20 L; at ₹105/L, fuel costs ₹2,100.</p></div></section>
 
-  <!-- Footer -->
+    <section class="fuel-section"><h2>What is a fuel cost calculator?</h2>
+      <p>A fuel cost calculator helps estimate the amount of petrol or diesel your vehicle may need for a trip and the money you could spend at the fuel station. It combines journey distance, real-world vehicle fuel efficiency and the fuel price entered by you.</p>
+      <p>This calculator also helps plan return journeys, monthly driving expenses and shared road-trip costs. It keeps the fuel-only amount separate from optional tolls and parking, making the final budget easier to understand.</p>
+    </section>
+
+    <section class="fuel-section"><h2>How to calculate trip fuel cost</h2>
+      <ol>
+        <li>Enter the <strong>one-way distance</strong> and choose kilometres or miles.</li>
+        <li>Enter your vehicle's <strong>actual mileage</strong> and select km/L, L/100 km or US MPG.</li>
+        <li>Enter the latest price you know for your petrol or diesel, including whether the price is per litre or per US gallon.</li>
+        <li>Choose a one-way or round-trip journey, then optionally add tolls and parking.</li>
+        <li>Enter the number of people sharing the trip and trips per month if relevant.</li>
+        <li>Calculate to see fuel required, estimated petrol/diesel cost, price per kilometre, total trip budget and per-person share.</li>
+      </ol>
+    </section>
+
+    <section class="fuel-section"><h2>Fuel cost calculator formulas</h2>
+      <div class="fuel-formula">
+        <div><strong>For km/L mileage</strong><code>Fuel (L) = Distance (km) ÷ Mileage (km/L)</code></div>
+        <div><strong>For L/100 km efficiency</strong><code>Fuel (L) = Distance (km) × L/100 km ÷ 100</code></div>
+        <div><strong>For US MPG</strong><code>Fuel (US gallons) = Distance (miles) ÷ US MPG</code></div>
+      </div>
+      <p>Multiply the estimated fuel quantity by the price in the matching unit. One mile equals 1.609344 km, while one US liquid gallon equals 3.785411784 litres. This page converts the units before calculating the price, so you can combine kilometres with US MPG or miles with km/L.</p>
+      <h3>How to calculate fuel cost per kilometre</h3>
+      <p>When mileage is measured in km/L and fuel is priced per litre, <strong>fuel cost per km = price per litre ÷ mileage</strong>. With petrol at ₹105/L and a car averaging 15 km/L, the estimated fuel cost is ₹7 per kilometre.</p>
+    </section>
+
+    <section class="fuel-section"><h2>Fuel cost calculation example</h2>
+      <p>Suppose you're planning a 300 km drive in a car that averages 15 km/L and the local petrol price you enter is ₹105 per litre. The trip needs approximately 20 litres, so the estimated fuel-only cost is ₹2,100. A return journey over the same route doubles that estimate when mileage and price remain constant.</p>
+      <div class="fuel-example"><table><thead><tr><th>Example</th><th>One-way trip</th><th>Round trip</th></tr></thead><tbody>
+        <tr><td>Distance</td><td>300 km</td><td>600 km</td></tr>
+        <tr><td>Mileage</td><td>15 km/L</td><td>15 km/L</td></tr>
+        <tr><td>Fuel price (illustrative)</td><td>₹105/L</td><td>₹105/L</td></tr>
+        <tr><td>Fuel required</td><td>20 litres</td><td>40 litres</td></tr>
+        <tr><td>Fuel cost</td><td>₹2,100</td><td>₹4,200</td></tr>
+        <tr><td>Cost per km</td><td>₹7</td><td>₹7</td></tr>
+      </tbody></table></div>
+      <p>The ₹105 figure is only an example, not a claim about today's petrol price. Actual rates differ by location, outlet and fuel type.</p>
+    </section>
+
+    <section class="fuel-section"><h2>Petrol vs diesel fuel cost: what changes?</h2>
+      <p>The calculation method is the same for petrol and diesel vehicles. The main differences are the fuel price you enter and the mileage your vehicle actually achieves. A diesel SUV and a petrol hatchback can have different per-kilometre costs even on exactly the same route.</p>
+      <p>To compare two vehicles fairly, calculate them using the same distance, journey type and realistic mileage, then change the fuel price as appropriate. This calculator covers liquid fuels priced by litre or US gallon, not CNG measured in kilograms or electric vehicles measured in kWh.</p>
+    </section>
+
+    <section class="fuel-section"><h2>Round-trip fuel cost and passenger sharing</h2>
+      <p>A round trip includes travel to the destination and back. If the return journey follows a similar route, choose Round trip to double the one-way distance automatically. Add any tolls and parking for the <strong>entire selected journey</strong> rather than automatically doubling those fees.</p>
+      <p>When friends share the cost, the calculator divides the total planned trip budget — fuel plus the optional expenses — equally among the number of people entered. It doesn't assume everyone is paying for the same amount of fuel separately.</p>
+    </section>
+
+    <section class="fuel-section"><h2>Monthly petrol cost for office or regular travel</h2>
+      <p>For a repeated commute or delivery route, enter how much one trip costs and how many times it takes place each month. The monthly figure equals the selected trip budget multiplied by trips per month, while the annual estimate uses 12 months at the same frequency.</p>
+      <p>These are planning figures, not predictions. Actual monthly costs change with holidays, traffic, pump prices, route distance and your vehicle's mileage.</p>
+    </section>
+
+    <section class="fuel-section"><h2>How to measure your vehicle's real mileage</h2>
+      <ol>
+        <li>Fill the fuel tank to a consistent level and record the odometer reading.</li>
+        <li>Drive normally for a representative distance.</li>
+        <li>Refill to the same level and note the litres added and distance travelled.</li>
+        <li>Divide kilometres travelled by litres refilled to estimate your real-world km/L.</li>
+      </ol>
+      <p>Real-world mileage can differ from a brochure rating due to traffic, tyre pressure, air conditioning, road gradient, vehicle load and driving style. Using an actual measured value usually makes a trip budget more useful.</p>
+    </section>
+
+    <section class="fuel-section"><h2>What affects petrol and diesel consumption?</h2>
+      <div class="fuel-cards">
+        <div class="fuel-card"><h3>Traffic and speed</h3><p>Stop-start traffic, idling and high speeds can increase fuel use compared with smooth driving.</p></div>
+        <div class="fuel-card"><h3>Vehicle condition</h3><p>Tyre pressure, maintenance and mechanical condition can affect real-world fuel efficiency.</p></div>
+        <div class="fuel-card"><h3>Route and load</h3><p>Hills, diversions, passengers, luggage and air conditioning can change the fuel needed.</p></div>
+      </div>
+    </section>
+
+    <section class="fuel-section"><h2>Common fuel-cost calculation mistakes</h2>
+      <ul>
+        <li><strong>Using brochure mileage:</strong> your actual km/L may be lower than the advertised figure.</li>
+        <li><strong>Mixing miles and kilometres:</strong> convert distance before applying a mileage formula.</li>
+        <li><strong>Confusing US gallons with litres:</strong> they are different units and cannot be priced interchangeably.</li>
+        <li><strong>Forgetting the return journey:</strong> round trips usually involve twice the one-way distance.</li>
+        <li><strong>Ignoring tolls and parking:</strong> fuel cost alone may understate your overall trip budget.</li>
+        <li><strong>Assuming live fuel prices:</strong> this calculator uses the price you enter, not automatically updated city rates.</li>
+      </ul>
+    </section>
+
+    <section class="fuel-section"><h2>Related calculators and road-trip guides</h2>
+      <div class="fuel-related">
+        <a href="/calculators/mileage-calculator/"><strong>Mileage Calculator</strong><span>Calculate actual fuel economy from distance and fuel filled.</span></a>
+        <a href="/blog/travel/bangalore-to-goa-distance/"><strong>Bangalore to Goa</strong><span>Distance and route information for trip planning.</span></a>
+        <a href="/blog/travel/bangalore-to-ooty-distance/"><strong>Bangalore to Ooty</strong><span>Plan the distance before estimating fuel.</span></a>
+        <a href="/blog/travel/chennai-to-pondicherry-distance/"><strong>Chennai to Pondicherry</strong><span>Route and distance details for your journey.</span></a>
+        <a href="/blog/travel/goa-trip-cost/"><strong>Goa Trip Budget</strong><span>Explore other expenses beyond vehicle fuel.</span></a>
+        <a href="/blog/travel/ooty-trip-cost/"><strong>Ooty Trip Budget</strong><span>Compare transport costs with a full trip budget.</span></a>
+      </div>
+    </section>
+
+    <section class="fuel-section" aria-labelledby="fuel-faq-heading">
+      <h2 id="fuel-faq-heading">Frequently Asked Questions</h2>
+      <div class="fuel-faq">
+        <details><summary>How do I calculate fuel cost for a trip?</summary><p>Divide the kilometres you plan to drive by your vehicle's km/L mileage to calculate litres needed, then multiply that amount by the fuel price per litre.</p></details>
+        <details><summary>How much does petrol cost per kilometre?</summary><p>With km/L mileage, divide the price per litre by the mileage. A vehicle giving 15 km/L at ₹105 per litre has an estimated petrol cost of ₹7/km.</p></details>
+        <details><summary>How do I calculate fuel for a round trip?</summary><p>Enter the one-way distance and choose Round trip. The calculator doubles that distance before estimating the fuel amount and cost.</p></details>
+        <details><summary>Can I enter mileage in US MPG?</summary><p>Yes. Select US MPG, enter your vehicle's US miles-per-gallon value and select your distance and fuel-price units. The calculator converts units internally.</p></details>
+        <details><summary>Does this calculator fetch today's petrol or diesel price?</summary><p>No. Enter the current local pump price yourself. The example values shown are illustrative, not live prices.</p></details>
+        <details><summary>Are tolls and parking included?</summary><p>Only if you enter them. Fuel-only cost remains separate from the optional toll/parking charges and the total trip budget.</p></details>
+        <details><summary>How accurate is the fuel cost estimate?</summary><p>The result depends on the mileage, distance and prices entered. Traffic, hills, load, weather and driving conditions can cause actual fuel usage to differ.</p></details>
+      </div>
+    </section>
+    <p class="fuel-updated">Last updated: October 18, 2026. This is an educational trip-cost estimate based on user-provided data. Prices, efficiency and route conditions are not verified or updated in real time.</p>
+  </div></main>
   <footer>
     <nav class="footer-legal-links" aria-label="Legal and support links"><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/privacy-policy/">Privacy Policy</a><a href="/terms-conditions/">Terms &amp; Conditions</a><a href="/disclaimer/">Disclaimer</a></nav>
-  <div class="copyright-bar" style="border-top: none; padding-top: 0;">
-      © <span id="year">2026</span> CalcuPortal. All rights reserved.
-    </div>
+    <div class="copyright-bar" style="border-top:none;padding-top:0">© <span id="year">2026</span> CalcuPortal. All rights reserved.</div>
   </footer>
 
   <script>
-    document.getElementById('year').innerText = new Date().getFullYear();
-    
-    // Injected calculation script
-    // Rename calculate button triggers
-    const calculateBtn = document.getElementById('calc-btn');
-    if (calculateBtn) {
-      calculateBtn.id = 'calculate-btn';
+  (() => {
+    "use strict";
+    document.getElementById("year").textContent=new Date().getFullYear();
+    const $=id=>document.getElementById(id);
+    const ids=["fuel-distance","fuel-distance-unit","fuel-mileage","fuel-mileage-unit","fuel-price","fuel-price-unit","fuel-currency","fuel-journey","fuel-travellers","fuel-trips","fuel-tolls","fuel-parking"];
+    const controls=ids.map($);
+    const result=$("fuel-results"),error=$("fuel-error");
+    const KM_PER_MILE=1.609344,LITRES_PER_US_GALLON=3.785411784;
+    let copyValue="";
+
+    function fmtMoney(value){
+      return new Intl.NumberFormat($("fuel-currency").value==="INR"?"en-IN":"en-US",{
+        style:"currency",currency:$("fuel-currency").value,minimumFractionDigits:2,maximumFractionDigits:2
+      }).format(value);
     }
-  </script>
-  <script>
-    document.getElementById('calculate-btn').addEventListener('click', () => {
-      const distance = Number(document.getElementById('distance').value);
-      const efficiency = Number(document.getElementById('efficiency').value);
-      const fuelPrice = Number(document.getElementById('fuel-price').value);
-      const distanceUnit = document.getElementById('distance-unit').value;
-      const efficiencyUnit = document.getElementById('efficiency-unit').value;
-      const fuelPriceUnit = document.getElementById('fuel-price-unit').value;
-      if (!Number.isFinite(distance) || !Number.isFinite(efficiency) || !Number.isFinite(fuelPrice) || distance <= 0 || efficiency <= 0 || fuelPrice < 0) {
-        alert('Enter a positive distance and fuel-efficiency value, plus a non-negative fuel price.'); return;
+    function fmtNum(value,digits=2){
+      return new Intl.NumberFormat("en-IN",{maximumFractionDigits:digits}).format(value);
+    }
+    function clearOutput(){
+      result.classList.remove("show");
+      error.style.display="none";
+      error.textContent="";
+    }
+    function readNonnegative(id,label){
+      const raw=$(id).value.trim();
+      const number=Number(raw);
+      if(raw===""||!Number.isFinite(number)||number<0||number>1e12)throw new Error("Enter a valid "+label+" of 0 or more.");
+      return number;
+    }
+    function readPositive(id,label){
+      const value=readNonnegative(id,label);
+      if(value<=0)throw new Error("Enter a "+label+" greater than zero.");
+      return value;
+    }
+    function setText(id,value){$(id).textContent=value;}
+
+    function calculate(){
+      try{
+        const distance=readPositive("fuel-distance","trip distance");
+        const efficiency=readPositive("fuel-mileage","vehicle mileage");
+        const price=readNonnegative("fuel-price","fuel price");
+        const toll=readNonnegative("fuel-tolls","toll charge");
+        const parking=readNonnegative("fuel-parking","parking charge");
+        const people=readPositive("fuel-travellers","number of people");
+        const trips=readPositive("fuel-trips","trips per month");
+        if(!Number.isInteger(people)||people>100)throw new Error("People sharing costs must be a whole number between 1 and 100.");
+        if(!Number.isInteger(trips)||trips>1000)throw new Error("Trips per month must be a whole number between 1 and 1000.");
+
+        const distanceUnit=$("fuel-distance-unit").value;
+        const efficiencyUnit=$("fuel-mileage-unit").value;
+        const priceUnit=$("fuel-price-unit").value;
+        const journey=Number($("fuel-journey").value);
+        if(![1,2].includes(journey)||!["km","mi"].includes(distanceUnit)||!["kmpl","l100","mpg-us"].includes(efficiencyUnit)||!["liter","gallon"].includes(priceUnit))throw new Error("Choose valid units and journey type.");
+
+        const km=distance*(distanceUnit==="mi"?KM_PER_MILE:1)*journey;
+        let litres;
+        if(efficiencyUnit==="kmpl")litres=km/efficiency;
+        else if(efficiencyUnit==="l100")litres=km*efficiency/100;
+        else litres=(km/KM_PER_MILE)/efficiency*LITRES_PER_US_GALLON;
+
+        const pricedUnits=priceUnit==="gallon"?litres/LITRES_PER_US_GALLON:litres;
+        const fuelCost=pricedUnits*price;
+        const extras=toll+parking;
+        const budget=fuelCost+extras;
+        const costPerKm=fuelCost/km;
+        const monthly=budget*trips;
+        const annual=monthly*12;
+        if(![km,litres,fuelCost,budget,costPerKm,monthly,annual].every(Number.isFinite)||annual>1e15)throw new Error("The calculated amount is too large. Check your values.");
+
+        setText("fuel-total",fmtMoney(fuelCost));
+        setText("fuel-summary",fmtNum(distance)+" "+distanceUnit+" one-way · "+(journey===2?"round trip":"one-way")+" · "+fmtNum(km)+" km total.");
+        setText("fuel-litres",fmtNum(litres)+" L");
+        setText("fuel-cost-km",fmtMoney(costPerKm)+"/km");
+        setText("fuel-distance-result",fmtNum(km)+" km");
+        setText("fuel-extras",fmtMoney(extras));
+        setText("fuel-budget",fmtMoney(budget));
+        setText("fuel-person",fmtMoney(budget/people));
+        setText("fuel-monthly",fmtMoney(monthly));
+        setText("fuel-yearly",fmtMoney(annual));
+        setText("fuel-gallons",fmtNum(litres/LITRES_PER_US_GALLON)+" US gal");
+
+        const share=budget>0?(fuelCost/budget*100):0;
+        $("fuel-split-main").style.width=share+"%";
+        $("fuel-split-other").style.width=(100-share)+"%";
+        copyValue="Trip fuel cost: "+fmtMoney(fuelCost)+"; fuel needed: "+fmtNum(litres)+" L; distance: "+fmtNum(km)+" km; fuel cost per km: "+fmtMoney(costPerKm)+"; total trip budget: "+fmtMoney(budget)+"; each person's share: "+fmtMoney(budget/people)+".";
+        error.style.display="none";
+        result.classList.add("show");
+      }catch(e){
+        result.classList.remove("show");
+        error.textContent=e.message;
+        error.style.display="block";
       }
-      const KM_PER_MILE=1.609344, LITRES_PER_US_GALLON=3.785411784;
-      const distanceKm=distanceUnit==='mi'?distance*KM_PER_MILE:distance;
-      let litresUsed;
-      if (efficiencyUnit==='kmpl') litresUsed=distanceKm/efficiency;
-      else if (efficiencyUnit==='l100') litresUsed=distanceKm*efficiency/100;
-      else if (efficiencyUnit==='mpg-us') litresUsed=(distanceKm/KM_PER_MILE/efficiency)*LITRES_PER_US_GALLON;
-      else { alert('Select a supported fuel-efficiency unit.'); return; }
-      const pricedQuantity=fuelPriceUnit==='gallon'?litresUsed/LITRES_PER_US_GALLON:litresUsed;
-      const total=pricedQuantity*fuelPrice;
-      if (!Number.isFinite(total)||total<0) { alert('Unable to calculate a valid fuel cost. Check the values entered.'); return; }
-      document.getElementById('fuel-cost-val').textContent=new Intl.NumberFormat(undefined,{minimumFractionDigits:2,maximumFractionDigits:2}).format(total);
-      document.getElementById('result-section').classList.remove('hidden');
+    }
+
+    $("fuel-calculate").addEventListener("click",calculate);
+    controls.forEach(el=>{
+      el.addEventListener("change",clearOutput);
+      el.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();calculate();}});
     });
+
+    $("fuel-reset").addEventListener("click",()=>{
+      const defaults={"fuel-distance":"300","fuel-distance-unit":"km","fuel-mileage":"15","fuel-mileage-unit":"kmpl","fuel-price":"105","fuel-price-unit":"liter","fuel-currency":"INR","fuel-journey":"1","fuel-travellers":"2","fuel-trips":"1","fuel-tolls":"0","fuel-parking":"0"};
+      Object.keys(defaults).forEach(id=>{$(id).value=defaults[id]});
+      clearOutput();
+    });
+
+    document.querySelectorAll("[data-preset]").forEach(btn=>btn.addEventListener("click",()=>{
+      $("fuel-distance-unit").value="km";
+      $("fuel-mileage-unit").value="kmpl";
+      $("fuel-price-unit").value="liter";
+      $("fuel-currency").value="INR";
+      $("fuel-price").value="105";
+      $("fuel-tolls").value="0";$("fuel-parking").value="0";$("fuel-travellers").value="2";$("fuel-trips").value="1";
+      if(btn.dataset.preset==="suv"){$("fuel-distance").value="300";$("fuel-mileage").value="11";$("fuel-journey").value="1";}
+      else if(btn.dataset.preset==="bike"){$("fuel-distance").value="100";$("fuel-mileage").value="45";$("fuel-journey").value="1";}
+      else if(btn.dataset.preset==="return"){$("fuel-distance").value="300";$("fuel-mileage").value="15";$("fuel-journey").value="2";}
+      else{$("fuel-distance").value="300";$("fuel-mileage").value="15";$("fuel-journey").value="1";}
+      calculate();
+    }));
+
+    $("fuel-copy").addEventListener("click",async e=>{
+      const button=e.currentTarget,previous=button.textContent;
+      try{
+        if(navigator.clipboard&&window.isSecureContext)await navigator.clipboard.writeText(copyValue);
+        else{
+          const area=document.createElement("textarea");area.value=copyValue;area.style.position="fixed";area.style.opacity="0";
+          document.body.appendChild(area);area.select();
+          if(!document.execCommand("copy"))throw new Error("Copy unavailable");
+          area.remove();
+        }
+        button.textContent="Copied";
+      }catch(_){button.textContent="Copy failed";}
+      setTimeout(()=>button.textContent=previous,1500);
+    });
+
+    calculate();
+  })();
   </script>
 </body>
 </html>
