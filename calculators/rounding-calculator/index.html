@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <link rel="icon" href="/favicon.png" type="image/png">
@@ -6,210 +6,504 @@
   <link rel="apple-touch-icon" href="/favicon.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rounding Calculator - Math Tool</title>
-  <meta name="description" content="Round any decimals or fractions up, down, or to the nearest digit index instantly.">
-  <meta name="robots" content="index, follow">
+  <title>Rounding Calculator – Decimal Places, Nearest 10 &amp; Sig Figs | CalcuPortal</title>
+  <meta name="description" content="Round numbers to the nearest whole, tenth, hundredth, 10, 100 or significant figures. Compare half-away, banker's, ceiling, floor and truncation rules with steps.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://www.calcuportal.com/calculators/rounding-calculator/">
-  <link rel="stylesheet" href="../../styles.css">
-  <script src="../../script.js"></script>
-    <script type="application/ld+json">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Rounding Calculator – Decimals, Place Value &amp; Significant Figures">
+  <meta property="og:description" content="Round to decimal places, place values, significant figures or multiples. See nearest values and how the selected rounding rule works.">
+  <meta property="og:url" content="https://www.calcuportal.com/calculators/rounding-calculator/">
+  <meta property="og:site_name" content="CalcuPortal">
+  <meta property="og:image" content="https://www.calcuportal.com/logo.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Rounding Calculator – Decimals, Place Value &amp; Significant Figures">
+  <meta name="twitter:description" content="Round decimals, numbers, significant figures and custom multiples with exact decimal handling.">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/script.js" defer></script>
+  <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is Ceiling?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ceiling rounds numbers up to the next highest integer, regardless of fractional value."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the Rounding Calculator used for?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Enter the requested values to get an estimate. Results depend on the inputs, units, and assumptions described on this page."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How accurate are calculations on the Rounding Calculator?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "This tool uses industry-standard formulas and mathematical equations for Scientific & Math to ensure 100% computational integrity and accuracy."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is my data secure when using the Rounding Calculator?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. All computations are executed client-side in your web browser. We do not store, track, or transmit any input values or calculated results."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use the Rounding Calculator on mobile devices?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absolutely. The calculator is built with a responsive mobile-first design, making it fully optimized for mobile web (mweb) as well as desktop viewports."
-      }
-    }
+    "@context":"https://schema.org","@type":"WebApplication",
+    "name":"Rounding Calculator","url":"https://www.calcuportal.com/calculators/rounding-calculator/",
+    "description":"Free number rounding calculator for nearest place value, decimal places, significant figures, custom multiples, and common rounding methods with an explanation.",
+    "applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript",
+    "featureList":["Round to nearest whole number","Round to nearest tenth and hundredth","Round to nearest ten, hundred or thousand","Decimal places","Significant figures","Custom multiples","Half away from zero","Half to even (banker's rounding)","Ceiling, floor and truncate","Exact decimal-string midpoint rounding"],
+    "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+    "publisher":{"@type":"Organization","name":"CalcuPortal","url":"https://www.calcuportal.com/"}
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://www.calcuportal.com/"},
+      {"@type":"ListItem","position":2,"name":"Calculators","item":"https://www.calcuportal.com/calculators/"},
+      {"@type":"ListItem","position":3,"name":"Rounding Calculator","item":"https://www.calcuportal.com/calculators/rounding-calculator/"}
     ]
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"How do I round a number to the nearest tenth?","acceptedAnswer":{"@type":"Answer","text":"Keep one digit after the decimal and check the hundredths digit. With the standard half-away-from-zero rule, 7.46 rounds to 7.5."}},
+      {"@type":"Question","name":"How do I round to the nearest hundredth?","acceptedAnswer":{"@type":"Answer","text":"Keep two decimal digits and inspect the thousandths digit. For example, 3.14159 rounds to 3.14, while 2.675 rounds to 2.68 with half-away-from-zero rounding."}},
+      {"@type":"Question","name":"How do I round to the nearest ten or hundred?","acceptedAnswer":{"@type":"Answer","text":"For the nearest ten, inspect the ones digit; for the nearest hundred, inspect the tens digit. For example 1,256 rounds to 1,260 to the nearest ten and 1,300 to the nearest hundred."}},
+      {"@type":"Question","name":"What is the difference between rounding up, down and truncating?","acceptedAnswer":{"@type":"Answer","text":"Ceiling rounds toward positive infinity, floor rounds toward negative infinity, and truncating removes the discarded part toward zero. These behave differently for negative numbers."}},
+      {"@type":"Question","name":"What is banker's rounding?","acceptedAnswer":{"@type":"Answer","text":"Banker's rounding is the round-half-to-even rule. An exact halfway value is rounded to the neighboring result whose retained digit is even, so 2.5 becomes 2 and 3.5 becomes 4."}},
+      {"@type":"Question","name":"Why does -2.5 round to -3 with standard school rounding?","acceptedAnswer":{"@type":"Answer","text":"Under half-away-from-zero rounding, exact ties round away from zero, so -2.5 becomes -3. Some programming functions use different tie rules."}},
+      {"@type":"Question","name":"Can I round to significant figures?","acceptedAnswer":{"@type":"Answer","text":"Yes. Choose Significant figures and select how many non-leading meaningful digits to keep. This differs from rounding to a fixed number of decimal places."}}
+    ]
+  }
+  </script>
+  <style>
+    .round-page{max-width:1150px;margin:0 auto}
+    .round-hero{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(290px,.88fr);gap:28px;align-items:center;margin:1rem 0 1.6rem}
+    .round-hero-copy{padding:1.45rem 0}.round-kicker{display:inline-flex;align-items:center;gap:.45rem;color:var(--primary);font-size:.78rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}.round-kicker:before{content:"";width:8px;height:8px;background:var(--primary);border-radius:50%}
+    .round-hero h1{margin:.55rem 0 .75rem;font-size:clamp(2.15rem,5vw,3.5rem);line-height:1.07;letter-spacing:-.04em}
+    .round-hero p{margin:0;color:var(--text-secondary);font-size:1rem;line-height:1.75;text-align:justify;text-justify:inter-word}
+    .round-tags{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1rem}.round-tags span{padding:.43rem .7rem;background:var(--bg-card);border:1px solid var(--border-color);border-radius:999px;color:var(--text-secondary);font-size:.76rem;font-weight:700}
+    .round-hero-card{padding:1.35rem;border:1px solid var(--border-color);border-radius:18px;background:linear-gradient(145deg,var(--primary-light),var(--bg-card));box-shadow:var(--shadow-md)}
+    .round-hero-card .eyebrow{color:var(--primary);font-size:.76rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+    .round-hero-card>strong{display:block;margin:.55rem 0;font-size:clamp(1.6rem,3.3vw,2.3rem);color:var(--text-primary);line-height:1.18;overflow-wrap:anywhere}
+    .round-hero-card p{font-size:.87rem;line-height:1.65;text-align:left;margin:0}
+    .round-example-mini{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;margin-top:1rem}
+    .round-example-mini div{padding:.78rem;border:1px solid var(--border-color);border-radius:11px;background:var(--bg-card)}
+    .round-example-mini span{display:block;color:var(--text-muted);font-size:.72rem;font-weight:700}
+    .round-example-mini b{display:block;margin-top:.25rem;color:var(--primary);font-size:1.12rem}
+    .round-tool{padding:1.35rem;margin:1rem 0 2rem;background:var(--bg-card);border:1px solid var(--border-color);border-radius:21px;box-shadow:var(--shadow-lg)}
+    .round-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.5rem;padding:.38rem;background:var(--bg-primary);border:1px solid var(--border-color);border-radius:14px;margin:0 0 1.15rem}
+    .round-tab{padding:.77rem .6rem;border:0;border-radius:10px;background:transparent;color:var(--text-secondary);font:inherit;font-size:.84rem;font-weight:800;cursor:pointer}
+    .round-tab.active{background:var(--primary);color:#fff;box-shadow:var(--shadow-sm)}
+    .round-tool-head h2{font-size:1.36rem;margin:0}.round-tool-head p{margin:.3rem 0 1.1rem;color:var(--text-secondary);font-size:.87rem;line-height:1.6;text-align:left}
+    .round-input-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+    .round-field label{display:block;margin-bottom:.45rem;font-size:.85rem;font-weight:800;color:var(--text-primary)}
+    .round-field input,.round-field select{width:100%;padding:.83rem .9rem;border:1px solid var(--border-color);border-radius:11px;background:var(--bg-primary);color:var(--text-primary);font:inherit;min-width:0}
+    .round-field input:focus,.round-field select:focus{outline:3px solid color-mix(in srgb,var(--primary) 22%,transparent);border-color:var(--primary)}
+    .round-field small{display:block;color:var(--text-muted);font-size:.76rem;line-height:1.55;margin-top:.34rem}
+    .round-mode-panel{display:none}.round-mode-panel.active{display:block}
+    .round-actions{display:flex;flex-wrap:wrap;gap:.65rem;margin-top:1.15rem}
+    .round-primary,.round-secondary,.round-copy{font:inherit;font-weight:800;cursor:pointer;border-radius:10px;padding:.74rem 1rem}
+    .round-primary{min-width:165px;border:1px solid var(--primary);background:var(--primary);color:#fff}
+    .round-secondary,.round-copy{border:1px solid var(--border-color);background:var(--bg-primary);color:var(--text-primary)}
+    .round-secondary:hover,.round-copy:hover{border-color:var(--primary);color:var(--primary)}
+    .round-presets{display:flex;flex-wrap:wrap;gap:.52rem;margin-top:.95rem}
+    .round-chip{padding:.45rem .71rem;border:1px solid var(--border-color);border-radius:999px;background:var(--bg-primary);color:var(--text-secondary);font-size:.77rem;font-weight:700;cursor:pointer}
+    .round-chip:hover{border-color:var(--primary);color:var(--primary)}
+    .round-error{display:none;margin:.9rem 0 0;padding:.8rem .9rem;border-radius:10px;background:#fff1f2;color:#9f1239;font-size:.87rem;font-weight:700}
+    [data-theme="dark"] .round-error{background:#3f121a;color:#fecdd3}
+    .round-results{display:none;margin-top:1.25rem;padding:1.15rem;border:1px solid var(--border-color);border-radius:17px;background:var(--primary-light)}.round-results.show{display:block}
+    .round-result-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
+    .round-eyebrow{display:block;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;font-size:.73rem;font-weight:800}
+    .round-main{display:block;color:var(--primary);font-size:clamp(2rem,5vw,3rem);letter-spacing:-.03em;margin:.24rem 0;line-height:1.12;overflow-wrap:anywhere}
+    .round-sub{font-size:.89rem;color:var(--text-secondary);line-height:1.65;text-align:left;margin:.3rem 0 0}
+    .round-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem;margin-top:1rem}
+    .round-metric{background:var(--bg-card);border:1px solid var(--border-color);border-radius:11px;padding:.86rem}
+    .round-metric span{display:block;color:var(--text-muted);font-size:.7rem;text-transform:uppercase;font-weight:800;letter-spacing:.04em}
+    .round-metric strong{display:block;color:var(--text-primary);font-size:.96rem;overflow-wrap:anywhere;margin-top:.25rem}
+    .round-steps{display:grid;gap:.7rem;margin-top:1.15rem}
+    .round-step{display:flex;gap:.75rem;align-items:flex-start;padding:.85rem;background:var(--bg-card);border:1px solid var(--border-color);border-radius:11px}
+    .round-step b{display:grid;place-items:center;flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--primary);color:white;font-size:.75rem}
+    .round-step p{margin:0;color:var(--text-secondary);font-size:.86rem;line-height:1.55;text-align:left}
+    .round-section{margin:2.3rem 0}
+    .round-section h2{font-size:clamp(1.35rem,3vw,1.8rem);margin:0 0 .8rem}
+    .round-section h3{font-size:1.07rem;margin:1.25rem 0 .45rem}
+    .round-section p,.round-section li{color:var(--text-secondary);line-height:1.78}
+    .round-section p{text-align:justify;text-justify:inter-word;margin:.75rem 0 1.15rem}
+    .round-section ul,.round-section ol{padding-left:1.4rem;text-align:left;margin:.75rem 0 1.2rem}
+    .round-section li{text-align:left;line-height:1.7;margin:.45rem 0;padding-left:.18rem}
+    .round-section li::marker{color:var(--primary);font-weight:800}
+    .round-answer{border-left:4px solid var(--primary);padding:1rem;border-radius:10px;background:var(--primary-light)}
+    .round-answer p{margin:0}
+    .round-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;margin:1rem 0}
+    .round-card{border:1px solid var(--border-color);background:var(--bg-card);padding:1rem;border-radius:13px}
+    .round-card h3{margin:0 0 .42rem}.round-card p{margin:0;font-size:.88rem}
+    .round-example-table{overflow-x:auto;border:1px solid var(--border-color);border-radius:14px;margin:1rem 0;background:var(--bg-card)}
+    .round-example-table table{width:100%;min-width:670px;border-collapse:collapse;font-size:.88rem}
+    .round-example-table th,.round-example-table td{padding:.72rem .82rem;text-align:left;border-bottom:1px solid var(--border-color);vertical-align:top}
+    .round-example-table th{color:#fff;background:var(--primary)}.round-example-table tr:last-child td{border-bottom:0}
+    .round-related{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.75rem}
+    .round-related a{display:flex;flex-direction:column;gap:.34rem;background:var(--bg-card);padding:1rem;border:1px solid var(--border-color);border-radius:13px;color:inherit;text-decoration:none}
+    .round-related a:hover{border-color:var(--primary)}.round-related strong{font-size:.93rem}
+    .round-related span{font-size:.78rem;color:var(--text-muted);line-height:1.5}
+    .round-faq{display:grid;gap:.7rem}.round-faq details{background:var(--bg-card);border:1px solid var(--border-color);border-radius:12px;overflow:hidden}
+    .round-faq summary{padding:1rem;cursor:pointer;font-weight:800}.round-faq details p{margin:0;padding:0 1rem 1rem;color:var(--text-secondary);text-align:justify;text-justify:inter-word;line-height:1.65}
+    .round-updated{font-size:.81rem;color:var(--text-muted);margin:2rem 0;text-align:justify;text-justify:inter-word}
+    @media(max-width:900px){.round-hero{grid-template-columns:1fr}.round-cards{grid-template-columns:1fr}.round-related{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:670px){.round-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}.round-metrics{grid-template-columns:1fr}.round-result-top{flex-direction:column}}
+    @media(max-width:560px){.round-hero h1{font-size:2.4rem}.round-tool{padding:1rem}.round-input-grid,.round-related{grid-template-columns:1fr}.round-primary,.round-secondary{flex:1 1 auto}.round-section p{margin:.7rem 0 1rem}.round-section ul,.round-section ol{padding-left:1.25rem;margin:.7rem 0 1.05rem}.round-section li{margin:.4rem 0;line-height:1.65}}
+    @media(prefers-reduced-motion:reduce){.round-page *{transition:none!important}}
+  </style>
 </head>
 <body>
+  <header><div class="nav-container">
+    <a href="/" class="logo"><img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon"><span>CalcuPortal</span></a>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+    <nav class="nav-links" id="nav-links">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/calculators/" class="nav-link active">Calculators</a>
+      <a href="/blog/" class="nav-link">Articles</a>
+      <a href="/about/" class="nav-link">About</a>
+      <a href="/contact/" class="nav-link">Contact</a>
+      <button class="theme-btn" title="Toggle Theme" aria-label="Toggle theme"><span class="theme-btn-icon"></span></button>
+    </nav>
+  </div></header>
+  <main><div class="detail-container round-page">
+    <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span class="separator">›</span><a href="/calculators/">Calculators</a><span class="separator">›</span><span class="current" aria-current="page">Rounding Calculator</span></nav>
 
-  <!-- Header -->
-  <header>
-    <div class="nav-container">
-      <a href="../../" class="logo">
-        <img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon">
-        <span>CalcuPortal</span>
-      </a>
-      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-      <nav class="nav-links" id="nav-links">
-        <a href="../../" class="nav-link">Home</a>
-        <a href="../../about/" class="nav-link">About</a>
-        <a href="../../contact/" class="nav-link">Contact</a>
-        <button class="theme-btn" title="Toggle Theme">
-          <span class="theme-btn-icon"></span>
-        </button>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <div class="detail-container">
-      <!-- Breadcrumbs -->
-      <div class="breadcrumbs">
-        <a href="../../">Home</a>
-        <span class="separator">&rsaquo;</span>
-        <a href="../../categories/math/">Scientific & Math Tools</a>
-        <span class="separator">&rsaquo;</span>
-        <span class="current">Rounding Calculator</span>
-      </div>
-
-      <div class="detail-header">
+    <section class="round-hero">
+      <div class="round-hero-copy">
+        <div class="round-kicker">Math &amp; number precision tool</div>
         <h1>Rounding Calculator</h1>
+        <p>Round a number to the nearest <strong>whole number, ten, hundred, tenth or hundredth</strong>, or choose decimal places, significant figures and custom multiples. Compare rounding rules and see <strong>why the answer changes</strong> with clear step-by-step working.</p>
+        <div class="round-tags"><span>Nearest 10 / 100 / 1,000</span><span>Decimal places</span><span>Significant figures</span><span>Banker's rounding</span><span>Exact decimal ties</span></div>
       </div>
-
-      <!-- Calculator Widget -->
-      <div class="calc-widget">
-                <div class="form-row">
-          <div class="form-group">
-            <label for="rd-input">Number</label>
-            <input type="number" id="rd-input" value="4.567" class="input-field" step="any" />
-          </div>
-          <div class="form-group">
-            <label for="rd-mode">Mode</label>
-            <select id="rd-mode" class="select-field">
-              <option value="round" selected>Round (Nearest)</option>
-              <option value="ceil">Ceil (Up)</option>
-              <option value="floor">Floor (Down)</option>
-            </select>
-          </div>
+      <aside class="round-hero-card">
+        <span class="eyebrow">Common rounding example</span>
+        <strong>2.675 → 2.68</strong>
+        <p>Round 2.675 to the nearest hundredth using the standard half-away-from-zero rule. The third decimal digit is 5, so the second increases.</p>
+        <div class="round-example-mini">
+          <div><span>Nearest tenth</span><b>7.46 → 7.5</b></div>
+          <div><span>Nearest hundred</span><b>1,256 → 1,300</b></div>
         </div>
-        <button id="calc-btn" class="calc-btn">Round</button>
-        <div id="result-section" class="result-section hidden" style="text-align: center;">
-          <div class="summary-title">Result</div>
-          <div class="total-balance" id="rd-result">5</div>
+      </aside>
+    </section>
+
+    <section class="round-tool" aria-label="Round a number">
+      <div class="round-tabs" role="tablist" aria-label="Rounding precision">
+        <button class="round-tab active" data-kind="place" type="button" role="tab" aria-selected="true">Place value</button>
+        <button class="round-tab" data-kind="decimals" type="button" role="tab" aria-selected="false">Decimal places</button>
+        <button class="round-tab" data-kind="sig" type="button" role="tab" aria-selected="false">Significant figures</button>
+        <button class="round-tab" data-kind="multiple" type="button" role="tab" aria-selected="false">Nearest multiple</button>
+      </div>
+      <div class="round-tool-head">
+        <h2>Round a number online</h2>
+        <p>Choose your rounding precision and rule, then calculate. Exact decimal arithmetic helps preserve halfway cases such as 2.675.</p>
+      </div>
+      <div class="round-input-grid">
+        <div class="round-field"><label for="round-number">Number to round</label><input id="round-number" type="text" value="2.675" inputmode="decimal" spellcheck="false" autocomplete="off" aria-describedby="round-number-note"><small id="round-number-note">Enter a normal decimal number, with up to 30 digits. No commas or scientific notation.</small></div>
+        <div class="round-field"><label for="round-method">Rounding rule</label>
+          <select id="round-method">
+            <option value="half-away" selected>Nearest: half away from zero (school rule)</option>
+            <option value="half-even">Nearest: half to even (banker's)</option>
+            <option value="ceil">Ceiling (toward +∞)</option>
+            <option value="floor">Floor (toward −∞)</option>
+            <option value="trunc">Truncate (toward zero)</option>
+          </select>
         </div>
       </div>
+      <div style="margin-top:1rem">
+        <div id="round-panel-place" class="round-mode-panel active"><div class="round-field"><label for="round-place">Round to the nearest</label>
+          <select id="round-place"><option value="4">Ten thousand (10,000)</option><option value="3">Thousand (1,000)</option><option value="2">Hundred (100)</option><option value="1">Ten (10)</option><option value="0">Whole number (1)</option><option value="-1">Tenth (0.1)</option><option value="-2" selected>Hundredth (0.01)</option><option value="-3">Thousandth (0.001)</option></select>
+        </div></div>
+        <div id="round-panel-decimals" class="round-mode-panel"><div class="round-field"><label for="round-decimals">Number of decimal places (0–12)</label><input id="round-decimals" type="number" value="2" min="0" max="12" step="1" inputmode="numeric"></div></div>
+        <div id="round-panel-sig" class="round-mode-panel"><div class="round-field"><label for="round-sig">Significant figures (1–12)</label><input id="round-sig" type="number" value="3" min="1" max="12" step="1" inputmode="numeric"></div></div>
+        <div id="round-panel-multiple" class="round-mode-panel"><div class="round-field"><label for="round-multiple">Round to a multiple of</label><input id="round-multiple" type="text" value="0.05" inputmode="decimal" spellcheck="false"><small>Examples: 0.05, 0.25, 5, 25 or 50.</small></div></div>
+      </div>
+      <div class="round-presets" aria-label="Try a rounding example">
+        <button class="round-chip" type="button" data-example="hundredth">2.675 to hundredth</button>
+        <button class="round-chip" type="button" data-example="tenth">7.46 to tenth</button>
+        <button class="round-chip" type="button" data-example="hundred">1,256 to hundred</button>
+        <button class="round-chip" type="button" data-example="negative">−2.5 to whole</button>
+        <button class="round-chip" type="button" data-example="banker">Banker's 3.5</button>
+        <button class="round-chip" type="button" data-example="sig">Sig figs: 0.004567</button>
+      </div>
+      <div class="round-actions">
+        <button class="round-primary" id="round-calculate" type="button">Round number</button>
+        <button class="round-secondary" id="round-reset" type="button">Reset</button>
+      </div>
+      <div id="round-error" class="round-error" role="alert"></div>
 
-      <!-- SEO Article -->
-      <section class="article-section">
-        <div class="article-header">
-          <h2>Rounding Calculator Guides</h2>
+      <section id="round-results" class="round-results" aria-live="polite" aria-label="Rounding result">
+        <div class="round-result-top">
+          <div><span class="round-eyebrow">Rounded number</span><strong class="round-main" id="round-result">—</strong><p class="round-sub" id="round-summary">—</p></div>
+          <button type="button" id="round-copy" class="round-copy">Copy result</button>
         </div>
-        <div class="article-content">
-          <h2>Arithmetic Rounding</h2><p>Our rounding calculator resolves integer estimates using ceiling, floor, or standard round-half-up math algorithms.</p>
-          <h3>The Importance of Mathematical Precision</h3>
-<p>Mathematics is the universal language of science, engineering, and daily problem-solving. From computing semester GPAs to solving trigonometric functions, having access to reliable computational engines like the Rounding Calculator is essential for students, researchers, and professional workers. Utilizing digital calculation tools ensures you solve complex equations in seconds with absolute accuracy.</p>
-<p>Advanced math calculations range from simple percentages and rounding to statistics (like standard deviations and percentiles) and scientific keypad expressions. In all these cases, the order of operations (PEMDAS/BODMAS) must be strictly maintained to get the correct result. Modern solvers handle parentheses, exponentiation, logs, and trigonometric ratios natively, giving you clean, verifiable mathematical answers.</p>
-<h3>How to Use This Solver & Best Practices</h3>
-<p>To compute your equations successfully using the Rounding Calculator, follow these guidelines:</p>
-<ul>
-  <li>Check if your inputs require specific unit formats. For example, when solving trigonometry, verify if the calculator expects values in radians or degrees.</li>
-  <li>For statistics or datasets, format your list input using commas or spaces as specified by the helper labels.</li>
-  <li>Review the final calculated steps or remainder breakdowns to verify the math logic behind your output.</li>
-</ul>
-<p>Using these online tools helps reinforce learning, letting students check homework solutions and engineers run rapid computations in the field without manual paperwork.</p>
-<h3>Common Practical Applications of Math Solvers</h3>
-<p>Mathematical calculations are widely used across multiple everyday scenarios:</p>
-<ol>
-  <li><strong>Academic Progress:</strong> Students and university coordinators calculate semester CGPAs and class grades to track academic performance and eligibility requirements.</li>
-  <li><strong>Engineering and Trades:</strong> Technicians and builders use area, rounding, and division solvers to estimate project materials, square footage, and dimension cuts.</li>
-  <li><strong>Statistical Analysis:</strong> Researchers calculate variance, sample standard deviations, and percentiles to interpret experimental data and identify trends.</li>
-</ol>
-<p>By using our digital mathematical solvers, you avoid manual arithmetic mistakes, save valuable study and work time, and achieve consistent precision in all your projects.</p>
+        <div class="round-metrics">
+          <div class="round-metric"><span>Original</span><strong id="round-original">—</strong></div>
+          <div class="round-metric"><span>Rounding change</span><strong id="round-change">—</strong></div>
+          <div class="round-metric"><span>Nearest bounds</span><strong id="round-bounds">—</strong></div>
         </div>
+        <div id="round-steps" class="round-steps" aria-label="Rounding explanation"></div>
       </section>
+    </section>
 
-            <!-- FAQ Section -->
-      <section class="faq-section">
-        <h2 class="faq-header">Frequently Asked Questions</h2>
-        <div class="faq-grid">          <div class="faq-item">
-            <h3 class="faq-question">What is Ceiling?</h3>
-            <p class="faq-answer">Ceiling rounds numbers up to the next highest integer, regardless of fractional value.</p>
-          </div>          <div class="faq-item">
-            <h3 class="faq-question">What is the Rounding Calculator used for?</h3>
-            <p class="faq-answer">Enter the requested values to get an estimate. Results depend on the inputs, units, and assumptions described on this page.</p>
-          </div>          <div class="faq-item">
-            <h3 class="faq-question">How accurate are calculations on the Rounding Calculator?</h3>
-            <p class="faq-answer">This tool uses industry-standard formulas and mathematical equations for Scientific & Math to ensure 100% computational integrity and accuracy.</p>
-          </div>          <div class="faq-item">
-            <h3 class="faq-question">Is my data secure when using the Rounding Calculator?</h3>
-            <p class="faq-answer">Yes. All computations are executed client-side in your web browser. We do not store, track, or transmit any input values or calculated results.</p>
-          </div>          <div class="faq-item">
-            <h3 class="faq-question">Can I use the Rounding Calculator on mobile devices?</h3>
-            <p class="faq-answer">Absolutely. The calculator is built with a responsive mobile-first design, making it fully optimized for mobile web (mweb) as well as desktop viewports.</p>
-          </div>        </div>
-      </section>
-    </div>
-  </main>
+    <section class="round-section"><div class="round-answer"><p><strong>How to round a number:</strong> identify the place you want to keep, examine the next digit, and apply the specified rounding rule. With the common school rule, values below halfway round to the closer lower-magnitude option; values at or above halfway round away from zero. For example, 2.675 rounded to two decimal places is 2.68.</p></div></section>
 
-  <!-- Footer -->
+    <section class="round-section"><h2>What is a rounding calculator?</h2>
+      <p>A rounding calculator replaces a number with a nearby value at a chosen level of precision. You can round to a whole number, the nearest tenth, hundredth, ten, hundred or thousand, or set how many significant figures should remain.</p>
+      <p>CalcuPortal also lets you compare the common school rounding rule with banker's rounding, ceiling, floor and truncation. The tool uses the decimal digits you enter rather than relying only on floating-point rounding, which helps handle exact decimal ties.</p>
+    </section>
+
+    <section class="round-section"><h2>How to use the rounding calculator</h2>
+      <ol>
+        <li>Enter the positive or negative number you want to round.</li>
+        <li>Choose <strong>Place value</strong>, <strong>Decimal places</strong>, <strong>Significant figures</strong> or <strong>Nearest multiple</strong>.</li>
+        <li>Select how precisely to round — for example, 2 decimal places or the nearest 100.</li>
+        <li>Choose a rounding rule such as half away from zero, half to even, ceiling, floor or truncate.</li>
+        <li>Click <strong>Round number</strong> to see the result, neighboring values and explanation.</li>
+      </ol>
+    </section>
+
+    <section class="round-section"><h2>Rounding rules: when should a digit round up?</h2>
+      <p>For the common school rule, look at the first discarded digit. If it is 0–4, leave the retained digit unchanged. If it is 5–9, increase the retained digit by one in magnitude. When the number is negative, a perfect halfway tie such as −2.5 rounds to −3 under the half-away-from-zero convention.</p>
+      <div class="round-cards">
+        <div class="round-card"><h3>Nearest (half away from zero)</h3><p>Choose the closest rounded value. An exact halfway value moves away from zero: 2.5 → 3 and −2.5 → −3.</p></div>
+        <div class="round-card"><h3>Banker's (half to even)</h3><p>Round to the nearest value; at an exact tie, choose the even retained digit: 2.5 → 2 and 3.5 → 4.</p></div>
+        <div class="round-card"><h3>Ceiling, floor and truncate</h3><p>Ceiling moves toward positive infinity; floor moves toward negative infinity; truncate moves toward zero. These can give different answers for negative numbers.</p></div>
+      </div>
+    </section>
+
+    <section class="round-section"><h2>Round to the nearest tenth, hundredth and thousandth</h2>
+      <p>The <strong>tenths</strong> place is the first digit after the decimal point, the <strong>hundredths</strong> place is the second, and the <strong>thousandths</strong> place is the third. To round to a chosen decimal place, check the next digit to the right.</p>
+      <div class="round-example-table"><table><thead><tr><th>Number</th><th>Round to</th><th>Result</th><th>Why?</th></tr></thead><tbody>
+        <tr><td>7.46</td><td>Nearest tenth</td><td>7.5</td><td>The hundredths digit is 6.</td></tr>
+        <tr><td>3.14159</td><td>Nearest hundredth</td><td>3.14</td><td>The thousandths digit is 1.</td></tr>
+        <tr><td>2.675</td><td>Nearest hundredth</td><td>2.68</td><td>Exact halfway tie; half away from zero.</td></tr>
+        <tr><td>8.7654</td><td>Nearest thousandth</td><td>8.765</td><td>The fourth decimal digit is 4.</td></tr>
+      </tbody></table></div>
+    </section>
+
+    <section class="round-section"><h2>Round to the nearest whole number, 10, 100 or 1,000</h2>
+      <p>For whole numbers, look at the tenths digit. For the nearest ten, look at the ones digit; for the nearest hundred, check the tens digit. Zeros replace the digits you no longer keep when rounding to a larger place.</p>
+      <div class="round-example-table"><table><thead><tr><th>Number</th><th>Nearest</th><th>Rounded value</th></tr></thead><tbody>
+        <tr><td>48.6</td><td>Whole number</td><td>49</td></tr>
+        <tr><td>1,256</td><td>Ten</td><td>1,260</td></tr>
+        <tr><td>1,256</td><td>Hundred</td><td>1,300</td></tr>
+        <tr><td>1,256</td><td>Thousand</td><td>1,000</td></tr>
+        <tr><td>3,250</td><td>Hundred</td><td>3,300</td></tr>
+      </tbody></table></div>
+    </section>
+
+    <section class="round-section"><h2>Rounding to decimal places vs significant figures</h2>
+      <p>Decimal places count digits after the decimal point. Significant figures count meaningful digits starting from the first non-zero digit. For example, rounding <strong>0.004567 to 2 significant figures</strong> gives <strong>0.0046</strong>, while rounding it to 2 decimal places gives <strong>0.00</strong>.</p>
+      <p>Significant figures are particularly useful when expressing measurement precision. If you need a dedicated guide, use our <a href="/calculators/significant-figures-calculator/">Significant Figures Calculator</a>.</p>
+    </section>
+
+    <section class="round-section"><h2>Why negative numbers round differently</h2>
+      <p>Always rounding upward is not the same as increasing a number's magnitude. For example, <strong>ceiling(−2.1) = −2</strong>, while <strong>floor(−2.1) = −3</strong>. Truncation toward zero gives −2. With nearest rounding, −2.5 is an exact tie and the result depends on the selected tie rule.</p>
+      <p>This is also why programming-language rounding functions may not agree with school examples. Always check the convention expected in a class, spreadsheet, statistical report or financial system.</p>
+    </section>
+
+    <section class="round-section"><h2>Nearest multiple and practical rounding</h2>
+      <p>Some values are rounded to a step rather than a power of ten. For example, you may need the nearest <strong>₹0.05</strong>, a multiple of 5, or a batch size of 25. Enter the desired positive multiple in the Nearest multiple tab to compare adjacent multiples and obtain the rounded result.</p>
+    </section>
+
+    <section class="round-section"><h2>Common rounding mistakes</h2>
+      <ul>
+        <li><strong>Confusing ceiling with school rounding:</strong> ceiling always moves toward positive infinity, even for negative numbers.</li>
+        <li><strong>Rounding too early:</strong> keep adequate precision in intermediate steps before rounding a final answer.</li>
+        <li><strong>Mixing decimal places and significant figures:</strong> they measure different types of precision.</li>
+        <li><strong>Ignoring exact halfway cases:</strong> half-away and half-even rules may produce different results.</li>
+        <li><strong>Using binary floating-point for decimal ties:</strong> values such as 2.675 may not be represented exactly by standard floating-point arithmetic.</li>
+        <li><strong>Assuming a rounded number equals the original:</strong> rounding introduces a difference that can accumulate in repeated calculations.</li>
+      </ul>
+    </section>
+
+    <section class="round-section"><h2>Related maths calculators</h2>
+      <div class="round-related">
+        <a href="/calculators/math-rounding-numbers/"><strong>Rounding Numbers</strong><span>Use the simpler dedicated place-value rounding tool.</span></a>
+        <a href="/calculators/significant-figures-calculator/"><strong>Significant Figures</strong><span>Explore precision and meaningful digits.</span></a>
+        <a href="/calculators/percentage-calculator/"><strong>Percentage Calculator</strong><span>Work with percentages, change and percent-of values.</span></a>
+        <a href="/calculators/scientific-notation-calculator/"><strong>Scientific Notation</strong><span>Express large and small values using powers of ten.</span></a>
+      </div>
+    </section>
+
+    <section class="round-section"><h2>Frequently Asked Questions</h2>
+      <div class="round-faq">
+        <details><summary>How do I round to the nearest tenth?</summary><p>Keep one decimal digit and look at the hundredths digit. For example, 7.46 rounds to 7.5 using the standard rule.</p></details>
+        <details><summary>How do I round to the nearest hundredth?</summary><p>Keep two decimal digits and inspect the third. For example, 2.675 rounds to 2.68 using the half-away-from-zero rule.</p></details>
+        <details><summary>How do I round to the nearest 10 or 100?</summary><p>To round to 10, check the ones digit. To round to 100, check the tens digit. For example, 1,256 becomes 1,260 or 1,300, respectively.</p></details>
+        <details><summary>What is banker's rounding?</summary><p>Banker's rounding is the half-to-even rule: if the number is exactly halfway between two allowed values, choose the one whose retained digit is even.</p></details>
+        <details><summary>What do ceiling, floor and truncation mean?</summary><p>Ceiling moves toward positive infinity, floor toward negative infinity and truncation toward zero at the selected precision.</p></details>
+        <details><summary>Why does −2.5 round to −3?</summary><p>Under the half-away-from-zero method, exact halfway values increase in magnitude, so −2.5 becomes −3. Different rules may produce a different result.</p></details>
+        <details><summary>Can I round to significant figures?</summary><p>Yes. Choose Significant figures, select 1–12 digits and use the result to express a chosen level of meaningful precision.</p></details>
+      </div>
+    </section>
+    <p class="round-updated">Last updated: October 18, 2026. The calculator accepts ordinary decimal notation with up to 30 significant digits and 18 fractional digits. It does not accept fractions or scientific-notation input. Always use the rounding rule required by your school, report or applicable standard.</p>
+  </div></main>
+
   <footer>
     <nav class="footer-legal-links" aria-label="Legal and support links"><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/privacy-policy/">Privacy Policy</a><a href="/terms-conditions/">Terms &amp; Conditions</a><a href="/disclaimer/">Disclaimer</a></nav>
-  <div class="copyright-bar" style="border-top: none; padding-top: 0;">
-      © <span id="year">2026</span> CalcuPortal. All rights reserved.
-    </div>
+    <div class="copyright-bar" style="border-top:none;padding-top:0">© <span id="year">2026</span> CalcuPortal. All rights reserved.</div>
   </footer>
 
   <script>
-    document.getElementById('year').innerText = new Date().getFullYear();
-    
-    // Injected calculation script
-    // Rename calculate button triggers
-    const calculateBtn = document.getElementById('calc-btn');
-    if (calculateBtn) {
-      calculateBtn.id = 'calculate-btn';
+  (() => {
+    "use strict";
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const $=id=>document.getElementById(id);
+    let kind="place",copyText="";
+    const results=$("round-results"),error=$("round-error");
+    const description={place:"selected place value",decimals:"decimal places",sig:"significant figures",multiple:"custom multiple"};
+    const methodLabels={"half-away":"Nearest, halfway away from zero","half-even":"Nearest, halfway to even",ceil:"Ceiling toward positive infinity",floor:"Floor toward negative infinity",trunc:"Truncation toward zero"};
+
+    function power(n) { return 10n ** BigInt(n); }
+    function abs(v) { return v<0n?-v:v; }
+    function decimal(input) {
+      const raw=input.trim();
+      if(!/^-?(?:\d+(?:\.\d*)?|\.\d+)$/.test(raw))throw new Error("Enter an ordinary decimal number without commas, fractions or scientific notation.");
+      const neg=raw.startsWith("-");
+      const clean=neg?raw.slice(1):raw;
+      const chunks=clean.split(".");
+      const before=chunks[0]||"0",after=chunks[1]||"";
+      const all=(before+after).replace(/^0+/,"")||"0";
+      if(all.length>30||after.length>18)throw new Error("Use at most 30 significant digits and 18 digits after the decimal point.");
+      const coeff=BigInt(all)*(neg?-1n:1n);
+      return {coeff,scale:after.length,order:all==="0"?0:all.length-after.length-1};
     }
-  </script>
-  <script>
-          document.getElementById('calculate-btn').addEventListener('click', () => {
-        const val = parseFloat(document.getElementById('rd-input').value);
-        const mode = document.getElementById('rd-mode').value;
-        if (isNaN(val)) {
-          alert('Please enter a valid number.');
-          return;
-        }
-        let result = 0;
-        if (mode === 'round') result = Math.round(val);
-        else if (mode === 'ceil') result = Math.ceil(val);
-        else result = Math.floor(val);
-        
-        document.getElementById('rd-result').innerText = result;
-        document.getElementById('result-section').classList.remove('hidden');
+    function showScaled(value,exponent,decimals) {
+      const sign=value<0n?"−":"";
+      let digits=abs(value).toString();
+      let integral,fraction="";
+      if(exponent>=0){integral=digits+"0".repeat(exponent);}
+      else {
+        const n=-exponent;
+        digits=digits.padStart(n+1,"0");
+        integral=digits.slice(0,digits.length-n);
+        fraction=digits.slice(-n);
+      }
+      if(decimals===null){fraction=fraction.replace(/0+$/,"");}
+      else if(fraction.length<decimals){fraction=fraction.padEnd(decimals,"0");}
+      const grouped=integral.replace(/\B(?=(\d{3})+(?!\d))/g,",");
+      return sign+grouped+(fraction?"."+fraction:"");
+    }
+    function numberForResult(value,exponent,fixed) {
+      const formatted=showScaled(value,exponent,fixed);
+      return formatted==="−0"?"0":formatted;
+    }
+    function roundRatio(numerator,denominator,rule){
+      let q=numerator/denominator;
+      const rem=numerator%denominator;
+      if(rem===0n)return {q,remainder:rem,base:q};
+      const direction=numerator<0n?-1n:1n;
+      const magnitude=abs(rem)*2n;
+      if(rule==="ceil"&&rem>0n)q++;
+      else if(rule==="floor"&&rem<0n)q--;
+      else if(rule==="half-away"&&magnitude>=denominator)q+=direction;
+      else if(rule==="half-even"&&(magnitude>denominator||(magnitude===denominator&&abs(q)%2n===1n)))q+=direction;
+      return {q,remainder:rem,base:numerator/denominator};
+    }
+    function readWhole(id,min,max,name){
+      const value=$(id).value.trim();
+      if(!/^-?\d+$/.test(value))throw new Error("Enter a whole "+name+" between "+min+" and "+max+".");
+      const n=Number(value);
+      if(!Number.isInteger(n)||n<min||n>max)throw new Error("Enter a whole "+name+" between "+min+" and "+max+".");
+      return n;
+    }
+    function getStep(input){
+      if(kind==="place"){
+        const exponent=readWhole("round-place",-3,4,"place value");
+        return {step:{coeff:power(Math.max(0,exponent)),scale:Math.max(0,-exponent)},fixed:exponent<0?-exponent:null,label:$("round-place").selectedOptions[0].textContent};
+      }
+      if(kind==="decimals"){
+        const n=readWhole("round-decimals",0,12,"decimal-place count");
+        return {step:{coeff:1n,scale:n},fixed:n,label:n+" decimal "+(n===1?"place":"places")};
+      }
+      if(kind==="sig"){
+        const n=readWhole("round-sig",1,12,"significant-figure count");
+        const exponent=input.order-n+1;
+        return {step:{coeff:power(Math.max(0,exponent)),scale:Math.max(0,-exponent)},fixed:exponent<0?-exponent:null,label:n+" significant "+(n===1?"figure":"figures")};
+      }
+      const step=decimal($("round-multiple").value);
+      if(step.coeff<=0n)throw new Error("Enter a custom multiple greater than zero.");
+      return {step,fixed:step.scale,label:"nearest multiple of "+showScaled(step.coeff,-step.scale,null)};
+    }
+    function setStep(index,text){
+      const node=document.createElement("div");node.className="round-step";
+      const b=document.createElement("b");b.textContent=String(index);
+      const p=document.createElement("p");p.textContent=text;
+      node.append(b,p);$("round-steps").appendChild(node);
+    }
+    function calculate(){
+      try{
+        const input=decimal($("round-number").value);
+        const config=getStep(input);
+        const step=config.step;
+        const rule=$("round-method").value;
+        if(!Object.hasOwn(methodLabels,rule))throw new Error("Select a valid rounding rule.");
+        const commonScale=Math.max(input.scale,step.scale);
+        const numerator=input.coeff*power(commonScale-input.scale);
+        const denominator=step.coeff*power(commonScale-step.scale);
+        const choice=roundRatio(numerator,denominator,rule);
+        const roundedCoeff=choice.q*step.coeff,roundedExp=-step.scale;
+        const rounded=numberForResult(roundedCoeff,roundedExp,config.fixed);
+        const original=showScaled(input.coeff,-input.scale,null);
+        const difference=choice.q*denominator-numerator;
+        const delta=showScaled(difference,-commonScale,null);
+        const lowerQ=choice.remainder<0n?choice.base-1n:choice.base;
+        const upperQ=choice.remainder>0n?choice.base+1n:choice.base;
+        const lower=showScaled(lowerQ*step.coeff,-step.scale,null);
+        const upper=showScaled(upperQ*step.coeff,-step.scale,null);
+        const tie=choice.remainder!==0n&&abs(choice.remainder)*2n===denominator;
+        const exact=choice.remainder===0n;
+        $("round-result").textContent=rounded;
+        $("round-summary").textContent=original+" rounded to "+config.label+" using "+methodLabels[rule].toLowerCase()+".";
+        $("round-original").textContent=original;
+        $("round-change").textContent=(difference>0n?"+":"")+delta;
+        $("round-bounds").textContent=exact?"Already exact":lower+" and "+upper;
+        const steps=$("round-steps");steps.innerHTML="";
+        setStep(1,"Start with "+original+" and choose "+config.label+".");
+        setStep(2,exact?"The number is already an exact multiple of the selected step.":"The adjacent allowed results are "+lower+" and "+upper+(tie?"; this is an exact halfway case.":"."));
+        setStep(3,"Apply "+methodLabels[rule]+". The rounded result is "+rounded+".");
+        setStep(4,"Rounded result minus original = "+(difference>0n?"+":"")+delta+".");
+        results.classList.add("show");error.style.display="none";error.textContent="";
+        copyText=original+" rounded to "+config.label+" ("+methodLabels[rule]+") = "+rounded+"; change = "+delta+".";
+      }catch(e){
+        results.classList.remove("show");
+        error.textContent=e.message;
+        error.style.display="block";
+      }
+    }
+    function hideResult(){results.classList.remove("show");error.style.display="none";error.textContent="";}
+    function setMode(next){
+      kind=next;
+      document.querySelectorAll(".round-tab").forEach(tab=>{
+        const active=tab.dataset.kind===next;
+        tab.classList.toggle("active",active);
+        tab.setAttribute("aria-selected",String(active));
       });
+      ["place","decimals","sig","multiple"].forEach(k=>{
+        $("round-panel-"+k).classList.toggle("active",k===next);
+      });
+      hideResult();
+    }
+    document.querySelectorAll(".round-tab").forEach(tab=>tab.addEventListener("click",()=>setMode(tab.dataset.kind)));
+    document.querySelectorAll(".round-field input,.round-field select").forEach(el=>{
+      el.addEventListener("input",hideResult);
+      el.addEventListener("change",hideResult);
+      el.addEventListener("keydown",ev=>{if(ev.key==="Enter"){ev.preventDefault();calculate();}});
+    });
+    $("round-calculate").addEventListener("click",calculate);
+    $("round-reset").addEventListener("click",()=>{
+      $("round-number").value="2.675";$("round-method").value="half-away";$("round-place").value="-2";
+      $("round-decimals").value="2";$("round-sig").value="3";$("round-multiple").value="0.05";
+      setMode("place");calculate();
+    });
+    document.querySelectorAll("[data-example]").forEach(btn=>btn.addEventListener("click",()=>{
+      const key=btn.dataset.example;
+      $("round-method").value=key==="banker"?"half-even":"half-away";
+      if(key==="tenth"){$("round-number").value="7.46";$("round-place").value="-1";setMode("place");}
+      else if(key==="hundred"){$("round-number").value="1256";$("round-place").value="2";setMode("place");}
+      else if(key==="negative"){$("round-number").value="-2.5";$("round-place").value="0";setMode("place");}
+      else if(key==="banker"){$("round-number").value="3.5";$("round-place").value="0";setMode("place");}
+      else if(key==="sig"){$("round-number").value="0.004567";$("round-sig").value="2";setMode("sig");}
+      else{$("round-number").value="2.675";$("round-place").value="-2";setMode("place");}
+      calculate();
+    }));
+    $("round-copy").addEventListener("click",async ev=>{
+      const btn=ev.currentTarget,old=btn.textContent;
+      try{
+        if(navigator.clipboard&&window.isSecureContext)await navigator.clipboard.writeText(copyText);
+        else{
+          const el=document.createElement("textarea");el.value=copyText;el.style.position="fixed";el.style.opacity="0";document.body.appendChild(el);el.select();
+          if(!document.execCommand("copy"))throw new Error("Unable to copy");
+          el.remove();
+        }
+        btn.textContent="Copied";
+      }catch(_){btn.textContent="Copy failed";}
+      setTimeout(()=>btn.textContent=old,1300);
+    });
+    calculate();
+  })();
   </script>
 </body>
 </html>
