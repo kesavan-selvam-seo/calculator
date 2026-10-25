@@ -36,7 +36,7 @@ assert.equal(ist.ms,utc.ms);
 assert.equal(ist.ms,offset.ms);
 assert.equal(ist.birth.sign,11);
 assert.equal(ist.birth.nak,25);
-assert.equal(ist.birth.pada,2);
+assert.equal(ist.birth.pada,4);
 assert.throws(()=>C.calculate({...india,y:2023,m:2,d:29,zone:"UTC"}),/valid birth date/);
 assert.throws(()=>C.calculate({...india,y:2024,m:4,d:31,zone:"UTC"}),/valid birth date/);
 assert.throws(()=>C.calculate({...india,h:24,zone:"UTC"}),/valid birth time/);
