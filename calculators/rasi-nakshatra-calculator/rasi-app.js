@@ -45,7 +45,7 @@ function updateFields(){
  else put("rn-precision-note","Birth time is used to locate the Moon at your birth moment. Results close to a boundary need an independent ephemeris check.");
 }
 function clear(){
- active=null;result.hidden=true;error.hidden=true;
+ active=null;result.hidden=true;error.hidden=true;error.textContent="";
  put("rn-copy-status","");
 }
 function readInput(){
@@ -194,7 +194,7 @@ Core.nakshatras.forEach(n=>{
   const tr=el("tr");
   [
     n.index+1,n.name+" / "+n.tamil,n.lord,
-    (n.index*13+Math.floor(n.index/3))===-1?"":((n.index*360/27).toFixed(2)+"°–"+((n.index+1)*360/27).toFixed(2)+"°")
+    (n.index*360/27).toFixed(2)+"°–"+((n.index+1)*360/27).toFixed(2)+"°"
   ].forEach(x=>tr.appendChild(el("td",x)));
   table.appendChild(tr);
 });
