@@ -294,6 +294,7 @@
 (() => {
 "use strict";
 const $=id=>document.getElementById(id);
+const CURRENT_YEAR=Math.min(2100,Math.max(1900,new Date().getFullYear()));
 $("year").textContent=new Date().getFullYear();
 const MONTHS=["January","February","March","April","May","June","July","August","September","October","November","December"];
 const themes={
@@ -315,7 +316,7 @@ function validDay(month,day){
 }
 function leap(year){return year%4===0&&(year%100!==0||year%400===0);}
 function pad(x){return String(x).padStart(2,"0");}
-function dateStr(y,m,d){return pad(d)+" "+MONTHS[m-1]+" "+y;}
+function dateStr(y,m,d){return d+" "+MONTHS[m-1]+" "+y;}
 function anniversary(year,month,day,policy){
   if(month===2&&day===29&&!leap(year))return {year,month:policy==="mar1"?3:2,day:policy==="mar1"?1:28};
   return {year,month,day};
@@ -438,7 +439,7 @@ document.querySelectorAll("[data-year]").forEach(btn=>btn.addEventListener("clic
   $("pyr-year").value=btn.dataset.year;render();$("pyr-year").focus();
 }));
 $("pyr-reset").addEventListener("click",()=>{
-  $("pyr-month").value="9";$("pyr-day").value="14";$("pyr-year").value="2026";
+  $("pyr-month").value="9";$("pyr-day").value="14";$("pyr-year").value=String(CURRENT_YEAR);
   $("pyr-rollover").value="calendar";$("pyr-leap").value="feb28";render();
 });
 $("pyr-copy").addEventListener("click",async()=>{
@@ -455,6 +456,7 @@ $("pyr-copy").addEventListener("click",async()=>{
   }catch(_){button.textContent="Copy unavailable";}
   window.setTimeout(()=>button.textContent=label,1500);
 });
+$("pyr-year").value=String(CURRENT_YEAR);
 render();
 })();
 </script>
