@@ -1,32 +1,333 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lagna Calculator — Coming Soon | CalcuPortal</title><meta name="description" content="Find the Vedic ascendant using birth time and location. Coming soon to CalcuPortal."><meta name="robots" content="noindex, follow">
-<link rel="canonical" href="https://www.calcuportal.com/calculators/lagna-calculator/"><link rel="icon" href="/favicon.png" type="image/png"><link rel="stylesheet" href="/styles.css"><script src="/script.js"></script>
-<meta property="og:title" content="Lagna Calculator — Coming Soon | CalcuPortal"><meta property="og:description" content="Find the Vedic ascendant using birth time and location. Coming soon to CalcuPortal."><meta property="og:type" content="website"><meta property="og:url" content="https://www.calcuportal.com/calculators/lagna-calculator/"><meta property="og:image" content="https://www.calcuportal.com/logo.png">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calcuportal.com/"}, {"@type": "ListItem", "position": 2, "name": "Astrology & Numerology", "item": "https://www.calcuportal.com/categories/astrology-numerology/"}, {"@type": "ListItem", "position": 3, "name": "Lagna Calculator \u2014 Coming Soon", "item": "https://www.calcuportal.com/calculators/lagna-calculator/"}]}</script>
-<style>main{width:min(1120px,calc(100% - 32px));margin:0 auto;padding:28px 0 60px}.astro-hero,.placeholder-panel{padding:clamp(24px,5vw,48px);border:1px solid var(--border-color);border-radius:24px;background:var(--bg-card);margin:24px 0}.astro-hero{background:linear-gradient(140deg,var(--primary-light),var(--bg-card) 70%)}h1{font-size:clamp(30px,5vw,48px);line-height:1.15;letter-spacing:-1px;margin:14px 0 20px}h2{font-size:24px;margin-bottom:14px}p{color:var(--text-secondary);line-height:1.8;max-width:780px}.status{display:inline-block;color:var(--primary);background:var(--primary-light);padding:6px 12px;border-radius:99px;font-size:13px;font-weight:700}.astro-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:20px;margin:24px 0}.astro-card{border:1px solid var(--border-color);border-radius:18px;padding:24px;background:var(--bg-card);display:flex;flex-direction:column;gap:14px;text-decoration:none;color:var(--text-primary)}.astro-card:hover{border-color:var(--primary)}.astro-card h3{font-size:21px;line-height:1.35}.astro-card p{font-size:15px}.astro-card .status{align-self:flex-start}.astro-card .cta{margin-top:auto;color:var(--primary);font-weight:600}.astro-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}.astro-actions a{padding:12px 18px;border:1px solid var(--primary);border-radius:10px;color:var(--primary);text-decoration:none;font-weight:600}.astro-note{border-left:3px solid var(--primary);padding:18px 22px;background:var(--bg-card);margin-top:28px}.astro-note p{font-size:14px}.breadcrumbs{padding:0;flex-wrap:wrap}.skip-link{position:absolute;top:-80px;left:16px;background:var(--bg-card);padding:12px;z-index:100}.skip-link:focus{top:8px}a:focus-visible,button:focus-visible{outline:3px solid var(--primary);outline-offset:4px}.astro-footer{padding:24px 16px;text-align:center;font-size:14px}.astro-footer a{color:var(--primary);margin:0 10px}@media(max-width:480px){.nav-container{padding:0 16px}.astro-actions a{width:100%;text-align:center}}</style></head><body><a href="#main-content" class="skip-link">Skip to content</a>  <header>
-    <div class="nav-container">
-      <a href="/" class="logo">
-        <img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon">
-        <span>CalcuPortal</span>
-      </a>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<title>Lagna Calculator: Vedic Ascendant by Birth Time | CalcuPortal</title>
+<meta name="description" content="Free Lagna calculator by birth date, time and place. Find your Vedic ascendant, Tamil Lagna, sidereal degree, birth-time sensitivity and 12 houses.">
+<link rel="canonical" href="https://www.calcuportal.com/calculators/lagna-calculator/">
+<link rel="icon" href="/favicon.png" type="image/png"><link rel="apple-touch-icon" href="/favicon.png">
+<meta property="og:type" content="website"><meta property="og:site_name" content="CalcuPortal">
+<meta property="og:title" content="Lagna Calculator – Vedic Ascendant by Date, Time &amp; Place">
+<meta property="og:description" content="Find your approximate sidereal rising sign with location-aware astronomy, time-zone corrections, Tamil names and 12-house chart.">
+<meta property="og:url" content="https://www.calcuportal.com/calculators/lagna-calculator/">
+<meta property="og:image" content="https://www.calcuportal.com/logo.png">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="Lagna Calculator: Birth-Time Vedic Ascendant | CalcuPortal">
+<meta name="twitter:description" content="Check your Vedic Lagna, degree, ascendant nakshatra, 12 signs and birth-minute sensitivity.">
+<link rel="stylesheet" href="/styles.css">
+<script src="/script.js" defer></script>
+<script src="/calculators/zodiac-sign-calculator/vendor/astronomy-2.1.19.min.js" defer></script>
+<script src="/calculators/rasi-nakshatra-calculator/rasi-core.js" defer></script>
+<script src="./lagna-core.js" defer></script><script src="./lagna-app.js" defer></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Lagna Calculator — Vedic Ascendant by Birth Time and Place","url":"https://www.calcuportal.com/calculators/lagna-calculator/","description":"Calculate an approximate Vedic sidereal Lagna (rising sign) from an exact birth moment and geographic coordinates, with an approximate Lahiri ayanamsa, historical time zone handling and whole-sign houses.","applicationCategory":"LifestyleApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"featureList":["Sidereal Vedic Lagna and Tamil ascendant","Birthplace coordinate presets and manual latitude/longitude","Historical time zones and daylight-saving-time ambiguity checks","Approximate Lahiri ayanamsa","Tropical to sidereal ascendant calculation","Birth time sensitivity at ±5 ±15 ±30 minutes","Previous and next sign transition estimates","Twelve whole-sign house signs","Ascendant Nakshatra and Pada (not Moon birth star)","Copy and reset"],"offers":{"@type":"Offer","price":0,"priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"CalcuPortal","url":"https://www.calcuportal.com/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.calcuportal.com/"},{"@type":"ListItem","position":2,"name":"Astrology & Numerology","item":"https://www.calcuportal.com/categories/astrology-numerology/"},{"@type":"ListItem","position":3,"name":"Lagna Calculator","item":"https://www.calcuportal.com/calculators/lagna-calculator/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How do I calculate Lagna from date of birth, time and place?","acceptedAnswer":{"@type":"Answer","text":"Enter birth date and exact time, select birthplace coordinates and historical time zone. Convert the time to UTC, calculate local sidereal time and obliquity, find the ecliptic point rising on the eastern horizon, then subtract the chosen approximate Lahiri ayanamsa. The sidereal sector gives one of twelve Vedic Lagna signs."}},
+{"@type":"Question","name":"Can I find my Lagna without birth time?","acceptedAnswer":{"@type":"Answer","text":"A single Lagna cannot be responsibly determined from a birth date alone. The ascendant shifts by roughly a zodiac sign every two hours on average, with substantial variation by latitude and season. This calculator requires a birth time rather than guessing noon."}},
+{"@type":"Question","name":"Is Lagna the same as Rasi or Nakshatra?","acceptedAnswer":{"@type":"Answer","text":"No. Lagna is the sidereal rising ecliptic sign at the eastern horizon; Janma Rasi is the sidereal Moon sign; Janma Nakshatra is the Moon's birth-star sector. Their results often differ."}},
+{"@type":"Question","name":"What is the difference between tropical and sidereal ascendant?","acceptedAnswer":{"@type":"Answer","text":"The tropical ascendant measures from the moving equinox, while the sidereal Vedic Lagna uses a zodiac reference offset by an ayanamsa, such as Lahiri. This calculator displays both tropical and approximate Lahiri sidereal longitudes."}},
+{"@type":"Question","name":"Does this Lagna calculator use exact Lahiri ayanamsa?","acceptedAnswer":{"@type":"Answer","text":"No. It uses Astronomy Engine sidereal time and obliquity, plus an approximate Lahiri-style J2000 precession-based ayanamsa. It is not certified Swiss Ephemeris and may differ near sign boundaries."}},
+{"@type":"Question","name":"Does latitude and longitude matter for Lagna calculation?","acceptedAnswer":{"@type":"Answer","text":"Yes. Geographic longitude sets local sidereal time and latitude changes the ecliptic-horizon intersection. Choose the actual birthplace rather than current residence. Accurate coordinates are more important for Lagna than for a geocentric Moon-sign calculation."}},
+{"@type":"Question","name":"What is the Lagna degree and Lagna lord?","acceptedAnswer":{"@type":"Answer","text":"The Lagna degree is the sidereal ecliptic longitude within the 30-degree rising sign. The Lagna lord is the sign's traditional planetary ruler; for example, Mesha is ruled by Mars and Vrishabha by Venus."}},
+{"@type":"Question","name":"How are twelve houses displayed in the calculator?","acceptedAnswer":{"@type":"Answer","text":"The tool uses whole-sign houses: the entire Lagna Rasi is house 1, the next zodiac sign is house 2 and so on. It does not calculate planetary placements, detailed divisional charts or unequal house cusps."}},
+{"@type":"Question","name":"What is Ascendant Nakshatra? Is it my Janma Nakshatra?","acceptedAnswer":{"@type":"Answer","text":"The ascendant Nakshatra divides the rising ecliptic longitude into 27 star sectors and four padas each. Janma Nakshatra is based on the Moon's longitude, so these two are not interchangeable."}},
+{"@type":"Question","name":"Is Lagna astrology a scientific predictor of personality, marriage or career?","acceptedAnswer":{"@type":"Answer","text":"No. Ascendant astronomy is a mathematical sky-position calculation, but astrological predictions about personality, relationships, health or career outcomes are not scientifically validated. Use this tool for cultural interest."}}
+]}
+</script>
+<style>
+.lg-page{max-width:1160px;min-width:0;margin:0 auto}
+.lg-page *{box-sizing:border-box}
+.lg-crumb{display:flex;gap:.53rem;flex-wrap:wrap;align-items:center;margin:.88rem 0 1.48rem;font-size:.8rem;color:var(--text-muted)}
+.lg-crumb a{color:var(--primary);font-weight:750;text-decoration:none}
+.lg-hero{display:grid;grid-template-columns:minmax(0,1.13fr) minmax(270px,.87fr);gap:1.7rem;align-items:center;margin:0 0 1.8rem}
+.lg-kicker{display:inline-flex;align-items:center;gap:.5rem;color:var(--primary);text-transform:uppercase;letter-spacing:.11em;font-size:.72rem;font-weight:850}
+.lg-kicker:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--primary)}
+.lg-hero h1{font-size:clamp(2.17rem,4.7vw,3.6rem);line-height:1.13;letter-spacing:-.049em;color:var(--text-primary);margin:.7rem 0 .85rem}
+.lg-hero h1 span{color:var(--primary)}
+.lg-hero p{color:var(--text-secondary);font-size:.97rem;line-height:1.78;text-align:justify;text-justify:inter-word;margin:0}
+.lg-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.08rem 0 0}
+.lg-chips span{padding:.43rem .67rem;background:var(--bg-card);border:1px solid var(--border-color);border-radius:99px;color:var(--text-secondary);font-size:.73rem;font-weight:780}
+.lg-hero-art{border:1px solid var(--border-color);background:linear-gradient(135deg,var(--primary-light),var(--bg-card));border-radius:24px;min-height:300px;display:grid;place-items:center;overflow:hidden;position:relative;box-shadow:var(--shadow-md)}
+.lg-hero-art:before{content:"";height:263px;width:263px;border:1px dashed var(--primary);border-radius:50%;opacity:.4;position:absolute;box-shadow:0 0 0 31px var(--primary-light),0 0 0 61px var(--primary-light)}
+.lg-hero-art-inner{width:216px;height:216px;border:1px solid var(--border-color);border-radius:50%;background:var(--bg-card);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}
+.lg-hero-art-inner strong{color:var(--primary);font-size:4.25rem;line-height:1}.lg-hero-art-inner small{letter-spacing:.11em;font-size:.65rem;color:var(--text-muted);font-weight:900;margin-top:.9rem}
+.lg-star{position:absolute;border-radius:50%;width:32px;height:32px;display:grid;place-items:center;font-size:1.18rem;color:var(--primary);background:var(--bg-primary);border:1px solid var(--border-color)}
+.lg-star.a{top:-15px;left:91px}.lg-star.b{right:-15px;top:91px}.lg-star.c{bottom:-15px;left:91px}.lg-star.d{left:-15px;top:91px}
+.lg-tool{padding:1.3rem;border:1px solid var(--border-color);border-radius:19px;background:var(--bg-card);box-shadow:var(--shadow-lg);margin-bottom:2rem}
+.lg-tool-title{display:flex;align-items:start;justify-content:space-between;gap:.8rem;margin-bottom:1.2rem}
+.lg-tool h2{color:var(--text-primary);font-size:1.42rem;margin:0}
+.lg-tool-title p{font-size:.8rem;color:var(--text-muted);line-height:1.6;margin:.3rem 0 0}
+.lg-tag{display:inline-flex;white-space:nowrap;background:var(--primary-light);color:var(--primary);font-size:.69rem;font-weight:850;padding:.38rem .62rem;border-radius:100px}
+.lg-fields{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem}
+.lg-field{min-width:0}
+.lg-field label{font-weight:800;color:var(--text-primary);font-size:.8rem;display:block;margin-bottom:.4rem}
+.lg-field input,.lg-field select{width:100%;min-width:0;background:var(--bg-primary);color:var(--text-primary);border:1px solid var(--border-color);border-radius:10px;font:inherit;padding:.79rem .76rem}
+.lg-field small{display:block;color:var(--text-muted);font-size:.72rem;line-height:1.52;margin:.36rem 0 0}
+.lg-panel{padding:1rem;border:1px solid var(--border-color);border-radius:12px;background:var(--bg-primary);margin:1rem 0 0}
+.lg-panel h3{font-size:.97rem;color:var(--text-primary);margin:0 0 .85rem}
+.lg-place-layout{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:.83rem}
+.lg-time-layout{display:grid;grid-template-columns:1.15fr 1.15fr;gap:.83rem;margin:.9rem 0 0}
+.lg-info{font-size:.75rem;color:var(--text-muted);line-height:1.59;margin:.6rem 0 0}
+.lg-tool [hidden]{display:none!important}
+.lg-actions{display:flex;gap:.6rem;flex-wrap:wrap;margin:1.15rem 0 0}
+.lg-primary,.lg-secondary{cursor:pointer;font:800 .82rem var(--font-sans);border:1px solid var(--border-color);padding:.8rem 1.08rem;border-radius:10px}
+.lg-primary{color:#fff;background:var(--primary);border-color:var(--primary)}
+.lg-secondary{color:var(--text-primary);background:var(--bg-primary)}
+.lg-secondary:hover{border-color:var(--primary);color:var(--primary)}
+.lg-error{padding:.79rem 1rem;background:#fff1f2;border-radius:10px;color:#9f1239;font-size:.83rem;font-weight:750;margin:.86rem 0}
+[data-theme="dark"] .lg-error{color:#fecdd3;background:#3f121a}
+.lg-copy{font-size:.76rem;color:var(--text-muted);line-height:1.6;margin:.63rem 0}
+.lg-results{padding:1.1rem;background:var(--primary-light);border:1px solid var(--border-color);border-radius:14px;margin:1rem 0 0;scroll-margin-top:5rem}
+.lg-results[hidden]{display:none!important}
+.lg-result-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.lg-result-head small{display:block;color:var(--primary);font-weight:900;text-transform:uppercase;letter-spacing:.09em;font-size:.69rem}
+.lg-result-head span{color:var(--text-secondary);font-size:.78rem;line-height:1.53}
+.lg-boundary-chip{display:inline-block;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-card);padding:.45rem .65rem;font-size:.72rem;font-weight:850;color:var(--primary)}
+.lg-main{display:flex;gap:1rem;align-items:center;margin:1rem 0}
+.lg-main-symbol{height:88px;width:88px;display:grid;place-items:center;background:var(--primary);color:#fff;border-radius:16px;font-size:3.3rem;flex:none}
+.lg-main h3{font-size:clamp(1.18rem,3vw,1.7rem);line-height:1.36;color:var(--text-primary);margin:0 0 .3rem}
+.lg-main p{font-size:.85rem;color:var(--text-secondary);margin:0}
+.lg-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.66rem;margin:1.1rem 0}
+.lg-metric{border:1px solid var(--border-color);border-radius:11px;background:var(--bg-card);padding:.86rem}
+.lg-metric small{font-size:.7rem;font-weight:850;color:var(--text-muted);display:block}
+.lg-metric strong{font-size:1.02rem;display:block;overflow-wrap:anywhere;color:var(--primary);margin:.37rem 0 .25rem}
+.lg-metric span{font-size:.73rem;color:var(--text-secondary);line-height:1.53}
+.lg-results p{color:var(--text-secondary);line-height:1.71;font-size:.82rem;text-align:justify;text-justify:inter-word;margin:.6rem 0}
+.lg-card{margin:1.02rem 0 0;padding:1rem;background:var(--bg-card);border:1px solid var(--border-color);border-radius:11px}
+.lg-card h3{font-size:1.05rem;color:var(--text-primary);margin:0 0 .7rem}
+.lg-card small{font-size:.75rem;color:var(--text-muted);line-height:1.6}
+.lg-warning{background:var(--bg-card);border:1px solid #b978323f;border-left:4px solid #b97832;border-radius:9px;padding:.83rem;color:var(--text-primary);font-size:.83rem;line-height:1.6}
+.lg-sign-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:.42rem;margin:.72rem 0}
+.lg-sign-tile{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.25rem;padding:.6rem .13rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-primary);min-width:0}
+.lg-sign-tile.selected{border:2px solid var(--primary);background:var(--primary-light);padding:calc(.6rem - 1px) .09rem}
+.lg-glyph{font-size:1.3rem;color:var(--primary)}.lg-sign-tile b{font-size:.69rem;color:var(--text-primary)}.lg-sign-tile small{font-size:.55rem;color:var(--text-muted)}
+.lg-house-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.53rem;margin:.76rem 0}
+.lg-house{background:var(--bg-primary);border:1px solid var(--border-color);border-radius:10px;padding:.75rem}
+.lg-house.first{border:2px solid var(--primary);background:var(--primary-light);padding:calc(.75rem - 1px)}
+.lg-house small{font-size:.64rem;color:var(--text-muted);font-weight:850;display:block}
+.lg-house b{font-size:.82rem;color:var(--text-primary);display:block;margin:.32rem 0}
+.lg-house span{font-size:.67rem;color:var(--text-muted)}
+.lg-table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--border-color);border-radius:9px;margin:.7rem 0}
+.lg-table{width:100%;border-collapse:collapse;min-width:520px;font-size:.81rem}
+.lg-table th,.lg-table td{text-align:left;vertical-align:top;padding:.72rem .8rem;color:var(--text-secondary);line-height:1.56;border-bottom:1px solid var(--border-color)}
+.lg-table th{background:var(--bg-primary);color:var(--text-primary);font-weight:850}
+.lg-table tr:last-child td{border-bottom:0}
+.lg-time-summary{display:grid;grid-template-columns:1fr 1fr;gap:.67rem;margin:.7rem 0}
+.lg-time-summary div{border:1px solid var(--border-color);padding:.82rem;border-radius:10px;background:var(--bg-primary)}
+.lg-time-summary small{color:var(--text-muted);font-size:.7rem;font-weight:850;display:block}
+.lg-time-summary b{color:var(--text-primary);font-size:.82rem;line-height:1.53;display:block;margin-top:.33rem}
+.lg-explainer{margin:2.26rem 0}
+.lg-explainer h2{font-size:clamp(1.45rem,3vw,1.9rem);line-height:1.34;color:var(--text-primary);margin:0 0 .84rem}
+.lg-explainer h3{font-size:1.08rem;line-height:1.46;color:var(--text-primary);margin:1.45rem 0 .65rem}
+.lg-explainer p{color:var(--text-secondary);line-height:1.81;margin:.84rem 0 1.17rem;text-align:justify;text-justify:inter-word}
+.lg-explainer ul,.lg-explainer ol{padding-left:1.43rem;margin:.82rem 0 1.22rem;text-align:left}
+.lg-explainer li{color:var(--text-secondary);line-height:1.73;margin:.44rem 0;text-align:left;padding-left:.13rem}
+.lg-explainer li::marker{color:var(--primary);font-weight:800}
+.lg-explainer a{color:var(--primary);text-underline-offset:3px}
+.lg-answer{padding:1.05rem 1.1rem;border-left:4px solid var(--primary);border-radius:10px;background:var(--primary-light)}.lg-answer p{margin:0}
+.lg-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem;margin:1.08rem 0}
+.lg-cards div{border:1px solid var(--border-color);background:var(--bg-card);border-radius:11px;padding:1rem}
+.lg-cards strong{font-size:.93rem;color:var(--primary)}
+.lg-cards p{font-size:.84rem;line-height:1.66;text-align:left;margin:.44rem 0 0}
+.lg-guide-table{border-collapse:collapse;width:100%;min-width:600px;font-size:.84rem}
+.lg-guide-table th,.lg-guide-table td{text-align:left;padding:.83rem .8rem;vertical-align:top;border-bottom:1px solid var(--border-color)}
+.lg-guide-table th{color:#fff;background:var(--primary)}.lg-guide-table td{color:var(--text-secondary)}
+.lg-guide-table tr:last-child td{border-bottom:0}
+.lg-faq{display:grid;gap:.6rem;margin:1rem 0}
+.lg-faq details{border:1px solid var(--border-color);border-radius:10px;background:var(--bg-card);overflow:hidden}
+.lg-faq summary{cursor:pointer;padding:.98rem;font-weight:800;font-size:.89rem;color:var(--text-primary)}
+.lg-faq details p{padding:0 .98rem .98rem;margin:0;line-height:1.71;text-align:justify;text-justify:inter-word}
+.lg-related{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.72rem;margin:1rem 0}
+.lg-related a{border:1px solid var(--border-color);background:var(--bg-card);border-radius:11px;padding:1rem;display:flex;flex-direction:column;gap:.35rem;text-decoration:none;color:var(--text-primary)}
+.lg-related a:hover{border-color:var(--primary)}.lg-related strong{font-size:.91rem}
+.lg-related span{font-size:.77rem;line-height:1.56;color:var(--text-muted)}
+.lg-disclaimer{padding:1rem;border:1px solid var(--border-color);border-left:4px solid var(--primary);border-radius:11px;background:var(--bg-card);font-size:.84rem;line-height:1.74;color:var(--text-secondary);margin:1.9rem 0}
+.lg-page a:focus-visible,.lg-page button:focus-visible,.lg-page input:focus-visible,.lg-page select:focus-visible{outline:3px solid var(--primary);outline-offset:2px}
+@media(max-width:990px){.lg-hero{grid-template-columns:1fr}.lg-hero-art{min-height:248px}}
+@media(max-width:780px){.lg-fields{grid-template-columns:repeat(2,minmax(0,1fr))}.lg-place-layout{grid-template-columns:repeat(2,minmax(0,1fr))}.lg-place-layout .lg-field:first-child{grid-column:1/-1}.lg-house-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.lg-sign-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.lg-cards,.lg-related{grid-template-columns:1fr}}
+@media(max-width:520px){.lg-hero h1{font-size:2.4rem}.lg-tool{padding:1rem}.lg-fields,.lg-place-layout,.lg-time-layout,.lg-metrics,.lg-time-summary{grid-template-columns:1fr}.lg-place-layout .lg-field:first-child{grid-column:auto}.lg-actions .lg-primary,.lg-actions .lg-secondary{flex:1 1 100%}.lg-sign-grid,.lg-house-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.lg-hero-art{min-height:228px}.lg-main-symbol{width:70px;height:70px;font-size:2.45rem}.lg-tag{display:none}}
+@media(prefers-reduced-motion:reduce){.lg-page *{transition:none!important}}
+</style></head>
+<body>
+<header><div class="nav-container">
+<a href="/" class="logo"><img src="/logo.png" alt="CalcuPortal logo" class="logo-icon"><span>CalcuPortal</span></a>
+<button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+<nav class="nav-links" id="nav-links"><a class="nav-link" href="/">Home</a><a class="nav-link active" href="/calculators/">Calculators</a><a class="nav-link" href="/blog/">Articles</a><a class="nav-link" href="/about/">About</a><a class="nav-link" href="/contact/">Contact</a><button class="theme-btn" type="button" aria-label="Toggle theme" title="Toggle theme"><span class="theme-btn-icon"></span></button></nav></div></header>
+<main><div class="detail-container lg-page">
+<nav class="lg-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/categories/astrology-numerology/">Astrology &amp; Numerology</a><span>›</span><span aria-current="page">Lagna Calculator</span></nav>
+<section class="lg-hero"><div><span class="lg-kicker">Vedic rising-sign and ascendant explorer</span>
+<h1>Lagna <span>Calculator</span></h1>
+<p>Find your <strong>Vedic Lagna (Ascendant / rising sign)</strong> by birth date, exact time and birthplace. View your <strong>Tamil Lagna name</strong>, sidereal degree, ascendant Nakshatra and Pada, 12 whole-sign houses and a transparent astronomical calculation.</p>
+<div class="lg-chips"><span>Birthplace-aware</span><span>12 Vedic Lagna</span><span>Time sensitivity</span><span>Whole-sign houses</span><span>Private</span></div>
+</div>
+<div class="lg-hero-art" aria-hidden="true"><div class="lg-hero-art-inner"><span class="lg-star a">♈</span><span class="lg-star b">♋</span><span class="lg-star c">♎</span><span class="lg-star d">♑</span><strong>↑</strong><small>THE RISING HORIZON</small></div></div></section>
+<section class="lg-tool" aria-labelledby="lg-tool-heading">
+<div class="lg-tool-title"><div><h2 id="lg-tool-heading">Calculate your Vedic Lagna by birth time</h2><p>Exact birth time and geographic coordinates are required. No birth data is sent from this calculator.</p></div><span class="lg-tag">Free · No account</span></div>
+<form id="lg-form" novalidate>
+<div class="lg-fields">
+<div class="lg-field"><label for="lg-year">Birth year</label><input id="lg-year" type="number" min="1900" max="2026" step="1" value="2000" inputmode="numeric" required></div>
+<div class="lg-field"><label for="lg-month">Birth month</label><select id="lg-month" required><option value="">Choose month</option><option value="1" selected>January</option><option value="2">February</option><option value="3">March</option><option value="4">April</option><option value="5">May</option><option value="6">June</option><option value="7">July</option><option value="8">August</option><option value="9">September</option><option value="10">October</option><option value="11">November</option><option value="12">December</option></select></div>
+<div class="lg-field"><label for="lg-day">Birth day</label><select id="lg-day" required><option value="">Select day</option></select><small>Month lengths and leap years checked.</small></div>
+<div class="lg-field"><label for="lg-time">Exact birth time</label><input id="lg-time" type="time" value="12:00" step="60" required><small>24-hour local clock time from birth record.</small></div>
+</div>
+<div class="lg-panel">
+<h3>Birthplace and geographic coordinates</h3>
+<div class="lg-place-layout">
+<div class="lg-field"><label for="lg-city">City or location preset</label><select id="lg-city"><option value="">Select birthplace</option></select><small>Choose a preset or edit the coordinates manually. Locations are approximate city centres.</small></div>
+<div class="lg-field"><label for="lg-lat">Latitude (°)</label><input id="lg-lat" type="number" min="-65.9999" max="65.9999" step="any" value="13.0827" inputmode="decimal" required><small>North +, south −. Supported: −66° to +66°.</small></div>
+<div class="lg-field"><label for="lg-lon">Longitude (°)</label><input id="lg-lon" type="number" min="-180" max="180" step="any" value="80.2707" inputmode="decimal" required><small>East +, west −. Supported: −180° to +180°.</small></div>
+</div>
+<div class="lg-time-layout">
+<div class="lg-field"><label for="lg-zone">Birthplace time zone</label><select id="lg-zone">
+<optgroup label="South Asia"><option value="Asia/Kolkata" selected>India · IST (Asia/Kolkata)</option><option value="Asia/Kathmandu">Nepal · Kathmandu</option><option value="Asia/Colombo">Sri Lanka · Colombo</option><option value="Asia/Dhaka">Bangladesh · Dhaka</option><option value="Asia/Karachi">Pakistan · Karachi</option></optgroup>
+<optgroup label="Other common zones"><option value="UTC">UTC / GMT</option><option value="Asia/Dubai">Dubai</option><option value="Asia/Singapore">Singapore</option><option value="Asia/Tokyo">Tokyo</option><option value="Europe/London">London</option><option value="Europe/Paris">Paris</option><option value="America/New_York">New York</option><option value="America/Chicago">Chicago</option><option value="America/Los_Angeles">Los Angeles</option><option value="America/Toronto">Toronto</option><option value="Australia/Sydney">Sydney</option></optgroup>
+<option value="manual">Manual UTC offset (advanced)</option>
+</select><small id="lg-zone-info">The time zone used where you were born, not your current location.</small></div>
+<div class="lg-field"><label for="lg-fold">Repeated local time (DST)</label><select id="lg-fold"><option value="" selected>Automatic · warn if ambiguous</option><option value="earlier">First occurrence</option><option value="later">Second occurrence</option></select><small>Only choose for birth times repeated when daylight saving ends.</small></div>
+</div>
+<div id="lg-offset-field" class="lg-field" hidden><label for="lg-offset">Manual recorded UTC offset</label><select id="lg-offset"></select><small>Use the offset that applied at birth, including daylight-saving rules.</small></div>
+<p class="lg-info">Choose the actual birthplace. City presets use approximate centre coordinates; edit latitude/longitude for a more exact site. A precise geolocation lookup is not performed.</p>
+</div>
+<div class="lg-actions">
+<button class="lg-primary" type="submit" id="lg-calculate">Calculate My Lagna</button>
+<button class="lg-secondary" type="button" id="lg-example">Try example</button>
+<button class="lg-secondary" type="button" id="lg-reset">Reset</button>
+<button class="lg-secondary" type="button" id="lg-copy">Copy result</button></div>
+</form>
+<p class="lg-info">Important: Lagna changes rapidly with time and location. If your birth time is unknown, there is no reliable single ascendant to calculate. This tool uses an <strong>approximate Lahiri</strong> offset, not a precision-certified Panchang.</p>
+<div id="lg-error" class="lg-error" hidden role="alert"></div>
+<p id="lg-copy-status" class="lg-copy" role="status" aria-live="polite"></p>
+<div id="lg-results" class="lg-results" hidden aria-live="polite">
+<div class="lg-result-head"><div><small>YOUR VEDIC LAGNA · SIDEREAL ASCENDANT</small><span id="lg-time-label"></span></div><span class="lg-boundary-chip" id="lg-boundary-status"></span></div>
+<div class="lg-main"><span id="lg-main-number" class="lg-main-symbol">↑</span><div><h3 id="lg-lagna">—</h3><p id="lg-tamil"></p></div></div>
+<div class="lg-metrics">
+<div class="lg-metric"><small>Lagna degree</small><strong id="lg-degree">—</strong><span>Within the 30° rising sign</span></div>
+<div class="lg-metric"><small>Ascendant Nakshatra / Pada</small><strong id="lg-nak-name">—</strong><span id="lg-nak-tamil">Not the Moon's Janma Nakshatra</span></div>
+<div class="lg-metric"><small>Lagna lord</small><strong id="lg-ruler">—</strong><span>Traditional ruler of the ascendant sign</span></div>
+</div>
+<div id="lg-caution" class="lg-warning" hidden></div>
+<div class="lg-card"><h3>How this Lagna was calculated</h3><p id="lg-rule"></p>
+<div class="lg-table-scroll"><table class="lg-table"><thead><tr><th>Step</th><th>Value</th></tr></thead><tbody id="lg-steps"></tbody></table></div>
+<div class="lg-metrics"><div class="lg-metric"><small>Coordinates</small><strong id="lg-geo">—</strong></div><div class="lg-metric"><small>UTC birth moment</small><strong id="lg-utc">—</strong></div><div class="lg-metric"><small>Local sidereal angle</small><strong id="lg-lst">—</strong></div></div>
+<details><summary>Show additional astronomy parameters</summary><div class="lg-metrics">
+<div class="lg-metric"><small>Greenwich apparent sidereal angle</small><strong id="lg-gst">—</strong></div>
+<div class="lg-metric"><small>True obliquity</small><strong id="lg-epsilon">—</strong></div>
+<div class="lg-metric"><small>Tropical ascendant</small><strong id="lg-tropical">—</strong></div>
+<div class="lg-metric"><small>Approximate Lahiri ayanamsa</small><strong id="lg-ayan">—</strong></div>
+<div class="lg-metric"><small>Sidereal ascendant</small><strong id="lg-sidereal">—</strong></div></div></details>
+<p id="lg-method" class="lg-copy"></p></div>
+<div class="lg-card"><h3>How sensitive is my Lagna to birth time?</h3><p>Compare your rising sign if the recorded time were 5, 15 or 30 minutes earlier or later. These are illustration checks, not confidence intervals or a substitute for precise birth records.</p>
+<div class="lg-table-scroll"><table class="lg-table"><thead><tr><th>Time difference</th><th>Local clock</th><th>Vedic Lagna</th><th>Degree</th><th>Change?</th></tr></thead><tbody id="lg-sensitivity-table"></tbody></table></div>
+<div class="lg-time-summary"><div><small>Closest previous sign change (within 6 h)</small><b id="lg-prev">—</b></div><div><small>Closest next sign change (within 6 h)</small><b id="lg-next">—</b></div></div>
+<p class="lg-copy">Transitions are estimated from a 5-minute search refined to about one second. Rapid rising signs and approximate ayanamsa can shift a boundary; professional ephemerides may differ.</p></div>
+<div class="lg-card"><h3>Vedic 12-Rasi visual overview</h3><p>The highlighted sign is the approximate Vedic Lagna at your birth moment.</p><div id="lg-wheel" class="lg-sign-grid"></div></div>
+<div class="lg-card"><h3>12 whole-sign houses from your Lagna</h3><p>House 1 is your entire Lagna sign, house 2 is the next sign, and so on. <strong>These are sign labels only—not calculated planets or a full Kundli.</strong></p><div id="lg-houses" class="lg-house-grid"></div></div>
+<p class="lg-copy">For an authoritative birth chart or sign close to 0° / 30° boundaries, verify with a detailed Swiss Ephemeris / reliable Panchang. Astrological meanings are traditional beliefs, not scientifically demonstrated forecasts.</p>
+</div><p id="lg-announcement" role="status" aria-live="polite" class="lg-copy"></p>
+</section>
 
-      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
+<section class="lg-explainer"><div class="lg-answer"><p><strong>Quick answer:</strong> A <strong>Lagna Calculator</strong> finds the zodiac sign rising on the <strong>eastern horizon</strong> at your exact birth time and birthplace. In Vedic astrology, this is the <strong>sidereal Ascendant / Janma Lagna</strong>. Its computation requires <strong>local clock time, latitude, longitude, time-zone conversion and an ayanamsa</strong> — not just a birth date.</p></div></section>
 
-      <nav class="nav-links" id="nav-links">
-        <a href="/" class="nav-link">Home</a>
-        <a href="/about/" class="nav-link">About</a>
-        <a href="/contact/" class="nav-link">Contact</a>
-        <a href="/blog/" class="nav-link">Blog</a>
-        <button class="theme-btn" title="Toggle Theme">
-          <span class="theme-btn-icon"></span>
-        </button>
-      </nav>
-    </div>
-  </header>
+<section class="lg-explainer" id="lg-meaning"><h2>What is Lagna or Ascendant in Vedic astrology?</h2>
+<p><strong>Lagna</strong> (लग्न), also called <strong>Udaya Lagna</strong> or the rising sign, is the ecliptic point at the <strong>eastern horizon</strong> at a given time and geographic place. It is one of the fundamental reference points of a Vedic natal chart or <strong>Janam Kundli</strong>. The zodiac sign containing this point is called your <strong>Janma Lagna</strong>.</p>
+<p>There are twelve possible rising signs, beginning with <strong>Mesha (Aries)</strong> and ending with <strong>Meena (Pisces)</strong>. The sign rising at the birth moment depends on Earth's rotation and the observer's geographical location; there is no reliable table of Lagna based on calendar date alone.</p>
+<p>In traditional Jyotish, the first whole-sign house is aligned with Lagna, and the next zodiac signs are assigned to subsequent houses. Traditional practitioners associate different interpretive themes with Lagna and its ruling planet, but those associations have not been scientifically validated as predictors of personality or life events.</p></section>
 
-<main id="main-content"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/categories/astrology-numerology/">Astrology &amp; Numerology</a><span>›</span><span>Lagna Calculator</span></nav><section class="astro-hero"><span class="status">Coming soon</span><h1>Lagna Calculator</h1><p>Find the Vedic ascendant using birth time and location.</p></section><section class="placeholder-panel"><h2>This calculator is being prepared</h2><p>This is a preview page. Calculations and results are not available yet.</p><p style="margin-top:16px"><strong>Planned inputs:</strong> Birth date, exact birth time and birthplace.</p><p style="margin-top:16px">When the tool is ready, this page will explain its method, assumptions and how to understand the result.</p><div class="astro-actions"><a href="/categories/astrology-numerology/">Explore planned astrology tools</a><a href="/calculators/">Use available calculators</a></div></section><aside class="astro-note"><p>Astrology and numerology interpretations reflect traditional beliefs, not scientifically validated predictions. These planned tools are for cultural interest and entertainment.</p></aside></main><footer class="astro-footer"><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/disclaimer/">Disclaimer</a><p style="margin:12px auto 0">© 2026 CalcuPortal</p></footer></body></html>
+<section class="lg-explainer" id="lg-how"><h2>How to Calculate Lagna from Date of Birth, Time and Place</h2>
+<ol><li><strong>Record your birth date and clock time:</strong> enter the actual time noted in the birth record; inaccurate timing may alter the Lagna.</li>
+<li><strong>Choose your birthplace:</strong> select Chennai, Bengaluru, New Delhi or another preset, or enter custom geographic latitude and longitude.</li>
+<li><strong>Convert local clock time to UTC:</strong> historical time-zone rules and daylight-saving transitions must be respected.</li>
+<li><strong>Find local apparent sidereal time:</strong> calculate Greenwich apparent sidereal time and add your birthplace's east-positive longitude.</li>
+<li><strong>Find the ecliptic's eastern-horizon intersection:</strong> use local sidereal angle, terrestrial latitude and true obliquity of the ecliptic to find tropical ascendant longitude.</li>
+<li><strong>Convert to sidereal zodiac:</strong> subtract approximate Lahiri (Chitrapaksha) ayanamsa and normalise the longitude into 0°–360°.</li>
+<li><strong>Find your Lagna Rasi:</strong> divide by 30° to identify one of the twelve signs. The remaining degrees locate your ascendant within that sign.</li>
+<li><strong>Review nearby birth times:</strong> inspect ±5, 15 and 30 minutes to see whether the sign changes near your entered moment.</li></ol>
+<h3>Ascendant calculation formula</h3>
+<p>Let θ be <strong>local apparent sidereal time as an angle</strong>, φ the birthplace latitude and ε the true obliquity of the ecliptic. A standard eastern-ascendant formula is:</p>
+<div class="lg-answer"><p><strong>Tropical Ascendant = atan2(cos θ, −[sin θ × cos ε + tan φ × sin ε])</strong>, normalised to 0°–360°. <strong>Sidereal Lagna = (Tropical Ascendant − approximate Lahiri ayanamsa) mod 360°.</strong></p></div>
+<p>This uses the actual horizon/ecliptic geometry rather than a simplified “roughly 2 hours per sign” rule. The calculator makes all intermediate values visible so you can verify the exact inputs and mathematical conventions.</p></section>
+
+<section class="lg-explainer" id="lg-latitude"><h2>Why Birth Time, Latitude, Longitude and Time Zone Matter</h2>
+<p>The Lagna is highly location- and time-dependent. Two births at the same clock time in different cities can produce different Lagna signs because <strong>longitude affects local sidereal time</strong> and <strong>latitude affects the orientation of the eastern horizon relative to the ecliptic</strong>.</p>
+<div class="lg-cards"><div><strong>Accurate birth time</strong><p>The ascendant moves through the twelve signs in about a sidereal day, but the time spent in each sign varies with location and season. A 10-minute error can be important near a boundary.</p></div>
+<div><strong>Birthplace coordinates</strong><p>Latitude north/south and longitude east/west determine the local horizon calculation. Presets are city-centre approximations; adjust for a more precise birthplace if known.</p></div>
+<div><strong>Historical time zone</strong><p>Your birth record shows local clock time. Converting it to UTC requires the offset in effect on that date, potentially including daylight-saving changes or a repeated hour.</p></div></div>
+<p>For example, someone born at 8:00 AM in Chennai and someone born at 8:00 AM in London did not necessarily arrive at the same UTC time. Also, the exact latitude matters even if both cities use the same time zone. A calculator that only asks for month and day cannot determine an individual rising sign.</p>
+<p>CalcuPortal supports city presets and manual coordinates, selected IANA time zones and manual UTC offsets. The calculated result requires a valid birth time. For polar and very high latitudes (at or above 66° north/south), specialised horizon handling is needed; these coordinates are deliberately outside the supported range.</p></section>
+
+<section class="lg-explainer" id="lg-12-signs"><h2>12 Lagna Names in English and Tamil with Ruling Planets</h2>
+<p>Each sidereal Lagna covers one 30° sign. The following table lists the Vedic names, Tamil names and traditional sign rulers. Rasi rulers are cultural/astrological conventions; they do not establish the trajectory or events of a person's life.</p>
+<div class="lg-table-scroll"><table class="lg-guide-table"><thead><tr><th>#</th><th>Vedic Lagna</th><th>Tamil name</th><th>Traditional ruler</th><th>Sidereal span</th></tr></thead><tbody id="lg-rasi-reference"></tbody></table></div></section>
+
+<section class="lg-explainer" id="lg-tamil"><h2>Tamil Lagna Calculator: லக்னம் by Birth Time</h2>
+<p>In Tamil astrology, Lagna is written as <strong>லக்னம்</strong>, while the rising Rasi may be called <strong>உதய லக்னம்</strong>. A Tamil Lagna Calculator uses the same birth-time, coordinates and sidereal zodiac geometry. For instance, Mesha Lagna is <strong>மேஷ லக்னம்</strong>, Kanni Lagna is <strong>கன்னி லக்னம்</strong> and Thula Lagna is <strong>துலாம் லக்னம்</strong>.</p>
+<p>Results display Tamil Rasi names alongside English transliterations. If you were born in <strong>Chennai, Madurai, Coimbatore, Bengaluru, Hyderabad, Kochi or Mumbai</strong>, choose the corresponding preset and verify that the local birth time is entered as recorded. For modern Indian birthplaces, <strong>Asia/Kolkata (IST)</strong> is the standard time zone, but historical rules must be checked for old records.</p>
+<p>A Tamil <strong>Rasi Nakshatra</strong> reading and Tamil <strong>Lagna</strong> reading can differ because one uses the Moon's sky position while the other uses the rising eastern horizon. Neither should be substituted for the other.</p></section>
+
+<section class="lg-explainer" id="lg-vs-rasi"><h2>Lagna vs Rasi vs Nakshatra vs Western Rising Sign</h2>
+<div class="lg-table-scroll"><table class="lg-guide-table"><thead><tr><th>Astrology concept</th><th>What it calculates</th><th>Essential inputs</th></tr></thead><tbody>
+<tr><td><strong>Vedic Lagna / Ascendant</strong></td><td>Sidereal ecliptic point rising on the eastern horizon</td><td>Birth time, latitude, longitude and historical time zone</td></tr>
+<tr><td><strong>Janma Rasi / Chandra Rasi</strong></td><td>Sidereal Moon zodiac sign at birth</td><td>Birth time and historical time zone</td></tr>
+<tr><td><strong>Janma Nakshatra</strong></td><td>Moon's lunar mansion (one of 27) and Pada</td><td>Birth time and historical time zone</td></tr>
+<tr><td><strong>Western Ascendant / Rising Sign</strong></td><td>Often the tropical ecliptic point rising at the eastern horizon</td><td>Birth time, geographic coordinates and time zone</td></tr>
+<tr><td><strong>Western Sun Sign</strong></td><td>Sun's tropical zodiac sector</td><td>Birth date and sometimes precise time near a boundary</td></tr>
+</tbody></table></div>
+<p>This tool displays <strong>Ascendant Nakshatra and Pada</strong> from the rising longitude as an additional geometric output. That is <strong>not your Moon-based Janma Nakshatra</strong>. Use our <a href="/calculators/rasi-nakshatra-calculator/">Rasi &amp; Nakshatra Calculator</a> to estimate Moon-sign and lunar birth-star results.</p></section>
+
+<section class="lg-explainer" id="lg-houses-guide"><h2>Understanding 12 Whole-Sign Houses from Lagna</h2>
+<p>In a <strong>whole-sign house</strong> interpretation, the entire Lagna sign becomes House 1, followed by the next zodiac sign for House 2 and so on. For example, if your Lagna is Kanya (Virgo), the first house is Kanya, the second is Tula, the third is Vrischika and the twelfth is Simha.</p>
+<p>The result panel provides a complete 12-house <strong>sign-only grid</strong>. It does not calculate planetary longitudes, lunar nodes, dashas, Navamsa (D9), strength analysis or a full personalised Kundli. Other house division methods, such as equal or Placidus, can produce different house boundaries and should not be mistaken for the whole-sign list.</p>
+<p>Always separate mathematical house assignment from belief-based house meanings. An astrological house label is not a scientifically validated forecast of a relationship, illness, career success or major life decision.</p></section>
+
+<section class="lg-explainer" id="lg-ayanamsa"><h2>Which Ayanamsa Does This Vedic Lagna Calculator Use?</h2>
+<p>The calculator uses <strong>approximately Lahiri (Chitrapaksha) ayanamsa</strong> in a sidereal zodiac. It first calculates a tropical ascendant using the real-time astronomical sidereal angle and true obliquity in <a href="https://github.com/cosinekitty/astronomy" target="_blank" rel="noopener noreferrer">Astronomy Engine</a>, then subtracts a precession-based Lahiri-style angular correction from the tropical result.</p>
+<p>This is a <strong>documented approximation</strong> rather than the official <strong>Swiss Ephemeris Lahiri (SE_SIDM_LAHIRI)</strong> mode. Model and reference-frame choices can change the numerical value by small amounts. For very close sign boundaries, those differences may change the resulting Lagna. Compare professional calculations using exactly the same birth coordinates, historical UTC conversion and chosen ayanamsa if precision matters.</p>
+<p>For detailed background, consult the <a href="https://www.astro.com/swisseph/swisseph.htm" target="_blank" rel="noopener noreferrer">Swiss Ephemeris documentation</a> and the <a href="https://github.com/cosinekitty/astronomy" target="_blank" rel="noopener noreferrer">open-source astronomy library</a>. These references explain the technical foundation; they do not certify the CalcuPortal output as identical to Swiss Ephemeris.</p></section>
+
+<section class="lg-explainer" id="lg-birth-time"><h2>Can I Find My Lagna Without Birth Time?</h2>
+<p><strong>Not reliably.</strong> Unlike a rough Western sun-sign lookup, the rising horizon moves through signs throughout a day. On average the ascendant changes sign roughly every two hours, but the actual span can be shorter or longer depending on latitude, seasonal orientation and the ecliptic.</p>
+<p>Without a birth time, there are many possible Lagna values across the day. Entering a guessed noon time would create a misleadingly definite result. This calculator therefore <strong>requires a recorded or intentionally estimated time</strong>, and displays nearby time checks so users can see how sensitive the result is.</p>
+<p>If the birth certificate gives an uncertain hour, consider reviewing medical or family records and comparing the nearby calculation rather than treating one number as definitive. Advanced “birth time rectification” used in astrology is not an objectively verified method and is not provided by this calculator.</p></section>
+
+<section class="lg-explainer" id="lg-mistakes"><h2>Common Mistakes When Calculating Vedic Lagna</h2>
+<ul>
+<li><strong>Using today's home location instead of birthplace:</strong> Lagna calculations need geographic latitude and longitude at birth.</li>
+<li><strong>Using only a birth date:</strong> without time, the rising sign cannot be narrowed to one valid result.</li>
+<li><strong>Confusing AM and PM:</strong> changing the clock time by 12 hours can produce an entirely different rising sign.</li>
+<li><strong>Entering the wrong longitude sign:</strong> use east-positive and west-negative degrees.</li>
+<li><strong>Ignoring historical daylight saving:</strong> a past local clock time cannot always be converted with a present-day fixed offset.</li>
+<li><strong>Confusing tropical and sidereal:</strong> Western rising sign and Vedic Lagna can differ due to ayanamsa.</li>
+<li><strong>Calling ascendant Nakshatra the birth star:</strong> Moon-based Janma Nakshatra is a different quantity.</li>
+<li><strong>Assuming exact precision:</strong> this page uses approximate Lahiri correction and presets with city-centre coordinates.</li>
+<li><strong>Interpreting astrology as a guaranteed prediction:</strong> astronomical coordinates do not establish personality or future outcomes.</li>
+</ul></section>
+
+<section class="lg-explainer" id="lg-faq"><h2>Lagna Calculator Frequently Asked Questions</h2>
+<div class="lg-faq">
+<details><summary>How do I find my Lagna by date of birth, time and place?</summary><p>Enter your exact birth time and date, choose birthplace coordinates and time zone, and calculate. The tool derives the rising tropical ecliptic longitude from local sidereal angle, latitude and obliquity, then subtracts approximate Lahiri ayanamsa to display the Vedic sidereal Lagna.</p></details>
+<details><summary>Can I calculate Lagna without knowing my birth time?</summary><p>No single Lagna can responsibly be assigned without a birth-time estimate. Ascendants change repeatedly through the day, so this tool requests a time and shows ±5/15/30-minute sensitivity.</p></details>
+<details><summary>Is my Lagna the same as my Janma Rasi or Nakshatra?</summary><p>No. Lagna is the rising ecliptic sign, Janma Rasi the sidereal Moon sign, and Janma Nakshatra the Moon's birth-star sector.</p></details>
+<details><summary>What is the difference between tropical and sidereal Ascendant?</summary><p>Tropical longitude is measured against the equinox, while sidereal Lagna subtracts an ayanamsa. This tool shows both longitudes using an approximate Lahiri convention.</p></details>
+<details><summary>Is Lahiri ayanamsa exact in this calculator?</summary><p>No. This is a close approximation, not an exact Swiss Ephemeris Lahiri implementation. Near a sign boundary, consult an authoritative Panchang or full ephemeris.</p></details>
+<details><summary>Does latitude and longitude matter for Lagna?</summary><p>Yes. Longitude affects local sidereal time and latitude affects the eastern-horizon intersection. The birthplace coordinates matter even when you know the correct time zone.</p></details>
+<details><summary>What are Lagna degree and Lagna lord?</summary><p>The Lagna degree is the rising sidereal longitude measured within its 30° zodiac sign. The lord is that sign's traditional planetary ruler, such as Mars for Mesha and Venus for Vrishabha.</p></details>
+<details><summary>How does the 12-house chart work?</summary><p>This page displays whole-sign houses: the Lagna sign is House 1 and the following signs become Houses 2 to 12. It does not calculate planetary positions or a full Kundli.</p></details>
+<details><summary>Is Ascendant Nakshatra my Janma Nakshatra?</summary><p>No. Ascendant Nakshatra is determined by rising ecliptic longitude. Janma Nakshatra is determined by Moon longitude at birth.</p></details>
+<details><summary>Is a Lagna astrology reading scientifically proven?</summary><p>No. The rising astronomical point is calculable, but claims that it predicts human personality, marriage, health or career are not scientifically validated.</p></details>
+</div></section>
+<section class="lg-explainer" id="lg-related"><h2>More Astrology and Numerology Calculators</h2>
+<div class="lg-related">
+<a href="/calculators/rasi-nakshatra-calculator/"><strong>Rasi &amp; Nakshatra Calculator</strong><span>Explore Moon sign, Tamil birth star and lunar Pada separately from Lagna.</span></a>
+<a href="/calculators/zodiac-sign-calculator/"><strong>Western Zodiac Sign Calculator</strong><span>Find the Western tropical Sun sign using an astronomical Sun calculation.</span></a>
+<a href="/calculators/personal-year-number-calculator/"><strong>Personal Year Number Calculator</strong><span>Explore a traditional nine-year numerology cycle by birth month and day.</span></a></div>
+<p><a href="/categories/astrology-numerology/">Explore all Astrology &amp; Numerology tools →</a></p></section>
+<div class="lg-disclaimer"><strong>Methodology, privacy and editorial note · Updated 25 October 2026.</strong> This browser-only tool combines Astronomy Engine 2.1.19's sidereal time and true obliquity, a standard eastern-ascendant formula, IANA time-zone conversion and approximate Lahiri precession. It does not use certified Swiss Ephemeris sidereal mode, so exact boundary values can differ. Location presets refer to approximate city centres, not your specific address. Supported latitudes are between −66° and +66°. Birth date, time and coordinate inputs are processed locally and not submitted by this calculator to a backend. Astrological interpretation is cultural and not scientifically validated. Do not rely on this tool for consequential medical, legal, career, relationship or financial decisions.</div>
+</div></main>
+<footer><nav class="footer-legal-links" aria-label="Legal and support links"><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/privacy-policy/">Privacy Policy</a><a href="/terms-conditions/">Terms &amp; Conditions</a><a href="/disclaimer/">Disclaimer</a></nav>
+<div class="copyright-bar" style="border-top:none;padding-top:0">© <span id="year">2026</span> CalcuPortal. All rights reserved.</div></footer>
+</body></html>
