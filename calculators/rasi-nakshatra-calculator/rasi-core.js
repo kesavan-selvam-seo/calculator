@@ -44,7 +44,7 @@ function sky(ms){
   const p=Math.min(3,Math.floor((sidereal%(360/27))/(360/108)));
   const half=360/108;
   const nearBoundary=Math.min(sidereal%half,half-sidereal%half);
-  return {ms,tropical,ayan,sidereal,sign:s,nak:n,pada:p+1,
+  return {ms,tropical,ayan,sidereal,sign:s,nak:n,pada:p+1,nakPada:n*4+p,
     degree:sidereal%30,degreeNak:sidereal%(360/27),boundaryDistance:nearBoundary};
 }
 function validDate(y,m,d){
@@ -113,7 +113,7 @@ function calc(opts){
   const o={zone:"Asia/Kolkata",offset:330,known:true,h:12,min:0,fold:"",...opts};
   const {y,m,d,zone,offset,known,h,min,fold}=o;
   if(!validDate(y,m,d))throw new Error("Enter a valid birth date between 1900 and today.");
-  const today=new Date();if(Date.UTC(y,m-1,d)>Date.UTC(today.getFullYear(),today.getMonth(),today.getDate())+DAY)throw new Error("Birth date cannot be in the future.");
+  
   if(zone==="manual"&&(!Number.isFinite(offset)||offset<-720||offset>840))throw new Error("Enter an offset from UTC−12:00 to UTC+14:00.");
   if(known&&(!Number.isInteger(h)||h<0||h>23||!Number.isInteger(min)||min<0||min>59))throw new Error("Enter a valid birth time.");
   const timeZone=zone==="manual"?zone:(()=>{
@@ -123,12 +123,14 @@ function calc(opts){
   if(known){
     const ms=moment(y,m,d,h,min,timeZone,offset,fold);
     if(ms>Date.now())throw new Error("Birth time cannot be in the future.");
-    return {input:o,known:true,moon:sky(ms),moment:ms,caution:sky(ms).boundaryDistance<0.18};
+    const moon=sky(ms);
+    return {input:o,known:true,moon,moment:ms,caution:moon.boundaryDistance<0.18};
   }
   const {start,end}=getInterval(y,m,d,timeZone,offset);
   const signs=changeEvents(start,end,"sign");
   const naks=changeEvents(start,end,"nak");
-  const padas=changeEvents(start,end,"pada");
+  const padas=changeEvents(start,end,"nakPada");
+  if(start>Date.now())throw new Error("Birth date cannot be in the future.");
   const first=sky(start+1000);
   // The local day is an interval, not a single birth moment.
   return {input:o,known:false,start,end,first,possibilities:{
