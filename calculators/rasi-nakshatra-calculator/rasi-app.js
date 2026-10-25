@@ -4,7 +4,7 @@
 const $=id=>document.getElementById(id),Core=window.RasiCore;
 if(!Core)return;
 const MONTHS=["January","February","March","April","May","June","July","August","September","October","November","December"];
-const methodHelp=$("rn-method-note"),error=$("rn-error"),result=$("rn-result");
+const error=$("rn-error"),result=$("rn-result");
 let active=null;
 $("year").textContent=new Date().getFullYear();
 $("rn-year").max=String(new Date().getFullYear());
