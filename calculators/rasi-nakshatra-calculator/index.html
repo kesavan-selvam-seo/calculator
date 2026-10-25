@@ -1,32 +1,373 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rasi &amp; Nakshatra Calculator — Coming Soon | CalcuPortal</title><meta name="description" content="Find a Vedic moon sign, nakshatra and pada using astronomical calculations. Coming soon to CalcuPortal."><meta name="robots" content="noindex, follow">
-<link rel="canonical" href="https://www.calcuportal.com/calculators/rasi-nakshatra-calculator/"><link rel="icon" href="/favicon.png" type="image/png"><link rel="stylesheet" href="/styles.css"><script src="/script.js"></script>
-<meta property="og:title" content="Rasi &amp; Nakshatra Calculator — Coming Soon | CalcuPortal"><meta property="og:description" content="Find a Vedic moon sign, nakshatra and pada using astronomical calculations. Coming soon to CalcuPortal."><meta property="og:type" content="website"><meta property="og:url" content="https://www.calcuportal.com/calculators/rasi-nakshatra-calculator/"><meta property="og:image" content="https://www.calcuportal.com/logo.png">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.calcuportal.com/"}, {"@type": "ListItem", "position": 2, "name": "Astrology & Numerology", "item": "https://www.calcuportal.com/categories/astrology-numerology/"}, {"@type": "ListItem", "position": 3, "name": "Rasi & Nakshatra Calculator \u2014 Coming Soon", "item": "https://www.calcuportal.com/calculators/rasi-nakshatra-calculator/"}]}</script>
-<style>main{width:min(1120px,calc(100% - 32px));margin:0 auto;padding:28px 0 60px}.astro-hero,.placeholder-panel{padding:clamp(24px,5vw,48px);border:1px solid var(--border-color);border-radius:24px;background:var(--bg-card);margin:24px 0}.astro-hero{background:linear-gradient(140deg,var(--primary-light),var(--bg-card) 70%)}h1{font-size:clamp(30px,5vw,48px);line-height:1.15;letter-spacing:-1px;margin:14px 0 20px}h2{font-size:24px;margin-bottom:14px}p{color:var(--text-secondary);line-height:1.8;max-width:780px}.status{display:inline-block;color:var(--primary);background:var(--primary-light);padding:6px 12px;border-radius:99px;font-size:13px;font-weight:700}.astro-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:20px;margin:24px 0}.astro-card{border:1px solid var(--border-color);border-radius:18px;padding:24px;background:var(--bg-card);display:flex;flex-direction:column;gap:14px;text-decoration:none;color:var(--text-primary)}.astro-card:hover{border-color:var(--primary)}.astro-card h3{font-size:21px;line-height:1.35}.astro-card p{font-size:15px}.astro-card .status{align-self:flex-start}.astro-card .cta{margin-top:auto;color:var(--primary);font-weight:600}.astro-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}.astro-actions a{padding:12px 18px;border:1px solid var(--primary);border-radius:10px;color:var(--primary);text-decoration:none;font-weight:600}.astro-note{border-left:3px solid var(--primary);padding:18px 22px;background:var(--bg-card);margin-top:28px}.astro-note p{font-size:14px}.breadcrumbs{padding:0;flex-wrap:wrap}.skip-link{position:absolute;top:-80px;left:16px;background:var(--bg-card);padding:12px;z-index:100}.skip-link:focus{top:8px}a:focus-visible,button:focus-visible{outline:3px solid var(--primary);outline-offset:4px}.astro-footer{padding:24px 16px;text-align:center;font-size:14px}.astro-footer a{color:var(--primary);margin:0 10px}@media(max-width:480px){.nav-container{padding:0 16px}.astro-actions a{width:100%;text-align:center}}</style></head><body><a href="#main-content" class="skip-link">Skip to content</a>  <header>
-    <div class="nav-container">
-      <a href="/" class="logo">
-        <img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon">
-        <span>CalcuPortal</span>
-      </a>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<title>Rasi Nakshatra Calculator by Date of Birth | CalcuPortal</title>
+<meta name="description" content="Free Rasi Nakshatra calculator by date of birth and time. Find your Vedic Moon sign, Janma Nakshatra, Tamil birth star and Pada with approximate Lahiri calculations.">
+<link rel="canonical" href="https://www.calcuportal.com/calculators/rasi-nakshatra-calculator/">
+<link rel="icon" href="/favicon.png" type="image/png"><link rel="apple-touch-icon" href="/favicon.png">
+<meta property="og:type" content="website"><meta property="og:site_name" content="CalcuPortal">
+<meta property="og:title" content="Rasi &amp; Nakshatra Calculator – Birth Star, Moon Sign &amp; Pada">
+<meta property="og:description" content="Find approximate Janma Nakshatra, Pada and Rasi from birth date, time and time zone, with Tamil names, full steps and transparent limitations.">
+<meta property="og:url" content="https://www.calcuportal.com/calculators/rasi-nakshatra-calculator/">
+<meta property="og:image" content="https://www.calcuportal.com/logo.png">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="Rasi Nakshatra Calculator by Date of Birth – CalcuPortal">
+<meta name="twitter:description" content="Vedic birth star and moon sign using astronomical Moon position with approximate Lahiri ayanamsa.">
+<meta name="theme-color" content="#5642c0">
+<link rel="stylesheet" href="/styles.css">
+<script src="/script.js" defer></script>
+<script src="/calculators/zodiac-sign-calculator/vendor/astronomy-2.1.19.min.js" defer></script>
+<script src="./rasi-core.js" defer></script>
+<script src="./rasi-app.js" defer></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Rasi and Nakshatra Calculator by Date of Birth","alternateName":["Janma Nakshatra Calculator","Birth Star Calculator","Tamil Rasi Nakshatra Calculator"],"url":"https://www.calcuportal.com/calculators/rasi-nakshatra-calculator/","description":"Find a birth Moon sign, nakshatra, pada and nakshatra ruler using the astronomical geocentric Moon and an approximate Lahiri sidereal offset. Supports time zones, daylight-saving ambiguity and possible ranges when time is unknown.","applicationCategory":"LifestyleApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"featureList":["Sidereal Moon sign and Janma Nakshatra","27 Nakshatras and 108 padas","Tamil and English birth star names","IANA time zone conversion and manual UTC offset","Birth-time unknown possible ranges and approximate changeover times","Lahiri-style approximate ayanamsa","Rasi and nakshatra rulers","Moon longitude calculation details","Copy results"],"offers":{"@type":"Offer","price":0,"priceCurrency":"INR"},"publisher":{"@type":"Organization","name":"CalcuPortal","url":"https://www.calcuportal.com/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"Home","item":"https://www.calcuportal.com/"},
+{"@type":"ListItem","position":2,"name":"Astrology & Numerology","item":"https://www.calcuportal.com/categories/astrology-numerology/"},
+{"@type":"ListItem","position":3,"name":"Rasi Nakshatra Calculator","item":"https://www.calcuportal.com/calculators/rasi-nakshatra-calculator/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How can I find my Rasi and Nakshatra by date of birth?","acceptedAnswer":{"@type":"Answer","text":"Enter your birth date, birth time and the IANA time zone of your birthplace. The calculator converts the time to UTC, estimates the Moon's geocentric sidereal longitude using an approximate Lahiri ayanamsa, and identifies the corresponding Rasi, Nakshatra and Pada. If the birth time is unknown, it lists possibilities across the local birth date."}},
+{"@type":"Question","name":"What is the difference between Rasi and Nakshatra?","acceptedAnswer":{"@type":"Answer","text":"In the Vedic lunar zodiac, Rasi divides the 360-degree zodiac into 12 signs of 30 degrees each. Nakshatra divides it into 27 lunar mansions of 13 degrees 20 minutes each. A Nakshatra contains four padas of 3 degrees 20 minutes."}},
+{"@type":"Question","name":"Can I find my Nakshatra without birth time?","acceptedAnswer":{"@type":"Answer","text":"Sometimes one Nakshatra spans an entire local birth date, but a change may occur during that day. Without a recorded birth time, this tool checks the full local date and lists possible signs and nakshatra/pada combinations instead of guessing a single result."}},
+{"@type":"Question","name":"What is Janma Nakshatra?","acceptedAnswer":{"@type":"Answer","text":"Janma Nakshatra, or birth star, is the Nakshatra occupied by the sidereal Moon at the birth moment under the chosen astronomical and ayanamsa conventions."}},
+{"@type":"Question","name":"What does Pada 1, 2, 3 or 4 mean in Nakshatra?","acceptedAnswer":{"@type":"Answer","text":"Each Nakshatra occupies 13 degrees 20 minutes and is divided into four equal 3-degree-20-minute padas. The Pada shows which quarter contains the calculated sidereal Moon longitude."}},
+{"@type":"Question","name":"Does this Rasi Nakshatra calculator use Lahiri ayanamsa?","acceptedAnswer":{"@type":"Answer","text":"It uses an approximate Lahiri-style precession offset anchored near the J2000 epoch, combined with Astronomy Engine geocentric Moon coordinates. It is not a certified Swiss Ephemeris, exact Lahiri implementation or professional Panchang; near-boundary birth stars should be verified independently."}},
+{"@type":"Question","name":"Why does my Rasi differ from a Western zodiac sign?","acceptedAnswer":{"@type":"Answer","text":"The calculator finds the Moon sign in a sidereal Vedic zodiac. Many Western zodiac calculators use the tropical Sun sign, a different body and reference frame, so the results need not match."}},
+{"@type":"Question","name":"Do I need my birth city and time zone?","acceptedAnswer":{"@type":"Answer","text":"An accurate birth clock time must be converted to UTC using the offset that applied where you were born, including historical daylight saving. For a geocentric Moon sign the birthplace's latitude and longitude are not directly needed, but selecting the correct historical time zone is important."}},
+{"@type":"Question","name":"Is Rasi Nakshatra astrology scientifically validated?","acceptedAnswer":{"@type":"Answer","text":"Astronomical Moon-position calculations are measurable, but astrological interpretations and predictions about personality, health, marriage or destiny are not scientifically validated. This tool is for cultural interest and approximate calendar exploration."}},
+{"@type":"Question","name":"What are the 27 Nakshatras in order?","acceptedAnswer":{"@type":"Answer","text":"The 27 Nakshatras, beginning at sidereal Aries 0 degrees, are Ashwini, Bharani, Krittika, Rohini, Mrigashira, Ardra, Punarvasu, Pushya, Ashlesha, Magha, Purva Phalguni, Uttara Phalguni, Hasta, Chitra, Swati, Vishakha, Anuradha, Jyeshtha, Mula, Purva Ashadha, Uttara Ashadha, Shravana, Dhanishta, Shatabhisha, Purva Bhadrapada, Uttara Bhadrapada and Revati."}}
+]}
+</script>
+<style>
+.rn-page{max-width:1160px;min-width:0;margin:0 auto}
+.rn-page *{box-sizing:border-box}
+.rn-page .rn-crumb{display:flex;gap:.53rem;flex-wrap:wrap;align-items:center;margin:.94rem 0 1.44rem;font-size:.8rem;color:var(--text-muted)}
+.rn-crumb a{color:var(--primary);text-decoration:none;font-weight:750}
+.rn-hero{display:grid;grid-template-columns:minmax(0,1.13fr) minmax(280px,.87fr);gap:1.65rem;align-items:center;margin:0 0 1.8rem}
+.rn-eyebrow{display:inline-flex;align-items:center;gap:.46rem;text-transform:uppercase;color:var(--primary);letter-spacing:.11em;font-size:.73rem;font-weight:900}
+.rn-eyebrow:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--primary)}
+.rn-hero h1{font-size:clamp(2.16rem,4.7vw,3.4rem);line-height:1.13;letter-spacing:-.047em;color:var(--text-primary);margin:.76rem 0 .8rem}
+.rn-hero h1 span{color:var(--primary)}
+.rn-hero p{font-size:.97rem;line-height:1.77;color:var(--text-secondary);text-align:justify;text-justify:inter-word;margin:.75rem 0 0}
+.rn-hero-tags{display:flex;flex-wrap:wrap;gap:.47rem;margin:1.18rem 0 0}
+.rn-hero-tags span{padding:.44rem .7rem;font-size:.74rem;font-weight:850;color:var(--text-secondary);background:var(--bg-card);border:1px solid var(--border-color);border-radius:99px}
+.rn-art{min-height:300px;border-radius:23px;border:1px solid var(--border-color);background:linear-gradient(140deg,var(--primary-light),var(--bg-card));box-shadow:var(--shadow-md);display:grid;place-items:center;position:relative;overflow:hidden}
+.rn-art:before{content:"";position:absolute;width:250px;height:250px;border:1px dashed var(--primary);opacity:.42;border-radius:50%;box-shadow:0 0 0 23px var(--primary-light),0 0 0 46px var(--primary-light)}
+.rn-art-orbit{width:218px;height:218px;display:grid;place-items:center;position:relative;background:var(--bg-card);border-radius:50%;border:1px solid var(--border-color)}
+.rn-art-moon{font-size:5.45rem;line-height:1;color:var(--primary);filter:drop-shadow(0 6px 18px var(--primary-light))}
+.rn-art-orbit>small{position:absolute;bottom:27px;font-size:.62rem;letter-spacing:.13em;font-weight:850;color:var(--text-muted)}
+.rn-art-orbit .dot{display:grid;place-items:center;position:absolute;width:32px;height:32px;border:1px solid var(--border-color);border-radius:50%;background:var(--bg-primary);font-size:.82rem;font-weight:900;color:var(--primary)}
+.rn-art-orbit .dot.a{left:92px;top:-16px}.rn-art-orbit .dot.b{right:-15px;top:92px}.rn-art-orbit .dot.c{left:92px;bottom:-16px}.rn-art-orbit .dot.d{left:-15px;top:92px}
+.rn-tool{background:var(--bg-card);border:1px solid var(--border-color);border-radius:19px;box-shadow:var(--shadow-lg);padding:1.38rem;margin:0 0 2.2rem}
+.rn-tool-head{display:flex;justify-content:space-between;gap:1rem;align-items:start;margin:0 0 1.16rem}
+.rn-tool h2{font-size:1.4rem;line-height:1.33;color:var(--text-primary);margin:0}
+.rn-tool-head p{font-size:.8rem;line-height:1.6;color:var(--text-muted);margin:.29rem 0 0}
+.rn-pill{white-space:nowrap;color:var(--primary);background:var(--primary-light);font-size:.7rem;font-weight:850;border-radius:90px;padding:.37rem .65rem}
+.rn-form-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.86rem}
+.rn-field{min-width:0}.rn-field label{display:block;color:var(--text-primary);font-size:.82rem;font-weight:800;margin:0 0 .4rem}
+.rn-field input,.rn-field select{width:100%;min-width:0;padding:.82rem .84rem;font:inherit;background:var(--bg-primary);border:1px solid var(--border-color);color:var(--text-primary);border-radius:10px}
+.rn-field small{display:block;color:var(--text-muted);font-size:.73rem;line-height:1.56;margin:.34rem 0 0}
+.rn-extra{display:grid;grid-template-columns:1fr 1fr;gap:.89rem;margin:1.03rem 0 0;padding:1.03rem 0 0;border-top:1px solid var(--border-color)}
+.rn-checkbox{display:flex;align-items:center;gap:.6rem;color:var(--text-primary);font-size:.84rem;font-weight:850;cursor:pointer}
+.rn-checkbox input{accent-color:var(--primary);width:17px;height:17px;margin:0}
+.rn-time-grid{display:grid;grid-template-columns:1fr 1fr;gap:.83rem;margin:.74rem 0 0}
+.rn-time-grid .rn-field{grid-column:auto}
+.rn-box{background:var(--bg-primary);border:1px solid var(--border-color);border-radius:11px;padding:.9rem}
+.rn-box .rn-field{margin-top:.6rem}
+.rn-note{font-size:.76rem;color:var(--text-muted);line-height:1.6;margin:.55rem 0 0}
+.rn-tool [hidden]{display:none!important}
+.rn-button-row{display:flex;flex-wrap:wrap;gap:.62rem;margin:1.17rem 0 0}
+.rn-primary,.rn-secondary{cursor:pointer;font:800 .84rem var(--font-sans);padding:.82rem 1.05rem;border:1px solid var(--border-color);border-radius:10px}
+.rn-primary{background:var(--primary);border-color:var(--primary);color:#fff}
+.rn-secondary{background:var(--bg-primary);color:var(--text-primary)}
+.rn-secondary:hover{color:var(--primary);border-color:var(--primary)}
+.rn-form-error{margin:.9rem 0 0;padding:.77rem .9rem;border-radius:9px;color:#9f1239;background:#fff1f2;font-weight:750;font-size:.81rem}
+[data-theme="dark"] .rn-form-error{background:#3f121a;color:#fecdd3}
+.rn-alert{display:flex;align-items:center;gap:.52rem;color:var(--text-secondary);font-size:.79rem;line-height:1.56;margin:1rem 0 0}
+.rn-results{border:1px solid var(--border-color);border-radius:15px;background:var(--primary-light);padding:1.15rem;margin:1.2rem 0 0;scroll-margin-top:5rem}
+.rn-results[hidden]{display:none!important}
+.rn-results h3{font-size:1.07rem;color:var(--text-primary);margin:.45rem 0 .75rem}
+.rn-results p{font-size:.83rem;line-height:1.7;color:var(--text-secondary);margin:.5rem 0;text-align:justify;text-justify:inter-word}
+.rn-result-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.09em;color:var(--primary);font-weight:900}
+.rn-result-date{font-size:.8rem;color:var(--text-secondary);margin:.27rem 0 .9rem}
+.rn-results-head{display:flex;align-items:center;justify-content:space-between;gap:.9rem;flex-wrap:wrap;margin-bottom:.83rem}
+.rn-safety{display:inline-block;font-size:.73rem;color:var(--primary);font-weight:850;border:1px solid var(--border-color);background:var(--bg-card);border-radius:6px;padding:.42rem .57rem;max-width:400px}
+.rn-summary-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem;margin:.8rem 0}
+.rn-main-card{border:1px solid var(--border-color);border-radius:12px;background:var(--bg-card);padding:1rem;min-width:0}
+.rn-main-card small{color:var(--text-muted);font-weight:800;font-size:.69rem;display:block}
+.rn-main-card strong{display:block;font-size:clamp(1.14rem,2.4vw,1.6rem);line-height:1.35;color:var(--primary);overflow-wrap:anywhere;margin:.34rem 0 .37rem}
+.rn-main-card span{font-size:.75rem;color:var(--text-secondary);line-height:1.52}
+.rn-info-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.62rem;margin:.86rem 0}
+.rn-info{border:1px solid var(--border-color);background:var(--bg-card);border-radius:11px;padding:.84rem}
+.rn-info small{display:block;font-size:.7rem;color:var(--text-muted);font-weight:850}
+.rn-info b{display:block;color:var(--text-primary);font-size:.94rem;line-height:1.45;margin:.27rem 0}
+.rn-card-panel{padding:1rem;background:var(--bg-card);border:1px solid var(--border-color);border-radius:11px;margin:1rem 0 0}
+.rn-card-panel h3{margin:0 0 .61rem}
+.rn-card-panel .rn-panel-help{font-size:.79rem;line-height:1.64;margin:0 0 .8rem}
+.rn-sign-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:.43rem}
+.rn-sign-tile{text-align:center;background:var(--bg-primary);padding:.65rem .17rem;border:1px solid var(--border-color);border-radius:8px;min-width:0}
+.rn-sign-tile.selected{border:2px solid var(--primary);background:var(--primary-light);padding:calc(.65rem - 1px) .1rem}
+.rn-sign-tile .rn-sign-icon{display:block;font-size:1.25rem;color:var(--primary)}
+.rn-sign-tile b{display:block;color:var(--text-primary);font-size:.7rem;margin:.3rem 0}
+.rn-sign-tile small{display:block;color:var(--text-muted);font-size:.56rem}
+.rn-details{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.74rem}
+.rn-details>div{padding:.6rem;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-primary)}
+.rn-details small{display:block;color:var(--text-muted);font-size:.67rem;font-weight:800}
+.rn-details strong{color:var(--text-primary);font-size:.87rem;overflow-wrap:anywhere}
+.rn-table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--border-color);border-radius:9px;margin:.6rem 0}
+.rn-table{border-collapse:collapse;width:100%;min-width:500px;font-size:.82rem}
+.rn-table th,.rn-table td{text-align:left;padding:.72rem .8rem;border-bottom:1px solid var(--border-color);color:var(--text-secondary);line-height:1.55;vertical-align:top}
+.rn-table th{background:var(--bg-primary);color:var(--text-primary);font-weight:850;font-size:.72rem}
+.rn-table tr:last-child td{border-bottom:0}
+.rn-result-uncertain{border:1px solid var(--border-color);border-left:4px solid var(--primary);background:var(--bg-card);padding:.96rem;border-radius:9px;margin:.75rem 0}
+.rn-result-uncertain h3{margin:0 0 .43rem}
+.rn-result-uncertain ul{padding-left:1.38rem;margin:.55rem 0}
+.rn-result-uncertain li{line-height:1.62;color:var(--text-secondary);font-size:.81rem;text-align:left;margin:.35rem 0}
+.rn-warning{border:1px solid #d977063b;border-left:4px solid #c67c22;background:var(--bg-card);color:var(--text-primary);font-size:.8rem;padding:.85rem;margin:.8rem 0;border-radius:8px;line-height:1.6}
+.rn-copy-note{color:var(--text-muted);font-size:.73rem;line-height:1.57;margin:.5rem 0 0}
+.rn-guide{margin:2.35rem 0}
+.rn-guide h2{font-size:clamp(1.4rem,3vw,1.87rem);line-height:1.32;color:var(--text-primary);margin:0 0 .8rem}
+.rn-guide h3{font-size:1.09rem;color:var(--text-primary);line-height:1.43;margin:1.58rem 0 .6rem}
+.rn-guide p{color:var(--text-secondary);line-height:1.81;text-align:justify;text-justify:inter-word;margin:.83rem 0 1.2rem}
+.rn-guide ul,.rn-guide ol{padding-left:1.43rem;text-align:left;margin:.85rem 0 1.28rem}
+.rn-guide li{color:var(--text-secondary);line-height:1.75;text-align:left;margin:.43rem 0;padding-left:.15rem}
+.rn-guide li::marker{color:var(--primary);font-weight:800}
+.rn-guide a{color:var(--primary);text-underline-offset:3px}
+.rn-answer{background:var(--primary-light);border-left:4px solid var(--primary);padding:1.03rem 1.14rem;border-radius:11px}
+.rn-answer p{margin:0}
+.rn-compare{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem;margin:.9rem 0}
+.rn-compare>div{padding:1rem;border:1px solid var(--border-color);border-radius:11px;background:var(--bg-card)}
+.rn-compare strong{color:var(--primary);display:block;font-size:.92rem}
+.rn-compare p{font-size:.84rem;line-height:1.66;text-align:left;margin:.42rem 0 0}
+.rn-guide-table{width:100%;border-collapse:collapse;min-width:570px;font-size:.83rem}
+.rn-guide-table th,.rn-guide-table td{text-align:left;padding:.82rem .85rem;border-bottom:1px solid var(--border-color)}
+.rn-guide-table th{background:var(--primary);color:#fff}.rn-guide-table td{color:var(--text-secondary)}.rn-guide-table tr:last-child td{border-bottom:0}
+.rn-faq{display:grid;gap:.6rem;margin:1rem 0}
+.rn-faq details{border:1px solid var(--border-color);border-radius:10px;background:var(--bg-card);overflow:hidden}
+.rn-faq summary{cursor:pointer;font-weight:800;color:var(--text-primary);font-size:.9rem;padding:.96rem}
+.rn-faq details p{padding:0 .96rem .96rem;margin:0;line-height:1.7;text-align:justify;text-justify:inter-word}
+.rn-related{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.77rem;margin:1rem 0}
+.rn-related a{background:var(--bg-card);border:1px solid var(--border-color);border-radius:12px;padding:1rem;text-decoration:none;color:var(--text-primary);display:flex;flex-direction:column;gap:.37rem}
+.rn-related a:hover{border-color:var(--primary)}.rn-related strong{font-size:.91rem}
+.rn-related span{font-size:.76rem;line-height:1.54;color:var(--text-muted)}
+.rn-disclaimer{padding:1.08rem;background:var(--bg-card);border:1px solid var(--border-color);border-left:4px solid var(--primary);border-radius:10px;color:var(--text-secondary);font-size:.84rem;line-height:1.74;margin:2rem 0}
+.rn-guide .rn-small{font-size:.81rem;line-height:1.7;color:var(--text-muted);text-align:left}
+.rn-page button:focus-visible,.rn-page input:focus-visible,.rn-page select:focus-visible,.rn-page a:focus-visible{outline:3px solid var(--primary);outline-offset:2px}
+@media(max-width:980px){.rn-hero{grid-template-columns:1fr}.rn-art{min-height:245px}.rn-sign-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:740px){.rn-form-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.rn-form-grid .rn-field:first-child{grid-column:1/-1}.rn-summary-grid,.rn-info-grid,.rn-compare,.rn-related{grid-template-columns:1fr}.rn-sign-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.rn-tool{padding:1rem}.rn-hero h1{font-size:2.4rem}}
+@media(max-width:480px){.rn-form-grid,.rn-extra,.rn-time-grid{grid-template-columns:1fr}.rn-form-grid .rn-field:first-child{grid-column:auto}.rn-tool-head{align-items:start}.rn-button-row .rn-primary,.rn-button-row .rn-secondary{flex:1 1 100%}.rn-details{grid-template-columns:1fr}.rn-sign-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.rn-art{min-height:220px}}
+@media(prefers-reduced-motion:reduce){.rn-page *{transition:none!important}}
+</style>
+</head>
+<body>
+<header><div class="nav-container">
+<a href="/" class="logo"><img src="/logo.png" alt="CalcuPortal logo" class="logo-icon"><span>CalcuPortal</span></a>
+<button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+<nav class="nav-links" id="nav-links"><a href="/" class="nav-link">Home</a><a href="/calculators/" class="nav-link active">Calculators</a><a href="/blog/" class="nav-link">Articles</a><a href="/about/" class="nav-link">About</a><a href="/contact/" class="nav-link">Contact</a><button type="button" class="theme-btn" aria-label="Toggle theme"><span class="theme-btn-icon"></span></button></nav>
+</div></header>
+<main><div class="detail-container rn-page">
+<nav class="rn-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/categories/astrology-numerology/">Astrology &amp; Numerology</a><span>›</span><span aria-current="page">Rasi &amp; Nakshatra Calculator</span></nav>
+<section class="rn-hero">
+<div><span class="rn-eyebrow">Vedic Moon sign &amp; birth star explorer</span>
+<h1>Rasi &amp; <span>Nakshatra Calculator</span></h1>
+<p>Find an <strong>approximate birth Rasi (Moon sign), Janma Nakshatra and Pada</strong> using your birth date, time and birthplace time zone. Explore <strong>Tamil Rasi and Nakshatra names</strong>, all 27 birth stars and the Moon-position calculation behind your results.</p>
+<div class="rn-hero-tags"><span>12 Rasi</span><span>27 Nakshatras</span><span>108 Padas</span><span>Time-zone aware</span><span>Private in your browser</span></div>
+</div>
+<div class="rn-art" aria-hidden="true"><div class="rn-art-orbit"><span class="dot a">1</span><span class="dot b">9</span><span class="dot c">4</span><span class="dot d">7</span><span class="rn-art-moon">☾</span><small>MOON · BIRTH STAR</small></div></div>
+</section>
 
-      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
+<section class="rn-tool" aria-labelledby="rn-tool-heading">
+<div class="rn-tool-head"><div><h2 id="rn-tool-heading">Calculate your Janma Rasi and Nakshatra</h2><p>Enter the details as recorded at birth. This tool estimates the sidereal Moon position and clearly flags uncertainty.</p></div><span class="rn-pill">Free · No account</span></div>
+<form id="rn-form" novalidate>
+<div class="rn-form-grid">
+<div class="rn-field"><label for="rn-year">Birth year</label><input id="rn-year" type="number" inputmode="numeric" min="1900" max="2026" step="1" value="2000" required><small>Supported years: 1900 to the present.</small></div>
+<div class="rn-field"><label for="rn-month">Birth month</label><select id="rn-month" required><option value="">Choose month</option>
+<option value="1" selected>January</option><option value="2">February</option><option value="3">March</option><option value="4">April</option><option value="5">May</option><option value="6">June</option>
+<option value="7">July</option><option value="8">August</option><option value="9">September</option><option value="10">October</option><option value="11">November</option><option value="12">December</option></select></div>
+<div class="rn-field"><label for="rn-day">Birth day</label><select id="rn-day" required><option value="">Select day</option></select><small>Leap years and month lengths checked.</small></div>
+</div>
+<div class="rn-extra">
+<div class="rn-box">
+<label class="rn-checkbox" for="rn-known"><input type="checkbox" id="rn-known" checked> I know my birth time</label>
+<div id="rn-time-wrap" class="rn-field"><label for="rn-time">Birth time (local clock)</label><input id="rn-time" type="time" value="12:00" step="60"><small>Use a recorded time in 24-hour format. Do not guess a time to force an exact result.</small></div>
+<div id="rn-fold-wrap" class="rn-field"><label for="rn-fold">Daylight-saving clock ambiguity</label><select id="rn-fold"><option value="" selected>Auto · warn if ambiguous</option><option value="earlier">First occurrence of repeated hour</option><option value="later">Second occurrence of repeated hour</option></select><small>Usually leave Auto; select only if a local time occurred twice.</small></div>
+</div>
+<div class="rn-box"><div class="rn-field"><label for="rn-zone">Birthplace time zone / city</label>
+<select id="rn-zone">
+<optgroup label="India and nearby">
+<option value="Asia/Kolkata" selected>India · Chennai / Bengaluru / Delhi / Mumbai (IST)</option>
+<option value="Asia/Kathmandu">Nepal · Kathmandu</option><option value="Asia/Colombo">Sri Lanka · Colombo</option><option value="Asia/Dhaka">Bangladesh · Dhaka</option><option value="Asia/Karachi">Pakistan · Karachi</option>
+</optgroup>
+<optgroup label="Other common birth locations">
+<option value="Asia/Dubai">UAE · Dubai</option><option value="Asia/Singapore">Singapore</option><option value="Asia/Tokyo">Japan · Tokyo</option>
+<option value="Europe/London">UK · London</option><option value="Europe/Paris">France · Paris</option><option value="America/New_York">USA · New York</option>
+<option value="America/Chicago">USA · Chicago</option><option value="America/Los_Angeles">USA · Los Angeles</option><option value="Australia/Sydney">Australia · Sydney</option>
+<option value="UTC">UTC / GMT</option>
+</optgroup><option value="manual">Manual UTC offset (advanced)</option>
+</select><small id="rn-zone-help">Select the time zone of your birthplace, not where you live now.</small></div>
+<div class="rn-field" id="rn-offset-wrap" hidden><label for="rn-offset">Recorded UTC offset</label><select id="rn-offset"></select><small>Includes quarter-hour offsets. Check daylight saving on your birth date.</small></div>
+</div>
+</div>
+<p class="rn-note" id="rn-precision-note">Birthplace sets the historic time-zone conversion. The Moon calculation is geocentric.</p>
+<div class="rn-button-row"><button type="submit" class="rn-primary" id="rn-calculate">Find my Rasi &amp; Nakshatra</button>
+<button type="button" class="rn-secondary" id="rn-example">Try example</button>
+<button type="button" class="rn-secondary" id="rn-reset">Reset</button>
+<button type="button" class="rn-secondary" id="rn-copy">Copy result</button></div>
+</form>
+<div class="rn-alert"> <span aria-hidden="true">ⓘ</span> <span>Important: approximate Lahiri-style calculation, not a certified Panchang. Ayanamsa choice or a few minutes near a star boundary may change the answer.</span></div>
+<div id="rn-error" class="rn-form-error" role="alert" hidden></div>
+<p class="rn-copy-note" id="rn-copy-status" role="status" aria-live="polite"></p>
+<div class="rn-results" id="rn-result" aria-live="polite" hidden>
+<div class="rn-results-head"><div><span class="rn-result-label" id="rn-heading">YOUR RASI AND NAKSHATRA</span><p class="rn-result-date" id="rn-date-summary"></p></div><span class="rn-safety" id="rn-confidence"></span></div>
+<div class="rn-summary-grid">
+<div class="rn-main-card"><small>Janma Rasi · Vedic Moon sign</small><strong id="rn-sign">—</strong><span id="rn-sign-annotation">12 signs, each spanning 30°.</span></div>
+<div class="rn-main-card"><small>Janma Nakshatra · Birth star</small><strong id="rn-nak">—</strong><span id="rn-nak-annotation">27 lunar mansions of 13°20′.</span></div>
+<div class="rn-main-card"><small>Nakshatra quarter</small><strong id="rn-pada">—</strong><span>4 padas in every Nakshatra.</span></div>
+</div>
+<p id="rn-tamil"></p><p id="rn-context"></p>
+<div class="rn-info-grid"><div class="rn-info"><small>Rasi ruler</small><b id="rn-sign-lord">—</b></div><div class="rn-info"><small>Nakshatra ruler</small><b id="rn-lord">—</b></div><div class="rn-info"><small>Method</small><b>Approx. Lahiri · geocentric Moon</b></div></div>
+<div id="rn-certain" hidden>
+<div class="rn-card-panel"><h3>Moon-position details</h3><div class="rn-details">
+<div><small>Sidereal degree within Rasi</small><strong id="rn-degree">—</strong></div>
+<div><small>Degree within Nakshatra</small><strong id="rn-nak-degree">—</strong></div>
+<div><small>Tropical Moon longitude</small><strong id="rn-tropical">—</strong></div>
+<div><small>Approximate Lahiri ayanamsa</small><strong id="rn-ayan">—</strong></div>
+<div><small>Sidereal Moon longitude</small><strong id="rn-sidereal">—</strong></div>
+<div><small>Birth moment UTC</small><strong id="rn-utc">—</strong></div>
+</div><p class="rn-info-note" id="rn-method-name"></p></div>
+<div class="rn-card-panel"><h3>How this result is calculated</h3><p id="rn-result-explainer"></p></div>
+</div>
+<div id="rn-uncertain" class="rn-result-uncertain" hidden><h3>Birth time unknown — possible star changes</h3><p id="rn-uncertain-explanation"></p><ul id="rn-transition-list"></ul></div>
+<div class="rn-warning" id="rn-boundary" hidden></div>
+<div class="rn-card-panel"><h3>12 Vedic Rasi · highlighted possible signs</h3><p class="rn-panel-help">Names below are Vedic lunar sign sectors, not Western Sun-sign calculations.</p><div class="rn-sign-grid" id="rn-signs"></div></div>
+<div class="rn-card-panel"><h3>Detailed calculation and changeover information</h3><div class="rn-table-scroll"><table class="rn-table"><thead><tr><th>Calculation element</th><th>Result / explanation</th></tr></thead><tbody id="rn-work-table"></tbody></table></div></div>
+<p class="rn-copy-note">Use an independent, trusted Panchang or Swiss Ephemeris-based chart if your birth time is uncertain or your Moon falls close to a nakshatra/pada boundary. This tool is not intended for definitive muhurat or marriage-matching decisions.</p>
+</div>
+<p id="rn-status" class="rn-copy-note" role="status" aria-live="polite"></p>
+</section>
 
-      <nav class="nav-links" id="nav-links">
-        <a href="/" class="nav-link">Home</a>
-        <a href="/about/" class="nav-link">About</a>
-        <a href="/contact/" class="nav-link">Contact</a>
-        <a href="/blog/" class="nav-link">Blog</a>
-        <button class="theme-btn" title="Toggle Theme">
-          <span class="theme-btn-icon"></span>
-        </button>
-      </nav>
-    </div>
-  </header>
+<section class="rn-guide"><div class="rn-answer"><p><strong>Quick answer:</strong> A <strong>Rasi Nakshatra calculator by date of birth</strong> locates the <strong>Moon in the sidereal zodiac</strong> at birth. Divide the 360° zodiac into 12 Rasi (30° each) or 27 Nakshatras (13°20′ each). Each Nakshatra contains 4 Padas (3°20′ each). Birth time and the time zone in effect at your birthplace help determine the exact lunar sector.</p></div></section>
 
-<main id="main-content"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/categories/astrology-numerology/">Astrology &amp; Numerology</a><span>›</span><span>Rasi &amp; Nakshatra Calculator</span></nav><section class="astro-hero"><span class="status">Coming soon</span><h1>Rasi &amp; Nakshatra Calculator</h1><p>Find a Vedic moon sign, nakshatra and pada using astronomical calculations.</p></section><section class="placeholder-panel"><h2>This calculator is being prepared</h2><p>This is a preview page. Calculations and results are not available yet.</p><p style="margin-top:16px"><strong>Planned inputs:</strong> Birth date, exact birth time and birthplace.</p><p style="margin-top:16px">When the tool is ready, this page will explain its method, assumptions and how to understand the result.</p><div class="astro-actions"><a href="/categories/astrology-numerology/">Explore planned astrology tools</a><a href="/calculators/">Use available calculators</a></div></section><aside class="astro-note"><p>Astrology and numerology interpretations reflect traditional beliefs, not scientifically validated predictions. These planned tools are for cultural interest and entertainment.</p></aside></main><footer class="astro-footer"><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/disclaimer/">Disclaimer</a><p style="margin:12px auto 0">© 2026 CalcuPortal</p></footer></body></html>
+<section class="rn-guide" id="rn-what"><h2>What is a Rasi and Nakshatra Calculator?</h2>
+<p>In Vedic astrology, <strong>Rasi</strong> usually refers to the zodiac sign occupied by a particular planet. When people ask for their <strong>Janma Rasi</strong> (birth Rasi), they commonly mean the <strong>Chandra Rasi</strong> — the sidereal Moon sign at the birth moment. <strong>Janma Nakshatra</strong> is the lunar mansion occupied by the Moon at that same time; this is also called a <strong>birth star</strong>.</p>
+<p>The Moon moves through the zodiac much faster than the Sun. That is why a simple date-only sun-sign rule cannot reliably find a Vedic birth star. Two babies born on the same date but at different times can have different <strong>Nakshatra Padas</strong>, and sometimes different Nakshatras or Rasi.</p>
+<p>CalcuPortal's calculator estimates the Moon's position using Astronomy Engine's astronomical lunar model and a <strong>Lahiri-style approximate sidereal conversion</strong>. The output is intended for cultural interest. It does <strong>not</strong> represent the exact Swiss Ephemeris Lahiri implementation or a Panchang-certified birth chart.</p></section>
+
+<section class="rn-guide" id="rn-how"><h2>How to Find Rasi and Nakshatra from Your Date of Birth</h2>
+<ol>
+<li><strong>Enter birth date:</strong> choose year, month and day exactly as recorded.</li>
+<li><strong>Enter birth time:</strong> choose the recorded clock time, not a guessed default. If unavailable, uncheck “I know my birth time.”</li>
+<li><strong>Choose the birthplace time zone:</strong> for Indian birthplaces, select IST / Asia/Kolkata; for places with daylight saving, use the correct historical time-zone location.</li>
+<li><strong>Calculate the Moon longitude:</strong> the browser converts local time into UTC and estimates the Moon's position along the tropical ecliptic.</li>
+<li><strong>Convert to sidereal:</strong> subtract the approximate Lahiri ayanamsa from the tropical Moon longitude, adjusting into 0°–360°.</li>
+<li><strong>Find the lunar sectors:</strong> divide by 30° for Rasi, 13°20′ for Nakshatra and 3°20′ for Pada.</li>
+<li><strong>Check uncertainty:</strong> if birth time is unknown, review every possible sector across the full local date, plus approximate changeover times.</li>
+</ol>
+<h3>Rasi / Nakshatra formula</h3>
+<div class="rn-compare">
+<div><strong>Sidereal Moon longitude</strong><p>(Tropical geocentric Moon longitude − approximate Lahiri ayanamsa) mod 360°.</p></div>
+<div><strong>Rasi number</strong><p>⌊Sidereal longitude ÷ 30°⌋ + 1. There are 12 signs from Mesha to Meena.</p></div>
+<div><strong>Nakshatra + Pada</strong><p>Nakshatra = ⌊longitude ÷ 13⅓°⌋ + 1. Pada = ⌊remainder ÷ 3⅓°⌋ + 1.</p></div>
+</div>
+<p>As a transparent mathematical example, a hypothetical sidereal Moon longitude of <strong>48°</strong> falls in <strong>Vrishabha Rasi</strong> (30°–60°). It is inside <strong>Rohini Nakshatra</strong> (40°–53°20′), at 8° within the Nakshatra, making it <strong>Rohini Pada 3</strong>. This is a worked sector example, not a result for a particular birthday.</p></section>
+
+<section class="rn-guide" id="rn-rasi-list"><h2>12 Rasi Names in English and Tamil</h2>
+<p>The 12 Vedic Rasi divide the sidereal zodiac into equal 30° signs. Tamil horoscope calendars often use these native names when describing a person's <strong>Janma Rasi</strong>.</p>
+<div class="rn-table-scroll"><table class="rn-guide-table"><thead><tr><th>No.</th><th>Rasi</th><th>Tamil name</th><th>Sidereal longitude</th></tr></thead><tbody>
+<tr><td>1</td><td>Mesha (Aries)</td><td>மேஷம்</td><td>0°–30°</td></tr>
+<tr><td>2</td><td>Vrishabha (Taurus)</td><td>ரிஷபம்</td><td>30°–60°</td></tr>
+<tr><td>3</td><td>Mithuna (Gemini)</td><td>மிதுனம்</td><td>60°–90°</td></tr>
+<tr><td>4</td><td>Karka (Cancer)</td><td>கடகம்</td><td>90°–120°</td></tr>
+<tr><td>5</td><td>Simha (Leo)</td><td>சிம்மம்</td><td>120°–150°</td></tr>
+<tr><td>6</td><td>Kanya (Virgo)</td><td>கன்னி</td><td>150°–180°</td></tr>
+<tr><td>7</td><td>Tula (Libra)</td><td>துலாம்</td><td>180°–210°</td></tr>
+<tr><td>8</td><td>Vrischika (Scorpio)</td><td>விருச்சிகம்</td><td>210°–240°</td></tr>
+<tr><td>9</td><td>Dhanu (Sagittarius)</td><td>தனுசு</td><td>240°–270°</td></tr>
+<tr><td>10</td><td>Makara (Capricorn)</td><td>மகரம்</td><td>270°–300°</td></tr>
+<tr><td>11</td><td>Kumbha (Aquarius)</td><td>கும்பம்</td><td>300°–330°</td></tr>
+<tr><td>12</td><td>Meena (Pisces)</td><td>மீனம்</td><td>330°–360°</td></tr>
+</tbody></table></div></section>
+
+<section class="rn-guide" id="rn-nak-list"><h2>27 Nakshatras with Tamil Names and Ruling Planets</h2>
+<p>Every Nakshatra covers <strong>13°20′</strong> (one twenty-seventh of the zodiac) and is traditionally associated with a ruling planet in the Vimshottari sequence. The table below lists the <strong>27 birth stars</strong> and their familiar Tamil names. Standard spellings may vary by language and transliteration.</p>
+<div class="rn-table-scroll"><table class="rn-guide-table"><thead><tr><th>#</th><th>Janma Nakshatra / Tamil name</th><th>Traditional ruler</th><th>Sidereal span (approx. decimal °)</th></tr></thead><tbody id="rn-reference-table"></tbody></table></div>
+<p class="rn-small">The spans are displayed as approximate decimal degrees for compact reference; the true sector definition is exactly 360°/27 = 13°20′ per Nakshatra. The ruling-planet sequence repeats every nine Nakshatras: Ketu, Venus, Sun, Moon, Mars, Rahu, Jupiter, Saturn and Mercury.</p></section>
+
+<section class="rn-guide" id="rn-pada-guide"><h2>What Is Nakshatra Pada? Meaning of Pada 1, 2, 3 and 4</h2>
+<p>Each of the <strong>27 Nakshatras</strong> contains four equal quarters known as <strong>Padas</strong>, giving a total of <strong>108</strong> lunar quarters around the full zodiac. Since each Nakshatra covers 13°20′, one Pada covers exactly 3°20′.</p>
+<div class="rn-table-scroll"><table class="rn-guide-table"><thead><tr><th>Pada</th><th>Position within Nakshatra</th><th>Calculation rule</th></tr></thead><tbody>
+<tr><td>Pada 1</td><td>0° to under 3°20′</td><td>First quarter</td></tr>
+<tr><td>Pada 2</td><td>3°20′ to under 6°40′</td><td>Second quarter</td></tr>
+<tr><td>Pada 3</td><td>6°40′ to under 10°</td><td>Third quarter</td></tr>
+<tr><td>Pada 4</td><td>10° to under 13°20′</td><td>Fourth quarter</td></tr>
+</tbody></table></div>
+<p>Nakshatra Padas are smaller than full Nakshatras, so they can change several times during one calendar day. A result near a <strong>Pada boundary</strong> is especially sensitive to the recorded birth time and the ayanamsa/ephemeris convention.</p></section>
+
+<section class="rn-guide" id="rn-tamil"><h2>Tamil Rasi Nakshatra Calculator: Tamil Birth Star Finder</h2>
+<p>People often search for <strong>“Rasi Nakshatra calculator Tamil”</strong> or <strong>“Rasi Nakshatra by date of birth in Tamil”</strong> to find their <strong>ராசி</strong> (Rasi), <strong>நட்சத்திரம்</strong> (Nakshatra) and <strong>பாதம்</strong> (Pada). CalcuPortal displays the traditional Tamil labels alongside English spellings for each result.</p>
+<p>For example, Mesha is மேஷம், Vrishabha is ரிஷபம் and Karka is கடகம்; Rohini is ரோகிணி, Chitra is சித்திரை and Revati is ரேவதி. The 27-Nakshatra table above lists all Tamil names.</p>
+<p>If you were born in <strong>Chennai, Bengaluru, Coimbatore, Madurai, Hyderabad, Mumbai or Delhi</strong>, the standard modern India time zone is <strong>Asia/Kolkata (IST)</strong>. Historical records from before today's standardisation may require care; the tool uses IANA historical time-zone rules for the chosen location. It does not guess your city's exact birth-time offset from an IP address.</p></section>
+
+<section class="rn-guide" id="rn-unknown"><h2>Can You Find Nakshatra Without Birth Time?</h2>
+<p>A <strong>date-only Rasi Nakshatra calculator</strong> may sometimes show one possible Nakshatra throughout a local date. But the Moon often moves about one Nakshatra per day, so the birth star or Pada may change during the day. Assigning one definite answer at noon when the actual birth time is unknown can be misleading.</p>
+<p>For that reason, unchecking <strong>“I know my birth time”</strong> makes this tool examine the <strong>full local calendar day</strong>, reporting every Nakshatra/Pada combination encountered and the approximate times of transitions. It does not silently substitute a midnight or noon birthday.</p>
+<p>Where a change occurs near midnight or you are within a small angular distance of a boundary, a professionally calculated Panchang with precise birth records is best. Even when the tool finds only one star across the day, a different sidereal convention can alter a result near a boundary.</p></section>
+
+<section class="rn-guide" id="rn-location"><h2>Why Birthplace, Birth Time and Ayanamsa Matter</h2>
+<p>The <strong>local clock time</strong> must be converted to UTC before calculating the Moon's position. A birth at 6:00 AM in Chennai and a birth at 6:00 AM in New York are two different astronomical moments. Daylight-saving changes can cause some local clock times to be skipped or repeated, so a place-aware time-zone database is more useful than assuming a modern fixed offset for every historical date.</p>
+<p>The Moon position in this calculator is <strong>geocentric</strong>, meaning measured relative to Earth's centre, as is common in Vedic sign and Nakshatra calculations. Therefore the birthplace's latitude and longitude are not needed to derive the geocentric ecliptic longitude, but <strong>the birth location still matters for interpreting the recorded time</strong>. Other astrological outputs such as Lagna (Ascendant) require geographical coordinates and a different calculation.</p>
+<h3>What is Lahiri ayanamsa?</h3>
+<p><strong>Ayanamsa</strong> is the angular offset used to convert from tropical to sidereal longitude. A commonly used Vedic convention is <strong>Lahiri (Chitrapaksha)</strong>, around 24°13′ in 2026. This implementation uses an <strong>approximate Lahiri-style value</strong> derived from a J2000 precession formula, rather than reproducing the precise Swiss Ephemeris Lahiri mode with all nutation and model adjustments. This means that near a sign, Nakshatra or Pada boundary, a specialised chart can disagree.</p>
+<p>The Moon is calculated from <a href="https://github.com/cosinekitty/astronomy" target="_blank" rel="noopener noreferrer">Astronomy Engine</a>'s geocentric lunar position (EclipticGeoMoon), a published mathematical astronomy library, and then the approximate sidereal offset is subtracted. For the background of the sidereal framework, see <a href="https://ephe.scryr.io/swisseph/doc/swisseph.htm" target="_blank" rel="noopener noreferrer">Swiss Ephemeris documentation on Lahiri ayanamsa</a>. These sources explain the method; they do not certify this tool as equivalent to Swiss Ephemeris.</p></section>
+
+<section class="rn-guide" id="rn-compare"><h2>Rasi vs Nakshatra vs Western Zodiac Sign vs Lagna</h2>
+<div class="rn-compare">
+<div><strong>Rasi / Chandra Rasi</strong><p>The sidereal zodiac sign occupied by the Moon at birth, one of 12 sectors of 30° each.</p></div>
+<div><strong>Janma Nakshatra</strong><p>The Moon's lunar mansion at birth, one of 27 sectors of 13°20′, each split into four padas.</p></div>
+<div><strong>Western Sun Sign</strong><p>Usually the tropical zodiac sign of the Sun at birth, rather than the Moon's sidereal sign.</p></div>
+</div>
+<p><strong>Lagna (Ascendant)</strong> is a fourth concept: the zodiacal point rising at the eastern horizon at a specific time and place. Unlike the geocentric Rasi calculation here, Lagna needs coordinates and local sidereal-time geometry. Do not treat any of these four quantities as interchangeable.</p></section>
+
+<section class="rn-guide" id="rn-common-errors"><h2>Common Rasi and Nakshatra Calculation Mistakes</h2>
+<ul>
+<li><strong>Using a Sun-sign birth-date table:</strong> a Vedic Janma Rasi uses the Moon, not a fixed Western Sun-sign date range.</li>
+<li><strong>Ignoring the recorded time zone:</strong> even a correct birth date can give a different lunar position if UTC conversion is wrong.</li>
+<li><strong>Assuming time is unnecessary for the Pada:</strong> a Nakshatra Pada can change within a few hours.</li>
+<li><strong>Mixing sidereal conventions:</strong> Lahiri, Raman and other ayanamsas do not always assign the same boundary result.</li>
+<li><strong>Using the modern offset for every past year:</strong> many locations have historical daylight-saving rules.</li>
+<li><strong>Confusing birth Rasi with Lagna:</strong> the Moon sign and ascendant are computed differently.</li>
+<li><strong>Believing every result is exact:</strong> this page uses an approximate Lahiri model; verify close boundaries independently.</li>
+<li><strong>Treating astrology as scientific prediction:</strong> an astronomical Moon position does not establish someone's character, health or future events.</li>
+</ul></section>
+
+<section class="rn-guide" id="rn-faq"><h2>Rasi Nakshatra Calculator: Frequently Asked Questions</h2>
+<div class="rn-faq">
+<details><summary>How to find Rasi Nakshatra by date of birth?</summary><p>Enter birth date and exact local time, select your birthplace time zone, and calculate. The tool finds the Moon's geocentric ecliptic position, applies an approximate Lahiri sidereal correction and identifies Rasi, Nakshatra and Pada.</p></details>
+<details><summary>What is the difference between Rasi and Nakshatra?</summary><p>Rasi divides the zodiac into 12 signs of 30° each; Nakshatra divides it into 27 sections of 13°20′ each. Each Nakshatra has four Padas of 3°20′.</p></details>
+<details><summary>Can I calculate my birth star without birth time?</summary><p>Yes, but only as a range when changes are possible. The calculator checks the whole local date and shows possible Rasi, Nakshatra and Pada values rather than guessing a single answer.</p></details>
+<details><summary>What does Janma Nakshatra mean?</summary><p>It is the Nakshatra that contains the sidereal Moon at the birth moment under the selected astronomy and ayanamsa conventions.</p></details>
+<details><summary>What does Pada 1, 2, 3 or 4 mean?</summary><p>Each Nakshatra is split into four quarters. The Pada number identifies the quarter containing the sidereal Moon's calculated longitude.</p></details>
+<details><summary>Does this calculator use exact Lahiri ayanamsa?</summary><p>No. It uses an approximate Lahiri-style precession polynomial and Astronomy Engine's geocentric lunar position. It is not a certified Swiss Ephemeris or Panchang calculation. Check near-boundary births independently.</p></details>
+<details><summary>Why is my Rasi different from my zodiac Sun sign?</summary><p>Janma Rasi is a sidereal Moon sign. Popular Western zodiac sites generally report the tropical Sun sign. They represent different bodies and systems.</p></details>
+<details><summary>Do I need to enter my birthplace?</summary><p>Choose the correct historical birthplace time zone or manual UTC offset so the recorded clock time is interpreted accurately. Exact latitude and longitude are not needed for this geocentric Moon calculation.</p></details>
+<details><summary>What are the Tamil names for my birth star?</summary><p>The result and full Nakshatra reference table display Tamil labels such as அசுவினி, பரணி, கார்த்திகை, ரோகிணி, திருவாதிரை, சித்திரை and ரேவதி.</p></details>
+<details><summary>Does Rasi Nakshatra astrology predict my future?</summary><p>No. Astronomical positioning is a mathematical calculation; traditional interpretations about relationships, career or personal destiny are not scientifically validated predictions.</p></details>
+</div></section>
+
+<section class="rn-guide" id="rn-related"><h2>More Astrology and Numerology Calculators</h2>
+<div class="rn-related">
+<a href="/calculators/zodiac-sign-calculator/"><strong>Zodiac Sign Calculator</strong><span>Find the Western tropical Sun sign, with a separate birth-time-aware astronomical method.</span></a>
+<a href="/calculators/name-numerology-calculator/"><strong>Name Numerology Calculator</strong><span>Explore traditional Pythagorean and Chaldean name numbers.</span></a>
+<a href="/calculators/life-path-number-calculator/"><strong>Life Path Number Calculator</strong><span>Discover traditional numbers based on your complete date of birth.</span></a>
+</div><p><a href="/categories/astrology-numerology/">Browse all Astrology &amp; Numerology tools →</a></p></section>
+<div class="rn-disclaimer"><strong>Methodology, accuracy and privacy · Updated 25 October 2026.</strong> Astronomical geocentric Moon longitude is obtained locally from Astronomy Engine 2.1.19 and transformed using an approximate Lahiri precession formula. This is not a precision-certified Lahiri implementation, Swiss Ephemeris, local Panchang or professional Jyotish consultation. Results within about 0.18° of a Pada boundary are flagged; differences can also occur outside the warning range due to conventions. Birth date/time entries are processed by local JavaScript and are not sent by this calculator to a backend. This tool is for cultural exploration, not medical, financial or consequential personal decisions. See <a href="https://github.com/cosinekitty/astronomy" target="_blank" rel="noopener noreferrer">Astronomy Engine</a> and <a href="https://ephe.scryr.io/swisseph/doc/swisseph.htm" target="_blank" rel="noopener noreferrer">Swiss Ephemeris Lahiri notes</a> for background.</div>
+</div></main>
+<footer><nav class="footer-legal-links" aria-label="Legal and support links"><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/privacy-policy/">Privacy Policy</a><a href="/terms-conditions/">Terms &amp; Conditions</a><a href="/disclaimer/">Disclaimer</a></nav>
+<div class="copyright-bar" style="border-top:none;padding-top:0">© <span id="year">2026</span> CalcuPortal. All rights reserved.</div></footer>
+</body></html>
