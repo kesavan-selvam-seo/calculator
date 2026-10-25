@@ -122,7 +122,30 @@
     }
     @media(prefers-reduced-motion:reduce){.cb12-progress>span{transition:none!important}}
   </style>
-</head>
+<style>
+.jee-snapshot{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:15px 0 28px}
+.jee-snapshot>div{border:1px solid var(--border-color);border-radius:11px;background:var(--bg-card);padding:14px 12px}
+.jee-snapshot small{display:block;font-size:.69rem;font-weight:800;color:var(--text-muted)}
+.jee-snapshot strong{display:block;font-size:.93rem;color:var(--primary);margin-top:6px;line-height:1.5}
+.jee-note{background:var(--primary-light);border:1px solid var(--border-color);border-left:4px solid var(--primary);border-radius:9px;padding:.9rem 1.1rem;color:var(--text-secondary);line-height:1.75;margin:1rem 0}
+.jee-note strong{color:var(--text-primary)}
+.jee-checklist{border:1px solid var(--border-color);border-radius:12px;background:var(--bg-card);padding:1.05rem;margin:1rem 0}
+.jee-check-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:.55rem}
+.jee-check-head strong{font-size:.86rem;color:var(--text-primary)}.jee-check-head span{font-size:.75rem;color:var(--primary);font-weight:850}
+.jee-checklist label{display:flex;gap:.68rem;align-items:start;padding:.66rem 0;font-size:.83rem;color:var(--text-secondary);border-bottom:1px solid var(--border-color);cursor:pointer;text-align:left}
+.jee-checklist input{height:17px;width:17px;flex:none;accent-color:var(--primary);margin:3px 0 0}
+.jee-check-track{height:7px;border:1px solid var(--border-color);border-radius:100px;background:var(--primary-light);overflow:hidden;margin-top:.9rem}
+.jee-check-track span{height:100%;background:var(--primary);display:block;width:0;transition:width .18s}
+.jee-checklist>p{font-size:.73rem!important;color:var(--text-muted)!important;margin:.55rem 0 0!important;text-align:left!important}
+.jee-subjects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem;margin:1rem 0}
+.jee-subjects>div{padding:1rem;background:var(--bg-card);border:1px solid var(--border-color);border-radius:10px}
+.jee-subjects strong{color:var(--primary);font-size:.95rem}.jee-subjects p{font-size:.82rem!important;text-align:left!important;margin:.44rem 0 0!important}
+.jee-faq{display:grid;gap:.58rem;margin:1rem 0}.jee-faq details{border:1px solid var(--border-color);border-radius:10px;background:var(--bg-card);overflow:hidden}
+.jee-faq summary{padding:1rem;font-size:.89rem;color:var(--text-primary);font-weight:800;cursor:pointer}
+.jee-faq details p{padding:0 1rem 1rem;margin:0!important;line-height:1.72;text-align:justify;text-justify:inter-word}
+@media(max-width:780px){.jee-snapshot{grid-template-columns:repeat(2,minmax(0,1fr))}.jee-subjects{grid-template-columns:1fr}}
+@media(max-width:440px){.jee-snapshot>div{padding:.8rem .66rem}.jee-snapshot strong{font-size:.82rem}}
+</style></head>
 <body>
   <div class="cb12-progress" aria-hidden="true"><span id="cb12-progress-fill"></span></div>
   <header><div class="nav-container">
@@ -258,5 +281,12 @@
     document.querySelectorAll(".cb12-mobile-index nav a").forEach(a=>a.addEventListener("click",()=>{const box=document.querySelector(".cb12-mobile-index");if(box)box.open=false;}));
   })();
   </script>
-</body>
+<script>
+(()=>{"use strict";const items=[...document.querySelectorAll(".jee-checklist input[type=checkbox]")];
+const label=document.getElementById("jee-ready"),bar=document.getElementById("jee-progress");
+if(!label||!bar||!items.length)return;
+function update(){const completed=items.filter(x=>x.checked).length;label.textContent=completed+" of "+items.length+" ready";bar.style.width=(100*completed/items.length).toFixed(1)+"%";}
+items.forEach(x=>x.addEventListener("change",update));update();
+})();
+</script></body>
 </html>
