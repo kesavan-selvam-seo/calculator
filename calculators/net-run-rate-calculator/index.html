@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<title>Net Run Rate Calculator (Cricket NRR) – IPL &amp; T20 | CalcuPortal</title>
+<meta name="description" content="Free cricket Net Run Rate calculator for IPL, T20 and ODI matches. Calculate match or tournament NRR with correct overs, all-out rules and full working.">
+<link rel="canonical" href="https://www.calcuportal.com/calculators/net-run-rate-calculator/">
+<link rel="icon" href="/favicon.png" type="image/png">
+<meta property="og:type" content="website"><meta property="og:title" content="Net Run Rate Calculator – Cricket & IPL | CalcuPortal">
+<meta property="og:description" content="Calculate cricket NRR for one match or several matches, correctly counting legal balls and all-out innings.">
+<meta property="og:url" content="https://www.calcuportal.com/calculators/net-run-rate-calculator/">
+<meta property="og:image" content="https://www.calcuportal.com/logo.png">
+<link rel="stylesheet" href="/styles.css">
+<script src="/script.js" defer></script>
+<script src="/assets/js/net-run-rate.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Cricket Net Run Rate Calculator","url":"https://www.calcuportal.com/calculators/net-run-rate-calculator/","description":"Free calculator for cricket net run rate using runs scored, overs faced, runs conceded, overs bowled and full allotted overs for all-out innings.","applicationCategory":"SportsApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.calcuportal.com/"},{"@type":"ListItem","position":2,"name":"Calculators","item":"https://www.calcuportal.com/calculators/"},{"@type":"ListItem","position":3,"name":"Net Run Rate Calculator","item":"https://www.calcuportal.com/calculators/net-run-rate-calculator/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I calculate net run rate?","acceptedAnswer":{"@type":"Answer","text":"Divide total runs scored by total overs faced, then subtract total runs conceded divided by total overs bowled. Convert overs and balls correctly and apply the full overs quota when a team is all out."}},{"@type":"Question","name":"Is 18.4 overs equal to 18.4 decimal overs?","acceptedAnswer":{"@type":"Answer","text":"No. In cricket notation, 18.4 is 18 completed overs plus four legal balls, or 18 + 4/6 overs."}},{"@type":"Question","name":"What if a team is all out before its full quota?","acceptedAnswer":{"@type":"Answer","text":"For NRR calculations, an all-out innings is treated as having consumed its full entitled overs quota."}},{"@type":"Question","name":"Does this calculator handle DLS rain-adjusted matches?","acceptedAnswer":{"@type":"Answer","text":"No. DLS-affected matches require credited runs and overs under event-specific playing conditions. This tool handles straightforward completed matches and should not be used for DLS matches without official adjustments."}}]}]}</script>
+<style>
+.nrr-page{--nrr-accent:#7549d6;--nrr-soft:#f2ecff;--nrr-border:#e1dbea;--nrr-panel:#fff;--nrr-muted:#625d6d;--nrr-heading:#241a36;max-width:1120px;margin:0 auto;padding:24px 20px 72px}
+html[data-theme="dark"] .nrr-page{--nrr-accent:#c9acff;--nrr-soft:#302441;--nrr-border:#534861;--nrr-panel:#221e2c;--nrr-muted:#c8bfd4;--nrr-heading:#f3ecff}
+.nrr-page *{box-sizing:border-box}.nrr-page a{color:var(--nrr-accent)}.nrr-page a:hover{text-decoration:underline}
+.nrr-crumb{font-size:13px;display:flex;flex-wrap:wrap;gap:9px;color:var(--nrr-muted);margin:12px 0 25px}
+.nrr-hero{padding:clamp(24px,5vw,48px);border-radius:22px;background:linear-gradient(135deg,var(--nrr-soft),var(--nrr-panel));border:1px solid var(--nrr-border)}
+.nrr-kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--nrr-accent)}
+.nrr-hero h1{font-size:clamp(30px,4.3vw,48px);line-height:1.13;margin:12px 0 16px;color:var(--nrr-heading);letter-spacing:-.04em}
+.nrr-hero p{font-size:16px;line-height:1.8;color:var(--nrr-muted);max-width:750px}
+.nrr-tags{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}.nrr-tags span{background:var(--nrr-panel);border:1px solid var(--nrr-border);padding:7px 12px;border-radius:20px;font-size:12px;font-weight:700;color:var(--nrr-heading)}
+.nrr-layout{margin-top:28px;display:grid;grid-template-columns:minmax(0,1fr);gap:22px}
+.nrr-card{background:var(--nrr-panel);border:1px solid var(--nrr-border);border-radius:18px;padding:clamp(18px,3vw,28px);min-width:0}
+.nrr-card h2,.nrr-content h2{font-size:clamp(23px,3vw,30px);margin:0 0 13px;color:var(--nrr-heading);line-height:1.3}
+.nrr-card p,.nrr-content p,.nrr-content li{line-height:1.8;color:var(--nrr-muted)}
+.nrr-control{display:flex;align-items:end;gap:14px;flex-wrap:wrap;margin:22px 0 16px}
+.nrr-control label{font-weight:700;font-size:13px;color:var(--nrr-heading)}
+.nrr-control input{display:block;margin-top:7px;width:145px;padding:11px;border:1px solid var(--nrr-border);border-radius:10px;background:var(--nrr-panel);color:var(--nrr-heading)}
+.nrr-tip{font-size:12px;margin:0 0 14px}.nrr-overflow{overflow-x:auto;border:1px solid var(--nrr-border);border-radius:12px}
+.nrr-table{width:100%;border-collapse:collapse;min-width:800px}.nrr-table th{font-size:12px;color:var(--nrr-heading);background:var(--nrr-soft);padding:12px 9px;text-align:left}.nrr-table td{padding:11px 7px;border-top:1px solid var(--nrr-border)}
+.nrr-table input[type="number"],.nrr-table input[type="text"]{width:100%;min-width:78px;border:1px solid var(--nrr-border);border-radius:8px;padding:10px 9px;background:var(--nrr-panel);color:var(--nrr-heading);font-size:14px}
+.nrr-table .nrr-check{text-align:center}.nrr-table .nrr-check input{width:18px;height:18px;accent-color:var(--nrr-accent)}
+.nrr-remove{border:1px solid var(--nrr-border);border-radius:9px;background:var(--nrr-panel);padding:8px 11px;color:var(--nrr-muted);cursor:pointer}
+.nrr-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.nrr-actions button{padding:12px 17px;border-radius:11px;border:1px solid var(--nrr-border);cursor:pointer;background:var(--nrr-panel);color:var(--nrr-heading);font-weight:750}
+.nrr-actions button.primary{background:#7549d6;border-color:#7549d6;color:white}.nrr-actions button:hover{filter:brightness(.96)}
+.nrr-alert{display:none;padding:13px 16px;border:1px solid #db9696;border-radius:12px;color:#9c2525;background:#fff1f1;margin-top:16px;font-size:14px}
+.nrr-result{display:none;margin-top:22px;border:1px solid var(--nrr-border);border-radius:16px;padding:22px;background:var(--nrr-soft)}
+.nrr-result-head{font-size:12px;text-transform:uppercase;letter-spacing:.1em;font-weight:800;color:var(--nrr-muted)}
+.nrr-number{font-size:clamp(35px,6vw,58px);font-weight:850;color:var(--nrr-heading);letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+.nrr-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:17px}
+.nrr-metric{background:var(--nrr-panel);border:1px solid var(--nrr-border);border-radius:12px;padding:13px;min-width:0}
+.nrr-metric span{display:block;font-size:11px;color:var(--nrr-muted)}.nrr-metric strong{font-size:18px;color:var(--nrr-heading);font-variant-numeric:tabular-nums}
+.nrr-work{margin-top:14px;font-size:13px;line-height:1.8;color:var(--nrr-heading);overflow-wrap:anywhere}
+.nrr-note{margin-top:13px;font-size:13px;background:var(--nrr-soft);padding:13px 17px;border-radius:10px;border-left:3px solid var(--nrr-accent);line-height:1.7;color:var(--nrr-heading)}
+.nrr-content{margin-top:28px}.nrr-content section{padding:27px 0;border-bottom:1px solid var(--nrr-border)}
+.nrr-content h3{color:var(--nrr-heading);font-size:19px;margin:24px 0 7px}.nrr-content p{text-align:justify;text-justify:inter-word}
+.nrr-content .nrr-formula{display:block;padding:17px;background:var(--nrr-soft);border:1px solid var(--nrr-border);border-radius:12px;font-weight:800;overflow-wrap:anywhere;color:var(--nrr-heading)}
+.nrr-content details{background:var(--nrr-panel);border:1px solid var(--nrr-border);border-radius:11px;margin:9px 0;padding:14px 18px}.nrr-content summary{cursor:pointer;font-weight:800;color:var(--nrr-heading)}.nrr-content details p{margin-bottom:0}
+.nrr-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}.nrr-links a{display:block;border:1px solid var(--nrr-border);padding:17px;border-radius:12px;background:var(--nrr-panel);font-weight:750}
+.nrr-foot{margin-top:28px;border-top:1px solid var(--nrr-border);padding:22px 0;color:var(--nrr-muted);font-size:13px}.nrr-foot a{margin-right:12px}
+.nrr-page :is(button,input,a,summary):focus-visible{outline:3px solid var(--nrr-accent);outline-offset:2px}
+@media(max-width:650px){.nrr-page{padding:12px 14px 45px}.nrr-hero{padding:24px}.nrr-grid{grid-template-columns:1fr}.nrr-links{grid-template-columns:1fr}.nrr-content p{text-align:left}}
+</style>
+</head>
+<body>
+<header><div class="nav-container"><a href="/" class="logo"><img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon"><span>CalcuPortal</span></a><button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button><nav class="nav-links" id="nav-links"><a href="/" class="nav-link">Home</a><a href="/calculators/" class="nav-link">Calculators</a><a href="/blog/sports/" class="nav-link">Sports</a><a href="/contact/" class="nav-link">Contact</a><button type="button" class="theme-btn" title="Toggle Theme" aria-label="Toggle theme"><span class="theme-btn-icon"></span></button></nav></div></header>
+<main class="nrr-page" id="main-content">
+<nav class="nrr-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/calculators/">Calculators</a><span>›</span><span aria-current="page">Net Run Rate Calculator</span></nav>
+<section class="nrr-hero"><span class="nrr-kicker">Cricket · T20 · IPL · ODI</span><h1>Net Run Rate (NRR) Calculator</h1><p>Calculate your cricket team's net run rate for a single match or a complete league campaign. Enter runs and overs for both innings, mark any all-out innings, and get the correct tournament NRR with transparent working.</p><div class="nrr-tags"><span>Free to use</span><span>Overs &amp; balls validation</span><span>All-out rules</span><span>Season totals</span></div></section>
+<div class="nrr-layout"><section class="nrr-card" aria-labelledby="nrr-tool-heading"><h2 id="nrr-tool-heading">Calculate cricket NRR</h2><p>Add the completed matches that count in your competition. Enter overs using cricket notation: <strong>18.4 = 18 overs and 4 legal balls</strong>. For rain-adjusted DLS matches, see the limitation below.</p>
+<div class="nrr-control"><label for="quota-overs">Allotted overs per innings<input id="quota-overs" type="number" inputmode="numeric" min="1" max="50" step="1" value="20"></label><span class="nrr-tip">20 for T20/IPL, 50 for standard ODI. All entered matches must have this quota.</span></div>
+<div class="nrr-overflow"><table class="nrr-table"><thead><tr><th scope="col">Match</th><th scope="col">Runs scored</th><th scope="col">Overs faced</th><th scope="col">All out?</th><th scope="col">Runs conceded</th><th scope="col">Overs bowled</th><th scope="col">Opp. all out?</th><th scope="col">Remove</th></tr></thead><tbody id="nrr-rows"></tbody></table></div>
+<div class="nrr-actions"><button type="button" id="nrr-add">+ Add match</button><button type="button" id="nrr-example">Load 2-match example</button><button type="button" id="nrr-reset">Reset</button><button type="button" id="nrr-calculate" class="primary">Calculate NRR</button></div>
+<div class="nrr-alert" id="nrr-error" role="alert"></div>
+<div class="nrr-result" id="nrr-result" aria-live="polite"><span class="nrr-result-head">Net run rate (runs per over)</span><div class="nrr-number" id="nrr-value">+0.000</div><div class="nrr-grid"><div class="nrr-metric"><span>Scoring run rate</span><strong id="nrr-for-rate">0.000</strong></div><div class="nrr-metric"><span>Conceding run rate</span><strong id="nrr-against-rate">0.000</strong></div><div class="nrr-metric"><span>Matches counted</span><strong id="nrr-count">0</strong></div></div><div class="nrr-work" id="nrr-working"></div></div>
+<div class="nrr-note"><strong>Important:</strong> Use only matches where a result counts for NRR. Do not enter abandoned/no-result games or Super Over scores. DLS-affected games require officially credited runs and overs; this simple calculator does not derive those adjustments. Always check your competition's playing conditions.</div></section></div>
+<article class="nrr-content">
+<section><h2>Net run rate formula</h2><p>Net run rate measures how quickly a cricket team scores compared with how quickly its opponents score against it. To calculate tournament NRR, combine the runs and overs from every qualifying match before dividing. Averaging individual match NRR values is not the same calculation when match lengths differ.</p><span class="nrr-formula">NRR = (Total runs scored ÷ Total overs faced) − (Total runs conceded ÷ Total overs bowled)</span><p>Because overs are recorded as overs and balls, the calculator converts each innings to legal balls first. It then computes both rates in runs per six-ball over. A positive NRR indicates a faster scoring rate than conceding rate; a negative NRR indicates the reverse.</p></section>
+<section><h2>Worked example: a two-match T20 tournament</h2><p>Suppose your team makes 180 in 20 overs and concedes 160 in 20 overs in the opening match. In the second match, the team scores 140 all out after 18 overs and 4 balls, while conceding 150 in 20 overs. The all-out innings is counted as 20 overs for NRR. The team therefore totals 320 runs in 40 effective overs faced and concedes 310 runs in 40 overs bowled.</p><span class="nrr-formula">NRR = (320 ÷ 40) − (310 ÷ 40) = +0.250</span><p>Use <strong>Load 2-match example</strong> above to reproduce this answer. This example is illustrative, not a real match result.</p></section>
+<section><h2>Three cricket NRR rules people often miss</h2><h3>1. 18.4 overs is not 18.4 decimal overs</h3><p>The digit after the dot counts legal balls. Thus 18.4 overs equals 18 + 4/6 = approximately 18.6667 overs. An entry such as 18.6 is invalid; six more legal balls means 19.0 overs.</p><h3>2. All out means using the entire entitled quota</h3><p>If a side is dismissed at 140 in 17.3 overs in a standard 20-over match, that innings is treated as 20 overs for NRR, not 17.5 decimal overs. Tick the appropriate <strong>All out?</strong> box in the calculator.</p><h3>3. Tournament NRR uses aggregated totals</h3><p>When matches have different innings lengths, their individual run rates carry different amounts of playing time. Add all scored runs and effective overs together, do the same for conceded runs and overs, and then calculate the difference. A single big win does not guarantee a positive season NRR.</p></section>
+<section><h2>What about DLS, Super Overs and no-result matches?</h2><p>NRR treatment depends on the event's playing conditions. The IPL's published rules count matches where a result is achieved, provide special credited runs and overs for DLS-affected matches, and use the full entitled quota when a side is all out. This tool does not calculate official DLS adjustments or NRR from Super Over scores. For those cases, follow the tournament's official standings or apply the event-specific adjusted figures before using any calculator.</p><p>Rule reference: <a href="https://documents.iplt20.com/bcci/documents/1774265031558_TATA_IPL_2026_Match_Playing_Conditions.pdf" target="_blank" rel="noopener noreferrer">IPL 2026 Match Playing Conditions, clause 16.12 (NRR)</a>. Tournament rules may change, so confirm the latest edition.</p></section>
+<section><h2>Frequently asked questions</h2><details><summary>How is net run rate calculated in IPL?</summary><p>Subtract the total runs conceded divided by the total overs bowled from the total runs scored divided by the total overs faced, using all qualifying regular-season matches and the tournament's all-out and rain-adjustment rules.</p></details><details><summary>Does winning a match always increase NRR?</summary><p>Not necessarily. The new NRR depends on how many runs and overs are added to the season totals. A narrow win may be insufficient to improve an existing high NRR.</p></details><details><summary>Is 18.4 overs equal to 18.4 decimal overs?</summary><p>No. It equals 18 overs plus four balls, which is 18.6667 overs in decimal form.</p></details><details><summary>What happens if a team is all out before 20 overs?</summary><p>The innings is charged with the full allotted 20 overs when the team would otherwise have been entitled to that quota.</p></details><details><summary>Can I calculate NRR for ODI cricket?</summary><p>Yes. Set the full overs quota to 50 for ordinary completed ODI matches. This calculator does not support DLS revisions or competitions with different quotas for different matches.</p></details><details><summary>Are no-result matches included?</summary><p>Generally, matches without a result are excluded from NRR calculations. Some rain-interrupted matches achieve a result and use special credited figures under the event rules; this calculator does not automatically handle them.</p></details></section>
+<section><h2>Related cricket guides</h2><div class="nrr-links"><a href="/blog/sports/how-to-calculate-net-run-rate/">How to Calculate NRR – Step-by-Step Guide</a><a href="/blog/sports/ipl-points-system-playoffs/">IPL Points System &amp; Playoff Rules</a><a href="/blog/sports/ipl-rules-format/">IPL Rules &amp; Format</a><a href="/blog/sports/">Explore All Sports Guides</a></div></section>
+</article>
+<div class="nrr-foot">CalcuPortal · Free calculator · Updated 1 November 2026. <a href="/about/">About</a><a href="/contact/">Contact</a><a href="/privacy-policy/">Privacy</a><a href="/terms-conditions/">Terms</a><a href="/disclaimer/">Disclaimer</a></div>
+</main>
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+  "use strict";
+  const engine=window.CalcuNRR, body=document.getElementById("nrr-rows"),error=document.getElementById("nrr-error"),output=document.getElementById("nrr-result");
+  if(!engine){error.textContent="Calculator failed to load. Please refresh the page.";error.style.display="block";return;}
+  const ex=[{scored:180,faced:"20.0",conceded:160,bowled:"20.0"},{scored:140,faced:"18.4",allOutFor:true,conceded:150,bowled:"20.0"}];
+  let rowId=0;
+  function addRow(values){
+    if(body.children.length>=40){showError("Maximum 40 matches supported.");return;}
+    const id=++rowId,tr=document.createElement("tr");
+    tr.setAttribute("data-match",String(id));
+    tr.innerHTML='<td><strong class="nrr-match-number">Match</strong></td>'+
+      '<td><input class="scored" aria-label="Runs scored in match '+id+'" type="number" min="0" max="9999" step="1" inputmode="numeric" value="180"></td>'+
+      '<td><input class="faced" aria-label="Overs faced in match '+id+'" type="text" inputmode="decimal" value="20.0" maxlength="5"></td>'+
+      '<td class="nrr-check"><input class="allout-for" type="checkbox" aria-label="Our team all out in match '+id+'"></td>'+
+      '<td><input class="conceded" aria-label="Runs conceded in match '+id+'" type="number" min="0" max="9999" step="1" inputmode="numeric" value="160"></td>'+
+      '<td><input class="bowled" aria-label="Overs bowled in match '+id+'" type="text" inputmode="decimal" value="20.0" maxlength="5"></td>'+
+      '<td class="nrr-check"><input class="allout-against" type="checkbox" aria-label="Opponent all out in match '+id+'"></td>'+
+      '<td><button type="button" class="nrr-remove" aria-label="Remove match '+id+'">Remove</button></td>';
+    body.appendChild(tr);
+    const a=values||{};
+    for(const key of ["scored","faced","conceded","bowled"])if(a[key]!==undefined)tr.querySelector("."+key).value=String(a[key]);
+    tr.querySelector(".allout-for").checked=Boolean(a.allOutFor);
+    tr.querySelector(".allout-against").checked=Boolean(a.allOutAgainst);
+    renumber();hideResult();
+  }
+  function renumber(){[...body.children].forEach((tr,i)=>{tr.querySelector(".nrr-match-number").textContent="Match "+(i+1);});}
+  function hideResult(){output.style.display="none";error.style.display="none";error.textContent="";}
+  function showError(message){output.style.display="none";error.textContent=message;error.style.display="block";}
+  function collect(){
+    return [...body.children].map(tr=>({
+      scored:tr.querySelector(".scored").value,faced:tr.querySelector(".faced").value,
+      conceded:tr.querySelector(".conceded").value,bowled:tr.querySelector(".bowled").value,
+      allOutFor:tr.querySelector(".allout-for").checked,allOutAgainst:tr.querySelector(".allout-against").checked
+    }));
+  }
+  function fmt(n){return Number(n).toLocaleString("en-IN",{maximumFractionDigits:3,minimumFractionDigits:3});}
+  function overs(b){return Math.floor(b/6)+"."+b%6;}
+  function calculate(){
+    try{
+      const result=engine.calculate(collect(),document.getElementById("quota-overs").value);
+      const score=Math.abs(result.nrr)<.0005?0:result.nrr;
+      document.getElementById("nrr-value").textContent=(score>0?"+":"")+fmt(score);
+      document.getElementById("nrr-for-rate").textContent=fmt(result.scoringRate);
+      document.getElementById("nrr-against-rate").textContent=fmt(result.concedingRate);
+      document.getElementById("nrr-count").textContent=String(result.matchCount);
+      const formula="("+result.forRuns+" runs ÷ "+overs(result.forBalls)+" overs) − ("+result.againstRuns+" runs ÷ "+overs(result.againstBalls)+" overs) = "+(score>0?"+":"")+fmt(score);
+      document.getElementById("nrr-working").textContent=formula+" · All-out innings use full entitled overs.";
+      error.style.display="none";output.style.display="block";output.scrollIntoView({behavior:"smooth",block:"nearest"});
+    }catch(e){showError(e.message||"Check your inputs and try again.");}
+  }
+  document.getElementById("nrr-add").addEventListener("click",()=>addRow());
+  body.addEventListener("click",function(e){
+    const btn=e.target.closest(".nrr-remove");if(!btn)return;
+    btn.closest("tr").remove();
+    if(!body.children.length)addRow();
+    renumber();hideResult();
+  });
+  document.getElementById("nrr-example").addEventListener("click",function(){
+    body.replaceChildren();rowId=0;document.getElementById("quota-overs").value="20";ex.forEach(addRow);calculate();
+  });
+  document.getElementById("nrr-reset").addEventListener("click",function(){body.replaceChildren();rowId=0;document.getElementById("quota-overs").value="20";addRow();});
+  document.getElementById("nrr-calculate").addEventListener("click",calculate);
+  body.addEventListener("input",hideResult);body.addEventListener("change",hideResult);
+  document.getElementById("quota-overs").addEventListener("input",hideResult);
+  addRow();
+});
+</script>
+</body>
+</html>
