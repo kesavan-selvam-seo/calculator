@@ -83,17 +83,30 @@ def sync_category(category):
         if item[1] not in existing_urls:
             cards.append(item)
 
-    if not cards:
-        return
-
-    new_cards = ''.join(render_card(item) for item in cards)
     marker = '<div class="article-list">'
     if marker not in html:
         return
 
-    html = html.replace(marker, marker + new_cards, 1)
-    category_index.write_text(html, encoding="utf-8")
-    print(f"Added {len(cards)} article(s) to {category}/category listing")
+    if cards:
+        new_cards = ''.join(render_card(item) for item in cards)
+        html = html.replace(marker, marker + new_cards, 1)
+
+    # Pages with real article cards are indexable; placeholders are crawlable but noindex.
+    # This runs after standalone articles are inserted, so a newly populated category
+    # becomes indexable automatically without manual SEO tag changes.
+    has_article_cards = '<a class="calc-card blog-card"' in html
+    robots_directive = "index, follow" if has_article_cards else "noindex, follow"
+    html = re.sub(
+        r'(<meta\s+name="robots"\s+content=")[^"]*(")',
+        lambda match: match.group(1) + robots_directive + match.group(2),
+        html,
+        count=1,
+        flags=re.IGNORECASE,
+    )
+    current = category_index.read_text(encoding="utf-8")
+    if html != current:
+        category_index.write_text(html, encoding="utf-8")
+        print(f"Synced {category} category: {len(cards)} new cards; robots={robots_directive}")
 
 
 for category_dir in sorted(BLOG_DIR.iterdir()):
