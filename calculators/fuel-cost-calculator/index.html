@@ -398,7 +398,7 @@
         if(![km,litres,fuelCost,budget,costPerKm,monthly,annual].every(Number.isFinite)||annual>1e15)throw new Error("The calculated amount is too large. Check your values.");
 
         setText("fuel-total",fmtMoney(fuelCost));
-        setText("fuel-summary",fmtNum(distance)+" "+distanceUnit+" one-way · "+(journey===2?"round trip":"one-way")+" · "+fmtNum(km)+" km total.");
+        setText("fuel-summary",fmtNum(distance)+" "+distanceUnit+" entered · "+(journey===2?"round trip":"one-way")+" · "+fmtNum(km)+" km total.");
         setText("fuel-litres",fmtNum(litres)+" L");
         setText("fuel-cost-km",fmtMoney(costPerKm)+"/km");
         setText("fuel-distance-result",fmtNum(km)+" km");
