@@ -8,31 +8,45 @@
       "tools": [
         {
           "slug": "zodiac-sign-calculator",
-          "name": "Zodiac Sign Calculator"
+          "name": "Zodiac Sign Calculator",
+          "icon": "♈",
+          "description": "Find your Western zodiac sign from your birth date and explore the date ranges and meanings."
         },
         {
           "slug": "rasi-nakshatra-calculator",
-          "name": "Rasi & Nakshatra Calculator"
+          "name": "Rasi & Nakshatra Calculator",
+          "icon": "🌙",
+          "description": "Explore your Vedic Rasi (Moon sign) and Nakshatra using birth details and the stated calculation method."
         },
         {
           "slug": "lagna-calculator",
-          "name": "Lagna Calculator"
+          "name": "Lagna Calculator",
+          "icon": "✧",
+          "description": "Estimate your Vedic ascendant (Lagna) from birth date, time and place with method guidance."
         },
         {
           "slug": "life-path-number-calculator",
-          "name": "Life Path Number Calculator"
+          "name": "Life Path Number Calculator",
+          "icon": "🔢",
+          "description": "Calculate your numerology life path number from your date of birth with clear reduction steps."
         },
         {
           "slug": "birth-number-calculator",
-          "name": "Birth Number Calculator (Mulank)"
+          "name": "Birth Number Calculator (Mulank)",
+          "icon": "🎂",
+          "description": "Find your birth number (Mulank) from your date of birth and see how the number is calculated."
         },
         {
           "slug": "name-numerology-calculator",
-          "name": "Name Numerology Calculator"
+          "name": "Name Numerology Calculator",
+          "icon": "🔤",
+          "description": "Calculate numerology values for your name using the tool's available letter-to-number methods."
         },
         {
           "slug": "personal-year-number-calculator",
-          "name": "Personal Year Number Calculator"
+          "name": "Personal Year Number Calculator",
+          "icon": "📅",
+          "description": "Find your personal year number for a selected year using your birth date and numerology rules."
         }
       ]
     }
