@@ -52,20 +52,62 @@ def validate_and_load():
 
 
 def sync_directory(text, category):
-    count = len(category["tools"])
-    label = escape(category["label"])
-    link = (
-        '<p style="margin-bottom:2rem"><a href="'
-        + category["category_url"]
-        + '">Explore ' + str(count) + ' ' + label
-        + ' Calculators — Available Now →</a></p>'
-    )
-    return replace_once(
+    """Keep all calculator cards inside the existing category-grid.
+
+    The same manifest supplies names, descriptions and icons. The obsolete
+    standalone astrology callout is removed and never re-created.
+    """
+    tools = category["tools"]
+    start_marker = "      <!-- BEGIN GENERATED ASTROLOGY CALCULATOR CARDS -->"
+    end_marker = "      <!-- END GENERATED ASTROLOGY CALCULATOR CARDS -->"
+
+    # Backward compatibility: clean up the old "Explore 7 ..." banner.
+    text = re.sub(
+        r'\n?[ \t]*<p style="margin-bottom:2rem"><a href="/categories/astrology-numerology/">.*?</a></p>',
+        "",
         text,
-        r'<p style="margin-bottom:2rem"><a href="/categories/astrology-numerology/">.*?</a></p>',
-        link,
-        "Calculator directory astrology callout"
+        count=1,
+        flags=re.S,
     )
+
+    # Remove the previously generated cards before rebuilding, so the process
+    # can run repeatedly without introducing duplicates.
+    generated_pattern = (
+        re.escape(start_marker) + r".*?" + re.escape(end_marker) + r"\n?"
+    )
+    if text.count(start_marker) != text.count(end_marker) or text.count(start_marker) > 1:
+        raise ValueError("Generated astrology card markers are mismatched")
+    text = re.sub(generated_pattern, "", text, count=1, flags=re.S)
+
+    # Reject any duplicate hand-written astrology cards outside the generated block.
+    for tool in tools:
+        existing = 'href="' + tool["slug"] + '/"'
+        if existing in text:
+            raise ValueError("Duplicate non-generated calculator card: " + existing)
+
+    cards = []
+    for tool in tools:
+        slug = tool["slug"]
+        title = escape(tool["name"])
+        description = escape(tool["description"])
+        icon = escape(tool["icon"])
+        cards.append(
+            '        <a href="' + slug + '/" class="calc-card">\n'
+            '          <div class="calc-card-header">\n'
+            '            <h3 class="calc-card-title">' + title + '</h3>\n'
+            '            <span class="calc-card-icon" aria-hidden="true">' + icon + '</span>\n'
+            '          </div>\n'
+            '          <p class="calc-card-desc">' + description + '</p>\n'
+            '          <div class="calc-card-footer"><span>Open Tool</span><span>&rarr;</span></div>\n'
+            '        </a>'
+        )
+
+    # The page has one grid; insert cards right before its closing tag.
+    block = start_marker + "\n" + "\n".join(cards) + "\n" + end_marker + "\n"
+    ending = "\n</div>\n    </section>\n  </main>"
+    if text.count(ending) != 1:
+        raise ValueError("Calculator directory grid end marker was not found exactly once")
+    return text.replace(ending, "\n" + block + ending, 1)
 
 
 def sync_category(text, category):
