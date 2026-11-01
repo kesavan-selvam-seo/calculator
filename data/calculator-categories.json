@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "categories": {
+    "astrology-numerology": {
+      "label": "Astrology & Numerology",
+      "category_url": "/categories/astrology-numerology/",
+      "seo_topics": "zodiac sign, Rasi, Nakshatra, Lagna, life path, Mulank, name numerology and personal year.",
+      "tools": [
+        {
+          "slug": "zodiac-sign-calculator",
+          "name": "Zodiac Sign Calculator"
+        },
+        {
+          "slug": "rasi-nakshatra-calculator",
+          "name": "Rasi & Nakshatra Calculator"
+        },
+        {
+          "slug": "lagna-calculator",
+          "name": "Lagna Calculator"
+        },
+        {
+          "slug": "life-path-number-calculator",
+          "name": "Life Path Number Calculator"
+        },
+        {
+          "slug": "birth-number-calculator",
+          "name": "Birth Number Calculator (Mulank)"
+        },
+        {
+          "slug": "name-numerology-calculator",
+          "name": "Name Numerology Calculator"
+        },
+        {
+          "slug": "personal-year-number-calculator",
+          "name": "Personal Year Number Calculator"
+        }
+      ]
+    }
+  }
+}
