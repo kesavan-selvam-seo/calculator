@@ -73,11 +73,11 @@ def sync_directory(text, category):
     # Remove the previously generated cards before rebuilding, so the process
     # can run repeatedly without introducing duplicates.
     generated_pattern = (
-        re.escape(start_marker) + r".*?" + re.escape(end_marker) + r"\n?"
+        r"\n*" + re.escape(start_marker) + r".*?" + re.escape(end_marker) + r"\n*"
     )
     if text.count(start_marker) != text.count(end_marker) or text.count(start_marker) > 1:
         raise ValueError("Generated astrology card markers are mismatched")
-    text = re.sub(generated_pattern, "", text, count=1, flags=re.S)
+    text = re.sub(generated_pattern, "\n", text, count=1, flags=re.S)
 
     # Reject any duplicate hand-written astrology cards outside the generated block.
     for tool in tools:
