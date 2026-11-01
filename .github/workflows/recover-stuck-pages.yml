@@ -36,8 +36,8 @@ jobs:
           data=json.load(open(sys.argv[1],encoding="utf-8"))
           status=data.get("status")
           print("Blocking GitHub Pages deployment status:", status)
-          if status not in ("deployment_in_progress","in_progress","queued","pending"):
-              raise SystemExit("Refusing to cancel a deployment that is not explicitly pending or in progress.")
+          if status not in ("deployment_in_progress","in_progress","queued","pending","succeed"):
+              raise SystemExit("Unexpected blocking deployment state; stopping recovery without mutation.")
           PY
 
       - name: Cancel the stuck deployment
