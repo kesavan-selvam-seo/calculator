@@ -1,2 +1,335 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Revenue Growth Rate Calculator | CalcuPortal</title><meta name="description" content="Calculate percentage revenue growth or decline between two periods."><meta name="robots" content="index, follow"><link rel="canonical" href="https://www.calcuportal.com/calculators/revenue-growth-rate-calculator/"><link rel="stylesheet" href="../../styles.css"><script src="../../script.js"></script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does the Revenue Growth Rate Calculator do?","acceptedAnswer":{"@type":"Answer","text":"Calculate percentage revenue growth or decline between two periods."}},{"@type":"Question","name":"Which formula is used?","acceptedAnswer":{"@type":"Answer","text":"Growth rate = (new − old) ÷ old × 100%, when the old value is non-zero."}},{"@type":"Question","name":"Are my inputs sent to a server?","acceptedAnswer":{"@type":"Answer","text":"The calculation runs in your browser; the values do not need to be sent to a server."}},{"@type":"Question","name":"Can I use this calculator on mobile?","acceptedAnswer":{"@type":"Answer","text":"Yes, this responsive page is designed for mobile and desktop screens."}}]}</script></head><body><header><div class="nav-container"><a href="../../" class="logo"><img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon"><span>CalcuPortal</span></a><nav class="nav-links"><a href="../../">Home</a><a href="../../calculators/">All Calculators</a><a href="../../about/">About</a><a href="../../contact/">Contact</a></nav></div></header><main><div class="detail-container"><div class="breadcrumbs"><a href="../../">Home</a><span class="separator">›</span><a href="../../categories/business-productivity/">Business & Digital Marketing Calculators</a><span class="separator">›</span><span>Revenue Growth Rate Calculator</span></div><div class="detail-header"><h1>Revenue Growth Rate Calculator</h1></div><p>Calculate percentage revenue growth or decline between two periods.</p><div class="calc-widget"><div class="form-row"><div class="form-group"><label for="old">Previous-period value</label><input id="old" class="input-field" type="number" value="10000" step="any" required></div><div class="form-group"><label for="new">Current-period value</label><input id="new" class="input-field" type="number" value="12000" step="any" required></div></div><button id="calculate-btn" class="calc-btn">Calculate</button><div id="result-section" class="result-section hidden" aria-live="polite"><div class="metric-grid"><div class="metric-card"><span class="metric-title">Result</span><span class="metric-value" id="result"></span></div></div><p id="detail"></p></div><p id="error" role="alert" style="color:#b91c1c"></p></div><section class="article-section"><div class="article-header"><h2>How the Revenue Growth Rate Calculator Works</h2></div><div class="article-content"><h2>Formula</h2><p>Growth rate = (new − old) ÷ old × 100%, when the old value is non-zero.</p><h2>How to use this calculator</h2><ol><li>Enter the required values above.</li><li>Check that inputs use the intended units or date format.</li><li>Select Calculate to see the result.</li><li>Change the inputs to compare another scenario.</li></ol><h2>Understanding the result</h2><p>Calculate percentage revenue growth or decline between two periods. The output is calculated using your inputs and the stated formula. Results depend on the selected measurement conventions and assumptions.</p><h2>Limitations</h2><p>This tool does not verify input data or automatically account for public holidays, daylight-saving rules or other factors not represented by the formula. Treat business metrics as estimates and keep definitions consistent.</p></div></section><section class="faq-section"><h2 class="faq-header">Frequently Asked Questions</h2><div class="faq-grid"><div class="faq-item"><h3 class="faq-question">What does the Revenue Growth Rate Calculator do?</h3><p class="faq-answer">Calculate percentage revenue growth or decline between two periods.</p></div><div class="faq-item"><h3 class="faq-question">Which formula is used?</h3><p class="faq-answer">Growth rate = (new − old) ÷ old × 100%, when the old value is non-zero.</p></div><div class="faq-item"><h3 class="faq-question">Are my inputs sent to a server?</h3><p class="faq-answer">The calculation runs in your browser; the values do not need to be sent to a server.</p></div><div class="faq-item"><h3 class="faq-question">Can I use this calculator on mobile?</h3><p class="faq-answer">Yes, this responsive page is designed for mobile and desktop screens.</p></div></div></section><p><a href="../../calculators/">Browse all calculators</a></p></div></main><footer><nav class="footer-legal-links" aria-label="Legal and support links"><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/privacy-policy/">Privacy Policy</a><a href="/terms-conditions/">Terms &amp; Conditions</a><a href="/disclaimer/">Disclaimer</a></nav>
-  <div class="copyright-bar">© 2026 CalcuPortal. All rights reserved.</div></footer><script>function fmt(n){return Number(n.toPrecision(10)).toLocaleString('en-US',{maximumFractionDigits:8})}document.getElementById('calculate-btn').addEventListener('click',()=>{try{const old=Number(document.getElementById('old').value),new=Number(document.getElementById('new').value);let out='',detail='';if(old===0)throw Error('Previous-period value cannot be zero.');out=fmt((newv-old)/Math.abs(old)*100)+'%';detail='Absolute change: '+fmt(newv-old);document.getElementById('result').textContent=out;document.getElementById('detail').textContent=detail;document.getElementById('error').textContent='';document.getElementById('result-section').classList.remove('hidden')}catch(e){document.getElementById('error').textContent=e.message}});</script></body></html>
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<title>Revenue Growth Rate Calculator – YoY, MoM &amp; CAGR | CalcuPortal</title>
+<meta name="description" content="Free Revenue Growth Rate Calculator for YoY and MoM growth, revenue change, CAGR and forecasts. Enter revenue figures to view percentages, formulas and examples.">
+<link rel="canonical" href="https://www.calcuportal.com/calculators/revenue-growth-rate-calculator/">
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Revenue Growth Rate Calculator – YoY, MoM &amp; CAGR">
+<meta property="og:description" content="Compare revenue periods, calculate annualized CAGR and project revenue targets with formulas.">
+<meta property="og:url" content="https://www.calcuportal.com/calculators/revenue-growth-rate-calculator/">
+<meta property="og:image" content="https://www.calcuportal.com/logo.png">
+<meta property="og:site_name" content="CalcuPortal">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/styles.css">
+<script src="/script.js" defer></script>
+<script src="/assets/js/revenue-growth-calculator.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Revenue Growth Rate Calculator","url":"https://www.calcuportal.com/calculators/revenue-growth-rate-calculator/","description":"Calculate period-over-period revenue growth, year-over-year or month-over-month comparisons, revenue CAGR and compounded revenue targets.","applicationCategory":"FinanceApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.calcuportal.com/"},{"@type":"ListItem","position":2,"name":"Calculators","item":"https://www.calcuportal.com/calculators/"},{"@type":"ListItem","position":3,"name":"Revenue Growth Rate Calculator","item":"https://www.calcuportal.com/calculators/revenue-growth-rate-calculator/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the revenue growth rate formula?","acceptedAnswer":{"@type":"Answer","text":"Revenue growth rate = ((current period revenue − previous period revenue) ÷ previous period revenue) × 100, provided previous revenue is greater than zero."}},{"@type":"Question","name":"How do I calculate year-over-year revenue growth?","acceptedAnswer":{"@type":"Answer","text":"Compare revenue for equivalent periods one year apart, such as full-year 2026 versus full-year 2025. Subtract the earlier revenue from the later revenue, divide by the earlier revenue and multiply by 100."}},{"@type":"Question","name":"How do I calculate revenue CAGR?","acceptedAnswer":{"@type":"Answer","text":"For a positive initial revenue, CAGR = ((ending revenue ÷ beginning revenue)^(1 ÷ number of years) − 1) × 100. It measures a smoothed annualized growth rate."}},{"@type":"Question","name":"What happens if previous revenue is zero?","acceptedAnswer":{"@type":"Answer","text":"A percentage growth rate is undefined with zero previous revenue because the denominator would be zero. You can still calculate the absolute revenue increase."}},{"@type":"Question","name":"Can revenue growth be negative?","acceptedAnswer":{"@type":"Answer","text":"Yes. A revenue drop produces a negative growth percentage. For example, going from 100,000 to 80,000 is a 20% revenue decline."}},{"@type":"Question","name":"Does the revenue projection guarantee future results?","acceptedAnswer":{"@type":"Answer","text":"No. Compounded projections are mathematical scenarios that assume the same rate each period. Actual revenue depends on business activity, seasonality and other factors."}}]}]}</script>
+<style>
+.rg-page{--rg-ink:#211d34;--rg-muted:#665d73;--rg-brand:#7045d6;--rg-bg:#fff;--rg-soft:#f4effe;--rg-line:#e4ddea;--rg-green:#13795b;--rg-red:#bd3e52;max-width:1120px;margin:0 auto;padding:24px 20px 70px}
+html[data-theme="dark"] .rg-page{--rg-ink:#f6efff;--rg-muted:#c8bed4;--rg-brand:#c5a5ff;--rg-bg:#23202d;--rg-soft:#322541;--rg-line:#55485f;--rg-green:#74e0b9;--rg-red:#f5a5b2}
+.rg-page *{box-sizing:border-box}.rg-page a{color:var(--rg-brand)}.rg-page a:hover{text-decoration:underline}
+.rg-crumb{display:flex;gap:9px;flex-wrap:wrap;font-size:13px;color:var(--rg-muted);margin:11px 0 27px}
+.rg-hero{background:linear-gradient(125deg,var(--rg-soft),var(--rg-bg));border:1px solid var(--rg-line);border-radius:22px;padding:clamp(24px,4vw,48px)}
+.rg-kicker{font-size:12px;color:var(--rg-brand);font-weight:850;letter-spacing:.12em;text-transform:uppercase;margin:0 0 13px}
+.rg-hero h1{color:var(--rg-ink);font-size:clamp(31px,4.2vw,48px);line-height:1.13;letter-spacing:-.045em;margin:0 0 15px}
+.rg-hero p{font-size:16px;line-height:1.8;color:var(--rg-muted);margin:0;max-width:780px}
+.rg-chips{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}
+.rg-chips span{font-size:12px;color:var(--rg-ink);font-weight:700;background:var(--rg-bg);border:1px solid var(--rg-line);border-radius:99px;padding:8px 12px}
+.rg-panel{padding:clamp(18px,3vw,30px);margin-top:26px;background:var(--rg-bg);border:1px solid var(--rg-line);border-radius:18px}
+.rg-panel h2{color:var(--rg-ink);font-size:clamp(23px,3vw,30px);margin:0 0 10px}
+.rg-hint{font-size:13px;color:var(--rg-muted);line-height:1.7;margin:0 0 20px}
+.rg-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:18px 0 23px}
+.rg-tabs button{background:var(--rg-bg);border:1px solid var(--rg-line);border-radius:11px;padding:13px 10px;color:var(--rg-muted);font-size:13px;font-weight:800;cursor:pointer}
+.rg-tabs button[aria-pressed="true"]{background:#7045d6;color:white;border-color:#7045d6}
+.rg-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.rg-field{display:flex;flex-direction:column;gap:8px;color:var(--rg-ink);font-size:13px;font-weight:800;min-width:0}
+.rg-field input,.rg-field select{min-height:47px;width:100%;padding:13px;border:1px solid var(--rg-line);border-radius:11px;background:var(--rg-bg);color:var(--rg-ink);font:inherit;font-size:15px;font-weight:500}
+.rg-field small{font-size:11px;color:var(--rg-muted);line-height:1.5;font-weight:500}
+.rg-field[hidden]{display:none!important}
+.rg-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:21px}
+.rg-actions button{padding:13px 19px;background:var(--rg-bg);border:1px solid var(--rg-line);border-radius:11px;color:var(--rg-ink);font-weight:800;font-size:14px;cursor:pointer}
+.rg-actions button.rg-primary{background:#7045d6;border-color:#7045d6;color:#fff}.rg-actions button:hover{filter:brightness(.96)}
+.rg-error{margin-top:16px;padding:14px 16px;color:#8e2020;background:#fff0f0;border:1px solid #e8b2b2;border-radius:11px;font-size:13px}
+.rg-error[hidden]{display:none}
+.rg-result{margin-top:22px;border:1px solid var(--rg-line);border-radius:16px;background:var(--rg-soft);padding:clamp(19px,3vw,25px)}
+.rg-result[hidden]{display:none!important}
+.rg-result-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.rg-label{font-size:12px;color:var(--rg-muted);text-transform:uppercase;letter-spacing:.1em;font-weight:800;margin:0}
+.rg-big{font-size:clamp(35px,6vw,53px);font-variant-numeric:tabular-nums;letter-spacing:-.045em;font-weight:850;line-height:1.2;color:var(--rg-ink);margin:10px 0 5px}
+.rg-big[data-tone="up"]{color:var(--rg-green)}.rg-big[data-tone="down"]{color:var(--rg-red)}
+.rg-status{font-size:12px;font-weight:750;padding:8px 11px;border:1px solid var(--rg-line);border-radius:99px;background:var(--rg-bg);color:var(--rg-ink)}
+.rg-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:21px}
+.rg-metric{border:1px solid var(--rg-line);border-radius:12px;background:var(--rg-bg);padding:13px;min-width:0}
+.rg-metric span{display:block;color:var(--rg-muted);font-size:11px;line-height:1.5}
+.rg-metric strong{display:block;color:var(--rg-ink);font-size:17px;overflow-wrap:anywhere;font-variant-numeric:tabular-nums;margin-top:4px}
+.rg-bars{margin-top:21px;background:var(--rg-bg);border:1px solid var(--rg-line);border-radius:13px;padding:18px}
+.rg-bar-row{display:grid;grid-template-columns:118px 1fr;gap:13px;align-items:center;margin:9px 0;color:var(--rg-muted);font-size:12px}
+.rg-bar-track{height:18px;background:var(--rg-soft);border-radius:99px;overflow:hidden}
+.rg-bar-fill{height:100%;border-radius:99px;width:0;min-width:0;background:#8965df;transition:width .2s ease}
+.rg-bar-fill.new{background:#1b9d78}
+.rg-working{padding:16px;background:var(--rg-bg);border:1px solid var(--rg-line);border-radius:12px;margin-top:18px;color:var(--rg-ink);font-size:13px;line-height:1.8}
+.rg-working strong{display:block;margin-bottom:5px}.rg-working div{overflow-wrap:anywhere}
+.rg-note{background:var(--rg-soft);border-left:3px solid var(--rg-brand);border-radius:9px;padding:14px 16px;margin:18px 0 0;color:var(--rg-ink);font-size:13px;line-height:1.75}
+.rg-content section{padding:32px 0;border-bottom:1px solid var(--rg-line)}
+.rg-content section:last-child{border-bottom:0}
+.rg-content h2{color:var(--rg-ink);font-size:clamp(23px,3vw,30px);margin:0 0 14px;line-height:1.3}
+.rg-content h3{color:var(--rg-ink);font-size:19px;margin:22px 0 10px}
+.rg-content p,.rg-content li{color:var(--rg-muted);font-size:15px;line-height:1.85;text-align:justify;text-justify:inter-word}
+.rg-content p{margin:0 0 15px}.rg-content ul,.rg-content ol{padding-left:22px}
+.rg-formula{display:block;padding:19px;background:var(--rg-soft);border:1px solid var(--rg-line);border-radius:12px;font-size:15px;color:var(--rg-ink);font-weight:800;line-height:1.8;margin:18px 0;overflow-wrap:anywhere}
+.rg-table-wrap{overflow-x:auto;border:1px solid var(--rg-line);border-radius:13px;margin:18px 0}
+.rg-table{width:100%;min-width:620px;border-collapse:collapse}
+.rg-table th,.rg-table td{text-align:left;padding:13px;border-bottom:1px solid var(--rg-line);font-size:13px;color:var(--rg-ink)}
+.rg-table th{background:var(--rg-soft)}.rg-table tr:last-child td{border-bottom:none}
+.rg-faq details{border:1px solid var(--rg-line);background:var(--rg-bg);border-radius:12px;padding:15px 18px;margin:9px 0}
+.rg-faq summary{font-weight:800;color:var(--rg-ink);cursor:pointer}
+.rg-faq details p{margin:12px 0 2px}
+.rg-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:20px}
+.rg-links a{display:block;padding:19px;background:var(--rg-bg);border:1px solid var(--rg-line);border-radius:12px;font-weight:750}
+.rg-foot{margin-top:28px;border-top:1px solid var(--rg-line);padding-top:21px;display:flex;gap:17px;flex-wrap:wrap;color:var(--rg-muted);font-size:13px}
+.rg-page :is(button,input,select,a,summary):focus-visible{outline:3px solid var(--rg-brand);outline-offset:3px}
+@media(max-width:750px){.rg-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.rg-links{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:550px){.rg-page{padding:13px 15px 45px}.rg-hero{padding:22px}.rg-tabs button{font-size:12px;padding:11px 6px}.rg-fields{grid-template-columns:1fr}.rg-actions button{flex:1 1 auto}.rg-grid,.rg-links{grid-template-columns:1fr}.rg-bar-row{grid-template-columns:85px 1fr}.rg-content p,.rg-content li{text-align:left}}
+@media(prefers-reduced-motion:reduce){.rg-bar-fill{transition:none}}
+</style>
+</head>
+<body>
+<header><div class="nav-container">
+<a href="/" class="logo"><img src="/logo.png" alt="CalcuPortal Logo" class="logo-icon"><span>CalcuPortal</span></a>
+<button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle Menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+<nav class="nav-links" id="nav-links"><a href="/" class="nav-link">Home</a><a href="/calculators/" class="nav-link">Calculators</a><a href="/categories/business-productivity/" class="nav-link">Business Tools</a><a href="/contact/" class="nav-link">Contact</a><button type="button" class="theme-btn" title="Toggle theme" aria-label="Toggle theme"><span class="theme-btn-icon"></span></button></nav>
+</div></header>
+<main class="rg-page" id="main-content">
+<nav class="rg-crumb" aria-label="Breadcrumb"><a href="/">Home</a><span>›</span><a href="/calculators/">Calculators</a><span>›</span><a href="/categories/business-productivity/">Business &amp; Marketing</a><span>›</span><span aria-current="page">Revenue Growth Rate Calculator</span></nav>
+<section class="rg-hero">
+<p class="rg-kicker">Business · Finance · Reporting</p>
+<h1>Revenue Growth Rate Calculator – YoY, MoM &amp; CAGR</h1>
+<p>Measure revenue growth or decline between two periods, find annualized CAGR, or project a revenue target using a selected growth rate. View clear formulas, absolute changes and a visual comparison for your business reports.</p>
+<div class="rg-chips"><span>Year-over-year (YoY)</span><span>Month-over-month (MoM)</span><span>CAGR</span><span>Revenue forecasts</span></div>
+</section>
+<section class="rg-panel" aria-labelledby="rg-tool-heading">
+<h2 id="rg-tool-heading">Calculate revenue growth</h2>
+<p class="rg-hint">Select a mode and enter revenue in the same currency and on a consistent basis (gross vs. net, tax treatment and reporting periods). This calculator works in your browser.</p>
+<div class="rg-tabs" role="group" aria-label="Revenue calculation mode">
+<button type="button" data-rg-mode="period" aria-pressed="true">Growth %</button>
+<button type="button" data-rg-mode="cagr" aria-pressed="false">CAGR</button>
+<button type="button" data-rg-mode="target" aria-pressed="false">Revenue target</button>
+</div>
+<form id="rg-form" novalidate>
+<div class="rg-fields">
+<label class="rg-field" for="rg-currency">Display currency
+<select id="rg-currency">
+<option value="INR">INR – Indian rupee (₹)</option>
+<option value="USD">USD – US dollar ($)</option>
+<option value="GBP">GBP – British pound (£)</option>
+<option value="EUR">EUR – Euro (€)</option>
+<option value="AED">AED – UAE dirham</option>
+</select><small>This formats the numbers; it does not convert currencies.</small></label>
+<label class="rg-field" for="rg-period-type" id="rg-period-type-wrap">Comparison type
+<select id="rg-period-type">
+<option value="YoY">Year-over-year (YoY)</option>
+<option value="MoM">Month-over-month (MoM)</option>
+<option value="QoQ">Quarter-over-quarter (QoQ)</option>
+<option value="Period-over-period">Custom periods</option>
+</select><small>Select two equivalent reporting periods for a meaningful comparison.</small></label>
+<label class="rg-field" for="rg-previous" id="rg-previous-wrap"><span id="rg-previous-label">Previous-period revenue</span>
+<input id="rg-previous" type="number" inputmode="decimal" min="0" step="0.01" value="100000" required></label>
+<label class="rg-field" for="rg-current" id="rg-current-wrap">Current / ending revenue
+<input id="rg-current" type="number" inputmode="decimal" min="0" step="0.01" value="120000" required></label>
+<label class="rg-field" for="rg-years" id="rg-years-wrap" hidden>Number of years
+<input id="rg-years" type="number" inputmode="decimal" min="0.001" max="100" step="0.001" value="2">
+<small>Years between the first and last revenue readings, e.g., 3 for 2023 to 2026.</small></label>
+<label class="rg-field" for="rg-rate" id="rg-rate-wrap" hidden>Assumed growth rate per period (%)
+<input id="rg-rate" type="number" inputmode="decimal" min="-100" max="1000" step="any" value="10">
+<small>Negative rates model decline. This is a scenario assumption, not a prediction.</small></label>
+<label class="rg-field" for="rg-cycles" id="rg-cycles-wrap" hidden>Number of future periods
+<input id="rg-cycles" type="number" inputmode="numeric" min="1" max="50" step="1" value="3">
+<small>A period could mean a year, quarter or month; choose the matching rate.</small></label>
+</div>
+<div class="rg-actions">
+<button type="submit" class="rg-primary" id="rg-submit">Calculate revenue growth</button>
+<button type="button" id="rg-example">Try example</button>
+<button type="button" id="rg-reset">Reset</button>
+</div></form>
+<div class="rg-error" id="rg-error" role="alert" hidden></div>
+<section id="rg-result" class="rg-result" aria-live="polite" aria-label="Revenue growth result" hidden>
+<div class="rg-result-top"><div><p class="rg-label" id="rg-result-label">Revenue growth rate</p><div class="rg-big" id="rg-result-big">—</div></div><span class="rg-status" id="rg-status">—</span></div>
+<div class="rg-grid">
+<div class="rg-metric"><span id="rg-prev-title">Previous revenue</span><strong id="rg-prev-value">—</strong></div>
+<div class="rg-metric"><span id="rg-current-title">Current revenue</span><strong id="rg-current-value">—</strong></div>
+<div class="rg-metric"><span>Absolute revenue change</span><strong id="rg-change">—</strong></div>
+<div class="rg-metric"><span id="rg-extra-title">Revenue multiplier</span><strong id="rg-extra">—</strong></div>
+</div>
+<div class="rg-bars" aria-label="Relative revenue comparison">
+<div class="rg-bar-row"><span id="rg-bar-previous-label">Previous</span><div class="rg-bar-track"><div class="rg-bar-fill" id="rg-bar-previous"></div></div></div>
+<div class="rg-bar-row"><span id="rg-bar-current-label">Current</span><div class="rg-bar-track"><div class="rg-bar-fill new" id="rg-bar-current"></div></div></div>
+</div>
+<div class="rg-working" id="rg-working"><strong>Calculation steps</strong></div>
+</section>
+<p class="rg-note"><strong>Important:</strong> Percentage growth is undefined when the previous revenue is zero; the tool will still display the absolute change. It accepts non-negative revenue values. Growth forecasts assume a constant rate per period and do not account for seasonality, churn, price changes or business risks.</p>
+</section>
+<article class="rg-content">
+<section>
+<h2>What is revenue growth rate?</h2>
+<p><strong>Revenue growth rate</strong> is the percentage increase or decrease in revenue from one period to another. Businesses use it to evaluate sales performance, demand, pricing and expansion. Revenue growth differs from profit growth: a business can sell more while earning less profit if costs rise faster than revenue.</p>
+<p>Compare like-for-like reporting periods. For example, compare January 2026 with January 2025 for YoY growth or September 2026 with August 2026 for MoM growth. Make sure the figures are in the same currency, both net or both gross, and use the same rules for refunds, returns and tax.</p>
+</section>
+<section>
+<h2>Revenue growth rate formula</h2>
+<div class="rg-formula">Revenue growth rate (%) = ((Current revenue − Previous revenue) ÷ Previous revenue) × 100</div>
+<p>Suppose last year your business generated ₹10,00,000 in revenue and this year it generated ₹12,00,000. The difference is ₹2,00,000. Divide ₹2,00,000 by ₹10,00,000 and multiply by 100 to get <strong>20% YoY revenue growth</strong>.</p>
+<div class="rg-formula">((₹12,00,000 − ₹10,00,000) ÷ ₹10,00,000) × 100 = +20%</div>
+<h3>What does negative revenue growth mean?</h3>
+<p>If revenue drops from ₹12,00,000 to ₹9,00,000, the change is −₹3,00,000 and the growth rate is <strong>−25%</strong>. A negative growth percentage simply indicates that revenue has decreased relative to the selected baseline. It does not directly tell you whether the company is profitable.</p>
+</section>
+<section>
+<h2>Year-over-year (YoY), month-over-month (MoM) and quarter-over-quarter (QoQ)</h2>
+<p>The percentage change formula is the same across all three comparisons; the difference is which time periods you enter. For YoY, use the same calendar month, quarter or year in successive years. For MoM, use consecutive months; for QoQ, use consecutive quarters. Seasonality can distort MoM and QoQ comparisons, so read the result alongside a longer-term view.</p>
+<div class="rg-table-wrap"><table class="rg-table"><thead><tr><th>Comparison</th><th>Previous revenue</th><th>Current revenue</th><th>Growth</th></tr></thead><tbody>
+<tr><td>Year-over-year (YoY)</td><td>₹10,00,000</td><td>₹12,00,000</td><td>+20%</td></tr>
+<tr><td>Month-over-month (MoM)</td><td>₹2,50,000</td><td>₹2,75,000</td><td>+10%</td></tr>
+<tr><td>Quarter-over-quarter (QoQ)</td><td>₹7,00,000</td><td>₹6,30,000</td><td>−10%</td></tr>
+</tbody></table></div>
+<p>These are illustrative values, not live company financial results. Select the desired comparison label above to include it in the calculation result.</p>
+</section>
+<section>
+<h2>How to calculate revenue CAGR (annualized growth)</h2>
+<p>The <strong>compound annual growth rate (CAGR)</strong> represents the constant yearly growth rate that would connect a beginning revenue amount to an ending revenue amount. This is useful when comparing revenue over several years, but it smooths out actual year-to-year volatility and is not the real growth experienced in each individual year.</p>
+<div class="rg-formula">Revenue CAGR (%) = ((Ending revenue ÷ Beginning revenue)<sup>1 ÷ Years</sup> − 1) × 100</div>
+<p>Example: revenue rises from ₹10 lakh to ₹14.4 lakh over two years. The cumulative increase is 44%, but the annualized CAGR is <strong>20%</strong>, because ₹10 lakh × 1.2 × 1.2 = ₹14.4 lakh. For example, moving from 2024 to 2026 represents two elapsed years, not three.</p>
+<p>If the starting revenue is zero, CAGR is undefined. The number of years must be positive. The calculator also handles valid revenue declines, including an ending value of zero, which represents −100% CAGR when beginning revenue is positive.</p>
+</section>
+<section>
+<h2>Revenue growth target and future revenue projection</h2>
+<p>The <strong>Revenue target</strong> mode applies a fixed growth rate repeatedly. You enter starting revenue, a percentage growth assumption per period, and how many periods to project. The result uses compound growth, rather than simply multiplying a single-period increase by the number of periods.</p>
+<div class="rg-formula">Projected revenue = Starting revenue × (1 + Growth rate ÷ 100)<sup>Number of periods</sup></div>
+<p>For instance, starting at ₹1,00,000 and assuming 20% growth for each of three consecutive periods gives ₹1,72,800. This is a mathematical scenario, not a guaranteed forecast. A 20% monthly assumption and a 20% yearly assumption are very different; the time unit and percentage must match.</p>
+</section>
+<section>
+<h2>How to use this revenue growth calculator</h2>
+<ol>
+<li>Choose <strong>Growth %</strong> to compare two periods, <strong>CAGR</strong> for annualized growth across several years, or <strong>Revenue target</strong> for compounded scenarios.</li>
+<li>Select the currency to format results and enter the starting and ending revenue values in that same currency.</li>
+<li>For CAGR, enter the number of elapsed years. For a future target, enter the assumed growth rate and number of periods.</li>
+<li>Click <strong>Calculate</strong> to review the growth percentage, absolute revenue change, multiplier and step-by-step formula.</li>
+<li>Use the sample values for a quick demonstration, then replace them with your own verified reporting data.</li>
+</ol>
+</section>
+<section>
+<h2>How to interpret the result accurately</h2>
+<p>A company with ₹1 crore in revenue last year and ₹1.15 crore this year has 15% growth. If another company increases revenue from ₹10 crore to ₹10.5 crore, it has 5% growth but an absolute increase of ₹50 lakh. Both the percentage and the absolute change matter when evaluating business impact.</p>
+<p>A higher revenue growth rate does not automatically mean better profit margin, cash flow or customer retention. Use this figure alongside operating expenses, profit, customers, average revenue per user and other relevant business KPIs. For more calculations, see the <a href="/calculators/profit-calculator/">Profit Calculator</a>, <a href="/calculators/percentage-calculator/">Percentage Calculator</a> and <a href="/calculators/compound-interest-calculator/">Compound Interest Calculator</a>.</p>
+<h3>What if previous revenue is zero?</h3>
+<p>When a new business generates revenue for the first time, the earlier figure might be ₹0. The absolute increase is still measurable (for example, ₹0 to ₹50,000 is +₹50,000), but the growth percentage is mathematically <strong>undefined</strong> because division by zero is not valid. Avoid presenting an infinite percentage or a made-up 100% growth figure.</p>
+<h3>Limitations for financial reporting</h3>
+<p>The calculator does not ingest invoices, verify sales data, adjust for inflation or exchange rates, or distinguish recurring from one-time revenue. It accepts non-negative revenue inputs. If refunds and credits create negative net revenue, consult your organization's financial reporting policy rather than interpreting a conventional growth percentage from a negative baseline.</p>
+</section>
+<section class="rg-faq">
+<h2>Frequently asked questions</h2>
+<details><summary>What is the revenue growth rate formula?</summary><p>Revenue growth rate = ((current period revenue − previous period revenue) ÷ previous period revenue) × 100, provided previous revenue is greater than zero.</p></details>
+<details><summary>How do I calculate year-over-year revenue growth?</summary><p>Compare revenue for equivalent periods one year apart, such as full-year 2026 versus full-year 2025. Subtract the earlier revenue from the later revenue, divide by the earlier revenue and multiply by 100.</p></details>
+<details><summary>How do I calculate revenue CAGR?</summary><p>For a positive initial revenue, CAGR = ((ending revenue ÷ beginning revenue)^(1 ÷ number of years) − 1) × 100. It measures a smoothed annualized growth rate.</p></details>
+<details><summary>What happens if previous revenue is zero?</summary><p>A percentage growth rate is undefined with zero previous revenue because the denominator would be zero. You can still calculate the absolute revenue increase.</p></details>
+<details><summary>Can revenue growth be negative?</summary><p>Yes. A revenue drop produces a negative growth percentage. For example, going from ₹1,00,000 to ₹80,000 is a 20% revenue decline.</p></details>
+<details><summary>Does the revenue projection guarantee future results?</summary><p>No. Compounded projections are mathematical scenarios that assume the same rate each period. Actual revenue depends on business activity, seasonality and other factors.</p></details>
+</section>
+<section>
+<h2>Related business calculators</h2>
+<div class="rg-links">
+<a href="/calculators/percentage-calculator/">Percentage Calculator →</a>
+<a href="/calculators/profit-calculator/">Profit &amp; Margin Calculator →</a>
+<a href="/calculators/compound-interest-calculator/">Compound Interest Calculator →</a>
+<a href="/calculators/discount-calculator/">Discount Calculator →</a>
+<a href="/categories/business-productivity/">Business Calculators →</a>
+<a href="/calculators/">Browse all calculators →</a>
+</div>
+</section>
+</article>
+<footer class="rg-foot"><span>CalcuPortal · Updated 1 November 2026</span><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/privacy-policy/">Privacy</a><a href="/terms-conditions/">Terms</a><a href="/disclaimer/">Disclaimer</a></footer>
+</main>
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+"use strict";
+const engine=window.CalcuRevenueGrowth;
+const form=document.getElementById("rg-form"),get=id=>document.getElementById(id);
+const result=get("rg-result"),error=get("rg-error");
+let mode="period";
+const read=id=>get("rg-"+id).value;
+const locales={INR:"en-IN",USD:"en-US",GBP:"en-GB",EUR:"en-IE",AED:"en-AE"};
+function money(amount){const curr=read("currency");return new Intl.NumberFormat(locales[curr]||"en-IN",{style:"currency",currency:curr,minimumFractionDigits:2,maximumFractionDigits:2}).format(amount)}
+function fmtPct(value){return value==null?"Not defined":new Intl.NumberFormat("en-IN",{minimumFractionDigits:2,maximumFractionDigits:2}).format(value)+"%"}
+function fmtNum(value){return new Intl.NumberFormat("en-IN",{maximumFractionDigits:3}).format(value)}
+function clear(){result.hidden=true;error.hidden=true;error.textContent=""}
+function fail(msg){result.hidden=true;error.textContent=msg;error.hidden=false}
+function selectMode(m){
+mode=m;
+document.querySelectorAll("[data-rg-mode]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.rgMode===m)));
+get("rg-period-type-wrap").hidden=m!=="period";
+get("rg-current-wrap").hidden=m==="target";
+get("rg-years-wrap").hidden=m!=="cagr";
+get("rg-rate-wrap").hidden=m!=="target";
+get("rg-cycles-wrap").hidden=m!=="target";
+get("rg-previous-label").textContent=m==="target"?"Starting revenue":m==="cagr"?"Beginning revenue":"Previous-period revenue";
+get("rg-submit").textContent=m==="period"?"Calculate growth %":m==="cagr"?"Calculate revenue CAGR":"Project revenue";
+clear();
+}
+function render(data){
+const isTarget=data.mode==="target",isCagr=data.mode==="cagr",hasRate=data.rate!==null;
+const interval=isTarget?"Revenue target":isCagr?"Revenue CAGR":read("period-type")+" revenue growth";
+get("rg-result-label").textContent=interval;
+get("rg-result-big").textContent=isTarget?money(data.current):fmtPct(data.rate);
+get("rg-result-big").dataset.tone=hasRate&&!isTarget&&data.rate>0?"up":hasRate&&!isTarget&&data.rate<0?"down":"neutral";
+const status=isTarget?"Compounded scenario":!hasRate?"Zero starting revenue":data.rate>0?"Revenue increased":data.rate<0?"Revenue decreased":"No change";
+get("rg-status").textContent=status;
+get("rg-prev-title").textContent=isTarget?"Starting revenue":isCagr?"Beginning revenue":"Previous revenue";
+get("rg-current-title").textContent=isTarget?"Projected revenue":isCagr?"Ending revenue":"Current revenue";
+get("rg-prev-value").textContent=money(data.previous);
+get("rg-current-value").textContent=money(data.current);
+get("rg-change").textContent=(data.change>0?"+":"")+money(data.change);
+get("rg-extra-title").textContent=isTarget?"Growth assumption":isCagr?"Total growth":"Revenue multiplier";
+get("rg-extra").textContent=isTarget?fmtPct(data.rate)+" per period":isCagr?fmtPct(data.overallGrowth):data.factor===null?"N/A":fmtNum(data.factor)+"×";
+get("rg-bar-previous-label").textContent=isTarget?"Starting":"Previous";
+get("rg-bar-current-label").textContent=isTarget?"Projected":"Current";
+const max=Math.max(data.previous,data.current,1);
+get("rg-bar-previous").style.width=(data.previous/max*100)+"%";
+get("rg-bar-current").style.width=(data.current/max*100)+"%";
+const steps=[];
+if(isTarget){
+steps.push("Starting revenue: "+money(data.previous));
+steps.push("Growth assumption: "+fmtPct(data.rate)+" every period");
+steps.push("Number of future periods: "+data.periods);
+steps.push("Projected revenue = starting revenue × (1 + rate ÷ 100) ^ periods");
+steps.push(money(data.previous)+" × (1 + "+fmtNum(data.rate)+" ÷ 100) ^ "+data.periods+" = "+money(data.current));
+steps.push("Change from start = "+(data.change>0?"+":"")+money(data.change));
+}else{
+steps.push("Previous revenue = "+money(data.previous)+"; current revenue = "+money(data.current));
+steps.push("Absolute change = "+money(data.current)+" − "+money(data.previous)+" = "+money(data.change));
+if(data.overallGrowth===null)steps.push("Percentage growth cannot be calculated because previous revenue is zero.");
+else steps.push("Overall growth = (change ÷ previous revenue) × 100 = "+fmtPct(data.overallGrowth));
+if(isCagr){
+ steps.push("Elapsed years = "+fmtNum(data.years));
+ steps.push(data.rate===null?"CAGR is not defined with zero beginning revenue.":"CAGR = ((ending ÷ beginning) ^ (1 ÷ years) − 1) × 100 = "+fmtPct(data.rate));
+}
+}
+const target=get("rg-working");target.replaceChildren();
+const title=document.createElement("strong");title.textContent="Calculation breakdown";target.appendChild(title);
+for(const line of steps){const el=document.createElement("div");el.textContent=line;target.appendChild(el);}
+error.hidden=true;result.hidden=false;
+}
+function calc(){
+if(!engine){fail("Calculator could not load. Refresh the page.");return;}
+try{render(engine.calculate(mode,{previous:read("previous"),current:read("current"),years:read("years"),rate:read("rate"),periods:read("cycles")}))}
+catch(e){fail(e.message||"Please enter valid revenue values.");}
+}
+document.querySelectorAll("[data-rg-mode]").forEach(b=>b.addEventListener("click",()=>selectMode(b.dataset.rgMode)));
+form.addEventListener("submit",e=>{e.preventDefault();calc()});
+form.addEventListener("input",clear);form.addEventListener("change",clear);
+get("rg-example").addEventListener("click",()=>{
+get("rg-currency").value="INR";
+if(mode==="period"){get("rg-previous").value="100000";get("rg-current").value="120000";get("rg-period-type").value="YoY";}
+else if(mode==="cagr"){get("rg-previous").value="100000";get("rg-current").value="144000";get("rg-years").value="2";}
+else{get("rg-previous").value="100000";get("rg-rate").value="20";get("rg-cycles").value="3";}
+calc();
+});
+get("rg-reset").addEventListener("click",()=>{form.reset();selectMode("period");calc();});
+selectMode("period");calc();
+});
+</script>
+</body>
+</html>
