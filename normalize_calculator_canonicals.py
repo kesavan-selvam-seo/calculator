@@ -1,6 +1,7 @@
 from pathlib import Path
 import re
 import json
+from html import escape
 
 ROOT = Path(__file__).resolve().parent
 BASE_URL = "https://www.calcuportal.com"
@@ -34,25 +35,27 @@ for path in ROOT.glob("calculators/**/*.html"):
             tag = f'  <link rel="canonical" href="{canonical}">\n'
             updated = updated[:head_end] + tag + updated[head_end:]
             count = 1
-    # GitHub Pages cannot emit per-file HTTP redirects. Preserve the existing
-    # fallback body and redirect legacy aliases immediately to their canonical.
+    # GitHub Pages serves static files, so legacy aliases use an instant
+    # meta refresh plus location.replace (to retain query and fragment).
+    # Do not retain old calculators, scripts, assets or stale article content.
     if path.parent == ROOT / 'calculators' and path.name != 'index.html':
-        updated = updated.replace('../pages/about.html', '/about/').replace('../pages/contact.html', '/contact/')
-        updated = updated.replace('href="../index.html"', 'href="/"')
-        updated = updated.replace("href='../index.html'", "href='/'")
-        start = '<!-- legacy-calculator-redirect:start -->'
-        end = '<!-- legacy-calculator-redirect:end -->'
-        updated = re.sub(re.escape(start) + r'.*?' + re.escape(end) + r'\n?', '', updated, flags=re.S)
+        title = escape(path.stem.replace('-', ' ').title())
         destination = json.dumps(canonical)
-        redirect = (f'{start}\n'
-                    f'  <meta http-equiv="refresh" content="0; url={canonical}">\n'
-                    f'  <script>window.location.replace({destination} + window.location.search + window.location.hash);</script>\n'
-                    f'{end}\n')
-        head_end = updated.lower().find('</head>')
-        if head_end >= 0:
-            updated = updated[:head_end] + redirect + updated[head_end:]
+        updated = (
+            '<!doctype html>\n<html lang="en">\n<head>\n'
+            '  <meta charset="utf-8">\n'
+            '  <meta name="viewport" content="width=device-width, initial-scale=1">\n'
+            f'  <title>{title} — Page moved | CalcuPortal</title>\n'
+            f'  <link rel="canonical" href="{canonical}">\n'
+            f'  <script>window.location.replace({destination} + window.location.search + window.location.hash);</script>\n'
+            f'  <meta http-equiv="refresh" content="0; url={canonical}">\n'
+            '</head>\n<body>\n'
+            '  <h1>This calculator has moved</h1>\n'
+            f'  <p><a href="{canonical}">Continue to {title}</a>.</p>\n'
+            '</body>\n</html>\n'
+        )
     if count and updated != text:
         path.write_text(updated, encoding="utf-8")
         changed += 1
 
-print(f"Normalized {changed} calculator canonical tags")
+print(f"Normalized {changed} calculator pages and legacy redirects")
