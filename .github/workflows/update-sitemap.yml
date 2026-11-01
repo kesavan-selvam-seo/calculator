@@ -12,6 +12,8 @@ on:
       - 'generate_blog_archive.py'
       - 'normalize_calculator_canonicals.py'
       - '.github/workflows/update-sitemap.yml'
+      - 'data/calculator-categories.json'
+      - 'sync_calculator_availability.py'
   workflow_dispatch:
 
 permissions:
@@ -26,6 +28,11 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Sync category availability
+        run: |
+          python3 sync_calculator_availability.py
+          python3 sync_calculator_availability.py --check
+
       - name: Normalize calculator canonical URLs
         run: python3 normalize_calculator_canonicals.py
 
@@ -39,7 +46,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add calculators sitemap.xml blog/index.html
+          git add calculators categories/astrology-numerology/index.html sitemap.xml blog/index.html
           if git diff --cached --quiet; then
             echo "No canonical or sitemap changes."
             exit 0
