@@ -342,6 +342,332 @@ const questions=[
     "answer": 3,
     "explanation": "Co³⁺ is d⁶. F⁻ is weak field; [CoF₆]³⁻ is a high-spin octahedral complex with unpaired electrons and is paramagnetic."
   }
+,
+{
+  "id": "p07",
+  "topic": "Periodicity",
+  "question": "Which period-3 element has unexpectedly higher first ionization enthalpy than the element directly after it?",
+  "options": [
+    "Sulfur, compared with phosphorus",
+    "Phosphorus, compared with sulfur",
+    "Aluminium, compared with magnesium",
+    "Sodium, compared with magnesium"
+  ],
+  "answer": 1,
+  "explanation": "Phosphorus has a relatively stable half-filled 3p³ subshell. Sulfur has a paired 3p electron, making its first electron easier to remove."
+},
+{
+  "id": "p08",
+  "topic": "Periodicity",
+  "question": "Why is the second ionization enthalpy of Na much higher than that of Mg?",
+  "options": [
+    "Na⁺ has a stable neon-like closed shell",
+    "Mg⁺ has a noble-gas electron configuration",
+    "Na⁺ retains a valence 3s electron",
+    "Mg has fewer protons than Na"
+  ],
+  "answer": 0,
+  "explanation": "After losing its 3s electron, Na⁺ has the [Ne] closed shell. A second ionization removes a core electron. Mg⁺ still has a 3s electron to remove."
+},
+{
+  "id": "p09",
+  "topic": "Periodicity",
+  "question": "Why is adding an electron to an isolated noble-gas atom generally energetically unfavourable?",
+  "options": [
+    "The atom has an unfilled valence p subshell",
+    "The atom has a filled valence shell and the extra electron must enter a higher-energy orbital",
+    "The atom is always positively charged",
+    "The added electron enters a lower-energy 1s orbital"
+  ],
+  "answer": 1,
+  "explanation": "A noble gas has a closed valence shell. An incoming electron must occupy a higher-energy shell/orbital, so the electron-gain process is generally endothermic."
+},
+{
+  "id": "p10",
+  "topic": "Periodicity",
+  "question": "Among the isoelectronic ions O²⁻, F⁻ and Na⁺, which has the largest ionic radius?",
+  "options": [
+    "O²⁻",
+    "F⁻",
+    "Na⁺",
+    "They have equal radii"
+  ],
+  "answer": 0,
+  "explanation": "All three have ten electrons. O²⁻ has the smallest nuclear charge (eight protons), attracting that electron cloud less strongly than F⁻ or Na⁺."
+},
+{
+  "id": "p11",
+  "topic": "Periodicity",
+  "question": "Why can gallium have a slightly smaller atomic radius than aluminium despite lying below it in group 13?",
+  "options": [
+    "Ga has one fewer occupied shell than Al",
+    "The intervening 3d electrons shield poorly, increasing effective nuclear attraction",
+    "Ga has fewer protons than Al",
+    "Al contains a filled 4f subshell"
+  ],
+  "answer": 1,
+  "explanation": "The intervening 3d electrons shield nuclear charge imperfectly. This d-block contraction offsets the extra shell in Ga, making Ga's atomic radius comparable to or smaller than Al's."
+},
+{
+  "id": "b07",
+  "topic": "Chemical Bonding",
+  "question": "According to VSEPR, what is the molecular shape of ClF₃?",
+  "options": [
+    "Trigonal planar",
+    "T-shaped",
+    "Tetrahedral",
+    "Linear"
+  ],
+  "answer": 1,
+  "explanation": "ClF₃ has five electron domains around Cl: three bonding pairs and two lone pairs. Lone pairs take equatorial positions, leaving a T-shaped molecule."
+},
+{
+  "id": "b08",
+  "topic": "Chemical Bonding",
+  "question": "Why does linear CO₂ have zero permanent dipole moment even though each C=O bond is polar?",
+  "options": [
+    "Both C=O bonds are nonpolar",
+    "The two equal C=O bond dipoles cancel in opposite directions",
+    "Carbon carries a permanent +4 formal charge",
+    "The molecule is bent with zero bond polarity"
+  ],
+  "answer": 1,
+  "explanation": "CO₂ is linear with two equal, oppositely directed C=O bond dipoles; their vector sum is zero."
+},
+{
+  "id": "b09",
+  "topic": "Chemical Bonding",
+  "question": "Why is the F–F bond generally weaker than the Cl–Cl bond?",
+  "options": [
+    "F₂ has a larger bond length than Cl₂",
+    "Strong lone-pair repulsions in the very compact F–F bond reduce its strength",
+    "Cl₂ is ionic while F₂ is covalent",
+    "F₂ has a double bond while Cl₂ has a single bond"
+  ],
+  "answer": 1,
+  "explanation": "Fluorine's small size puts three lone pairs on each atom close together across the short F–F bond, causing strong repulsion and a lower bond dissociation enthalpy than Cl–Cl."
+},
+{
+  "id": "b10",
+  "topic": "Chemical Bonding",
+  "question": "In gaseous trigonal-bipyramidal PCl₅, which bonds are longer?",
+  "options": [
+    "The three equatorial P–Cl bonds",
+    "The two axial P–Cl bonds",
+    "All five bonds have identical lengths",
+    "One equatorial bond is longest and the others are equal"
+  ],
+  "answer": 1,
+  "explanation": "Axial bonds experience three 90° interactions with equatorial bonding pairs, greater repulsion than equatorial bonds. Axial P–Cl bonds are longer and weaker."
+},
+{
+  "id": "b11",
+  "topic": "Chemical Bonding",
+  "question": "Why is ground-state B₂ paramagnetic according to molecular orbital theory?",
+  "options": [
+    "It contains two unpaired electrons in degenerate π(2p) bonding orbitals",
+    "All its valence electrons occupy paired σ orbitals",
+    "It has four unpaired electrons in antibonding orbitals",
+    "The B–B bond is ionic"
+  ],
+  "answer": 0,
+  "explanation": "For B₂, the π(2p) bonding orbitals are each singly occupied in the standard MO ordering for lighter second-period diatomics. Two unpaired electrons cause paramagnetism."
+},
+{
+  "id": "pb06",
+  "topic": "p-Block",
+  "question": "Which hydrogen halide forms the strongest acid in water among HF, HCl, HBr and HI?",
+  "options": [
+    "HF",
+    "HCl",
+    "HBr",
+    "HI"
+  ],
+  "answer": 3,
+  "explanation": "H–I has the weakest H–X bond among these hydrogen halides and dissociates readily in water. Acid strength generally increases from HF to HI."
+},
+{
+  "id": "pb07",
+  "topic": "p-Block",
+  "question": "Why is phosphorous acid (H₃PO₃) dibasic rather than tribasic?",
+  "options": [
+    "It contains only two ionizable O–H protons; the third H is bonded directly to P",
+    "All three hydrogens are bonded to oxygen",
+    "It contains no ionizable O–H bonds",
+    "It releases only one proton because it is a strong acid"
+  ],
+  "answer": 0,
+  "explanation": "The predominant structure is HPO(OH)₂: two O–H hydrogens can ionize, while the P–H hydrogen does not dissociate as an acidic proton in the usual acid-base context."
+},
+{
+  "id": "pb08",
+  "topic": "p-Block",
+  "question": "How many ionizable acidic protons are present in hypophosphorous acid H₃PO₂?",
+  "options": [
+    "Three",
+    "Two",
+    "One",
+    "Zero"
+  ],
+  "answer": 2,
+  "explanation": "The structure is H₂PO(OH). Only one hydrogen is in an O–H bond; two are P–H, making H₃PO₂ monobasic."
+},
+{
+  "id": "pb09",
+  "topic": "p-Block",
+  "question": "What is the common ionic description of solid PCl₅?",
+  "options": [
+    "[PCl₄]⁺ and [PCl₆]⁻",
+    "P⁵⁺ and five free Cl⁻ ions",
+    "[PCl₂]⁺ and [PCl₈]⁻",
+    "[PCl₃]²⁺ and [PCl₇]²⁻"
+  ],
+  "answer": 0,
+  "explanation": "Solid PCl₅ is commonly described as an ionic lattice containing [PCl₄]⁺ (tetrahedral) and [PCl₆]⁻ (octahedral), unlike the molecular trigonal-bipyramidal gas."
+},
+{
+  "id": "pb10",
+  "topic": "p-Block",
+  "question": "Why does chlorine show bleaching action more effectively in moist conditions than in dry conditions?",
+  "options": [
+    "Moisture helps form hypochlorous acid (HOCl), an oxidizing species",
+    "Water converts chlorine into molecular nitrogen",
+    "Dry Cl₂ acts as a stronger oxidant than aqueous chlorine",
+    "Water removes all chlorine from the material without reaction"
+  ],
+  "answer": 0,
+  "explanation": "Chlorine reacts with water to form HCl and HOCl. Hypochlorous acid and related oxidizing species oxidize coloured substances, so moisture helps bleaching."
+},
+{
+  "id": "d06",
+  "topic": "d- and f-Block",
+  "question": "Which electronic configuration explains the relative stability of Mn²⁺?",
+  "options": [
+    "[Ar] 3d³",
+    "[Ar] 3d⁴",
+    "[Ar] 3d⁵",
+    "[Ar] 3d⁷"
+  ],
+  "answer": 2,
+  "explanation": "Mn²⁺ loses the two 4s electrons of Mn and has the especially stable half-filled 3d⁵ configuration."
+},
+{
+  "id": "d07",
+  "topic": "d- and f-Block",
+  "question": "What is the 3d electron count of Fe³⁺, often associated with relative half-filled-shell stability?",
+  "options": [
+    "3d⁴",
+    "3d⁵",
+    "3d⁶",
+    "3d⁷"
+  ],
+  "answer": 1,
+  "explanation": "Neutral Fe has [Ar]3d⁶4s². Formation of Fe³⁺ removes two 4s electrons and one 3d electron, producing [Ar]3d⁵."
+},
+{
+  "id": "d08",
+  "topic": "d- and f-Block",
+  "question": "Why are many Cu(I) complexes colourless with respect to d–d transitions, unlike many Cu(II) complexes?",
+  "options": [
+    "Cu(I) is 3d¹⁰, so d–d transitions are unavailable",
+    "Cu(I) is 3d⁹ and has one unpaired electron",
+    "Cu(I) is 3d⁵ and high-spin",
+    "Cu(II) is always colourless because its d shell is full"
+  ],
+  "answer": 0,
+  "explanation": "Cu⁺ has a filled 3d¹⁰ shell, so ordinary d–d excitations cannot occur. Some Cu(I) compounds may still be coloured by charge-transfer effects."
+},
+{
+  "id": "d09",
+  "topic": "d- and f-Block",
+  "question": "Why does Ce⁴⁺ commonly behave as a strong oxidizing agent in aqueous chemistry?",
+  "options": [
+    "It readily gains an electron to form the relatively stable Ce³⁺ state",
+    "It readily loses an electron to form Ce⁵⁺",
+    "It has no available electron-accepting states",
+    "It converts directly to Ce²⁻ in water"
+  ],
+  "answer": 0,
+  "explanation": "Cerium(IV) is readily reduced to Ce(III), a common lanthanoid oxidation state. Thus Ce⁴⁺ can oxidize other substances while accepting electrons."
+},
+{
+  "id": "d10",
+  "topic": "d- and f-Block",
+  "question": "Which configuration contributes to the unusual stability of Eu²⁺ among lanthanoids?",
+  "options": [
+    "4f⁶",
+    "4f⁷",
+    "4f¹³",
+    "4f¹⁴"
+  ],
+  "answer": 1,
+  "explanation": "Eu²⁺ has a half-filled 4f⁷ configuration, an important reason the +2 state is relatively stable for europium."
+},
+{
+  "id": "c05",
+  "topic": "Coordination",
+  "question": "What is the magnetic behaviour of [Fe(CN)₆]⁴⁻ under the usual crystal-field description?",
+  "options": [
+    "High-spin paramagnetic with four unpaired electrons",
+    "Low-spin diamagnetic with no unpaired electrons",
+    "Tetrahedral with two unpaired electrons",
+    "Square planar with one unpaired electron"
+  ],
+  "answer": 1,
+  "explanation": "Fe²⁺ is d⁶ and CN⁻ is a strong-field ligand. In the octahedral complex the t₂g set is fully paired (t₂g⁶), making it diamagnetic."
+},
+{
+  "id": "c06",
+  "topic": "Coordination",
+  "question": "In the usual high-spin octahedral description, how many unpaired electrons are in [FeF₆]⁴⁻?",
+  "options": [
+    "Zero",
+    "Two",
+    "Four",
+    "Six"
+  ],
+  "answer": 2,
+  "explanation": "Fe²⁺ is d⁶ and F⁻ is a weak-field ligand. Its high-spin octahedral arrangement t₂g⁴e_g² has four unpaired electrons."
+},
+{
+  "id": "c07",
+  "topic": "Coordination",
+  "question": "Which square-planar Pt(II) complex is a classic example of cis/trans geometrical isomerism?",
+  "options": [
+    "[Pt(NH₃)₂Cl₂]",
+    "[Co(NH₃)₆]³⁺",
+    "[Ni(CO)₄]",
+    "[Ag(NH₃)₂]⁺"
+  ],
+  "answer": 0,
+  "explanation": "Square-planar [Pt(NH₃)₂Cl₂] can place the two chlorido ligands next to one another (cis) or opposite (trans), giving two geometrical isomers."
+},
+{
+  "id": "c08",
+  "topic": "Coordination",
+  "question": "Which ligand can form nitro- and nitrito-linked complexes as linkage isomers?",
+  "options": [
+    "NH₃",
+    "Cl⁻",
+    "NO₂⁻",
+    "H₂O"
+  ],
+  "answer": 2,
+  "explanation": "NO₂⁻ is ambidentate: it can bind through nitrogen (nitro) or oxygen (nitrito), giving linkage isomers."
+},
+{
+  "id": "c09",
+  "topic": "Coordination",
+  "question": "Why can a complex with ethylenediamine (en) be more thermodynamically stable than a comparable ammine complex?",
+  "options": [
+    "Ethylenediamine binds through two donor atoms, favouring chelate formation",
+    "Ethylenediamine has no nitrogen donor atoms",
+    "Ammine ligands always form covalent bonds to carbon",
+    "Ethylenediamine must bind through just one hydrogen atom"
+  ],
+  "answer": 0,
+  "explanation": "Ethylenediamine is bidentate and forms chelate rings; the chelate effect, often aided by favourable entropy, can make such complexes more stable than comparable monodentate-ligand complexes."
+}
 ];
 if(typeof module!=="undefined"&&module.exports)module.exports=questions;
 else root.CalcuInorganicExceptionsQuestions=questions;
