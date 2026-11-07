@@ -53,7 +53,14 @@ document.addEventListener("DOMContentLoaded",()=>{
   return e;
  };
  function setText(id,text){$(id).textContent=String(text)}
- function view(which){panels.forEach(p=>p.hidden=p!==which);quiz.setAttribute("data-phase",which===setup?"setup":which===play?"play":"finish")}
+ function view(which){
+  panels.forEach(p=>p.hidden=p!==which);
+  quiz.setAttribute("data-phase",which===setup?"setup":which===play?"play":"finish");
+  // Keep explanatory revision notes and FAQ answers out of sight during exam mode.
+  for(const id of ["iq-revision","iq-strategy","iq-faq"]){
+    const section=$(id);if(section)section.hidden=which===play;
+  }
+ }
  function fail(msg){error.textContent=msg;error.hidden=false}
  function clearError(){error.hidden=true;error.textContent=""}
  function stopTimer(){if(ticker!==null){root.clearInterval(ticker);ticker=null}}
