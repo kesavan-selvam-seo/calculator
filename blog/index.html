@@ -268,7 +268,13 @@
     @media(max-width:900px){.latest-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.nav{gap:12px}.nav-links a{padding:0 8px}}
     @media(max-width:760px){.hero{grid-template-columns:1fr;gap:24px;padding-top:34px}.hero-panel{padding:24px}.brand{font-size:20px}.nav-actions{gap:8px}}
     @media(max-width:520px){.latest-grid,.story-list{grid-template-columns:1fr}.hero-panel{padding:18px}.hero h1{font-size:38px;letter-spacing:-1.8px}.topic-strip{gap:6px}.topic-strip a{font-size:12px;padding:9px 10px}.archive-controls{align-items:stretch}.archive-controls label{display:block}.archive-controls select{display:block;margin-top:8px;width:100%}.brand{gap:7px;font-size:19px}.nav{gap:8px}.search-submit{padding:10px}.search-box input{font-size:13px}.latest-card{padding:20px}}
-  </style>
+  
+/* Unified CalcuPortal nav labels/order and keyboard focus for editorial index */
+.site-header #primary-nav{gap:3px}
+.site-header #primary-nav>a{white-space:nowrap;padding-left:10px;padding-right:10px}
+.site-header #primary-nav>a[aria-current="page"]{color:var(--brand);background:var(--soft)}
+.site-header #primary-nav>a:focus-visible{outline:3px solid var(--brand);outline-offset:2px}
+</style>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -277,12 +283,7 @@
     <div class="shell nav">
       <a class="brand" href="/" aria-label="CalcuPortal home"><img src="/logo.png" alt="" width="40" height="40"><span>CalcuPortal</span></a>
       <div class="nav-actions">
-        <nav class="nav-links" id="primary-nav" aria-label="Main navigation">
-          <a href="/calculators/">Calculators</a>
-          <a href="/blog/" class="active" aria-current="page">Articles &amp; guides</a>
-          <a href="/about/">About</a>
-          <a href="/contact/">Contact</a>
-        </nav>
+        <nav class="nav-links" id="primary-nav" aria-label="Main navigation"><a href="/">Home</a><a href="/calculators/">Calculators</a><a href="/blog/education/">Education</a><a href="/blog/" class="active" aria-current="page">Blog</a><a href="/about/">About</a><a href="/contact/">Contact</a></nav>
         <button class="theme-btn" type="button" aria-label="Toggle colour theme"><span class="theme-icon" aria-hidden="true"></span></button>
         <button class="menu-btn" type="button" aria-label="Open navigation" aria-controls="primary-nav" aria-expanded="false"><span class="menu-lines" aria-hidden="true"><span></span><span></span><span></span></span></button>
       </div>
