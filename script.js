@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     else if (path.startsWith('/about/')) active = '/about/';
     else if (path.startsWith('/contact/')) active = '/contact/';
     // Keep non-navigation controls such as theme toggle buttons.
-    const controls = Array.from(nav.children).filter(el => el.tagName !== 'A' || !el.classList.contains('nav-link'));
+    const controls = Array.from(nav.children).filter(el => el.tagName !== 'A');
     const unifiedLinks = items.map(function (item) {
       const a = document.createElement('a');
       a.href = item[1];
