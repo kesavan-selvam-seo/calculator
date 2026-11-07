@@ -33,20 +33,44 @@
 })();
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Add Blog to every page header navigation that uses the shared script.
-  // The homepage already has the link, so do not create a duplicate there.
+  // One canonical, accessible navigation for every page using the shared shell.
+  // Some legacy calculators and education articles hardcode the links in
+  // different orders; reconstructing the *navigation links* here keeps the
+  // source templates intact, preserves theme controls, and prevents the Blog
+  // link from being appended after Contact.
   const nav = document.getElementById('nav-links');
-  if (nav && !nav.querySelector('a[href="/blog/"]')) {
-    const blogLink = document.createElement('a');
-    blogLink.href = '/blog/';
-    blogLink.className = 'nav-link';
-    blogLink.textContent = 'Blog';
-
-    const themeButton = nav.querySelector('.theme-btn');
-    if (themeButton) {
-      nav.insertBefore(blogLink, themeButton);
-    } else {
-      nav.appendChild(blogLink);
+  if (nav && nav.closest('header') === document.querySelector('body > header')) {
+    const path = window.location.pathname;
+    const items = [
+      ['Home', '/'],
+      ['Calculators', '/calculators/'],
+      ['Education', '/blog/education/'],
+      ['Blog', '/blog/'],
+      ['About', '/about/'],
+      ['Contact', '/contact/']
+    ];
+    let active = '/';
+    if (path.startsWith('/calculators/') || path.startsWith('/categories/')) active = '/calculators/';
+    else if (path.startsWith('/blog/education/')) active = '/blog/education/';
+    else if (path.startsWith('/blog/')) active = '/blog/';
+    else if (path.startsWith('/about/')) active = '/about/';
+    else if (path.startsWith('/contact/')) active = '/contact/';
+    // Keep non-navigation controls such as theme toggle buttons.
+    const controls = Array.from(nav.children).filter(el => el.tagName !== 'A' || !el.classList.contains('nav-link'));
+    const unifiedLinks = items.map(function (item) {
+      const a = document.createElement('a');
+      a.href = item[1];
+      a.className = 'nav-link' + (active === item[1] ? ' active' : '');
+      a.textContent = item[0];
+      if (active === item[1]) a.setAttribute('aria-current', 'page');
+      return a;
+    });
+    nav.replaceChildren(...unifiedLinks, ...controls);
+    nav.setAttribute('aria-label', 'Main navigation');
+    const menu = document.getElementById('menu-toggle');
+    if (menu) {
+      menu.setAttribute('aria-controls', 'nav-links');
+      menu.setAttribute('aria-expanded', 'false');
     }
   }
 
@@ -136,8 +160,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (menuToggle && mobileNavLinks) {
     menuToggle.addEventListener('click', () => {
-      menuToggle.classList.toggle('active');
-      mobileNavLinks.classList.toggle('active');
+      const open = mobileNavLinks.classList.toggle('active');
+      menuToggle.classList.toggle('active', open);
+      menuToggle.setAttribute('aria-expanded', String(open));
+    });
+    mobileNavLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNavLinks.classList.remove('active');
+        menuToggle.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        mobileNavLinks.classList.remove('active');
+        menuToggle.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
     });
   }
 
