@@ -71,11 +71,13 @@ document.addEventListener("DOMContentLoaded",()=>{
   const n=selectedTopic().length;
   const count=$("iq-count"); const existing=count.value;
   count.replaceChildren();
-  for(const val of ["10","20","25","all"]){
-   const opt=make("option",val==="all"?"All "+n+" questions":Math.min(Number(val),n)+" questions"+(val==="10"?" · Quick test":" · Exam practice"));
-   opt.value=val;count.appendChild(opt);
+  const choices=[["10","10 questions · Quick test"],["20","20 questions · Exam practice"],["25","25 questions · Full practice set"]].filter(item=>Number(item[0])<n);
+  choices.push(["all","All "+n+" questions"]);
+  for(const [value,label] of choices){
+   const opt=make("option",label);
+   opt.value=value;count.appendChild(opt);
   }
-  count.value=existing||"10";
+  count.value=choices.some(item=>item[0]===existing)?existing:choices[0][0];
   setText("iq-question-count",n+" original questions available in this selection");
   updateEstimate();
  }
