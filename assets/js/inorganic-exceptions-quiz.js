@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded",()=>{
   const n=selectedTopic().length;
   const count=$("iq-count"); const existing=count.value;
   count.replaceChildren();
-  for(const val of ["10","20","all"]){
+  for(const val of ["10","20","25","all"]){
    const opt=make("option",val==="all"?"All "+n+" questions":Math.min(Number(val),n)+" questions"+(val==="10"?" · Quick test":" · Exam practice"));
    opt.value=val;count.appendChild(opt);
   }
