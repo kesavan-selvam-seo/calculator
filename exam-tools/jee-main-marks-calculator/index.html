@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JEE Main 2027 Marks Calculator – Calculate Your Score (+4, −1)</title>
+<meta name="description" content="Calculate your JEE Main 2027 Paper 1 raw score using correct, incorrect and unattempted answers. Subject-wise marks, negative marking and total out of 300.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://www.calcuportal.com/exam-tools/jee-main-marks-calculator/">
+<meta property="og:type" content="website"><meta property="og:title" content="JEE Main 2027 Marks Calculator – Calculate Your Score"><meta property="og:description" content="Enter correct, incorrect and unanswered questions to calculate your JEE Main 2027 Paper 1 raw marks out of 300."><meta property="og:url" content="https://www.calcuportal.com/exam-tools/jee-main-marks-calculator/"><meta property="og:site_name" content="CalcuPortal">
+<link rel="icon" href="/favicon.png" type="image/png"><link rel="stylesheet" href="/homepage.css?v=20261108a"><script src="/script.js?v=20261108a" defer></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.calcuportal.com/exam-tools/jee-main-marks-calculator/#webpage","url":"https://www.calcuportal.com/exam-tools/jee-main-marks-calculator/","name":"JEE Main 2027 Marks Calculator","description":"Calculate JEE Main 2027 Paper 1 raw marks with the official +4 and −1 marking scheme.","isPartOf":{"@id":"https://www.calcuportal.com/#website"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.calcuportal.com/"},{"@type":"ListItem","position":2,"name":"Exam Tools","item":"https://www.calcuportal.com/exam-tools/"},{"@type":"ListItem","position":3,"name":"JEE Main Marks Calculator","item":"https://www.calcuportal.com/exam-tools/jee-main-marks-calculator/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is the JEE Main 2027 score calculated?","acceptedAnswer":{"@type":"Answer","text":"For JEE Main 2027 Paper 1, each correct answer carries 4 marks, each incorrect answer carries minus 1 mark, and an unanswered question carries 0 marks. The raw score is 4 multiplied by correct answers minus incorrect answers."}},{"@type":"Question","name":"Is there negative marking for numerical questions in JEE Main 2027?","acceptedAnswer":{"@type":"Answer","text":"Yes. The JEE Main 2027 Paper 1 marking scheme applies minus 1 mark for an incorrect answer in both MCQ and numerical-value questions."}},{"@type":"Question","name":"What is the total mark of JEE Main 2027 Paper 1?","acceptedAnswer":{"@type":"Answer","text":"JEE Main 2027 Paper 1 for B.E. and B.Tech has 75 compulsory questions and a maximum of 300 marks, with 25 questions each in Mathematics, Physics and Chemistry."}},{"@type":"Question","name":"Does this calculator predict JEE Main percentile or rank?","acceptedAnswer":{"@type":"Answer","text":"No. This tool calculates an estimated raw score from the answers entered. NTA percentile scores are calculated separately using the normalisation procedure across shifts, and rank depends on the official result."}},{"@type":"Question","name":"Can my JEE Main raw score change after the final answer key?","acceptedAnswer":{"@type":"Answer","text":"Yes. Changes to the provisional answer key, dropped questions or NTA's final evaluation rules may affect the final score. Use the official result as the final reference."}}]}]}
+</script>
+<style>
+:root{--jm-ink:#17152b;--jm-muted:#625d75;--jm-line:#e8e4f0;--jm-card:#fff;--jm-purple:#6d4aff;--jm-soft:#f3efff;--jm-green:#08784f;--jm-red:#b42318}
+[data-theme="dark"]{--jm-ink:#f5f2ff;--jm-muted:#b7b0cc;--jm-line:#302a42;--jm-card:#171323;--jm-purple:#a99aff;--jm-soft:#29213f;--jm-green:#6ee7b7;--jm-red:#ff9b91}
+.jm-main{width:min(1040px,calc(100% - 32px));margin:0 auto;padding:30px 0 72px;color:var(--jm-ink)}
+.jm-breadcrumb{font-size:.88rem;color:var(--jm-muted);margin-bottom:20px}.jm-breadcrumb a{color:var(--jm-purple);font-weight:650}
+.jm-hero{padding:32px;border-radius:22px;background:linear-gradient(125deg,#20164b,#5537b8 62%,#8962e8);color:#fff}
+.jm-eyebrow{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:#ded4ff}
+.jm-hero h1{font-size:clamp(2rem,5vw,3rem);line-height:1.12;letter-spacing:-.04em;margin:12px 0}
+.jm-hero p{max-width:740px;color:#eee9ff;font-size:1rem}
+.jm-pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.jm-pills span{border:1px solid #ffffff66;border-radius:99px;padding:6px 11px;font-size:.8rem;font-weight:750}
+.jm-section{margin-top:36px}.jm-section h2{font-size:1.55rem;letter-spacing:-.025em;margin-bottom:10px}.jm-section>p{color:var(--jm-muted);margin-bottom:15px}
+.jm-calculator{background:var(--jm-card);border:1px solid var(--jm-line);border-radius:18px;padding:22px;box-shadow:0 8px 24px #21164e0a;margin-top:20px}
+.jm-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.jm-subject{border:1px solid var(--jm-line);border-radius:13px;padding:15px;background:var(--jm-card)}
+.jm-subject h3{font-size:1.08rem;margin:0 0 12px}
+.jm-field{margin-top:10px}.jm-field label{display:flex;justify-content:space-between;gap:8px;font-size:.82rem;font-weight:700;margin-bottom:5px}
+.jm-field input{width:100%;padding:10px 11px;border:1px solid var(--jm-line);border-radius:8px;background:var(--jm-card);color:var(--jm-ink);font:inherit;font-variant-numeric:tabular-nums}
+.jm-field input:focus{outline:2px solid var(--jm-purple);outline-offset:1px}
+.jm-subtotal{margin-top:12px;padding:10px;background:var(--jm-soft);border-radius:9px;font-weight:800;display:flex;justify-content:space-between}
+.jm-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:17px}
+.jm-btn{border:0;border-radius:9px;padding:11px 16px;font-weight:800;cursor:pointer}.jm-primary{background:var(--jm-purple);color:#fff}.jm-secondary{background:var(--jm-soft);color:var(--jm-ink);border:1px solid var(--jm-line)}
+.jm-error{color:var(--jm-red);font-size:.88rem;font-weight:700;margin-top:12px;min-height:1.2em}
+.jm-result{margin-top:18px;padding:19px;border-radius:14px;background:var(--jm-soft);display:none}
+.jm-result[aria-hidden="false"]{display:block}
+.jm-score-head{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
+.jm-score{font-size:clamp(2.2rem,6vw,3.4rem);line-height:1;font-weight:900;letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+.jm-score small{font-size:1rem;color:var(--jm-muted);letter-spacing:0;font-weight:700}
+.jm-result-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:16px}
+.jm-result-cell{padding:11px;background:var(--jm-card);border:1px solid var(--jm-line);border-radius:10px}.jm-result-cell small{display:block;color:var(--jm-muted);font-size:.76rem}.jm-result-cell b{font-size:1.2rem}
+.jm-note{padding:14px 16px;border-left:4px solid var(--jm-purple);background:var(--jm-soft);border-radius:0 10px 10px 0;color:var(--jm-muted);font-size:.9rem;margin-top:14px}
+.jm-table-wrap{overflow-x:auto}.jm-table{width:100%;border-collapse:collapse;min-width:500px;font-size:.92rem}.jm-table th,.jm-table td{padding:12px 13px;text-align:left;border-bottom:1px solid var(--jm-line)}.jm-table th{background:var(--jm-soft);font-weight:800}.jm-table tr:last-child td{border-bottom:0}
+.jm-faq details{padding:15px 0;border-bottom:1px solid var(--jm-line)}.jm-faq summary{cursor:pointer;font-weight:750}.jm-faq details p{color:var(--jm-muted);margin-top:8px}
+.jm-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}.jm-links a{color:var(--jm-purple);font-weight:750;text-decoration:underline;text-underline-offset:3px}
+.jm-small{font-size:.8rem;color:var(--jm-muted);margin-top:14px}
+@media(max-width:760px){.jm-cards{grid-template-columns:1fr}.jm-calculator{padding:16px}}
+@media(max-width:650px){.jm-main{padding-top:20px}.jm-hero{padding:24px 19px}.jm-result-grid{grid-template-columns:1fr 1fr}.jm-score{font-size:2.7rem}}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="container nav-wrapper">
+<a href="/" class="brand-logo" aria-label="CalcuPortal Home"><img src="/logo.png" width="40" height="40" alt=""><span>CalcuPortal</span></a>
+<nav class="nav-center" aria-label="Main navigation"><a href="/" class="nav-link">Home</a><a href="/calculators/" class="nav-link">Calculators</a><a href="/exam-tools/" class="nav-link active" aria-current="page">Exam Tools</a><a href="/blog/education/" class="nav-link">Education</a><a href="/blog/" class="nav-link">Blog</a><a href="/about/" class="nav-link">About</a></nav>
+<div class="nav-actions"><button class="theme-toggle-btn" type="button" aria-label="Toggle dark/light theme"></button></div>
+</div></header>
+<main id="main-content" class="jm-main">
+<nav class="jm-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/exam-tools/">Exam Tools</a> / JEE Main Marks Calculator</nav>
+<section class="jm-hero"><div class="jm-eyebrow">JEE Main 2027 · Paper 1 (B.E./B.Tech)</div><h1>JEE Main 2027 Marks Calculator</h1><p>Calculate your estimated JEE Main Paper 1 raw score using the number of correct, incorrect and unanswered questions in Mathematics, Physics and Chemistry.</p><div class="jm-pills"><span>+4 correct</span><span>−1 incorrect</span><span>0 unanswered</span><span>Maximum 300 marks</span></div></section>
+
+<section class="jm-section" id="calculator"><h2>Calculate your JEE Main marks</h2><p>Enter your response count for each subject. Each subject has 25 questions in JEE Main 2027 Paper 1. The calculator updates your raw score after you submit the counts.</p>
+<div class="jm-calculator">
+<div class="jm-cards">
+<div class="jm-subject" data-subject="maths"><h3>Mathematics</h3><div class="jm-field"><label for="maths-correct">Correct answers <span>+4 each</span></label><input id="maths-correct" type="number" min="0" max="25" step="1" value="0" inputmode="numeric"></div><div class="jm-field"><label for="maths-wrong">Incorrect answers <span>−1 each</span></label><input id="maths-wrong" type="number" min="0" max="25" step="1" value="0" inputmode="numeric"></div><div class="jm-field"><label for="maths-unanswered">Unanswered <span>0 marks</span></label><input id="maths-unanswered" type="number" min="0" max="25" step="1" value="25" inputmode="numeric"></div><div class="jm-subtotal"><span>Questions entered</span><span data-total>25 / 25</span></div></div>
+<div class="jm-subject" data-subject="physics"><h3>Physics</h3><div class="jm-field"><label for="physics-correct">Correct answers <span>+4 each</span></label><input id="physics-correct" type="number" min="0" max="25" step="1" value="0" inputmode="numeric"></div><div class="jm-field"><label for="physics-wrong">Incorrect answers <span>−1 each</span></label><input id="physics-wrong" type="number" min="0" max="25" step="1" value="0" inputmode="numeric"></div><div class="jm-field"><label for="physics-unanswered">Unanswered <span>0 marks</span></label><input id="physics-unanswered" type="number" min="0" max="25" step="1" value="25" inputmode="numeric"></div><div class="jm-subtotal"><span>Questions entered</span><span data-total>25 / 25</span></div></div>
+<div class="jm-subject" data-subject="chemistry"><h3>Chemistry</h3><div class="jm-field"><label for="chemistry-correct">Correct answers <span>+4 each</span></label><input id="chemistry-correct" type="number" min="0" max="25" step="1" value="0" inputmode="numeric"></div><div class="jm-field"><label for="chemistry-wrong">Incorrect answers <span>−1 each</span></label><input id="chemistry-wrong" type="number" min="0" max="25" step="1" value="0" inputmode="numeric"></div><div class="jm-field"><label for="chemistry-unanswered">Unanswered <span>0 marks</span></label><input id="chemistry-unanswered" type="number" min="0" max="25" step="1" value="25" inputmode="numeric"></div><div class="jm-subtotal"><span>Questions entered</span><span data-total>25 / 25</span></div></div>
+</div>
+<div class="jm-error" id="jm-error" role="alert"></div>
+<div class="jm-actions"><button type="button" class="jm-btn jm-primary" id="jm-calculate">Calculate my score</button><button type="button" class="jm-btn jm-secondary" id="jm-reset">Reset</button></div>
+<div class="jm-result" id="jm-result" aria-live="polite" aria-hidden="true"><div class="jm-score-head"><div><div class="jm-small">Your estimated raw score</div><div class="jm-score"><span id="jm-score">0</span> <small>/ 300</small></div></div><div><strong id="jm-percent">0.00% of maximum marks</strong></div></div><div class="jm-result-grid"><div class="jm-result-cell"><small>Correct answers</small><b id="jm-correct">0</b></div><div class="jm-result-cell"><small>Incorrect answers</small><b id="jm-wrong">0</b></div><div class="jm-result-cell"><small>Unanswered</small><b id="jm-unanswered">0</b></div><div class="jm-result-cell"><small>Mathematics</small><b id="jm-maths">0</b></div><div class="jm-result-cell"><small>Physics</small><b id="jm-physics">0</b></div><div class="jm-result-cell"><small>Chemistry</small><b id="jm-chemistry">0</b></div></div><p class="jm-small" id="jm-formula"></p></div>
+<p class="jm-small">This tool calculates raw marks only. It does not estimate NTA percentile, All India Rank, category rank or admission chances.</p>
+</div></section>
+
+<section class="jm-section"><h2>JEE Main 2027 Paper 1 marking scheme</h2><p>For the 2027 B.E./B.Tech paper, NTA specifies the same marking rule for multiple-choice and numerical-value questions.</p><div class="jm-calculator jm-table-wrap"><table class="jm-table"><thead><tr><th>Response</th><th>Marks awarded</th></tr></thead><tbody><tr><td>Correct answer</td><td>+4</td></tr><tr><td>Incorrect answer</td><td>−1</td></tr><tr><td>Unanswered</td><td>0</td></tr><tr><td>Marked for review without an answer</td><td>0</td></tr></tbody></table></div><div class="jm-note"><strong>Negative marking applies to numerical-value questions too.</strong> An incorrect answer in Section B also attracts a deduction of one mark under the JEE Main 2027 Paper 1 scheme.</div></section>
+
+<section class="jm-section"><h2>JEE Main 2027 subject-wise marks distribution</h2><p>Paper 1 contains 25 compulsory questions each in Mathematics, Physics and Chemistry.</p><div class="jm-calculator jm-table-wrap"><table class="jm-table"><thead><tr><th>Subject</th><th>Section A (MCQ)</th><th>Section B (Numerical)</th><th>Total questions</th><th>Maximum marks</th></tr></thead><tbody><tr><td>Mathematics</td><td>20</td><td>5</td><td>25</td><td>100</td></tr><tr><td>Physics</td><td>20</td><td>5</td><td>25</td><td>100</td></tr><tr><td>Chemistry</td><td>20</td><td>5</td><td>25</td><td>100</td></tr><tr><th>Total</th><th>60</th><th>15</th><th>75</th><th>300</th></tr></tbody></table></div></section>
+
+<section class="jm-section"><h2>How to calculate JEE Main raw score</h2><div class="jm-calculator"><p><strong>Raw score = (Correct answers × 4) − (Incorrect answers × 1)</strong></p><p>Unanswered questions carry zero marks, so they do not add to or subtract from your score.</p><p><strong>Example:</strong> If you answer 18 questions correctly, 5 incorrectly and leave 2 unanswered in a subject:</p><p style="font-weight:850;font-size:1.1rem">18 × 4 − 5 = 67 marks</p><p class="jm-small">Repeat this calculation for Mathematics, Physics and Chemistry, then add the three subject scores to get your Paper 1 raw score.</p></div></section>
+
+<section class="jm-section"><h2>Raw marks vs NTA percentile: understand the difference</h2><p>The score calculated here is your raw mark total based on the responses you enter. NTA percentile is a normalised score calculated using the performance of candidates in different shifts. It is not the same as percentage of marks.</p><p>Your final percentile and rank can be known only through the official NTA result. Do not use a raw score calculator as a guaranteed percentile or rank predictor.</p></section>
+
+<section class="jm-section"><h2>Official JEE Main 2027 resources</h2><p>Refer to NTA documents for the latest exam pattern, marking scheme, answer key and result-related instructions.</p><div class="jm-calculator"><div class="jm-links"><a href="https://jeemain.nta.nic.in/" target="_blank" rel="noopener">NTA JEE Main official website ↗</a><a href="https://jeemain.nta.nic.in/documents/" target="_blank" rel="noopener">Information bulletin and documents ↗</a><a href="https://jeemain.nta.nic.in/public-notices/" target="_blank" rel="noopener">Official public notices ↗</a></div><p class="jm-small">Marking scheme checked against the JEE Main 2027 Information Bulletin. Last reviewed: 8 November 2026.</p></div></section>
+
+<section class="jm-section jm-faq"><h2>Frequently asked questions</h2>
+<details><summary>How is the JEE Main 2027 score calculated?</summary><p>For JEE Main 2027 Paper 1, each correct answer carries 4 marks, each incorrect answer carries minus 1 mark, and an unanswered question carries 0 marks. Raw score = (4 × correct answers) − incorrect answers.</p></details>
+<details><summary>Is there negative marking for numerical questions in JEE Main 2027?</summary><p>Yes. The JEE Main 2027 Paper 1 marking scheme applies minus 1 mark for an incorrect answer in both MCQ and numerical-value questions.</p></details>
+<details><summary>What is the total mark of JEE Main 2027 Paper 1?</summary><p>JEE Main 2027 Paper 1 for B.E. and B.Tech has 75 compulsory questions and a maximum of 300 marks, with 25 questions each in Mathematics, Physics and Chemistry.</p></details>
+<details><summary>Does this calculator predict JEE Main percentile or rank?</summary><p>No. This tool calculates an estimated raw score from the answers entered. NTA percentile scores are calculated separately using the normalisation procedure across shifts, and rank depends on the official result.</p></details>
+<details><summary>Can my JEE Main raw score change after the final answer key?</summary><p>Yes. Changes to the provisional answer key, dropped questions or NTA's final evaluation rules may affect the final score. Use the official result as the final reference.</p></details>
+</section>
+<p class="jm-small"><a href="/exam-tools/" style="color:var(--jm-purple);font-weight:750">← Explore all Exam Tools</a> · <a href="/exam-tools/jee-main-countdown/" style="color:var(--jm-purple);font-weight:750">JEE Main 2027 Countdown</a> · <a href="/exam-tools/jee-advanced-countdown/" style="color:var(--jm-purple);font-weight:750">JEE Advanced Countdown</a></p>
+</main>
+<footer style="border-top:1px solid var(--jm-line);padding:24px 16px;text-align:center;color:var(--jm-muted);font-size:.88rem"><a href="/" style="color:var(--jm-purple);font-weight:800">CalcuPortal</a> · Free tools for students</footer>
+<script>
+(function(){
+var subjects=['maths','physics','chemistry'],error=document.getElementById('jm-error'),result=document.getElementById('jm-result');
+function getValues(subject){
+ var vals={};['correct','wrong','unanswered'].forEach(function(k){var el=document.getElementById(subject+'-'+k);vals[k]=Number(el.value);});
+ return vals;
+}
+function updateEntered(){
+ subjects.forEach(function(s){var v=getValues(s),sum=v.correct+v.wrong+v.unanswered,el=document.querySelector('[data-subject="'+s+'"] [data-total]');el.textContent=sum+' / 25';el.style.color=sum===25?'var(--jm-green)':'var(--jm-red)';});
+}
+function calculate(){
+ var all={},valid=true;
+ subjects.forEach(function(s){
+  var v=getValues(s),sum=v.correct+v.wrong+v.unanswered;
+  ['correct','wrong','unanswered'].forEach(function(k){var input=document.getElementById(s+'-'+k);if(!Number.isInteger(v[k])||v[k]<0||v[k]>25){valid=false;input.setAttribute('aria-invalid','true');}else input.removeAttribute('aria-invalid');});
+  if(sum!==25)valid=false;
+  v.score=4*v.correct-v.wrong;all[s]=v;
+ });
+ updateEntered();
+ if(!valid){error.textContent='For each subject, enter whole numbers from 0 to 25. Correct + incorrect + unanswered must equal exactly 25.';result.setAttribute('aria-hidden','true');return;}
+ error.textContent='';
+ var total=0,correct=0,wrong=0,unanswered=0;
+ subjects.forEach(function(s){total+=all[s].score;correct+=all[s].correct;wrong+=all[s].wrong;unanswered+=all[s].unanswered;document.getElementById('jm-'+s).textContent=all[s].score;});
+ document.getElementById('jm-score').textContent=total;
+ document.getElementById('jm-percent').textContent=(total/300*100).toFixed(2)+'% of maximum marks';
+ document.getElementById('jm-correct').textContent=correct;document.getElementById('jm-wrong').textContent=wrong;document.getElementById('jm-unanswered').textContent=unanswered;
+ document.getElementById('jm-formula').textContent='Calculation: ( '+correct+' × 4 ) − '+wrong+' = '+total+' marks.';
+ result.setAttribute('aria-hidden','false');
+}
+document.querySelectorAll('.jm-field input').forEach(function(input){input.addEventListener('input',function(){updateEntered();});});
+document.getElementById('jm-calculate').addEventListener('click',calculate);
+document.getElementById('jm-reset').addEventListener('click',function(){subjects.forEach(function(s){document.getElementById(s+'-correct').value=0;document.getElementById(s+'-wrong').value=0;document.getElementById(s+'-unanswered').value=25;});error.textContent='';result.setAttribute('aria-hidden','true');document.querySelectorAll('.jm-field input').forEach(function(el){el.removeAttribute('aria-invalid');});updateEntered();});
+updateEntered();
+})();
+</script>
+</body></html>
