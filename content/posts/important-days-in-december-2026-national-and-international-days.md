@@ -100,8 +100,8 @@ meta_description: Explore important days in December 2026 with dates and signifi
 <p>This UN day promotes unity in diversity and encourages international cooperation to address poverty and other global challenges.</p>
 <h3>December 21 – World Basketball Day</h3>
 <p>World Basketball Day recognises basketball’s role in bringing people and communities together and promoting participation in sport across countries and cultures.</p>
-<h3>December 24 and 27 – International Day of Epidemic Preparedness</h3>
-<p>The UN calendar lists December 27 as the International Day of Epidemic Preparedness. The observance calls for stronger preparedness, prevention and cooperation to respond to epidemics. December 24 is a separate UN observance, the International Day against Colonialism in All Its Forms and Manifestations is on December 14; please refer to the UN calendar for the exact annual observance dates.</p>
+<h3>December 27 – International Day of Epidemic Preparedness</h3>
+<p>The United Nations observes International Day of Epidemic Preparedness on December 27. It highlights the importance of prevention, preparedness and international cooperation to respond to epidemics and protect public health.</p>
 
 <h2 id="exam">Important December Dates for Competitive Exams</h2>
 <p>For quick revision, focus on the dates that are frequently included in general knowledge and current-affairs study material:</p>
