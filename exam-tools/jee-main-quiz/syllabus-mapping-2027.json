@@ -9,276 +9,330 @@
       [
         "sets-relations-functions",
         "Sets, Relations and Functions",
-        "Sets and representation; union, intersection, complement and algebraic properties; power set; relations and equivalence relations; one-one, into and onto functions; composition of functions."
+        "Sets and representation; union, intersection, complement and algebraic properties; power set; relations and equivalence relations; one-one, into and onto functions; composition of functions.",
+        "sets-relations-functions"
       ],
       [
         "complex-numbers-quadratic-equations",
         "Complex Numbers and Quadratic Equations",
-        "Complex numbers as ordered pairs and a+ib; Argand plane; algebra, modulus and argument; quadratic equations over real and complex systems; roots and coefficients; nature of roots; forming equations from roots."
+        "Complex numbers as ordered pairs and a+ib; Argand plane; algebra, modulus and argument; quadratic equations over real and complex systems; roots and coefficients; nature of roots; forming equations from roots.",
+        "complex-numbers-quadratic-equations"
       ],
       [
         "matrices-determinants",
         "Matrices and Determinants",
-        "Matrices and algebra/types; determinants of order two and three; evaluation; triangle area; adjoint and inverse; consistency and solving simultaneous linear equations in two or three variables using matrices."
+        "Matrices and algebra/types; determinants of order two and three; evaluation; triangle area; adjoint and inverse; consistency and solving simultaneous linear equations in two or three variables using matrices.",
+        "matrices-determinants"
       ],
       [
         "permutations-combinations",
         "Permutations and Combinations",
-        "Fundamental principle of counting; permutations and combinations; P(n,r), C(n,r); simple applications."
+        "Fundamental principle of counting; permutations and combinations; P(n,r), C(n,r); simple applications.",
+        "permutations-combinations"
       ],
       [
         "binomial-theorem",
         "Binomial Theorem and its Simple Applications",
-        "Binomial theorem for positive integral index; general term; middle term; simple applications."
+        "Binomial theorem for positive integral index; general term; middle term; simple applications.",
+        "binomial-theorem"
       ],
       [
         "sequence-series",
         "Sequence and Series",
-        "Arithmetic and geometric progressions; insertion of arithmetic and geometric means; relation between A.M. and G.M."
+        "Arithmetic and geometric progressions; insertion of arithmetic and geometric means; relation between A.M. and G.M.",
+        "sequence-series"
       ],
       [
         "limits-continuity-differentiability",
         "Limit, Continuity and Differentiability",
-        "Real-valued functions and algebra of functions; polynomial, rational, trigonometric, logarithmic and exponential functions; inverse functions and simple graphs; limits, continuity, differentiability; derivatives including composite and implicit functions; second derivatives; rates of change, monotonicity, maxima and minima."
+        "Real-valued functions and algebra of functions; polynomial, rational, trigonometric, logarithmic and exponential functions; inverse functions and simple graphs; limits, continuity, differentiability; derivatives including composite and implicit functions; second derivatives; rates of change, monotonicity, maxima and minima.",
+        "limits-continuity-differentiability"
       ],
       [
         "integral-calculus",
         "Integral Calculus",
-        "Antiderivatives; standard algebraic, trigonometric, exponential and logarithmic integrals; substitution, parts and partial fractions; trigonometric identities; fundamental theorem; definite-integral properties and evaluation; areas bounded by simple curves."
+        "Antiderivatives; standard algebraic, trigonometric, exponential and logarithmic integrals; substitution, parts and partial fractions; trigonometric identities; fundamental theorem; definite-integral properties and evaluation; areas bounded by simple curves.",
+        "integral-calculus"
       ],
       [
         "differential-equations",
         "Differential Equations",
-        "Ordinary differential equations; order and degree; separation of variables; homogeneous and first-order linear differential equations."
+        "Ordinary differential equations; order and degree; separation of variables; homogeneous and first-order linear differential equations.",
+        "differential-equations"
       ],
       [
         "coordinate-geometry",
         "Coordinate Geometry",
-        "Cartesian coordinates; distance and section formulae; locus; slope and equations of lines; intersections, angles, concurrence and point-to-line distance; triangle centres; circles; standard conics: parabola, ellipse and hyperbola."
+        "Cartesian coordinates; distance and section formulae; locus; slope and equations of lines; intersections, angles, concurrence and point-to-line distance; triangle centres; circles; standard conics: parabola, ellipse and hyperbola.",
+        "coordinate-geometry"
       ],
       [
         "three-dimensional-geometry",
         "Three-Dimensional Geometry",
-        "Coordinates in space; distance and section formulae; direction ratios and cosines; angle between lines; equation of a line; skew lines and shortest distance."
+        "Coordinates in space; distance and section formulae; direction ratios and cosines; angle between lines; equation of a line; skew lines and shortest distance.",
+        "three-dimensional-geometry"
       ],
       [
         "vector-algebra",
         "Vector Algebra",
-        "Scalars and vectors; vector addition; components in two and three dimensions; scalar and vector products."
+        "Scalars and vectors; vector addition; components in two and three dimensions; scalar and vector products.",
+        "vector-algebra"
       ],
       [
         "statistics-probability",
         "Statistics and Probability",
-        "Mean, median, mode; dispersion, standard deviation, variance and mean deviation for grouped and ungrouped data; event probability; addition and multiplication theorems; Bayes' theorem; probability distribution of a random variable."
+        "Mean, median, mode; dispersion, standard deviation, variance and mean deviation for grouped and ungrouped data; event probability; addition and multiplication theorems; Bayes' theorem; probability distribution of a random variable.",
+        "statistics-probability"
       ],
       [
         "trigonometry",
         "Trigonometry",
-        "Trigonometric identities and functions; inverse trigonometric functions and their properties."
+        "Trigonometric identities and functions; inverse trigonometric functions and their properties.",
+        "trigonometry"
       ]
     ],
     "physics": [
       [
         "units-measurements",
         "Units and Measurements",
-        "Systems and SI units; fundamental and derived units; least count; significant figures; measurement errors; dimensions and dimensional analysis."
+        "Systems and SI units; fundamental and derived units; least count; significant figures; measurement errors; dimensions and dimensional analysis.",
+        "units-and-measurements"
       ],
       [
         "kinematics",
         "Kinematics",
-        "Frames of reference; straight-line motion; speed and velocity; uniform/non-uniform motion; average and instantaneous velocity; uniformly accelerated motion; graphs; relative velocity; motion in a plane; projectile and uniform circular motion."
+        "Frames of reference; straight-line motion; speed and velocity; uniform/non-uniform motion; average and instantaneous velocity; uniformly accelerated motion; graphs; relative velocity; motion in a plane; projectile and uniform circular motion.",
+        "kinematics"
       ],
       [
         "laws-of-motion",
         "Laws of Motion",
-        "Force and inertia; Newton's laws; momentum and impulse; conservation of linear momentum; concurrent-force equilibrium; static, kinetic and rolling friction; uniform circular motion; centripetal force; level and banked roads."
+        "Force and inertia; Newton's laws; momentum and impulse; conservation of linear momentum; concurrent-force equilibrium; static, kinetic and rolling friction; uniform circular motion; centripetal force; level and banked roads.",
+        "laws-of-motion"
       ],
       [
         "work-energy-power",
         "Work, Energy and Power",
-        "Work by constant and variable forces; kinetic and potential energy; work-energy theorem; power; spring potential energy; conservation of mechanical energy; conservative and non-conservative forces; vertical circles; elastic and inelastic collisions in one and two dimensions."
+        "Work by constant and variable forces; kinetic and potential energy; work-energy theorem; power; spring potential energy; conservation of mechanical energy; conservative and non-conservative forces; vertical circles; elastic and inelastic collisions in one and two dimensions.",
+        "work-energy-power"
       ],
       [
         "rotational-motion",
         "Rotational Motion",
-        "Centre of mass; torque and angular momentum; conservation of angular momentum; moment of inertia and radius of gyration; standard bodies; parallel and perpendicular axes; rigid-body equilibrium and rotation; comparison with linear motion."
+        "Centre of mass; torque and angular momentum; conservation of angular momentum; moment of inertia and radius of gyration; standard bodies; parallel and perpendicular axes; rigid-body equilibrium and rotation; comparison with linear motion.",
+        "rotational-motion"
       ],
       [
         "gravitation",
         "Gravitation",
-        "Universal gravitation; variation of g with altitude and depth; Kepler's laws; gravitational potential and potential energy; escape and orbital velocity; satellites, time period and energy."
+        "Universal gravitation; variation of g with altitude and depth; Kepler's laws; gravitational potential and potential energy; escape and orbital velocity; satellites, time period and energy.",
+        "gravitation"
       ],
       [
         "properties-solids-liquids",
         "Properties of Solids and Liquids",
-        "Elasticity and moduli; fluid pressure and Pascal's law; viscosity, Stokes' law and terminal velocity; streamline/turbulent flow and Bernoulli; surface tension and capillarity; thermal expansion, calorimetry, latent heat and heat transfer."
+        "Elasticity and moduli; fluid pressure and Pascal's law; viscosity, Stokes' law and terminal velocity; streamline/turbulent flow and Bernoulli; surface tension and capillarity; thermal expansion, calorimetry, latent heat and heat transfer.",
+        "properties-solids-liquids"
       ],
       [
         "thermodynamics",
         "Thermodynamics",
-        "Thermal equilibrium and temperature; zeroth law; heat, work and internal energy; first law; isothermal and adiabatic processes; second law; reversible and irreversible processes."
+        "Thermal equilibrium and temperature; zeroth law; heat, work and internal energy; first law; isothermal and adiabatic processes; second law; reversible and irreversible processes.",
+        "thermodynamics"
       ],
       [
         "kinetic-theory-gases",
         "Kinetic Theory of Gases",
-        "Ideal-gas equation; work in compression; kinetic-theory assumptions and pressure; temperature interpretation; RMS speed; degrees of freedom; equipartition; specific heats; mean free path; Avogadro's number."
+        "Ideal-gas equation; work in compression; kinetic-theory assumptions and pressure; temperature interpretation; RMS speed; degrees of freedom; equipartition; specific heats; mean free path; Avogadro's number.",
+        "kinetic-theory-gases"
       ],
       [
         "oscillations-waves",
         "Oscillations and Waves",
-        "Periodic motion; SHM and its equation; phase; spring oscillations; SHM energy; simple pendulum; wave motion and speed; progressive waves; superposition; reflection; standing waves in strings and pipes; harmonics and beats."
+        "Periodic motion; SHM and its equation; phase; spring oscillations; SHM energy; simple pendulum; wave motion and speed; progressive waves; superposition; reflection; standing waves in strings and pipes; harmonics and beats.",
+        "oscillations-waves"
       ],
       [
         "electrostatics",
         "Electrostatics",
-        "Charge and Coulomb's law; superposition and continuous charge; electric fields and dipoles; flux and Gauss's law; potential and potential energy; conductors, insulators and dielectrics; capacitors, combinations and stored energy."
+        "Charge and Coulomb's law; superposition and continuous charge; electric fields and dipoles; flux and Gauss's law; potential and potential energy; conductors, insulators and dielectrics; capacitors, combinations and stored energy.",
+        "electrostatics"
       ],
       [
         "current-electricity",
         "Current Electricity",
-        "Current, drift velocity and mobility; Ohm's law; resistance and I-V characteristics; power; resistivity and conductivity; resistor combinations; temperature dependence; cells and internal resistance; Kirchhoff's laws; Wheatstone and metre bridges."
+        "Current, drift velocity and mobility; Ohm's law; resistance and I-V characteristics; power; resistivity and conductivity; resistor combinations; temperature dependence; cells and internal resistance; Kirchhoff's laws; Wheatstone and metre bridges.",
+        "current-electricity"
       ],
       [
         "magnetic-effects-magnetism",
         "Magnetic Effects of Current and Magnetism",
-        "Biot-Savart and Ampere laws; magnetic force on charges and conductors; parallel currents; torque on loops; moving-coil galvanometer; magnetic dipoles and bar magnets; magnetic materials and temperature effects."
+        "Biot-Savart and Ampere laws; magnetic force on charges and conductors; parallel currents; torque on loops; moving-coil galvanometer; magnetic dipoles and bar magnets; magnetic materials and temperature effects.",
+        "magnetic-effects-magnetism"
       ],
       [
         "electromagnetic-induction-ac",
         "Electromagnetic Induction and Alternating Currents",
-        "Faraday and Lenz laws; induced emf/current; eddy currents; self and mutual inductance; AC peak and RMS values; reactance and impedance; LCR resonance; power and wattless current; generators and transformers."
+        "Faraday and Lenz laws; induced emf/current; eddy currents; self and mutual inductance; AC peak and RMS values; reactance and impedance; LCR resonance; power and wattless current; generators and transformers.",
+        "electromagnetic-induction-ac"
       ],
       [
         "electromagnetic-waves",
         "Electromagnetic Waves",
-        "Displacement current; electromagnetic-wave characteristics and transverse nature; spectrum and applications."
+        "Displacement current; electromagnetic-wave characteristics and transverse nature; spectrum and applications.",
+        "electromagnetic-waves"
       ],
       [
         "optics",
         "Optics",
-        "Reflection and mirrors; refraction; thin lenses and lens maker formula; total internal reflection; magnification and lens combinations; prisms; microscopes and telescopes; Huygens principle; interference and Young's experiment; diffraction; polarization and Brewster's law."
+        "Reflection and mirrors; refraction; thin lenses and lens maker formula; total internal reflection; magnification and lens combinations; prisms; microscopes and telescopes; Huygens principle; interference and Young's experiment; diffraction; polarization and Brewster's law.",
+        "optics"
       ],
       [
         "dual-nature-matter-radiation",
         "Dual Nature of Matter and Radiation",
-        "Dual nature of radiation; photoelectric effect and observations; Einstein equation; particle nature of light; matter waves and de Broglie relation."
+        "Dual nature of radiation; photoelectric effect and observations; Einstein equation; particle nature of light; matter waves and de Broglie relation.",
+        "dual-nature-matter-radiation"
       ],
       [
         "atoms-nuclei",
         "Atoms and Nuclei",
-        "Alpha scattering; Rutherford and Bohr models; energy levels and hydrogen spectrum; nuclear composition and size; mass defect and mass-energy relation; binding energy; fission and fusion."
+        "Alpha scattering; Rutherford and Bohr models; energy levels and hydrogen spectrum; nuclear composition and size; mass defect and mass-energy relation; binding energy; fission and fusion.",
+        "atoms-nuclei"
       ],
       [
         "electronic-devices",
         "Electronic Devices",
-        "Semiconductors and diodes; forward/reverse characteristics; rectifiers; LED, photodiode, solar cell and Zener diode; voltage regulation; logic gates."
+        "Semiconductors and diodes; forward/reverse characteristics; rectifiers; LED, photodiode, solar cell and Zener diode; voltage regulation; logic gates.",
+        "electronic-devices"
       ],
       [
         "experimental-skills",
         "Experimental Skills",
-        "Measurement with vernier calipers and screw gauge; pendulum energy dissipation; moments; Young's modulus; surface tension; viscosity; resonance tube; calorimetry; metre bridge and Ohm's law; galvanometer; focal length; prism deviation; refractive index; diode and Zener characteristics; component identification."
+        "Measurement with vernier calipers and screw gauge; pendulum energy dissipation; moments; Young's modulus; surface tension; viscosity; resonance tube; calorimetry; metre bridge and Ohm's law; galvanometer; focal length; prism deviation; refractive index; diode and Zener characteristics; component identification.",
+        "experimental-skills"
       ]
     ],
     "chemistry": [
       [
         "basic-concepts-chemistry",
         "Some Basic Concepts in Chemistry",
-        "Matter; Dalton's atomic theory; atoms, molecules, elements and compounds; laws of chemical combination; atomic/molecular masses; mole concept and molar mass; percentage composition; empirical/molecular formulae; stoichiometry."
+        "Matter; Dalton's atomic theory; atoms, molecules, elements and compounds; laws of chemical combination; atomic/molecular masses; mole concept and molar mass; percentage composition; empirical/molecular formulae; stoichiometry.",
+        "basic-concepts-chemistry"
       ],
       [
         "atomic-structure",
         "Atomic Structure",
-        "Electromagnetic radiation and photoelectric effect; hydrogen spectrum and Bohr model; dual nature and de Broglie relation; uncertainty principle; quantum model and orbitals; quantum numbers; orbital shapes; spin; Aufbau, Pauli and Hund rules; electronic configurations."
+        "Electromagnetic radiation and photoelectric effect; hydrogen spectrum and Bohr model; dual nature and de Broglie relation; uncertainty principle; quantum model and orbitals; quantum numbers; orbital shapes; spin; Aufbau, Pauli and Hund rules; electronic configurations.",
+        "atomic-structure"
       ],
       [
         "chemical-bonding",
         "Chemical Bonding and Molecular Structure",
-        "Ionic and covalent bonds; lattice enthalpy; electronegativity and Fajans' rule; dipole moment; VSEPR; valence bond theory and hybridisation; resonance; molecular orbital theory; bond order, length and energy; metallic and hydrogen bonding."
+        "Ionic and covalent bonds; lattice enthalpy; electronegativity and Fajans' rule; dipole moment; VSEPR; valence bond theory and hybridisation; resonance; molecular orbital theory; bond order, length and energy; metallic and hydrogen bonding.",
+        "chemical-bonding"
       ],
       [
         "chemical-thermodynamics",
         "Chemical Thermodynamics",
-        "Systems and surroundings; extensive/intensive properties; state functions and entropy; processes; first law, work, heat and internal energy; enthalpy and heat capacities; Hess's law; enthalpy changes; second law, spontaneity, Gibbs energy and equilibrium constant."
+        "Systems and surroundings; extensive/intensive properties; state functions and entropy; processes; first law, work, heat and internal energy; enthalpy and heat capacities; Hess's law; enthalpy changes; second law, spontaneity, Gibbs energy and equilibrium constant.",
+        "chemical-thermodynamics"
       ],
       [
         "solutions",
         "Solutions",
-        "Concentration expressions: molality, molarity, mole fraction and percentages; vapour pressure and Raoult's law; ideal/non-ideal solutions; colligative properties; molecular-mass determination; abnormal molar mass and van't Hoff factor."
+        "Concentration expressions: molality, molarity, mole fraction and percentages; vapour pressure and Raoult's law; ideal/non-ideal solutions; colligative properties; molecular-mass determination; abnormal molar mass and van't Hoff factor.",
+        "solutions"
       ],
       [
         "equilibrium",
         "Equilibrium",
-        "Dynamic and physical equilibrium; Henry's law; chemical equilibrium, Kp and Kc; Gibbs energy; Le Chatelier's principle; ionic equilibrium; acids and bases; ionisation, pH, common-ion effect, salt hydrolysis, solubility product and buffers."
+        "Dynamic and physical equilibrium; Henry's law; chemical equilibrium, Kp and Kc; Gibbs energy; Le Chatelier's principle; ionic equilibrium; acids and bases; ionisation, pH, common-ion effect, salt hydrolysis, solubility product and buffers.",
+        "equilibrium"
       ],
       [
         "redox-electrochemistry",
         "Redox Reactions and Electrochemistry",
-        "Oxidation/reduction and oxidation numbers; balancing redox reactions; electrolytic and metallic conduction; molar conductivity and Kohlrausch's law; galvanic/electrolytic cells; electrode potentials; Nernst equation; cell emf and Gibbs energy; batteries and fuel cells."
+        "Oxidation/reduction and oxidation numbers; balancing redox reactions; electrolytic and metallic conduction; molar conductivity and Kohlrausch's law; galvanic/electrolytic cells; electrode potentials; Nernst equation; cell emf and Gibbs energy; batteries and fuel cells.",
+        "redox-electrochemistry"
       ],
       [
         "chemical-kinetics",
         "Chemical Kinetics",
-        "Reaction rates and factors; elementary/complex reactions; order and molecularity; rate laws and units; zero- and first-order integrated laws and half-lives; Arrhenius theory; activation energy; collision theory."
+        "Reaction rates and factors; elementary/complex reactions; order and molecularity; rate laws and units; zero- and first-order integrated laws and half-lives; Arrhenius theory; activation energy; collision theory.",
+        "chemical-kinetics"
       ],
       [
         "periodicity",
         "Classification of Elements and Periodicity in Properties",
-        "Modern periodic law and table; s, p, d and f blocks; periodic trends in atomic/ionic radii, ionisation enthalpy, electron-gain enthalpy, valence, oxidation states and reactivity."
+        "Modern periodic law and table; s, p, d and f blocks; periodic trends in atomic/ionic radii, ionisation enthalpy, electron-gain enthalpy, valence, oxidation states and reactivity.",
+        "periodicity"
       ],
       [
         "p-block-elements",
         "p-Block Elements",
-        "Groups 13 to 18; electronic configurations; general trends in physical and chemical properties across periods and down groups; unique behaviour of first elements."
+        "Groups 13 to 18; electronic configurations; general trends in physical and chemical properties across periods and down groups; unique behaviour of first elements.",
+        "p-block-elements"
       ],
       [
         "d-f-block-elements",
         "d- and f-Block Elements",
-        "Transition-element configuration and occurrence; trends in physical properties, ionisation enthalpy, oxidation states, radii, colour, catalysis, magnetism and complex formation; interstitial compounds and alloys; KMnO4 and K2Cr2O7; lanthanoids, contraction and actinoids."
+        "Transition-element configuration and occurrence; trends in physical properties, ionisation enthalpy, oxidation states, radii, colour, catalysis, magnetism and complex formation; interstitial compounds and alloys; KMnO4 and K2Cr2O7; lanthanoids, contraction and actinoids.",
+        "d-f-block-elements"
       ],
       [
         "coordination-compounds",
         "Coordination Compounds",
-        "Werner's theory; ligands, coordination number and denticity; chelation; IUPAC nomenclature; isomerism; valence-bond and basic crystal-field theories; colour, magnetism and applications."
+        "Werner's theory; ligands, coordination number and denticity; chelation; IUPAC nomenclature; isomerism; valence-bond and basic crystal-field theories; colour, magnetism and applications.",
+        "coordination-compounds"
       ],
       [
         "purification-characterisation-organic",
         "Purification and Characterisation of Organic Compounds",
-        "Crystallisation, sublimation, distillation, extraction and chromatography; qualitative detection of N, S, P and halogens; basic quantitative analysis; empirical/molecular formulae and numerical analysis."
+        "Crystallisation, sublimation, distillation, extraction and chromatography; qualitative detection of N, S, P and halogens; basic quantitative analysis; empirical/molecular formulae and numerical analysis.",
+        "purification-characterisation-organic"
       ],
       [
         "basic-principles-organic",
         "Some Basic Principles of Organic Chemistry",
-        "Carbon tetravalency and hybridisation; functional groups and homologous series; structural and stereoisomerism; nomenclature; bond fission; radicals, carbocations and carbanions; electrophiles and nucleophiles; inductive, electromeric, resonance and hyperconjugation effects; reaction types."
+        "Carbon tetravalency and hybridisation; functional groups and homologous series; structural and stereoisomerism; nomenclature; bond fission; radicals, carbocations and carbanions; electrophiles and nucleophiles; inductive, electromeric, resonance and hyperconjugation effects; reaction types.",
+        "basic-principles-organic"
       ],
       [
         "hydrocarbons",
         "Hydrocarbons",
-        "Classification, isomerism, nomenclature, preparation, properties and reactions of alkanes, alkenes, alkynes and aromatic hydrocarbons; conformations; addition and substitution mechanisms; ozonolysis; benzene aromaticity and Friedel-Crafts reactions."
+        "Classification, isomerism, nomenclature, preparation, properties and reactions of alkanes, alkenes, alkynes and aromatic hydrocarbons; conformations; addition and substitution mechanisms; ozonolysis; benzene aromaticity and Friedel-Crafts reactions.",
+        "hydrocarbons"
       ],
       [
         "organic-halogen-compounds",
         "Organic Compounds Containing Halogens",
-        "Preparation, properties and reactions; C-X bond; substitution mechanisms; uses and environmental effects of chloroform, iodoform, freons and DDT."
+        "Preparation, properties and reactions; C-X bond; substitution mechanisms; uses and environmental effects of chloroform, iodoform, freons and DDT.",
+        "organic-halogen-compounds"
       ],
       [
         "organic-oxygen-compounds",
         "Organic Compounds Containing Oxygen",
-        "Alcohols, phenols, ethers, aldehydes, ketones and carboxylic acids; preparation, properties, reactions and uses; dehydration; electrophilic substitution; nucleophilic addition; Grignard reagent; oxidation/reduction; aldol, Cannizzaro and haloform reactions; acidity."
+        "Alcohols, phenols, ethers, aldehydes, ketones and carboxylic acids; preparation, properties, reactions and uses; dehydration; electrophilic substitution; nucleophilic addition; Grignard reagent; oxidation/reduction; aldol, Cannizzaro and haloform reactions; acidity.",
+        "organic-oxygen-compounds"
       ],
       [
         "organic-nitrogen-compounds",
         "Organic Compounds Containing Nitrogen",
-        "Preparation, properties, reactions and uses of amines; nomenclature, classification, structure, basicity and identification; diazonium salts and synthetic applications."
+        "Preparation, properties, reactions and uses of amines; nomenclature, classification, structure, basicity and identification; diazonium salts and synthetic applications.",
+        "organic-nitrogen-compounds"
       ],
       [
         "biomolecules",
         "Biomolecules",
-        "Carbohydrates and constituent sugars; amino acids, peptide bonds and protein structures; denaturation and enzymes; vitamins; DNA and RNA; hormones."
+        "Carbohydrates and constituent sugars; amino acids, peptide bonds and protein structures; denaturation and enzymes; vitamins; DNA and RNA; hormones.",
+        "biomolecules"
       ],
       [
         "practical-chemistry",
         "Principles Related to Practical Chemistry",
-        "Detection of extra elements and functional groups; preparation chemistry of specified inorganic and organic compounds; titrimetric principles; qualitative salt analysis; enthalpy experiments; preparation of lyophilic and lyophobic sols; kinetic study of iodide and hydrogen peroxide."
+        "Detection of extra elements and functional groups; preparation chemistry of specified inorganic and organic compounds; titrimetric principles; qualitative salt analysis; enthalpy experiments; preparation of lyophilic and lyophobic sols; kinetic study of iodide and hydrogen peroxide.",
+        "practical-chemistry"
       ]
     ]
   }
