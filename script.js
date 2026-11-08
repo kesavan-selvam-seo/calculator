@@ -44,13 +44,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const items = [
       ['Home', '/'],
       ['Calculators', '/calculators/'],
+      ['Exam Tools', '/exam-tools/'],
       ['Education', '/blog/education/'],
       ['Blog', '/blog/'],
       ['About', '/about/'],
       ['Contact', '/contact/']
     ];
     let active = '/';
-    if (path.startsWith('/calculators/') || path.startsWith('/categories/')) active = '/calculators/';
+    if (path.startsWith('/exam-tools/')) active = '/exam-tools/';
+    else if (path.startsWith('/calculators/') || path.startsWith('/categories/')) active = '/calculators/';
     else if (path.startsWith('/blog/education/')) active = '/blog/education/';
     else if (path.startsWith('/blog/')) active = '/blog/';
     else if (path.startsWith('/about/')) active = '/about/';
