@@ -41,7 +41,7 @@ meta_description: Explore important days in December 2026 with dates and signifi
 <tr><td>December 21</td><td>Monday</td><td>World Basketball Day; International Anti-Cybercrime Day</td><td>International / UN</td></tr>
 <tr><td>December 22</td><td>Tuesday</td><td>National Mathematics Day</td><td>India</td></tr>
 <tr><td>December 23</td><td>Wednesday</td><td>National Farmers’ Day (Kisan Diwas)</td><td>India</td></tr>
-<tr><td>December 24</td><td>Thursday</td><td>National Consumer Day; International Day of Epidemic Preparedness</td><td>India / UN</td></tr>
+<tr><td>December 24</td><td>Thursday</td><td>National Consumer Day</td><td>India</td></tr>
 <tr><td>December 25</td><td>Friday</td><td>Christmas Day; Good Governance Day</td><td>International / India</td></tr>
 <tr><td>December 26</td><td>Saturday</td><td>Veer Baal Diwas</td><td>India</td></tr>
 <tr><td>December 27</td><td>Sunday</td><td>International Day of Epidemic Preparedness</td><td>UN</td></tr>
