@@ -62,9 +62,9 @@
 <section class="jm-section" id="calculator"><h2>Calculate your JEE Main marks</h2><p>Enter your response count for each subject. Each subject has 25 questions in JEE Main 2027 Paper 1. The calculator updates your raw score after you submit the counts.</p>
 <div class="jm-calculator">
 <div class="jm-cards">
-<div class="jm-subject" data-subject="maths"><h3>Mathematics</h3><div class="jm-field"><label for="maths-correct">Correct answers <span>+4 each</span></label><input id="maths-correct" type="number" min="0" max="25" step="1" value="0" inputmode="numeric"></div><div class="jm-field"><label for="maths-wrong">Incorrect answers <span>−1 each</span></label><input id="maths-wrong" type="number" min="0" max="25" step="1" value="0" inputmode="numeric"></div><div class="jm-field"><label for="maths-unanswered">Unanswered <span>0 marks</span></label><input id="maths-unanswered" type="number" min="0" max="25" step="1" value="25" inputmode="numeric"></div><div class="jm-subtotal"><span>Questions entered</span><span data-total>25 / 25</span></div></div>
-<div class="jm-subject" data-subject="physics"><h3>Physics</h3><div class="jm-field"><label for="physics-correct">Correct answers <span>+4 each</span></label><input id="physics-correct" type="number" min="0" max="25" step="1" value="0" inputmode="numeric"></div><div class="jm-field"><label for="physics-wrong">Incorrect answers <span>−1 each</span></label><input id="physics-wrong" type="number" min="0" max="25" step="1" value="0" inputmode="numeric"></div><div class="jm-field"><label for="physics-unanswered">Unanswered <span>0 marks</span></label><input id="physics-unanswered" type="number" min="0" max="25" step="1" value="25" inputmode="numeric"></div><div class="jm-subtotal"><span>Questions entered</span><span data-total>25 / 25</span></div></div>
-<div class="jm-subject" data-subject="chemistry"><h3>Chemistry</h3><div class="jm-field"><label for="chemistry-correct">Correct answers <span>+4 each</span></label><input id="chemistry-correct" type="number" min="0" max="25" step="1" value="0" inputmode="numeric"></div><div class="jm-field"><label for="chemistry-wrong">Incorrect answers <span>−1 each</span></label><input id="chemistry-wrong" type="number" min="0" max="25" step="1" value="0" inputmode="numeric"></div><div class="jm-field"><label for="chemistry-unanswered">Unanswered <span>0 marks</span></label><input id="chemistry-unanswered" type="number" min="0" max="25" step="1" value="25" inputmode="numeric"></div><div class="jm-subtotal"><span>Questions entered</span><span data-total>25 / 25</span></div></div>
+<div class="jm-subject" data-subject="maths"><h3>Mathematics</h3><div class="jm-field"><label for="maths-correct">Correct answers <span>+4 each</span></label><input id="maths-correct" type="number" min="0" max="25" step="1" value="0" inputmode="numeric"></div><div class="jm-field"><label for="maths-wrong">Incorrect answers <span>−1 each</span></label><input id="maths-wrong" type="number" min="0" max="25" step="1" value="0" inputmode="numeric"></div><div class="jm-field"><label>Unanswered <span>0 marks</span></label><div class="jm-subtotal" style="margin-top:0"><span>Remaining questions</span><span id="maths-unanswered">25</span></div></div><div class="jm-subtotal"><span>Questions attempted</span><span data-total>0 / 25</span></div></div>
+<div class="jm-subject" data-subject="physics"><h3>Physics</h3><div class="jm-field"><label for="physics-correct">Correct answers <span>+4 each</span></label><input id="physics-correct" type="number" min="0" max="25" step="1" value="0" inputmode="numeric"></div><div class="jm-field"><label for="physics-wrong">Incorrect answers <span>−1 each</span></label><input id="physics-wrong" type="number" min="0" max="25" step="1" value="0" inputmode="numeric"></div><div class="jm-field"><label>Unanswered <span>0 marks</span></label><div class="jm-subtotal" style="margin-top:0"><span>Remaining questions</span><span id="physics-unanswered">25</span></div></div><div class="jm-subtotal"><span>Questions attempted</span><span data-total>0 / 25</span></div></div>
+<div class="jm-subject" data-subject="chemistry"><h3>Chemistry</h3><div class="jm-field"><label for="chemistry-correct">Correct answers <span>+4 each</span></label><input id="chemistry-correct" type="number" min="0" max="25" step="1" value="0" inputmode="numeric"></div><div class="jm-field"><label for="chemistry-wrong">Incorrect answers <span>−1 each</span></label><input id="chemistry-wrong" type="number" min="0" max="25" step="1" value="0" inputmode="numeric"></div><div class="jm-field"><label>Unanswered <span>0 marks</span></label><div class="jm-subtotal" style="margin-top:0"><span>Remaining questions</span><span id="chemistry-unanswered">25</span></div></div><div class="jm-subtotal"><span>Questions attempted</span><span data-total>0 / 25</span></div></div>
 </div>
 <div class="jm-error" id="jm-error" role="alert"></div>
 <div class="jm-actions"><button type="button" class="jm-btn jm-primary" id="jm-calculate">Calculate my score</button><button type="button" class="jm-btn jm-secondary" id="jm-reset">Reset</button></div>
@@ -94,36 +94,65 @@
 <footer style="border-top:1px solid var(--jm-line);padding:24px 16px;text-align:center;color:var(--jm-muted);font-size:.88rem"><a href="/" style="color:var(--jm-purple);font-weight:800">CalcuPortal</a> · Free tools for students</footer>
 <script>
 (function(){
-var subjects=['maths','physics','chemistry'],error=document.getElementById('jm-error'),result=document.getElementById('jm-result');
+var subjects=['maths','physics','chemistry'];
+var error=document.getElementById('jm-error');
+var result=document.getElementById('jm-result');
 function getValues(subject){
- var vals={};['correct','wrong','unanswered'].forEach(function(k){var el=document.getElementById(subject+'-'+k);vals[k]=Number(el.value);});
- return vals;
+ var correct=Number(document.getElementById(subject+'-correct').value);
+ var wrong=Number(document.getElementById(subject+'-wrong').value);
+ return {correct:correct,wrong:wrong,unanswered:25-correct-wrong};
 }
 function updateEntered(){
- subjects.forEach(function(s){var v=getValues(s),sum=v.correct+v.wrong+v.unanswered,el=document.querySelector('[data-subject="'+s+'"] [data-total]');el.textContent=sum+' / 25';el.style.color=sum===25?'var(--jm-green)':'var(--jm-red)';});
+ subjects.forEach(function(subject){
+  var v=getValues(subject),attempted=v.correct+v.wrong;
+  var remaining=document.getElementById(subject+'-unanswered');
+  var total=document.querySelector('[data-subject="'+subject+'"] [data-total]');
+  remaining.textContent=v.unanswered>=0?v.unanswered:'Invalid';
+  remaining.style.color=v.unanswered>=0?'var(--jm-green)':'var(--jm-red)';
+  total.textContent=attempted+' / 25';
+  total.style.color=v.unanswered>=0?'var(--jm-green)':'var(--jm-red)';
+ });
 }
 function calculate(){
  var all={},valid=true;
- subjects.forEach(function(s){
-  var v=getValues(s),sum=v.correct+v.wrong+v.unanswered;
-  ['correct','wrong','unanswered'].forEach(function(k){var input=document.getElementById(s+'-'+k);if(!Number.isInteger(v[k])||v[k]<0||v[k]>25){valid=false;input.setAttribute('aria-invalid','true');}else input.removeAttribute('aria-invalid');});
-  if(sum!==25)valid=false;
-  v.score=4*v.correct-v.wrong;all[s]=v;
+ subjects.forEach(function(subject){
+  var v=getValues(subject);
+  ['correct','wrong'].forEach(function(kind){
+   var input=document.getElementById(subject+'-'+kind),value=Number(input.value);
+   if(input.value.trim()===''||!Number.isInteger(value)||value<0||value>25){
+    valid=false;input.setAttribute('aria-invalid','true');
+   }else input.removeAttribute('aria-invalid');
+  });
+  if(!Number.isInteger(v.correct)||!Number.isInteger(v.wrong)||v.correct+v.wrong>25)valid=false;
+  v.score=4*v.correct-v.wrong;all[subject]=v;
  });
  updateEntered();
- if(!valid){error.textContent='For each subject, enter whole numbers from 0 to 25. Correct + incorrect + unanswered must equal exactly 25.';result.setAttribute('aria-hidden','true');return;}
+ if(!valid){
+  error.textContent='Enter whole numbers from 0 to 25. Correct and incorrect answers together cannot exceed 25 questions in any subject.';
+  result.setAttribute('aria-hidden','true');return;
+ }
  error.textContent='';
  var total=0,correct=0,wrong=0,unanswered=0;
- subjects.forEach(function(s){total+=all[s].score;correct+=all[s].correct;wrong+=all[s].wrong;unanswered+=all[s].unanswered;document.getElementById('jm-'+s).textContent=all[s].score;});
+ subjects.forEach(function(subject){
+  total+=all[subject].score;correct+=all[subject].correct;wrong+=all[subject].wrong;unanswered+=all[subject].unanswered;
+  document.getElementById('jm-'+subject).textContent=all[subject].score;
+ });
  document.getElementById('jm-score').textContent=total;
  document.getElementById('jm-percent').textContent=(total/300*100).toFixed(2)+'% of maximum marks';
- document.getElementById('jm-correct').textContent=correct;document.getElementById('jm-wrong').textContent=wrong;document.getElementById('jm-unanswered').textContent=unanswered;
+ document.getElementById('jm-correct').textContent=correct;
+ document.getElementById('jm-wrong').textContent=wrong;
+ document.getElementById('jm-unanswered').textContent=unanswered;
  document.getElementById('jm-formula').textContent='Calculation: ( '+correct+' × 4 ) − '+wrong+' = '+total+' marks.';
  result.setAttribute('aria-hidden','false');
 }
-document.querySelectorAll('.jm-field input').forEach(function(input){input.addEventListener('input',function(){updateEntered();});});
+document.querySelectorAll('.jm-field input').forEach(function(input){input.addEventListener('input',updateEntered);});
 document.getElementById('jm-calculate').addEventListener('click',calculate);
-document.getElementById('jm-reset').addEventListener('click',function(){subjects.forEach(function(s){document.getElementById(s+'-correct').value=0;document.getElementById(s+'-wrong').value=0;document.getElementById(s+'-unanswered').value=25;});error.textContent='';result.setAttribute('aria-hidden','true');document.querySelectorAll('.jm-field input').forEach(function(el){el.removeAttribute('aria-invalid');});updateEntered();});
+document.getElementById('jm-reset').addEventListener('click',function(){
+ subjects.forEach(function(subject){document.getElementById(subject+'-correct').value=0;document.getElementById(subject+'-wrong').value=0;});
+ error.textContent='';result.setAttribute('aria-hidden','true');
+ document.querySelectorAll('.jm-field input').forEach(function(input){input.removeAttribute('aria-invalid');});
+ updateEntered();
+});
 updateEntered();
 })();
 </script>
