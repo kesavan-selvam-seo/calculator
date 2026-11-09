@@ -17,7 +17,7 @@
 <script>
 fetch('/exam-tools/jee-main-quiz/syllabus-mapping-2027.json').then(r=>{if(!r.ok)throw Error('Syllabus unavailable');return r.json()}).then(data=>{
  const root=document.getElementById('units');root.innerHTML='';
- const available=new Set(['physics:units-and-measurements','physics:kinematics']);
+ const available=new Set(['physics:units-and-measurements','physics:kinematics','mathematics:sets-relations-functions']);
  const labels={physics:'Physics',chemistry:'Chemistry',mathematics:'Mathematics'};
  Object.entries(data.subjects).forEach(([subject,units])=>{
   const section=document.createElement('section');section.className='subject';section.id=subject;
